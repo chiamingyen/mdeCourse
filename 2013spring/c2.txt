@@ -1,0 +1,623 @@
+.. @+leo-ver=5-thin
+.. @+node:amd_yen.20130308210411.2387: * @file c2.txt
+.. @@language rest
+.. @@tabwidth -4
+
+.. @+at @rst-options
+..  call_docutils=False
+..  code_mode=False
+..  generate_rst=True
+..  http_server_support = False
+..  show_organizer_nodes=True
+..  show_headlines=True
+..  show_leo_directives=True
+..  stylesheet_path=..\doc
+..  write_intermediate_file = True
+..  verbose=True
+.. @@c
+
+.. @+all
+.. @+node:amd_yen.20130308210411.2388: ** @rst document\c2.html
+########################
+程式語言(二)
+########################
+
+.. contents::
+    :depth: 2
+.. @+node:amd_yen.20130308210411.2390: *3* 第一週
+讓學員自行建構可攜 portableKMOL 的目的在練習網際程式框架的基本組成 (程式開發環境、內容管理系統、全球資訊網伺服器、以及各類相關工具), 學員熟悉此流程後, 可以自行修改框架並且配合需要進行各模組的改版.
+
+1. 利用程式進行文書處理
+
+    需要安裝 docutils 模組
+
+    也可以利用 Sphinx 模組將 rst 檔案轉為 html 與 tex, 然後再以 MikeTeX 將 tex 轉為 pdf 檔案
+
+2. 利用程式進行分析運算與設計檔案轉換
+
+以安裝 Python33 所使用的各模組, 各舉出應用範例, 並以機械設計相關應用為考量
+
+.. 為何選擇 Python:: http://www.stat.washington.edu/~hoytak/blog/whypython.html
+
+    Python 3.3 版與相關模組安裝:
+    
+    Python 3.3 本體
+    
+    http://www.python.org/download/
+    
+    安裝後 C:\Python33 約佔 33 MB
+    
+    distribute (Python 的 module  installer, 可利用 easy_install 安裝所需模組)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute
+    
+    安裝後 C:\Python33 約佔 37 MB
+    
+    pip (Python 的 module installer, 安裝後可利用 "pip install 模組名稱" 完成模組安裝
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
+    
+    安裝後 C:\Python33 約佔 38 MB
+    
+    win32com (Python 與 Windows COM 物件的連結模組, 可以利用 win32com 來連結 SolidWorks, Inventor, Word, Excel 等 Windows 應用程式物件)
+    
+    http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/
+    
+    安裝後 C:\Python33 約佔 64 MB
+    
+    PIL (Python 的 Image library, 可以處理 2D 影像檔案)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#pil
+    
+    安裝後 C:\Python33 約佔 67 MB
+    
+    matplotlib (Python 類似 matlab 的 plot library)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+    
+    安裝後 C:\Python33 約佔 91 MB
+    
+    numpy (Python 的 numerical library, 用於數值分析運算)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
+    
+    安裝後 C:\Python33 約佔 138 MB
+    
+    sympy (Python 的 Symbolic manipulation 模組, 用於符號式運算 (相對於數值分析))
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#sympy
+    
+    安裝後 C:\Python33 約佔 175 MB
+    
+    scipy (Python 的 Scientific library)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
+    
+    安裝後 C:\Python33 約佔 292 MB
+    
+    PyQt (Python 連結 Qt (nokia 的開源 GUI 程式庫, 更自由的對應類似版本為 Pyside) 的程式庫, 可用來開發圖形介面單機程式, 例如: Leo editor 就是採用 PyQt 開發)
+    
+    http://www.riverbankcomputing.com/software/pyqt/download
+    
+    安裝後 C:\Python33 約佔 374 MB
+    
+    docutils (Python 的 document utility, 可將 rst 格式檔案轉為 html)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#docutils
+    
+    安裝後 C:\Python33 約佔 383 MB
+    
+    Leo editor (以 Python 編寫的 outliner 與 IDE)
+    
+    http://www.greygreen.org/leo/
+    
+    安裝後 C:\Python33 約佔 401 MB
+    
+    以C:\Python33\Scripts\pip install sphinx
+    
+    安裝後 C:\Python33 約佔 413 MB
+
+單機模式
+
+網際模式
+
+結合 IPython 與 Leo Editor 的基本用法:
+
+http://webpages.charter.net/edreamleo/IPythonBridge.html
+
+3. 利用程式進行協同設計
+
+網際機械設計流程 - 以 Pyforum + brython 為範例, 可以開發 html5 網際程式
+
+網際內容管理 - django based CMS
+
+網際專案管理 - OpenPLM - http://wiki.openplm.org/trac/wiki/Credits
+
+OpenERP/PLM - http://www.openerpplm.eu/
+
+利用程式進行資料處理範例:
+
+產生虛擬學員名單程式:
+
+.. 特別注意: c2 目錄位於上一層, 可以直接利用 literalinclude 將程式碼導入, 但是行號卻沒能出現?
+
+.. literalinclude:: ../c2/generate_stud.py
+   :language: python
+   :linenos:
+   
+上課學員分組程式:
+
+.. literalinclude:: ../c2/grouping.py
+   :language: python
+   :linenos:
+
+
+
+.. @+node:amd_yen.20130310161901.1488: *4* Leo editor 與外部檔案
+External files: Any outline node (and its descendants) can be "connected" to any file on your file system. Several kinds of connections exist. The three most common kinds are:
+
+1. @edit: Leo reads the entire external file into the @edit node's body text.
+
+採用 @edit 指令, Leo 會將外部檔案的內容讀進該節點的內文區.
+
+2. @auto: Leo parses the external file and creates an outline that shows the structure of the external file, just as in typical class browsers.
+
+採用 @auto 則會解讀外部檔案, 並且根據該檔案的架構組成大綱模式.
+
+3. @file: Leo makes a two way connection between the @file node (and its descendants) and the external file. You can update the external file by writing the Leo outline connected to it, or you can update the outline by changing the external file. Moreover, you can easily control how Leo writes nodes to the file: you can rearrange how Leo writes nodes. To do all this Leo uses comments in the external file called sentinels that represent the outline structure in the external file itself.
+
+假如採用 @file, 則使用者可以直接在節點的內文區編輯內容, 或直接編輯外部檔案, Leo 會以雙向的方式處理檔案的內容變更.
+
+All of these connections allow you to share external files with others in a collaborative environment. With @file, you can also share outline structure with others. Thus, a single Leo outline can contain an entire project with dozens or even hundreds of external files. Using Leo, you never have to open these files by hand, Leo does so automatically when it opens the Leo outline. Leo is a unique new kind of IDE.
+
+而這個模式可以再與網際的上傳檔案結合, 假設對應到某一節點的 @file 檔案, 使用者可以由瀏覽器上傳檔案, 一旦開啟 Leo, 所有檔案內容就會整合進 Leo 的編輯區.
+.. @+node:amd_yen.20130308210411.2391: *3* 第二週
+使用 docutils 模組:
+
+docutils 範例1
+
+下列範例利用網路上的一份 rst 格式檔案, 利用 Python 的 urllib.request 模組開啟檔案後, 將原本為數位格式的資料編碼為文字格式資料後, 再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式, 最後再利用可攜的 Chrome 開啟此一 html 檔案.
+
+.. literalinclude:: ../c2/docutils_ex1.py
+   :language: python
+   :linenos:
+   
+docutils 範例2
+
+下列範例與範例 1 類似, 唯一的差別為文件中需要一個 image.png 圖檔, 利用 urllib.request.urlopen(影像檔案url ).read() 讀取影像網址中的數位檔案後, 直接存檔. 隨後再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式的同時, 導入 image.png 檔案.
+
+.. literalinclude:: ../c2/docutils_ex2.py
+   :language: python
+   :linenos:
+
+練習:
+
+1. 請各組員分別在各自的 www 主機中建立 rst 檔案與影像檔, 再由其他組員以 urllib.request_ 與 publish_string_ 等函式功能, 將其他組員的 rst 檔案合併, 並轉換為 html 檔案格式.
+
+.. _urllib.request: http://docs.python.org/3.0/library/urllib.request.html
+
+.. _publish_string: http://docutils.sourceforge.net/docs/api/publisher.html
+.. @+node:amd_yen.20130308214521.2437: *3* 第三週
+Sphinx 相關
+
+
+.. @+node:amd_yen.20130308214521.2438: *4* Sphinx 教學
+利用 Leo Editor 與 Sphinx 開發手冊的範例:
+
+1. 與 nginx 有關的線上參考書
+
+    http://tengine.taobao.org/book/
+
+    參考書原始碼: http://code.taobao.org/p/nginx_book/src/trunk/
+
+2. 用 Sphinx 寫書
+
+    http://hyry.dip.jp/tech/book/page/sphinx
+    
+    編輯環境下載: http://hyry.dip.jp/files/books.zip
+    
+    寫書工具介紹: http://hyry.dip.jp:8000/files/scipybook-tools.pdf
+    
+其他利用 Sphinx 進行電子書開發的範例:
+
+http://itindex.net/detail/13288-restructuredtext-sphinx
+
+Sphinx 簡介
+
+source directory
+
+conf.py
+
+sphinx-quickstart script to setup the initial source directory and create default conf.py
+
+sphinx-build
+.. @+node:amd_yen.20130308214521.2439: *4* Leo 的文書處理
+先以空標題進行架構區分
+然後進入章節標題, 也是用來區分架構, 沒有內文資料
+
+接著再利用 @file 將章節標題以下的內容存成 .txt, 位置在文書處理目錄的上位目錄, 此一內容應該是類似內容備份用
+
+實際的 rest 格式內容則是利用 @rst 產生, 由於標題檔案名稱會被 rst 模組自動加上 .txt
+
+而且此基本的 suffix 必須填入 conf.py 中, 也就是 source_suffix 變數
+
+# The suffix of source filenames.
+source_suffix = '.html.txt'
+
+其中也必須在 conf.py 中宣告最重要的合併處理檔案, 也就是 master_doc 變數, master_doc 會自動被 Sphinx 冠上 suffix, 因此宣告時無須加上 prefix
+
+# The master toctree document.
+master_doc = 'leo_toc' # don't use any prefix.
+
+位於 leo_toc.html.txt 中最重要的就是 toctree 指令, 其下為合併處理的章節檔案名稱.
+
+例如:
+
+.. 特別注意: 要找出直接顯示特別指令的方法
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+以下則列出要加入 toc 處理的各檔案名稱.
+.. @+node:amd_yen.20130308214521.2440: *4* SciTE 設定
+為了讓 SciTE 可以在開啟檔案內容變更時, 自動在編輯區內反應最新變更後的內容, 必須修改
+
+SciTEGlobal.properties 中的設定值:
+
+.. code-block:: none
+
+   load.on.activate=1
+   save.on.deactivate=1
+
+詳細說明如下:
+
+The load.on.activate property causes SciTE to check whether the current file has been updated by another process whenever it is activated. This is useful when another editor such as a WYSIWYG HTML editor, is being used in conjunction with SciTE.
+
+The save.on.deactivate property causes SciTE to save the file whenever the SciTE application loses focus. This is useful when developing web pages and you want to often check the appearance of the page in a browser.
+.. @+node:amd_yen.20130308214521.2441: *5* @url SciTE 設定說明
+http://www.scintilla.org/SciTEDoc.html
+
+SciTE 線上說明文件
+.. @+node:amd_yen.20130309155804.1712: *3* 第四週
+Python 3.3 本體的基本運算功能範例
+
+pip 的模組安裝指令
+
+Python 的 Windows COM 應用
+    Python 與 SolidWorks
+    Python 與 Word
+    Python 與 Excel
+    Python 與 Inventor
+
+Python 的 PIL 應用範例
+
+Python 的 matplotlib 應用範例
+
+Python 的 numpy 與 scipy 應用範例
+
+Python 的 sympy 應用範例
+
+Python 的 PyQT 應用範例
+
+Python 的 CherryPy 應用程式開發
+.. @+node:amd_yen.20130310215908.1491: *4* tkinter
+.. code-block:: python
+
+    #coding: utf-8
+    from tkinter import *
+    root = Tk(className="視窗標題")
+    w = Label(root, text = "第一個視窗程式")
+    w.pack()
+    root.mainloop()
+    
+單位換算視窗程式:
+
+.. code-block:: python
+
+    from tkinter import *
+    from tkinter import ttk
+    
+    # source: http://www.tkdocs.com/tutorial/firstexample.html
+    def calculate(*args):
+        try:
+            value = float(feet.get())
+            meters.set((0.3048 * value * 10000.0 + 0.5)/10000.0)
+        except ValueError:
+            pass
+        
+    root = Tk()
+    root.title("Feet to Meters")
+    
+    mainframe = ttk.Frame(root, padding="3 3 12 12")
+    mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+    mainframe.columnconfigure(0, weight=1)
+    mainframe.rowconfigure(0, weight=1)
+    
+    feet = StringVar()
+    meters = StringVar()
+    
+    feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)
+    feet_entry.grid(column=2, row=1, sticky=(W, E))
+    
+    ttk.Label(mainframe, textvariable=meters).grid(column=2, row=2, sticky=(W, E))
+    ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=W)
+    
+    ttk.Label(mainframe, text="feet").grid(column=3, row=1, sticky=W)
+    ttk.Label(mainframe, text="is equivalent to").grid(column=1, row=2, sticky=E)
+    ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
+    
+    for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
+    
+    feet_entry.focus()
+    root.bind('<Return>', calculate)
+    
+    root.mainloop()
+    
+一般計算機:
+
+.. code-block:: python
+
+    #coding: utf8
+    '''
+    簡單的 tkinter 計算機
+    '''
+    # 來源: http://bsspirit.appspot.com/20101222/python3-Tkinter-Calculator.html
+    
+    from tkinter import *
+    from tkinter.font import Font
+    
+    def 按鍵(框架, 文字, 執行函式=None):
+        字型 = Font(family=('Verdana'), size=14)
+        return Button(框架, text=文字, font=字型, width=3, command=執行函式)
+    
+    def 框架(框架, 對齊=LEFT, 背景顏色="black"):
+        框架 = Frame(框架, background=背景顏色, padx=5, pady=5)
+        框架.pack(side=對齊, expand=YES, fill=BOTH)
+        return 框架
+    
+    class 應用程式:
+        def __init__(self, 視窗):
+            字型 = Font(family=('Verdana'), size=14)
+            主視窗 = 框架(視窗)
+    
+            左邊框架 = 框架(主視窗)
+            右邊框架 = 框架(主視窗)
+            計算區 = 框架(左邊框架)
+            
+            self.輸入 = Entry(計算區, font=字型, width=15, background="white")
+            self.輸入.pack(side=TOP)
+    
+            self.按鍵框架 = 框架(計算區)
+    
+            x, y = 0, 0
+            for 按鍵配置 in ("()%C", "+-*/", "1234", "5678", "90.="):
+                for 字元 in 按鍵配置:
+                    if 字元 == "=":
+                        類別按鍵 = 按鍵(self.按鍵框架, 字元, self.計算動作)
+                    elif 字元 == "C":
+                        類別按鍵 = 按鍵(self.按鍵框架, 字元, self.清除畫面)
+                    else:
+                        類別按鍵 = 按鍵(self.按鍵框架, 字元, lambda 內容=字元: self.輸入.insert(INSERT, 內容))
+                        
+                    類別按鍵.grid(row=x, column=y)
+                    y += 1
+    
+                x += 1
+                y = 0
+    
+            self.紀錄 = Text(右邊框架, font=Font(family=('Verdana'), size=10), width=25, height=14, background="yellow")
+            self.紀錄.pack(side=RIGHT)
+    
+        def 清除畫面(self):
+            self.輸入.delete(0, END)
+    
+        def 計算動作(self):
+            暫存 = self.輸入.get()
+            try:
+                結果 = 暫存 + "=" + str(eval(暫存))
+                self.紀錄.insert(1.0, 結果 + "\n");
+                print(結果)
+            except Exception:
+                self.紀錄.insert(1.0, "抱歉! 發生錯誤\n");
+    
+    
+    if __name__ == '__main__':
+        視窗= Tk()
+        視窗.title("計算機")
+        #視窗.geometry()
+        我的應用程式 = 應用程式(視窗)
+        視窗.mainloop()
+        
+請以組為單位, 將上述一般計算機改為工程用計算機程式.
+
+參考資料:
+
+http://infohost.nmt.edu/tcc/help/pubs/tkinter.pdf
+
+http://www.tkdocs.com/tutorial/
+
+https://github.com/doctoboggan/PYQT-Calculator
+
+https://github.com/smjrifle/Python-Calculator
+.. @+node:amd_yen.20130310161307.1486: *4* PyQt 應用
+.. code-block:: python
+
+    from PyQt4 import QtGui
+    w = QtGui.QWidget()
+    w.resize(250, 150)
+    w.move(300, 300)
+    w.setWindowTitle('Simple test')
+    w.show()
+    c.brian_test_w = w
+.. @+node:amd_yen.20130309155804.1704: *3* rst 測試
+Sphinx 使用記錄
+******************************************
+
+代碼引用
+==========================================
+
+::
+
+    .. literalinclude:: ../c2/grouping.py
+       :linenos:
+
+其中 ``linenos`` 為代碼行號顯示。
+
+效果：
+
+.. literalinclude:: ../c2/grouping.py
+   :linenos:
+
+代碼片斷
+==========================================
+
+::
+
+  .. code-block:: python
+
+      print ('hello, world')
+
+
+效果：
+
+.. code-block:: python
+
+   print ('hello, world')
+
+
+.. code-block:: python
+
+   print ('hello, world')
+   print ('hello, world')
+   print ('hello, world')
+
+鏈結
+======================
+
+**直接引用**
+
+::
+
+    http://www.google.com
+
+效果：
+
+http://www.google.com
+
+
+**鏈結**
+
+::
+
+    `google <http://www.google.com>`_
+
+效果：
+
+`google <http://www.google.com>`_
+
+**註腳**
+
+::
+
+    [#]_
+
+    結尾處：
+
+    .. [#]
+
+如：
+
+Google [#]_
+
+**圖片**
+
+::
+
+    .. image:: http://blog.kmol.info/wp-content/uploads/2011/02/88x31.png
+    可以為網路圖片(經過測試, 只有 html 可以使用網路圖片)，也可以是本地圖片
+
+效果：
+
+.. image::
+    http://blog.kmol.info/wp-content/uploads/2011/02/88x31.png
+    
+.. image::
+    Winter.jpg
+    :height: 100px
+    :width: 200 px
+    :scale: 50 %
+    :alt: 冬天圖像
+    :align: center
+
+導入 graphviz 圖檔:
+
+   Directive to embed graphviz code.  The input code for ``dot`` is given as the
+   content.  For example::
+
+效果(目前測試結果 png 轉 pdf 時, 在英文與中文內容都會掉字, 無法完整呈現) :
+
+digraph 轉成 png 時, 內容沒有錯誤, 但是轉成 pdf 時內容就會掉字.
+
+.. graphviz::
+
+    digraph GraphvizDemo{
+        node [fontname="v:/extensions/dot/bin/fireflysung" shape="rect"];
+        edge [fontname="v:/extensions/dot/bin/fireflysung" fontsize=8];
+
+        node1[label="從這裡"];
+        node2[label="到那裡"];
+
+        node1->node2[label="這是流程"];
+    }
+    
+方程式的測試:
+
+.. math::
+   
+   (a + b)^2 = a^2 + 2ab + b^2
+   
+   (a - b)^2 = a^2 - 2ab + b^2
+   
+    X_k =  \sum_{n=0}^{N-1} x_n e^{-{i 2\pi k \frac{n}{N}}} \qquad k = 0,\dots,N-1.
+
+.. math::
+   :nowrap:
+
+   \begin{eqnarray}
+      y    & = & ax^2 + bx + c \\
+      f(x) & = & x^2 + 2xy + y^2
+   \end{eqnarray}
+
+數學方程式的引用:
+
+.. 特別注意:: 方程式的標籤使用, 可以直接放在 .. math:: 後面, 或者直接放在內縮的下一行, 中間不能有空白.
+
+.. math:: 
+   e^{i\pi} + 1 = 0
+   :label: euler
+
+Euler's identity, equation :eq:`euler`, was elected one of the most
+beautiful mathematical formulas.
+
+.. math:: \Gamma(z) = \int_0^\infty x^{z-1}e^{-x}\,dx
+
+工程相關繪圖(目前無法正確導入 matplotlib/sphinxext/plot_directive.py, 可能因為 Python3 相容問題):
+
+.. plot::
+   :include-source:
+   
+    import matplotlib.pyplot as plt
+    import numpy as np
+    x = np.random.randn(1000)
+    plt.hist( x, 20)
+    plt.grid()
+    plt.title(r'Normal: $\mu=%.2f, \sigma=%.2f$'%(x.mean(), x.std()))
+    plt.show()
+   
+註腳
+===============
+
+.. [#] : http://www.google.com
+.. @-all
+.. @-leo

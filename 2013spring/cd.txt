@@ -1,0 +1,248 @@
+.. @+leo-ver=5-thin
+.. @+node:amd_yen.20130308210411.2392: * @file cd.txt
+.. @@language rest
+.. @@tabwidth -4
+
+.. @+at @rst-options
+..  call_docutils=False
+..  code_mode=False
+..  generate_rst=True
+..  http_server_support = False
+..  show_organizer_nodes=True
+..  show_headlines=True
+..  show_leo_directives=True
+..  stylesheet_path=..\doc
+..  write_intermediate_file = True
+..  verbose=True
+.. @@c
+
+.. @+all
+.. @+node:amd_yen.20130308210411.2393: ** @rst document\cd.html
+################################################
+協同產品設計實習
+################################################
+
+.. contents::
+    :depth: 2
+.. @+node:amd_yen.20130308210411.2394: *3* @rst-no-head Links
+.. @+node:amd_yen.20130308214521.2420: *3* 第一週
+以下資料從課程電子書所對應的 springlink 網站取出, 此內容為公開資料.
+
+http://link.springer.com/chapter/10.1007/978-0-387-47321-5_1
+
+Collaborative Design Approach in Product Design and Development
+
+Abstract
+
+This chapter presents an integrated framework for distributed and collaborative environment, which could assist organizations to achieve integrated design goals. The proposed system emphasizes the integration of the software tools and the resources involved in the design process to collaborate the geographically dispersed design teams and vendors. The advancement in information technology (IT) is the driving force for the development of this environment. Also, the early participation of vendors in the design process is considered critical in order to improve the product quality and reduce the development cycle time.
+
+Advances in IT have enabled designers to more effectively communicate, collaborate, obtain, and exchange a wide range of design resources during development [1]. Many manufacturing companies are publishing their product information on the Internet. The network-oriented design environment is a new design paradigm for product development. An integrative framework that enables designers to rapidly construct performance models of complex problems can provide both design insight and a tool to evaluate, optimize, and select better alternatives. Furthermore, a design problem constructed from modeling components made available over Internet might facilitate the collaborative development of analytical system models in addition to the exchange of design information. A well-defined integrated model will predict the required product properties and evaluate alternative solutions in order to meet the defined design objectives and performances.
+
+Key to the analysis of any problem is the identification of what functions are performed and the relationships between them [18]. A collaborative engineering development process includes a set of activities and functions arranged in a specific order with clearly defined inputs and outputs. Each activity in the process will take a set of inputs and transforms it into an output of some value. The process is considered efficient, when the output of the process satisfies the general customer and product requirements and meets management objectives and cost. New technologies and tools along with advancement in IT are helping these organizations in several ways [2, 17]. However, there is no established generic implementation model for wide range of industries.
+
+Software vendors may provide “custom” software packages for individual firms. Different industries have different product development strategies, which demand a generic framework that will help them collaborate efficiently irrespective of their product, organizational structure, and/or geographical location. Two of the more important elements in this changing environment are increased product sophistication and variation. Minimizing the total costs and being quick to develop and market new products is the key for survival. Product development is a complex process requiring expertise from several fields. This will demand integrating the diverse functional areas of an organization on a common platform [22].
+
+In this chapter, an integrative framework that would enable the design teams rapidly construct performance models of complex design problems is presented. This framework can provide both design insight and a tool to evaluate, optimize, and select better alternatives. Interaction between the elements at every level of design is a critical issue. The framework should not be limited only to internal function integration but it should also consider the external functions such as vendors. The vendors have precise and detailed knowledge for their items. This expertise should be incorporated in the main development system to ensure and optimize the product as a complete system. The templates for different processes and/or procedures should be designed systematically to assist in evaluating and optimizing the design alternatives through proper integration and analysis.
+
+Reference
+
+Albrecht R. and Nicol N. (2002), Microsoft Access Projects with Microsoft SQL server, Microsoft Press.
+
+Agnar G., Harry B., and Mariano C. (2004), The implementation process of standardization, Journal of Manufacturing Technology Management, Vol. 15, No. 4, pp. 335–342.
+
+Bhandari V. (2000), Design of Machine Elements, Tata-McGraw Hill Publications.
+
+Borland N. (1997), DOME—MoDeL Language Reference, MIT, Cambridge, MA.
+
+Charles N. (2002), New type of standard for accessibility, designed to foster the competition and innovation of designers, developers, and project and business management, Behavior and Information Technology, Vol. 21, No. 3, pp. 155–169. 
+
+Chen Y. and Liang ?. (2000), Design and implementation of a collaborative engineering information system for allied concurrent engineering, International Journal of Computer Integrated Manufacturing, Vol. 13, pp. 11–30.
+
+Cutkosky M., Toye G., Leifer L., Tenenbaum J., and Glicksman J. (1993), SHARE: A Methodology and Environment for Collaborative Product Development, Post-Proceedings of IEEE Infrastructure for Collaborative Enterprise.
+
+Deutschman D., Michels J., and Wilson C. (1975), Machine Design: Theory and Practice, Macmillan Publishing Co. Inc.
+Dudley D. (1962), Gear Handbook: The Design, Manufacture and Applications of Gears, First Edition, McGraw Hill Book Company.
+
+Eddy M. and Anthony D. (1999), Web-centric systems: A new paradigm for collaborative engineering, Journal of Management in Engineering, Vol. 15, No. 1, pp. 39–45.
+
+Emilda S., Alex L., and Shaik ?. (2004), COVES: An e-business case study in the engineering domain, Business Process Management Journal, Vol. 10, No. 1, pp. 115–125.
+
+Gupta A. and Wilemon D. (1998), Managing Global Product Development Teams, IEEE— 1998, 0-7803-5082-0.
+
+Khalid H. (2001), Towards Effective Collaborative Design, Proceedings of HCI International, Mahwah, NJ.
+
+Koufteros X., Vonderembse ?., and Doll W. (2001), Concurrent engineering and its consequences, Journal of Operations Management, Vol. 19, No. 1, pp. 97–115.
+
+Lawry ?. (1997), SDRC I-DEAS Master Series Guide, SDRC Press.
+
+Lee R., Tasi J., Kao Y., Lin G., and Fan K. (2003), STEP-based product modeling system for remote collaborative reverse engineering, Robotics and Computer-Integrated Manufacturing, Vol. 19, No. 6, pp. 543–553.
+
+Manuel C., Pedro C., Carlos V., and Nuria A. (2002), Product data quality and collaborative engineering, IEEE Computer Graphics and Applications, Vol. 22, No. 3, pp. 32–42.
+
+Pahl G. and Beitz W. (1996), Engineering Design: A Systematic Approach, Springer Publications.
+
+Pahng F., Senin N., and Wallace D. (1998), Web-Based Collaborative Design Modeling and Decision Support, ASME-DETC 1998.
+
+Park H. and Cutkosky ?. (1999), Framework for modeling dependencies in collaborative engineering processes, Research in Engineering Design, Vol. 11, No. 1, pp. 84–102.
+
+Pawar K. and Sharifi S. (1997), Physical or virtual team collocation: Does it matter?, International Journal on Production Economics, Vol. 52, No. 1, pp. 283–290.
+
+Rouibah K. and Caskey K. (2003), A workflow system for the management of inter-company collaborative engineering process, Journal of Engineering Design, Vol. 14, No. 3, pp. 273–293.
+
+Senin N., Borland N., and Wallave D. (1997), Distributed Modeling of Product Design Problems in a Collaborative Design Environment, CIRP International Design Seminar Proceedings: Multimedia Technologies for Collaborative Design and Manufacturing.
+
+Sethi R. and Nicholoson C. (2001), Structural and contextual correlates of charged behavior in product development teams, Journal of Product Innovation Management, Vol. 18, No. 3, pp. 154–168.
+
+Srinivasan V., Williams S., Love J., and David B. (1997), Integrated product design for marketability and manufacturability, Journal of Marketing Research, Vol. XXXIV, No. 1, pp. 154–163.
+
+Ulrich K. and Eppinger S. (2000), Product Design and Development, Second Edition, McGraw-Hill Publication.
+
+Wallace, D. and Senin N. (1997), A Framework for Mixed Parametric and Catalog Based Product Design, MIT, CADLab.
+
+Wallace D., Senin N., and Sferro P. (2000), Integrated design in a service marketplace, Computer-Aided Design, Vol. 32, No. 2, pp. 97–107.
+
+Wang B. (Ed.) (1998), Concurrent Design of Products, Manufacturing Processes and Systems (Automation and Production Systems: Methodologies and Applications), Vol. 3, Gordon and Breach Science Publishers.
+.. @+node:amd_yen.20130308214521.2427: *3* 第二週
+Simple Groupware 安裝
+
+兩種安裝模式:
+
+1. local 主機安裝
+
+2. 雲端 OpenShift 主機安裝
+.. @+node:amd_yen.20130308214521.2428: *4* 有關 reading 與考試
+期中考前有兩篇從教科書中選出的章節, 希望學員能夠充分了解內容的涵義, 由於是英文的資料, 因此至少要能夠先將單字篩選出來, 進行字意了解, 然後再套進基本的字句解析, 接著則是"希望"學員經過多次閱讀後, 能夠了解段落涵義, 最後則是了解該章節所點出與協同產品開發有關的基本概念與內容.
+
+至於教學內容的評量, 則是希望將章節內容以閱讀的方式轉為 mp3 語音, 考試時則以撥放相關內容的英文 mp3 檔案, 以單選題或複選題讓學員於線上考試作答, 以測試學員是否理解章節中的英文內容.
+
+由於協同產品設計過程, 若需於線上直接透過英文與其他研發團隊進行溝通, 許多的對話與反應幾乎都必須是及時進行, 因此利用 mp3 的英文語音來訓練機械設計工程師的協同設計流程, 應該是合理的流程.
+
+此外, 將教科書的英文章節轉為 mp3 語音檔案, 也是希望能夠將檔案放在手機中, 可以隨時以耳機練習英文聽力, 希望能降低學員對於閱聽英文對話的恐懼與障礙.
+.. @+node:amd_yen.20130308214521.2429: *4* Simple Groupware 管理
+兩種身分: 管理者與一般使用者
+
+管理者權限
+
+如何讓使用者登入 sgw:
+
+採用 IMAP 進行 user authentication, 設定讓 Gmail
+
+進行登入認證
+
+.. code-block:: none
+
+    1. main menu - > change settings
+    
+    Authentication Mode 選擇 IMAP
+    
+    Host: 填入 imap.gmail.com:993:ssl
+    
+    並且勾選 下方的
+        
+    Enable automatic user creation
+    [htaccess, NTLM, LDAP, IMAP, SMTP]
+    
+    讓系統在使用者登入時能夠建立對應帳號.
+    
+    設定修改後, 按最下方的 Save 後, 登出管理帳號.
+    
+    以 gmail 帳號與密碼登入 Simple Groupware
+    
+    例如:
+    
+    myaccount@gmail.com 作為帳號
+    然後輸入與此 gmail 帳號對應的密碼
+    
+    就可以利用 Gmail 的 IMAP server 認證, 讓使用者登入 sgw 並且由系統建立一個對應帳號, 並且出現下列訊息.
+    
+    Notification
+    
+    Item successfully created. (101)
+    
+    Processing modules/core/users.xml ...
+    
+    Folder structure created. ( / Personal folders / 2012c1@mde.tw / )
+    
+    Folder created. (../simple_store/home/2012c1@mde.tw/)
+    
+    Item successfully created. (101)
+.. @+node:amd_yen.20130308214521.2430: *4* SpreadSheet 的應用
+由以下的資料格式出發
+
+.. code-block:: none
+
+    dbCells = [
+    
+      [0,0,"1",""], // A1
+      
+      [1,0,"4",""], // B1
+      
+      [3,0,"=graph(\"line\",\"測試\",A1:A3,B1:B3,\"x 軸\",\"y 軸\")",""], // D1
+    
+      [0,1,"2",""], // A2
+      
+      [1,1,"1",""], // B2
+    
+      [0,2,"3",""], // A3
+      
+      [1,2,"2",""], // B3
+      
+    ];
+
+利用程式方法, 建立 0~2PI 的 Sin 與 Cos 繪圖
+.. @+node:amd_yen.20130308214521.2431: *4* sgw 版本
+先前附在 portableKMOL 的 sgw 無法搜尋, 且中文試算表無法使用, 因此在
+
+https://github.com/chiamingyen/sgw745 
+
+上傳新的版本.
+.. @+node:amd_yen.20130309155804.1709: *3* 第三週
+利用 Python 程式進行 Sin 與 Cos 函式的運算, 然後套進 Simple Groupware 的 Spreadsheet 模組資料格式, 以便能夠利用網際協同群組中的各組員檢視結果.
+
+以下為 Sin 與 Cos 的繪圖程式:
+
+.. 請注意: 以下採用程式檔案直接載入文書內容的模式取得對應的程式原始碼.
+
+.. literalinclude:: ../cd/spreadsheet.py
+   :language: python
+   :linenos:
+   
+將上列程式輸出結果, 以轉貼方式複製到 Simple Groupware Spreadsheet 中的 JS 資料介面, 然後按下 Load, 就可以顯示出 Sin() 與 Cos() 的繪圖結果.
+
+另外一種將資料傳入 Simple Groupware 的方式為: 將運算結果以 URL 方式載入.
+.. @+node:amd_yen.20130310161901.1489: *3* 第四週
+for p in p.subtree():
+    g.es(p.b)
+    
+g.app.gui.runAskOkDialog(c,"輸入密碼",message="請輸入網誌的密碼:",text='Ok')
+
+def getInput (event=None):
+
+   stateName = 'get-input'
+   k = c.k
+   state = k.getState(stateName)
+
+   if state == 0:
+       k.setLabelBlue('Input: ',protect=True)
+       k.getArg(event,stateName,1,getInput)
+   else:
+       k.clearState()
+       g.es_print('你輸入的值為: %s' % k.arg)
+
+getInput()
+
+
+.. @+node:amd_yen.20130309155804.1711: *4* 第四週
+協同小組每組 6 人, 協同大組每組 18 人, 請各組分別啟動 Simple Groupware, 以 IMAP authentication 為主, 讓各小組與大分組的成員可以登入到各組的主機.
+
+每一學員都有三台主機可以登入, 即本小組主機與其他兩個大組的分組主機.
+
+請以每大組 18 人的協同模式下, 完成一份大分組的前三週分組課程內容整理報告.
+
+請說明各分組的協同群組軟體在此一模式下可以提供哪些功能?各組員分別扮演哪些角色?
+
+請討論如何以協同模式完成網際正齒輪減速機的產品開發, 此一開發流程分別包含哪些工作?請根據各組員所擔任的角色, 繪出協同產品開發流程圖, 並明確列出各組員在特定階段的專案管理過程, 分別需要熟悉哪些技術?分別選擇如何完成所被交付的任務工作?
+
+貴大組需要多久時間完成此一產品開發的工作?
+.. @-all
+.. @-leo

@@ -1,0 +1,24 @@
+
+.. _`KMOL's home page`: http://webpages.charter.net/edreamleo/front.html
+
+.. KMOL documentation documentation master file, created by
+   sphinx-quickstart on Mon Mar 30 16:39:02 2009.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+KMOL's Users Guide
+==================
+
+`KMOL's home page`_
+  
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   frontmatter
+   c2 
+   cd
+   wcm
+   misc
+
+`KMOL's home page`_  

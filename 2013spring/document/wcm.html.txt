@@ -1,0 +1,212 @@
+.. rst3: filename: document\wcm.html
+
+################################################
+網際內容管理
+################################################
+
+.. contents::
+    :depth: 2
+
+
+
+第一週
++++++++++
+
+網際內容管理課程的英文為
+
+Introduction to Web Content Management Systems Site Development
+
+本課程主要目的在於教導學員建構網站, 而且是建構與內容管理系統相關的網站, 目標使用者為參與協同產品設計的機械設計工程師.
+
+若直接翻譯課程的英文則為: 網際內容管理系統網站開發簡介
+
+本課程擬介紹 WordPress 系統, 這是一套以 PHP 打造的內容管理系統, 至今 (2013) 已經是全世界使用人數最多的網誌系統, 而所謂網誌 (weblog) 其實就是利用網站來執行紀錄, 這裡所運用的層面是機械設計工程師使用導向的網路日誌, 並且以內容管理的角度進行配置.
+
+WordPress 支援 MySQL 與 SQLite 等版本,  MySQL 為一種可跨網站的資料庫管理系統, 而 SQLite 則是一種小型的單機檔案儲存為主的資料庫系統.
+
+所謂資料庫, 指的是能夠利用 SQL 結構查詢語言與資料伺服器進行溝通的資料儲存主機, 這些主機為了達成資料儲存的目的所運行的伺服器程式, 就是資料庫管理系統.
+
+實際操作:
+
+.. code-block:: none
+
+    1. 單機可攜系統下的 WordPress (電腦教室主機上的 WordPress 與光世代網路上的主機 WordPress)
+    
+    2. OpenShift 平台上的 WordPress
+
+第二週
++++++++++
+
+第一週 228 放假
+
+安裝 WordPress
+
+可分別下載 WordPress 3.2.1 與 3.5.1 版本
+
+http://cae.mde.tw?download=wordpress321.7z
+
+http://cae.mde.tw?download=wordpress351.7z
+
+第三週
++++++++++
+
+利用 Python 程式 新增 WordPress 內容
+
+.. code-block:: python
+
+    import datetime, xmlrpclib
+    
+    wp_url = "http://www.example.com/xmlrpc.php"
+    wp_username = "someuser"
+    wp_password = "secret"
+    wp_blogid = ""
+    
+    status_draft = 0
+    status_published = 1
+    
+    server = xmlrpclib.ServerProxy(wp_url)
+    
+    title = "Title with spaces"
+    content = "Body with lots of content"
+    date_created = xmlrpclib.DateTime(datetime.datetime.strptime("2009-10-20 21:08", "%Y-%m-%d %H:%M"))
+    categories = ["somecategory"]
+    tags = ["sometag", "othertag"]
+    data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+    
+    post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+    
+WordPress 中的 categories
+
+.. code-block:: python
+
+    categories = server.metaWeblog.getCategories(wp_blogid, wp_username, wp_password)
+    
+    for item in categories:
+    print (item['description'])
+    
+.. code-block:: python
+
+    import xmlrpclib
+    
+    XMLRPC_ENDPOINT = "http://www.YOURBLOG.com/xmlrpc.php"
+    USERNAME = "YOURUSERNAME"
+    PASSWORD = "YOURPASSWORD"
+    BLOGID = "0" # Blog ID, 如果是單用戶的WordPress系統，則為0
+    
+    client = xmlrpclib.ServerProxy(XMLRPC_ENDPOINT)
+    # 取出 1000 篇文章
+    posts = client.metaWeblog.getRecentPosts(BLOGID, USERNAME, PASSWORD, 1000) 
+    
+    for post in posts:
+        print post
+        DO_SOMETHING_ELSE()
+    '''
+    需要注意的是，返回的post所帶的wp_slug參數是經過quote了的，需要unquote來得到原始的值，代碼片段如下：
+    
+    import urllib
+    slug = urllib.unquote(post['wp_slug']).decode("utf8")
+    使用WordPress的xmlrpc介面還可以方便的進行其他操作，所有介面函數列表可以使用 mt.supportedMethods()函數獲得，如下：
+    >>> client.mt.supportedMethods()
+    '''
+    
+利用 Python3 程式直接將網誌內容, 以 xmlrpc 格式放入 WordPress 的資料庫中, 其中有兩個重點必須注意.
+
+第一個重點為主機時差與程式設定的時差必須配合, 因為 WordPress 伺服器程式有時差的設定, 原則上 Server OS 有一個時間設定, WordPress 程式也有時差設定, 而執行 Python3 的程式也有時差設定.
+
+若將 WordPress 時間調為台灣時間, 且 Python3 程式也是台北時間, 則實際將內容送到 Server 時, 顯示在網誌內容上的時間將會是實際台灣時間八個小時後的時間 (有可能是聰明的 Python3 程式內與 xmlrpc 程式自我調適的問題?).
+
+因此, 在實作上, 即使 WordPress 與 Python3 程式都設為台灣時間, 網誌內容的時間還是必須提前八個小時, 送到網誌的時間註記才會是程式執行時的時間, 因為時間只設到 "分", 而沒有 "秒", 因此程式執行結束後, 就會直接顯示在網誌上.
+
+而第二個重點則是牽涉到 Python3 字串與 html 字串, 在 Code-box plugin 標註程式碼的 <pre> 與 </pre> 間, 若出現用來標示程式的內容(也就是說, 要在程式的標示區段中帶有 nested <pre> 與 </pre> 時所存在的問題, 因為 Code-box 標示程式會誤判程式區段範圍), 必須仔細與 html 內容中的"實際 pre 標註"進行區隔.
+
+因為 Code-box 實際運作模式下是以 Javascript 來區別程式段落, 因此整體的網誌內容牽涉到 Python, html 與 Javascript 對於字串內容的辨識,  目前僅將 Python 字串中需要標示程式碼的 </pre> 標註, 分別在前後各加上反斜線 (亦即告訴 Code-box, 這不是程式標註的結束, 而只是程式標註的內容), 但是呈現在網誌中的程式就會多出這兩個反斜線, 因此目前只能以說明提醒使用者, 在複製內容時必須留意處理, 之後應該要找出更好的解決方案.
+
+以下為利用 Python3 將內容直接送到 WordPress 的程式列表, 特別注意 Python3 已經將原先 Python2 xmlrpc 的模組名稱改為 xmlrpc.client.
+
+.. code-block:: python
+
+    #coding: utf-8
+    import xmlrpc.client
+    import datetime
+    import os
+    os.environ['TZ'] = 'Asia/Taipei'
+     
+    wp_url = "https://WordPress網誌網址/xmlrpc.php"
+    wp_username = "帳號"
+    wp_password = "密碼"
+    wp_blogid = "0"
+     
+    status_draft = 0
+    status_published = 1
+     
+    server = xmlrpc.client.ServerProxy(wp_url)
+     
+    title = "以現在時間上傳網誌, 再試一次"
+    content = "這是以 Python 程式新增的網誌內容!
+    並且進行跳行
+    前面這裡跳行.<!--more-->"
+    content +="<pre lang="python" line="1" colla="+">"
+    content +='''
+    #coding: utf-8
+    import xmlrpc.client
+    import datetime
+    import os
+    os.environ['TZ'] = 'Asia/Taipei'
+    for 索引 in range(10):
+        print("測試")
+    '''
+    # 請注意, 以下的 /pre 標駐要拿掉兩個反斜線?
+    # 因為在 Python3 程式, 組成字串, 然後放入 WordPress PHP 資料庫中,最後以 html 展示出來, 
+    # 確實需要多方考量, 若下一行在 Python3 程式字串中沒有 \< 與 \>, 則 Code-box plugin 會將此
+    # 標註視為結束, 而程式 highlight 就會斷在這裡...
+    content +="</pre>"
+    # 指定時間出版
+    #date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00", "%Y-%m-%d %H:%M"))
+    # 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+    date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+    datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+    categories = ["Uncategorized"]
+    tags = ["python", "測試"]
+    data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+     
+    post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+    '''
+    其他 metaWeblog 的用法:
+    metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+    metaWeblog.editPost (postid, username, password, struct, publish) returns true
+    metaWeblog.getPost (postid, username, password) returns struct(blog content)
+    '''
+    
+其他參考資料:
+
+https://github.com/charlax/wordpresslib
+
+https://python-wordpress-xmlrpc.readthedocs.org/en/latest/
+
+第四週
++++++++++
+
+寫一個 WordPress 的 Plugin
+
+中文
+
+http://www.misterngan.com/?p=475
+
+http://www.misterngan.com/?p=500
+
+http://kangzj.net/wordpress-plugin-tutorial-1/
+
+http://blog.wpjam.com/2007/11/09/write-plugin-by-yourself-begin/
+
+英文
+
+https://codex.wordpress.org/Writing_a_Plugin
+
+http://pelfusion.com/20-tutorials-to-develop-wordpress-plugin/
+
+http://corpocrat.com/2009/12/27/tutorial-how-to-write-a-wordpress-plugin/
+
+http://net.tutsplus.com/tutorials/wordpress/create-wordpress-plugins-with-oop-techniques/
+
+看過以上這些資料後, 能否寫一個簡單的 Plugin?
+
