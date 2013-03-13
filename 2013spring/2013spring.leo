@@ -14,7 +14,7 @@
 <v t="amd_yen.20130306001037.1798"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="amd_yen.20130306001037.1799"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
-<v t="amd_yen.20130307204656.1443"><vh>課程規劃與進行</vh>
+<v t="amd_yen.20130307204656.1443" a="E"><vh>課程規劃與進行</vh>
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
@@ -49,15 +49,15 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.20130308214521.2437,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.20130308214521.2437,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
-<v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
-<v t="amd_yen.20130309155804.1707"><vh>@shadow cd/spreadsheet.py</vh></v>
+<v t="amd_yen.20130309155804.1706" a="E"><vh>CD 第三週程式</vh>
+<v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130310161901.1489,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130310161901.1489,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130312013510.1498"></v>
@@ -202,12 +202,44 @@ git push
 
 或許也可以利用 portableGithub 以登入的模式下, 將上述 clone 目錄中的資料, 執行 commit 與 publish 或 sync 的動作.</t>
 <t tx="amd_yen.20130307204656.9867">V:\misc\leo-editor-snapshot-20130223\leo\leoeditor_doc\LeoDocs.leo#Startup</t>
-<t tx="amd_yen.20130308103121.2379">由於實際上課時, 必須配合各週次進行, 但是每幾週又會組成某一特定架構的介紹或實習, 因此 clone node 在這裡或許就可以派上用途, 例如花三週來說明 sgw 用於協同產品設計實習的群組套件搭建, 因此可以將 sgw 套件搭建流程一分為三, 並且在各週逐一完成某一特定內容的設定與實習, 而在手冊建立時, 則取三週的教學內容, 以 clone node 的方式組成 sgw 套件搭建與應用的主題.
+<t tx="amd_yen.20130308103121.2379">2013.02
+
+由於實際上課時, 必須配合各週次進行, 但是每幾週又會組成某一特定架構的介紹或實習, 因此 clone node 在這裡或許就可以派上用途, 例如花三週來說明 sgw 用於協同產品設計實習的群組套件搭建, 因此可以將 sgw 套件搭建流程一分為三, 並且在各週逐一完成某一特定內容的設定與實習, 而在手冊建立時, 則取三週的教學內容, 以 clone node 的方式組成 sgw 套件搭建與應用的主題.
 
 當三週的設定與實習完成後, sgw 的設定與實習教材也能夠同步完成.
 
-其次在上課的當下, 設法利用課程內容, 以程式建立 TCExam 相容的考題, 應該也是一項 Leo 可以發揮的地方, 由各週的上課內容中, 以特定知識或認知為考題的主軸, 然後納入 Leo 的延伸程式, 就能夠同步轉為考試題庫.</t>
-<t tx="amd_yen.20130308210411.2383">尚未完成的內容為 index, 以及內文中的相關細節編排.</t>
+其次在上課的當下, 設法利用課程內容, 以程式建立 TCExam 相容的考題, 應該也是一項 Leo 可以發揮的地方, 由各週的上課內容中, 以特定知識或認知為考題的主軸, 然後納入 Leo 的延伸程式, 就能夠同步轉為考試題庫.
+
+2013.03.13
+
+重新架構 mdeCourse, 將先前的課程 github 刪除後重新在 .gitignore 中加入 _build 目錄, 讓每次所建立的 html 與 latex 檔案目錄不會送到 github.
+
+假如配合目前上課內容的規劃, blog.kmol.info 是否仍有存在的必要? 應該可以設法配合 html 目錄, 由 Leo Editor 中的按鍵功能, 啟動將最新的 html 目錄送到某一主機對應內容, 讓學員都能擷取最新的課程相關資料, 也能夠從 github clone 最新的課程內容架構.
+
+由於整體系統採用 Python3, 部分 Sphinx extension 功能還無法使用, html 中的中文搜尋也尚未啟動.
+
+PortableKMOL 能否再精簡?以配合導入 Leo Editor 之後的上課模式?
+
+基本的架構:
+
+Local - portableKMOL + local github clone
+
+Remote - github repositories + OpenShift 上的 CMSimple XH
+
+WordPress - 群組網誌
+
+Simple Groupware - 專案管理系統
+
+</t>
+<t tx="amd_yen.20130308210411.2383">尚未完成的內容為中文的索引與搜尋.
+
+有關 Sphinx 中文搜尋:
+
+由於 Sphinx 的搜尋採 Javascript 進行, 實作時必須要對中文內容進行分詞, 然後再與對應頁面進行連結, 如此就會造成許多問題, 假如在進行關鍵字分詞時, 系統未能納入特定的關鍵字, 則使用者便無法進行搜尋.
+
+最好的方式當然是全文搜尋, 但是必須耗費較多時間, 有關這點必須再加以深入考量.
+
+假如能夠將 Sphinx 所產生的 html 導入 CMSimple XH 的 content.htm 中, 應該就可以解決許多問題, 至於對應的 images, downloads, jscripts 與 plugins 也都必須要加以整合.</t>
 <t tx="amd_yen.20130308210411.2384"></t>
 <t tx="amd_yen.20130308210411.2385"></t>
 <t tx="amd_yen.20130308210411.2386"></t>

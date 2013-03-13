@@ -232,7 +232,7 @@ def getInput (event=None):
 getInput()
 
 
-.. @+node:amd_yen.20130309155804.1711: *4* 第四週
+.. @+node:amd_yen.20130309155804.1711: *4* 齒輪減速機專案
 協同小組每組 6 人, 協同大組每組 18 人, 請各組分別啟動 Simple Groupware, 以 IMAP authentication 為主, 讓各小組與大分組的成員可以登入到各組的主機.
 
 每一學員都有三台主機可以登入, 即本小組主機與其他兩個大組的分組主機.
@@ -241,8 +241,160 @@ getInput()
 
 請說明各分組的協同群組軟體在此一模式下可以提供哪些功能?各組員分別扮演哪些角色?
 
-請討論如何以協同模式完成網際正齒輪減速機的產品開發, 此一開發流程分別包含哪些工作?請根據各組員所擔任的角色, 繪出協同產品開發流程圖, 並明確列出各組員在特定階段的專案管理過程, 分別需要熟悉哪些技術?分別選擇如何完成所被交付的任務工作?
+請討論如何以協同模式完成網際`正齒輪減速機_`的產品開發, 此一開發流程分別包含哪些工作?請根據各組員所擔任的角色, 繪出協同產品開發流程圖, 並明確列出各組員在特定階段的專案管理過程, 分別需要熟悉哪些技術?分別選擇如何完成所被交付的任務工作?
+
+1. CMSimple XH 模式下, 使用者完成延伸程式齒輪尺寸設計 (齒面寬) 後, 隨即在網際介面提供減速機所屬的相關零組件.
+
+2. 將齒輪減速機設計程式轉為 Simple Groupware 格式的延伸程式.
+
+3. 配合上述相關設計流程, 完成一套單機版本的齒輪減速機輔助設計程式 (若以 Python 程式為例, 可以選擇 tkinter 與 PyQt 介面).
 
 貴大組需要多久時間完成此一產品開發的工作?
+
+.. _正齒輪減速機: https://github.com/chiamingyen/CMSimpleGearPlugin
+
+Python3 tkinter 正齒輪輪廓圖:
+
+.. code-block:: python
+
+    #coding: utf-8
+    '''正齒輪 2D 繪圖, 採用 Python3 tkinter 介面
+    '''
+    from tkinter import *
+    # 導入所有的數學函式
+    from math import *
+     
+    # 導入數學函式後, 圓周率為 pi
+    # deg 為角度轉為徑度的轉換因子
+    deg = pi/180.
+     
+    # 定義一個繪正齒輪的繪圖函式
+    # midx 為齒輪圓心 x 座標
+    # midy 為齒輪圓心 y 座標
+    # rp 為節圓半徑, n 為齒數
+    def gear(畫布, midx, midy, rp, n, 顏色):
+    #canvas.create_line(0, 300, 150, 150, width=10, fill='green')
+        # 將角度轉換因子設為全域變數
+        global deg
+        # 齒輪漸開線分成 15 線段繪製
+        imax = 15
+        # 在輸入的畫布上繪製直線, 由圓心到節圓 y 軸頂點畫一直線
+        畫布.create_line(midx, midy, midx, midy-rp)
+        # 畫出 rp 圓
+        #畫布.create_oval(midx-rp, midy-rp, midx+rp, midy+rp, width=2)
+        # a 為模數 (代表公制中齒的大小), 模數為節圓直徑(稱為節徑)除以齒數
+        # 模數也就是齒冠大小
+        a=2*rp/n
+        # d 為齒根大小, 為模數的 1.157 或 1.25倍, 這裡採 1.25 倍
+        d=2.5*rp/n
+        # ra 為齒輪的外圍半徑
+        ra=rp+a
+        # 畫出 ra 圓
+        #畫布.create_oval(midx-ra, midy-ra, midx+ra, midy+ra, width=1)
+        # rb 則為齒輪的基圓半徑
+        # 基圓為漸開線長齒之基準圓
+        rb=rp*cos(20*deg)
+        # 畫出 rb 圓 (基圓)
+        #畫布.create_oval(midx-rb, midy-rb, midx+rb, midy+rb, width=1)
+        # rd 為齒根圓半徑
+        rd=rp-d
+        # 畫出 rd 圓 (齒根圓)
+        #畫布.create_oval(midx-rd, midy-rd, midx+rd, midy+rd, width=1)
+        # dr 則為基圓到齒頂圓半徑分成 imax 段後的每段半徑增量大小
+        # 將圓弧分成 imax 段來繪製漸開線
+        dr=(ra-rb)/imax
+        # tan(20*deg)-20*deg 為漸開線函數
+        sigma=pi/(2*n)+tan(20*deg)-20*deg
+     
+        for j in range(n):
+            ang=-2.*j*pi/n+sigma
+            ang2=2.*j*pi/n+sigma
+            lxd=midx+rd*sin(ang2-2.*pi/n)
+            lyd=midy-rd*cos(ang2-2.*pi/n)
+            #for(i=0;i<=imax;i++):
+            for i in range(imax+1):
+                r=rb+i*dr
+                theta=sqrt((r*r)/(rb*rb)-1.)
+                alpha=theta-atan(theta)
+                xpt=r*sin(alpha-ang)
+                ypt=r*cos(alpha-ang)
+                xd=rd*sin(-ang)
+                yd=rd*cos(-ang)
+                # i=0 時, 繪線起點由齒根圓上的點, 作為起點
+                if(i==0):
+                    last_x = midx+xd
+                    last_y = midy-yd
+                # 由左側齒根圓作為起點, 除第一點 (xd,yd) 齒根圓上的起點外, 其餘的 (xpt,ypt)則為漸開線上的分段點
+                畫布.create_line((midx+xpt),(midy-ypt),(last_x),(last_y),fill=顏色)
+                # 最後一點, 則為齒頂圓
+                if(i==imax):
+                    lfx=midx+xpt
+                    lfy=midy-ypt
+                last_x = midx+xpt
+                last_y = midy-ypt
+            '''
+            the line from last end of dedendum point to the recent
+            end of dedendum point
+            '''
+            # lxd 為齒根圓上的左側 x 座標, lyd 則為 y 座標
+            # 下列為齒根圓上用來近似圓弧的直線
+            畫布.create_line((lxd),(lyd),(midx+xd),(midy-yd),fill=顏色)
+            #for(i=0;i<=imax;i++):
+            for i in range(imax+1):
+                r=rb+i*dr
+                theta=sqrt((r*r)/(rb*rb)-1.)
+                alpha=theta-atan(theta)
+                xpt=r*sin(ang2-alpha)
+                ypt=r*cos(ang2-alpha)
+                xd=rd*sin(ang2)
+                yd=rd*cos(ang2)
+                # i=0 時, 繪線起點由齒根圓上的點, 作為起點
+                if(i==0):
+                    last_x = midx+xd
+                    last_y = midy-yd
+                # 由右側齒根圓作為起點, 除第一點 (xd,yd) 齒根圓上的起點外, 其餘的 (xpt,ypt)則為漸開線上的分段點
+                畫布.create_line((midx+xpt),(midy-ypt),(last_x),(last_y),fill=顏色)
+                # 最後一點, 則為齒頂圓
+                if(i==imax):
+                    rfx=midx+xpt
+                    rfy=midy-ypt
+                last_x = midx+xpt
+                last_y = midy-ypt
+            # lfx 為齒頂圓上的左側 x 座標, lfy 則為 y 座標
+            # 下列為齒頂圓上用來近似圓弧的直線
+            畫布.create_line(lfx,lfy,rfx,rfy,fill=顏色)
+     
+    frame=Frame()
+    frame.master.title("正齒輪繪圖範例")
+    frame.pack()
+     
+     
+    canvas = Canvas(width=800, height=800, bg='white')
+     
+    canvas.pack(expand=YES, fill=BOTH) 
+    gear(canvas,400,400,300,16,"blue")
+    #gear(canvas,400,400,100,36,"red")
+    #gear(canvas,400,400,200,36,"dark green")
+    '''
+    canvas.create_line(100, 100, 200, 200)             
+    canvas.create_line(100, 200, 200, 300)
+    '''
+    for i in range(1, 50, 4): 
+        canvas.create_line(0, i, 50, i)
+        canvas.create_line(i, 0, i, 50)
+     
+    mainloop()
+
+參考資料:
+
+https://github.com/joostn/OpenJsCad/tree/gh-pages
+
+http://joostn.github.com/OpenJsCad/
+
+http://joostn.github.com/OpenJsCad/gearsdemo.html
+
+http://joostn.github.com/OpenJsCad/grilledemo.html
+
+http://joostn.github.com/OpenJsCad/lampshadedemo.html
 .. @-all
 .. @-leo
