@@ -25,7 +25,7 @@
 .. contents::
     :depth: 2
 .. @+node:amd_yen.20130308210411.2409: *3* @rst-no-head Links
-.. @+node:amd_yen.20130308210411.2410: *3* 第一週
+.. @+node:amd_yen.20130308210411.2410: *3* WCM 第一週
 網際內容管理課程的英文為
 
 Introduction to Web Content Management Systems Site Development
@@ -47,7 +47,7 @@ WordPress 支援 MySQL 與 SQLite 等版本,  MySQL 為一種可跨網站的資�
     1. 單機可攜系統下的 WordPress (電腦教室主機上的 WordPress 與光世代網路上的主機 WordPress)
     
     2. OpenShift 平台上的 WordPress
-.. @+node:amd_yen.20130308214521.2419: *3* 第二週
+.. @+node:amd_yen.20130308214521.2419: *3* WCM 第二週
 第一週 228 放假
 
 安裝 WordPress
@@ -57,7 +57,7 @@ WordPress 支援 MySQL 與 SQLite 等版本,  MySQL 為一種可跨網站的資�
 http://cae.mde.tw?download=wordpress321.7z
 
 http://cae.mde.tw?download=wordpress351.7z
-.. @+node:amd_yen.20130309155804.1705: *3* 第三週
+.. @+node:amd_yen.20130309155804.1705: *3* WCM 第三週
 利用 Python 程式 新增 WordPress 內容
 
 .. code-block:: python
@@ -191,7 +191,11 @@ https://github.com/charlax/wordpresslib
 
 https://python-wordpress-xmlrpc.readthedocs.org/en/latest/
 
-.. @+node:amd_yen.20130309155804.1710: *3* 第四週
+.. @+node:amd_yen.20130309155804.1710: *3* WCM 第四週
+安裝 wp-codebox plugin - 可以 highlight 內容中的程式碼.
+
+用法 <pre lang="python" line="1" colla="+"></pre>
+
 寫一個 WordPress 的 Plugin
 
 中文

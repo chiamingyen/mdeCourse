@@ -1,886 +1,979 @@
 .. rst3: filename: document\c2.html
 
-########################
-程式語言(二)
-########################
-
-.. contents::
+########################
+程式語言(二)
+########################
+
+.. contents::
     :depth: 2
 
-第一週
-+++++++++
+C2 第一週
+++++++++++++
 
-讓學員自行建構可攜 portableKMOL 的目的在練習網際程式框架的基本組成 (程式開發環境、內容管理系統、全球資訊網伺服器、以及各類相關工具), 學員熟悉此流程後, 可以自行修改框架並且配合需要進行各模組的改版.
-
-1. 利用程式進行文書處理
-
-    需要安裝 docutils 模組
-
-    也可以利用 Sphinx 模組將 rst 檔案轉為 html 與 tex, 然後再以 MikeTeX 將 tex 轉為 pdf 檔案
-
-2. 利用程式進行分析運算與設計檔案轉換
-
-以安裝 Python33 所使用的各模組, 各舉出應用範例, 並以機械設計相關應用為考量
-
-.. 為何選擇 Python:: http://www.stat.washington.edu/~hoytak/blog/whypython.html
-
-    Python 3.3 版與相關模組安裝:
-    
-    Python 3.3 本體
-    
-    http://www.python.org/download/
-    
-    安裝後 C:\Python33 約佔 33 MB
-    
-    distribute (Python 的 module  installer, 可利用 easy_install 安裝所需模組)
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute
-    
-    安裝後 C:\Python33 約佔 37 MB
-    
-    pip (Python 的 module installer, 安裝後可利用 "pip install 模組名稱" 完成模組安裝
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
-    
-    安裝後 C:\Python33 約佔 38 MB
-    
-    win32com (Python 與 Windows COM 物件的連結模組, 可以利用 win32com 來連結 SolidWorks, Inventor, Word, Excel 等 Windows 應用程式物件)
-    
-    http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/
-    
-    安裝後 C:\Python33 約佔 64 MB
-    
-    PIL (Python 的 Image library, 可以處理 2D 影像檔案)
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#pil
-    
-    安裝後 C:\Python33 約佔 67 MB
-    
-    matplotlib (Python 類似 matlab 的 plot library)
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
-    
-    安裝後 C:\Python33 約佔 91 MB
-    
-    numpy (Python 的 numerical library, 用於數值分析運算)
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
-    
-    安裝後 C:\Python33 約佔 138 MB
-    
-    sympy (Python 的 Symbolic manipulation 模組, 用於符號式運算 (相對於數值分析))
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#sympy
-    
-    安裝後 C:\Python33 約佔 175 MB
-    
-    scipy (Python 的 Scientific library)
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
-    
-    安裝後 C:\Python33 約佔 292 MB
-    
-    PyQt (Python 連結 Qt (nokia 的開源 GUI 程式庫, 更自由的對應類似版本為 Pyside) 的程式庫, 可用來開發圖形介面單機程式, 例如: Leo editor 就是採用 PyQt 開發)
-    
-    http://www.riverbankcomputing.com/software/pyqt/download
-    
-    安裝後 C:\Python33 約佔 374 MB
-    
-    docutils (Python 的 document utility, 可將 rst 格式檔案轉為 html)
-    
-    http://www.lfd.uci.edu/~gohlke/pythonlibs/#docutils
-    
-    安裝後 C:\Python33 約佔 383 MB
-    
-    Leo editor (以 Python 編寫的 outliner 與 IDE)
-    
-    http://www.greygreen.org/leo/
-    
-    安裝後 C:\Python33 約佔 401 MB
-    
-    以C:\Python33\Scripts\pip install sphinx
-    
-    安裝後 C:\Python33 約佔 413 MB
-
-單機模式
-
-網際模式
-
-結合 IPython 與 Leo Editor 的基本用法:
-
-http://webpages.charter.net/edreamleo/IPythonBridge.html
-
-3. 利用程式進行協同設計
-
-網際機械設計流程 - 以 Pyforum + brython 為範例, 可以開發 html5 網際程式
-
-網際內容管理 - django based CMS
-
-網際專案管理 - OpenPLM - http://wiki.openplm.org/trac/wiki/Credits
-
-OpenERP/PLM - http://www.openerpplm.eu/
-
-利用程式進行資料處理範例:
-
-產生虛擬學員名單程式:
-
-.. 特別注意: c2 目錄位於上一層, 可以直接利用 literalinclude 將程式碼導入, 但是行號卻沒能出現?
-
-.. literalinclude:: ../c2/generate_stud.py
-   :language: python
-   :linenos:
-   
-上課學員分組程式:
-
-.. literalinclude:: ../c2/grouping.py
-   :language: python
+讓學員自行建構可攜 portableKMOL 的目的在練習網際程式框架的基本組成 (程式開發環境、內容管理系統、全球資訊網伺服器、以及各類相關工具), 學員熟悉此流程後, 可以自行修改框架並且配合需要進行各模組的改版.
+
+1. 利用程式進行文書處理
+
+    需要安裝 docutils 模組
+
+    也可以利用 Sphinx 模組將 rst 檔案轉為 html 與 tex, 然後再以 MikeTeX 將 tex 轉為 pdf 檔案
+
+2. 利用程式進行分析運算與設計檔案轉換
+
+以安裝 Python33 所使用的各模組, 各舉出應用範例, 並以機械設計相關應用為考量
+
+.. 為何選擇 Python:: http://www.stat.washington.edu/~hoytak/blog/whypython.html
+
+    Python 3.3 版與相關模組安裝:
+    
+    Python 3.3 本體
+    
+    http://www.python.org/download/
+    
+    安裝後 C:\Python33 約佔 33 MB
+    
+    distribute (Python 的 module  installer, 可利用 easy_install 安裝所需模組)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute
+    
+    安裝後 C:\Python33 約佔 37 MB
+    
+    pip (Python 的 module installer, 安裝後可利用 "pip install 模組名稱" 完成模組安裝
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip
+    
+    安裝後 C:\Python33 約佔 38 MB
+    
+    win32com (Python 與 Windows COM 物件的連結模組, 可以利用 win32com 來連結 SolidWorks, Inventor, Word, Excel 等 Windows 應用程式物件)
+    
+    http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/
+    
+    安裝後 C:\Python33 約佔 64 MB
+    
+    PIL (Python 的 Image library, 可以處理 2D 影像檔案)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#pil
+    
+    安裝後 C:\Python33 約佔 67 MB
+    
+    matplotlib (Python 類似 matlab 的 plot library)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#matplotlib
+    
+    安裝後 C:\Python33 約佔 91 MB
+    
+    numpy (Python 的 numerical library, 用於數值分析運算)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy
+    
+    安裝後 C:\Python33 約佔 138 MB
+    
+    sympy (Python 的 Symbolic manipulation 模組, 用於符號式運算 (相對於數值分析))
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#sympy
+    
+    安裝後 C:\Python33 約佔 175 MB
+    
+    scipy (Python 的 Scientific library)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
+    
+    安裝後 C:\Python33 約佔 292 MB
+    
+    PyQt (Python 連結 Qt (nokia 的開源 GUI 程式庫, 更自由的對應類似版本為 Pyside) 的程式庫, 可用來開發圖形介面單機程式, 例如: Leo editor 就是採用 PyQt 開發)
+    
+    http://www.riverbankcomputing.com/software/pyqt/download
+    
+    安裝後 C:\Python33 約佔 374 MB
+    
+    docutils (Python 的 document utility, 可將 rst 格式檔案轉為 html)
+    
+    http://www.lfd.uci.edu/~gohlke/pythonlibs/#docutils
+    
+    安裝後 C:\Python33 約佔 383 MB
+    
+    Leo editor (以 Python 編寫的 outliner 與 IDE)
+    
+    http://www.greygreen.org/leo/
+    
+    安裝後 C:\Python33 約佔 401 MB
+    
+    以C:\Python33\Scripts\pip install sphinx
+    
+    安裝後 C:\Python33 約佔 413 MB
+
+單機模式
+
+網際模式
+
+結合 IPython 與 Leo Editor 的基本用法:
+
+http://webpages.charter.net/edreamleo/IPythonBridge.html
+
+3. 利用程式進行協同設計
+
+網際機械設計流程 - 以 Pyforum + brython 為範例, 可以開發 html5 網際程式
+
+網際內容管理 - django based CMS
+
+網際專案管理 - OpenPLM - http://wiki.openplm.org/trac/wiki/Credits
+
+OpenERP/PLM - http://www.openerpplm.eu/
+
+利用程式進行資料處理範例:
+
+產生虛擬學員名單程式:
+
+.. 特別注意: c2 目錄位於上一層, 可以直接利用 literalinclude 將程式碼導入, 但是行號卻沒能出現?
+
+.. literalinclude:: ../c2/generate_stud.py
+   :language: python
+   :linenos:
+   
+上課學員分組程式:
+
+.. literalinclude:: ../c2/grouping.py
+   :language: python
    :linenos:
 
 Leo editor 與外部檔案
 **************************
 
-External files: Any outline node (and its descendants) can be "connected" to any file on your file system. Several kinds of connections exist. The three most common kinds are:
-
-1. @edit: Leo reads the entire external file into the @edit node's body text.
-
-採用 @edit 指令, Leo 會將外部檔案的內容讀進該節點的內文區.
-
-2. @auto: Leo parses the external file and creates an outline that shows the structure of the external file, just as in typical class browsers.
-
-採用 @auto 則會解讀外部檔案, 並且根據該檔案的架構組成大綱模式.
-
-3. @file: Leo makes a two way connection between the @file node (and its descendants) and the external file. You can update the external file by writing the Leo outline connected to it, or you can update the outline by changing the external file. Moreover, you can easily control how Leo writes nodes to the file: you can rearrange how Leo writes nodes. To do all this Leo uses comments in the external file called sentinels that represent the outline structure in the external file itself.
-
-假如採用 @file, 則使用者可以直接在節點的內文區編輯內容, 或直接編輯外部檔案, Leo 會以雙向的方式處理檔案的內容變更.
-
-All of these connections allow you to share external files with others in a collaborative environment. With @file, you can also share outline structure with others. Thus, a single Leo outline can contain an entire project with dozens or even hundreds of external files. Using Leo, you never have to open these files by hand, Leo does so automatically when it opens the Leo outline. Leo is a unique new kind of IDE.
-
+External files: Any outline node (and its descendants) can be "connected" to any file on your file system. Several kinds of connections exist. The three most common kinds are:
+
+1. @edit: Leo reads the entire external file into the @edit node's body text.
+
+採用 @edit 指令, Leo 會將外部檔案的內容讀進該節點的內文區.
+
+2. @auto: Leo parses the external file and creates an outline that shows the structure of the external file, just as in typical class browsers.
+
+採用 @auto 則會解讀外部檔案, 並且根據該檔案的架構組成大綱模式.
+
+3. @file: Leo makes a two way connection between the @file node (and its descendants) and the external file. You can update the external file by writing the Leo outline connected to it, or you can update the outline by changing the external file. Moreover, you can easily control how Leo writes nodes to the file: you can rearrange how Leo writes nodes. To do all this Leo uses comments in the external file called sentinels that represent the outline structure in the external file itself.
+
+假如採用 @file, 則使用者可以直接在節點的內文區編輯內容, 或直接編輯外部檔案, Leo 會以雙向的方式處理檔案的內容變更.
+
+All of these connections allow you to share external files with others in a collaborative environment. With @file, you can also share outline structure with others. Thus, a single Leo outline can contain an entire project with dozens or even hundreds of external files. Using Leo, you never have to open these files by hand, Leo does so automatically when it opens the Leo outline. Leo is a unique new kind of IDE.
+
 而這個模式可以再與網際的上傳檔案結合, 假設對應到某一節點的 @file 檔案, 使用者可以由瀏覽器上傳檔案, 一旦開啟 Leo, 所有檔案內容就會整合進 Leo 的編輯區.
 
-第二週
-+++++++++
+C2 第二週
+++++++++++++
 
-使用 docutils 模組:
-
-docutils 範例1
-
-下列範例利用網路上的一份 rst 格式檔案, 利用 Python 的 urllib.request 模組開啟檔案後, 將原本為數位格式的資料編碼為文字格式資料後, 再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式, 最後再利用可攜的 Chrome 開啟此一 html 檔案.
-
-.. literalinclude:: ../c2/docutils_ex1.py
-   :language: python
-   :linenos:
-   
-docutils 範例2
-
-下列範例與範例 1 類似, 唯一的差別為文件中需要一個 image.png 圖檔, 利用 urllib.request.urlopen(影像檔案url ).read() 讀取影像網址中的數位檔案後, 直接存檔. 隨後再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式的同時, 導入 image.png 檔案.
-
-.. literalinclude:: ../c2/docutils_ex2.py
-   :language: python
-   :linenos:
-
-練習:
-
-1. 請各組員分別在各自的 www 主機中建立 rst 檔案與影像檔, 再由其他組員以 urllib.request_ 與 publish_string_ 等函式功能, 將其他組員的 rst 檔案合併, 並轉換為 html 檔案格式.
-
-.. _urllib.request: http://docs.python.org/3.0/library/urllib.request.html
-
+使用 docutils 模組:
+
+docutils 範例1
+
+下列範例利用網路上的一份 rst 格式檔案, 利用 Python 的 urllib.request 模組開啟檔案後, 將原本為數位格式的資料編碼為文字格式資料後, 再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式, 最後再利用可攜的 Chrome 開啟此一 html 檔案.
+
+.. literalinclude:: ../c2/docutils_ex1.py
+   :language: python
+   :linenos:
+   
+docutils 範例2
+
+下列範例與範例 1 類似, 唯一的差別為文件中需要一個 image.png 圖檔, 利用 urllib.request.urlopen(影像檔案url ).read() 讀取影像網址中的數位檔案後, 直接存檔. 隨後再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式的同時, 導入 image.png 檔案.
+
+.. literalinclude:: ../c2/docutils_ex2.py
+   :language: python
+   :linenos:
+
+練習:
+
+1. 請各組員分別在各自的 www 主機中建立 rst 檔案與影像檔, 再由其他組員以 urllib.request_ 與 publish_string_ 等函式功能, 將其他組員的 rst 檔案合併, 並轉換為 html 檔案格式.
+
+.. _urllib.request: http://docs.python.org/3.0/library/urllib.request.html
+
 .. _publish_string: http://docutils.sourceforge.net/docs/api/publisher.html
 
-第三週
-+++++++++
+C2 第三週
+++++++++++++
 
 Sphinx 相關
 
 Sphinx 教學
 *************
 
-利用 Leo Editor 與 Sphinx 開發手冊的範例:
-
-1. 與 nginx 有關的線上參考書
-
-    http://tengine.taobao.org/book/
-
-    參考書原始碼: http://code.taobao.org/p/nginx_book/src/trunk/
-
-2. 用 Sphinx 寫書
-
-    http://hyry.dip.jp/tech/book/page/sphinx
-    
-    編輯環境下載: http://hyry.dip.jp/files/books.zip
-    
-    寫書工具介紹: http://hyry.dip.jp:8000/files/scipybook-tools.pdf
-    
-其他利用 Sphinx 進行電子書開發的範例:
-
-http://itindex.net/detail/13288-restructuredtext-sphinx
-
-Sphinx 簡介
-
-source directory
-
-conf.py
-
-sphinx-quickstart script to setup the initial source directory and create default conf.py
-
+利用 Leo Editor 與 Sphinx 開發手冊的範例:
+
+1. 與 nginx 有關的線上參考書
+
+    http://tengine.taobao.org/book/
+
+    參考書原始碼: http://code.taobao.org/p/nginx_book/src/trunk/
+
+2. 用 Sphinx 寫書
+
+    http://hyry.dip.jp/tech/book/page/sphinx
+    
+    編輯環境下載: http://hyry.dip.jp/files/books.zip
+    
+    寫書工具介紹: http://hyry.dip.jp:8000/files/scipybook-tools.pdf
+    
+其他利用 Sphinx 進行電子書開發的範例:
+
+http://itindex.net/detail/13288-restructuredtext-sphinx
+
+Sphinx 簡介
+
+source directory
+
+conf.py
+
+sphinx-quickstart script to setup the initial source directory and create default conf.py
+
 sphinx-build
 
 nginx 手冊實作
 ^^^^^^^^^^^^^^^^^^
 
-必備工具:
-
-    portableKMOL 可攜套件 (Sphinx 與 portableLatex)
-    http://code.taobao.org/p/nginx_book/src/trunk/ 中的 rst 檔案
-    
-實作目的:
-
-    讓學員了解如何以程式方法產生 html 與 pdf 格式的電子手冊
-    
-執行步驟:
-
-    1. 啟動 portableKMOL 後, 在"命令提示字元區", 以 V:\mkdir nginx_project 建立電子手冊專用目錄.
-    
-    2. 下載 `portable subversion client_`, 利用 Repository->Checkout, 簽出 `nginx book_` 的資料.
-    
-    3. 在命令列中 cd nginx_project 目錄, 並且參考 `First step with sphinx_` 中的說明, 執行 
-    
-.. code-block:: none
-
-   sphinx-quickstart
-   
-並且依序回答相關提問.
-    
-    4. 以 SciTE 編輯 index.rst, 導入下載自  `nginx book_` 資料中的 .rst 檔案:
-    
-.. code-block:: none
-
-    .. cmsimple documentation master file, created by
-       sphinx-quickstart on Wed Mar 13 19:31:14 2013.
-       You can adapt this file completely to your liking, but it should at least
-       contain the root `toctree` directive.
-    
-    Welcome to cmsimple's documentation!
-    ====================================
-    
-    Contents:
-    
-    .. toctree::
-       :maxdepth: 2
-    
-       chapter_2
-       chapter_3
-       chapter_4
-       chapter_5
-       chapter_6
-       chapter_7
-       chapter_11
-       chapter_12
-       example_1
-    
-    Indices and tables
-    ==================
-    
-    * :ref:`genindex`
-    * :ref:`modindex`
-    * :ref:`search`
-
-將上列 chapter_2.rst ~ example_1.rst 等檔案放入 index.rst 所屬目錄中.
-
-    5. 編輯 conf.py:
-    
-.. code-block:: python
-
-    #!/usr/bin/env python3
-    # -*- coding: utf-8 -*-
-    #
-    # cmsimple documentation build configuration file, created by
-    # sphinx-quickstart on Wed Mar 13 19:31:14 2013.
-    #
-    # This file is execfile()d with the current directory set to its containing dir.
-    #
-    # Note that not all possible configuration values are present in this
-    # autogenerated file.
-    #
-    # All configuration values have a default; values that are commented out
-    # serve to show the default.
-    
-    import sys, os
-    
-    # If extensions (or modules to document with autodoc) are in another directory,
-    # add these directories to sys.path here. If the directory is relative to the
-    # documentation root, use os.path.abspath to make it absolute, like shown here.
-    #sys.path.insert(0, os.path.abspath('.'))
-    
-    # -- General configuration -----------------------------------------------------
-    
-    # If your documentation needs a minimal Sphinx version, state it here.
-    #needs_sphinx = '1.0'
-    
-    # Add any Sphinx extension module names here, as strings. They can be extensions
-    # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-    extensions = ['sphinx.ext.pngmath', 'sphinx.ext.mathjax']
-    
-    # Add any paths that contain templates here, relative to this directory.
-    templates_path = ['_templates']
-    
-    # The suffix of source filenames.
-    source_suffix = '.rst'
-    
-    # The encoding of source files.
-    #source_encoding = 'utf-8-sig'
-    
-    # The master toctree document.
-    master_doc = 'index'
-    
-    # General information about the project.
-    project = 'cmsimple'
-    copyright = '2013, the author'
-    
-    # The version info for the project you're documenting, acts as replacement for
-    # |version| and |release|, also used in various other places throughout the
-    # built documents.
-    #
-    # The short X.Y version.
-    version = '1.0'
-    # The full version, including alpha/beta/rc tags.
-    release = '1.0'
-    
-    # The language for content autogenerated by Sphinx. Refer to documentation
-    # for a list of supported languages.
-    language = 'zh_TW'
-    
-    # There are two options for replacing |today|: either, you set today to some
-    # non-false value, then it is used:
-    #today = ''
-    # Else, today_fmt is used as the format for a strftime call.
-    #today_fmt = '%B %d, %Y'
-    
-    # List of patterns, relative to source directory, that match files and
-    # directories to ignore when looking for source files.
-    exclude_patterns = []
-    
-    # The reST default role (used for this markup: `text`) to use for all documents.
-    #default_role = None
-    
-    # If true, '()' will be appended to :func: etc. cross-reference text.
-    #add_function_parentheses = True
-    
-    # If true, the current module name will be prepended to all description
-    # unit titles (such as .. function::).
-    #add_module_names = True
-    
-    # If true, sectionauthor and moduleauthor directives will be shown in the
-    # output. They are ignored by default.
-    #show_authors = False
-    
-    # The name of the Pygments (syntax highlighting) style to use.
-    pygments_style = 'sphinx'
-    
-    # A list of ignored prefixes for module index sorting.
-    #modindex_common_prefix = []
-    
-    
-    # -- Options for HTML output ---------------------------------------------------
-    
-    # The theme to use for HTML and HTML Help pages.  See the documentation for
-    # a list of builtin themes.
-    html_theme = 'default'
-    
-    # Theme options are theme-specific and customize the look and feel of a theme
-    # further.  For a list of options available for each theme, see the
-    # documentation.
-    #html_theme_options = {}
-    
-    # Add any paths that contain custom themes here, relative to this directory.
-    #html_theme_path = []
-    
-    # The name for this set of Sphinx documents.  If None, it defaults to
-    # "<project> v<release> documentation".
-    #html_title = None
-    
-    # A shorter title for the navigation bar.  Default is the same as html_title.
-    #html_short_title = None
-    
-    # The name of an image file (relative to this directory) to place at the top
-    # of the sidebar.
-    #html_logo = None
-    
-    # The name of an image file (within the static path) to use as favicon of the
-    # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
-    # pixels large.
-    #html_favicon = None
-    
-    # Add any paths that contain custom static files (such as style sheets) here,
-    # relative to this directory. They are copied after the builtin static files,
-    # so a file named "default.css" will overwrite the builtin "default.css".
-    html_static_path = ['_static']
-    
-    # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
-    # using the given strftime format.
-    #html_last_updated_fmt = '%b %d, %Y'
-    
-    # If true, SmartyPants will be used to convert quotes and dashes to
-    # typographically correct entities.
-    #html_use_smartypants = True
-    
-    # Custom sidebar templates, maps document names to template names.
-    #html_sidebars = {}
-    
-    # Additional templates that should be rendered to pages, maps page names to
-    # template names.
-    #html_additional_pages = {}
-    
-    # If false, no module index is generated.
-    #html_domain_indices = True
-    
-    # If false, no index is generated.
-    #html_use_index = True
-    
-    # If true, the index is split into individual pages for each letter.
-    #html_split_index = False
-    
-    # If true, links to the reST sources are added to the pages.
-    #html_show_sourcelink = True
-    
-    # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-    #html_show_sphinx = True
-    
-    # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-    #html_show_copyright = True
-    
-    # If true, an OpenSearch description file will be output, and all pages will
-    # contain a <link> tag referring to it.  The value of this option must be the
-    # base URL from which the finished HTML is served.
-    #html_use_opensearch = ''
-    
-    # This is the file name suffix for HTML files (e.g. ".xhtml").
-    #html_file_suffix = None
-    
-    # Output file base name for HTML help builder.
-    htmlhelp_basename = 'cmsimpledoc'
-    
-    
-    # -- Options for LaTeX output --------------------------------------------------
-    TITLE = "nginx 電子書"
-    
-    latex_elements = {
-    # The paper size ('letterpaper' or 'a4paper').
-    #'papersize': 'letterpaper',
-    
-    # The font size ('10pt', '11pt' or '12pt').
-    #'pointsize': '10pt',
-    "maketitle": r"""
-    \maketitle
-    \renewcommand\contentsname{目 錄}
-    \renewcommand\partname{部分} 
-    \renewcommand{\chaptermark}[1]{\markboth{\textnormal{第 \thechapter\ 章 \hspace{4mm} #1}}{}}
-    \renewcommand{\sectionmark}[1]{\markright{\textnormal{\thesection \hspace{2mm} #1}}{}}
-    \renewcommand{\figurename}{\textsc{圖}}
-    \renewcommand{\tablename}{\textsc{表}}
-    """,
-    "tableofcontents": r"""
-    \tableofcontents
-    \chapter*{前言}
-    \addcontentsline{toc}{chapter}{前言}
-    \fancyhead[LE,RO]{%s}
-    """ % TITLE,
-    # Additional stuff for the LaTeX preamble.
-    'preamble': r"""
-    % \pdfpagewidth 195mm
-    % \pdfpageheight 271mm
-    % \textwidth 6.0in
-    % \textheight 8.8in
-    % \oddsidemargin -0.1in
-    % \evensidemargin -0.1in
-    
-    \textwidth 6.8in
-    \oddsidemargin -0.2in
-    \evensidemargin -0.3in
-    
-    \usepackage{pdfpages}
-    \usepackage[BoldFont,CJKchecksingle]{xeCJK}
-    
-        \usepackage{fancyvrb} % for frame on Verbatim
-        \usepackage{fancyhdr}
-        \usepackage[T1]{fontspec}               %設定字體用
-    
-    \usepackage{float}
-    \usepackage{ccaption}
-    \usepackage{pifont}
-    % \usepackage{fancybox}
-    \usepackage{fontspec,xunicode,xltxtra}
-    
-    \setsansfont{Times New Roman}
-    \setmainfont{Times New Roman}
-    \setmonofont{Times New Roman}
-    
-    \setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-    \setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-    \setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-    \setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-    
-        \makeatletter
-        \def\verbatim@font{\rmfamily\small}     %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
-        \makeatother
-    
-    \XeTeXlinebreaklocale "zh"  %讓中文自動換行
-    \XeTeXlinebreakskip = 0pt plus 1pt
-    \renewcommand{\baselinestretch}{1.3} 
-    \setcounter{tocdepth}{3}
-    \captiontitlefont{\small\sffamily}
-    \captiondelim{ - }
-    \renewcommand\today{\number\year年\number\month月\number\day日}      
-    \makeatletter
-    \renewcommand*\l@subsection{\@dottedtocline{2}{2.0em}{4.0em}}
-    \renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
-    \makeatother
-    \titleformat{\chapter}[display]
-    {\bfseries\Huge}
-    {\filleft \Huge 第 \hspace{2 mm} \thechapter \hspace{4 mm} 章}
-    {4ex}
-    {\titlerule
-    \vspace{1ex}%
-    \filright}
-    [\vspace{1ex}%
-    \titlerule]
-    %\definecolor{VerbatimBorderColor}{rgb}{0.2,0.2,0.2}
-    \definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
-    """,
-    }
-    
-    # Grouping the document tree into LaTeX files. List of tuples
-    # (source start file, target name, title, author, documentclass [howto/manual]).
-    latex_documents = [
-      ('index', 'cmsimple.tex', 'cmsimple Documentation',
-       'the author', 'manual'),
-    ]
-    
-    # The name of an image file (relative to this directory) to place at the top of
-    # the title page.
-    #latex_logo = None
-    
-    # For "manual" documents, if this is true, then toplevel headings are parts,
-    # not chapters.
-    #latex_use_parts = False
-    
-    # If true, show page references after internal links.
-    #latex_show_pagerefs = False
-    
-    # If true, show URL addresses after external links.
-    #latex_show_urls = False
-    
-    # Documents to append as an appendix to all manuals.
-    #latex_appendices = []
-    
-    # If false, no module index is generated.
-    #latex_domain_indices = True
-    
-    
-    # -- Options for manual page output --------------------------------------------
-    
-    # One entry per manual page. List of tuples
-    # (source start file, name, description, authors, manual section).
-    man_pages = [
-        ('index', 'cmsimple', 'cmsimple Documentation',
-         ['the author'], 1)
-    ]
-    
-    # If true, show URL addresses after external links.
-    #man_show_urls = False
-    
-    
-    # -- Options for Texinfo output ------------------------------------------------
-    
-    # Grouping the document tree into Texinfo files. List of tuples
-    # (source start file, target name, title, author,
-    #  dir menu entry, description, category)
-    texinfo_documents = [
-      ('index', 'cmsimple', 'cmsimple Documentation',
-       'the author', 'cmsimple', 'One line description of project.',
-       'Miscellaneous'),
-    ]
-    
-    # Documents to append as an appendix to all manuals.
-    #texinfo_appendices = []
-    
-    # If false, no module index is generated.
-    #texinfo_domain_indices = True
-    
-    # How to display URL addresses: 'footnote', 'no', or 'inline'.
-    #texinfo_show_urls = 'footnote'
-
-::
-
-    6. 進入 nginx_project 目錄, 執行:
-    
-.. code-block:: none
-
-   make html
-
-就可以在 build/html 目錄中產生對應的 html 格式電子書檔案.
-
-.. code-block:: none
-
-   make latex
-   
-就可以在 build/latex 目錄中產生對應的 latex 格式電子書檔案.
-
-為了將 .tex 檔案轉換為 pdf 格式, 以 SciTE 編輯 makepdf.bat, 放入 latex 目錄中.
-
-.. code-block:: none
-
-    V:/extensions/portableLatex/MiKTeX/texmf/miktex/bin/xelatex.exe -interaction=nonstopmode %1
-    V:/extensions/portableLatex/MiKTeX/texmf/miktex/bin/xelatex.exe -interaction=nonstopmode %1
-
-在 latex 目錄中, 執行 (必須配合設定時所使用的專案名稱, 例如: nginx.tex):
-
-.. code-block:: none
-
-   makepdf nginx.tex
-   
-就可以順利產生 pdf 格式的電子書檔案.
-
-.. _portable subversion client: http://portableapps.com/node/6767
-
-.. _nginx book: http://code.taobao.org/p/nginx_book/src/trunk/
-
+必備工具:
+
+    portableKMOL 可攜套件 (Sphinx 與 portableLatex)
+    http://code.taobao.org/p/nginx_book/src/trunk/ 中的 rst 檔案
+    
+實作目的:
+
+    讓學員了解如何以程式方法產生 html 與 pdf 格式的電子手冊
+    
+專案檔案:
+
+    https://github.com/chiamingyen/nginxProject
+    
+執行步驟:
+
+    1. 啟動 portableKMOL 後, 在"命令提示字元區", 以 V:\mkdir nginx_project 建立電子手冊專用目錄.
+    
+    2. 下載 `portable subversion client_`, 利用 Repository->Checkout, 簽出 `nginx book_` 的資料.
+    
+    3. 在命令列中 cd nginx_project 目錄, 並且參考 `First step with sphinx_` 中的說明, 執行 
+    
+.. code-block:: none
+
+   sphinx-quickstart
+   
+並且依序回答相關提問.
+    
+    4. 以 SciTE 編輯 index.rst, 導入下載自  `nginx book_` 資料中的 .rst 檔案:
+    
+.. code-block:: none
+
+    .. cmsimple documentation master file, created by
+       sphinx-quickstart on Wed Mar 13 19:31:14 2013.
+       You can adapt this file completely to your liking, but it should at least
+       contain the root `toctree` directive.
+    
+    Welcome to cmsimple's documentation!
+    ====================================
+    
+    Contents:
+    
+    .. toctree::
+       :maxdepth: 2
+    
+       chapter_2
+       chapter_3
+       chapter_4
+       chapter_5
+       chapter_6
+       chapter_7
+       chapter_11
+       chapter_12
+       example_1
+    
+    Indices and tables
+    ==================
+    
+    * :ref:`genindex`
+    * :ref:`modindex`
+    * :ref:`search`
+
+將上列 chapter_2.rst ~ example_1.rst 等檔案放入 index.rst 所屬目錄中.
+
+    5. 編輯 conf.py:
+    
+.. code-block:: python
+
+    #!/usr/bin/env python3
+    # -*- coding: utf-8 -*-
+    #
+    # cmsimple documentation build configuration file, created by
+    # sphinx-quickstart on Wed Mar 13 19:31:14 2013.
+    #
+    # This file is execfile()d with the current directory set to its containing dir.
+    #
+    # Note that not all possible configuration values are present in this
+    # autogenerated file.
+    #
+    # All configuration values have a default; values that are commented out
+    # serve to show the default.
+    
+    import sys, os
+    
+    # If extensions (or modules to document with autodoc) are in another directory,
+    # add these directories to sys.path here. If the directory is relative to the
+    # documentation root, use os.path.abspath to make it absolute, like shown here.
+    #sys.path.insert(0, os.path.abspath('.'))
+    
+    # -- General configuration -----------------------------------------------------
+    
+    # If your documentation needs a minimal Sphinx version, state it here.
+    #needs_sphinx = '1.0'
+    
+    # Add any Sphinx extension module names here, as strings. They can be extensions
+    # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
+    extensions = ['sphinx.ext.pngmath', 'sphinx.ext.mathjax']
+    
+    # Add any paths that contain templates here, relative to this directory.
+    templates_path = ['_templates']
+    
+    # The suffix of source filenames.
+    source_suffix = '.rst'
+    
+    # The encoding of source files.
+    #source_encoding = 'utf-8-sig'
+    
+    # The master toctree document.
+    master_doc = 'index'
+    
+    # General information about the project.
+    project = 'cmsimple'
+    copyright = '2013, the author'
+    
+    # The version info for the project you're documenting, acts as replacement for
+    # |version| and |release|, also used in various other places throughout the
+    # built documents.
+    #
+    # The short X.Y version.
+    version = '1.0'
+    # The full version, including alpha/beta/rc tags.
+    release = '1.0'
+    
+    # The language for content autogenerated by Sphinx. Refer to documentation
+    # for a list of supported languages.
+    language = 'zh_TW'
+    
+    # There are two options for replacing |today|: either, you set today to some
+    # non-false value, then it is used:
+    #today = ''
+    # Else, today_fmt is used as the format for a strftime call.
+    #today_fmt = '%B %d, %Y'
+    
+    # List of patterns, relative to source directory, that match files and
+    # directories to ignore when looking for source files.
+    exclude_patterns = []
+    
+    # The reST default role (used for this markup: `text`) to use for all documents.
+    #default_role = None
+    
+    # If true, '()' will be appended to :func: etc. cross-reference text.
+    #add_function_parentheses = True
+    
+    # If true, the current module name will be prepended to all description
+    # unit titles (such as .. function::).
+    #add_module_names = True
+    
+    # If true, sectionauthor and moduleauthor directives will be shown in the
+    # output. They are ignored by default.
+    #show_authors = False
+    
+    # The name of the Pygments (syntax highlighting) style to use.
+    pygments_style = 'sphinx'
+    
+    # A list of ignored prefixes for module index sorting.
+    #modindex_common_prefix = []
+    
+    
+    # -- Options for HTML output ---------------------------------------------------
+    
+    # The theme to use for HTML and HTML Help pages.  See the documentation for
+    # a list of builtin themes.
+    html_theme = 'default'
+    
+    # Theme options are theme-specific and customize the look and feel of a theme
+    # further.  For a list of options available for each theme, see the
+    # documentation.
+    #html_theme_options = {}
+    
+    # Add any paths that contain custom themes here, relative to this directory.
+    #html_theme_path = []
+    
+    # The name for this set of Sphinx documents.  If None, it defaults to
+    # "<project> v<release> documentation".
+    #html_title = None
+    
+    # A shorter title for the navigation bar.  Default is the same as html_title.
+    #html_short_title = None
+    
+    # The name of an image file (relative to this directory) to place at the top
+    # of the sidebar.
+    #html_logo = None
+    
+    # The name of an image file (within the static path) to use as favicon of the
+    # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
+    # pixels large.
+    #html_favicon = None
+    
+    # Add any paths that contain custom static files (such as style sheets) here,
+    # relative to this directory. They are copied after the builtin static files,
+    # so a file named "default.css" will overwrite the builtin "default.css".
+    html_static_path = ['_static']
+    
+    # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+    # using the given strftime format.
+    #html_last_updated_fmt = '%b %d, %Y'
+    
+    # If true, SmartyPants will be used to convert quotes and dashes to
+    # typographically correct entities.
+    #html_use_smartypants = True
+    
+    # Custom sidebar templates, maps document names to template names.
+    #html_sidebars = {}
+    
+    # Additional templates that should be rendered to pages, maps page names to
+    # template names.
+    #html_additional_pages = {}
+    
+    # If false, no module index is generated.
+    #html_domain_indices = True
+    
+    # If false, no index is generated.
+    #html_use_index = True
+    
+    # If true, the index is split into individual pages for each letter.
+    #html_split_index = False
+    
+    # If true, links to the reST sources are added to the pages.
+    #html_show_sourcelink = True
+    
+    # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
+    #html_show_sphinx = True
+    
+    # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
+    #html_show_copyright = True
+    
+    # If true, an OpenSearch description file will be output, and all pages will
+    # contain a <link> tag referring to it.  The value of this option must be the
+    # base URL from which the finished HTML is served.
+    #html_use_opensearch = ''
+    
+    # This is the file name suffix for HTML files (e.g. ".xhtml").
+    #html_file_suffix = None
+    
+    # Output file base name for HTML help builder.
+    htmlhelp_basename = 'cmsimpledoc'
+    
+    
+    # -- Options for LaTeX output --------------------------------------------------
+    TITLE = "nginx 電子書"
+    
+    latex_elements = {
+    # The paper size ('letterpaper' or 'a4paper').
+    #'papersize': 'letterpaper',
+    
+    # The font size ('10pt', '11pt' or '12pt').
+    #'pointsize': '10pt',
+    "maketitle": r"""
+    \maketitle
+    \renewcommand\contentsname{目 錄}
+    \renewcommand\partname{部分} 
+    \renewcommand{\chaptermark}[1]{\markboth{\textnormal{第 \thechapter\ 章 \hspace{4mm} #1}}{}}
+    \renewcommand{\sectionmark}[1]{\markright{\textnormal{\thesection \hspace{2mm} #1}}{}}
+    \renewcommand{\figurename}{\textsc{圖}}
+    \renewcommand{\tablename}{\textsc{表}}
+    """,
+    "tableofcontents": r"""
+    \tableofcontents
+    \chapter*{前言}
+    \addcontentsline{toc}{chapter}{前言}
+    \fancyhead[LE,RO]{%s}
+    """ % TITLE,
+    # Additional stuff for the LaTeX preamble.
+    'preamble': r"""
+    % \pdfpagewidth 195mm
+    % \pdfpageheight 271mm
+    % \textwidth 6.0in
+    % \textheight 8.8in
+    % \oddsidemargin -0.1in
+    % \evensidemargin -0.1in
+    
+    \textwidth 6.8in
+    \oddsidemargin -0.2in
+    \evensidemargin -0.3in
+    
+    \usepackage{pdfpages}
+    \usepackage[BoldFont,CJKchecksingle]{xeCJK}
+    
+        \usepackage{fancyvrb} % for frame on Verbatim
+        \usepackage{fancyhdr}
+        \usepackage[T1]{fontspec}               %設定字體用
+    
+    \usepackage{float}
+    \usepackage{ccaption}
+    \usepackage{pifont}
+    % \usepackage{fancybox}
+    \usepackage{fontspec,xunicode,xltxtra}
+    
+    \setsansfont{Times New Roman}
+    \setmainfont{Times New Roman}
+    \setmonofont{Times New Roman}
+    
+    \setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+    \setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+    \setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+    \setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+    
+        \makeatletter
+        \def\verbatim@font{\rmfamily\small}     %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
+        \makeatother
+    
+    \XeTeXlinebreaklocale "zh"  %讓中文自動換行
+    \XeTeXlinebreakskip = 0pt plus 1pt
+    \renewcommand{\baselinestretch}{1.3} 
+    \setcounter{tocdepth}{3}
+    \captiontitlefont{\small\sffamily}
+    \captiondelim{ - }
+    \renewcommand\today{\number\year年\number\month月\number\day日}      
+    \makeatletter
+    \renewcommand*\l@subsection{\@dottedtocline{2}{2.0em}{4.0em}}
+    \renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
+    \makeatother
+    \titleformat{\chapter}[display]
+    {\bfseries\Huge}
+    {\filleft \Huge 第 \hspace{2 mm} \thechapter \hspace{4 mm} 章}
+    {4ex}
+    {\titlerule
+    \vspace{1ex}%
+    \filright}
+    [\vspace{1ex}%
+    \titlerule]
+    %\definecolor{VerbatimBorderColor}{rgb}{0.2,0.2,0.2}
+    \definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
+    """,
+    }
+    
+    # Grouping the document tree into LaTeX files. List of tuples
+    # (source start file, target name, title, author, documentclass [howto/manual]).
+    latex_documents = [
+      ('index', 'cmsimple.tex', 'cmsimple Documentation',
+       'the author', 'manual'),
+    ]
+    
+    # The name of an image file (relative to this directory) to place at the top of
+    # the title page.
+    #latex_logo = None
+    
+    # For "manual" documents, if this is true, then toplevel headings are parts,
+    # not chapters.
+    #latex_use_parts = False
+    
+    # If true, show page references after internal links.
+    #latex_show_pagerefs = False
+    
+    # If true, show URL addresses after external links.
+    #latex_show_urls = False
+    
+    # Documents to append as an appendix to all manuals.
+    #latex_appendices = []
+    
+    # If false, no module index is generated.
+    #latex_domain_indices = True
+    
+    
+    # -- Options for manual page output --------------------------------------------
+    
+    # One entry per manual page. List of tuples
+    # (source start file, name, description, authors, manual section).
+    man_pages = [
+        ('index', 'cmsimple', 'cmsimple Documentation',
+         ['the author'], 1)
+    ]
+    
+    # If true, show URL addresses after external links.
+    #man_show_urls = False
+    
+    
+    # -- Options for Texinfo output ------------------------------------------------
+    
+    # Grouping the document tree into Texinfo files. List of tuples
+    # (source start file, target name, title, author,
+    #  dir menu entry, description, category)
+    texinfo_documents = [
+      ('index', 'cmsimple', 'cmsimple Documentation',
+       'the author', 'cmsimple', 'One line description of project.',
+       'Miscellaneous'),
+    ]
+    
+    # Documents to append as an appendix to all manuals.
+    #texinfo_appendices = []
+    
+    # If false, no module index is generated.
+    #texinfo_domain_indices = True
+    
+    # How to display URL addresses: 'footnote', 'no', or 'inline'.
+    #texinfo_show_urls = 'footnote'
+
+::
+
+    6. 進入 nginx_project 目錄, 執行:
+    
+.. code-block:: none
+
+   make html
+
+就可以在 build/html 目錄中產生對應的 html 格式電子書檔案.
+
+.. code-block:: none
+
+   make latex
+   
+就可以在 build/latex 目錄中產生對應的 latex 格式電子書檔案.
+
+為了將 .tex 檔案轉換為 pdf 格式, 以 SciTE 編輯 makepdf.bat, 放入 latex 目錄中.
+
+.. code-block:: none
+
+    V:/extensions/portableLatex/MiKTeX/texmf/miktex/bin/xelatex.exe -interaction=nonstopmode %1
+    V:/extensions/portableLatex/MiKTeX/texmf/miktex/bin/xelatex.exe -interaction=nonstopmode %1
+
+在 latex 目錄中, 執行 (必須配合設定時所使用的專案名稱, 例如: nginx.tex):
+
+.. code-block:: none
+
+   makepdf nginx.tex
+   
+就可以順利產生 pdf 格式的電子書檔案.
+
+.. _portable subversion client: http://portableapps.com/node/6767
+
+.. _nginx book: http://code.taobao.org/p/nginx_book/src/trunk/
+
 .. _First step with sphinx: http://sphinx-doc.org/tutorial.html
 
 Leo 的文書處理
 *******************
 
-先以空標題進行架構區分
-然後進入章節標題, 也是用來區分架構, 沒有內文資料
-
-接著再利用 @file 將章節標題以下的內容存成 .txt, 位置在文書處理目錄的上位目錄, 此一內容應該是類似內容備份用
-
-實際的 rest 格式內容則是利用 @rst 產生, 由於標題檔案名稱會被 rst 模組自動加上 .txt
-
-而且此基本的 suffix 必須填入 conf.py 中, 也就是 source_suffix 變數
-
-# The suffix of source filenames.
-source_suffix = '.html.txt'
-
-其中也必須在 conf.py 中宣告最重要的合併處理檔案, 也就是 master_doc 變數, master_doc 會自動被 Sphinx 冠上 suffix, 因此宣告時無須加上 prefix
-
-# The master toctree document.
-master_doc = 'leo_toc' # don't use any prefix.
-
-位於 leo_toc.html.txt 中最重要的就是 toctree 指令, 其下為合併處理的章節檔案名稱.
-
-例如:
-
-.. 特別注意: 要找出直接顯示特別指令的方法
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
+先以空標題進行架構區分
+然後進入章節標題, 也是用來區分架構, 沒有內文資料
+
+接著再利用 @file 將章節標題以下的內容存成 .txt, 位置在文書處理目錄的上位目錄, 此一內容應該是類似內容備份用
+
+實際的 rest 格式內容則是利用 @rst 產生, 由於標題檔案名稱會被 rst 模組自動加上 .txt
+
+而且此基本的 suffix 必須填入 conf.py 中, 也就是 source_suffix 變數
+
+# The suffix of source filenames.
+source_suffix = '.html.txt'
+
+其中也必須在 conf.py 中宣告最重要的合併處理檔案, 也就是 master_doc 變數, master_doc 會自動被 Sphinx 冠上 suffix, 因此宣告時無須加上 prefix
+
+# The master toctree document.
+master_doc = 'leo_toc' # don't use any prefix.
+
+位於 leo_toc.html.txt 中最重要的就是 toctree 指令, 其下為合併處理的章節檔案名稱.
+
+例如:
+
+.. 特別注意: 要找出直接顯示特別指令的方法
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
 以下則列出要加入 toc 處理的各檔案名稱.
 
 SciTE 設定
 ************
 
-為了讓 SciTE 可以在開啟檔案內容變更時, 自動在編輯區內反應最新變更後的內容, 必須修改
-
-SciTEGlobal.properties 中的設定值:
-
-.. code-block:: none
-
-   load.on.activate=1
-   save.on.deactivate=1
-
-詳細說明如下:
-
-The load.on.activate property causes SciTE to check whether the current file has been updated by another process whenever it is activated. This is useful when another editor such as a WYSIWYG HTML editor, is being used in conjunction with SciTE.
-
+為了讓 SciTE 可以在開啟檔案內容變更時, 自動在編輯區內反應最新變更後的內容, 必須修改
+
+SciTEGlobal.properties 中的設定值:
+
+.. code-block:: none
+
+   load.on.activate=1
+   save.on.deactivate=1
+
+詳細說明如下:
+
+The load.on.activate property causes SciTE to check whether the current file has been updated by another process whenever it is activated. This is useful when another editor such as a WYSIWYG HTML editor, is being used in conjunction with SciTE.
+
 The save.on.deactivate property causes SciTE to save the file whenever the SciTE application loses focus. This is useful when developing web pages and you want to often check the appearance of the page in a browser.
 
 @url SciTE 設定說明
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-http://www.scintilla.org/SciTEDoc.html
-
+http://www.scintilla.org/SciTEDoc.html
+
 SciTE 線上說明文件
 
-第四週
-+++++++++
+C2 第四週
+++++++++++++
 
-Python 3.3 本體的基本運算功能範例
-
-pip 的模組安裝指令
-
-Python 的 Windows COM 應用
-    Python 與 SolidWorks
-    Python 與 Word
-    Python 與 Excel
-    Python 與 Inventor
-
-Python 的 PIL 應用範例
-
-Python 的 matplotlib 應用範例
-
-Python 的 numpy 與 scipy 應用範例
-
-Python 的 sympy 應用範例
-
-Python 的 PyQT 應用範例
-
+Python 3.3 本體的基本運算功能範例
+
+pip 的模組安裝指令
+
+Python 的 Windows COM 應用
+    Python 與 SolidWorks
+    Python 與 Word
+    Python 與 Excel
+    Python 與 Inventor
+
+Python 的 PIL 應用範例
+
+Python 的 matplotlib 應用範例
+
+Python 的 numpy 與 scipy 應用範例
+
+Python 的 sympy 應用範例
+
+Python 的 PyQT 應用範例
+
 Python 的 CherryPy 應用程式開發
 
 tkinter
 *******
 
-.. code-block:: python
-
-    #coding: utf-8
-    from tkinter import *
-    root = Tk(className="視窗標題")
-    w = Label(root, text = "第一個視窗程式")
-    w.pack()
-    root.mainloop()
-    
-單位換算視窗程式:
-
-.. code-block:: python
-
-    from tkinter import *
-    from tkinter import ttk
-    
-    # source: http://www.tkdocs.com/tutorial/firstexample.html
-    def calculate(*args):
-        try:
-            value = float(feet.get())
-            meters.set((0.3048 * value * 10000.0 + 0.5)/10000.0)
-        except ValueError:
-            pass
-        
-    root = Tk()
-    root.title("Feet to Meters")
-    
-    mainframe = ttk.Frame(root, padding="3 3 12 12")
-    mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-    mainframe.columnconfigure(0, weight=1)
-    mainframe.rowconfigure(0, weight=1)
-    
-    feet = StringVar()
-    meters = StringVar()
-    
-    feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)
-    feet_entry.grid(column=2, row=1, sticky=(W, E))
-    
-    ttk.Label(mainframe, textvariable=meters).grid(column=2, row=2, sticky=(W, E))
-    ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=W)
-    
-    ttk.Label(mainframe, text="feet").grid(column=3, row=1, sticky=W)
-    ttk.Label(mainframe, text="is equivalent to").grid(column=1, row=2, sticky=E)
-    ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
-    
-    for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
-    
-    feet_entry.focus()
-    root.bind('<Return>', calculate)
-    
-    root.mainloop()
-    
-一般計算機:
-
-.. code-block:: python
-
-    #coding: utf8
-    '''
-    簡單的 tkinter 計算機
-    '''
-    # 來源: http://bsspirit.appspot.com/20101222/python3-Tkinter-Calculator.html
-    
-    from tkinter import *
-    from tkinter.font import Font
-    
-    def 按鍵(框架, 文字, 執行函式=None):
-        字型 = Font(family=('Verdana'), size=14)
-        return Button(框架, text=文字, font=字型, width=3, command=執行函式)
-    
-    def 框架(框架, 對齊=LEFT, 背景顏色="black"):
-        框架 = Frame(框架, background=背景顏色, padx=5, pady=5)
-        框架.pack(side=對齊, expand=YES, fill=BOTH)
-        return 框架
-    
-    class 應用程式:
-        def __init__(self, 視窗):
-            字型 = Font(family=('Verdana'), size=14)
-            主視窗 = 框架(視窗)
-    
-            左邊框架 = 框架(主視窗)
-            右邊框架 = 框架(主視窗)
-            計算區 = 框架(左邊框架)
-            
-            self.輸入 = Entry(計算區, font=字型, width=15, background="white")
-            self.輸入.pack(side=TOP)
-    
-            self.按鍵框架 = 框架(計算區)
-    
-            x, y = 0, 0
-            for 按鍵配置 in ("()%C", "+-*/", "1234", "5678", "90.="):
-                for 字元 in 按鍵配置:
-                    if 字元 == "=":
-                        類別按鍵 = 按鍵(self.按鍵框架, 字元, self.計算動作)
-                    elif 字元 == "C":
-                        類別按鍵 = 按鍵(self.按鍵框架, 字元, self.清除畫面)
-                    else:
-                        類別按鍵 = 按鍵(self.按鍵框架, 字元, lambda 內容=字元: self.輸入.insert(INSERT, 內容))
-                        
-                    類別按鍵.grid(row=x, column=y)
-                    y += 1
-    
-                x += 1
-                y = 0
-    
-            self.紀錄 = Text(右邊框架, font=Font(family=('Verdana'), size=10), width=25, height=14, background="yellow")
-            self.紀錄.pack(side=RIGHT)
-    
-        def 清除畫面(self):
-            self.輸入.delete(0, END)
-    
-        def 計算動作(self):
-            暫存 = self.輸入.get()
-            try:
-                結果 = 暫存 + "=" + str(eval(暫存))
-                self.紀錄.insert(1.0, 結果 + "\n");
-                print(結果)
-            except Exception:
-                self.紀錄.insert(1.0, "抱歉! 發生錯誤\n");
-    
-    
-    if __name__ == '__main__':
-        視窗= Tk()
-        視窗.title("計算機")
-        #視窗.geometry()
-        我的應用程式 = 應用程式(視窗)
-        視窗.mainloop()
-        
-請以組為單位, 將上述一般計算機改為工程用計算機程式.
-
-參考資料:
-
-http://infohost.nmt.edu/tcc/help/pubs/tkinter.pdf
-
-http://www.tkdocs.com/tutorial/
-
-https://github.com/doctoboggan/PYQT-Calculator
-
+.. code-block:: python
+
+    #coding: utf-8
+    from tkinter import *
+    root = Tk(className="視窗標題")
+    w = Label(root, text = "第一個視窗程式")
+    w.pack()
+    root.mainloop()
+    
+單位換算視窗程式:
+
+.. code-block:: python
+
+    from tkinter import *
+    from tkinter import ttk
+    
+    # source: http://www.tkdocs.com/tutorial/firstexample.html
+    def calculate(*args):
+        try:
+            value = float(feet.get())
+            meters.set((0.3048 * value * 10000.0 + 0.5)/10000.0)
+        except ValueError:
+            pass
+        
+    root = Tk()
+    root.title("Feet to Meters")
+    
+    mainframe = ttk.Frame(root, padding="3 3 12 12")
+    mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
+    mainframe.columnconfigure(0, weight=1)
+    mainframe.rowconfigure(0, weight=1)
+    
+    feet = StringVar()
+    meters = StringVar()
+    
+    feet_entry = ttk.Entry(mainframe, width=7, textvariable=feet)
+    feet_entry.grid(column=2, row=1, sticky=(W, E))
+    
+    ttk.Label(mainframe, textvariable=meters).grid(column=2, row=2, sticky=(W, E))
+    ttk.Button(mainframe, text="Calculate", command=calculate).grid(column=3, row=3, sticky=W)
+    
+    ttk.Label(mainframe, text="feet").grid(column=3, row=1, sticky=W)
+    ttk.Label(mainframe, text="is equivalent to").grid(column=1, row=2, sticky=E)
+    ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
+    
+    for child in mainframe.winfo_children(): child.grid_configure(padx=5, pady=5)
+    
+    feet_entry.focus()
+    root.bind('<Return>', calculate)
+    
+    root.mainloop()
+    
+一般計算機:
+
+.. code-block:: python
+
+    #coding: utf8
+    '''
+    簡單的 tkinter 計算機
+    '''
+    # 來源: http://bsspirit.appspot.com/20101222/python3-Tkinter-Calculator.html
+    
+    from tkinter import *
+    from tkinter.font import Font
+    
+    def 按鍵(框架, 文字, 執行函式=None):
+        字型 = Font(family=('Verdana'), size=14)
+        return Button(框架, text=文字, font=字型, width=3, command=執行函式)
+    
+    def 框架(框架, 對齊=LEFT, 背景顏色="black"):
+        框架 = Frame(框架, background=背景顏色, padx=5, pady=5)
+        框架.pack(side=對齊, expand=YES, fill=BOTH)
+        return 框架
+    
+    class 應用程式:
+        def __init__(self, 視窗):
+            字型 = Font(family=('Verdana'), size=14)
+            主視窗 = 框架(視窗)
+    
+            左邊框架 = 框架(主視窗)
+            右邊框架 = 框架(主視窗)
+            計算區 = 框架(左邊框架)
+            
+            self.輸入 = Entry(計算區, font=字型, width=15, background="white")
+            self.輸入.pack(side=TOP)
+    
+            self.按鍵框架 = 框架(計算區)
+    
+            x, y = 0, 0
+            for 按鍵配置 in ("()%C", "+-*/", "1234", "5678", "90.="):
+                for 字元 in 按鍵配置:
+                    if 字元 == "=":
+                        類別按鍵 = 按鍵(self.按鍵框架, 字元, self.計算動作)
+                    elif 字元 == "C":
+                        類別按鍵 = 按鍵(self.按鍵框架, 字元, self.清除畫面)
+                    else:
+                        類別按鍵 = 按鍵(self.按鍵框架, 字元, lambda 內容=字元: self.輸入.insert(INSERT, 內容))
+                        
+                    類別按鍵.grid(row=x, column=y)
+                    y += 1
+    
+                x += 1
+                y = 0
+    
+            self.紀錄 = Text(右邊框架, font=Font(family=('Verdana'), size=10), width=25, height=14, background="yellow")
+            self.紀錄.pack(side=RIGHT)
+    
+        def 清除畫面(self):
+            self.輸入.delete(0, END)
+    
+        def 計算動作(self):
+            暫存 = self.輸入.get()
+            try:
+                結果 = 暫存 + "=" + str(eval(暫存))
+                self.紀錄.insert(1.0, 結果 + "\n");
+                print(結果)
+            except Exception:
+                self.紀錄.insert(1.0, "抱歉! 發生錯誤\n");
+    
+    
+    if __name__ == '__main__':
+        視窗= Tk()
+        視窗.title("計算機")
+        #視窗.geometry()
+        我的應用程式 = 應用程式(視窗)
+        視窗.mainloop()
+        
+請以組為單位, 將上述一般計算機改為工程用計算機程式.
+
+參考資料:
+
+http://infohost.nmt.edu/tcc/help/pubs/tkinter.pdf
+
+http://www.tkdocs.com/tutorial/
+
+https://github.com/doctoboggan/PYQT-Calculator
+
 https://github.com/smjrifle/Python-Calculator
+
+matplotlib
+**********
+
+結合 matplotlib 與 tkinter
+
+.. code-block:: python
+
+    #! /usr/bin/env python
+    # source: https://github.com/ondrejh/matplot_embed
+    import matplotlib
+    matplotlib.use('TkAgg')
+    
+    from numpy import arange, sin, pi
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+    from matplotlib.figure import Figure
+    
+    import sys
+    #import everything from tkinter module (Tkinter in python 2.x)
+    try:
+            from tkinter import *
+    except:
+            from Tkinter import *
+    
+    #application class
+    class runapp(Frame):
+        ''' dummy gui '''
+        
+        def __init__(self,master=None):
+            self.root = Tk()
+            self.root.title('Embedding MATPLOTLIB in TK')
+            Frame.__init__(self,master)
+            self.createWidgets()
+        
+        def createWidgets(self):
+    
+            self.f = Figure(figsize=(5,4), dpi=100)
+            self.a = self.f.add_subplot(111)
+            self.t = arange(0.0,3.0,0.01)
+            self.n = 1
+            self.s = sin(pi*self.t*self.n)
+    
+            self.a.plot(self.t,self.s)
+            self.a.set(xlabel='x')
+            self.a.set(ylabel='y')
+    
+            # a tk.DrawingArea
+            self.canvas = FigureCanvasTkAgg(self.f, master=self.root)
+            self.canvas.show()
+            self.canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=1)
+    
+            '''self.toolbar = NavigationToolbar2TkAgg(self.canvas, self.root)
+            self.toolbar.update()
+            self.canvas._tkcanvas.pack(side=TOP, fill=BOTH, expand=1)'''
+    
+            self.frmButtons = Frame(master=self.root)
+            self.frmButtons.pack()
+            self.buttonAdd = Button(master=self.frmButtons,text='Inc',command=self.fIncClick)
+            self.buttonAdd.pack(side=LEFT)
+            self.buttonSub = Button(master=self.frmButtons,text='Dec',command=self.fDecClick)
+            self.buttonSub.pack(side=LEFT)
+    
+        def fIncClick(self):
+            self.n += 1
+            self.fRedraw()
+    
+        def fDecClick(self):
+            if self.n>1:
+                self.n -= 1
+                self.fRedraw()
+    
+        def fRedraw(self):
+            self.s = sin(pi*self.t*self.n)
+            self.a.clear()
+            self.a.plot(self.t,self.s)
+            self.a.set(xlabel='x')
+            self.a.set(ylabel='y')
+            self.canvas.show()
+                
+        def _quit(self):
+            print('kooonec')
+            self.root.quit()     # stops mainloop
+            self.root.destroy()  # this is necessary on Windows to prevent
+                        # Fatal Python Error: PyEval_RestoreThread: NULL tstate
+    
+    app = runapp()
+    app.mainloop()
+    # If you put root.destroy() here, it will cause an error if
+    # the window is closed with the window manager.
 
 PyQt 應用
 ***********
 
-.. code-block:: python
-
-    from PyQt4 import QtGui
-    w = QtGui.QWidget()
-    w.resize(250, 150)
-    w.move(300, 300)
-    w.setWindowTitle('Simple test')
-    w.show()
+.. code-block:: python
+
+    from PyQt4 import QtGui
+    w = QtGui.QWidget()
+    w.resize(250, 150)
+    w.move(300, 300)
+    w.setWindowTitle('Simple test')
+    w.show()
     c.brian_test_w = w
 
 rst 測試

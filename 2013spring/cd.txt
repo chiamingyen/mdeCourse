@@ -25,7 +25,7 @@
 .. contents::
     :depth: 2
 .. @+node:amd_yen.20130308210411.2394: *3* @rst-no-head Links
-.. @+node:amd_yen.20130308214521.2420: *3* 第一週
+.. @+node:amd_yen.20130308214521.2420: *3* CD 第一週
 以下資料從課程電子書所對應的 springlink 網站取出, 此內容為公開資料.
 
 http://link.springer.com/chapter/10.1007/978-0-387-47321-5_1
@@ -102,7 +102,7 @@ Wallace, D. and Senin N. (1997), A Framework for Mixed Parametric and Catalog Ba
 Wallace D., Senin N., and Sferro P. (2000), Integrated design in a service marketplace, Computer-Aided Design, Vol. 32, No. 2, pp. 97–107.
 
 Wang B. (Ed.) (1998), Concurrent Design of Products, Manufacturing Processes and Systems (Automation and Production Systems: Methodologies and Applications), Vol. 3, Gordon and Breach Science Publishers.
-.. @+node:amd_yen.20130308214521.2427: *3* 第二週
+.. @+node:amd_yen.20130308214521.2427: *3* CD 第二週
 Simple Groupware 安裝
 
 兩種安裝模式:
@@ -196,7 +196,7 @@ Simple Groupware 安裝
 https://github.com/chiamingyen/sgw745 
 
 上傳新的版本.
-.. @+node:amd_yen.20130309155804.1709: *3* 第三週
+.. @+node:amd_yen.20130309155804.1709: *3* CD 第三週
 利用 Python 程式進行 Sin 與 Cos 函式的運算, 然後套進 Simple Groupware 的 Spreadsheet 模組資料格式, 以便能夠利用網際協同群組中的各組員檢視結果.
 
 以下為 Sin 與 Cos 的繪圖程式:
@@ -210,7 +210,22 @@ https://github.com/chiamingyen/sgw745
 將上列程式輸出結果, 以轉貼方式複製到 Simple Groupware Spreadsheet 中的 JS 資料介面, 然後按下 Load, 就可以顯示出 Sin() 與 Cos() 的繪圖結果.
 
 另外一種將資料傳入 Simple Groupware 的方式為: 將運算結果以 URL 方式載入.
-.. @+node:amd_yen.20130310161901.1489: *3* 第四週
+
+Simple Groupware graphviz 模組的中文化:
+
+1. 取得 fireflysung.ttf, 放入 V:\extensions\sgw\ext\tools\bin_win32\graphviz\bin 目錄下
+
+2. 利用下列 graphviz 就可以顯示出中文化的流程圖.
+
+.. code-block:: none
+
+    digraph G {
+    fontname="fireflysung"
+    "在 Projecs 目錄下\n建立一個專案\n並指定專案參與人員"->"系統會採\n project_專案名稱 \n自動建立對應群組"
+    "系統會採\n project_專案名稱 \n自動建立對應群組"->"使用者可以由\n Personal projects \n目錄中進入檢視相關資料"
+    "使用者可以由\n Personal projects \n目錄中進入檢視相關資料"->"專案參與人員\n在其他目錄下\n所建立的相關資料\n只要綁上該專案名稱\n 相關資料就會統一彙整到\n Personal projects 所屬資料分類下"
+    }
+.. @+node:amd_yen.20130310161901.1489: *3* CD 第四週
 for p in p.subtree():
     g.es(p.b)
     

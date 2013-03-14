@@ -25,7 +25,7 @@
 .. contents::
     :depth: 2
 .. @+node:amd_yen.20130308221230.2495: *3* @rst-no-head Links
-.. @+node:amd_yen.20130308221230.2481: *3* 綜合資料
+.. @+node:amd_yen.20130308221230.2481: *3* MISC 綜合資料
 .. @+node:amd_yen.20130312013510.2093: *4* Python 程式開發
 .. @+node:amd_yen.20130312013510.2095: *5* @url 為何選擇 Python
 http://www.stat.washington.edu/~hoytak/blog/whypython.html
@@ -274,7 +274,17 @@ g.es('Test',color='blue',tabName='Test')
 .. @+node:amd_yen.20130308221230.2490: *5* @url Leo 寫檔案指令比較
 http://webpages.charter.net/edreamleo/directives.html
 .. @+node:amd_yen.20130308221230.2491: *4* git 相關
-$http_proxy 設定連線用 proxy server
+基本設定:
+
+.. code-block:: none
+
+    git config --global user.name "使用者名稱"
+    
+    git config --global user.email "username@email.com"
+    
+    git config --global http.proxy %HTTP_PROXY%
+    
+    $http_proxy 設定連線用 proxy server
 
 git clone https://github.com/chiamingyen/mdeCourse.git
 
@@ -315,7 +325,7 @@ Sphinx 與 Python3 的配合, 在使用 extensions = ['sphinx.ext.graphviz'] (co
 參考資料:
 
 https://bitbucket.org/birkenfeld/sphinx/src/8f0aca73d1b0/sphinx/ext/graphviz.py
-.. @+node:amd_yen.20130312013510.1497: *5* 輸出 CHM 
+.. @+node:amd_yen.20130312013510.1497: *5* 輸出 CHM
 make htmlhelp 就可以產生 CHM 格式的檔案, 但是內容為中文時, 必須要再進一步修改 htmlhelpcn.py.
 .. @+node:amd_yen.20130311171454.1493: *5* LaTeX 字型
 只要將 *.ttf 放入下列目錄

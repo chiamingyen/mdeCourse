@@ -1,16 +1,16 @@
 .. rst3: filename: document\misc.html
 
-################################################
-綜合資料
-################################################
-
-.. contents::
+################################################
+綜合資料
+################################################
+
+.. contents::
     :depth: 2
 
 
 
-綜合資料
-++++++++++++
+MISC 綜合資料
++++++++++++++++++
 
 
 
@@ -22,52 +22,52 @@ Python 程式開發
 @url 為何選擇 Python
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-http://www.stat.washington.edu/~hoytak/blog/whypython.html
-
-Python 主體加上 numpy/scipy, ipython, matplotlib 可以提供全方位的應用環境.
-
-Python 程式語法簡潔易讀, 縮排讓每個人所寫的程式都符合相同格式 (務必遵守 tab = 4 個 spaces 的習慣, 不要混用 tab 與 space)
-
+http://www.stat.washington.edu/~hoytak/blog/whypython.html
+
+Python 主體加上 numpy/scipy, ipython, matplotlib 可以提供全方位的應用環境.
+
+Python 程式語法簡潔易讀, 縮排讓每個人所寫的程式都符合相同格式 (務必遵守 tab = 4 個 spaces 的習慣, 不要混用 tab 與 space)
+
 高階與低階程式應用的平衡 - 一般應用可以直接使用 Python, 硬體控制可以利用 C 作為底層, 由 Python 操控呼叫, 需要運算速度時也可以透過 C 進行平行運算, 也可以透過 http://www.cython.org/ 得到好處.
 
 @url 基本概念
 ^^^^^^^^^^^^^^^^^
 
-https://python-guide.readthedocs.org/en/latest/
-
+https://python-guide.readthedocs.org/en/latest/
+
 雖然大多數內容都以 Python 2.X 語法為主, 但是所列出的主題範圍非常完整, 從基本程式開發概念到套件包裝的議題都有涉及, 能提供不錯的參考.
 
 Linux 操作
 ************
 
-將目錄壓縮成 .tar.gz 檔案
-
-.. code-block:: none
-
-    tar czf filename.tar.gz folder
-
-解開 .tar.gz
-
-.. code-block:: none
-
-    gunzip -c /path/to/folder/filename.tar.gz
-
-或者
-
-.. code-block:: none
-
-    tar -zxvf /path/to/folder/filename.tar.gz
-
-若要壓成 .tar
-
-.. code-block:: none
-
-    tar cvf file.tar directory
-
-解開 .tar 
-
-.. code-block:: none
-
+將目錄壓縮成 .tar.gz 檔案
+
+.. code-block:: none
+
+    tar czf filename.tar.gz folder
+
+解開 .tar.gz
+
+.. code-block:: none
+
+    gunzip -c /path/to/folder/filename.tar.gz
+
+或者
+
+.. code-block:: none
+
+    tar -zxvf /path/to/folder/filename.tar.gz
+
+若要壓成 .tar
+
+.. code-block:: none
+
+    tar cvf file.tar directory
+
+解開 .tar 
+
+.. code-block:: none
+
     tar xvf file.tar
 
 @url 網路管理員教材
@@ -78,23 +78,23 @@ https://ops-school.readthedocs.org/en/latest/
 使用 x-window
 ***************
 
-1. 在 Windows 端執行 xlaunch, 這是 x-win 的 server
-
-2. 以 putty 連線到 remote 已經安裝 X windows 套件的 Ubuntu 伺服器
-
-3. putty 中連線的 SSH->X11 必須勾選 Enable X11 forwarding, 並且在 X display location 中輸入  localhost:0
-
-4. 連線後, 只要在 command 區輸入 xterm& 就可以帶出 X terminal
-
+1. 在 Windows 端執行 xlaunch, 這是 x-win 的 server
+
+2. 以 putty 連線到 remote 已經安裝 X windows 套件的 Ubuntu 伺服器
+
+3. putty 中連線的 SSH->X11 必須勾選 Enable X11 forwarding, 並且在 X display location 中輸入  localhost:0
+
+4. 連線後, 只要在 command 區輸入 xterm& 就可以帶出 X terminal
+
 5. 針對所出現的 X terminal 畫面, 以滑鼠右鍵點選, 選擇使用 TTF font, 接著選擇 medium font 或 large font
 
 @url Pythonocc
 **************
 
-http://cad-3d.blogspot.tw/2011/10/pythonocc-open-source-interactive-cad.html
-
-使用 @url 的方法為:
-
+http://cad-3d.blogspot.tw/2011/10/pythonocc-open-source-interactive-cad.html
+
+使用 @url 的方法為:
+
 左手按住 ctrl, 右手滑鼠選擇 @url node 標題, 然後點擊右鍵
 
 Leo 相關
@@ -105,207 +105,207 @@ Leo 相關
 基本操作
 ^^^^^^^^^^^^
 
-Alt+1 可以 toggle autocompleter On/Off
-Alt+2 則可以 toggle calltips On/Off
-
-mod_http.py plugin 
-
-這個 plugin 可以讓使用者啟動 http server, 將 Leo Editor 所開啟的 .leo 內容展示在瀏覽器中.
-
-使用步驟:
-
-1. 啟動 mod_http.py - 在 myLeoSetting.py 中, 將 @enable-plugins 內文中的 mod_http.py 前方的 # 拿掉.
-
+Alt+1 可以 toggle autocompleter On/Off
+Alt+2 則可以 toggle calltips On/Off
+
+mod_http.py plugin 
+
+這個 plugin 可以讓使用者啟動 http server, 將 Leo Editor 所開啟的 .leo 內容展示在瀏覽器中.
+
+使用步驟:
+
+1. 啟動 mod_http.py - 在 myLeoSetting.py 中, 將 @enable-plugins 內文中的 mod_http.py 前方的 # 拿掉.
+
 2. 重新啟動 Leo, 可以在 log 中顯示 http server 已經啟動, 透過 Leo 所指派的 port 號, 以瀏覽器開啟 Leo 中的大綱檔案.
 
 當節點內容更新後
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-前面的小圖像就會出現黑色邊框
-
-換言之, 當某一節點的前方小圖像出現黑色邊框時, 表示該節點有新的內容尚未儲存.
-
+前面的小圖像就會出現黑色邊框
+
+換言之, 當某一節點的前方小圖像出現黑色邊框時, 表示該節點有新的內容尚未儲存.
+
 在 Leo Editor 的術語來說, "the node is dirty".
 
 rst 指令比較
 ^^^^^^^^^^^^^^^^
 
-@rst 與 @auto-rst 的用法差異:
-
-@rst 只會在需要利用 Sphinx make html 或 make latex 時才會將下屬的 rst 寫成檔案, 而 @auto-rst 則在 .leo 存檔時, 就會自動將內容轉成 rst 格式, 並且寫檔案.
-
-透過這個差別, 應該就可以在某一課程的下屬節點中, 以 @auto-rst 指令將各週的相關內容, 以 rst 格式進行存檔, 並且在特定 @button 的動作下, 將特定週次的 rst 內容發布到 Wordpress 網誌上.
-
-果若某一特定週次內容更動, 是否可以啟動相同的 Wordpress 發布流程, 以 edit 的方式修改網誌上的內容.
-
-幾個問題必須克服:
-
-更新網誌內容必須設法取得特定網誌的 id
-
-該如何取得此 id, 並與特定週次的發布進行連結
-
-一旦發布 id 與特定節點連結後, 是否每次存檔 Wordpress 可以與 Leo 節點中的資料保持同步.
-
+@rst 與 @auto-rst 的用法差異:
+
+@rst 只會在需要利用 Sphinx make html 或 make latex 時才會將下屬的 rst 寫成檔案, 而 @auto-rst 則在 .leo 存檔時, 就會自動將內容轉成 rst 格式, 並且寫檔案.
+
+透過這個差別, 應該就可以在某一課程的下屬節點中, 以 @auto-rst 指令將各週的相關內容, 以 rst 格式進行存檔, 並且在特定 @button 的動作下, 將特定週次的 rst 內容發布到 Wordpress 網誌上.
+
+果若某一特定週次內容更動, 是否可以啟動相同的 Wordpress 發布流程, 以 edit 的方式修改網誌上的內容.
+
+幾個問題必須克服:
+
+更新網誌內容必須設法取得特定網誌的 id
+
+該如何取得此 id, 並與特定週次的發布進行連結
+
+一旦發布 id 與特定節點連結後, 是否每次存檔 Wordpress 可以與 Leo 節點中的資料保持同步.
+
 網誌管理的帳號密碼該如何進行保全?
 
 節點內容比較
 ^^^^^^^^^^^^^^^^^^
 
-選擇兩個要比較的節點, 將節點內文寫到暫存區, 利用指令開啟比較軟體, 分別開啟兩個節點的內容進行比較.
-
-.. code-block:: python
-
-    selected = c.getSelectedPositions() 
-    open('/tmp/a_diff', 'w').write(selected[0].b) 
-    open('/tmp/b_diff', 'w').write(selected[1].b) 
-    import os 
-    os.system("xxdiff /tmp/a_diff /tmp/b_diff &") 
-
-這個概念也可以套用到整個樹狀結構的比較
-
-.. code-block:: python
-
-    def add_text(nd):
-        """recursively add to text"""
-        text = "\n\n>> " + nd.h
-        text += "\n\n%s" % nd.b
-        for child in nd.children():
-            text += add_text(child)
-        return text
-    
-    selected = c.getSelectedPositions() 
-    open('/tmp/a_diff', 'w').write(add_text(selected[0]).encode("utf-8"))
-    open('/tmp/b_diff', 'w').write(add_text(selected[1]).encode("utf-8"))
-    import os 
+選擇兩個要比較的節點, 將節點內文寫到暫存區, 利用指令開啟比較軟體, 分別開啟兩個節點的內容進行比較.
+
+.. code-block:: python
+
+    selected = c.getSelectedPositions() 
+    open('/tmp/a_diff', 'w').write(selected[0].b) 
+    open('/tmp/b_diff', 'w').write(selected[1].b) 
+    import os 
+    os.system("xxdiff /tmp/a_diff /tmp/b_diff &") 
+
+這個概念也可以套用到整個樹狀結構的比較
+
+.. code-block:: python
+
+    def add_text(nd):
+        """recursively add to text"""
+        text = "\n\n>> " + nd.h
+        text += "\n\n%s" % nd.b
+        for child in nd.children():
+            text += add_text(child)
+        return text
+    
+    selected = c.getSelectedPositions() 
+    open('/tmp/a_diff', 'w').write(add_text(selected[0]).encode("utf-8"))
+    open('/tmp/b_diff', 'w').write(add_text(selected[1]).encode("utf-8"))
+    import os 
     os.system("meld /tmp/a_diff /tmp/b_diff &")
 
 Leo 程式
 ^^^^^^^^^^
 
-The c.all_positions generator returns a list of all positions in the outline. This script makes a list of all the nodes in an outline
-
-.. code-block:: python
-
-    # 依照架構列出整份文件的標題
-    for p in c.all_positions():
-        indent = '.' * p.level()
-        g.es('%s%s' % (indent,p.h))
-        
-The c.all_unique_positions generator returns a list of all unique positions in the outline.
-        
-.. code-block:: python
-
-    # 整份文件, 不包括重複標題
-    for p in c.all_unique_positions():
-        indent = '.' * p.level()
-        g.es('%s%s' % (indent,p.h))
-
-p.subtree() 則是節點以下的所有子節點位置, 以下會在 log 區列出所有子節點的內文資料.
-
-.. code-block:: python
-
-    for p in p.subtree():
+The c.all_positions generator returns a list of all positions in the outline. This script makes a list of all the nodes in an outline
+
+.. code-block:: python
+
+    # 依照架構列出整份文件的標題
+    for p in c.all_positions():
+        indent = '.' * p.level()
+        g.es('%s%s' % (indent,p.h))
+        
+The c.all_unique_positions generator returns a list of all unique positions in the outline.
+        
+.. code-block:: python
+
+    # 整份文件, 不包括重複標題
+    for p in c.all_unique_positions():
+        indent = '.' * p.level()
+        g.es('%s%s' % (indent,p.h))
+
+p.subtree() 則是節點以下的所有子節點位置, 以下會在 log 區列出所有子節點的內文資料.
+
+.. code-block:: python
+
+    for p in p.subtree():
         g.es(p.b)
 
 @url 有關丟失小圖像
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-http://markmail.org/message/5uumj36gku53u2t3#query:+page:1+mid:q7jr76g4pmkcftpf+state:results
-
-Missing Leo's headline graphics
-
-問題與 PyQt 的設定有關: startup shortcut pointing to the old distribution, 確定是 Python33 目錄下的 qt.conf 設定必須配合 Python 所在位置修改, i.e. 以下為 qt.conf 的內容, 紀錄 PyQt4 所在的目錄.
-
-[Paths]
-Prefix = V:/IDE/Python33/Lib/site-packages/PyQt4
-Binaries = V:/IDE/Python33/Lib/site-packages/PyQt4
-
-
-有關小圖像的意義 (headline icon box):
-
-Blue box: node contains text.
-Red vertical bar: node is marked.
-Circular arrow: node is cloned.
+http://markmail.org/message/5uumj36gku53u2t3#query:+page:1+mid:q7jr76g4pmkcftpf+state:results
+
+Missing Leo's headline graphics
+
+問題與 PyQt 的設定有關: startup shortcut pointing to the old distribution, 確定是 Python33 目錄下的 qt.conf 設定必須配合 Python 所在位置修改, i.e. 以下為 qt.conf 的內容, 紀錄 PyQt4 所在的目錄.
+
+[Paths]
+Prefix = V:/IDE/Python33/Lib/site-packages/PyQt4
+Binaries = V:/IDE/Python33/Lib/site-packages/PyQt4
+
+
+有關小圖像的意義 (headline icon box):
+
+Blue box: node contains text.
+Red vertical bar: node is marked.
+Circular arrow: node is cloned.
 Outer box is black: node is dirty.
 
 @url 也是有關小圖像
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-http://en.usenet.digipedia.org/thread/15988/7367/
-
-這是更早之前的討論, 從這裡就可以判定丟失 headline 的小圖像與 PyQt 的設定有關, 也就是 qt.conf 設定必須配合修改.
-
-Python33 目錄下的 qt.conf 設定必須配合 Python 所在位置修改, i.e. 以下為 qt.conf 的內容, 紀錄 PyQt4 所在的目錄.
-
-[Paths]
-Prefix = V:/IDE/Python33/Lib/site-packages/PyQt4
+http://en.usenet.digipedia.org/thread/15988/7367/
+
+這是更早之前的討論, 從這裡就可以判定丟失 headline 的小圖像與 PyQt 的設定有關, 也就是 qt.conf 設定必須配合修改.
+
+Python33 目錄下的 qt.conf 設定必須配合 Python 所在位置修改, i.e. 以下為 qt.conf 的內容, 紀錄 PyQt4 所在的目錄.
+
+[Paths]
+Prefix = V:/IDE/Python33/Lib/site-packages/PyQt4
 Binaries = V:/IDE/Python33/Lib/site-packages/PyQt4
 
 @url Leo scripting 說明
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-http://webpages.charter.net/edreamleo/scripting.html
-
-c, g and p
-
-All Leo scripts run with the execute-script command (Ctrl-B) have access to the following three predefined objects:
-
-c is the commander of the outline containing the script.
-g is Leo's leo.core.leoGlobals module.
-p is the presently selected position, the same as c.p.
-
-The predefined c, g and p variables give full and easy access to all the data in your outlines, as well as hundreds, if not thousands, of useful Python functions in Leo's core. These variables define an easy-to-use DOM (Document Object Model) through which you can get o set any data in your outlines. The hello world example is:
-
-for p in c.all_positions():
-    indent = '.' * p.level()
-    print('%s%s' % (indent,p.h))
-    
-以上程式會以階層式 (以 . 點數區分)列出大綱標題
-    
-Here, c.all_positions() delivers a list of positions, and p.level() and p.h deliver the indentation level and head string of position p.
-
-g
-
-The predefined object g is the leo.core.leoGlobals module. This module contains several dozen utility functions and classes.
-
-g.app
-
-g.app is the application object representing the entire Leo application. The instance variables (ivars) of g.app represent Leo's global variables.
-
-commander
-
-Commanders represent all aspects of a single Leo window. For any commander c, c.p is the presently selected position (see below), and c.rootPosition() is the root (first) position in the outline. Given c, Leo scripts can gain access to all data present while Leo is running, including all of Leo's classes, functions and data.
-
-position
-
-The predefined object p is the position of the presently selected node. Positions represent locations in Leo outlines. For any position p, p.v is the vnode at that position.
-
-vnode
-
-A vnode represents a single outline node. Because of clones, a vnode may appear in several places on the screen. Vnodes hold most of the data in Leo outlines. For any vnode v, v.h is the node's headline, and v.b is the node's body text. As a convenience, for any position p, p.h and p.b are synonyms for p.v.h and p.v.b.
-
-g.es writes to the log pane
-
-The g.es method prints its arguments to the Log tab of the log pane:
-
-g.es("Hello world")
-
-g.es converts non-string arguments using repr:
-
-g.es(c)
-
-g.es prints multiple arguments separated by commas:
-
-g.es("Hello","world")
-
-To create a tab named "Test"or make it visible if it already exists:
-
-c.frame.log.selectTab('Test')
-
-When first created, a tab contains a text widget. To write to this widget, add the tabName argument to g.es:
-
-將訊息寫進上面在 log 區域所建立的 Test tab
-
+http://webpages.charter.net/edreamleo/scripting.html
+
+c, g and p
+
+All Leo scripts run with the execute-script command (Ctrl-B) have access to the following three predefined objects:
+
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+
+The predefined c, g and p variables give full and easy access to all the data in your outlines, as well as hundreds, if not thousands, of useful Python functions in Leo's core. These variables define an easy-to-use DOM (Document Object Model) through which you can get o set any data in your outlines. The hello world example is:
+
+for p in c.all_positions():
+    indent = '.' * p.level()
+    print('%s%s' % (indent,p.h))
+    
+以上程式會以階層式 (以 . 點數區分)列出大綱標題
+    
+Here, c.all_positions() delivers a list of positions, and p.level() and p.h deliver the indentation level and head string of position p.
+
+g
+
+The predefined object g is the leo.core.leoGlobals module. This module contains several dozen utility functions and classes.
+
+g.app
+
+g.app is the application object representing the entire Leo application. The instance variables (ivars) of g.app represent Leo's global variables.
+
+commander
+
+Commanders represent all aspects of a single Leo window. For any commander c, c.p is the presently selected position (see below), and c.rootPosition() is the root (first) position in the outline. Given c, Leo scripts can gain access to all data present while Leo is running, including all of Leo's classes, functions and data.
+
+position
+
+The predefined object p is the position of the presently selected node. Positions represent locations in Leo outlines. For any position p, p.v is the vnode at that position.
+
+vnode
+
+A vnode represents a single outline node. Because of clones, a vnode may appear in several places on the screen. Vnodes hold most of the data in Leo outlines. For any vnode v, v.h is the node's headline, and v.b is the node's body text. As a convenience, for any position p, p.h and p.b are synonyms for p.v.h and p.v.b.
+
+g.es writes to the log pane
+
+The g.es method prints its arguments to the Log tab of the log pane:
+
+g.es("Hello world")
+
+g.es converts non-string arguments using repr:
+
+g.es(c)
+
+g.es prints multiple arguments separated by commas:
+
+g.es("Hello","world")
+
+To create a tab named "Test"or make it visible if it already exists:
+
+c.frame.log.selectTab('Test')
+
+When first created, a tab contains a text widget. To write to this widget, add the tabName argument to g.es:
+
+將訊息寫進上面在 log 區域所建立的 Test tab
+
 g.es('Test',color='blue',tabName='Test')
 
 @url Leo 寫檔案指令比較
@@ -316,7 +316,17 @@ http://webpages.charter.net/edreamleo/directives.html
 git 相關
 **********
 
-$http_proxy 設定連線用 proxy server
+基本設定:
+
+.. code-block:: none
+
+    git config --global user.name "使用者名稱"
+    
+    git config --global user.email "username@email.com"
+    
+    git config --global http.proxy %HTTP_PROXY%
+    
+    $http_proxy 設定連線用 proxy server
 
 git clone https://github.com/chiamingyen/mdeCourse.git
 
@@ -337,28 +347,28 @@ git clone https://github.com/chiamingyen/mdeCourse.git
 Sphinx 相關
 *************
 
-Sphinx 與 Python3 的配合, 在使用 extensions = ['sphinx.ext.graphviz'] (conf.py 中的設定) 時, 必須要修改 V:\IDE\Python33\Lib\site-packages\sphinx\ext 目錄下的 graphviz.py 122 ~ 126 行, 主要原因是 Python3 的 string 為 utf-8 編碼.
-
-.. code-block:: python
-
-    def render_dot(self, code, options, format, prefix='graphviz'):
-        """Render graphviz code into a PNG or PDF output file."""
-        hashkey = (code+ str(options) + \
-                  str(self.builder.config.graphviz_dot) + \
-                  str(self.builder.config.graphviz_dot_args)).encode("utf-8")
-                  
-在 Sphinx 中使用 graphviz 指令的步驟:
-
-1. 確定有 dot.exe (這裡是從 Simple Groupware 的 win32 binary 安裝中擷取.
-
-2. 在 conf.py 設定中, 將 sphinx.ext.graphviz 加入 extensions=[].
-
-3. 確定 sphinx\ext\graphviz.py 為 Python3 相容.
-
-4. 在 rst 內文中, 使用 .. graphviz:: 指令.
-
-參考資料:
-
+Sphinx 與 Python3 的配合, 在使用 extensions = ['sphinx.ext.graphviz'] (conf.py 中的設定) 時, 必須要修改 V:\IDE\Python33\Lib\site-packages\sphinx\ext 目錄下的 graphviz.py 122 ~ 126 行, 主要原因是 Python3 的 string 為 utf-8 編碼.
+
+.. code-block:: python
+
+    def render_dot(self, code, options, format, prefix='graphviz'):
+        """Render graphviz code into a PNG or PDF output file."""
+        hashkey = (code+ str(options) + \
+                  str(self.builder.config.graphviz_dot) + \
+                  str(self.builder.config.graphviz_dot_args)).encode("utf-8")
+                  
+在 Sphinx 中使用 graphviz 指令的步驟:
+
+1. 確定有 dot.exe (這裡是從 Simple Groupware 的 win32 binary 安裝中擷取.
+
+2. 在 conf.py 設定中, 將 sphinx.ext.graphviz 加入 extensions=[].
+
+3. 確定 sphinx\ext\graphviz.py 為 Python3 相容.
+
+4. 在 rst 內文中, 使用 .. graphviz:: 指令.
+
+參考資料:
+
 https://bitbucket.org/birkenfeld/sphinx/src/8f0aca73d1b0/sphinx/ext/graphviz.py
 
 輸出 CHM
@@ -369,199 +379,199 @@ make htmlhelp 就可以產生 CHM 格式的檔案, 但是內容為中文時, 必
 LaTeX 字型
 ^^^^^^^^^^^^
 
-只要將 *.ttf 放入下列目錄
-
-V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct
-
-然後利用 fc-list > font.txt 查驗字型名稱是否載入, 一旦載入後就可以在 conf.py 中設定使用.
-
-目前系統中放置重複的 ttf 檔案
-
-V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct\wqy_zenhei.ttf
-
-V:\extensions\sgw\bin\lib\artichow\font\wqy_zenhei.ttf
-
-目前位於 V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct 目錄下共有中文字型檔案:
-
-fireflysung.ttf 文鼎 P L 新宋 (15 MB)
-
-arplbaosong2gbklt.ttf 文鼎ＰＬ报宋二GBK (16 MB)
-
-目前 portableLatex 所支援的中文字型:
-
-以 fc-list :lang=zh > font.txt 取得
-
-PMingLiU,新細明體:style=Regular
-
-New Gulim,새굴림:style=Regular
-
-NSimSun,新宋体:style=Regular
-
-cwTeXHeiBold,cwTeX 粗黑體:style=Medium
-
-AR PL New Sung,文鼎ＰＬ新宋:style=Regular
-
-SimSun,宋体:style=Regular
-
-AR PLBaosong2GBK Light,文鼎ＰＬ报宋二GBK:style=Regular
-
-cwTeXFangSong,cwTeX 仿宋體:style=Medium
-
-SimHei,黑体:style=Regular
-
-cwTeXMing,cwTeX 明體:style=Medium
-
-cwTeXKai,cwTeX 楷書:style=Medium
-
-MingLiU,細明體:style=Regular
-
+只要將 *.ttf 放入下列目錄
+
+V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct
+
+然後利用 fc-list > font.txt 查驗字型名稱是否載入, 一旦載入後就可以在 conf.py 中設定使用.
+
+目前系統中放置重複的 ttf 檔案
+
+V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct\wqy_zenhei.ttf
+
+V:\extensions\sgw\bin\lib\artichow\font\wqy_zenhei.ttf
+
+目前位於 V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct 目錄下共有中文字型檔案:
+
+fireflysung.ttf 文鼎 P L 新宋 (15 MB)
+
+arplbaosong2gbklt.ttf 文鼎ＰＬ报宋二GBK (16 MB)
+
+目前 portableLatex 所支援的中文字型:
+
+以 fc-list :lang=zh > font.txt 取得
+
+PMingLiU,新細明體:style=Regular
+
+New Gulim,새굴림:style=Regular
+
+NSimSun,新宋体:style=Regular
+
+cwTeXHeiBold,cwTeX 粗黑體:style=Medium
+
+AR PL New Sung,文鼎ＰＬ新宋:style=Regular
+
+SimSun,宋体:style=Regular
+
+AR PLBaosong2GBK Light,文鼎ＰＬ报宋二GBK:style=Regular
+
+cwTeXFangSong,cwTeX 仿宋體:style=Medium
+
+SimHei,黑体:style=Regular
+
+cwTeXMing,cwTeX 明體:style=Medium
+
+cwTeXKai,cwTeX 楷書:style=Medium
+
+MingLiU,細明體:style=Regular
+
 cwTeXYen,cwTeX 圓體:style=Medium
 
 數學方程式
 ^^^^^^^^^^^^^^^
 
-Sphinx 支援直接在 rst 內容中輸入數學方程式, 由於 Sphinx 可以將 rst 轉為 html 與 pdf, 因此在 extension 部分必須分別啟動 'sphinx.ext.pngmath' 與 'sphinx.ext.mathjax', 而 pngmath 必須配合
-
-make.bat 中的 pngmath_latex 設定, 指向 MiKTeX 的 latex.exe 路徑.
-
-.. code-block:: none
-
-    set SPHINXBUILD=sphinx-build
-    set SPHINXOPTS=-D pngmath_latex="V:\extensions\portableLatex\MiKTeX\texmf\miktex\bin\latex.exe"
-
-接著就可以使用 .. math:: 指令, 在 rst 內容中導入 LaTeX 格式的數學方程式.
-
-啟動 sphinx.ext.pngmath 延伸程式主要讓 LaTeX 將數學方程式轉為 png 圖檔, 而 sphinx.ext.mathjax 則配合在 html 轉換後, 加入 mathjax.js 的支援, 讓使用者在瀏覽器中檢視對應的數學方程式.
-
+Sphinx 支援直接在 rst 內容中輸入數學方程式, 由於 Sphinx 可以將 rst 轉為 html 與 pdf, 因此在 extension 部分必須分別啟動 'sphinx.ext.pngmath' 與 'sphinx.ext.mathjax', 而 pngmath 必須配合
+
+make.bat 中的 pngmath_latex 設定, 指向 MiKTeX 的 latex.exe 路徑.
+
+.. code-block:: none
+
+    set SPHINXBUILD=sphinx-build
+    set SPHINXOPTS=-D pngmath_latex="V:\extensions\portableLatex\MiKTeX\texmf\miktex\bin\latex.exe"
+
+接著就可以使用 .. math:: 指令, 在 rst 內容中導入 LaTeX 格式的數學方程式.
+
+啟動 sphinx.ext.pngmath 延伸程式主要讓 LaTeX 將數學方程式轉為 png 圖檔, 而 sphinx.ext.mathjax 則配合在 html 轉換後, 加入 mathjax.js 的支援, 讓使用者在瀏覽器中檢視對應的數學方程式.
+
 使用 .. raw:: latex 可以直接輸入 LaTeX 相關語法的內容.
 
 區別 html 與 latex 內容
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. only:: latex
-
-   這裡的內容只會出現在 LaTeX 輸出.
-
-.. only:: html
-
+.. only:: latex
+
+   這裡的內容只會出現在 LaTeX 輸出.
+
+.. only:: html
+
    這裡的內容只會出現在 html 輸出.
 
 matplotlib 相關
 *****************
 
-讓 matplotlib 可以使用中文
-
-將字型檔案放到
-
-V:\IDE\Python33\Lib\site-packages\matplotlib\mpl-data\fonts\ttf\
-
-系統配置文件
-
-V:\IDE\Python33\Lib\site-packages\matplotlib\mpl-data\matplotlibrc
-
-用戶配置文件
-
-c:\Documents and Settings\%UserName%\.matplotlib\matplotlibrc
-
-修改
-
-將 font.family 改為 monospace.
-
+讓 matplotlib 可以使用中文
+
+將字型檔案放到
+
+V:\IDE\Python33\Lib\site-packages\matplotlib\mpl-data\fonts\ttf\
+
+系統配置文件
+
+V:\IDE\Python33\Lib\site-packages\matplotlib\mpl-data\matplotlibrc
+
+用戶配置文件
+
+c:\Documents and Settings\%UserName%\.matplotlib\matplotlibrc
+
+修改
+
+將 font.family 改為 monospace.
+
 font.monospace 則設為對應的中文字型名稱.
 
 OpenShift 相關
 ****************
 
-.openshift 中的內容
-
-.. code-block:: none
-
-    # The OpenShift server to connect to
-    libra_server="openshift.redhat.com"
-    
-    # Your OpenShift login name
-    default_rhlogin="your_account@yourdomain"
-    
-    # The default timeout for network operations
-    #timeout=<integer>
-    
-    # If true, certificate errors will be ignored.
-    # WARNING: This may allow others to eavesdrop on your communication with OpenShift.
-    #insecure=<boolean>
-    
-    # The SSL protocol version to use when connecting to this server
-    #ssl_version="<string>"
-    
-    # A client certificate file for use with your server
-    #ssl_client_cert_file="<path_to_file>"
-    
-    # A file containing CA one or more certificates
-    #ssl_ca_file="<path_to_file>"
-    
-利用 rhc 下載位於 OpenShift 的 Application 資料
-
-.. code-block:: none
-
-    rhc snapshot save -a yourapplication
-    
-有關 rhc 的安裝, 請參考 "rhc 的安裝" 章節說明.
-
-至於 OpenShift 上的應用程式與客製 domain name 的綁定:
-
-執行下列 rhc 指令, 就可以為 yourapplication 指定一個別名 your.custom.domain
-
-.. code-block:: none
-
-    rhc alias add yourapplication your.custom.domain
- 
-執行完成後, 就可以在 OpenShift 的全球資訊網伺服器設定中, 將 yourapplication 應用程式新增一組別名 (alias) 綁定.
- 
-至於要讓此別名能夠實際在 DNS 系統中發揮作用, 使用者只要在 your.custom.domain 主機所對應的 DNS 設定中 (即負責掌管 custom.domain 的 DNS server 設定中), 新增:
- 
-your    CNAME    yourapplication-yournamespace.rhcloud.com
-
+.openshift 中的內容
+
+.. code-block:: none
+
+    # The OpenShift server to connect to
+    libra_server="openshift.redhat.com"
+    
+    # Your OpenShift login name
+    default_rhlogin="your_account@yourdomain"
+    
+    # The default timeout for network operations
+    #timeout=<integer>
+    
+    # If true, certificate errors will be ignored.
+    # WARNING: This may allow others to eavesdrop on your communication with OpenShift.
+    #insecure=<boolean>
+    
+    # The SSL protocol version to use when connecting to this server
+    #ssl_version="<string>"
+    
+    # A client certificate file for use with your server
+    #ssl_client_cert_file="<path_to_file>"
+    
+    # A file containing CA one or more certificates
+    #ssl_ca_file="<path_to_file>"
+    
+利用 rhc 下載位於 OpenShift 的 Application 資料
+
+.. code-block:: none
+
+    rhc snapshot save -a yourapplication
+    
+有關 rhc 的安裝, 請參考 "rhc 的安裝" 章節說明.
+
+至於 OpenShift 上的應用程式與客製 domain name 的綁定:
+
+執行下列 rhc 指令, 就可以為 yourapplication 指定一個別名 your.custom.domain
+
+.. code-block:: none
+
+    rhc alias add yourapplication your.custom.domain
+ 
+執行完成後, 就可以在 OpenShift 的全球資訊網伺服器設定中, 將 yourapplication 應用程式新增一組別名 (alias) 綁定.
+ 
+至於要讓此別名能夠實際在 DNS 系統中發揮作用, 使用者只要在 your.custom.domain 主機所對應的 DNS 設定中 (即負責掌管 custom.domain 的 DNS server 設定中), 新增:
+ 
+your    CNAME    yourapplication-yournamespace.rhcloud.com
+
 然後增量 serial number 後, 重新啟動 DNS server, 就可以利用 your.custom.domain 連結到上述應用程式.
 
 rhc 的安裝
 ^^^^^^^^^^^^^
 
-The OpenShift Client tools known as rhc are built and packaged using the Ruby programming language. OpenShift integrates with the Git version control system to provide powerful, decentralized version control for your application source code.
-
-OpenShift rhc can be run on any operating system with Ruby 1.8.7 or higher if you have the requisite user permissions to install programs. Instructions for specific operating systems are provided below. It is assumed that you are running the commands from a command line window, such as Command Prompt, or Terminal. If you are using Ruby Version Manager (rvm) see the instructions below.
-
-Windows
-
-RubyInstaller 1.9 provides the best experience for installing Ruby on Windows XP, Vista, and Windows 7. Download the newest version from the download page and launch the installer.
-
-Important: During the installation you can accept all of the defaults, but it is mandatory that you select the "Add Ruby executables to your PATH" check box in order to run Ruby from the command line.
-
-After the installation is completed, to verify that the installation is working run:
-
-C:\Program Files\> ruby -e 'puts "Welcome to Ruby"'
-
-Welcome to Ruby
-
-If the 'Welcome to Ruby' message does not display, the Ruby executable may not have been added to the path. Restart the installation process and ensure the "Add Ruby executables to your PATH" check box is selected.
-
-Installing Git
-
-The next step is to install Git for Windows so that you can synchronise your local application source and your OpenShift application. Git for Windows offers the easiest Git experience on the Windows operating system and is the recommended default - if you use another version of Git please ensure it can be executed from the command line and continue to the next section.
-
-Download and install the latest version of Git for Windows. Ensure that Git is added to your PATH so that it can be run from the command line. After the installation is completed, to verify that Git is correctly configured run:
-
-C:\Program Files\> git --version
-
-git version 1.7.11.msysgit.1
-
-Installing the OpenShift gem
-
-After Ruby and Git are correctly installed, use the RubyGems package manager (included in Ruby) to install the OpenShift client tools. Run:
-
-C:\Program Files\> gem install rhc
-
-RubyGems downloads and installs the rhc gem from www.rubygems.org/gems/rhc. The installation typically proceeds without errors. After installation is complete, run:
-
-C:\Program Files\> rhc
-
+The OpenShift Client tools known as rhc are built and packaged using the Ruby programming language. OpenShift integrates with the Git version control system to provide powerful, decentralized version control for your application source code.
+
+OpenShift rhc can be run on any operating system with Ruby 1.8.7 or higher if you have the requisite user permissions to install programs. Instructions for specific operating systems are provided below. It is assumed that you are running the commands from a command line window, such as Command Prompt, or Terminal. If you are using Ruby Version Manager (rvm) see the instructions below.
+
+Windows
+
+RubyInstaller 1.9 provides the best experience for installing Ruby on Windows XP, Vista, and Windows 7. Download the newest version from the download page and launch the installer.
+
+Important: During the installation you can accept all of the defaults, but it is mandatory that you select the "Add Ruby executables to your PATH" check box in order to run Ruby from the command line.
+
+After the installation is completed, to verify that the installation is working run:
+
+C:\Program Files\> ruby -e 'puts "Welcome to Ruby"'
+
+Welcome to Ruby
+
+If the 'Welcome to Ruby' message does not display, the Ruby executable may not have been added to the path. Restart the installation process and ensure the "Add Ruby executables to your PATH" check box is selected.
+
+Installing Git
+
+The next step is to install Git for Windows so that you can synchronise your local application source and your OpenShift application. Git for Windows offers the easiest Git experience on the Windows operating system and is the recommended default - if you use another version of Git please ensure it can be executed from the command line and continue to the next section.
+
+Download and install the latest version of Git for Windows. Ensure that Git is added to your PATH so that it can be run from the command line. After the installation is completed, to verify that Git is correctly configured run:
+
+C:\Program Files\> git --version
+
+git version 1.7.11.msysgit.1
+
+Installing the OpenShift gem
+
+After Ruby and Git are correctly installed, use the RubyGems package manager (included in Ruby) to install the OpenShift client tools. Run:
+
+C:\Program Files\> gem install rhc
+
+RubyGems downloads and installs the rhc gem from www.rubygems.org/gems/rhc. The installation typically proceeds without errors. After installation is complete, run:
+
+C:\Program Files\> rhc
+
 The OpenShift interactive setup wizard displays and prompts you to complete the rest of the process. If you cannot run OpenShift client tools at this point, please contact us on IRC or post in our forums for more assistance.
 

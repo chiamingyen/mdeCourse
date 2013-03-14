@@ -24,7 +24,7 @@
 
 .. contents::
     :depth: 2
-.. @+node:amd_yen.20130308210411.2390: *3* 第一週
+.. @+node:amd_yen.20130308210411.2390: *3* C2 第一週
 讓學員自行建構可攜 portableKMOL 的目的在練習網際程式框架的基本組成 (程式開發環境、內容管理系統、全球資訊網伺服器、以及各類相關工具), 學員熟悉此流程後, 可以自行修改框架並且配合需要進行各模組的改版.
 
 1. 利用程式進行文書處理
@@ -171,7 +171,7 @@ External files: Any outline node (and its descendants) can be "connected" to any
 All of these connections allow you to share external files with others in a collaborative environment. With @file, you can also share outline structure with others. Thus, a single Leo outline can contain an entire project with dozens or even hundreds of external files. Using Leo, you never have to open these files by hand, Leo does so automatically when it opens the Leo outline. Leo is a unique new kind of IDE.
 
 而這個模式可以再與網際的上傳檔案結合, 假設對應到某一節點的 @file 檔案, 使用者可以由瀏覽器上傳檔案, 一旦開啟 Leo, 所有檔案內容就會整合進 Leo 的編輯區.
-.. @+node:amd_yen.20130308210411.2391: *3* 第二週
+.. @+node:amd_yen.20130308210411.2391: *3* C2 第二週
 使用 docutils 模組:
 
 docutils 範例1
@@ -197,7 +197,7 @@ docutils 範例2
 .. _urllib.request: http://docs.python.org/3.0/library/urllib.request.html
 
 .. _publish_string: http://docutils.sourceforge.net/docs/api/publisher.html
-.. @+node:amd_yen.20130308214521.2437: *3* 第三週
+.. @+node:amd_yen.20130308214521.2437: *3* C2 第三週
 Sphinx 相關
 
 
@@ -705,7 +705,7 @@ The save.on.deactivate property causes SciTE to save the file whenever the SciTE
 http://www.scintilla.org/SciTEDoc.html
 
 SciTE 線上說明文件
-.. @+node:amd_yen.20130309155804.1712: *3* 第四週
+.. @+node:amd_yen.20130309155804.1712: *3* C2 第四週
 Python 3.3 本體的基本運算功能範例
 
 pip 的模組安裝指令
