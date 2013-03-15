@@ -22,8 +22,10 @@
 協同產品設計實習
 ################################################
 
+.. index:: 協同產品設計實習
+
 .. contents::
-    :depth: 2
+    :depth: 3
 .. @+node:amd_yen.20130308210411.2394: *3* @rst-no-head Links
 .. @+node:amd_yen.20130308214521.2420: *3* CD 第一週
 以下資料從課程電子書所對應的 springlink 網站取出, 此內容為公開資料.
@@ -166,6 +168,13 @@ Simple Groupware 安裝
     Folder created. (../simple_store/home/2012c1@mde.tw/)
     
     Item successfully created. (101)
+    
+    2. 當所有的組員完全帳號建立後, 就可以修改設定, 讓 anonymous 帳號無法登入, 並且取消
+    
+    Enable automatic user creation
+    [htaccess, NTLM, LDAP, IMAP, SMTP]
+    
+    自動建立對應帳號的設定, 如此就只有與專案執行相關的組員可以利用 IMAP 模式登入協同系統, 管理者 (admin) 則依然透過 Simple Groupware 資料庫中的帳號設定登入系統.
 .. @+node:amd_yen.20130308214521.2430: *4* SpreadSheet 的應用
 由以下的資料格式出發
 
@@ -220,15 +229,33 @@ Simple Groupware graphviz 模組的中文化:
 .. code-block:: none
 
     digraph G {
-    fontname="fireflysung"
-    "在 Projecs 目錄下\n建立一個專案\n並指定專案參與人員"->"系統會採\n project_專案名稱 \n自動建立對應群組"
-    "系統會採\n project_專案名稱 \n自動建立對應群組"->"使用者可以由\n Personal projects \n目錄中進入檢視相關資料"
-    "使用者可以由\n Personal projects \n目錄中進入檢視相關資料"->"專案參與人員\n在其他目錄下\n所建立的相關資料\n只要綁上該專案名稱\n 相關資料就會統一彙整到\n Personal projects 所屬資料分類下"
+    node[fontname="使用內定字型"]
+    "在 Projecs 目錄下\n建立一個專案\n並指定專案參與人員"->
+    "系統會採\n project_專案名稱 \n自動建立對應群組"->
+     "使用者可以由\n Personal projects \n目錄中進入檢視相關資料"->
+    "專案參與人員\n在其他目錄下\n所建立的相關資料\n只要綁上該專案名稱\n 相關資料就會統一彙整到\n Personal projects 所屬資料分類下"
+        }
+    
+.. code-block:: none
+
+    digraph G {
+    node[fontsize = 14,fontname = "內定字型"]
+    開始->執行->結束
     }
 .. @+node:amd_yen.20130310161901.1489: *3* CD 第四週
+@language python
+
+# 執行以下程式時, 將滑鼠定在此內文的標題上, 然後按下 Ctrl+b
+'''
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+'''
+# p 為 position, subtree 為子節點, 下列程式會逐一列出子節點的 body text
 for p in p.subtree():
     g.es(p.b)
-    
+
+# g 為核心全域模組, 取其應用程式的圖形介面, 並且執行 AskOkDialog 對話視窗
 g.app.gui.runAskOkDialog(c,"輸入密碼",message="請輸入網誌的密碼:",text='Ok')
 
 def getInput (event=None):
@@ -244,9 +271,131 @@ def getInput (event=None):
        k.clearState()
        g.es_print('你輸入的值為: %s' % k.arg)
 
+# 執行上述 getInput 函式
 getInput()
 
 
+.. @+node:amd_yen.20130314194325.1511: *4* Simple Groupware 郵件設定
+Simple Groupware 可在執行專案過程利用電子郵件通知參與專案的相關人員, 因此除各組員必須提供與帳號相關的電子郵箱外, 管理者必須設定寄信用的 email identity.
+
+Organisation -> Mail identities
+
+Id: admin
+E-mail: 管理者電子郵箱
+Name: admin
+SMTP: username:password[:port[:tls]]@hostname
+
+若 username 與 password 包含 @, 則必須以 %% 取代
+
+若 username 與 password 包含 : 則以 == 取代
+.. @+node:amd_yen.20130314194325.1512: *5* 建立專案
+在 Simple Groupware 中建立專案步驟:
+
+先建立專案目錄:
+
+    1. 以管理者身分(admin) 登入系統後, 在樹狀結構下方點選 options.
+    
+    2. 樹狀結構上方會出現兩個區域, 亦即 Rename folder 與 New folder 等兩區.
+    
+    3. 在 New folder 區中填入專案目錄建立的相關資料.
+    
+    Name: 輸入專案目錄名稱
+    
+    Module: 選擇 Projects
+    
+    Icon: 選擇 Default 或其他圖示
+    
+    Description: 輸入專案目錄說明
+    
+    若要將此專案目錄放在列表最前頭, 則勾選 First in list.
+    
+    完成後, 按下 OK
+
+接著在專案目錄下, 建立與產品設計相關的專案計畫.
+
+    1. 點選上列所建立的專案目錄.
+    
+    2. 選擇右上方的 New, 準備建立新的專案計畫.
+    
+    3. Name: 輸入專案計畫名稱
+    
+    4. 選擇 Participants (參與專案計畫的成員)
+    
+    選擇 Manager: 選擇右方的分組成員, 然後按下 << 箭頭, 移入左方的表單中.
+    
+    選擇 Participants (internal): 由右方分組成員選擇要加入專案計畫的人員.
+    
+    5. 選擇 Scheduling (執行期限)
+    
+    選擇專案起始日期與預定結束日期.
+    
+    6. 按下 Save 就可完成專案計畫的建立.
+    
+完成上述專案計畫建立後, Simple Groupware 會自動建立對應的群組, 並且以 project_專案名稱 加以命名.
+
+此後, 參與該專案計畫的成員登入系統後, 就可進入 Personal projects 目錄中檢視各種與該專案有關的資料.
+
+參與專案的成員在其他目錄建立相關資料時, 只要綁上該專案名稱, 資料就會統一彙整到 Personal projects 所屬資料分類下, 其餘參與專案之組員也可以根據專案權限的設定, 在相關 Personal project 所屬的目錄下看到這些與專案執行相關的協同資料.
+.. @+node:amd_yen.20130314194325.1513: *5* 專案管理
+所謂專案, 就是指在一定時間內, 一定資源支撐下, 由特定群組依照共同目標所擬定完成的任務規劃.
+
+專案執行過程中, 群組中的成員各司其職, 必須在約定期限內依照特定的工作流程完成特定工作項目.
+
+What is Project Management?
+
+More specifically, what is a project? It's a temporary group activity designed to produce a unique product, service or result.
+
+A project is temporary in that it has a defined beginning and end in time, and therefore defined scope and resources.
+
+And a project is unique in that it is not a routine operation, but a specific set of operations designed to accomplish a singular goal. So a project team often includes people who don't usually work together – sometimes from different organizations and across multiple geographies.
+
+The development of software for an improved business process, the construction of a building or bridge, the relief effort after a natural disaster, the expansion of sales into a new geographic market — all are projects.
+
+And all must be expertly managed to deliver the on-time, on-budget results, learning and integration that organizations need.
+
+Project management, then, is the application of knowledge, skills and techniques to execute projects effectively and efficiently. It's a strategic competency for organizations, enabling them to tie project results to business goals — and thus, better compete in their markets.
+
+It has always been practiced informally, but began to emerge as a distinct profession in the mid-20th century. PMI's A Guide to the Project Management Body of Knowledge (PMBOK® Guide) identifies its recurring elements:
+
+Project management processes fall into five groups:
+
+    Initiating
+    
+    Planning
+    
+    Executing
+    
+    Monitoring and Controlling
+    
+    Closing
+
+Project management knowledge draws on nine areas:
+
+    Integration
+    
+    Scope	
+    
+    Time
+    
+    Cost
+    
+    Quality
+    
+    Procurement
+    
+    Human resources
+    
+    Communications
+    
+    Risk management
+    
+All management is concerned with these, of course. But project management brings a unique focus shaped by the goals, resources and schedule of each project. The value of that focus is proved by the rapid, worldwide growth of project management:
+
+as a recognized and strategic organizational competence
+
+as a subject for training and education
+
+as a career path
 .. @+node:amd_yen.20130309155804.1711: *4* 齒輪減速機專案
 協同小組每組 6 人, 協同大組每組 18 人, 請各組分別啟動 Simple Groupware, 以 IMAP authentication 為主, 讓各小組與大分組的成員可以登入到各組的主機.
 
@@ -268,137 +417,13 @@ getInput()
 
 .. _正齒輪減速機: https://github.com/chiamingyen/CMSimpleGearPlugin
 
-Python3 tkinter 正齒輪輪廓圖:
+Python3 tkinter 正齒輪輪廓圖程式:
 
-.. code-block:: python
+.. 請注意: 以下採用程式檔案直接載入文書內容的模式取得對應的程式原始碼.
 
-    #coding: utf-8
-    '''正齒輪 2D 繪圖, 採用 Python3 tkinter 介面
-    '''
-    from tkinter import *
-    # 導入所有的數學函式
-    from math import *
-     
-    # 導入數學函式後, 圓周率為 pi
-    # deg 為角度轉為徑度的轉換因子
-    deg = pi/180.
-     
-    # 定義一個繪正齒輪的繪圖函式
-    # midx 為齒輪圓心 x 座標
-    # midy 為齒輪圓心 y 座標
-    # rp 為節圓半徑, n 為齒數
-    def gear(畫布, midx, midy, rp, n, 顏色):
-    #canvas.create_line(0, 300, 150, 150, width=10, fill='green')
-        # 將角度轉換因子設為全域變數
-        global deg
-        # 齒輪漸開線分成 15 線段繪製
-        imax = 15
-        # 在輸入的畫布上繪製直線, 由圓心到節圓 y 軸頂點畫一直線
-        畫布.create_line(midx, midy, midx, midy-rp)
-        # 畫出 rp 圓
-        #畫布.create_oval(midx-rp, midy-rp, midx+rp, midy+rp, width=2)
-        # a 為模數 (代表公制中齒的大小), 模數為節圓直徑(稱為節徑)除以齒數
-        # 模數也就是齒冠大小
-        a=2*rp/n
-        # d 為齒根大小, 為模數的 1.157 或 1.25倍, 這裡採 1.25 倍
-        d=2.5*rp/n
-        # ra 為齒輪的外圍半徑
-        ra=rp+a
-        # 畫出 ra 圓
-        #畫布.create_oval(midx-ra, midy-ra, midx+ra, midy+ra, width=1)
-        # rb 則為齒輪的基圓半徑
-        # 基圓為漸開線長齒之基準圓
-        rb=rp*cos(20*deg)
-        # 畫出 rb 圓 (基圓)
-        #畫布.create_oval(midx-rb, midy-rb, midx+rb, midy+rb, width=1)
-        # rd 為齒根圓半徑
-        rd=rp-d
-        # 畫出 rd 圓 (齒根圓)
-        #畫布.create_oval(midx-rd, midy-rd, midx+rd, midy+rd, width=1)
-        # dr 則為基圓到齒頂圓半徑分成 imax 段後的每段半徑增量大小
-        # 將圓弧分成 imax 段來繪製漸開線
-        dr=(ra-rb)/imax
-        # tan(20*deg)-20*deg 為漸開線函數
-        sigma=pi/(2*n)+tan(20*deg)-20*deg
-     
-        for j in range(n):
-            ang=-2.*j*pi/n+sigma
-            ang2=2.*j*pi/n+sigma
-            lxd=midx+rd*sin(ang2-2.*pi/n)
-            lyd=midy-rd*cos(ang2-2.*pi/n)
-            #for(i=0;i<=imax;i++):
-            for i in range(imax+1):
-                r=rb+i*dr
-                theta=sqrt((r*r)/(rb*rb)-1.)
-                alpha=theta-atan(theta)
-                xpt=r*sin(alpha-ang)
-                ypt=r*cos(alpha-ang)
-                xd=rd*sin(-ang)
-                yd=rd*cos(-ang)
-                # i=0 時, 繪線起點由齒根圓上的點, 作為起點
-                if(i==0):
-                    last_x = midx+xd
-                    last_y = midy-yd
-                # 由左側齒根圓作為起點, 除第一點 (xd,yd) 齒根圓上的起點外, 其餘的 (xpt,ypt)則為漸開線上的分段點
-                畫布.create_line((midx+xpt),(midy-ypt),(last_x),(last_y),fill=顏色)
-                # 最後一點, 則為齒頂圓
-                if(i==imax):
-                    lfx=midx+xpt
-                    lfy=midy-ypt
-                last_x = midx+xpt
-                last_y = midy-ypt
-            '''
-            the line from last end of dedendum point to the recent
-            end of dedendum point
-            '''
-            # lxd 為齒根圓上的左側 x 座標, lyd 則為 y 座標
-            # 下列為齒根圓上用來近似圓弧的直線
-            畫布.create_line((lxd),(lyd),(midx+xd),(midy-yd),fill=顏色)
-            #for(i=0;i<=imax;i++):
-            for i in range(imax+1):
-                r=rb+i*dr
-                theta=sqrt((r*r)/(rb*rb)-1.)
-                alpha=theta-atan(theta)
-                xpt=r*sin(ang2-alpha)
-                ypt=r*cos(ang2-alpha)
-                xd=rd*sin(ang2)
-                yd=rd*cos(ang2)
-                # i=0 時, 繪線起點由齒根圓上的點, 作為起點
-                if(i==0):
-                    last_x = midx+xd
-                    last_y = midy-yd
-                # 由右側齒根圓作為起點, 除第一點 (xd,yd) 齒根圓上的起點外, 其餘的 (xpt,ypt)則為漸開線上的分段點
-                畫布.create_line((midx+xpt),(midy-ypt),(last_x),(last_y),fill=顏色)
-                # 最後一點, 則為齒頂圓
-                if(i==imax):
-                    rfx=midx+xpt
-                    rfy=midy-ypt
-                last_x = midx+xpt
-                last_y = midy-ypt
-            # lfx 為齒頂圓上的左側 x 座標, lfy 則為 y 座標
-            # 下列為齒頂圓上用來近似圓弧的直線
-            畫布.create_line(lfx,lfy,rfx,rfy,fill=顏色)
-     
-    frame=Frame()
-    frame.master.title("正齒輪繪圖範例")
-    frame.pack()
-     
-     
-    canvas = Canvas(width=800, height=800, bg='white')
-     
-    canvas.pack(expand=YES, fill=BOTH) 
-    gear(canvas,400,400,300,16,"blue")
-    #gear(canvas,400,400,100,36,"red")
-    #gear(canvas,400,400,200,36,"dark green")
-    '''
-    canvas.create_line(100, 100, 200, 200)             
-    canvas.create_line(100, 200, 200, 300)
-    '''
-    for i in range(1, 50, 4): 
-        canvas.create_line(0, i, 50, i)
-        canvas.create_line(i, 0, i, 50)
-     
-    mainloop()
+.. literalinclude:: ../cd/gearcontour.py
+   :language: python
+   :linenos:
 
 參考資料:
 

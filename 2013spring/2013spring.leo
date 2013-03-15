@@ -18,22 +18,26 @@
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
-<v t="amd_yen.20130308210411.2383"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
-<v t="amd_yen.20130308210411.2403" a="E"><vh>@@button generate-full-userguide</vh>
+<v t="amd_yen.20130308210411.2383" a="E"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
+<v t="amd_yen.20130314194325.1514" a="E"><vh>@button generate-current</vh>
 <v t="amd_yen.20130308210411.2404"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
 <v t="amd_yen.20130308210411.2405"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
+</v>
+<v t="amd_yen.20130308210411.2403" a="E"><vh>@@button generate-full-userguide</vh>
+<v t="amd_yen.20130308210411.2404"></v>
+<v t="amd_yen.20130308210411.2405"></v>
 </v>
 <v t="amd_yen.20130308210411.2397"><vh>@edit document\conf.py</vh></v>
 <v t="amd_yen.20130308210411.2398"><vh>@edit document\kmol_toc.html.txt</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1824"><vh>@button self_and_subtree</vh></v>
 <v t="amd_yen.20130308210411.2406" a="E"><vh>KMOL Guide</vh>
-<v t="amd_yen.20130308221230.3827"><vh>前言</vh>
+<v t="amd_yen.20130308221230.3827" a="E"><vh>前言</vh>
 <v t="amd_yen.20130312013510.1498"><vh>以下為電子書內容</vh></v>
 <v t="amd_yen.20130308221230.3828" a="E"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2384"><vh>程式語言(二)</vh>
+<v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
 <v t="amd_yen.20130308221230.2438"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
@@ -55,16 +59,19 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2437,amd_yen.201303
 <v t="amd_yen.20130309155804.1706" a="E"><vh>CD 第三週程式</vh>
 <v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
+<v t="amd_yen.20130314194325.1746" a="E"><vh>CD 第四週程式</vh>
+<v t="amd_yen.20130314194325.1747" a="E"><vh>@shadow cd/gearcontour.py</vh></v>
+</v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130310161901.1489,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
+<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2407" a="E"
 expanded="amd_yen.20130308210411.2408,"><vh>@file wcm.txt</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2492"><vh>綜合資料</vh>
+<v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
 expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,"><vh>@file misc.txt</vh></v>
@@ -479,5 +486,20 @@ g.es(網誌內容)
         settings_overrides={'output_encoding': 'unicode'}
     )
 g.es(超文件內容)</t>
+<t tx="amd_yen.20130314194325.1514">@language python
+# 此一按鈕的用法為選擇節點然後按下上方的 generate-current button
+# 希望能將此 button 改寫為局部產生 html 與 pdf
+import os
+# 位置為目前所選的節點
+pos = c.p
+# 將 commander 指定在目前所選的節點位置
+c.selectPosition(pos)
+# 針對節點位置執行 rst3 指令, 將內容轉為 rst 格式
+c.k.simulateCommand('rst3')
+# 接著將 rst 格式檔案轉為 html
+&lt;&lt; html manual &gt;&gt;
+# 將 rst 格式檔案轉為 pdf
+&lt;&lt; pdf manual &gt;&gt;</t>
+<t tx="amd_yen.20130314194325.1746"></t>
 </tnodes>
 </leo_file>

@@ -1,11 +1,13 @@
 .. rst3: filename: document\c2.html
 
-########################
-程式語言(二)
-########################
-
-.. contents::
-    :depth: 2
+########################
+程式語言(二)
+########################
+
+.. index:: 程式語言(二)
+
+.. contents::
+    :depth: 3
 
 C2 第一週
 ++++++++++++
@@ -1098,7 +1100,21 @@ digraph 轉成 png 時, 內容沒有錯誤, 但是轉成 pdf 時內容就會掉�
 
         node1->node2[label="這是流程"];
     }
-    
+
+.. graphviz::
+
+    digraph G {
+    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=Mrecord] "開始執行" "結束執行"}
+    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=parallelogram] "輸入購買條件"}
+    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=diamond] "車型是否符合?"}
+    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=box] "挑選別的車型"}
+    "開始執行"->"輸入購買條件"[fontname="內定" label="說明"]
+    "輸入購買條件"->"車型是否符合?"[fontname="內定" label="依照條件決定"]
+    "車型是否符合?":e->"挑選別的車型":n[fontname="內定" label="否"]
+    "挑選別的車型"->"結束執行":e
+    "車型是否符合?":s->"結束執行":n[fontname="內定" label="是"]
+    }
+
 方程式的測試:
 
 .. math::
@@ -1122,8 +1138,8 @@ digraph 轉成 png 時, 內容沒有錯誤, 但是轉成 pdf 時內容就會掉�
 .. 特別注意:: 方程式的標籤使用, 可以直接放在 .. math:: 後面, 或者直接放在內縮的下一行, 中間不能有空白.
 
 .. math:: 
-   e^{i\pi} + 1 = 0
-   :label: euler
+    e^{i\pi} + 1 = 0
+    :label: euler
 
 Euler's identity, equation :eq:`euler`, was elected one of the most
 beautiful mathematical formulas.

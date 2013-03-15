@@ -22,8 +22,10 @@
 網際內容管理
 ################################################
 
+.. index:: 網際內容管理
+
 .. contents::
-    :depth: 2
+    :depth: 3
 .. @+node:amd_yen.20130308210411.2409: *3* @rst-no-head Links
 .. @+node:amd_yen.20130308210411.2410: *3* WCM 第一週
 網際內容管理課程的英文為
@@ -63,7 +65,6 @@ http://cae.mde.tw?download=wordpress351.7z
 .. code-block:: python
 
     import datetime, xmlrpclib
-    
     wp_url = "http://www.example.com/xmlrpc.php"
     wp_username = "someuser"
     wp_password = "secret"
@@ -194,7 +195,7 @@ https://python-wordpress-xmlrpc.readthedocs.org/en/latest/
 .. @+node:amd_yen.20130309155804.1710: *3* WCM 第四週
 安裝 wp-codebox plugin - 可以 highlight 內容中的程式碼.
 
-用法 <pre lang="python" line="1" colla="+"></pre>
+用法 <pre lang="python" line="1" colla="+">程式內容</pre>
 
 寫一個 WordPress 的 Plugin
 

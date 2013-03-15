@@ -18,8 +18,55 @@
 
 .. @+all
 .. @+node:amd_yen.20130308221230.3829: ** @rst document\frontmatter.html
+############
+前言
+############
+
+.. index:: 前言
+
+.. contents::
+    :depth: 3
 .. @+node:amd_yen.20130308221230.3830: *3* @rst-no-head Links
-.. @+node:amd_yen.20130308221230.3831: *3* 前言
+.. @+node:amd_yen.20130314194325.5951: *3* @rst-ignore 致謝
+感謝過去二十年來曾經參與本教材內容研究與教學的所有國立雲林工專(NYPI)、國立虎尾技術學院(NHIT)與國立虎尾科技大學(NFU)學生與同事.
+
+尤其感謝:
+
+同事: 王威立、王秀聰、王培郁、毛彥傑、何智廷、李武鉦、林瑞璋、林玉華、林明宗、周榮源、陳建信、許嫦娟、侯錦明、黃社振、黃運琳、黃室苗、黃自貴、詹明樹、廖文煇 、蕭俊卿 (依姓氏筆劃排列)
+
+研究生: 葉岱錦、許哲菘、謝政良、謝智翔、黃竣鉉、李玠廷、陳威任、李孟恭 (依修業順序排列)
+.. @+node:amd_yen.20130314194325.5950: *3* @rst-ignore MIT 使用授權
+All parts of KMOL manual are distributed under the following copyright. This is intended
+to be the same as the MIT license, namely that KMOL manual is absolutely free, even for
+commercial use, including resale. There is no GNU-like "copyleft" restriction.
+This license is compatible with the GPL.
+
+**Copyright 2013 by Chiaming Yen. All Rights Reserved.**
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+**THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.**
+.. @+node:amd_yen.20130314194325.5949: *3* @rst-ignore 免責宣告
+**Chiaming Yen (CMY) SPECIFICALLY DISCLAIMS ALL WARRANTIES, EXPRESSED OR
+IMPLIED, WITH RESPECT TO THIS COMPUTER SOFTWARE, INCLUDING BUT NOT LIMITED TO
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. IN
+NO EVENT SHALL CMY BE LIABLE FOR ANY LOSS OF PROFIT OR ANY COMMERCIAL DAMAGE,
+INCLUDING BUT NOT LIMITED TO SPECIAL, INCIDENTAL, CONSEQUENTIAL OR OTHER
+DAMAGES.**
+.. @+node:amd_yen.20130308221230.3831: *3* 寫在前頭
 這份手冊只是一個使用 Leo Editor 的開始, 出發點在於利用程式的方法進行文書處理, 內容則以機械設計工程領域為主.
 
 由於機械設計是一個牽涉許多溝通與資料的過程, 身處其中的工程師若能夠利用程式方法來產出並管理過程中所衍生的資料, 將有助於提升本身與團隊的工作效益.

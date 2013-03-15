@@ -10,6 +10,7 @@ import math
 #@nonl
 #@-node:amd_yen.20130309155804.1708:<< import >>
 #@nl
+# 每 10 點(度)才畫一個資料點, 以免圖形點數過密
 間隔數 = 10
 
 def header():

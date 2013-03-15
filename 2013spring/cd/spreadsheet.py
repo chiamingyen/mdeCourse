@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # 這裡要導入 math 模組,呼叫 sin(), cos() 與 pi 等數學函式
 import math
+# 每 10 點(度)才畫一個資料點, 以免圖形點數過密
 間隔數 = 10
 
 def header():

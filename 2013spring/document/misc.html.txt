@@ -1,11 +1,13 @@
 .. rst3: filename: document\misc.html
 
-################################################
-綜合資料
-################################################
-
-.. contents::
-    :depth: 2
+################################################
+綜合資料
+################################################
+
+.. index:: 綜合資料
+
+.. contents::
+    :depth: 3
 
 
 
@@ -316,32 +318,32 @@ http://webpages.charter.net/edreamleo/directives.html
 git 相關
 **********
 
-基本設定:
-
-.. code-block:: none
-
-    git config --global user.name "使用者名稱"
-    
-    git config --global user.email "username@email.com"
-    
-    git config --global http.proxy %HTTP_PROXY%
-    
-    $http_proxy 設定連線用 proxy server
-
-git clone https://github.com/chiamingyen/mdeCourse.git
-
-就可以將 mdeCourse 複製到 local 端
-
-修改後就可以利用
-
-.. code-block:: none
-
-    git add .
-    
-    git commit -m "my commit"
-    
-    git push
-
+基本設定:
+
+.. code-block:: none
+
+    git config --global user.name "使用者名稱"
+    
+    git config --global user.email "username@email.com"
+    
+    git config --global http.proxy %HTTP_PROXY%
+    
+    $http_proxy 設定連線用 proxy server
+
+git clone https://github.com/chiamingyen/mdeCourse.git
+
+就可以將 mdeCourse 複製到 local 端
+
+修改後就可以利用
+
+.. code-block:: none
+
+    git add .
+    
+    git commit -m "my commit"
+    
+    git push
+
 將資料更新到 remote 端
 
 Sphinx 相關
