@@ -131,7 +131,8 @@ mod_http.py plugin
 選擇兩個要比較的節點, 將節點內文寫到暫存區, 利用指令開啟比較軟體, 分別開啟兩個節點的內容進行比較.
 
 .. code-block:: python
-
+    :linenos:
+    
     selected = c.getSelectedPositions() 
     open('/tmp/a_diff', 'w').write(selected[0].b) 
     open('/tmp/b_diff', 'w').write(selected[1].b) 
@@ -141,7 +142,8 @@ mod_http.py plugin
 這個概念也可以套用到整個樹狀結構的比較
 
 .. code-block:: python
-
+    :linenos:
+    
     def add_text(nd):
         """recursively add to text"""
         text = "\n\n>> " + nd.h
@@ -159,7 +161,8 @@ mod_http.py plugin
 The c.all_positions generator returns a list of all positions in the outline. This script makes a list of all the nodes in an outline
 
 .. code-block:: python
-
+    :linenos:
+    
     # 依照架構列出整份文件的標題
     for p in c.all_positions():
         indent = '.' * p.level()
@@ -168,7 +171,8 @@ The c.all_positions generator returns a list of all positions in the outline. Th
 The c.all_unique_positions generator returns a list of all unique positions in the outline.
         
 .. code-block:: python
-
+    :linenos:
+    
     # 整份文件, 不包括重複標題
     for p in c.all_unique_positions():
         indent = '.' * p.level()
@@ -177,7 +181,8 @@ The c.all_unique_positions generator returns a list of all unique positions in t
 p.subtree() 則是節點以下的所有子節點位置, 以下會在 log 區列出所有子節點的內文資料.
 
 .. code-block:: python
-
+    :linenos:
+    
     for p in p.subtree():
         g.es(p.b)
 .. @+node:amd_yen.20130308221230.2487: *5* @url 有關丟失小圖像
@@ -275,17 +280,36 @@ g.es('Test',color='blue',tabName='Test')
 
 .. @+node:amd_yen.20130308221230.2490: *5* @url Leo 寫檔案指令比較
 http://webpages.charter.net/edreamleo/directives.html
+.. @+node:amd_yen.20130317160119.1722: *5* @url 建立中間檔案備用
+https://groups.google.com/forum/?fromgroups=#!msg/leo-editor/_dX4UkRJDOc/iIzSaJYT1_oJ
+
+當使用者要利用 Leo Editor 相關節點內容, 轉進其他系統 (例如: Wordpress 或 CMSimple) 時, 就會需要執行這些程式碼.
+
+at = c.atFileCommands 
+p = c.currentPosition() # get the current position 
+fileName = p.atAutoNodeName() 
+at.readOneAtAutoNode(fileName,p) 
+
+有關
+
+p.headString() and  p.bodyString()
+
+以及
+
+p = g.findNodeAnywhere(c,headline) and/or
+p = g.findNodeInTree(c,p,headline) 
+
+還有
+
+c.executeMinibufferCommand('open-outline') 
 .. @+node:amd_yen.20130308221230.2491: *4* git 相關
 基本設定:
 
 .. code-block:: none
 
     git config --global user.name "使用者名稱"
-    
     git config --global user.email "username@email.com"
-    
     git config --global http.proxy %HTTP_PROXY%
-    
     $http_proxy 設定連線用 proxy server
 
 git clone https://github.com/chiamingyen/mdeCourse.git
@@ -297,9 +321,7 @@ git clone https://github.com/chiamingyen/mdeCourse.git
 .. code-block:: none
 
     git add .
-    
     git commit -m "my commit"
-    
     git push
 
 將資料更新到 remote 端
@@ -307,7 +329,8 @@ git clone https://github.com/chiamingyen/mdeCourse.git
 Sphinx 與 Python3 的配合, 在使用 extensions = ['sphinx.ext.graphviz'] (conf.py 中的設定) 時, 必須要修改 V:\IDE\Python33\Lib\site-packages\sphinx\ext 目錄下的 graphviz.py 122 ~ 126 行, 主要原因是 Python3 的 string 為 utf-8 編碼.
 
 .. code-block:: python
-
+    :linenos:
+    
     def render_dot(self, code, options, format, prefix='graphviz'):
         """Render graphviz code into a PNG or PDF output file."""
         hashkey = (code+ str(options) + \
@@ -427,6 +450,7 @@ font.monospace 則設為對應的中文字型名稱.
 .openshift 中的內容
 
 .. code-block:: none
+    :linenos:
 
     # The OpenShift server to connect to
     libra_server="openshift.redhat.com"

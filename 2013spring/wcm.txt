@@ -63,7 +63,8 @@ http://cae.mde.tw?download=wordpress351.7z
 利用 Python 程式 新增 WordPress 內容
 
 .. code-block:: python
-
+    :linenos:
+    
     import datetime, xmlrpclib
     wp_url = "http://www.example.com/xmlrpc.php"
     wp_username = "someuser"
@@ -94,7 +95,8 @@ WordPress 中的 categories
     print (item['description'])
     
 .. code-block:: python
-
+    :linenos:
+    
     import xmlrpclib
     
     XMLRPC_ENDPOINT = "http://www.YOURBLOG.com/xmlrpc.php"
@@ -133,7 +135,8 @@ WordPress 中的 categories
 以下為利用 Python3 將內容直接送到 WordPress 的程式列表, 特別注意 Python3 已經將原先 Python2 xmlrpc 的模組名稱改為 xmlrpc.client.
 
 .. code-block:: python
-
+    :linenos:
+    
     #coding: utf-8
     import xmlrpc.client
     import datetime

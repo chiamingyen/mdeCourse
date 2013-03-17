@@ -14,26 +14,26 @@
 WCM 第一週
 +++++++++++++
 
-網際內容管理課程的英文為
-
-Introduction to Web Content Management Systems Site Development
-
-本課程主要目的在於教導學員建構網站, 而且是建構與內容管理系統相關的網站, 目標使用者為參與協同產品設計的機械設計工程師.
-
-若直接翻譯課程的英文則為: 網際內容管理系統網站開發簡介
-
-本課程擬介紹 WordPress 系統, 這是一套以 PHP 打造的內容管理系統, 至今 (2013) 已經是全世界使用人數最多的網誌系統, 而所謂網誌 (weblog) 其實就是利用網站來執行紀錄, 這裡所運用的層面是機械設計工程師使用導向的網路日誌, 並且以內容管理的角度進行配置.
-
-WordPress 支援 MySQL 與 SQLite 等版本,  MySQL 為一種可跨網站的資料庫管理系統, 而 SQLite 則是一種小型的單機檔案儲存為主的資料庫系統.
-
-所謂資料庫, 指的是能夠利用 SQL 結構查詢語言與資料伺服器進行溝通的資料儲存主機, 這些主機為了達成資料儲存的目的所運行的伺服器程式, 就是資料庫管理系統.
-
-實際操作:
-
-.. code-block:: none
-
-    1. 單機可攜系統下的 WordPress (電腦教室主機上的 WordPress 與光世代網路上的主機 WordPress)
-    
+網際內容管理課程的英文為
+
+Introduction to Web Content Management Systems Site Development
+
+本課程主要目的在於教導學員建構網站, 而且是建構與內容管理系統相關的網站, 目標使用者為參與協同產品設計的機械設計工程師.
+
+若直接翻譯課程的英文則為: 網際內容管理系統網站開發簡介
+
+本課程擬介紹 WordPress 系統, 這是一套以 PHP 打造的內容管理系統, 至今 (2013) 已經是全世界使用人數最多的網誌系統, 而所謂網誌 (weblog) 其實就是利用網站來執行紀錄, 這裡所運用的層面是機械設計工程師使用導向的網路日誌, 並且以內容管理的角度進行配置.
+
+WordPress 支援 MySQL 與 SQLite 等版本,  MySQL 為一種可跨網站的資料庫管理系統, 而 SQLite 則是一種小型的單機檔案儲存為主的資料庫系統.
+
+所謂資料庫, 指的是能夠利用 SQL 結構查詢語言與資料伺服器進行溝通的資料儲存主機, 這些主機為了達成資料儲存的目的所運行的伺服器程式, 就是資料庫管理系統.
+
+實際操作:
+
+.. code-block:: none
+
+    1. 單機可攜系統下的 WordPress (電腦教室主機上的 WordPress 與光世代網路上的主機 WordPress)
+    
     2. OpenShift 平台上的 WordPress
 
 WCM 第二週
@@ -55,7 +55,8 @@ WCM 第三週
 利用 Python 程式 新增 WordPress 內容
 
 .. code-block:: python
-
+    :linenos:
+    
     import datetime, xmlrpclib
     wp_url = "http://www.example.com/xmlrpc.php"
     wp_username = "someuser"
@@ -86,7 +87,8 @@ WordPress 中的 categories
     print (item['description'])
     
 .. code-block:: python
-
+    :linenos:
+    
     import xmlrpclib
     
     XMLRPC_ENDPOINT = "http://www.YOURBLOG.com/xmlrpc.php"
@@ -125,7 +127,8 @@ WordPress 中的 categories
 以下為利用 Python3 將內容直接送到 WordPress 的程式列表, 特別注意 Python3 已經將原先 Python2 xmlrpc 的模組名稱改為 xmlrpc.client.
 
 .. code-block:: python
-
+    :linenos:
+    
     #coding: utf-8
     import xmlrpc.client
     import datetime

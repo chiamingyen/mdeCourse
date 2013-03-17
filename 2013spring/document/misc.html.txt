@@ -42,34 +42,34 @@ https://python-guide.readthedocs.org/en/latest/
 Linux 操作
 ************
 
-將目錄壓縮成 .tar.gz 檔案
-
-.. code-block:: none
-
-    tar czf filename.tar.gz folder
-
-解開 .tar.gz
-
-.. code-block:: none
-
-    gunzip -c /path/to/folder/filename.tar.gz
-
-或者
-
-.. code-block:: none
-
-    tar -zxvf /path/to/folder/filename.tar.gz
-
-若要壓成 .tar
-
-.. code-block:: none
-
-    tar cvf file.tar directory
-
-解開 .tar 
-
-.. code-block:: none
-
+將目錄壓縮成 .tar.gz 檔案
+
+.. code-block:: none
+
+    tar czf filename.tar.gz folder
+
+解開 .tar.gz
+
+.. code-block:: none
+
+    gunzip -c /path/to/folder/filename.tar.gz
+
+或者
+
+.. code-block:: none
+
+    tar -zxvf /path/to/folder/filename.tar.gz
+
+若要壓成 .tar
+
+.. code-block:: none
+
+    tar cvf file.tar directory
+
+解開 .tar 
+
+.. code-block:: none
+
     tar xvf file.tar
 
 @url 網路管理員教材
@@ -153,60 +153,65 @@ rst 指令比較
 節點內容比較
 ^^^^^^^^^^^^^^^^^^
 
-選擇兩個要比較的節點, 將節點內文寫到暫存區, 利用指令開啟比較軟體, 分別開啟兩個節點的內容進行比較.
-
-.. code-block:: python
-
-    selected = c.getSelectedPositions() 
-    open('/tmp/a_diff', 'w').write(selected[0].b) 
-    open('/tmp/b_diff', 'w').write(selected[1].b) 
-    import os 
-    os.system("xxdiff /tmp/a_diff /tmp/b_diff &") 
-
-這個概念也可以套用到整個樹狀結構的比較
-
-.. code-block:: python
-
-    def add_text(nd):
-        """recursively add to text"""
-        text = "\n\n>> " + nd.h
-        text += "\n\n%s" % nd.b
-        for child in nd.children():
-            text += add_text(child)
-        return text
-    
-    selected = c.getSelectedPositions() 
-    open('/tmp/a_diff', 'w').write(add_text(selected[0]).encode("utf-8"))
-    open('/tmp/b_diff', 'w').write(add_text(selected[1]).encode("utf-8"))
-    import os 
+選擇兩個要比較的節點, 將節點內文寫到暫存區, 利用指令開啟比較軟體, 分別開啟兩個節點的內容進行比較.
+
+.. code-block:: python
+    :linenos:
+    
+    selected = c.getSelectedPositions() 
+    open('/tmp/a_diff', 'w').write(selected[0].b) 
+    open('/tmp/b_diff', 'w').write(selected[1].b) 
+    import os 
+    os.system("xxdiff /tmp/a_diff /tmp/b_diff &") 
+
+這個概念也可以套用到整個樹狀結構的比較
+
+.. code-block:: python
+    :linenos:
+    
+    def add_text(nd):
+        """recursively add to text"""
+        text = "\n\n>> " + nd.h
+        text += "\n\n%s" % nd.b
+        for child in nd.children():
+            text += add_text(child)
+        return text
+    
+    selected = c.getSelectedPositions() 
+    open('/tmp/a_diff', 'w').write(add_text(selected[0]).encode("utf-8"))
+    open('/tmp/b_diff', 'w').write(add_text(selected[1]).encode("utf-8"))
+    import os 
     os.system("meld /tmp/a_diff /tmp/b_diff &")
 
 Leo 程式
 ^^^^^^^^^^
 
-The c.all_positions generator returns a list of all positions in the outline. This script makes a list of all the nodes in an outline
-
-.. code-block:: python
-
-    # 依照架構列出整份文件的標題
-    for p in c.all_positions():
-        indent = '.' * p.level()
-        g.es('%s%s' % (indent,p.h))
-        
-The c.all_unique_positions generator returns a list of all unique positions in the outline.
-        
-.. code-block:: python
-
-    # 整份文件, 不包括重複標題
-    for p in c.all_unique_positions():
-        indent = '.' * p.level()
-        g.es('%s%s' % (indent,p.h))
-
-p.subtree() 則是節點以下的所有子節點位置, 以下會在 log 區列出所有子節點的內文資料.
-
-.. code-block:: python
-
-    for p in p.subtree():
+The c.all_positions generator returns a list of all positions in the outline. This script makes a list of all the nodes in an outline
+
+.. code-block:: python
+    :linenos:
+    
+    # 依照架構列出整份文件的標題
+    for p in c.all_positions():
+        indent = '.' * p.level()
+        g.es('%s%s' % (indent,p.h))
+        
+The c.all_unique_positions generator returns a list of all unique positions in the outline.
+        
+.. code-block:: python
+    :linenos:
+    
+    # 整份文件, 不包括重複標題
+    for p in c.all_unique_positions():
+        indent = '.' * p.level()
+        g.es('%s%s' % (indent,p.h))
+
+p.subtree() 則是節點以下的所有子節點位置, 以下會在 log 區列出所有子節點的內文資料.
+
+.. code-block:: python
+    :linenos:
+    
+    for p in p.subtree():
         g.es(p.b)
 
 @url 有關丟失小圖像
@@ -315,62 +320,83 @@ g.es('Test',color='blue',tabName='Test')
 
 http://webpages.charter.net/edreamleo/directives.html
 
+@url 建立中間檔案備用
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+https://groups.google.com/forum/?fromgroups=#!msg/leo-editor/_dX4UkRJDOc/iIzSaJYT1_oJ
+
+當使用者要利用 Leo Editor 相關節點內容, 轉進其他系統 (例如: Wordpress 或 CMSimple) 時, 就會需要執行這些程式碼.
+
+at = c.atFileCommands 
+p = c.currentPosition() # get the current position 
+fileName = p.atAutoNodeName() 
+at.readOneAtAutoNode(fileName,p) 
+
+有關
+
+p.headString() and  p.bodyString()
+
+以及
+
+p = g.findNodeAnywhere(c,headline) and/or
+p = g.findNodeInTree(c,p,headline) 
+
+還有
+
+c.executeMinibufferCommand('open-outline')
+
 git 相關
 **********
 
-基本設定:
-
-.. code-block:: none
-
-    git config --global user.name "使用者名稱"
-    
-    git config --global user.email "username@email.com"
-    
-    git config --global http.proxy %HTTP_PROXY%
-    
-    $http_proxy 設定連線用 proxy server
-
-git clone https://github.com/chiamingyen/mdeCourse.git
-
-就可以將 mdeCourse 複製到 local 端
-
-修改後就可以利用
-
-.. code-block:: none
-
-    git add .
-    
-    git commit -m "my commit"
-    
-    git push
-
+基本設定:
+
+.. code-block:: none
+
+    git config --global user.name "使用者名稱"
+    git config --global user.email "username@email.com"
+    git config --global http.proxy %HTTP_PROXY%
+    $http_proxy 設定連線用 proxy server
+
+git clone https://github.com/chiamingyen/mdeCourse.git
+
+就可以將 mdeCourse 複製到 local 端
+
+修改後就可以利用
+
+.. code-block:: none
+
+    git add .
+    git commit -m "my commit"
+    git push
+
 將資料更新到 remote 端
 
 Sphinx 相關
 *************
 
-Sphinx 與 Python3 的配合, 在使用 extensions = ['sphinx.ext.graphviz'] (conf.py 中的設定) 時, 必須要修改 V:\IDE\Python33\Lib\site-packages\sphinx\ext 目錄下的 graphviz.py 122 ~ 126 行, 主要原因是 Python3 的 string 為 utf-8 編碼.
-
-.. code-block:: python
-
-    def render_dot(self, code, options, format, prefix='graphviz'):
-        """Render graphviz code into a PNG or PDF output file."""
-        hashkey = (code+ str(options) + \
-                  str(self.builder.config.graphviz_dot) + \
-                  str(self.builder.config.graphviz_dot_args)).encode("utf-8")
-                  
-在 Sphinx 中使用 graphviz 指令的步驟:
-
-1. 確定有 dot.exe (這裡是從 Simple Groupware 的 win32 binary 安裝中擷取.
-
-2. 在 conf.py 設定中, 將 sphinx.ext.graphviz 加入 extensions=[].
-
-3. 確定 sphinx\ext\graphviz.py 為 Python3 相容.
-
-4. 在 rst 內文中, 使用 .. graphviz:: 指令.
-
-參考資料:
-
+Sphinx 與 Python3 的配合, 在使用 extensions = ['sphinx.ext.graphviz'] (conf.py 中的設定) 時, 必須要修改 V:\IDE\Python33\Lib\site-packages\sphinx\ext 目錄下的 graphviz.py 122 ~ 126 行, 主要原因是 Python3 的 string 為 utf-8 編碼.
+
+.. code-block:: python
+    :linenos:
+    
+    def render_dot(self, code, options, format, prefix='graphviz'):
+        """Render graphviz code into a PNG or PDF output file."""
+        hashkey = (code+ str(options) + \
+                  str(self.builder.config.graphviz_dot) + \
+                  str(self.builder.config.graphviz_dot_args)).encode("utf-8")
+                  
+在 Sphinx 中使用 graphviz 指令的步驟:
+
+1. 確定有 dot.exe (這裡是從 Simple Groupware 的 win32 binary 安裝中擷取.
+
+2. 在 conf.py 設定中, 將 sphinx.ext.graphviz 加入 extensions=[].
+
+3. 確定 sphinx\ext\graphviz.py 為 Python3 相容.
+
+4. 在 rst 內文中, 使用 .. graphviz:: 指令.
+
+參考資料:
+
 https://bitbucket.org/birkenfeld/sphinx/src/8f0aca73d1b0/sphinx/ext/graphviz.py
 
 輸出 CHM
@@ -432,19 +458,19 @@ cwTeXYen,cwTeX 圓體:style=Medium
 數學方程式
 ^^^^^^^^^^^^^^^
 
-Sphinx 支援直接在 rst 內容中輸入數學方程式, 由於 Sphinx 可以將 rst 轉為 html 與 pdf, 因此在 extension 部分必須分別啟動 'sphinx.ext.pngmath' 與 'sphinx.ext.mathjax', 而 pngmath 必須配合
-
-make.bat 中的 pngmath_latex 設定, 指向 MiKTeX 的 latex.exe 路徑.
-
-.. code-block:: none
-
-    set SPHINXBUILD=sphinx-build
-    set SPHINXOPTS=-D pngmath_latex="V:\extensions\portableLatex\MiKTeX\texmf\miktex\bin\latex.exe"
-
-接著就可以使用 .. math:: 指令, 在 rst 內容中導入 LaTeX 格式的數學方程式.
-
-啟動 sphinx.ext.pngmath 延伸程式主要讓 LaTeX 將數學方程式轉為 png 圖檔, 而 sphinx.ext.mathjax 則配合在 html 轉換後, 加入 mathjax.js 的支援, 讓使用者在瀏覽器中檢視對應的數學方程式.
-
+Sphinx 支援直接在 rst 內容中輸入數學方程式, 由於 Sphinx 可以將 rst 轉為 html 與 pdf, 因此在 extension 部分必須分別啟動 'sphinx.ext.pngmath' 與 'sphinx.ext.mathjax', 而 pngmath 必須配合
+
+make.bat 中的 pngmath_latex 設定, 指向 MiKTeX 的 latex.exe 路徑.
+
+.. code-block:: none
+
+    set SPHINXBUILD=sphinx-build
+    set SPHINXOPTS=-D pngmath_latex="V:\extensions\portableLatex\MiKTeX\texmf\miktex\bin\latex.exe"
+
+接著就可以使用 .. math:: 指令, 在 rst 內容中導入 LaTeX 格式的數學方程式.
+
+啟動 sphinx.ext.pngmath 延伸程式主要讓 LaTeX 將數學方程式轉為 png 圖檔, 而 sphinx.ext.mathjax 則配合在 html 轉換後, 加入 mathjax.js 的支援, 讓使用者在瀏覽器中檢視對應的數學方程式.
+
 使用 .. raw:: latex 可以直接輸入 LaTeX 相關語法的內容.
 
 區別 html 與 latex 內容
@@ -484,54 +510,55 @@ font.monospace 則設為對應的中文字型名稱.
 OpenShift 相關
 ****************
 
-.openshift 中的內容
-
-.. code-block:: none
-
-    # The OpenShift server to connect to
-    libra_server="openshift.redhat.com"
-    
-    # Your OpenShift login name
-    default_rhlogin="your_account@yourdomain"
-    
-    # The default timeout for network operations
-    #timeout=<integer>
-    
-    # If true, certificate errors will be ignored.
-    # WARNING: This may allow others to eavesdrop on your communication with OpenShift.
-    #insecure=<boolean>
-    
-    # The SSL protocol version to use when connecting to this server
-    #ssl_version="<string>"
-    
-    # A client certificate file for use with your server
-    #ssl_client_cert_file="<path_to_file>"
-    
-    # A file containing CA one or more certificates
-    #ssl_ca_file="<path_to_file>"
-    
-利用 rhc 下載位於 OpenShift 的 Application 資料
-
-.. code-block:: none
-
-    rhc snapshot save -a yourapplication
-    
-有關 rhc 的安裝, 請參考 "rhc 的安裝" 章節說明.
-
-至於 OpenShift 上的應用程式與客製 domain name 的綁定:
-
-執行下列 rhc 指令, 就可以為 yourapplication 指定一個別名 your.custom.domain
-
-.. code-block:: none
-
-    rhc alias add yourapplication your.custom.domain
- 
-執行完成後, 就可以在 OpenShift 的全球資訊網伺服器設定中, 將 yourapplication 應用程式新增一組別名 (alias) 綁定.
- 
-至於要讓此別名能夠實際在 DNS 系統中發揮作用, 使用者只要在 your.custom.domain 主機所對應的 DNS 設定中 (即負責掌管 custom.domain 的 DNS server 設定中), 新增:
- 
-your    CNAME    yourapplication-yournamespace.rhcloud.com
-
+.openshift 中的內容
+
+.. code-block:: none
+    :linenos:
+
+    # The OpenShift server to connect to
+    libra_server="openshift.redhat.com"
+    
+    # Your OpenShift login name
+    default_rhlogin="your_account@yourdomain"
+    
+    # The default timeout for network operations
+    #timeout=<integer>
+    
+    # If true, certificate errors will be ignored.
+    # WARNING: This may allow others to eavesdrop on your communication with OpenShift.
+    #insecure=<boolean>
+    
+    # The SSL protocol version to use when connecting to this server
+    #ssl_version="<string>"
+    
+    # A client certificate file for use with your server
+    #ssl_client_cert_file="<path_to_file>"
+    
+    # A file containing CA one or more certificates
+    #ssl_ca_file="<path_to_file>"
+    
+利用 rhc 下載位於 OpenShift 的 Application 資料
+
+.. code-block:: none
+
+    rhc snapshot save -a yourapplication
+    
+有關 rhc 的安裝, 請參考 "rhc 的安裝" 章節說明.
+
+至於 OpenShift 上的應用程式與客製 domain name 的綁定:
+
+執行下列 rhc 指令, 就可以為 yourapplication 指定一個別名 your.custom.domain
+
+.. code-block:: none
+
+    rhc alias add yourapplication your.custom.domain
+ 
+執行完成後, 就可以在 OpenShift 的全球資訊網伺服器設定中, 將 yourapplication 應用程式新增一組別名 (alias) 綁定.
+ 
+至於要讓此別名能夠實際在 DNS 系統中發揮作用, 使用者只要在 your.custom.domain 主機所對應的 DNS 設定中 (即負責掌管 custom.domain 的 DNS server 設定中), 新增:
+ 
+your    CNAME    yourapplication-yournamespace.rhcloud.com
+
 然後增量 serial number 後, 重新啟動 DNS server, 就可以利用 your.custom.domain 連結到上述應用程式.
 
 rhc 的安裝

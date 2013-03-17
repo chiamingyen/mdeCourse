@@ -10,11 +10,11 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="amd_yen.20130306001037.1797"><vh>@settings</vh>
+<v t="amd_yen.20130306001037.1797" a="E"><vh>@settings</vh>
 <v t="amd_yen.20130306001037.1798"><vh>@data qt-gui-plugin-style-sheet</vh></v>
-<v t="amd_yen.20130306001037.1799"><vh>@string initial_split_orientation = horizontal</vh></v>
+<v t="amd_yen.20130306001037.1799"><vh>@string initial_split_orientation = vertical</vh></v>
 </v>
-<v t="amd_yen.20130307204656.1443"><vh>課程規劃與進行</vh>
+<v t="amd_yen.20130307204656.1443" a="E"><vh>課程規劃與進行</vh>
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
@@ -23,7 +23,7 @@
 <v t="amd_yen.20130308210411.2404"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
 <v t="amd_yen.20130308210411.2405"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2403" a="E"><vh>@@button generate-full-userguide</vh>
+<v t="amd_yen.20130308210411.2403" a="E"><vh>@button generate-full-userguide</vh>
 <v t="amd_yen.20130308210411.2404"></v>
 <v t="amd_yen.20130308210411.2405"></v>
 </v>
@@ -32,17 +32,17 @@
 </v>
 <v t="amd_yen.20130312013510.1824"><vh>@button self_and_subtree</vh></v>
 <v t="amd_yen.20130308210411.2406" a="E"><vh>KMOL Guide</vh>
-<v t="amd_yen.20130308221230.3827" a="E"><vh>前言</vh>
+<v t="amd_yen.20130308221230.3827"><vh>前言</vh>
 <v t="amd_yen.20130312013510.1498"><vh>以下為電子書內容</vh></v>
 <v t="amd_yen.20130308221230.3828" a="E"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
-<v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
+<v t="amd_yen.20130308221230.2437" a="E"><vh>C2 第一週程式</vh>
 <v t="amd_yen.20130308221230.2438"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2457"><vh>C2 第二週程式</vh>
+<v t="amd_yen.20130308221230.2457" a="E"><vh>C2 第二週程式</vh>
 <v t="amd_yen.20130308221230.2458" a="E"><vh>@shadow c2/docutils_ex1.py</vh></v>
 <v t="amd_yen.20130308221230.2462"><vh>課程規劃</vh></v>
 <v t="amd_yen.20130308221230.2463" a="E"><vh>課程進行</vh>
@@ -50,23 +50,26 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130308221230.2465" a="E"><vh>@shadow c2/docutils_ex2.py</vh></v>
 </v>
+<v t="amd_yen.20130317160119.1726" a="E"><vh>C2 第四週程式</vh>
+<v t="amd_yen.20130317160119.1727"><vh>@shadow c2/pyqt_geardesign.py</vh></v>
+</v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2437,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.20130308214521.2437,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
-<v t="amd_yen.20130309155804.1706" a="E"><vh>CD 第三週程式</vh>
+<v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
 <v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
-<v t="amd_yen.20130314194325.1746" a="E"><vh>CD 第四週程式</vh>
+<v t="amd_yen.20130314194325.1746"><vh>CD 第四週程式</vh>
 <v t="amd_yen.20130314194325.1747" a="E"><vh>@shadow cd/gearcontour.py</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
+<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2407" a="E"
 expanded="amd_yen.20130308210411.2408,"><vh>@file wcm.txt</vh></v>
@@ -74,7 +77,7 @@ expanded="amd_yen.20130308210411.2408,"><vh>@file wcm.txt</vh></v>
 <v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
-expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,"><vh>@file misc.txt</vh></v>
+expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,"><vh>@file misc.txt</vh></v>
 </v>
 </v>
 </vnodes>
@@ -286,13 +289,11 @@ os.chdir('_build/latex')
 # 接下來要設法將 .tex 轉為 .pdf
 target_name = "KMOLdocumentation"
 filename = target_name+".tex"
-#os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
-#os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
-#filename = target_name+".xdv"
-#os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
-# 下面這兩行與上面四行的功能相同
-os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -interaction=nonstopmode "+filename)
-os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -interaction=nonstopmode "+filename)
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+filename = target_name+".xdv"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
+
 #
 #os.system(target_name.replace(".xdv", ".pdf"))
 filename = target_name+".pdf"
@@ -501,5 +502,6 @@ c.k.simulateCommand('rst3')
 # 將 rst 格式檔案轉為 pdf
 &lt;&lt; pdf manual &gt;&gt;</t>
 <t tx="amd_yen.20130314194325.1746"></t>
+<t tx="amd_yen.20130317160119.1726"></t>
 </tnodes>
 </leo_file>

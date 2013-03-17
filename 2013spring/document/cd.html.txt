@@ -105,13 +105,15 @@ Simple Groupware 安裝
 有關 reading 與考試
 ************************
 
-期中考前有兩篇從教科書中選出的章節, 希望學員能夠充分了解內容的涵義, 由於是英文的資料, 因此至少要能夠先將單字篩選出來, 進行字意了解, 然後再套進基本的字句解析, 接著則是"希望"學員經過多次閱讀後, 能夠了解段落涵義, 最後則是了解該章節所點出與協同產品開發有關的基本概念與內容.
-
-至於教學內容的評量, 則是希望將章節內容以閱讀的方式轉為 mp3 語音, 考試時則以撥放相關內容的英文 mp3 檔案, 以單選題或複選題讓學員於線上考試作答, 以測試學員是否理解章節中的英文內容.
-
-由於協同產品設計過程, 若需於線上直接透過英文與其他研發團隊進行溝通, 許多的對話與反應幾乎都必須是及時進行, 因此利用 mp3 的英文語音來訓練機械設計工程師的協同設計流程, 應該是合理的流程.
-
+期中考前有兩篇從教科書中選出的章節, 希望學員能夠充分了解內容的涵義, 由於是英文的資料, 因此至少要能夠先將單字篩選出來, 進行字意了解, 然後再套進基本的字句解析, 接著則是"希望"學員經過多次閱讀後, 能夠了解段落涵義, 最後則是了解該章節所點出與協同產品開發有關的基本概念與內容.
+
+至於教學內容的評量, 則是希望將章節內容以閱讀的方式轉為 mp3 語音, 考試時則以撥放相關內容的英文 mp3 檔案, 以單選題或複選題讓學員於線上考試作答, 以測試學員是否理解章節中的英文內容.
+
+由於協同產品設計過程, 若需於線上直接透過英文與其他研發團隊進行溝通, 許多的對話與反應幾乎都必須是及時進行, 因此利用 mp3 的英文語音來訓練機械設計工程師的協同設計流程, 應該是合理的流程.
+
 此外, 將教科書的英文章節轉為 mp3 語音檔案, 也是希望能夠將檔案放在手機中, 可以隨時以耳機練習英文聽力, 希望能降低學員對於閱聽英文對話的恐懼與障礙.
+
+協同產品設計實習前半段教科書內容的 mp3 朗讀: http://cae.mde.tw?download=cdmp3.7z
 
 Simple Groupware 管理
 ***********************
@@ -127,6 +129,7 @@ Simple Groupware 管理
 進行登入認證
 
 .. code-block:: none
+    :linenos:
 
     1. main menu - > change settings
     
@@ -174,28 +177,29 @@ Simple Groupware 管理
 SpreadSheet 的應用
 *********************
 
-由以下的資料格式出發
-
-.. code-block:: none
-
-    dbCells = [
-    
-      [0,0,"1",""], // A1
-      
-      [1,0,"4",""], // B1
-      
-      [3,0,"=graph(\"line\",\"測試\",A1:A3,B1:B3,\"x 軸\",\"y 軸\")",""], // D1
-    
-      [0,1,"2",""], // A2
-      
-      [1,1,"1",""], // B2
-    
-      [0,2,"3",""], // A3
-      
-      [1,2,"2",""], // B3
-      
-    ];
-
+由以下的資料格式出發
+
+.. code-block:: none
+    :linenos:
+    
+    dbCells = [
+    
+      [0,0,"1",""], // A1
+      
+      [1,0,"4",""], // B1
+      
+      [3,0,"=graph(\"line\",\"測試\",A1:A3,B1:B3,\"x 軸\",\"y 軸\")",""], // D1
+    
+      [0,1,"2",""], // A2
+      
+      [1,1,"1",""], // B2
+    
+      [0,2,"3",""], // A3
+      
+      [1,2,"2",""], // B3
+      
+    ];
+
 利用程式方法, 建立 0~2PI 的 Sin 與 Cos 繪圖
 
 sgw 版本
@@ -217,8 +221,7 @@ CD 第三週
 .. 請注意: 以下採用程式檔案直接載入文書內容的模式取得對應的程式原始碼.
 
 .. literalinclude:: ../cd/spreadsheet.py
-   :language: python
-   :linenos:
+    :language: python
    
 將上列程式輸出結果, 以轉貼方式複製到 Simple Groupware Spreadsheet 中的 JS 資料介面, 然後按下 Load, 就可以顯示出 Sin() 與 Cos() 的繪圖結果.
 
@@ -231,21 +234,270 @@ Simple Groupware graphviz 模組的中文化:
 2. 利用下列 graphviz 就可以顯示出中文化的流程圖.
 
 .. code-block:: none
-
+    :linenos:
+    
     digraph G {
     node[fontname="使用內定字型"]
     "在 Projecs 目錄下\n建立一個專案\n並指定專案參與人員"->
     "系統會採\n project_專案名稱 \n自動建立對應群組"->
      "使用者可以由\n Personal projects \n目錄中進入檢視相關資料"->
-    "專案參與人員\n在其他目錄下\n所建立的相關資料\n只要綁上該專案名稱\n 相關資料就會統一彙整到\n Personal projects 所屬資料分類下"
+    "專案參與人員\n在其他目錄下\n所建立的相關資料\n
+    只要綁上該專案名稱\n 相關資料就會統一彙整到\n 
+    Personal projects 所屬資料分類下"
         }
     
 .. code-block:: none
-
+    :linenos:
+    
     digraph G {
     node[fontsize = 14,fontname = "內定字型"]
     開始->執行->結束
     }
+
+Simple Groupware 在 `mongoose web server`_ [#]_ 環境下執行, 使用上傳檔案模組 (files) 時會發生 ajax 的錯誤, 目前無法解決, 而 nginx 在 nginx.conf 設定中, 增加 client_max_body_size 的設定, 就可以正常上傳檔案 [#]_ .
+
+.. [#] 目前單獨使用 mongoose web server 的情況只剩下 Python3 Tutor 的 cgi-bin 執行. 
+.. [#] 這裡限制最大上傳檔案為 50MB.
+
+.. code-block:: none
+    :linenos:
+
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+        client_max_body_size 50M;
+        
+只是在上傳"中文命名"檔案時, 會發生 php 的 basename() `截斷 sgw 中文檔名問題`_, 即使在 simple_store/config.php 中設定 setlocale(LC_ALL, 'en_US.UTF8'); 仍然無法解決, 目前已知在"中文命名檔"之前加上一個"-", 可以暫時解決問題.
+
+.. _mongoose web server: https://github.com/valenok/mongoose
+
+.. _截斷 sgw 中文檔名問題: http://sourceforge.net/p/simplgroup/support-requests/344/
+
+以下則為 Simple Groupware 程式執行的流程, 若希望針對上述問題全面解決, 必須同時面對 php 與 javascript 交互處理的問題:
+
+    1. 需要 simple_store/config.php 與 bin/core/functions.php 以及 smarty class 進行啟動.
+    
+    2. 以 bin/core/functions.php 中的 sys_build_output() 將套入 main.tpl 後的頁面, 以 echo 的方式送回瀏覽器, 其中的 $output 最前方放入處理程式所花的時間.
+    
+    3. simple_cache 目錄中則分門別類存放各種執行程式所需的暫存檔案, 若相關設定或程式更新, 則必須要先清除對應的 cache 檔案, 否則會依照舊的內容執行.
+    
+    4. 上傳檔案的檔名利用 bin/core/functions.php 中的 sys_build_filename() 進行命名, 某些中文長檔名就是因為此一函式的處理造成實際存檔的名稱過長, 超過 256 個字元而造成無法正確存檔, 因此若必須使用檔名很長的中文命名, 則要修改 sys_build_filename() 函式.
+
+其次, 上傳檔案實際執行程式為 bin/upload.php, 必須考量 config.php 中 INVALID_EXTENSIONS 所不允許上傳的副檔名.
+
+上傳檔案過程的 ajax 則由 bin/core/classes/ajax.php 中的 upload_file($filename) 函式負責處理, 並且透過 bin/ext/js/functions_edit.js 中的 handle_upload(item_name, max_file_size, max_file_count, files, input_id) 進行呼叫.
+
+經過上述 Simple Groupware 執行流程的追蹤, 終於找到實際解決"中文命名檔案"上傳問題的方案.
+
+以下為 ajax.php 檔案的修改:
+
+.. code-block:: php
+    :linenos:
+    
+    // setlocale() 必須放到 V:\extensions\sgw\bin\core\classes\ajax.php 第 242 與 243 行, 才會有作用
+    static function upload_file($filename) {
+      if (empty($filename) or empty($_SESSION["username"])) exit("Upload failed");
+      if (strpos($filename,"://")) {
+        $target = sgsml::getfile_url($filename);
+      } else {
+        $target = sgsml::getfile_upload($filename);
+      }
+      if ($target=="" or !file_exists($target)) {
+        exit("Upload failed: Failed to write file to disk.");
+      }
+        // 為了避免中文命名檔案前面被斷頭的問題
+        setlocale(LC_ALL, 'en_US.UTF8');
+      return array("tmp_path"=>$target, "basename"=>modify::basename($target), "filesize"=>modify::filesize($target));
+    }
+    
+截至目前使用 Simple Groupware 的檔案上傳與中文處理結論:
+
+1. 目前的 mongoose web server (3.7版) 仍然無法正確處理 Simple Groupware 的 ajax 檔案傳送, 目前採 nginx 在 ssl 模式下運作.
+
+2. 中文命名檔案的處理已經有理想方案, 亦即在 V:/extensions/sgw/bin/core/classes/ajax.php 中的 upload_file() 函式中, 加上 setlocale(LC_ALL, 'en_US.UTF8');
+
+3. 為了讓 nginx 處理 Simple Groupware 的解譯, 在 nginx.conf 加入 ssl 的 server 設定, 完整的設定如下:
+
+.. code-block:: none
+    :linenos:
+
+    worker_processes  1;
+
+    events {
+        worker_connections  1024;
+    }
+    
+    
+    http {
+        include       mime.types;
+        default_type  application/octet-stream;
+        client_max_body_size 50M;
+    
+        #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+        #                  '$status $body_bytes_sent "$http_referer" '
+        #                  '"$http_user_agent" "$http_x_forwarded_for"';
+    
+        #access_log  logs/access.log  main;
+    
+        sendfile        on;
+        #tcp_nopush     on;
+    
+        #keepalive_timeout  0;
+        keepalive_timeout  65;
+    
+        #gzip  on;
+    
+        server {
+            listen       89;
+            server_name  localhost;
+    
+            #charset koi8-r;
+            charset utf-8;
+    
+            #access_log  logs/host.access.log  main;
+    
+            location / {
+                root   V:/www/cmsimpleSpring2013;
+                index  index.html index.htm index.php;
+            }
+    
+            #error_page  404              /404.html;
+    
+            # redirect server error pages to the static page /50x.html
+            #
+            error_page   500 502 503 504  /50x.html;
+            location = /50x.html {
+                root   html;
+            }
+    
+            # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+            #
+            #location ~ \.php$ {
+            #    proxy_pass   http://127.0.0.1;
+            #}
+    
+            # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+            #
+           # location ~ \.php$ {
+              location ~ ^(.+\.php)(.*)$ {
+                root   V:/www/cmsimpleSpring2013;
+                fastcgi_split_path_info ^(.+\.php)(.*)$;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+            #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+            #    orig    fastcgi_param SCRIPT_FILENAME ./html/$fastcgi_script_name;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                fastcgi_param PATH_INFO $fastcgi_script_name;
+                include        fastcgi_params;
+            }
+        
+        # for perl
+        #location ~ \.pl$ {
+        #gzip off;
+        #include /etc/nginx/fastcgi_params;
+        #fastcgi_pass  127.0.0.1:8999;
+        #fastcgi_index index.pl;
+        #fastcgi_param  SCRIPT_FILENAME  /srv/www/www.example.com/public_html$fastcgi_script_name;
+        
+            location /django{
+                fastcgi_pass 127.0.0.1:8088;
+                fastcgi_param SERVER_NAME $server_name;
+                fastcgi_param SERVER_PORT $server_port;
+                fastcgi_param SERVER_PROTOCOL $server_protocol;
+                fastcgi_param PATH_INFO $fastcgi_script_name;
+                fastcgi_param REQUEST_METHOD $request_method;
+                fastcgi_param QUERY_STRING $query_string;
+                fastcgi_param CONTENT_TYPE $content_type;
+                fastcgi_param CONTENT_LENGTH $content_length;
+                fastcgi_pass_header Authorization;
+                fastcgi_intercept_errors off;
+                }
+            # deny access to .htaccess files, if Apache's document root
+            # concurs with nginx's one
+            #
+            #location ~ /\.ht {
+            #    deny  all;
+            #}
+    # hide index.php for Yii
+    #location /yii/demos/blog {
+    #try_files $uri /yii/demos/blog/index.php;
+        }
+    
+    server {
+        server_name localhost;
+        listen 9443;
+        ssl on;
+        ssl_certificate V:/certificates/ssl_cert.pem;
+        ssl_certificate_key V:/certificates/ssl_cert.pem;
+    
+            location / {
+                root   V:/www/cmsimpleSpring2013;
+                index  index.html index.htm index.php;
+            }
+    
+              location ~ ^(.+\.php)(.*)$ {
+                root   V:/www/cmsimpleSpring2013;
+                fastcgi_split_path_info ^(.+\.php)(.*)$;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+            #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+            #    orig    fastcgi_param SCRIPT_FILENAME ./html/$fastcgi_script_name;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                fastcgi_param PATH_INFO $fastcgi_script_name;
+                include        fastcgi_params;
+            }
+        }
+    
+    server {
+        server_name localhost;
+        listen 6443;
+        ssl on;
+        ssl_certificate V:/certificates/ssl_cert.pem;
+        ssl_certificate_key V:/certificates/ssl_cert.pem;
+    
+            location / {
+                root   V:/extensions/sgw;
+                index  index.html index.htm index.php;
+            }
+    
+              location ~ ^(.+\.php)(.*)$ {
+                root   V:/extensions/sgw;
+                fastcgi_split_path_info ^(.+\.php)(.*)$;
+                fastcgi_pass   127.0.0.1:9000;
+                fastcgi_index  index.php;
+            #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+            #    orig    fastcgi_param SCRIPT_FILENAME ./html/$fastcgi_script_name;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                fastcgi_param PATH_INFO $fastcgi_script_name;
+                include        fastcgi_params;
+            }
+        }
+    }
+
+Simple Groupware 上傳檔名
+*****************************
+
+bin/core/functions.php 中的 sys_build_filename() 對於較長的上傳中文檔案名稱 ,經過轉換後, 會超過系統允許的 255 字元限制, 在 Linux 可以依照論壇中的修改因應, 但是 Windows 環境則必須限制中文檔案名稱的上傳.
+
+.. code-block: php
+
+    function sys_build_filename($filename,$table="") {
+    //Yen 修正中文命名檔案轉成 sha1 造成檔案名稱過長的問題, 
+    // https://groups.google.com/forum/?fromgroups=#!topic/simple-groupware/yD9CyH7CL7E
+    // 在 Windows 只能要求使用較短的中文檔案名稱
+      $filename = NOW."-".sha1(uniqid(rand(), true).uniqid(rand(), true))."--".urlencode(basename($filename));
+      if ($table=="" or strpos($table,"_nodb_")) {
+        return array(SIMPLE_CACHE."/upload/",$filename);
+      }
+    // 存入資料庫的檔案名稱在某些情況有誤, 但是存檔則是正確的檔名轉換, 因此判斷是 Javascript  ajax 轉換時出問題
+      return array(SIMPLE_STORE."/".$table."/",$filename);
+    }
+    
+在 Windows 環境使用 Simple Groupware 的相關限制:
+
+    1. 建立使用英文命名的檔案上傳, 若真要使用中文命名檔案上傳, 建議在檔名之前一律加上"-" (dash), 以避免某些中文檔名無法上傳的問題 (即使已經利用 setlocale(LC_ALL, 'en_US.UTF8'); 設定試圖修正 php basename() 處理中文命名檔案的問題, 但是仍有部分特定中文檔案名稱無法正確被解讀, 目前懷疑是檔名經過 php 轉 ajax 時所產生的問題).
+    
+    2. 若真要使用"-"+中文命名檔案, 也不可使用過長的檔案名稱, 否則會產生檔名過長無法上傳的錯誤.
 
 CD 第四週
 ++++++++++++
@@ -280,6 +532,30 @@ def getInput (event=None):
 # 執行上述 getInput 函式
 getInput()
 
+四次考試的 mp3 內容
+**************************
+
+協同產品設計實習前半段教科書內容的 mp3 朗讀: http://cae.mde.tw?download=cdmp3.7z
+
+@url 最新 SGW 版本
+**********************
+
+https://github.com/simplegroupware/Simple-Groupware
+
+從這裡可以發現 0.8 版正在打造中, 0.8 alpha 已經重新更動程式安裝架構與下拉式功能表:
+    
+    1. 大大簡化安裝流程, 過去從 src 加載語系資料, 並且複製到 bin 目錄的架構已經變更, bin 目錄不存在, 應該是採一組程式碼讀取語系資料的方式執行.
+    
+    2. 管理者功能一分為二, home 為原先的更改設定選單, 而 settings 獨立存在, 全部都在下拉式選單第一層, 操作更加簡潔.
+    
+    3. 目前為 alpha 版, spreadsheet 在英文語系設定下會將圖檔存在 V:\, 顯然仍有錯誤尚未修改.
+    
+    4. 許多 0.8x 預計新增的功能都還未加入, 應該是先整理基本架構, 之後才會一一納入.
+    
+    5. 移除 SSL 設定模式, 建議全時在 SSL 模式下運作.
+    
+    6. Webdav server 功能已經移除, 建議採用網際硬碟 (google drive 或 dropbox) 進行 offline 同步), 實際操作流程仍有待確認.
+
 Simple Groupware 郵件設定
 *****************************
 
@@ -295,6 +571,62 @@ SMTP: username:password[:port[:tls]]@hostname
 若 username 與 password 包含 @, 則必須以 %% 取代
 
 若 username 與 password 包含 : 則以 == 取代
+
+寄信郵件設定範例:
+    
+    1. 若希望使用 Gmail 電子郵箱: myemail@gmail.com 且密碼為 mypassword 來設定寄信, 則
+    SMTP 欄位必須填入: myemail:mypassword:465:tls@smtp.gmail.com
+    
+    2. 若希望使用 Gmail 電子郵箱: myemail@gm.domain.name 且密碼為 mypassword 來設定寄信, 則
+    SMTP 欄位必須填入: myemail%%gm.domain.name:mypassword:465:tls@smtp.gmail.com
+
+用戶管理
+^^^^^^^^^^^^
+
+完成安裝後, 就可以利用總管理者的帳號登入系統. 內建的總管理者帳號為 admin, 密碼也是 admin, 但是若在安裝過程已經進行設定, 系統就不會採用內建的總管理者帳號密碼.
+
+若使用者連結到完成安裝的系統, 將會以訪客 (anonymous) 的身份進入系統. 假如不希望使用者以無法辨識身份的訪客帳號進入系統, 則必須以管理者登入後在
+
+main menu - administration - Change setup settings 中去除
+
+Enable anonymous access 選項的勾選.
+
+總管理者登入之後, 若希望建立零星的用戶帳號, 可以進入
+
+Workspace - Organization - Users 項下建立帳號.
+
+使用者帳號至少三個字元, 而密碼至少 5 個字元, 並且要提供至少一個電子郵箱, 其餘欄位則為選項, 接著就是在帳號頁面設定 SMTP 寄信主機.
+
+總管理者若忘記密碼, 則必須刪除 simple_store 目錄下的 config.php, 然後重新進行設定, 總管理者在 simple_sys_users 資料表中並沒有存入任何資料, 而是存在 config.php 中.
+
+新建帳號登入後, 系統會轉到該帳號下的個人目錄區, 也就是 Workspace - Personal folders, 假如要改變此一轉址, 則必須在 Users 目錄下的帳號頁面, 於 Home folder id 中加以設定.
+
+假如要在個人帳號區內使用 IMAP 收信則必須要設定對應的 Mountpoints.
+
+假如登入後希望改變帳號所對應的密碼則進入Main menu - Change settings 中修改, 而與帳號對應的 status 更改也是在 Change settings.
+
+總管理者若刪除用戶, 則該用戶資料會被丟入 trash 區, 之後使用者可以利用剪下複製的方式回復該帳號, 也可以永久刪除該用戶資料.
+
+使用剪貼的方式回復目錄資料後, 總管理者必須手動設定該目錄中的各項使用權限, 系統並不會自動回復原先的相關權限設定.
+
+一個使用者帳號, 可以分別加入不同的群組 (group), 但是群組中則不可以加入群組, 以免產生後續管理上的問題.
+
+群組管理
+^^^^^^^^^^^^
+
+有關 Simple Groupware 的群組:
+
+    總管理者可以在 Workspace - Organization - Groups 中建立群組.
+    
+    刪除的群組會被視為暫停使用, 該群組目錄資料則會被移到 Workspace - System - Trash. 總管理者之後可以採用剪貼方式回復或永久刪除該群組. 已經被移到 Trash 區的群組, 總管理者仍然可以處理與該群組有關的設定, 因為總管理者具有進入 Trash 區查閱該群組資料.
+    
+    專案 (project) 與部門 (department) 的內建群組, 建立一個部門後, 以 department_群組名稱 進行命名的群組會自動建立, 並且將該部門的所有成員納入該自動建立的群組之中. 而列在個人部門中的檔案, 該部門人員可以進入讀寫該部門所建立的各種資料.
+    
+    而建立一個新專案後, 以 project_專案名稱 命名的群組也會自動建立, 任何屬於 internal participants 中的成員則會自動被歸屬到該群組中. 而且該群組成員可以讀寫在個人專案下屬於該新增專案目錄下所屬的相關資料.
+    
+    唯一必須特別注意的是, 管理者 (manager) 或外部參與專案或部門的成員, 並不會對於目錄或群組成員的擷取屬性有任何影響, 亦即, 設定一個新專案時, 列名為管理者 (manger) 也必須加入該專案的 internal participants, 而各個列名外部參與者的帳號則沒有該專案所屬的各項存取權.
+    
+    群組成員屬性只有在該帳號登入後, 才會刷新資料, 亦即才會反映出最新的屬性修改, 換句話說, 若某一位成員的屬性被修改後, 管理者或許必須刷新所對應的 session 資料, 並且強制該帳號重新登入系統, 該群組或專案的新設定才會生效, 否則系統仍然以舊 session 中的資料為准.
 
 建立專案
 ^^^^^^^^^^^^
@@ -346,6 +678,18 @@ SMTP: username:password[:port[:tls]]@hostname
 此後, 參與該專案計畫的成員登入系統後, 就可進入 Personal projects 目錄中檢視各種與該專案有關的資料.
 
 參與專案的成員在其他目錄建立相關資料時, 只要綁上該專案名稱, 資料就會統一彙整到 Personal projects 所屬資料分類下, 其餘參與專案之組員也可以根據專案權限的設定, 在相關 Personal project 所屬的目錄下看到這些與專案執行相關的協同資料.
+
+其他與建立專案相關的說明:
+    
+    1. 先確認所有組員可以登入系統, 其中可使用的認證方式, 　包括, mysql, ldap, imap 等.
+    
+    2. 在資料區建立一個 project folder, and create related project under that project folder.
+    
+    3. As the administrator create one project, participants can be added into the project, sgw will automatically create related group named project_project_title, and all participants will added into this group.
+    
+    4. All participants will grant read and write rights for the associated project, and related project template will appear under all participants' personal folder.
+    
+    5. The project folder which uses to group certain project definition need to let all project participants to read and write right can be directed to admin_project group as the default sgw system setting does.
 
 專案管理
 ^^^^^^^^^^^^
@@ -410,6 +754,165 @@ as a subject for training and education
 
 as a career path
 
+@url 專案使用案例
+^^^^^^^^^^^^^^^^^^^^^^^
+
+https://groups.google.com/forum/?fromgroups=#!topic/simple-groupware/m5R3IzniasA
+
+以下為論壇中,  某一用戶針對 Simple Groupware 在專案管理項目, 實際使用的基本流程描述.
+
+我將專案模組用在建築事務所. 其中大約有 35 個專案, 使用電子郵件匣作為收信, 任務, 聯繫工作, 還有專案日誌等資料存檔用.
+
+基本上由一位管理者指派任務與聯繫工作. 另一位管理人則待在辦公室中, 透過列表得知有哪些任務指派給他, 並且依照所指定的任務, 打電話給相關人等.
+
+亦即, 一有新任務, 管理者就會建立相關專案內的任務指派, 並將該任務交付給相關負責人.
+
+而在該任務負責人的個人資料匣中, 就會有收納交付給他的所有任務列表. 由於各任務會依照不同專案分類, 因此在他的任務資料匣中, 也會依照不同專案進行任務的分類.
+
+此外, 各任務與聯繫工作也分別掛在不同類別中, 這些類別主要是用來建立特定列表. 其中一個類別為"待批准" (approval of bill), 因此在相關人等的個人資料匣中, 就會有一個列表集中在"待批准"的類別中, 等待其在指定日期之前必須完成審核批准.
+
+而這些待批的文件, 會按照日期排序. 因此相關人等不僅從待批文件匣, 就可以得知期間內所必須完成的工作, 一點都無法偷懶.
+
+目前在專案模組仍然缺乏的功能, 則是針對不同專案成員賦予其各自不同角色的權限, 目前的用法是將所有專案成員都視為相同角色.
+
+爾後若能按照規劃加入企業資源規劃與計價模組, 將能讓專案管理模組的功能往上提升.
+
+目錄權限
+^^^^^^^^^^^^
+
+每一個目錄的權限都可以單獨設定, 但是新增一個子目錄則會套用父目錄的相關權限.
+
+目錄共有三個可以設定的權限:
+
+讀取 (read), 寫入 (write) 與管理 (admin) 等三種, 只有對該目錄擁有管理 (admin) 權限的使用者, 可以對目錄 (及其子目錄) 設定所謂的 read, write 與 admin 權限, 總管理者則擁有所有系統內各目錄的管理權限.
+
+有關目錄權限的設定, 必須使用 Folder 下拉式功能表中的 Rights: Show 或 Rights: Edit, 來檢視或更動相關目錄的權限設定.
+
+假如要將目錄所設定的權限套用到所有該目錄項下的所有子目錄, 可以使用 Folder 下的 Apply rights to subfolders
+
+除了管理目錄的權限外, 管理者也可以針對特定目錄設定容量管制 (quota), 設定的單位為 MB, 以其目錄與子目錄下所有上傳的檔案作為管理標的, 管理者可以在各目錄編輯欄位中的 Quota 項下加以設定.
+
+且目錄的設定除了可以使用 read, write, admin 設定外, 也可以透過 View access (users) 與 View access (group) 進行更細化的擷取設定.
+
+可採用的語法如下:
+
+    View access (users)
+    
+    Syntax: |::|
+    
+    Examples:
+        
+    |freebusy:read:anonymous|
+    
+    |freebusy:read:anonymous|details:no_read:anonymous|
+    
+    Group access (groups)
+    
+    Syntax: |::|
+    
+    Examples:
+        
+    |freebusy:read:internals|
+    
+    |freebusy:read:internals|details:no_read:guests|
+    
+    Right: read, no_read, write, no_write 
+
+採用上述 view 權限設定, 可以允許使用者建立或編輯內容, 但是無法 rename folder 或 建立子目錄.
+
+View 權限不會影響其剪貼或刪除的操作.
+
+允許 anonymous 擷取的目錄, 表示所有用戶 (若系統允許訪客進入, 則包括訪客) 都可以擷取該目錄, 但是若 anonymous 的擷取權被移除, 而且沒有其他用戶可擷取的設定, 則該目錄只有總管理者可以擷取.
+
+總管理者登入後, 可以在 Main menu - administration 下的 Permissions  中檢視系統中所有目錄的相關權限設定.
+
+目錄中各筆資料的權限設定:
+
+    除了可以透過目錄權限管理外, 可以針對目錄中的各筆資料進行權限管理, 而每一筆內容所能設定的權限:
+    
+    Full 權限表示對各筆內容擁有讀寫權, 並且內建為 anonymous 可以讀寫.
+    
+    Owner write 權限表示只有擁有人可以寫入, 而擁有人就是建立該筆資料的用戶.
+    
+    Owner read 權限表示只有永有人可以讀取, 而擁有人就是建立該筆資料的用戶.
+    
+    cms 與 files 模組都是採用 Full 內定權限, forum 模組則採用 owner write, timesheet 與 expenses 模組則採用 owner read.
+    
+    通常各筆內容的權限設定, 在 new 資料表中的 permissions 頁面中加以設定.
+
+Session 管理
+^^^^^^^^^^^^^^
+
+Every user has a session where some settings are stored.
+
+每一用戶登入後, 系統都會針對該連線進行所謂的"連線管理".
+
+這些與用戶連線有關的管理資料可依目錄來存檔, 或依照目錄中的特定檢視權限來存檔, 或可檢視的模組為依據來存檔.
+
+而每一連線以所謂的 session_id 來加以辨識, 並且與客戶的 IP 位址進行連結.
+
+當使用者每次登入時系統就會重新建立此一 session_id
+
+當使用者仍然在線時, 此一連線資料就會進行複製.
+
+當登入的使用者超過 30 分鐘沒有任何動作, 原先的登入連線資料就會被視為無效, 使用者就必須重新登入.
+
+有關連線內容所登錄的資料:
+
+Global: username, client IP address, current folder, current theme, group memberships, read messages for POP3 / IMAP (max. 100), server id (used for creating unique dataset ids), allowed paths in the filesystem, form data tickets, cut-copy-paste data, folder states (open/closed), calendar day begin/end, tree type (folders, categories), tree page (if tree contains 100+ items), tree visible, data visible (calendar)
+
+Per folder: calendar view (day, week, month, year, custom, all), calendar week start, calendar today / tomorrow, search string, selected page (datasets), current view, current folders (in categories mode)
+
+Per folder+view: selected items, dataset filters
+
+Per module+view: form finished (internal), dataset order/group by, dataset limit 
+
+當使用者在畫面中按下 [All], 則連線資料就會刪除 folder+view, search string 與 folders 等相關資料.
+
+若按下上方功能表中的 "Reset view" 則將移除與folder , module+view 有關的資料.
+
+取消 anonymous 登入
+^^^^^^^^^^^^^^^^^^^^^^^
+
+1. 以管理者身分登入系統
+
+2. 進入上方的  Main Menu->Administration
+
+3. 進入 Change Setup Settings
+
+4. 取消下列兩設定的勾選
+
+Enable anonymous access 	
+Enable anonymous CMS
+
+5. 設定存檔後, 必須透過帳號才可以登入系統.
+
+取消 too many wrong login 保護
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+在某些情況中, 若開放大批用戶使用測試中的 Simple Groupware, 很有可能在初學者的錯誤密碼輸入下, 導致在同一區段的管理者也無法登入系統, 可以將 bin/core/functions.php 中相關的保護程式暫時蓋掉, 就可以避開上述問題.
+
+修改的程式碼如下:
+
+.. code-block:: php
+
+    $file = SIMPLE_CACHE."/ip/".str_replace(".","-",$ip);
+    //if (file_exists($file."_3") and $trials = file_get_contents($file."_3") and strlen($trials)>3 and filemtime($file."_3") > time()-900) {
+     // $_REQUEST["logout"] = true;
+      //sys_alert("Too many wrong logins. Please wait 15 minutes.");
+    IMPLE_CACHE."/ip/".str_replace(".","-",$ip);
+    //if (file_exists($file."_3") and $trials = file_get_contents($file."_3") and strlen($trials)>3 and filemtime($file."_3") > time()-900) {
+     // $_REQUEST["logout"] = true;
+      //sys_alert("Too many wrong logins. Please wait 15 minutes.");
+    if(0){
+    //never happen
+    }
+
+@url 建立延伸模組
+^^^^^^^^^^^^^^^^^^^^^^^
+
+http://www.simple-groupware.de/cms/ExtensionManagerDeveloper
+
 齒輪減速機專案
 *********************
 
@@ -452,4 +955,77 @@ http://joostn.github.com/OpenJsCad/gearsdemo.html
 http://joostn.github.com/OpenJsCad/grilledemo.html
 
 http://joostn.github.com/OpenJsCad/lampshadedemo.html
+
+sgsML 語言
+************
+
+基本概念:
+    
+   Simple Groupware 中的相關模組基本上都是利用 sgsml 所編寫, 並且位於 bin/modules/schema, 並且所有的模組都登錄在 bin/modules/schema/modules.txt 中, 而且模組所對應的 .xml 位於 bin/modules/schema 目錄中.
+    
+資產的權限管理:
+
+    Simple Groupware 除了文件夾可以設定權限外，也可以設定個別模組下相對資產(asset)的權限。共有下列三種不同類型的資產權限設定：
+    
+    “Full”是指賦予該資產讀取與編寫的權限，默認設置對象為匿名者。換言之，若將模組的資產擷取權限設為 Full, 表示所有的用戶對於該模組項下的所有內容都具備讀取與編寫的權限。
+    
+    “Owner write”是指賦予該資產的所有人具有編寫的權限，默認設置對象為資產所有人。換言之，若將模組的資產擷取權限設為 Owner write, 表示所有的用戶對於該模組項下的所有內容只具備讀取的權限，而資料的擁有人則具備修改的權限。
+    
+    “Owner read”是指賦予該資產的所有人具有讀取的權限，默認設置對象為資產所有人。換言之，若將模組的資產擷取權限設為 Owner read, 表示只有該資料的擁有人則具備修改與讀取的權限。
+    
+使用資產權限模塊的案例：
+    
+    Files 與 CMS 就是採用 Full 資產權限設定，Forum 則採用 Owner write，Timesheets 與 Expenses 則使用 Owner read 權限設定。
+    
+    使用者可以在各模組對應的資料編輯區中的 permissions 檢視各模組的資產權限設定。
+    
+    以下則為 My Addresses 模組的資產設定 (為 owner_read):
+    
+    <table modulename="My Addresses" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true" enable_asset_rights="owner_read">
+    
+    其中的 enable_asset_rights="owner_read" 表示將此模組設為: 只有資料的擁有者 (以及管理者) 可以看到自己新增的資料, 當然資料擁有者 (以及管理者) 也可以修改自己的資料, 其他用戶則看不到其他人所建立的相關資料.
+    
+資產的刪除權限設定:
+    
+    假設模組的權限設定使用 enable_empty="true", 表示具有編輯權限的用戶, 可以透過 empty 指令 (垃圾桶) 將整個模組中的 assets 全部刪除 (其中包括他人所建立的 assets).
+
+    假如拿掉 enable_empty="true", 而讓使用者對該模組有編輯權限, 則使用者只能刪除自己新增的相關資料.
+
+    此外, 某一檔案夾中的特定模組需要讓使用者擁有寫入編輯的權限, 該檔案夾應該只需要能夠讓使用者讀取即可, 而無需給 write access 的權限(因為 write access 同時擁有刪除的權限), 但是必須在 view 中設定 write 的權限.
+    
+    亦即, 可以將某一檔案夾設為成員可以讀取, 但無法寫入, 然後在 view 的部分設定
+
+    |new,edit:write:anonymous|
+    
+    也就是任何人都可以擁有 new 與 edit 的寫入權限, 就可以有效保護該檔案夾, 不被成員刪除或改名, 但是成員可以新增與編輯, 然而卻無 delete 的功能, 若也要讓成員對於 assets 有刪除權限, 則必須要修改 write 的權限, 將內定的檔案夾權限刪除與改名權限由 write 提升到 admin, 然後授與該檔案夾的 write 權限給相關成員, 就可以讓成員對檔案夾內的 assets 有 delete 權限.
+    
+Simple Groupware 模組欄位的修改:
+    
+    從 0.720 版開始, 各模組的欄位可以直接在線上進行修改, 修改步驟:
+
+        1. 登入管理者帳號.
+        
+        2. 進入 Workspace/System/Customize/Fields.
+        
+        3. 直接輸入要應用到對應欄位的規則, 每一筆規則會對應到某一欄位.
+        
+        自動系統欄位:
+
+            在表單中不會顯示.
+
+        id: 每一筆資料的唯一代號 (primary key). 包含資料 ID 與伺服器 ID (兩位數), 例如: 若資料代號為 201, 表示資料編號 為 2, 且伺服器編號為 01.
+        
+        folder: 代表檔案夾編號.
+        
+        created: 資料建立時間戳記.
+        
+        lastmodified: 最後更新時間戳記.
+        
+        createdby: 資料建立者的使用者名稱.
+        
+        lastmodifiedby: 最後資料修改者名稱.
+        
+        dsize: 與資料附加檔案的容量大小.
+        
+        history: 用來追蹤用戶更新資料與欄位的文字資料.
 

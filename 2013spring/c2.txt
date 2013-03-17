@@ -29,6 +29,8 @@
 .. @+node:amd_yen.20130308210411.2390: *3* C2 第一週
 讓學員自行建構可攜 portableKMOL 的目的在練習網際程式框架的基本組成 (程式開發環境、內容管理系統、全球資訊網伺服器、以及各類相關工具), 學員熟悉此流程後, 可以自行修改框架並且配合需要進行各模組的改版.
 
+.. Note:: 這裡的程式化文書處理內容是第一次放入 C2 的課程內容中, 主要的著眼點在於利用程式方法進行協同文書處理.
+
 1. 利用程式進行文書處理
 
     需要安裝 docutils 模組
@@ -141,17 +143,13 @@ OpenERP/PLM - http://www.openerpplm.eu/
 
 產生虛擬學員名單程式:
 
-.. 特別注意: c2 目錄位於上一層, 可以直接利用 literalinclude 將程式碼導入, 但是行號卻沒能出現?
-
 .. literalinclude:: ../c2/generate_stud.py
    :language: python
-   :linenos:
    
 上課學員分組程式:
 
 .. literalinclude:: ../c2/grouping.py
    :language: python
-   :linenos:
 
 
 
@@ -182,7 +180,6 @@ docutils 範例1
 
 .. literalinclude:: ../c2/docutils_ex1.py
    :language: python
-   :linenos:
    
 docutils 範例2
 
@@ -190,7 +187,6 @@ docutils 範例2
 
 .. literalinclude:: ../c2/docutils_ex2.py
    :language: python
-   :linenos:
 
 練習:
 
@@ -300,7 +296,8 @@ sphinx-build
     5. 編輯 conf.py:
     
 .. code-block:: python
-
+    :linenos:
+    
     #!/usr/bin/env python3
     # -*- coding: utf-8 -*-
     #
@@ -681,11 +678,9 @@ master_doc = 'leo_toc' # don't use any prefix.
 
 例如:
 
-.. 特別注意: 要找出直接顯示特別指令的方法
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
+    .. toctree::
+       :maxdepth: 1
+       :glob:
 
 以下則列出要加入 toc 處理的各檔案名稱.
 .. @+node:amd_yen.20130308214521.2440: *4* SciTE 設定
@@ -724,13 +719,329 @@ Python 的 matplotlib 應用範例
 
 Python 的 numpy 與 scipy 應用範例
 
+機械設計與製造加工的最佳化問題
+
+    平面上的特定鑽孔最短路徑 `Travelling salesman problem`_
+    
+    材料切割最佳化 `Knapsack problem`_
+    
+    其他設計最佳化 (滿足約束條件下) Volume maximization
+    
+        已知 SURFACE = 80
+        且 z=(SURFACE - x*y)/(2.*(x+y))
+        最大化 x*y*z
+        
+        數值分析方法 (Numerical analysis)
+        
+        符號式分析方法 (Symbolic analysis)
+
+分散式演化框架: `DEAP`_
+
+仿生智能運算框架: `INSPYRED`_
+
+.. _Travelling salesman problem: http://en.wikipedia.org/wiki/Travelling_salesman_problem
+
+.. _Knapsack problem: http://en.wikipedia.org/wiki/Knapsack_problem
+
+.. _DEAP: https://code.google.com/p/deap/
+
+.. _INSPYRED: https://pypi.python.org/pypi/inspyred
+
 Python 的 sympy 應用範例
 
 Python 的 PyQT 應用範例
 
 Python 的 CherryPy 應用程式開發
+.. @+node:amd_yen.20130317002834.1537: *4* @url Python3 基本功能
+http://en.wikibooks.org/wiki/Non-Programmer's_Tutorial_for_Python_3
+
+這是一份有關 Python3 基本功能介紹的資料.
+
+機械設計工程師需要程式作甚麼?
+
+網路上的一段有趣提問:
+
+http://www.engineergirl.org/Engineers/Directory/2929/9759/570.aspx
+
+Question: Hi, I was wondering what is mechanical engineering and what they do? I am considering becoming a mechanical engineer after I become a computer programmer. Also does computer programming help in mechanical engineering? Does taking the International Baccalaureate program help in the engineering field? Also I am entering highschool and am going to be taking the IB program.
+
+posted by Tierra, MD on March 30, 2012
+
+Answer 1 by Dr. Karen Thole
+
+Dear Tierra from Md: 
+
+It is very exciting to hear of your interest in mechanical engineering. I will attempt to address a few of your questions: It is difficult to say what mechanical engineers do not do in terms of jobs. Our Penn State mechanical engineers do so many things: they work on designing new hospital buildings, new airplanes, new wind turbines, new surgical instruments, energy efficient buildings, comfortable chairs, and so much more. 
+
+We have some mechanical engineers who are now designing a kindle for the blind! Mechanical engineers not only design many exciting products, they also venture into managing large projects and companies; become patent attorneys; research exciting breakthroughs such as those needed in energy storage; and even become medical doctors! And, yes, mechanical engineers do a significant amount of computer programming, which they use as a tool to predict things like how fast our stomach dissolves medication, how to design better airplane wings, and how to make cars that require less fuel. 
+
+MEs do lots of computer programing, but with an intention of making predictions for better products. Finally, I'm not exactly sure what you mean by an IB degree. As an aside, we do not require this, but do have a strong emphasis in our program on making sure the MEs that we educate have a global view of engineering. For example, our Penn State ME students are now working with students in China, Singapore, and Korea to come up with better designs requested by many companies. This is an exciting program and our students are getting a much better view of the world through working in multi-national teams. I hope this is helpful and I wish you the very best of success. Hopefully, I will see you at Penn State one day enrolled as an ME student! Professor Thole
+
+Answer 2 by Miss Marita Cheng
+
+Hi Tierra, A mechanical engineer uses physics and material science to solve real-world problems, such as working on car engines, rockets and planes; manufacturing plants, and medical devices. Doing computer programming before doing engineering will definitely help, especially in the field of robotics, and anything that requires a system to be programmed. 
+
+Having a degree in both computer programming and mechanical engineering will definitely give you an edge in the field. The IB is a great program to do if you want to study engineering, as the IB encourages students to think outside of the box, which is something engineers have to do everyday. Engineering is a great field to study, as there are so many opportunities for you to travel around the world, but more importantly, to improve the lives of millions of people. Good luck with your studies! Regards, Marita
+
+另外一份則是有關機械設計領域的要求:
+
+http://www.fvtc.edu/public/academics/degree.aspx?plan=10-606-1
+
+Program Outcomes
+
+Mechanical Design Technology graduates will be able to:
+
+Use appropriate problem-solving methods to identify, analyze and solve problems in an engineering environment.
+
+Select and utilize various CAD and other engineering application software.
+
+Continue their own personal goals through achieving additional technical skills.
+
+Prepare mechanical drawings which communicate design and details for fabrication and/or assembly.
+
+Design products in accordance with customer specifications.
+
+Communicate design ideas using a variety of communication methods.
+
+Function effectively and productively within a team-focused work group.
+
+Provide a base for life-long learning.
+
+泛機械工程師的基本要求:
+
+http://www.wisegeek.com/what-skills-are-needed-for-mechanical-engineer-employment.htm
+
+Mechanical engineers research, design, and build machines and equipment of all types. They can specialize in designing engines, automobiles, consumer products, electronics, or heavy machinery, among other areas. There are several important technical and personal skills that an individual looking for employment in this field should possess. A successful engineer is creative, efficient, detail-oriented, and mechanically inclined. He or she must be a master of computer design and have specialized knowledge of physics and electricity in order to produce efficient, reliable machines.
+
+Many different personal traits and skills are necessary to secure mechanical engineer employment. Professionals need to have strong problem-solving skills in order to invent and test new designs. Creativity and perseverance are essential in trial-and-error experiments with prototypes. Most engineers need strong communication skills as well, as they are frequently required to work in teams with other engineers and correspond with management and patent office workers. They also need strong educational backgrounds in math and physics to help them calculate statistics and determine the most efficient ways of putting machines together.
+
+機械工程師的基本能力要求:
+
+http://www10.hrsdc.gc.ca/English/ShowProfile.aspx?v=232
+
+其中, 對於電腦應用方面的能力要求:
+
+H. Computer Use
+
+Tasks Complexity Level
+
+Examples
+
+Typical 2 to 3
+
+Most Complex 4 to 5
+
+Mechanical Engineers
+
+use databases. For example, they consult vendor databases in Access for equipment specifications to identify models that meet their needs. They also access client contact information, project histories, maintenance services performed and problems encountered by using search features of customer management software programs. (2)
+
+use financial software. For example, they may prepare project and annual operating budgets using the basic features of financial software programs such as QuickBooks. (2)
+
+use communications software. For example, they may use Outlook to exchange e-mail with attached documents with co-workers, colleagues and clients. (2)
+
+use word processing software. For example, they use Word to write letters to clients, vendors and contractors using standard templates. They also write analysis reports and books of specifications containing tables of contents, heading levels, tables, graphs, imported pictures and bulleted lists. (3)
+
+use graphics software. For example, they use PowerPoint to present the results of analysis reports by using text, tables, graphs, pictures and animations. (3)
+
+use spreadsheet software. They set-up or create spreadsheets such as Excel to collect data and create schedules and budgets. For example, they plan project budgets, complete expense reports, monitor project expenditures, project schedules and person-hours worked. They may create models to solve complicated math equations by using advanced features of spreadsheet software. (3)
+
+use statistical analysis software. For example, they may conduct reliability studies and data analyses using the advanced features of statistical analysis software such as SPSS. (3)
+
+use computer-assisted design, manufacturing and machining software. For example, they may draw mechanical plans using AutoCAD. They create three-dimensional models using advanced features of three-dimensional modelling software and enter data of the architectural and engineering plans and of existing structures into the software before drawing the mechanical structures. (3)
+
+use Internet software. For example, they use Internet Explorer to find information on new products and technologies using search engines. They may also move large electronic files to customers using Internet file transfer protocol. Mechanical engineers may access web servers remotely using virtual private network protocols. For example, they access and analyze vibration monitoring data at customer locations via the Internet. They also download data from customer sites to their servers for further analysis. (3)
+
+may use other software. For example, they may plan, schedule and monitor projects using the advanced features of project management software. They may view digital site photographs using image viewer software. They may use various specialized software to identify the preventive maintenance required for machinery and equipment, conduct vibration analysis of machines and develop reports of thermal imaging and measurement. (3)
+
+may do programming, system and software design. For example, they may program robots using Programmable Logic Controllers such that the robots can interface with other robots and existing equipment. (5)
+
+Computer Use Summary
+
+The symbol √ is explained in the Use of Symbols section.
+
+.. code-block:: none
+
+    √  Use word processing. (運用文書處理系統)
+    √  Use graphics software. (運用圖形處理軟體)
+    √  Use a database. (運用資料庫)
+    √  Use a spreadsheet. (運用試算表)
+    √  Use financial software. (運用財務軟體)
+    √  Use statistical analysis software. (運用統計分析軟體)
+    √  Do programming or systems and software design. (執行程式或系統與軟體設計)
+    √  Use computer-assisted design, manufacture or machining. (運用電腦輔助設計製造或加工)
+    √  Use communications software. (運用通訊軟體)
+    √  Use Internet (運用網際網路)
+    √  Other
+.. @+node:amd_yen.20130317094520.1538: *4* 機械設計工程師的 Python3
+以下資料為 mp3 考試的題目來源之一:
+
+Introduction to programming
+
+The intent of this text is to introduce you to computer programming using the Python
+programming language. Learning to program is a bit like learning to play piano, although
+quite a bit easier since we won't have to program while keeping time according to a time
+signature. Programming is a creative process so we'll be working on developing some
+creative skills. At the same time, there are certain patterns that can be used over and over
+again in this creative process. The goal of this text and the course you are taking is to get
+you familiar with these patterns and show you how they can be used in programs. After
+working through this text and studying and practicing you will be able to identify which
+of these patterns are needed to implement a program for a particular task and you will be
+able to apply these patterns to solve new and interesting problems.
+
+As human beings our intelligent behavior hinges on our ability to match patterns. We
+are pattern-matchers from the moment we are born. We watch and listen to our parents
+and siblings to learn how to react to situations. Babies watch us to learn to talk, walk, eat,
+and even to smile. All these behaviors are learned through pattern matching. Computer
+Science is no different. Many of the programs we create in Computer Science are based
+on just a few patterns that we learn early in our education as programmers. Once we've
+learned the patterns we become effective programmers by learning to apply the patterns
+to new situations. As babies we are wired to learn quickly with a little practice. As we
+grow older we can learn to use patterns that are more abstract. That is what Computer
+Science is all about: the application of abstract patterns to solve new and interesting prob-
+lems.
+
+PRACTICE is important. There is a huge difference between reading something in this
+text or understanding what is said during a lecture and being able to do it yourself. At times
+this may be frustrating, but with practice you will get better at it. As you read the text make
+sure you take time to do the practice exercises. Practice exercises are clearly labeled with
+a gray background color. These exercises are your chance to use a concept that you have
+just learned. Answers to practice exercises are included at the end of each chapter so you
+can check your answers.
+
+What is Python?
+
+Python is an interpreted, interactive, object-oriented programming language. It incorporates modules, exceptions, dynamic typing, very high level dynamic data types, and classes. Python combines remarkable power with very clear syntax.  It has interfaces to many system calls and libraries, as well as to various window systems, and is extensible in C or C++.  It is also usable as an extension language for applications that need a programmable interface. Finally, Python is portable: it runs on many Unix variants, on the Mac, and on Windows 2000 and later.
+
+Are there copyright restrictions on the use of Python?
+
+You can do anything you want with the source, as long as you leave the copyrights in and display those copyrights in any documentation about Python that you produce. If you honor the copyright rules, it's OK to use Python for commercial use, to sell copies of Python in source or binary form (modiﬁed or unmodiﬁed), or to sell products that incorporate Python in some form. We would still like to know about all commercial use of Python, of course.
+
+Why was Python created in the ﬁrst place?
+
+Here's a very brief summary of what started it all, written by Guido van Rossum:
+
+I had extensive experience with implementing an interpreted language in the ABC group at CWI,
+and from working with this group I had learned a lot about language design.  This is the origin of
+many Python features, including the use of indentation for statement grouping and the inclusion of
+very-high-level data types (although the details are all different in Python).
+
+I had a number of gripes about the ABC language, but also liked many of its features. It was impos-
+sible to extend the ABC language (or its implementation) to remedy my complaints – in fact its lack
+of extensibility was one of its biggest problems. I had some experience with using Modula-2+ and
+talked with the designers of Modula-3 and read the Modula-3 report. Modula-3 is the origin of the
+syntax and semantics used for exceptions, and some other Python features.
+
+I was working in the Amoeba distributed operating system group at CWI. We needed a better way to
+do system administration than by writing either C programs or Bourne shell scripts, since Amoeba
+had its own system call interface which wasn't easily accessible from the Bourne shell.  My expe-
+rience with error handling in Amoeba made me acutely aware of the importance of exceptions as a
+programming language feature.
+
+It occurred to me that a scripting language with a syntax like ABC but with access to the Amoeba
+system calls would ﬁll the need.  I realized that it would be foolish to write an Amoeba-speciﬁc
+language, so I decided that I needed a language that was generally extensible.
+
+During the 1989 Christmas holidays, I had a lot of time on my hand, so I decided to give it a try. Dur-
+ing the next year, while still mostly working on it in my own time, Python was used in the Amoeba
+project with increasing success, and the feedback from colleagues made me add many early improve-
+ments.
+
+In February 1991, after just over a year of development, I decided to post to USENET. The rest is in
+the Misc/HISTORY ﬁle.
+
+What is Python good for?
+
+Python is a high-level general-purpose programming language that can be applied to many different classes of problems.
+
+The language comes with a large standard library that covers areas such as string processing (regular expressions, Unicode, calculating differences between ﬁles), Internet protocols (HTTP, FTP, SMTP, XML-RPC, POP, IMAP, CGI programming), software engineering (unit testing, logging, proﬁling, parsing Python code), and operating system interfaces (system calls, ﬁlesystems, TCP/IP sockets).  Look at the table of contents for library-index to get an idea of what's available.  A wide variety of third-party extensions are also available.
+
+其他參考資料:
+
+http://nematodes.org/martin/teaching/introduction-to-python-for-biologists/
+
+introduction to python for mechanical design engineers
+
+機械設計工程師的 Python 程式簡介
+
+applied python for mechanical design engineers
+
+機械設計工程師的 Python 程式應用
+
+applied python 1 - python3 and engineering calculation
+
+>>> import math
+
+>>> math . exp (1.0)
+
+2.7182818284590451
+
+Using the dir function, we can see the directory of objects available in the math module:
+
+>>> dir ( math )
+
+[ ' __doc__ ' , ' __file__ ' , ' __name__ ' , ' acos ' , ' asin ' , ' atan ' , ' atan2 ' ,
+' ceil ' , ' cos ' , ' cosh ' , ' degrees ' , 'e ' , ' exp ' , ' fabs ' , ' floor ' ,
+' fmod ' , ' frexp ' , ' hypot ' , ' ldexp ' , ' log ' , ' log10 ' , ' modf ' , ' , ' pi ' ,
+' pow ' , ' radians ' , ' sin ' , ' sinh ' , ' sqrt ' , ' tan ' , ' tanh ']
+
+>>> math . pi
+
+3.1415926535897931
+
+>>> math . e
+
+2.7182818284590451
+
+>>> math . cos ( math . pi )
+
+-1.0
+
+>>> math . log ( math . e )
+
+1.0
+
+applied python 2 - Vpython, PyGame and STL viewer
+
+函式定義:
+
+寫一個 distance(a, b) 函式, 可以傳回 a 數值與 b 數值差的絕對值.
+
+寫一個 convert_to_metric(a, b) 函式, 可以計算邊長分別為 a 與 b 公分的矩形, 其平方英吋的面積.
+
+寫一個函式 balls_in_space(n, r, d), 執行時, 可以顯示 n 個半徑為 r 的球, 排成一直線, 球心距離為 d.
+
+寫一個函式 stl_ascii_to_binary(mypart.stl), 執行時, 可以開啟文字格式的 stl 零件檔, 並且轉寫為二位元格式的 stl 零件檔.
+
+寫一個函式 stl_viewer(mypart.stl), 執行時, 可以自動判別 stl 格式為文字或二位元格式, 並將零件顯示在視窗畫面.
+
+applied python 3 - Docutils, Sphinx and LaTeX
+
+利用 Python 進行文書處理
+
+applied python4 - Pyforum in CherryPy, Mako and Pybean
+
+利用 Python 進行產品資料管理
+    
+.. @+node:amd_yen.20130317094520.1539: *5* @url after hours programming
+http://www.afterhoursprogramming.com/tutorial/Python/Overview/
+
+以上內容的 mp3 朗讀: http://cae.mde.tw?download=c2mp3.7z (考試範圍)
+
+
+
+
+
+.. @+node:amd_yen.20130317160119.1723: *5* @url Scientific computing Python
+http://www.scientificpython.net/
+.. @+node:amd_yen.20130317160119.1724: *5* @url Python scientific lectures
+http://scipy-lectures.github.com/
+.. @+node:amd_yen.20130317160119.1725: *5* @url  Python for computational engineering
+http://www.southampton.ac.uk/~fangohr/training/python/pdfs/Python-for-Computational-Science-and-Engineering.pdf
+
+Slides: http://www.southampton.ac.uk/~fangohr/training/python/pdfs/Python-for-Computational-Science-and-Engineering-slides.pdf
 .. @+node:amd_yen.20130310215908.1491: *4* tkinter
 .. code-block:: python
+    :linenos:
 
     #coding: utf-8
     from tkinter import *
@@ -742,6 +1053,7 @@ Python 的 CherryPy 應用程式開發
 單位換算視窗程式:
 
 .. code-block:: python
+    :linenos:
 
     from tkinter import *
     from tkinter import ttk
@@ -785,7 +1097,8 @@ Python 的 CherryPy 應用程式開發
 一般計算機:
 
 .. code-block:: python
-
+    :linenos:
+    
     #coding: utf8
     '''
     簡單的 tkinter 計算機
@@ -872,7 +1185,8 @@ https://github.com/smjrifle/Python-Calculator
 結合 matplotlib 與 tkinter
 
 .. code-block:: python
-
+    :linenos:
+    
     #! /usr/bin/env python
     # source: https://github.com/ondrejh/matplot_embed
     import matplotlib
@@ -955,8 +1269,11 @@ https://github.com/smjrifle/Python-Calculator
     # If you put root.destroy() here, it will cause an error if
     # the window is closed with the window manager.
 .. @+node:amd_yen.20130310161307.1486: *4* PyQt 應用
-.. code-block:: python
+可以直接在 Leo Editor 中執行的 PyQt 程式:
 
+.. code-block:: python
+    :linenos:
+    
     from PyQt4 import QtGui
     w = QtGui.QWidget()
     w.resize(250, 150)
@@ -964,188 +1281,16 @@ https://github.com/smjrifle/Python-Calculator
     w.setWindowTitle('Simple test')
     w.show()
     c.brian_test_w = w
-.. @+node:amd_yen.20130309155804.1704: *3* rst 測試
-Sphinx 使用記錄
-******************************************
 
-代碼引用
-==========================================
+機械設計視窗程式:
 
-::
+.. literal-include:: ../c2/pyqt_geardesign.py
+   :language: python
+.. @+node:amd_yen.20130317160119.1728: *4* @url WinPython
+https://code.google.com/p/winpython/
 
-    .. literalinclude:: ../c2/grouping.py
-       :linenos:
+這是一套專門設計用於 Windows 環境的可攜 Python 程式開發環境, 基本設計理念與 portableKMOL 類似, 解開後容量為 540 MB.
 
-其中 ``linenos`` 為代碼行號顯示。
-
-效果：
-
-.. literalinclude:: ../c2/grouping.py
-   :linenos:
-
-代碼片斷
-==========================================
-
-::
-
-  .. code-block:: python
-
-      print ('hello, world')
-
-
-效果：
-
-.. code-block:: python
-
-   print ('hello, world')
-
-
-.. code-block:: python
-
-   print ('hello, world')
-   print ('hello, world')
-   print ('hello, world')
-
-鏈結
-======================
-
-**直接引用**
-
-::
-
-    http://www.google.com
-
-效果：
-
-http://www.google.com
-
-
-**鏈結**
-
-::
-
-    `google <http://www.google.com>`_
-
-效果：
-
-`google <http://www.google.com>`_
-
-**註腳**
-
-::
-
-    [#]_
-
-    結尾處：
-
-    .. [#]
-
-如：
-
-Google [#]_
-
-**圖片**
-
-::
-
-    .. image:: http://blog.kmol.info/wp-content/uploads/2011/02/88x31.png
-    可以為網路圖片(經過測試, 只有 html 可以使用網路圖片)，也可以是本地圖片
-
-效果：
-
-.. image::
-    http://blog.kmol.info/wp-content/uploads/2011/02/88x31.png
-    
-.. image::
-    Winter.jpg
-    :height: 100px
-    :width: 200 px
-    :scale: 50 %
-    :alt: 冬天圖像
-    :align: center
-
-導入 graphviz 圖檔:
-
-   Directive to embed graphviz code.  The input code for ``dot`` is given as the
-   content.  For example::
-
-效果(目前測試結果 png 轉 pdf 時, 在英文與中文內容都會掉字, 無法完整呈現) :
-
-digraph 轉成 png 時, 內容沒有錯誤, 但是轉成 pdf 時內容就會掉字.
-
-.. graphviz::
-
-    digraph GraphvizDemo{
-        node [fontname="v:/extensions/dot/bin/fireflysung" shape="rect"];
-        edge [fontname="v:/extensions/dot/bin/fireflysung" fontsize=8];
-
-        node1[label="從這裡"];
-        node2[label="到那裡"];
-
-        node1->node2[label="這是流程"];
-    }
-
-.. graphviz::
-
-    digraph G {
-    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=Mrecord] "開始執行" "結束執行"}
-    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=parallelogram] "輸入購買條件"}
-    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=diamond] "車型是否符合?"}
-    {node[fontname="v:/extensions/dot/bin/fireflysung" shape=box] "挑選別的車型"}
-    "開始執行"->"輸入購買條件"[fontname="內定" label="說明"]
-    "輸入購買條件"->"車型是否符合?"[fontname="內定" label="依照條件決定"]
-    "車型是否符合?":e->"挑選別的車型":n[fontname="內定" label="否"]
-    "挑選別的車型"->"結束執行":e
-    "車型是否符合?":s->"結束執行":n[fontname="內定" label="是"]
-    }
-
-方程式的測試:
-
-.. math::
-   
-   (a + b)^2 = a^2 + 2ab + b^2
-   
-   (a - b)^2 = a^2 - 2ab + b^2
-   
-    X_k =  \sum_{n=0}^{N-1} x_n e^{-{i 2\pi k \frac{n}{N}}} \qquad k = 0,\dots,N-1.
-
-.. math::
-   :nowrap:
-
-   \begin{eqnarray}
-      y    & = & ax^2 + bx + c \\
-      f(x) & = & x^2 + 2xy + y^2
-   \end{eqnarray}
-
-數學方程式的引用:
-
-.. 特別注意:: 方程式的標籤使用, 可以直接放在 .. math:: 後面, 或者直接放在內縮的下一行, 中間不能有空白.
-
-.. math:: 
-    e^{i\pi} + 1 = 0
-    :label: euler
-
-Euler's identity, equation :eq:`euler`, was elected one of the most
-beautiful mathematical formulas.
-
-.. math:: \Gamma(z) = \int_0^\infty x^{z-1}e^{-x}\,dx
-
-工程相關繪圖(目前無法正確導入 matplotlib/sphinxext/plot_directive.py, 可能因為 Python3 相容問題):
-
-.. plot::
-   :include-source:
-   
-    import matplotlib.pyplot as plt
-    import numpy as np
-    x = np.random.randn(1000)
-    plt.hist( x, 20)
-    plt.grid()
-    plt.title(r'Normal: $\mu=%.2f, \sigma=%.2f$'%(x.mean(), x.std()))
-    plt.show()
-   
-註腳
-===============
-
-.. [#] : http://www.google.com
+基本特點:
 .. @-all
 .. @-leo
