@@ -167,14 +167,20 @@ docutils 範例1
 下列範例利用網路上的一份 rst 格式檔案, 利用 Python 的 urllib.request 模組開啟檔案後, 將原本為數位格式的資料編碼為文字格式資料後, 再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式, 最後再利用可攜的 Chrome 開啟此一 html 檔案.
 
 .. literalinclude:: ../c2/docutils_ex1.py
-   :language: python
-   
+    :language: python
+    :linenos:
+
+.. Note:: 請注意, 上面程式碼採用 literalinclude, 但是卻無法讓 linenos 顯示行號的屬性運作, 結果不僅沒有 python 程式 highlight, 內容雙跳行, 而且沒有行號.
+
 docutils 範例2
 
 下列範例與範例 1 類似, 唯一的差別為文件中需要一個 image.png 圖檔, 利用 urllib.request.urlopen(影像檔案url ).read() 讀取影像網址中的數位檔案後, 直接存檔. 隨後再利用 docutils.core 函式庫中的 publish_string 函式, 將 rst 檔案轉為 html 格式的同時, 導入 image.png 檔案.
 
 .. literalinclude:: ../c2/docutils_ex2.py
-   :language: python
+    :language: python
+    :linenos:
+
+.. Note:: 請注意, 上面程式碼採用 literalinclude, 但是卻無法讓 linenos 顯示行號的屬性運作, 結果不僅沒有 python 程式 highlight, 內容雙跳行, 而且沒有行號.
 
 練習:
 
@@ -679,6 +685,22 @@ master_doc = 'leo_toc' # don't use any prefix.
 
 以下則列出要加入 toc 處理的各檔案名稱.
 
+glob 參數則表示 Sphinx 會自動根據所提供的檔案名稱搜尋要加入個別檔案.
+
+若在 index.rst 中所要加入的檔案為數眾多, 則可根據規律以程式產生, 在整合文書處理環境下, 也可以利用程式產生所需要的 index.rst 檔案.
+
+.. code-block:: python
+
+    #coding: utf-8
+    學號頭碼 = "401231"
+    
+    for i in range(1,57):
+        if len(str(i)) == 1:
+            尾碼 = "0"+str(i)
+        else:
+            尾碼 = str(i)
+        print(學號頭碼+尾碼)
+
 SciTE 設定
 ************
 
@@ -868,16 +890,16 @@ The symbol √ is explained in the Use of Symbols section.
 
 .. code-block:: none
 
-    √  Use word processing.
-    √  Use graphics software.
-    √  Use a database.
-    √  Use a spreadsheet.
-    √  Use financial software.
-    √  Use statistical analysis software.
-    √  Do programming or systems and software design.
-    √  Use computer-assisted design, manufacture or machining.
-    √  Use communications software.
-    √  Use Internet
+    √  Use word processing. (運用文書處理系統)
+    √  Use graphics software. (運用圖形處理軟體)
+    √  Use a database. (運用資料庫)
+    √  Use a spreadsheet. (運用試算表)
+    √  Use financial software. (運用財務軟體)
+    √  Use statistical analysis software. (運用統計分析軟體)
+    √  Do programming or systems and software design. (執行程式或系統與軟體設計)
+    √  Use computer-assisted design, manufacture or machining. (運用電腦輔助設計製造或加工)
+    √  Use communications software. (運用通訊軟體)
+    √  Use Internet (運用網際網路)
     √  Other
 
 機械設計工程師的 Python3
@@ -1294,6 +1316,8 @@ matplotlib
 PyQt 應用
 ***********
 
+可以直接在 Leo Editor 中執行的 PyQt 程式:
+
 .. code-block:: python
     :linenos:
     
@@ -1304,4 +1328,18 @@ PyQt 應用
     w.setWindowTitle('Simple test')
     w.show()
     c.brian_test_w = w
+
+機械設計視窗程式:
+
+.. literal-include:: ../c2/pyqt_geardesign.py
+   :language: python
+
+@url WinPython
+**************
+
+https://code.google.com/p/winpython/
+
+這是一套專門設計用於 Windows 環境的可攜 Python 程式開發環境, 基本設計理念與 portableKMOL 類似, 解開後容量為 540 MB.
+
+基本特點:
 

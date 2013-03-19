@@ -913,6 +913,847 @@ Enable anonymous CMS
 
 http://www.simple-groupware.de/cms/ExtensionManagerDeveloper
 
+sgsML
+*****
+
+
+使用 sgsML 建立網際程式的優勢:
+    
+    無需處理網際欄位與背後資料庫欄位的連結
+    
+網際程式欄位類別 (types)
+    
+    sgsML 會自動配額欄位屬性, 建立對應的資料庫欄位
+    
+    sgsML 會採整合的方式, 處理各模組的搜尋、分類與檢視
+    
+    Syntax: Types are declared with simple_type="type" where type is one of int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime ... for a complete list, see src/modules/schema/!examples.html.
+    
+欄位查驗 (validator)
+
+    Syntax: To collect these functions in a central place, all validators are stored in core/functions_user.php and have a "validate_" prefix, e.g. "validate_is_numeric". To define a validator in a sgsML file, write <validate function="is_numeric"/> between the <field>-tags to validate the field with the function validate_is_numeric.
+    
+過濾器 (filter)
+
+    當使用者所要呈現在網頁上的資料, 與資料庫中所存放的內容不同時, 就必須使用過濾器.
+    
+    Syntax: To collect these functions in a central place, all filters are stored in core/functions_user.php and have a ``"modify_"`` prefix (because they modify data), e.g. "modify_dateformat". To define a filter in a sgsML file, write <filter views="all" function="truncate|20"/> between the <field>-tags to truncate the field to a maximum of 20 characters with the function modify_truncate. (The "views=all" parameter indicates that this filter is used with every view and will be discussed later) Other functions are included to help you to manage files, URLs, source code highlighting, etc.
+    
+store 與 restore (以 modify 為代號)
+
+    當使用者要存在資料庫的格式, 與 Simple Groupware 存值的標準處理法不同時, 就必須使用 store 與 restore.
+    
+    Syntax: To collect these functions in a central place, all store and restore functions are kept in core/functions_user.php and have a "modify_" prefix (because they modify data), e.g. "modify_datetime_to_int" converts a date given as string to a timestamp using integer representation. To define a store or restore function in a sgsML file, write <store function="datetime_to_int"/> and <restore function="dateformat||d.m.Y"/> between the <field>-tags to work with a date-field using the functions modify_datetime_to_int and modify_dateformat.
+As told before, Simple Groupware already knows a type called "date". Therefore you only need restore/store functions when defining your date-field with type "int". Using type "date" this is done automatically for you.
+
+資料來源 (以 select 為代號)
+
+    當欄位需要從特定資料選擇時, 採用資料來源.
+
+    Syntax: To collect these functions in a central place, all data functions are kept in core/functions_user.php and have a "select_" prefix (because they select data), e.g. "select_dbselect" can be used to get data from the database.
+To define a data construct in a sgsML file, write <data function="getmydata"/> between the <field>-tags to call the function "select_getmydata". Here dbselect is illustrated because it is the most common function to get data from the database.
+
+############################################################
+
+以下為 sgsML 的翻譯
+
+sgsML Manual
+
+sgsML 手冊  (simple groupware system markup language, 簡單群組系統標註語言)
+
+This is a small tutorial intended to help you to understand and develop web applications with sgsML.
+
+這是一個協助使用者了解如何以 sgsML 語言開發網際應用程式的簡短教學.
+
+
+Introduction
+
+簡介
+
+For many years now I'm writing web applications. Using PHP, Java, HTML, CSS, Javascript in combination with MySQL, Oracle, MsSQL, etc. always struggling with the complexity of web applications.
+
+多年來,我一直在寫網際應用程式. 使用 PHP, Java, HTML, CSS, Javascript 與各種資料庫管理系統 MySQL, Oracle, MsSQL 等結合的方式,讓網際應用程式的開發變得太過複雜.
+
+Making changes in one point always influences many other parts of the program.
+ 
+程式中的某一個點的改變會影響到程式的其他部分.
+
+Often applications have several thousand lines of code (or even more).
+
+經常這些應用程式有幾千行,甚至更多.
+
+Searching bugs or making daily changes like adding fields takes a lot of time because you need to test the whole application again.
+ 
+尋找錯誤或經常必須更動的修改,如增加表單欄位,常會耗費許多時間,因為整個程式必須要再測試一遍.
+
+Since time is rare and deadline are sharp, it's time to optimize the common web application architecture.
+
+因為時間經常不夠,而且交期緊迫. 該是對常用的網際程式架構進行最佳化了.
+
+Looking at bigger programs with many web applications, people start writing frameworks for common functions, managing users and parts of the user interface.
+
+看看現今的許多大型的網際程式,大家開始寫框架,以處理常用的函式,管理用戶與使用者介面.
+
+But these frameworks are often very limited in functionality or require too much time to learn.
+
+但是,這些框架要不是功能有限,就是要花許多時間學習.
+
+Using a small framework, you still need to deal with the full complexity of coding PHP, Java, HTML, etc.
+
+即使採用小型框架,還是得處理 PHP, Java, HTML 在程式方面所衍生的複雜度.
+
+Moreover when working in bigger teams with a small framework, everyone writes its own specializations for his part.
+
+尤有甚者,若開發者眾多而卻採用小框架,每個人都得決定各自的規範
+
+This creates a unmanageable lack of consistency and increases costs for adding new functionality and fixing bugs.
+
+將會因規範不一致而造成無法管理,在開發新功能或除錯時,成本就會跟著增加.
+
+Therefore many companies create bigger frameworks to prevent programmers from getting too individual with their code.
+
+因此,許多公司建立大型框架,以避免程式師建立太過個人化的程式碼.
+
+With Java this is enforced using object-oriented programming (maybe also with PHP in the future).
+
+對 Java 而言,(強制的要求)就是必須採用物件導向(未來 PHP 也是如此)
+
+But I think that all these concepts are still too difficult to learn and understand in short time.
+
+個人則認為這些概念仍然難以學習,也不容易在短時間內能夠理解.
+
+That's why I created a new programming language only intended for web applications.
+
+這也就是為甚麼我要建立一種新的程式語言,只用於網際程式.
+
+You might ask: Hey, are you just creating another language with the intention to replace all the others?
+
+或許有人會問: 哼, 難道要建立一種語言,以取代其他語言?
+
+The answer is no. The other languages are still used, but in a different way.
+
+答案當然是: 不. 其他語言仍會被使用,只不過以不同的方法加以應用.
+
+This is important to understand, because today programming languages are so complex in usage and syntax, and this gets harder every year.
+
+這點認知非常重要,因為今天的程式語言無論是用法或語法,都很複雜,並且越來越複雜.
+
+So what is different when working with sgsML?
+
+那採用 sgsML 到底有甚麼不同?
+
+You no longer need to be the super nerd of a programming language.
+
+你不再需要是程式語言的專家(才能寫網際應用程式)
+
+Now you can create good web applications without having learned programming for ten years.
+
+不用學 10 年程式, 就能寫很棒的網際程式.
+
+To build web applications with sgsML it is enough if you can write functions with 5 to 10 lines of code.
+
+利用 sgsML 編寫網際程式,只要用 5 到 10 行的函式程式就夠了.
+
+You no longer write functions to store or load data in the database.
+
+不再需要寫資料庫存取用的函式.
+
+You no longer write GUI components just like HTML editors, spreadsheets or data selectors. How can this work?
+
+不再需要寫使用者介面,處理超文件編輯器,試算表,或者資料選單. 這到底要如何辦到?
+
+The name sgsML already indicates a relation to XML.
+
+從 sgsML 名稱就可以知道與 XML 有關.
+
+To produce applications written in sgsML, XML version 1.0 has been chosen as the syntax for sgsML files.
+
+利用 sgsML 編寫應用程式,採用 XML 1.0 的格式語法.
+
+This format is easier to read and interpret than many other formats (e.g. ini, CSV, CSS, etc.).
+
+這種格式比其他格式(像 ini, CSV, CSS 等)更容易解讀.
+
+As said before we are talking about sgsML files, meaning that one module (e.g. companies or appointments) is written into one file with the extension ".xml".
+
+如前所述, sgsML 檔案就是一個模組(如,公司或約會模組),寫成一個以 xml 為副檔名的檔案.
+
+Types
+
+型別
+
+With sgsML a field is generally defined by its type.
+
+在 sgsML 中,欄位依照其型別加以定義.
+
+This can be a text, a date, a number, etc. So when you define a field as text with sgsML, Simple Groupware creates this field in the database with the correct type and size in the corresponding table.
+
+可以是文字,日期,數字等. 在 sgsML 中將欄位定義為文字型別, sgw 就會在資料庫中依照正確的型別與長度,在資料庫中建立此一欄位.
+
+
+Furthermore Simple Groupware already knows how to display this field (You only have to decide between a horizontal or a vertical view) including sorting, searching, etc. Additionally, forms to create or edit this field inside a dataset are created automatically for you.
+
+而且, sgw 也會正確顯示此一欄位(只要決定水平或垂直檢視), 也會正確完成諸如排序, 搜尋等工作.
+至於表單, 欄位編輯等資料處理, 也會自動完成.
+
+
+Syntax: Types are declared with simple_type="type" where type is one of int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime ... for a complete list, see src/modules/schema/!examples.html.
+
+語法: 型別採 simple_type="type" 的方式宣告,其中 type 為 int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime 中的一種, 完整的型別表列,可以參考 src/modules/schema/!examples.html
+
+Validators
+
+驗證器
+
+To be able to validate inputs made by a user you are able define functions that take care of this.
+
+為能驗證使用者所提供的輸入, 就必須定義處理的函式.
+
+E.g. you define a field as type text and also declare that it has to be validated with the two functions myvalidate1 and myvalidate2.
+
+例如, 將欄位定義為文字型別, 必須要宣告, 以 myvalidate1 與 myvalidate2 等兩個函式加以驗證.
+
+When a user wants to save a new dataset these two functions are called with the value of the field as a parameter and you only have to return a true/false-like answer to tell the program that the input is valid or not.
+
+當使用者希望存一新的欄位資料時, 這兩個函式就會被呼叫, 並且以欄位變數加以驗證, 並且返回真/假的答覆, 來判定輸入是否有效.
+
+You don't have to care about displaying the form again, mark the field with color red, display the error message to the user, etc.
+
+您不再需要關注表單的顯示, 將必填欄位加上紅標, 或者傳回錯誤訊息給使用者.
+
+This is all done for you automatically. These 2 functions are normally pretty easy and so small that even beginners can write them very quickly (they don't need any knowledge about the database, or HTML forms with heavy usage of Javascript).
+
+這些事項都會自動完成. 而這兩個驗證用的函式, 通常非常簡單, 程式也很短, 就連初學者也都能夠快速上手 (不需要有資料庫或超文件表單的知識, 也不用寫一堆的 Javascript)
+
+To make these functions smaller in size, you can define more than one functions for the validation of a field. This also helps you reuse functions (-> you automatically produce reusable code).
+
+為了讓這些函示變得簡短, 可以設法針對一個欄位定義幾個函式. 不僅可以重用這些函式(->所建立的函式自然就能重用)
+
+E.g. you want a field to be a positive number: Just write one function "is_numeric" that controls if the value is a number and a second one called "is_positive" that tests if it is positive.
+
+例如, 若希望某一欄位為正數: 只要寫一個 "is_numeric" 的函式, 確保欄位為數字, 然後再編寫一個 "is_positive" 的函式來測試數值是否為正.
+
+
+Of course, validating a German, English or ISO formatted date requires some work. Therefore a large number of functions for validating dates, strings and numbers is already shipped with Simple Groupware by default.
+
+當然, 若要辨識德文, 英文或 ISO 格式的日期, 需要一些功夫. 因此這些用來辨識日期, 字串與數字的大型函式, 已經內建在 Simple Groupware 系統中.
+
+Syntax: To collect these functions in a central place, all validators are stored in core/functions_user.php and have a "validate_" prefix, e.g. "validate_is_numeric". To define a validator in a sgsML file, write <validate function="is_numeric"/> between the <field>-tags to validate the field with the function validate_is_numeric.
+
+語法: 為了將這些函式集中在一起, 所有的驗證函式都放在 core/functions_user.php 中, 並且以 "validate_" 作為開頭. 例如, "validate_is_numeric". 而在 sgsML 中定義驗證器, 則在 <field>-標註間寫入 <validate function="is_numeric" />, 就可以用來驗證該欄位所填入的內容, 是否為數字.
+
+Filters
+
+過濾器
+
+
+Reading carefully you have read that Simple Groupware automatically displays your fields. But oftentimes you want to display fields differently from the value stored in the database. This is no conflict since you can define filters that change the value of a field before being displayed.
+
+前面已經說過, Simple Groupware 會自動顯示欄位內容. 但有時希望顯示的內容, 可能與存在資料庫中的資料不同. 這時就可以使用過濾器的定義, 來改變欄位內容, 以便用來顯示.
+
+
+This is elementary when working with dates. E.g. your database is configured for English dates, but you want to display them in German. Or you want to crop long texts to only show the first 20 words. Similar to validators you assign a function to the field that performs the filtering operation. This function takes the value of the field as input and returns the filtered value back to the program.
+
+這在日期的使用上非常普遍. 例如, 資料庫中的日期設為英文格式, 而希望轉為德式習慣顯示. 或者將較長的內文, 只顯示前 20 個字等. 與驗證器類似, 可以指定一個過濾函式來處理資料過濾的操作. 此一函式以欄位值作為輸入, 而將過濾器處理過的資料傳回程式.
+
+This is also very easy for beginners who don't need to care where the field is displayed or where the value comes from. As said Filters are similar to Validators, which means you can make the functions smaller in size by defining more than one function for the filtering process of a field. This also helps you reuse functions (-> you automatically produce reusable code).
+E.g. you want a date field to be presented as a German date, take a look at the following code:
+
+這樣的處理對初學者應該也會很簡單, 不用知道欄位資料會顯示在哪裡, 也不用知道資料從何而來. 就因為過濾器與驗證器相同, 因此也可以設計幾個小程式分別進行處理. 這樣就能重用這些函式 (所建立的函式自然就能重用)
+
+
+<filter views="all" function="dateformat||m/d/Y"/>
+
+This illustrates you the syntax of a filter and also the syntax for applying parameters to your functions (simply add a "|" to separate the parameters). To make working with dates easier for you, the function to format dates is already shipped with Simple Groupware.
+
+這裡展示了過濾器的語法以及應用變數的方法, 在函式中, 只要加上"|" 就可以區隔變數. 為了讓日期的過濾更加簡易, Simple Groupware 已經內建這些函式.
+
+The first parameter takes a verbal date modification, e.g. now + 1 month which returns the date increased by 1 month. The second parameter defines the format of the date.
+
+第一個變數針對日期文字作了修改, 例如, now + 1 個月表示所傳回的月份會加上 1. 而第二個變數則定義了日期的格式.
+
+
+An overview of the format parameters can be found at http://www.php.net/date. Examples dealing with modifications of dates are here: http://www.php.net/strtotime.
+
+有關日期格式的說明, 請參考 http://www.php.net/date. 而處理日期顯示相關的範例則可參考 http://www.php.net/strtotime.
+
+Syntax: To collect these functions in a central place, all filters are stored in core/functions_user.php and have a "modify_" prefix (because they modify data), e.g. "modify_dateformat". To define a filter in a sgsML file, write <filter views="all" function="truncate|20"/> between the <field>-tags to truncate the field to a maximum of 20 characters with the function modify_truncate.
+
+語法: 為了將這些函式收集在一起, 所有的過濾器都存在 core/functions_user.php 中, 並且以 modify_" 放在函式前面 (因為這些函式會修改 (modify) 資料), 例如, "modify_dateformat". 而在 sgsML 中則在 <field> 標註間, 寫成 <filter views="all" function="truncate|20"/> 可以透過 modify_truncate 函式, 將欄位資料裁截成只有 20 個字元.
+
+(The "views=all" parameter indicates that this filter is used with every view and will be discussed later) Other functions are included to help you to manage files, URLs, source code highlighting, etc.
+
+(而 "views=all" 變數表示此一過濾器會用在所有的 view, 隨後將會進一步討論) 其他還有包含處理 URLs 原始碼標示等之過濾器函式.
+
+Note: for being neutral the date is stored in the database as timestamp (=an integer value).
+
+注意: 為了在資料庫中置入中性資料, 日期以數字表示.
+
+Store and Restore
+
+資料存放與回復
+
+Being as simple as possible, Simple Groupware automatically stores/reads data to/from the database. But sometimes you want to store inputs made by the user differently from the original value. E.g. the user types a date with a German formatting, but in the database it has to be a timestamp. Or you want to store URLs without a leading http:// in the database.
+
+為了盡量保持簡潔, Simple Gropware  自動處理有關資料庫存/取與進/出相關動作. 但是有時使用者希望存入與使用者輸入不同格式的內容. 例如, 使用者在資料區輸入德式格式的日期, 但是資料庫則希望存入以數字表示的日期格式. 或者當存入資料庫 URLs 連結時, 不要放入 http:// 等.
+
+Similar to validators and filters, functions used for storing the input get the value from the form as the first parameter and return the modified value back to the program. You don't have to care how the value is transferred from the form to your function. This makes things much easier, e.g. file uploads require big error handling routines that would boost up your code unnecessarily.
+
+與驗證及過濾的動作相似, 用來處理輸入儲存的函式, 將表單資料當作第一變數, 將資料傳給程式, 使用者無需處理函式的進出. 可以簡單呼叫運用, 例如, 檔案上傳時需要較長的程式來處理錯誤辨識, 在這裡就不需要如此.
+
+When modifying data before writing into the database, it is clear that there must be a re-transformation when being read from the database. This re-transformation is called restore. That's why there are restore functions, that are identical to filter functions regarding structure and functionality.
+
+在資料存入資料庫前進行處理後, 就必須在資料取出時進行另一階段的回復處理. 而此一"再處理過程"就稱為"回復". 因此這些函式稱為回復函式, 就如同過濾函式資料處理流程.
+
+Thus, writing store and restore functions is as easy as validators or filters. To reduce your functions in size you can also define multiple store or restore functions.
+
+編寫儲存與回復函式的方法, 就如同驗證與過濾. 為了簡化個別函式, 可以將這些函式分成幾個儲存與回復函式.
+
+Syntax: To collect these functions in a central place, all store and restore functions are kept in core/functions_user.php and have a "modify_" prefix (because they modify data), e.g. "modify_datetime_to_int" converts a date given as string to a timestamp using integer representation.
+
+語法: 為了集中管理這些函式, 所有儲存與回復函式都放在 core/functions_user.php 中, 並且在函式前面加上 "modify_" (因為會修改資料), 例如, "modify_datetime_to_int" 就是將時間標示字串轉成整數的函式.
+
+To define a store or restore function in a sgsML file, write <store function="datetime_to_int"/> and <restore function="dateformat||d.m.Y"/> between the <field>-tags to work with a date-field using the functions modify_datetime_to_int and modify_dateformat.
+
+利用 sgsML 定義儲存與回復函式, 必須在 <field> 標註間, 寫成 <store function="datetime_to_int" /> 與 <restore function="dateformat||d.m.Y" />, 以便呼叫 modify_datetime_to_int 與 modify_dateformat.
+
+As told before, Simple Groupware already knows a type called "date". Therefore you only need restore/store functions when defining your date-field with type "int". Using type "date" this is done automatically for you.
+
+前面曾經提過, Simple Groupware 已經內建 date 型別. 因此只要在回復/儲存函式中將日期欄位定義成 "int" 就可以, 而 date 型別就會進行自動處理.
+
+Note: The store functions are called after those used for validating the input.
+
+注意: 儲存函式必須在輸入資料驗證後才進行呼叫.
+
+Note: The restore functions are called before those used for filtering values from the database.
+
+注意: 回復函式則在資料由資料庫取出後, 進行過濾後才進行呼叫.
+
+Data sources
+
+資料來源
+
+Often it is necessary to build fields that already contain a set of data from which the user can choose the right values. E.g. this is a typical behavior for select-boxes. When writing an address book you might like to implement a field containing the gender of a person.
+
+有時在建立欄位時, 可以提供一組資料, 以便讓使用者選取, 例如, 最常用的就是選項表. 當編寫通訊錄時, 可以建立一組性別欄位, 讓使用者選擇.
+
+The preferred values are male and female. The type "select" defines a select-box in Simple Groupware. To define the preferred values you use the <data> construct in sgsML, e.g. <data values="male|female"/> Using more than one value, separate each with a "|". You can also define more than one <data> construct inside the <field>-tag.
+
+也就是提供男性及女性讓使用者選擇. 而在 Simple Groupware 中是透過 "select" 來定義這些選項表.
+
+為了定義這些選項, 可以採用 sgsML 中的 <data> 結構, 例如, <date values="male|female" /> 若有更多選擇, 各別以 "|" 隔開. 也可以在 <field> 標註中使用多個 <data> 結構.
+
+The method shown before is used for including static data. But in reality, these values are often dynamic and need to be fetched from a special data source. To get these values you can define a function that searches the right values for you and returns them as an array.
+
+前面所用的選項欄位為靜態資料, 有時這些資料會從特定的資料來源取出, 成為動態資料. 這時可以定義一個函式, 搜尋取得所要的資料後, 以陣列的格式傳回.
+
+You don't have to care about transferring these values to forms or to the relevant components, this is done automatically for you. Simple Groupware automatically calls your function when it needs the data. Instead of the values-parameter you use the function parameter to tell it what function to call. E.g. you want to show a list of companies in your address book or predefined values:
+
+使用者不需要特別知道如何在表單中處理這些資料, 系統會自動處理. Simple Groupware 會自動呼叫所需的函式, 取得所需要的資料.  與其提供數值變數, 使用者可以指定函式變數, 例如, 要在通訊錄中列出對應公司列表.
+
+<data function="dbselect|simple_companies|companyname,companyname||companyname asc|10"/>
+
+<data values="male|female"/>
+
+To get these values you call the function dbselect which selects data from the database. To reduce this list we only want 10 items (parameter 5), if there are more, a search box is used to select relevant values.
+
+在這裡呼叫 dbselect 函式, 進入資料庫取值. 這裡只取 10 筆 (變數 5), 若有更多資料, 可以利用搜尋來取得適當值.
+
+All companies have to be listed sorted by the name of the company (=companyname) alphabetically (asc=ascending) (parameter 4). As the table "simple_companies" (parameter 1) can have more than one field we tell the function to use the field "companyname" (parameter 2). Parameter 3 is not used in this case.
+
+所有公司資料會按照公司名稱 (=companyname) 來進行排序, 並且依照字母排序 (asc=ascending) (變數 4). 變數 1 則指定資料表 "simple_companies" (變數 1), 也可以指定多個欄位, 這裡使用 "companyname" 欄位 (變數 2), 這個例子並沒有使用變數 3.
+
+With parameter 3 you can reduce the list of companies with an sql-where clause, e.g. "companyname like 'a%'" to get all companies starting with "a".
+
+變數 3 可以利用 sql-where 的語法來圈定公司, 例如, "companyname like 'a%'" 就會只列出以 a 開頭的公司.
+
+Syntax: To collect these functions in a central place, all data functions are kept in core/functions_user.php and have a "select_" prefix (because they select data), e.g. "select_dbselect" can be used to get data from the database.
+
+語法: 為了將這些函式收集在一個地方, 所有的資料函式都放在 core/functions_user.php 中, 而且都有一個 "select_" 前置詞 (因為用來選擇資料), 例如, "select_dbselect" 可以從資料庫取得資料.
+
+To define a data construct in a sgsML file, write <data function="getmydata"/> between the <field>-tags to call the function "select_getmydata". Here dbselect is illustrated because it is the most common function to get data from the database.
+
+為了能在 sgsML 檔案中定義資料建構物件, 可以在 <field> 標註間放上一個 <data function="getmydata"/>, 以便呼叫 "select_getmydata" 函式. 這裡的 dbselect 特別標示出來的原因, 試通常利用這種方法從資料庫取得資料.
+
+Note: To reduce the size of your functions you can define multiple <data function=> constructs between the <field>-tags.
+
+注意: 為了減少函式定義的個數, 可以在 <field> 標註中定義多個 <data function=> 物件.
+
+Tables
+
+資料表
+
+When looking at tables we see rows, columns. Our rows are assets, every column is a field (similar to database design). <table></table> is the main tag used in sgsML and includes all the others (e.g. fields, views, etc.). With the table tag you define the name of the module, e.g.
+
+資料表有列位與欄位, 列代表資料, 而每一個欄位就如同資料庫中的資料表設計. <table></table> 是 sgsML 中經常會用到的標註, 而且其中還帶有其他標註, (例如, 欄位, 視圖等), 可以利用 table 標註來定義模組的名稱, 例如,
+
+<table modulename="Contacts"></table>
+
+特別在 table 標註中註明模組名稱為 "Contacts".
+
+With a table you also define how the fields should be treated:
+
+也可以在 table 中定義該欄位要如何因應:
+
+What is the column the list or assets should be sorted by?
+
+資料表列中要以那一欄位作為排序依據?
+
+What order should be used?
+
+次序要如何訂定?
+
+How many items should be displayed on one page?
+
+每一頁要列出多少資料?
+
+Should the results be groups by a special column?
+
+結果需不需要透過某一特殊欄位分組?
+
+e.g.:
+    
+實際 table 標註應用如下:
+
+<table modulename="Contacts" orderby="lastname" order="asc" groupby="categories" limit="20"></table>
+
+Of course, these are only the default values you suggest to the user. He can later choose on his own if he needs different settings.
+
+當然, 這些只是呈現給用戶的內定值, 使用者隨後可以根據需求選擇成其他設定.
+
+Fields
+
+欄位
+
+All fields are defined inside the <table>-tag. A field can be seen as a column in a database, e.g. Last name, Street, Country in an address book. Every field has a type, in sgsML the type is called "simple_type".
+
+所有欄位都定義在 <table> 標註中, 此欄位可以視為資料庫的資料表, 例如, 地址資料庫中的姓, 街道名稱, 國家名稱等, 而每一個欄位都有其型別, 如前所述, sgsML 中, 型別稱為 "simple_type".
+
+A type can be a normal string (simple_type is "text") or a collection of lines (simple_type is "textarea"). There are even exotic types like "htmlarea" which represents lines formatted with HTML, or different types for using passwords, dates, times, datetimes, files, wikis, etc.
+Every field has a name to be identified by the program.
+
+型別可以是一行的字串 (simple_type 為 "text") 或者是幾行的字串 (simple_type 為 "textarea"). 也可以是比較特別的型別, 如 "htmlarea", 代表資料為 HTML, 或者是 passwords, dates, times, datetimes, files, wikis 等.
+每一個欄位在程式裏都有一個型別名稱.
+
+This is similar to column definitions in databases. Besides the internal name used by the program every column can contain a displayname which is the name displayed to the user.
+
+這就如同資料庫定義中的資料表. 除了程式中用來代表欄位的內部名稱為, 每一個資料表也可以帶有一個用來顯示的名稱.
+
+E.g. the name of a field can be "lastname", the displayname is "Last name". To separate these two has a lot of advantages:
+
+例如, 欄位名稱可以是 "lastname", 而顯示的名稱則為 "Last name", 將這兩種名稱分開有許多好處:
+
+The name used by the program is limited to numbers and characters, whereas displayname can contain all kinds of special characters or it can be translated into many languages without changing the internal name used by the program.
+
+程式中欄位的名稱被限定只能用數字與字元, 而顯示用的名稱則可以包含各種特殊符號或者可以翻譯成許多不同語系中的名稱, 而無需更改程式中欄位的內部名稱.
+
+This creates consistency when using internationalization with Simple Groupware.
+
+如此就能在不同語系中使用 Simple Groupware, 程式可以保持一致.
+
+Fields can be declared as unique, meaning that there can be no other asset having the same value within this field. To decide between required and optional fields, every field can be defined as "required", but is "optional" by default.
+
+欄位可以宣告為獨一無二, 表示其他資料中不會有相同的欄位. 也可以宣告為必要或選項欄位, 所有欄位都可以定義為必要欄位, 內定則為選項欄位.
+
+As written before, fields can be validated using validators, their data can be defined by some data sources and they can be modified before / after storing them in the database.
+
+如前所述, 欄位可以利用驗證物件來進行驗證, 這些資料可以定義為特殊的資料來源, 也可以在存入資料庫之前或之後進行變更.
+
+Some examples:
+    
+幾個範例:
+
+contacts.xml:
+    
+聯繫模組
+
+<field name="lastname" displayname="Last name" simple_type="text" required="true" />
+
+欄位名稱為 "lastname", 顯示名稱為 "Last name", 資料型別為 "text", 為必要欄位.
+
+<field name="zipcode" displayname="Zipcode" db_size="6" simple_type="text">
+<validate function="numeric"/>
+</field>
+
+欄位名稱為 "zipcode", 顯示名稱為 "Zipcode", 資料庫欄位大小為 6 位數, 資料型別為 "text", 為選項欄位.
+
+欄位驗證採用 numeric 物件, 只能填入數字.
+
+<field name="description" displayname="Description" simple_type="textarea" simple_size="4" />
+
+欄位名稱為 "description", 顯示名稱為 "Description", 資料型別為 "textarea", 資料欄位大小為 4 位數, 為選項欄位.
+
+Views
+
+視圖
+
+The next element inside the sgsML language is a "view". At first "views" are groups of fields. E.g. you show "first name" and "last name" of a person in the view "display" and the field "address" and "description" in the view "details".
+
+下一個 sgsML 語言中的元素為 "view", 首先 "views" 用來對欄位進行分組, 例如, 將某一用戶的 "first name" 與 "last name" 放在 "display" 視圖中, 並且將 "address" 與 "description" 欄位放在 "details" 視圖中.
+
+But views can do a lot more: views are also used to edit and create assets. Since defining forms (for editing and creating assets) is not always easy and oftentimes requires Javascript usage, Simple Groupware creates all the forms automatically for you. So you only define a field as an html-editor (simple_type "htmlarea") and you're done.
+
+但是視圖還有其他功能: 視圖還能用來編輯與建立資料. 因為定義用來編輯與建立資料的表單, 並不容易, 而且通常需要用到 Javascript. Simple Groupware 則自動建立所有的資料表單. 只要宣告欄位為 html-editor (simple_type 型別為 "htmlarea") 就可以了.
+
+To present several fields, sgsML differs between the orientation in which a group of fields is presented: The horizontal view (sgsML "display") is a list where every field has one column (this is how Windows Explorer lists files).
+
+The second one is called "details" (vertical orientation) and presents every field as one line, meaning the first column is the name of the field and the second column contains the value of it.
+
+Both orientations have advantages and disadvantages, so you can decide on your own which one you use for what case: define template="display" or template="details" in the view-tag and you're done. Note: When naming a view "foobar", the template "asset_foobar.tpl" will be used. Using the attribute template="display" in the view tag overrides this automatic mapping.
+
+When looking with web applications you often see a list of assets (horizontal orientation) and a "Details" button at the right side to switch to the vertical one for a selected row.
+
+If you need this behavior depends on you own, simply add a showinsingleview="true" as attribute to the details-view and you're done (sgsML defines the rows of a table as single view, the headline above is the "normal" view, thus "singlebuttons" are buttons displayed at the right side of every asset).
+
+
+Similar to tables, views can have their own "order", "orderby", "limit" statements which override those defined by the table.
+
+
+Other tags are "image_width" and "image_height" (both or only one of them) which enable you to automatically resize images (simple_type "files", images are detected automatically when extension is gif/jpeg/png). This is very useful when bandwidth is low.
+
+
+Another way views can be used is to reduce the number of assets by a "where" clause, e.g. "lastname like 'a%'" to get all persons starting with "a" (this functionality is similar to views in databases using SQL-Views).
+
+
+To group fields to special views, you define constructs like "notin" (exclusion method) or "onlyin" (inclusion method) inside the <field>-tags.
+
+Some examples:
+
+contacts.xml:
+
+<view name="display" displayname="{t}Display{/t}" groupby="category" />
+
+
+<view name="details" displayname="{t}Details{/t}" showinsingleview="true" />
+
+users.xml:
+
+<view name="display" displayname="{t}Active{/t}" where="activated=1" />
+
+
+<view name="details" displayname="{t}Details{/t}" image_width="200" image_height="100" showinsingleview="true" />
+
+
+Tabs
+
+The last construct used by sgsML are tabs. Tabs are similar to views: They group fields and enable you to quickly switch from one group to another without overloading the screen.
+
+A view is static: This means when you click on a view, the program takes the required fields from the databases and presents the results to you. In contrast, tabs are subordinated to views. A view can contain several tabs, every tab is visible in every view (sounds a bit difficult at the first shot, but gets clearer when writing the first application).
+
+
+Tabs are dynamic: E.g. you click on one view containing 5 tabs, all fields for the 5 tabs are loaded from the database and put into the (HTML-)output. To avoid overloading the screen, tabs use Javascript to make sure that only one tab is visible at once. When clicking another tab, the old one is hidden and the other is made visible. To assign fields to tabs, simply use <field ... simple_tab="mytab">.
+
+Here is an example:
+
+<tab name="general" displayname="{t}General{/t}" />
+
+
+<tab name="details" displayname="{t}Details{/t}" />
+
+<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" simple_tab="details" />
+
+
+Deploy your applications with sgsML
+
+Finally after writing your first sgsML application you will surely want to deploy it to your Simple Groupware installation. Therefore every module is a web application and stored in one .xml file. Simple Groupware distinguishes between two types of modules: Normal modules and system modules.
+
+
+System modules are very special modules providing access to other data sources (e.g. the filesystem, other databases, IMAP, iCalendar, etc.) or providing system functionality (folders, statistics, events, search functionalities, session handling, etc.).
+
+A module is a system module if Simple Groupware cannot run without it.
+
+(There are even some modules like users and groups where this border cannot be clearly pulled, these modules remain system modules since you can't work without it).
+
+System modules are kept under "modules/schema_sys". If a module doesn't represent a schema from a table with data in the database than it carries a "nodb_" prefix in the filename (e.g. the filesystem has a schema, but it is not a schema from a table with data in the database). A module that is marked as "nodb_" needs to get its data from another data source.
+
+Therefore it uses its own functions for getting and setting data. These functions are very simple and are automatically called by the sql-handler of Simple Groupware. These functions are stored in modules/lib/* and are all following the Simple Groupware API. When learning sgsML you should try to understand system modules at last.
+
+
+The Simple Groupware folder structure has two branches: src/ and bin/. If you install with language English, German, etc. all files from src/* are translated and written to bin/* during the setup process. Therefore if you installed with English or German, place your .xml file in bin/modules/schema/. If you installed with Developer as language, place your .xml file in src/modules/schema/.
+
+Note: To be able to select a module in the list when creating a new folder, you need to add the module to "modules/schema/modules.txt". Every line in this file contains the module's name and the string that is displayed in the web-interface.
+
+
+Note: Every .xml file defines a structure of a table in the database. The name of the table is automatically set by the filename and "simple_" as prefix. E.g. the table name for schema/tasks.xml is set to simple_tasks. If the module is a system module, the prefix will be "simple_sys_". E.g. the table name for schema_sys/users.xml will be simple_sys_users. The "modulename" attribute is only the name displayed above the tree on every page.
+
+
+Translations
+
+With Simple Groupware you can translate everything: It doesn't matter if the strings that should translated are inside XML, PHP, Html, sgsML, etc. Every string that needs to be translated is covered with {t} and {/t}. E.g. to make "username" translatable, use it as "{t}username{/t}".
+
+That's the same using sgsML. Examples for translations inside sgsML are display-names for fields, date formats as validation / store parameters, etc. The translation process is done during the setup. So you select a language and all files from the src/ directory are translated into the bin/ directory.
+
+When installing with Developer as language, the translation isn't done. All files reside in src/ and when viewing the output, {t} and {/t} are automatically removed. So using Simple Groupware as "Developer" you always get untranslated English values in the output.
+Note: If you don't need translations, you won't need to add "{t}" and "{/t}".
+
+Examples
+
+blank.xml:
+
+<table modulename="{t}Blank{/t}" default_view="display" default_sql="no_select">
+<view name="display" displayname="{t}Display{/t}" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}" />
+</table>
+
+This module has the name blank. It will be displayed as {t}Blank{/t} where "{t}Blank{/t}" will be translated using the language files. As we defined one view (display), the default view is also display. The view "display" will be displayed as the translation of {t}Display{/t}.
+
+In this example we have one field called "id" with the simple_type of "id" meaning this field will be used as a primary key for the table.
+
+Also there is a default_sql statement: This overrides normal (automatic) SQL select statements. When using no_select, there will be no select statement being done. In this example we want the SQL statement to be done automatically, so we strip the default_sql attribute.
+
+Now, let's make a second field called "Last name". Since every person should have a last name we want it to be required every time a new person is created or edited. Last name is a string and therefore we use simple_type "text" which is used for all strings that don't require line breaks. Last name should be named "lastname" in the program and displayed as the translation of {t}Last name{/t}.
+
+blank.xml:
+
+<table modulename="{t}Blank{/t}" default_view="display">
+<view name="display" displayname="{t}Display{/t}" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}" />
+<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+</table>
+
+Adding "first name" is done the same way:
+
+<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+
+To help you finding your entries we want to sort them by lastname (default is Id). Therefore we expand the table statement with two attributes:
+
+orderby="lastname" order="asc"
+
+Orderby defines the field we want to sort by and asc means that the entries should be sorted ascending (instead of desc for descending). Having more than 100 entries makes the list very long, so we want to distribute the entries to several pages. To do this, only set a limit to the table:
+
+limit="20"
+
+To help you to remember the relationships to these assets we add a new field called description:
+
+<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+
+The field description will be displayed as the translation of {t}Description{/t}. The type used here is "textarea" which is similar to the "textarea" component used in HTML. Thus we have a text which can be longer than one line. Here simple_size indicates that textarea has a height of 4 rows.
+
+Now we have:
+
+blank.xml:
+
+<table modulename="{t}Blank{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
+<view name="display" displayname="{t}Display{/t}" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}" />
+<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+</table>
+
+To rename our module from blank to "My Addresses", use ...
+
+myaddresses.xml:
+
+<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
+<view name="display" displayname="{t}Display{/t}" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}" />
+<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+</table>
+
+... and rename the file from "src/modules/schema/blank.xml" to "src/modules/schema/myaddresses.xml" if you installed Simple Groupware with language "Developer". If you installed it with English or German, rename the file from "bin/modules/schema/blank.xml" to "bin/modules/schema/myaddresses.xml".
+
+Now we only have a simple view that can display entries. To enable you to create new entries, add the following attribute to the table tag:
+
+enable_new="true"
+
+This automatically adds the "New" view with the rights attributes.
+To allow you to edit and delete existing entries, add these attributes to the table tag:
+
+enable_edit="true" enable_delete="true"
+
+This automatically adds the "Edit" view and the "Delete" buttons.
+With Simple Groupware you assign one module to every folder. Therefore you may want to be able to delete all entries in the folder. To do this we use the "empty" attribute:
+
+enable_empty="true"
+
+This automatically adds the "Empty" button.
+
+myaddresses.xml:
+
+<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+<view name="display" displayname="{t}Display{/t}" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}" />
+<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+</table>
+
+To deploy your new web application, make sure that the module is stored in "src/modules/schema/myaddresses.xml" (Developer language) or "bin/modules/schema/myaddresses.xml" (English, German, etc. language).
+
+
+Inside Simple Groupware, take a look at the tree. Go to a folder where you want to place the new application, e.g. click "Workspace". Below the tree, click "Options", enter a new folder name to the "New folder" form, choose "myaddresses" in the list and click Ok. This is all: The new module is running now!
+
+
+Note: The modules in the list contain the filenames without the extension (.xml), not the modulename-attribute. Therefore you see "myaddresses" in the list instead of "{t}My Addresses{/t}".
+
+To improve "My Addresses" we add some more fields:
+
+<field name="street" displayname="{t}Street{/t}" simple_type="text" />
+<field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+<validate function="numeric" />
+</field>
+<field name="city" displayname="{t}City{/t}" simple_type="text" />
+
+All three are of type "text", but the zip code should be validated by some constraints: The first validation is done with db_size=6 which means that the field may not be longer than 6 characters. Since zip codes are numeric (in Germany) we add the validator "numeric" (when creating or editing a new asset the function "validate_numeric" is called). If your zip codes are not numeric, leave this step out.
+
+But the "Display" quickly gets overloaded with fields. Thus we create a new view called "Details".
+
+<view name="details" displayname="{t}Details{/t}" showinsingleview="true" tfield_1="firstname" tfield_2="lastname" />
+
+We decide that Id and description are less important than the other fields and should be displayed in the second view "Details". Also the fields "lastname" and "firstname" should be displayed as a caption in the first line of the details view (indicated with the attributes "tfield_1" and "tfield_2").
+
+This means we add new limitations to the fields:
+
+<notin views="display" />
+
+Notin tells the program not to display the field in the view "display". Notin uses "views" as attribute which means that you can add several views here using views="view1|view2" separated with "|".
+
+
+Summarizing our activities
+
+myaddresses.xml:
+
+<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+<view name="display" displayname="{t}Display{/t}" />
+<view name="details" displayname="{t}Details{/t}" showinsingleview="true" tfield_1="firstname" tfield_2="lastname" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}">
+<notin views="display" />
+</field>
+<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4">
+<notin views="display" />
+</field>
+<field name="street" displayname="{t}Street{/t}" simple_type="text" />
+<field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+<validate function="numeric"/>
+</field>
+<field name="city" displayname="{t}City{/t}" simple_type="text" />
+</table>
+
+When saving changes to the xml file you only need to hit the "Refresh" button in your browser to make Simple Groupware apply your changes.
+
+Examples (continued)
+
+To make the description field more usable we change simple_type from textarea to htmlarea:
+
+simple_type="htmlarea"
+
+Hit refresh and you have a complete HTML editor!
+
+Another way to avoid overloading of the display view is using simple_tabs.
+
+So we define two tabs, one for general information, the other one for the details (both displayed with the translation from the language file):
+
+<tab name="general" displayname="{t}General{/t}" />
+<tab name="details" displayname="{t}Details{/t}" />
+
+The difference between "views" and "tabs" is the time when the information is loaded. With views, only the information for the current view is loaded. Using tabs all the information is loaded, but hided using Javascript until you hit the tab. Switching between tabs is much faster because you have already loaded all the information in your browser, but loading the page takes longer at the beginning.
+
+The same example using tabs instead of views looks like this:
+
+myaddresses.xml:
+
+<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+<view name="display" displayname="{t}Display{/t}" />
+<tab name="general" displayname="{t}General{/t}" />
+<tab name="details" displayname="{t}Details{/t}" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}" simple_tab="details" />
+<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+<field name="description" displayname="{t}Description{/t}" simple_type="htmlarea" simple_size="4" simple_tab="details" />
+<field name="street" displayname="{t}Street{/t}" simple_type="text" />
+<field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+<validate function="numeric" />
+</field>
+<field name="city" displayname="{t}City{/t}" simple_type="text" />
+</table>
+
+To add a gender selectbox with the values male, female, use:
+
+<field name="gender" displayname="{t}Gender{/t}" db_size="10" simple_type="select" simple_size="1" simple_tab="details">
+<data values="{t}male{/t}|{t}female{/t}"/>
+</field>
+
+The field gender has a maximum of 10 characters, is displayed as a selectbox (simple_type select) and the user can select 1 item (instead of multiple items).
+
+Since every address has relations to other addresses we finally add a field to store these relationships:
+
+<field name="isrelatedto" displayname="{t}Is related to{/t}" simple_type="select" simple_size="3" is_linked="simple_myaddresses|details|lastname" multiple="&lt;br&gt;" simple_tab="details" allow_custom="true">
+
+
+<data function="dbselect|simple_myaddresses|lastname,lastname||lastname asc|10"/>
+</field>
+
+The field isrelatedto is displayed with the translation of {t}Is related to{/t}. The simple_type is a selectbox with a height of 3 lines, allowing the user to select multiple items. In the display these items are separated by "<br>" (= new line). The user can also type in his own items which is declared by allow_custom=true.
+
+To get the data from the selectbox we use the select_dbselect function which does something like "select lastname from simple_myaddresses order by lastname asc limit 10". If there are more than 10 items, the user can select them by using a search box.
+
+This field is also shown in the details tab. Furthermore when displaying the items of this field we want these items to be links. When a user clicks them the referenced address should be displayed.
+
+This behavior is achieved by using the "is_linked" attribute. The first parameter names the table, the second the view we want to see in the popup and the third defines the field to choose from.
+
+
+The complete code of the example
+
+myaddresses.xml:
+
+<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+<view name="display" displayname="{t}Display{/t}" />
+<tab name="general" displayname="{t}General{/t}" />
+<tab name="details" displayname="{t}Details{/t}" />
+<field name="id" simple_type="id" displayname="{t}Id{/t}" simple_tab="details" />
+<field name="gender" displayname="{t}Gender{/t}" db_size="10" simple_type="select" simple_size="1" simple_tab="details">
+<data values="{t}male{/t}|{t}female{/t}"/>
+</field>
+<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+<field name="description" displayname="{t}Description{/t}" simple_type="htmlarea" simple_size="4" simple_tab="details" />
+<field name="street" displayname="{t}Street{/t}" simple_type="text" />
+<field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+<validate function="numeric"/>
+</field>
+<field name="city" displayname="{t}City{/t}" simple_type="text" />
+<field name="isrelatedto" displayname="{t}Is related to{/t}" simple_type="select" simple_size="3" is_linked="simple_myaddresses|details|lastname" multiple="&lt;br&gt;" simple_tab="details" allow_custom="true">
+<data function="dbselect|simple_myaddresses|lastname,lastname||lastname asc|10"/>
+</field>
+</table>
+
+Note: Using translations normally takes more time, so it is on you to use them or not.
+
+
+Screenshots of myaddresses.xml
+
+
+Search functionality
+
+All your data will automatically be searchable. If simple_type is files, each file will be indexed using the binary tools (catdoc, xlhtml, ImageMagick, Xpdf, UnZip, gzip, tar). These tools are included as windows binaries, if using Linux/Unix you need to install these packages from your distribution (see Installation).
+
+
+Summary
+
+To demonstrate the efficiency of Simple Groupware and sgsML:
+
+We have written a complete web application including 9 fields with only 26 lines of code.
+
+You can create / edit / delete assets. With the built-in tree of Simple Groupware you can create different folders for special groups of addresses.
+
+
+All your changes are logged in the history.
+
+
+And maybe the most important benefit all the values are already searchable via the global search function. (You can even try using phonetic searches!)
+
+I hope you got a first introduction into the world of sgsML and already understood most parts of it.
+For more examples, see the "src/modules/schema" directory (including examples using files, dates, codeareas, wikiareas etc.).
+
+
+To go deeper into sgsML there is "src/modules/schema_sys" (containing the Simple Groupware system modules and handlers for external data sources).
+This is only a small tutorial describing the basic ideas and elements behind sgsML. If you write your own modules, and there is something not working or not clear, feel free to mail me.
+
 齒輪減速機專案
 *********************
 

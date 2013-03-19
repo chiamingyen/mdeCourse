@@ -21,6 +21,37 @@ Python 程式開發
 
 
 
+有關 portableKMOL
+^^^^^^^^^^^^^^^^^^^
+
+https://code.google.com/p/pythonxy/ 的作者最近推出 WinPython https://code.google.com/p/winpython/, 著眼在於 Windows 環境的可攜 Python 科學與工程程式開發環境, 主要的視窗圖形介面開發工具為 PyQt.
+
+仔細比對 portableKMOL 與 WinPython, 其實開發理念非常一致: 希望善用 Python 在工程與科學領域的開發優勢, 從而透過可攜性工具, 讓所開發出來的 Python 程式能夠跨平台.
+
+WinPython 所大力推崇的 IPython, Numpy, Scipy 與 matplotlib, 在 portableKMOL 也都納入 (但是 IPython 從 USB 2.0 的隨身碟開啟速度過慢, 因此目前並未置入), 也都使用 SciTE 作為基本文件的編輯器, 其他的差異在於:
+
+WinPython 比較強調單機開發, 而 portableKMOL 則比較強調網際開發 (因為著眼於協同設計)
+
+WinPython 的 IDE 為 Spyder, 而 portableKMOL 則採用 SciTE 來解譯 Python 與 C, 並且希望直接在網際環境中協同開發程式碼 (目前青睞 cloud9 IDE 環境, 但是也僅止於 php, c9.io 對於 Python3 的支援還不夠完備).
+
+WinPython 以 cx_Freeze 打包 .exe 程式套件, portableKMOL 目前則以開放程式碼的套件為主.
+
+WinPython 似乎沒有網際方案, portableKMOL 則採用 CherryPy (Python), django (Python), CMSimple (php) 與 Simple Groupware (php) 作為網際程式開發框架.
+
+WinPython 安裝 Cython, portableKMOL 在加速 Python 程式運算方面希望採用 PyCUDA+mpi4py, 以圖形卡的平行運算為主.
+
+WinPython 安裝 zmq, portableKMOL 尚未導入 zmq.
+
+初步比較:
+
+WinPython 的可攜性在中文電腦上無法因應有空白的目錄, 而 portableKMOL 採用 subst 指令, 讓程式固定在 V:\, 除了方便設定, 也有較高的可攜性.
+
+近程規劃:
+
+    持續使用 portableKMOL, 或許可以設法導入 WinPython 對於可攜套件安裝方案, 甚或 Spyder 的 IDE 架構.
+    
+    在 portableKMOL 中導入 FreeCAD 0.13 版, 並且設法導入 django based 的 PDM/PLM 系統.
+
 @url 為何選擇 Python
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -107,18 +138,22 @@ Leo 相關
 基本操作
 ^^^^^^^^^^^^
 
-Alt+1 可以 toggle autocompleter On/Off
-Alt+2 則可以 toggle calltips On/Off
-
-mod_http.py plugin 
-
-這個 plugin 可以讓使用者啟動 http server, 將 Leo Editor 所開啟的 .leo 內容展示在瀏覽器中.
-
-使用步驟:
-
-1. 啟動 mod_http.py - 在 myLeoSetting.py 中, 將 @enable-plugins 內文中的 mod_http.py 前方的 # 拿掉.
-
+Alt+1 可以 toggle autocompleter On/Off
+Alt+2 則可以 toggle calltips On/Off
+
+mod_http.py plugin 
+
+這個 plugin 可以讓使用者啟動 http server, 將 Leo Editor 所開啟的 .leo 內容展示在瀏覽器中.
+
+使用步驟:
+
+1. 啟動 mod_http.py - 在 myLeoSetting.py 中, 將 @enable-plugins 內文中的 mod_http.py 前方的 # 拿掉.
+
 2. 重新啟動 Leo, 可以在 log 中顯示 http server 已經啟動, 透過 Leo 所指派的 port 號, 以瀏覽器開啟 Leo 中的大綱檔案.
+
+Body Editor 與 Focus
+
+Cmds 下的功能表有 Body Editor->Add-Editors 可以增加內文編輯區的個數, 此功能在不同節點內容交叉比對時, 有很大的方便, 假如再加上 Focus->Cycle-All-Focus 的輔助, 就能夠在多內文編輯區中交叉切換, 能夠引用或檢視同一節點但是不同區域的內容.
 
 當節點內容更新後
 ^^^^^^^^^^^^^^^^^^^^^^^^
@@ -345,6 +380,19 @@ p = g.findNodeInTree(c,p,headline)
 
 c.executeMinibufferCommand('open-outline')
 
+Leo 執行問題
+^^^^^^^^^^^^^^^^
+
+在內容搜尋時發生以下錯誤:
+
+File "V:\IDE\Python33\lib\site-packages\leo\core\leoFind.py", line 1355, in showSuccess
+
+assert w.getAllText() == p.b
+
+AssertionError
+
+目前無解決方法.
+
 git 相關
 **********
 
@@ -398,11 +446,6 @@ Sphinx 與 Python3 的配合, 在使用 extensions = ['sphinx.ext.graphviz'] (co
 參考資料:
 
 https://bitbucket.org/birkenfeld/sphinx/src/8f0aca73d1b0/sphinx/ext/graphviz.py
-
-輸出 CHM
-^^^^^^^^^^
-
-make htmlhelp 就可以產生 CHM 格式的檔案, 但是內容為中文時, 必須要再進一步修改 htmlhelpcn.py.
 
 LaTeX 字型
 ^^^^^^^^^^^^
@@ -483,6 +526,21 @@ make.bat 中的 pngmath_latex 設定, 指向 MiKTeX 的 latex.exe 路徑.
 .. only:: html
 
    這裡的內容只會出現在 html 輸出.
+
+@url 中文 Sphinx 最完整案例
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+http://hyry.dip.jp:8000/pydoc/index.html
+
+目前使用 Python Sphinx 製作電子書, 且支援中文搜尋的應該就是`用 Python 做科學計算`_ , 其中有關編寫工具與環境的搭建有部分說明.
+
+portableKMOL 已經將上述環境改為 Python3 且支援 `結巴分詞`_ 套件, 但是所產生的結果仍有部分中文關鍵字無法正確搜尋, 目前承接 Sphinx html 的方案應該仍以 CMSimple 模式最佳.
+
+目前 mdeCourse 中採用 `結巴分詞`_ 套件中的全模式分詞.
+
+.. _用 Python 做科學計算: http://hyry.dip.jp:8000/pydoc/index.html
+
+.. _結巴分詞: https://github.com/fxsjy/jieba
 
 matplotlib 相關
 *****************
@@ -603,4 +661,58 @@ RubyGems downloads and installs the rhc gem from www.rubygems.org/gems/rhc. The 
 C:\Program Files\> rhc
 
 The OpenShift interactive setup wizard displays and prompts you to complete the rest of the process. If you cannot run OpenShift client tools at this point, please contact us on IRC or post in our forums for more assistance.
+
+beautiful soup 相關
+*********************
+
+而 `beautiful soup`_ 的基本用法:
+
+.. _beautiful soup: http://www.crummy.com/software/BeautifulSoup/bs4/doc/
+
+.. code-block:: python
+
+    from bs4 import BeautifulSoup
+    html_doc = '''某段超文件內容'''
+    soup = BeautifulSoup(html_doc)
+    
+    soup.title
+    # <title>The Dormouse's story</title>
+    
+    soup.title.name
+    # u'title'
+    
+    soup.title.string
+    # u'The Dormouse's story'
+    
+    soup.title.parent.name
+    # u'head'
+    
+    soup.p
+    # <p class="title"><b>The Dormouse's story</b></p>
+    
+    soup.p['class']
+    # u'title'
+    
+    soup.a
+    # <a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>
+    
+    soup.find_all('a')
+    # [<a class="sister" href="http://example.com/elsie" id="link1">Elsie</a>,
+    #  <a class="sister" href="http://example.com/lacie" id="link2">Lacie</a>,
+    #  <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>]
+    
+    soup.find(id="link3")
+    # <a class="sister" href="http://example.com/tillie" id="link3">Tillie</a>
+
+基本產生 CMSimple 與 Wordpress 內容的流程 (`graphviz 的節點形狀`_):
+
+.. _graphviz 的節點形狀: http://www.graphviz.org/doc/info/shapes.html
+
+.. graphviz:: 
+
+    digraph{
+    node[fontname="中文", shape=rect]
+    "由 Leo 針對特定節點內容轉為 singlehtm"->"使用 beautiful soup 整理 html"->"以 SFTP 傳到 CMSimple 網站"
+    "使用 beautiful soup 整理 html"->"以 xmlrpc 傳到 Wordpress 網站"
+    }
 

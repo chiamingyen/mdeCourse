@@ -29,6 +29,11 @@
 </v>
 <v t="amd_yen.20130308210411.2397"><vh>@edit document\conf.py</vh></v>
 <v t="amd_yen.20130308210411.2398"><vh>@edit document\kmol_toc.html.txt</vh></v>
+<v t="amd_yen.20130318140025.2832" a="E"><vh>位於 exts 目錄的中文分詞程式</vh>
+<v t="amd_yen.20130318140025.2829"><vh>@edit exts\zh.py</vh></v>
+<v t="amd_yen.20130318140025.2830"><vh>@edit exts\chinese_search.py</vh></v>
+<v t="amd_yen.20130318140025.2831"><vh>@edit exts\sphinx.search.py</vh></v>
+</v>
 </v>
 <v t="amd_yen.20130312013510.1824"><vh>@button self_and_subtree</vh></v>
 <v t="amd_yen.20130308210411.2406" a="E"><vh>KMOL Guide</vh>
@@ -37,12 +42,13 @@
 <v t="amd_yen.20130308221230.3828" a="E"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
-<v t="amd_yen.20130308221230.2437" a="E"><vh>C2 第一週程式</vh>
+<v t="amd_yen.20130308210411.2384"><vh>程式語言(二)</vh>
+<v t="amd_yen.20130318140025.2833"><vh>有關程式語言</vh></v>
+<v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
 <v t="amd_yen.20130308221230.2438"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2457" a="E"><vh>C2 第二週程式</vh>
+<v t="amd_yen.20130308221230.2457"><vh>C2 第二週程式</vh>
 <v t="amd_yen.20130308221230.2458" a="E"><vh>@shadow c2/docutils_ex1.py</vh></v>
 <v t="amd_yen.20130308221230.2462"><vh>課程規劃</vh></v>
 <v t="amd_yen.20130308221230.2463" a="E"><vh>課程進行</vh>
@@ -50,13 +56,13 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130308221230.2465" a="E"><vh>@shadow c2/docutils_ex2.py</vh></v>
 </v>
-<v t="amd_yen.20130317160119.1726" a="E"><vh>C2 第四週程式</vh>
+<v t="amd_yen.20130317160119.1726"><vh>C2 第四週程式</vh>
 <v t="amd_yen.20130317160119.1727"><vh>@shadow c2/pyqt_geardesign.py</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.20130308214521.2437,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2437,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
@@ -67,7 +73,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.201303
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
 <v t="amd_yen.20130312013510.1498"></v>
@@ -226,7 +232,7 @@ git push
 
 假如配合目前上課內容的規劃, blog.kmol.info 是否仍有存在的必要? 應該可以設法配合 html 目錄, 由 Leo Editor 中的按鍵功能, 啟動將最新的 html 目錄送到某一主機對應內容, 讓學員都能擷取最新的課程相關資料, 也能夠從 github clone 最新的課程內容架構.
 
-由於整體系統採用 Python3, 部分 Sphinx extension 功能還無法使用, html 中的中文搜尋也尚未啟動.
+由於整體系統採用 Python3, 部分 Sphinx extension 功能還無法使用, html 中的中文搜尋也尚未啟動 (卡在繁體中文分詞的使用, 目前並沒有很好的方案).
 
 PortableKMOL 能否再精簡?以配合導入 Leo Editor 之後的上課模式?
 
@@ -240,7 +246,20 @@ WordPress - 群組網誌
 
 Simple Groupware - 專案管理系統
 
-</t>
+2013.03.18
+
+以目前的想法, 將 Leo Editor 中的節點內容透過程式直接發布到 Wordpress 與 CMSimple 應該是最佳的做法, 雖然 Sphinx 可以將 rst 轉為 html, 但是中文內容搜尋問題較麻煩, 且採用 Javascript 擷取關鍵字庫的方式搜尋, 並沒有全文搜尋好, 因此現在傾向設法將節點內容轉為 CMSimple 的 content.htm 格式, 然後讓網際內容管理系統與 Leo Editor 中的節點同步.
+
+另外一個考量則是將節點內容送到 Wordpress (透過 xmlrpc.php), 假如能夠在新增網誌內容同時取得遠端網誌存入資料庫的 id, 後續才能透過此對應 id 進行更新或刪除的動作.
+
+為了讓 sphinx-build -b singlehtml 所產生的單一 html 檔案, 能夠轉為 CMSimple 的 content.htm, 必須要動用到 beautiful soup: http://www.crummy.com/software/BeautifulSoup/
+
+產生單一 singlehtml 只要將 make.bat 中, "html" 程序中的 html 換成 singlehtml 就可以完成.
+
+if "%1" == "html" (
+    REM 若將 html 改為 singlehtml 則會建立一個單一 html 檔案
+    REM %SPHINXBUILD% -b singlehtml %ALLSPHINXOPTS% _build/html
+	%SPHINXBUILD% -b html %ALLSPHINXOPTS% _build/html</t>
 <t tx="amd_yen.20130308210411.2383">尚未完成的內容為中文的索引與搜尋.
 
 有關 Sphinx 中文搜尋:
@@ -503,5 +522,47 @@ c.k.simulateCommand('rst3')
 &lt;&lt; pdf manual &gt;&gt;</t>
 <t tx="amd_yen.20130314194325.1746"></t>
 <t tx="amd_yen.20130317160119.1726"></t>
+<t tx="amd_yen.20130318140025.2832"></t>
+<t tx="amd_yen.20130318140025.2833">機械設計工程師所需要的程式語言
+
+機械設計是一個資訊密集的遞廻流程:
+
+    資訊密集 - 機械設計所做的每一個決策都會產生資料, 這些資料包括用來定義產品的規格, 以及訂定此規格的環境與緣由.
+    
+        產品規格 (specifications) - 包括產品性能、零組件尺寸、零組件材料、零組件加工流程、替代零組件等.
+        訂定規格的環境 (environment) - 包括假設條件 (conditions and models)、如何 (how) 完成性能評估、如何取得優勢 (專利)、如何進行協同、如何管理等 (where, who, when, what).
+        訂定規格的緣由 (reasons) - 包括產生各項資訊的前因與後果 (why).
+    
+    遞廻流程 - 重複因應問題、變更設計、期在產品生命週期流程中求取產品價值最大化.
+    
+因此程式語言就機械設計工程師運用電腦執行上述工作項目時, 期採最具效率的方式進行:
+    
+    以電腦管理資訊 - 文書處理、建立網站、登錄日誌
+    以電腦評估規格 - 數值運算 (numerical)、科學運算 (science)、建立模型、執行工程設計分析
+    以電腦建構環境 - 單機程式、網際程式、協同專案環境
+    以電腦因應問題 - on demand 處理問題、以工作流程 (審批流程) 留下決策的細節資料
+    
+程式語言工作項目:
+    
+    程式語言基本概念
+    
+        會否採用程式方法進行數值運算、科學運算、資料處理 (程式語言(一)) - C1_intro
+        會否採用程式方法建立單機程式  (程式語言(二)) - C2_app
+        會否採用程式方法建立網際程式  (程式語言(一)) - C1_web
+        
+    會否採用程式方法進行文書處理 (程式語言(二)) - C2_leo
+    會否採用程式方法建立網站、登錄日誌  (程式語言(一)) - C1_cms
+    會否採用程式方法搭建協同專案環境 (程式語言(二)) - C2_web, C2_cd
+
+程式語言課程規劃內容
+
+C1_intro - 基本程式語法, 程式數值運算與資料處理
+C1_cms - 網際內容管理, CMSimple XH
+C1_web - 網際程式框架, CherryPy
+
+C2_leo - 文書處理, docutils, Sphinx, Leo Editor, MikTeX
+C2_app - 應用程式, PyQt
+C2_web - 網際程式框架, CherryPy
+C2_cd - 網際協同, c9.io, Simple Groupware</t>
 </tnodes>
 </leo_file>

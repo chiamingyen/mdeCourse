@@ -34,6 +34,8 @@ if "%1" == "clean" (
 )
 
 if "%1" == "html" (
+    REM 若將 html 改為 singlehtml 則會建立一個單一 html 檔案
+    REM %SPHINXBUILD% -b singlehtml %ALLSPHINXOPTS% _build/html
 	%SPHINXBUILD% -b html %ALLSPHINXOPTS% _build/html
 	echo.
 	echo.Build finished. The HTML pages are in _build/html.
