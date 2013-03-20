@@ -70,6 +70,13 @@ https://python-guide.readthedocs.org/en/latest/
 
 雖然大多數內容都以 Python 2.X 語法為主, 但是所列出的主題範圍非常完整, 從基本程式開發概念到套件包裝的議題都有涉及, 能提供不錯的參考.
 
+@url  Virtualenv
+^^^^^^^^^^^^^^^^
+
+http://www.virtualenv.org/en/latest/
+
+使用 virtualenv 工具來處理不同應用程式彼此版次相依的問題
+
 Linux 操作
 ************
 
@@ -715,4 +722,70 @@ beautiful soup 相關
     "由 Leo 針對特定節點內容轉為 singlehtm"->"使用 beautiful soup 整理 html"->"以 SFTP 傳到 CMSimple 網站"
     "使用 beautiful soup 整理 html"->"以 xmlrpc 傳到 Wordpress 網站"
     }
+
+Brython 相關
+**************
+
+
+`Brython`_ 是一個嘗試利用 Python 語法編寫 Html5 程式功能的專案, 其做法就是透過 Javascript 作為底層, 讓網頁上的 Python 程式能夠在執行時轉為 Javascript, 如此的優勢在於可以讓伺服器端的 Python 程式碼與客戶端中的 Python 程式保有一致的風格外, 網際化的程式環境也有機會讓使用者決定要在伺服器端或客戶端執行特定的 Python 程式模組 (必須處理網路安全疑慮問題).
+
+就分散式的程式架構而言, 所謂客戶端的程式執行可以讓特定的程式充分運用個別客戶端電腦的 cpu 或圖形介面卡 (PyCUDA + mpi4py), 好處在於無需提供特大的伺服器, 只要將程式打包送到客戶端執行即可, 而從伺服器發送這些程式的好處則在於容易進行版次控管, 每一位連線的用戶, 都可以使用最新的程式, 沒有客戶端安裝程式版次差異所造成的問題.
+
+.. _Brython: https://code.google.com/p/brython/
+
+Cloud9 IDE 相關
+*****************
+
+進入程式編輯區後, 使用 Alt+t 就會帶出 Terminal
+
+在 Cloud9 中使用 django (under python 2.6)
+
+    After some research and looking for an answer on different blogs and sites I finally found a solution:
+    
+    Create a new workspace Execute: easy_install django to install Django
+    
+    Create new Django project: python ./../bin/django-admin.py startproject myproject
+    
+    Start dev server: python ./myproject/manage.py runserver $OPENSHIFT_INTERNAL_IP:$PORT
+    
+    Access http://projectname.username.c9.io 
+    
+    Let's get started!
+
+在 Cloud9 使用 virtualenv
+
+    Virtualenv is a great way is a tool to create isolated Python environments. Sometimes easy_install or pip fail because they try to write to directories not owned by you. In this case running those commands from a virtualenv will fix it. To get virtualenv working in Cloud9 you need to delete the default distutils file .pydistutils.cfg first.
+    
+    To initialize a virtualenv run from the terminal
+    
+    $ rm ../.pydistutils.cfg 
+    $ virtualenv {{ project name }}-env
+    $ source {{ project name }}-env/bin/activate  
+    
+    If you come back to your workspace after a while or if you open a new terminal window you need to reactivate the virtualenv
+    
+    source {{ project name }}-env/bin/activate
+
+在 Cloud9 安裝 Python3 (並非完整的 Python3.3)
+
+    Q: Can you support Python 3?
+    
+    A: It is not installed by default, but you can install it by opening a terminal and typing:  'c9pm install python33'.
+
+@url cloud9 github
+^^^^^^^^^^^^^^^^^^
+
+https://github.com/ajaxorg/cloud9
+
+憑藉著網路上許多開發的程式方案, Cloud9 團隊將其整合成網際 IDE 環境, 目前架構在 OpenShift 之上, 而 OpenShift 則是架構在 Amazon 的雲端基礎架構之上.
+
+開源的 Node.js 造就了 Cloud9 IDE 的發展, 而 Cloud9 一點也不吝嗇, 直接就將程式的原始碼公佈在 github 上 (因此只有如此, 才能吸引來自全球的菁英協助除錯, 並且貢獻價值).
+
+這些二十一世紀的數位創業家, 憑藉自身的努力, 在各種開放環境中構築自己的夢想產品, 之所以將這些成果原原本本攤開, 主要的原因是這些程式界的菁英先前就是被 Node.js 的開放而啟發出 Cloud9, 現在他們更要利用開放創新構築下一階段的價值.
+
+問題是, 層層堆疊的技術創新, 其中有很大一部分免費開放給來自全球的用戶試用, 到底是誰來買單?
+
+可能的答案是: 未來的機會在買單.
+
+這些金主 (創投) 願意現在出錢來維繫這免費試用背後龐大的開銷, 目的就是購買未來發展機會的價值, 一旦  Cloud9 + OpenShift + Amazon 基礎建設的產品上市, 這些創投就可以天文倍數回收了.
 

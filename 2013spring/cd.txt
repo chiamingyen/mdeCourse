@@ -178,6 +178,30 @@ Simple Groupware 安裝
     [htaccess, NTLM, LDAP, IMAP, SMTP]
     
     自動建立對應帳號的設定, 如此就只有與專案執行相關的組員可以利用 IMAP 模式登入協同系統, 管理者 (admin) 則依然透過 Simple Groupware 資料庫中的帳號設定登入系統.
+.. @+node:amd_yen.20130320201815.1573: *4* Simple Groupware 系統研究
+1. 要逐一檢視 sgw 的原始碼並不容易, 因為核心碼的行數就有 3 萬行, 而導入的其他開源程式碼更有超過 15 萬行, 因此不僅需要花時間, 而且要很有耐心.
+
+http://en.wikipedia.org/wiki/Simple_Groupware
+
+sgw 是一套少數在安裝階段, 便逐一在特定語系的選擇下, 直接將語系文件寫入 php 程式執行檔案中的套件, 好處是執行會比多語系查詢的模式快許多, 而壞處則是無法在安裝之後彈性更改語系, 更改語系等同重新安裝, 因此若需要更改語系, 必須要先確認是否累積一段時間後的資料內容, 可以無縫轉到其他語系模式下繼續運行.
+
+這是一個值得嘗試的語系轉換機制, 但是若能始終在英文語系下工作, 則可兼顧到全球各語系協同成員的整體需求, 因此若無法在安裝英文版後無法正確轉換到其他語系, 管理者還是可以回到英文模式下繼續運作.
+
+bin
+
+simple_store
+
+simple_cache
+
+假如檢視 sgw 在手動操作下, 系統程式對於資料庫中資料表與欄位資料的交互處理情況, 可以得知希望利用外部程式直接編寫資料庫中的內容, 機會是不太大的, 因為其中包含許多沒有明說的內部運作機制, 而且在 1.0 正式到來之前, 各版次的架構變化仍然很大,  目前就導入中小企業使用上著力較深的部門仍在系統模組的中文化, 以及自行編寫協同設計模組的能力培養上.
+
+就 sgw 的操作使用, 每週都必須備份程式碼與資料庫內容, 並且不定期進行各種壓力測試, 以其在正式導入商用之前, 能夠徹底掌握各項相關運作.
+
+2. sgw 的系統設計, 可以讓管理者自由轉移主機, 而無需因轉移主機而修改設定檔內容.
+
+sgw 的系統包括所有 php 檔案, 使用者上傳檔案, 以及資料庫檔案等三大類, 轉移主機時, 必須同時移動實體檔案 (php 與 上傳檔), 以及資料庫檔案.
+
+轉移主機時必須特別注意上傳檔在不同操作系統的問題, 目前已知, 當上傳中文命名檔或特殊長檔名的檔案, 會造成轉移主機時的問題. 
 .. @+node:amd_yen.20130308214521.2430: *4* SpreadSheet 的應用
 由以下的資料格式出發
 
@@ -1845,6 +1869,893 @@ http://joostn.github.com/OpenJsCad/gearsdemo.html
 http://joostn.github.com/OpenJsCad/grilledemo.html
 
 http://joostn.github.com/OpenJsCad/lampshadedemo.html
+.. @+node:amd_yen.20130320201815.1568: *5* Creo 零件程式化組立
+先組立第一個零件後, 第二個零件與第一個零件進行約束組立
+
+<script src="jscript/weblink/pfcUtils.js">
+</script><script language="JavaScript">
+      if (!pfcIsWindows())
+netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+  var session = pfcGetProESession();
+// 建立擺放零件的位置矩陣
+  var identityMatrix = pfcCreate ("pfcMatrix3D");
+  for (var x = 0; x < 4; x++)
+    for (var y = 0; y < 4; y++)
+      {
+    if (x == y)
+      identityMatrix.Set (x, y, 1.0);
+    else
+      identityMatrix.Set (x, y, 0.0);
+      }
+  var transf = pfcCreate ("pfcTransform3D").Create (identityMatrix);
+// 取得目前的工作目錄
+  var currentDir = session.getCurrentDirectory();
+// 以目前已開檔, 作為 model
+  var model = session.CurrentModel;
+// 查驗有無 model, 或 model 類別是否為組立件
+  if (model == void null || model.Type != pfcCreate ("pfcModelType").MDL_ASSEMBLY)
+    throw new Error (0, "Current model is not an assembly.");
+ 
+  var assembly = model;
+ 
+  var descr =
+    pfcCreate ("pfcModelDescriptor").CreateFromFileName ("link1.prt");
+// 若 link1.prt 在 session 則直接取用
+  var componentModel = session.GetModelFromDescr (descr);
+ 
+// 若 link1.prt 不在 session 則從工作目錄中載入 session
+  var componentModel = session.RetrieveModel(descr);
+// 若 link1.prt 已經在 session 則放入組立檔中
+  if (componentModel != void null)
+    {
+// 注意這個 asmcomp 即為設定約束條件的本體
+// asmcomp 為特徵物件,直接將零件, 以 transf 座標轉換放入組立檔案中
+  var asmcomp = assembly.AssembleComponent (componentModel, transf);
+    }
+var ids = pfcCreate ("intseq");
+// 取得 assembly 項下的元件 id, 因為只有一個零件, 採用 index 0 取出其 featID
+  var components = assembly.ListFeaturesByType(true, pfcCreate ("pfcFeatureType").FEATTYPE_COMPONENT);
+var featID = components.Item(0).Id;
+ids.Append(featID);
+// 在 assembly 模型中建立子零件所對應的路徑
+var subPath =
+    pfcCreate ("MpfcAssembly").CreateComponentPath( assembly, ids );
+document.write("id 為:"+subPath.ComponentIds(0));
+      subassembly = subPath.Leaf;
+//  設定組立檔中的三個定位面, 注意內定名稱與 Pro/E WF 中的 ASM_D_FRONT 不同, 而是 ASM_FRONT
+  var asmDatums = new Array ("COM_D_FRONT", "COM_D_TOP", "COM_D_RIGHT");
+// 設定零件檔中的三個定位面, 名稱與 Pro/E WF 中相同
+  var compDatums = new Array ("COM_D_FRONT",
+                  "COM_D_TOP",
+                  "COM_D_RIGHT");
+// 建立約束條件變數
+  var constrs = pfcCreate ("pfcComponentConstraints");
+// 利用迴圈分別約束組立與零件檔中的三個定位平面
+  for (var i = 0; i < 3; i++)
+    {
+// 設定組立參考面, asmItem 為 model item
+      var asmItem =
+    subassembly.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
+                asmDatums [i]);
+// 若無對應的組立參考面, 則啟用互動式平面選擇表單 flag
+      if (asmItem == void null)
+    {
+      interactFlag = true;
+      continue;
+    }
+// 設定零件參考面, compItem 為 model item
+      var compItem =
+    componentModel.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
+                      compDatums [i]);
+// 若無對應的零件參考面, 則啟用互動式平面選擇表單 flag
+      if (compItem == void null)
+    {
+      interactFlag = true;
+      continue;
+    }
+// 採用互動式設定相關的變數
+      var MpfcSelect = pfcCreate ("MpfcSelect");
+      var asmSel = MpfcSelect.CreateModelItemSelection (asmItem, subPath);
+      var compSel = MpfcSelect.CreateModelItemSelection (compItem, void null);
+      var constr = pfcCreate ("pfcComponentConstraint").Create (
+                                pfcCreate ("pfcComponentConstraintType").ASM_CONSTRAINT_ALIGN);
+      
+      constr.AssemblyReference  = asmSel;
+      constr.ComponentReference = compSel;
+      
+      constr.Attributes = pfcCreate ("pfcConstraintAttributes").Create (false, false);
+// 將互動選擇相關資料, 附加在程式約束變數之後
+      constrs.Append (constr);
+    }
+// 設定組立約束條件, 以 asmcomp 特徵進行約束條件設定
+// 請注意, 第二個變數必須為 void null 表示零件對零件進行約束, 若為 subPath, 則零件會與原始零件的平面進行約束
+asmcomp.SetConstraints (constrs, void null);
+        try
+        {
+                  document.write("目前 Creo 的工作目錄:<br />"+currentDir);
+            }
+    catch (err)
+        {
+            alert ("Exception occurred: "+pfcGetExceptionType (err));
+        }
+  assembly.Regenerate (void null);
+  session.GetModelWindow (assembly).Repaint();
+</script>
+.. @+node:amd_yen.20130320201815.1571: *5* 正齒輪參數繪圖
+Creo 使用步驟
+
+1. 設定工作目錄
+2. 設定設計尺寸單位與重量單位
+3. 在工作目錄區儲存 config.pro
+4. 開啟新檔, 執行設計繪圖
+
+// 正齒輪設計輸入參數
+// n 為齒數
+n
+// m 為模數
+m
+// a 為壓力角
+a
+
+// dp 為節圓直徑
+dp=n*m
+// rp 為節圓半徑
+rp=dp/2
+// rb 為基圓半徑
+rb=rp*cos(a)
+// ha 為齒頂長度
+ha=m
+// hf 為齒根長度
+hf=1.2*m
+// ra 為齒頂圓半徑
+ra=rp+ha
+// rd 為齒根圓半徑
+rd=rp-hf
+rc=0.38*m
+c=sqrt(1/(cos(a)*cos(a))-1)/PI
+
+//involute datum curve equations
+// t from 0 to 1 and get the (x,y) coordinates on the involute curve
+angle=t*90
+deg=PI/180
+s=rb angle*deg=rb*angle*PI/180=rb*t90*PI/180
+xc=rb*cos(angle)
+yc=rb*sin(angle)
+x=xc+s*sin(angle)
+y=yc-s*cos(angle)
+z=0
+
+計算 involute curve 與 360/n/2 的回扣角度 in radian (theta)
+
+theta in rad
+s=rb*theta
+xc=rb*cos(theta)
+yc=rb*sin(theta)
+x=rb cos(theta)+ssin(theta)
+y=rb sin(theta)-scos(theta)
+
+x^2+y^2=(rb cos(theta))^2+(ssin(theta))^2+(rb sin(theta))^2+(scos(theta))^2=rp^2
+rb^2(1+theta^2)=rp^2
+theta=sqrt((1/cos(a)^2)-1) 
+.. @+node:amd_yen.20130320201815.1570: *5* 報告範例
+正齒輪零組件之網際協同參數設計
+
+C. Yen
+
+摘要
+
+Abstract
+
+Keywords:
+
+簡介
+
+隨著全球化經濟的崛起, 世界各地的用戶得以透過網際網路的連線, 以最高效益, 輕易找到各種適合自己的產品, 在面對此一趨勢的發展, 全球各地的產品開發者, 也必須運用網路無遠弗屆的優勢, 整合各級零組件供應商, 甚至終端客戶, 以協同設計的模式, 將各協同團隊的效能進行最高發揮, 才能如願在競爭日益劇烈的環境中, 取得一席之地.
+
+本研究即在此一網際環境發展的驅使下, 希望利用具有代表性的正齒輪零組件參數設計, 與網際平台結合, 希望獲得的效益除了能夠依照零組件供應商的屬性, 依序整合進所開發的網際程式平台外, 也能夠及早讓目標客戶有機會利用隨選或客製化的產品訂製環境, 進行參與, 以盡量達到"先下單, 後設計" (Design to Order) 的理想.
+
+本篇論文, 除簡介外, 將逐一介紹現階段協同整合框架的組成元素與功能, 並且透過整合設計目標的探討, 明確列出本系統所要達成的目標. 接著, 將介紹本項研究參與成員在此一網際協同整合框架中, 各自扮演的角色與任務執行過程. 並將在這些過程中, 介紹系統搭建流程, 使用操作設定與系統進行步驟, 隨後並將各模組所能延伸的相關功能加以介紹. 接著將介紹本研究所獲致的結果與討論, 最後, 並就此一系統建構過程所獲致的心得與建議.
+
+協同整合框架 – 含Textbook 第一章之相關環境與系統功能描述.
+
+整合設計目標 – 說明報告所要達成的目標
+
+協同規劃與分工 – 含時間規劃, 分工內容與擬採行之方法或工具
+
+網際系統與工具 – 實際系統搭建, 為達成目標所擬導入或學習之操作說明
+
+進行步驟說明 – 各細部分組或組員實際進行之步驟說明
+
+結果與討論 – 所獲致之結果, 所達成之功能項目說明與討論
+
+心得與建議 – 針對報告內容之執行所獲得之心得感想與相關檢討建議
+
+參考資料
+
+附錄 – 包含所有相關文件與檔案 
+
+1.3 Case Study: Design of Single-Stage Spur Gearbox
+
+案例研究: 單階正齒輪箱設計
+
+The  design  problem  is  decomposed  into  modules  such  as  physical  components, design  constraints,  parametric  models,  analysis  procedures,  and  CAD  modeling.
+
+此一設計問題細分為實體零件, 設計約束, 參數模型, 分析步驟與 CAD 模擬等模組.
+
+The  important  aspect  of  the  framework  is  an  integration  of  these  modules  used during the design process in the collaborative environment.
+
+此一框架重要工作, 為在協同環境中的設計流程, 如何進行模組的整合.
+
+The proposed collaborative  framework  allows  the  integration,  which  is  capable  of  revision  for  the functional model at that instance with any changes made by individuals.
+
+這裡所提出的協同框架允許這項整合, 能在個別設計變更的當下, 完成功能模型的改版.
+   
+The tools used during the product development process vary with the design teams and the vendors.
+
+而在產品開發過程中所使用的工具則因設計團隊與供應商而有所不同.
+
+Problems may arise in sharing the information in different forms.
+
+資訊以不同形式分享時, 也可能產生問題.
+
+Also, sometimes it is very difficult to convert the data or information from one form to the other. This necessitates the  vendors’ involvement at early stages of the development process.
+
+而且, 將某一資訊轉成另外一種格式也並不容易. 因此才需要供應商, 在開發流程的起始階段就務必參與.
+
+The developed system allows the designer to collaborate with the vendors and other team members to optimize the design process considering the relationship within these modules.
+
+此一開發系統允許設計人員, 供應商與其他團隊成員進行協同, 以求能在這些模組的結合下進行設計最佳化流程.
+
+1.3.1 System Overview    系統概述
+
+The  problem  of  gearbox  design  is  decomposed  and  distributed  among  the different  design  teams.
+
+齒輪箱設計問題細分並分配給不同的設計團隊.
+
+At  the  system  level  the  gearbox  design  problem  has the requirements in terms of design variables and the required output performance characteristics.
+
+在系統層級, 齒輪箱設計問題必須表示為設計變數以及所需的輸出品質特性.
+
+Along with the design variables there are design constraints like low weight and low cost. Table  1.1  shows the decomposition and distribution of the problem.
+
+配合各設計變數, 各有諸如最小重量與最小成本的設計約束. 表 1.1 中顯示此一問題的區分與分配.
+
+The distribution of tasks is done on the basis of the tools used. For this particular design problem different tools and modules considered are analysis tool, optimization team, vendor catalogs, and CAD modeling.
+
+而各任務的分工以所使用的工具作為 (考量) 因素. 針對此一特殊的設計問題, 不同工具與模組的考量包括分析工具, 最佳化團隊, 供應商型錄, 以及 CAD 模擬.
+
+These phases represent different design teams  that  are  geographically  dispersed.  The  original  equipment  manufacturing (OEM) team is the final user of the system.
+
+這些階段代表散佈在不同地理位置的不同設計團隊. 原始設備製造商團隊為此一系統的最終用戶.
+
+The OEM user enters or changes the design variables and constraints according to the product requirements.
+
+原始設備製造商用戶能夠針對產品需求, 輸入或改變設計變數與約束條件.
+
+The user interface is illustrated in Fig.  1.6 .
+
+使用者介面如 1.6 圖所示.
+
+These variables and constraints are mapped to the  analysis tool  with the use of file  wrappers. 
+
+這些變數與約束條件則對應到分析工具與相關說明文件.
+
+The  analysis  module  is  the  team  of  individuals  who  compose  the design  problem.  The  analysis  module  team  performs  the  numerical  analysis  and generates the possible alternatives. The design problem and the alternatives are then evaluated at the  optimization module.
+
+分析模組是由處理設計問題的團隊成員所組成. 分析模組團隊負責數值分析並提出可能的替代方案. 這些設計問題與替代方案, 再交由最佳化模組進行評估.
+
+The optimization module retrieves the catalogs from the vendor(s) and generates the results in the form of best configuration of the system components.
+
+最佳化模組由供應商型錄中擷取資料, 產生這些系統元件的最佳組合結果.
+
+The  optimization tool  put the catalogs in every instance of the design procedure and evaluates against the design problem and constraint. “Vendor A” is the supplier for the gears and has the set of design catalogs for different gears.
+
+The catalogs are the replaceable modules containing technical specification of the components. The CAD modeling group is responsible for creating the parametric models for the system components.
+
+The optimization group sends the results to the CAD station.
+
+These results include the geometric details, material specifications, and the analysis data.
+
+The CAD modeling group then generates the solid models on the basis of these results. If there are any modifications, the new parameters are sent
+back to the analysis module for the analysis.
+
+This  cycle  continues  until  all  the  groups  approve  the  design  and  it  meets  the functional requirements. Once the design is finalized, the CAD models are created and sent to the user interface.
+
+1.4    System Structure and the Components
+
+The proposed framework is shown in the Fig.  1.7 . It consists of five phases: analysis tool,  collaborative  environment,  optimization  module,  CAD  modeling,  and  vendors’ catalogs.
+
+An  integrated product  design approach for the design of single-stage speed reducer with a pair of spur gear is structured using the developed system.
+
+The design  problem  is  composed  of  analysis  for  performance  characteristics,  catalog selection for vendor supplied items, and CAD modeling for selected alternatives.
+
+The product is decomposed into the primary functional system, subsystems, and the components.  Maintaining  interdependency  among  these  subsystems  and  components is very important so as to work as a system.
+
+It is also important to consider the attributes such as standardization, modularity, future changes, and ease of manufacture and assembly.
+
+For the outsource components, the vendors have to contribute with associated design and engineering.
+
+In the detail design process, further engineering is done for individual components in the system.
+
+The automated generation of 3-D computer models for different alternatives can serve as unique data model throughout  the  development  process  and  eliminate  and/or  reduce  the  changes  of redundancies. 
+
+1.4.1    Collaborative Environment
+
+Software integration is a complex process that requires a courtly solution.
+
+There has been significant advancement in the data-sharing techniques.
+
+The critical issue is maintaining the relationships and dependencies among the different types of data.
+
+The data and the information in the proposed system are categorized and defined as modules.
+
+The collaborative environment is the integration of all the  modules  and the  catalogs.
+
+The ModelCenter ®  is used as a service protocol, which connects different modules and catalogs keeping the corresponding relationship as shown in Fig.  1.8.
+
+ModelCenter ®  is an application that allows users to graphically interact with the modules and generate links between dissimilar applications.
+
+During the assembly and the integration of these modules, the design teams can perform the analysis, the optimization, and the trade studies of system level parameters.
+
+AnalysisServer ®  is another  application  by  Phoenix  Integration,  Inc.,  that  integrates  these  models  by wrapping techniques over the network.
+
+The parameters defined in the design problem are the elements of these models.
+
+The file wrappers are created to link the input data file (user interface) and the analysis tool.
+
+Once the analysis tool calculates the preliminary parameters, the file wrapper maps these values for the optimization module.
+
+The results of optimization are returned to the user interface where the user can comprehend these for further changes.
+
+Concurrently,  this  set  of  results  is  sent  to  the  CAD  modeling  module.  Solid models are automatically generated for different components of the product. 
+
+1.4.2    Analysis Phase
+
+The design problem is composed of input parameters entered by the user.
+
+These are the input and output performance characteristics for the design analysis.
+
+The design problem is mapped to variables and synchronized with the analysis tool using the ModelCenter ®  wrapper file.
+
+The analysis tool is introduced to set the decision variables  and  their  evaluation.
+
+This  application  anatomizes  the  design  problem  and gives feedback in terms of the performance requirements for different elements in
+the system.
+
+When the user enters/changes the parameters and run the analysis, the wrappers map these as variables and the AnalysisServer ®  updates the associated variables in the model file.
+
+The analysis tool evaluates these parameters and generates  the  possible  alternatives.
+
+These  alternatives  are  then  further  analyzed  along with the optimization criterions. 
+
+1.4.3    Optimization Phase
+
+The  catalogs  are  the  structured  databases  at  the  vendors’  site.
+
+The  optimization module  team  can  retrieve  these  catalogs  on  limited  access  basis. 
+
+Here  “limited access”  means  that  the  optimization  module  team  can  only  retrieve  the  specific information but cannot modify it.
+
+During the optimization run the queries are created which retrieve only a particular catalog from the vendor station.
+
+It eliminates some of the issues for the information security. The optimization tool maps these replaceable modules from the catalogs for every instance and places them in the current  design  alternative  until  the  suitable  match(s)  is  found.
+
+The  optimization module selects the components from the catalogs and returns to the user interface as  results .
+
+This gives the user the detailed specifications for the product and its elements.
+
+The  results  obtained  are  the  parameters  obtained  from  the  catalogs, which  gives  the  optimum  performance  for  the  given  design  requirements  and
+constraints. A sample code is listed in Fig.  1.9.
+
+The  results  obtained  from  the  analysis  tool  gives  theoretical  values  for  the parameters that are acquired from empirical relations.
+
+The optimization model is developed to get the configuration, which satisfy the given constraints optimally.
+
+The relationships are imposed between the design variables from the design problem and  the  constraints  from  the  modules.
+
+The  optimization  tool  runs  an  iterative procedure.
+
+The modules from the catalogs are retrieved and placed into the current design instance.
+
+The modules that satisfy the design constraints and the available components from the vendor catalogs are then selected as alternatives.
+
+The graphical comparison of these alternatives is presented at the user interface, which helps the user to trade off for size and cost.
+
+Depending on the requirement, the user can then manipulate the design variables to get the best possible configuration.
+
+Once the  configuration  is  finalized,  the  program  files  for  CAD  modeling  are  created automatically to generate the solid models of the components.
+
+In this case study, a pair of gear is selected from the catalogs and then evaluated for load, power, and other characteristics defined in the design problem.
+
+Figure  1.10  illustrates the comparison chart used by the engineer in order to evaluate the alternatives.
+
+1.4.4    Parametric CAD Modeling
+
+Another important module of the proposed framework is  parametric CAD Modeling.
+
+The parametric models for different components are created (Fig.  1.11 ).
+
+The results obtained from the optimization module are used to create the 3-D solid models of each element in the system.
+
+These CAD models assist the designer to visualize the interaction  of  the  components  for  a  given  configuration.
+
+An  automated  design dramatically reduces the time spent in generating the results for several alternatives.
+
+It also serves as a basis for generating detailed documentation for the manufacturing.
+
+A Visual Basic code is used to edit the program files with the newly calculated variables.
+
+The parametric models are created for each component in the system for optimized configuration.
+
+IDEAS  is the CAD tool used in the system. However, any CAD software can be used.
+
+For the synchronous, real-time application, parametric models are created.
+
+The parametric model allows the user to update the model according  to  any  change  in  the  design  process.
+
+For  the  gear  models,  pitch  circle diameter is a reference dimension and all the other geometric dimensions are constrained and defined using the equations. Once the optimization module generates the alternatives and the results, they are conveyed to the parametric models.
+
+The change in pitch circle diameter updates the geometry.
+
+The solid models of the components are generated and can be displayed at the user interface in picture format.
+
+Solid model for a gear and the respective shaft is shown in Fig.  1.12.
+
+For every change in the design process, the users can retrieve the corresponding CAD models.
+
+This gives the designer a chance to visualize the different alternatives and the optimum configuration of the component.
+
+The proposed framework provides the means of integrating software tools that enables  the  designers  to  foresee  the  overall  product  and  enterprise  fulfillment during development phases.
+
+It will reduce the time required for repetitive analysis for different alternatives.
+
+Thus the designer can evaluate more alternatives and can obtain the optimal solution.
+
+This integrated system allows the designers to participate in the design process irrespective of geographical location.
+
+The developed system provides the capability for design of templates for catalog-based design.
+
+Vendors can participate in the development process with their items as catalogs.
+
+The optimization phase offers the designers a chance to evaluate different alternatives and the trade-offs.
+
+1.5    Conclusions
+
+Today’s  manufacturers  encounter  various  difficulties  involved  in  the  product development process and these must be overcome for international competitiveness.
+
+The  obstacles  include  shortened  product  life  cycle,  high-quality  product,  highly diversified  and  global  markets,  and  unexpected  changes  in  technologies  and customer needs.
+
+Any delays in development and you run the risk of losing revenue to your competition.
+
+Also the companies are heading toward vendor-based manufacturing (i.e., the manufacturers are trying to get most of the work done by the vendors  so  as  to  minimize  the  time-to-market).
+
+Hence  it  is  essential  to  utilize  a computer-aided  system  in  designing,  manufacturing,  testing,  and  distributing  the products  to  minimize  the  time-to-market.
+
+For  the  integration  of  information  at every stage of product development there is need for collaborative technology for job collaboration.
+
+As the assistant of the design and development of new products, integrated design technology plays a very important role.
+
+The described framework confirms design assumptions and predicts product performance in the early stages of  the  design  process.
+
+This  results  in  a  faster  product  development  cycle—with lower associated costs—achieved by eliminating the need to constantly build, test,
+and redesign. 
+.. @+node:amd_yen.20130320201815.1572: *6* 參考資料
+@nocolor
+
+This  chapter  presents  an  integrated  framework  for  distributed  and collaborative environment, which could assist organizations to achieve integrated design goals.
+
+本章提出了一種可用於分散式協同環境使用之整合框架,可協助組織實現整合設計目標.
+
+The proposed system emphasizes the integration of the software tools and the resources involved in the design process to collaborate the geographically dispersed design teams and vendors.
+
+這裡所提出的系統, 特別強調軟體工具與設計流程相關資源的整合, 以利分散在不同地理位置之設計團隊及供應商進行協同.
+
+The advancement in information technology is the driving force for the development of this environment. Also, the early participation of vendors in the design process is considered critical in order to improve the product quality and reduce the development cycle time.
+
+資訊科技的進展除了驅動此一環境的發展. 且讓設計流程中的供應商得以及早參與 (協同工作), 並在改善產品品質與縮短開發時間的過程中, 成為關鍵點.
+
+Advances in IT have enabled designers to more effectively communicate, collaborate, obtain, and exchange a wide range of design resources during development.
+
+資訊科技的進展, 也讓設計者得以在開發過程中, 更有效率地進行設計資源的溝通, 協同, 取用與交流
+
+Many manufacturing companies are publishing their product information on the Internet.
+
+許多製造公司 (選擇) 將其產品資訊, 發布在網際網路上.
+
+The  network oriented  design  environment  is  a  new  design  paradigm  for  product development.
+
+以網路作為基礎的設計環境, 則被視為產品開發的全新設計規範.
+
+An integrative framework that enables designers to rapidly construct performance models of complex problems can provide both design insight and a tool to evaluate, optimize, and select better alternatives.
+
+一個能促成設計者快速建構複雜問題的性能模式之整合框架, 可同時提供設計上的深刻體察與工具, 來進行評估, 最佳化並選用更好的替代方案.
+
+Furthermore, a design problem constructed from modeling components made available over Internet might facilitate
+the collaborative development of analytical system models in addition to the exchange of  design  information. 
+
+此外, 由模擬元件著手建構的設計問題, 一旦可透過網際網路進行, 就能在設計資訊交換之餘, 有助於分析系統模型的協同開發.
+
+A  well-defined  integrated  model  will  predict  the  required product  properties  and  evaluate  alternative  solutions  in  order  to  meet  the  defined design objectives and performances.
+
+一個定義完善的整合模型, 除了可預測所需的產品性能外,  還能評估替代方案, 以達成預定的設計目標及特性.
+
+
+Key to the analysis of any problem is the identification of what functions are performed and  the  relationships  between  them.
+
+任何問題的分析關鍵, 取決於各功能的確認與之間的關聯.
+
+A  collaborative  engineering  development process includes a set of activities and functions arranged in a specific order with clearly defined inputs and outputs.
+
+一個協同工程開發流程, 包含一組能夠清楚定義輸出入, 且依照特定次序進行的活動與 (其所能呈現的) 功能.
+
+Each activity in the process will take a set of inputs and transforms it into an output of some value.
+
+該流程中的每一項活動, 接受一組輸入後, 可轉換成特定有價值的輸出.
+
+The process is considered efficient, when the output of the process satisfies the general customer and product requirements and meets management objectives and cost.
+
+流程中若其輸出符合一般客戶與產品需求, 並達成管理目標及成本上的要求, 就可視為有效執行.
+
+New technologies and tools along with advancement in IT are helping these organizations in several ways. However, there is no established generic implementation model for wide range of industries.
+
+資訊科技進展中所帶來的新技術與工具, 即便能在許多層面上協助組織 (進行協同), 但是各行業涵蓋面之廣, (至今) 仍然沒有能夠一體適用的基本實務模型.
+   
+Software vendors may provide "custom" software packages for individual firms.
+
+軟體供應商則可提供客制化的軟體套件給個別公司.
+
+Different industries have different product development strategies, which demand a generic framework that will help them collaborate efficiently irrespective of their product, organizational structure, and/or geographical location.
+
+(儘管) 不同產業有不同的產品開發策略, (但是) 不論其產品, 組織架構與/或地理位置 (的差異), 仍需要一套通用框架來有效協助進行協同.
+
+Two of the more important elements in this changing environment are increased product sophistication and variation.
+
+在此一變動的環境中, 兩項較為重要的元素就是增加產品的細緻度與多元性.
+
+Minimizing the total costs and being quick to develop and market new products is the key for survival.
+   
+以最少成本快速進行新產品開發與行銷是生存的關鍵.
+
+Product development is a complex process requiring  expertise  from  several  fields. 
+
+產品開發是一種需要多種領域專業知識的複雜流程.
+
+This  will  demand  integrating  the  diverse functional areas of an organization on a common platform.
+
+這就需要在一個共用平台上置入組織中多元領域功能的整合.
+
+In  this  chapter,  an  integrative  framework  that  would  enable  the  design  teams rapidly  construct  performance  models  of  complex  design  problems  is  presented.
+
+在本章節, 將介紹一種可促使設計團隊快速建構複雜設計問題之性能模式的整合框架.
+
+This framework can provide both design insight and a tool to evaluate, optimize, and  select  better  alternatives.
+
+此一框架可同時提供設計上的深刻體察與工具來執行評估, 最佳化並選擇更好的替代方案.
+
+Interaction  between  the  elements  at  every  level  of design is a critical issue.
+
+在每一設計層面上, 各元件之間的互動, 都是重要議題.
+
+The framework should not be limited only to internal function integration but it should also consider the external functions such as vendors.
+
+而此一框架並不侷限於內部功能的整合, 還包括外部功能, 諸如供應商  (的整合).
+
+The vendors have precise and detailed knowledge for their items.
+
+這些供應商對於所提供的元件擁有精確且細緻的知識.
+
+This expertise should be incorporated in the main development system to ensure and optimize the product as  a  complete  system.
+
+這種專精 (知識) 應該納入主開發系統之中, 並促使產品能最佳化成一完整的系統.
+
+The  templates  for  different  processes  and/or  procedures should be designed systematically to assist in evaluating and optimizing the design alternatives through proper integration and analysis. 
+
+不同流程與/或步驟所依循的固定模式應該進行系統化設計, 以及適當的整合及分析, 協助進行設計替代方案的評估與最佳化. 
+
+#####################################################
+
+Integrated product development is recognized as a critical part of the development of competitive products in today’s global economy.
+
+今日全球化經濟 (環境中), 整合產品開發 (流程) 是開發具競爭產品的重要關鍵.
+
+As a company grows larger  and  products  become  more  complex,  hierarchical  organizations  are  established to master the increasingly large organization size, the technical complexity, and  the  specialization  that  evolves  to  master  this  complexity. 
+
+當公司不斷擴大, 產品日益複雜, 階層式的組織被用來主導日益擴大的範圍與複雜的技術, 且必須越來越專業化才能掌握其複雜度.
+
+This  growth  also results in the geographic dispersion of people and functional departments.
+
+此一成長同時帶來分散在不同地理位置的人員與具備不同職能的部門.
+
+These factors inhibit many of the informal relationships that previously provided effective communication  and  coordination  between  functions.
+
+這些因素讓 (過去) 許多部門間非正式的關係 (結合), 有效的溝通與協調變成較難開展.
+
+A  hierarchical  organization structure with enterprise activities directed by functional managers becomes incapable of coordinating the many cross functional activities required to support product  development  as  the  enterprise  moves  toward  parallel  design  of  product  and process and a focus on time-to-market.
+
+以企業活動作為主導的階層式組織架構中的部門管理者, 已經無法在許多跨部門的活動間進行溝通, 不僅無法以同步產品設計的方式達成企業目標, 更無法顧及 (產品) 上市時間.
+
+Product development teams are a way to address this complexity by organizing the necessary skills and resources on a team basis to support product and process development in a highly interactive, parallel collaborative manner.
+
+產品開發團隊以合作的方式, 除了能應付產品與製造開發過程中的高度互動與同步協同外, 更可集結 (組織中) 必要的技能與資源, 來解決這種 (與產品相關的) 複雜性.
+
+Some of the basic principles and guidelines for an integrated product development are as follows:
+
+整合產品開發的基本原理及準則如下:
+
+  1.      Understand  Customer  Needs  and  Manage  Requirements:  Customer  involvement
+increases the probability of the product meeting those needs and being successful in the market.
+
+了解客戶需求與管理需求: 客戶參與是提升產品滿足需求與市場成功的最大保證.
+
+Once customer requirements are defined, track and tightly manage those requirements and minimize creeping elegance that will stretch out development.
+
+一旦客戶需求能夠加以定義, 追蹤並密集管理, 就可以減少摸索並快步進行開發.
+
+2.      Plan  and  Manage  Product  Development:  Integrate  product  development  with the business strategy and business plans. Determine the impact of time-to-market on product development and consider time and quality as a source of competitive advantage.
+
+規劃並管理產品開發: 依照商務策略與規劃進行整合產品開發. 擬定產品開發對上市時間的衝擊, 並將時間與品質當作競爭優勢的源頭.
+
+  3.      Use Product Development Teams:  Early involvement of all the related departmental personnel in product development provides a multifunctional perspective and facilitates the integrated design of product and process.
+
+運用產品開發團隊: 產品開發中讓相關部門人員及早參與, 有助於在產品與製程之整合設計 (過程中), 獲得多功能觀點.
+
+  4.      Involve Suppliers and Subcontractors Early:  Suppliers know their product technology, product application, and process constraints best.
+
+及早讓供應商與分包商參與 (產品開發): 供應商最了解其產品技術, 產品應用與製程限制.
+
+Utilize this expertise during product development and optimize product designs.
+
+在產品開發過程中, 運用這些專業技術來最佳化產品設計.
+
+  5.      Integrate CAD/CAM and CAE tools:  Integrated CAD/CAM/CAE tools working with a common digital product model facilitate capture, analysis, and refinement of product and process design data in a more timely manner. Feature based solids modeling, parametric modeling, and electronic design frameworks facilitate the downstream interpretation, analysis, and use of this product data.
+
+整合 CAD/CAM 與 CAE 工具: 在共用的數位產品模型中, 整合 CAD/CAM/CAE 工具, 有助於及時獲取, 分析與係化產品與製程設計資料. 採特徵為主的實體模型, 參數模擬, 與數位設計框架, 將有助於 (產品鏈) 下游對於產品資料的整合, 分析, 與運用.
+
+  6.      Simulate Product Performance And Manufacturing Processes Electronically:  Solids
+modeling with variation analysis and interference checking allow for electronic mock-ups.
+
+以數位的方式進行產品性能及製造流程模擬: 可變化的實體模擬與干涉查核, 可作為數位 (產品) 原型.
+
+Analysis and simulation tools such as finite element analysis, thermal  analysis,  network  computer verification,  and  software  simulation can be used to develop and refine both product and process design inexpensively.
+
+諸如有限元素分析, 熱分析, 網路計算機確認與軟體模擬等之分析與模擬工具, 可以低廉花費來開發並細化產品與製程設計.
+
+  7.      Improve the Design Process Continuously:  Reengineer the design process and
+eliminate non–value-added activities.
+
+持續改進設計流程: 多次重複檢視設計流程可消除無附加價值的活動.
+
+Continued integration of technical tools, design activities, and formal methodologies will improve the design process.
+
+以連貫的方式, 加以整合技術工具, 設計活動, 與制式方案, 將可改進設計流程.
+
+Design refers to the activities involved in creating the product structure, deciding on  the  product’s  mechanical  architecture,  selecting  materials  and  processes,  and engineering  the  various  components  necessary  to  make  the  product  work.
+
+設計所指的活動包括, 建立產品結構, 決定產品機械架構, 選擇材料與製程, 考量各種元件所需的工程方法, 以達到有效的產品機能.
+
+Development refers collectively to the entire process of identifying a market opportunity, functional  requirements,  and  finally  testing,  modifying,  and  refining  the  product until it is ready to manufacture.
+
+而開發則指整個過程中的統合工作, 包括確定市場機會, (產品) 所需功能, 以及最終的測試, 修改, 逐步細化產品至能夠加以製造.
+
+The development of a product is time-consuming, lengthy, and costly.
+
+產品開發不僅耗時, 冗長, 而且還很花錢.
+
+In a typical product development process the design occurs largely before final full-scale manufacturing.
+
+典型的產品開發過程, 設計工作必須在全面投入生產之前完成.
+
+In most of the cases this design is later altered or refined for  the  manufacturing  difficulties,  which  leads  to  increased  cost  and  time. 
+
+多數情況下, 若因製造問題而被迫修改設計或細化設計, 將會導致成本與時間的增加.
+   
+The manufacturing  department  is  responsible  for  estimating  the  feasibility,  cost  of building  the  prospective  new  product,  and  modifications,  if  necessary.
+
+製造部門負責預估可行性, 建構新產品所需費用, 以及 (執行) 相關修改.
+   
+If  the decision has been taken to outsource some of the components in the final product, the  vendors  come  into  direct  consideration. 
+
+一旦決定要將最終產品的某些元件交給外包, 就會直接考慮 (採用) 這些供應商.
+
+The  vendors  become  a  part  of  the design team, as they will be contributing toward the development of the final product.
+
+供應商就成為設計團隊的一部分, 負責 (某些) 最終產品的開發工作.
+
+Hence, it is very important to consider the vendors’ involvement in the design process beginning  from  the  initial  stages  of  the  design  and  development  of  the  product.
+
+因此, 在產品設計開發的初始階段, 就讓這些供應商參與就顯得非常重要.
+
+Thus,  in  any  product  design  and  development  scenario  the  interaction  among marketing,  engineering,  manufacturing,  and,  in  most  cases,  the  vendors  is  very important.
+
+多數情況下, 在任何產品設計開發流程中, 供應商在行銷, 工程與製造的互動也很重要.
+
+This  requirement  is  met  by  the  application  of  collaborative  product development.
+
+這些需求都是以協同產品開發的方式達成.
+
+In the collaborative  product development process, the feasibility for product life cycle is analyzed during the early stages of the design process.
+
+在協同產品開發流程, 產品生命週期的 (各種) 可行性, 在設計流程的初期就 (必須) 開始進行分析.
+   
+The expertise from several fields is considered absolutely essential at every stage of the development process.
+
+在開發流程中的各個階段, 來自各領域的專業 (知識) 是絕對必要.
+
+The expertise is grouped in different teams.
+
+這些專業劃分為不同團隊.
+
+Each team is responsible for its contribution throughout the process.
+
+每一個團隊在整個過程中專職負責.
+   
+In the current market trend such teams are mostly dispersed geographically.
+
+就目前市場趨勢, 此一團隊大多分散在不同地理區域.
+
+The need for integration continues when the design enters the preliminary and detail design phases.
+
+整合需求將在初步到細部設計階段過程中持續進行.
+
+In an integrated, collaborative design environment, designers interact by sharing information.
+
+在一個整合協同設計環境中, 設計者以互動的方式來共享資訊.
+
+By considering proper integration and interaction from  the  beginning,  the  problems  with  the  final  integration  of  activities  can  be significantly reduced.
+
+若能一開始就適當整合與互動, 將可有效減少在最終整合活動中所產生的問題.
+
+In this context, an integrated system is desired to reduce the overall  design  cycle  time  by  eliminating  the  repetitive calculations  to  obtain optimum  results.
+
+在此情況下, 就需要在一個整合系統中, 無需重複計算就能取得最佳結果的方式, 以縮短整體設計週期時間,
+
+The  important  stage  of  collaboration  is  breaking  the  barriers among departments and individuals.
+
+協同 (過程中) 的重要階段 (任務), 就是破除部門與個人之間的壁壘.
+
+This open environment increase groups productivity.
+
+此一開放環境可增加群組的生產力.
+
+Collaborative  product development practices are recognized as critical to the development of competitive products in today’s dynamic market.
+
+協同產品開發的落實, 在今日動態市場中, 已被公認為產生競爭性產品的重要關鍵.
+
+A hierarchical distribution of work is essential for large organizations and complex products.
+
+而在大組織與複雜產品 (的產品開發), 也需要階層式的工作分工 (模式).
+
+This structure also results in the geographic dispersion of people and functional areas.
+
+此一架構導致員工分散在不同地理區域與 (不同) 專業領域.
+
+The typical integrated environment is shown in Figure  1.2 . Product development teams are formed with personnel from various functional departments to support different stages of the development process including the production and services.
+
+典型的整合環境如圖 1.2 所示. 產品開發團隊的組成, 包含不同專業部門的員工, 來負責生產與服務開發流程中的不同階段工作.
+
+This early involvement will result in a complete understanding of all the requirements  and  a  consensus  approach  to  the  design  of  both  the  product  and  its manufacturing and support processes.
+
+這種早期參與能獲致對所有 (產品) 需求的充分了解, 並對產品設計製造所需配合的流程產生共識.
+
+Product development teams promote open discussion and innovative thinking resulting in superior products, more efficient processes, and, ultimately, a more satisfied customer.
+
+產品開發團隊促使開放討論與創新思維, 其結果為更優越的產品, 更有效率的流程, 以及最終得到一個更滿意的客戶.
+
+The focus of the team will be to satisfy the external customer’s  product  and  support  requirements  as  well  as  the  internal  customer (functional department) requirements related to factors such as producibility, cost, supportability, and testability.
+
+團隊的著眼在於滿足外部客戶對於產品與支持的要求, 同時也達到內部客戶 (專業部門) 有關可製性, 成本, 支援與可試性的要求.
+
+For an effective distribution of activities among the design teams, the structured approach is very important.
+
+為在設計團隊間有效進行工作的分配, 按部就班的方法就顯得非常重要.
+
+The distribution process should start with the product definition and end with manufacturing of the product.
+
+流程 (工作) 的分配以產品定義開始, 而以產品的製造作為結束.
+
+The first step toward effective integrated product development is the understanding and management of customer requirements.
+
+有效率整合產品開發工作的第一步, 就是了解客戶需求, 並加以管理.
+
+The product definition  and  the  structure  should  be  based  on  the  well-understood  customer requirements.
+
+產品定義與架構, 應該要依據對於客戶需求的充分理解.
+
+These requirements should be evaluated and refined considering the expected time-to-market and quality of the product.
+
+這些需求應該要加以評估並且細化, 並且考量所需上市的時間以及產品的品質.
+
+The early involvement of all the related departmental personnel in the development process provides a multifunctional perspective.
+
+讓所有相關開發流程中各部門人員及早參與, 可提供多功能專業的觀點.
+
+This  helps  reducing  and/or  eliminating  the  redundancies  of  data  and manufacturing  issues.
+
+有助於降低, 甚或消除重複資料與製造問題.
+
+Today’s  dynamic  market  demands  more  outsourcing  from vendors.
+
+今日的動態市場需要更多來自供應商的外包業務.
+
+The utilization of this expertise could help in improving product quality, optimize the product at the system level, and reduce the cycle time.
+
+這些專業的運用有助於改進產品品質, 最佳化產品系統層級, 並且縮短循環時間.
+
+Along with the expertise from different fields and the vendors, the distribution and integration of the resources is also critical.
+
+來自供應商不同領域的專業技術, 將資源進行分工與整合也是非常重要.
+
+The integration of different CAD/CAM/CAE tools could shorten the development process and optimizes the design.
+
+不同 CAD/CAM/CAE 工具的整合, 也能縮短開發流程, 產生最佳化的設計.
+
+The use of common electronic product model reduces the chances of redundancy and errors.
+
+共用數位產品模型的使用可減少重複與錯誤的機會.
+
+The feature-based solids modeling,  parametric modeling , and electronic design  frameworks  facilitate  the  analysis  and  use  of  product  data  among participating  teams.
+
+以特徵為主的實體模型, 參數模擬, 與數位設計框架, 有助於進行分析, 並可在參與的團隊間使用產品資料.
+
+With  the  advancements  in  information  technology  IT,  it  is possible  to  electronically  simulate  product  performance,  interface  checking,  and manufacturing  feasibility.
+
+資訊科技的進展, 讓電子化的產品性能模擬, 介面查核與製造可行性等 (評估) 成為可行.
+
+This  helps  in  refining  the  product  and  the  processes from manufacturing perspective.
+
+並能在產品與製程的細化過程中, 考量到製造的相關問題.
+
+This overall development process should not be set as standard and needs to be improved as it progresses.
+
+全面開發流程不應設成標準 (模式), 而必須在進行過程中不斷加以改進.
+
+Figure  1.3  illustrates an example of how design is done using a heterogeneous environment.
+
+圖 1.3 標示如何在多元差異的環境中完成設計.
+
+Central to the design of this system is the interlinking mechanism of the data from different data resources.
+
+系統設計的核心 (工作) 即為來自不同來源的資料, 如何進行互相連結的機制.
+
+This link allows for transmitting results from one module to another.
+
+此一連結允許由某一模組的結果轉換到另一模組.
+
+The second important part of this design is the parametric databases.
+
+設計的第二項重要工作就是參數化的資料庫.
+
+Creating the databases is one of the crucial parts in the design of this integrated environment.
+
+建立資料庫也是在此一整合環境設計 (流程中), 重要的事項之一,
+
+The databases are built using information (parametric data, models, etc.) supplied by different vendors, design rules, manufacturing, and other pertinent data.
+
+資料庫的建立, 來自不同供應商, 設計原則, 製造, 以及其他相關資料所產出的資訊 (包括參數資料, 模型等).
+
+Using input module(s)  designers  participate  in  the  design  and  analysis  process.
+
+採用輸入模組, 設計者 (得以) 參與設計與分析的流程.
+
+Designers  can input variables and perform necessary calculations and integrated analysis.
+
+設計者可以輸入變數, 進行必要的運算與整合分析.
+
+Figures  1.4  and  1.5  illustrate the scope of integration for the I/O modules and databases. 
+
+圖 1.4 與 1.5 說明這些輸出入摩組與資料庫整合的 (應用) 範圍.
+
+Many researchers are working on developing the technologies or infrastructure to support the distributed design environment.
+
+許多研究者致力於開發可以支援分散設計環境使用的技術或基礎建設 (架構).
+
+Some are working on providing a platform for sharing or coordinating the product information via the World Wide Web.
+
+有些則在全球資訊網路上, 提供分享或協調產品資訊用的平台.
+
+Others are developing the framework that enables the designers to build integrated models and to collaborate by exchanging services.
+
+有些則開發能夠讓設計者建立整合模型並互換服務的框架. 
 .. @+node:amd_yen.20130316100629.1527: *4* sgsML 語言
 基本概念:
     
@@ -1915,5 +2826,17 @@ Simple Groupware 模組欄位的修改:
         dsize: 與資料附加檔案的容量大小.
         
         history: 用來追蹤用戶更新資料與欄位的文字資料.
+.. @+node:amd_yen.20130320201815.1569: *4* Virtualbox Ubuntu 虛擬主機
+利用 VirtualBox 啟動能夠作為虛擬雲端主機的 Ubuntu, 基本的概念為:
+
+1. 讓 VirtualBox 中的虛擬 Ubuntu 利用兩片網路卡, 採 NAT 與 橋接網路卡的模式, 讓 VirtualBox 所在的實體網路卡可以與 虛擬 Ubuntu 網路卡進行橋接, 進而透過橋接設定取得可以為廣域網路連線的設定.
+
+2. Ubuntu 中可以透過 sudo cat  /proc/net/dev  列出系統已經驅動的網路卡, 透過特定代號, 可以在 /etc/network/interfaces 中進行 TCPIP 的設定.
+
+3. TCPIP 設定後, 可以利用 sudo /etc/init.d/networking restart 重新啟動網路設定, 之後利用 sudo ifconfig 查核橋接網路卡對外的 IP 設定值.
+
+4. 設法利用 psftp 將 CMSimple.tar 送進 Ubuntu, 以 tar xvf CMSimple.tar 解開成 CMSimple 之後, 利用 sudo mv CMSimple /var/www/ 將目錄搬遷到 /var/www Apache 的根目錄下, 再進入 /var/www 目錄, 以 sudo chown -R www-data:www-data CMSimple, 表示要將 CMSimple 目錄的所有項下子目錄 ( -R 的作用) 其 owner 與 group 所有人設為 www-data (也就是啟動 Apache 的擁有者與群組), 以便讓網際端的用戶可以寫入 CMSimple.
+
+5. 確定 Ubuntu 的聯外 IP 後, 就可以在廣域網路上擷取 虛擬 Ubuntu 中的 CMSimple, 並且進一步將協同相關的二次開發程式放入此一系統中. 
 .. @-all
 .. @-leo
