@@ -43,10 +43,10 @@ source_suffix = '.html.txt'
 #source_encoding = 'utf-8'
 
 # The master toctree document.
-master_doc = 'kmol_toc' # don't use any prefix.
+master_doc = 'index' # don't use any prefix.
 
 # General information about the project.
-project = 'KMOL'
+project = 'C2G1'
 
 copyright = '2013, Chiaming Yen'
 
@@ -216,7 +216,7 @@ html_use_opensearch = ''
 #html_file_suffix = ''
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'KMOLdoc'
+htmlhelp_basename = 'index'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -230,7 +230,7 @@ latex_paper_size = 'a4'
 # Grouping the document tree into LaTeX files. List of tuples
 # tex_documents(source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('kmol_toc', 'KMOLdocumentation.tex', 'KMOL 使用者手冊',
+  ('index', 'index.tex', 'C2G1 使用者手冊',
    'Chiaming Yen', 'manual'),
 ]
 

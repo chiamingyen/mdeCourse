@@ -457,52 +457,52 @@ https://bitbucket.org/birkenfeld/sphinx/src/8f0aca73d1b0/sphinx/ext/graphviz.py
 LaTeX 字型
 ^^^^^^^^^^^^
 
-只要將 *.ttf 放入下列目錄
-
-V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct
-
-然後利用 fc-list > font.txt 查驗字型名稱是否載入, 一旦載入後就可以在 conf.py 中設定使用.
-
-目前系統中放置重複的 ttf 檔案
-
-V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct\wqy_zenhei.ttf
-
-V:\extensions\sgw\bin\lib\artichow\font\wqy_zenhei.ttf
-
-目前位於 V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct 目錄下共有中文字型檔案:
-
-fireflysung.ttf 文鼎 P L 新宋 (15 MB)
-
-arplbaosong2gbklt.ttf 文鼎ＰＬ报宋二GBK (16 MB)
-
-目前 portableLatex 所支援的中文字型:
-
-以 fc-list :lang=zh > font.txt 取得
-
-PMingLiU,新細明體:style=Regular
-
-New Gulim,새굴림:style=Regular
-
-NSimSun,新宋体:style=Regular
-
-cwTeXHeiBold,cwTeX 粗黑體:style=Medium
-
-AR PL New Sung,文鼎ＰＬ新宋:style=Regular
-
-SimSun,宋体:style=Regular
-
-AR PLBaosong2GBK Light,文鼎ＰＬ报宋二GBK:style=Regular
-
-cwTeXFangSong,cwTeX 仿宋體:style=Medium
-
-SimHei,黑体:style=Regular
-
-cwTeXMing,cwTeX 明體:style=Medium
-
-cwTeXKai,cwTeX 楷書:style=Medium
-
-MingLiU,細明體:style=Regular
-
+只要將 ``*.ttf`` 放入下列目錄
+
+V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct
+
+然後利用 fc-list > font.txt 查驗字型名稱是否載入, 一旦載入後就可以在 conf.py 中設定使用.
+
+目前系統中放置重複的 ttf 檔案
+
+V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct\wqy_zenhei.ttf
+
+V:\extensions\sgw\bin\lib\artichow\font\wqy_zenhei.ttf
+
+目前位於 V:\extensions\portableLatex\MiKTeX\texmf-local\fonts\truetype\cct 目錄下共有中文字型檔案:
+
+fireflysung.ttf 文鼎 P L 新宋 (15 MB)
+
+arplbaosong2gbklt.ttf 文鼎ＰＬ报宋二GBK (16 MB)
+
+目前 portableLatex 所支援的中文字型:
+
+以 fc-list :lang=zh > font.txt 取得
+
+PMingLiU,新細明體:style=Regular
+
+New Gulim,새굴림:style=Regular
+
+NSimSun,新宋体:style=Regular
+
+cwTeXHeiBold,cwTeX 粗黑體:style=Medium
+
+AR PL New Sung,文鼎ＰＬ新宋:style=Regular
+
+SimSun,宋体:style=Regular
+
+AR PLBaosong2GBK Light,文鼎ＰＬ报宋二GBK:style=Regular
+
+cwTeXFangSong,cwTeX 仿宋體:style=Medium
+
+SimHei,黑体:style=Regular
+
+cwTeXMing,cwTeX 明體:style=Medium
+
+cwTeXKai,cwTeX 楷書:style=Medium
+
+MingLiU,細明體:style=Regular
+
 cwTeXYen,cwTeX 圓體:style=Medium
 
 數學方程式
@@ -788,4 +788,9 @@ https://github.com/ajaxorg/cloud9
 可能的答案是: 未來的機會在買單.
 
 這些金主 (創投) 願意現在出錢來維繫這免費試用背後龐大的開銷, 目的就是購買未來發展機會的價值, 一旦  Cloud9 + OpenShift + Amazon 基礎建設的產品上市, 這些創投就可以天文倍數回收了.
+
+@url 隨身伺服器
+^^^^^^^^^^^^^^^^^^^^
+
+http://ericterpstra.com/tag/cloud9/
 

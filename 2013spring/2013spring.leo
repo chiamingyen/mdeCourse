@@ -18,7 +18,7 @@
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
-<v t="amd_yen.20130308210411.2383" a="E"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
+<v t="amd_yen.20130308210411.2383"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
 <v t="amd_yen.20130314194325.1514" a="E"><vh>@button generate-current</vh>
 <v t="amd_yen.20130308210411.2404"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
 <v t="amd_yen.20130308210411.2405"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
@@ -36,16 +36,16 @@
 </v>
 </v>
 <v t="amd_yen.20130312013510.1824"><vh>@button self_and_subtree</vh></v>
-<v t="amd_yen.20130308210411.2406" a="E"><vh>KMOL Guide</vh>
-<v t="amd_yen.20130308221230.3827"><vh>前言</vh>
+<v t="amd_yen.20130308210411.2406"><vh>KMOL Guide</vh>
+<v t="amd_yen.20130308221230.3827" a="E"><vh>前言</vh>
 <v t="amd_yen.20130312013510.1498"><vh>以下為電子書內容</vh></v>
-<v t="amd_yen.20130308221230.3828" a="E"
+<v t="amd_yen.20130308221230.3828"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2384"><vh>程式語言(二)</vh>
+<v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130318140025.2833"><vh>有關程式語言</vh></v>
 <v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
-<v t="amd_yen.20130308221230.2438"><vh>@shadow c2/grouping.py</vh></v>
+<v t="amd_yen.20130308221230.2438" a="E"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
 <v t="amd_yen.20130308221230.2457"><vh>C2 第二週程式</vh>
@@ -73,9 +73,9 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2437,amd_yen.201303
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
+<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2407" a="E"
 expanded="amd_yen.20130308210411.2408,"><vh>@file wcm.txt</vh></v>
@@ -83,8 +83,36 @@ expanded="amd_yen.20130308210411.2408,"><vh>@file wcm.txt</vh></v>
 <v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
-expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130320201815.1565,"><vh>@file misc.txt</vh></v>
+expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,"><vh>@file misc.txt</vh></v>
 </v>
+</v>
+<v t="amd_yen.20130325133433.2805" a="E"><vh>C2G1</vh>
+<v t="amd_yen.20130325133433.2806" a="E"><vh>按鈕</vh>
+<v t="amd_yen.20130325133433.2807" a="E"><vh>@button c2g1</vh>
+<v t="amd_yen.20130325133433.2808"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
+<v t="amd_yen.20130325133433.2809"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130325133433.2810" a="E"><vh>設定檔案</vh>
+<v t="amd_yen.20130325133433.2811" a="E"><vh>@path c2g1</vh>
+<v t="amd_yen.20130325133433.2812"><vh>@edit conf.py</vh></v>
+<v t="amd_yen.20130325133433.2813"><vh>@edit index.html.txt</vh></v>
+<v t="amd_yen.20130325133433.2814"><vh>@edit make.bat</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130325133433.2815" a="E"><vh>Latex 後續處理(選項)</vh>
+<v t="amd_yen.20130325133433.2816" a="O"><vh>@edit c2g1/_build/latex/index.tex</vh></v>
+<v t="amd_yen.20130325133433.2817"><vh>@button latex pdf</vh></v>
+</v>
+<v t="amd_yen.20130325133433.2818" a="E"><vh>c2g1 report</vh>
+<v t="amd_yen.20130325133433.2819" a="E"><vh>選項設定</vh>
+<v t="amd_yen.20130325133433.2820" a="E"><vh>@rst c2g1/frontmatter.html</vh>
+<v t="amd_yen.20130325133433.2821"><vh>前言</vh></v>
+<v t="amd_yen.20130325133433.2822"><vh>動機</vh></v>
+</v>
+</v>
+</v>
+<v t="amd_yen.20130325133433.2823"><vh>@auto c2g1/fromoutside.html.txt</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -318,8 +346,7 @@ os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.
 filename = target_name+".pdf"
 os.system(filename)
 #os.system('../../fixup.pl &lt; Leodocumentation.tex &gt; LeoDoc.tex')
-#os.system('make LeoDoc.pdf')
-</t>
+#os.system('make LeoDoc.pdf')</t>
 <t tx="amd_yen.20130308210411.2406"></t>
 <t tx="amd_yen.20130308221230.2437"></t>
 <t tx="amd_yen.20130308221230.2457">程式語言(二)
@@ -564,5 +591,400 @@ C2_leo - 文書處理, docutils, Sphinx, Leo Editor, MikTeX
 C2_app - 應用程式, PyQt
 C2_web - 網際程式框架, CherryPy
 C2_cd - 網際協同, c9.io, Simple Groupware</t>
+<t tx="amd_yen.20130325133433.2805">以下示範如何在 KMOL Guide 的架構下, 新增一個節點用來產生第二本協同手冊
+
+一本協同手冊的建立總共有三個部分
+
+- 按鈕
+
+用來執行 make html 與 make latex 以及最後的 xelatex 指令, 可以產生 html 與 pdf 格式的報告內容
+
+按鈕的內容如下:
+
+.. code-block:: python
+
+    @language python
+    import os
+    pos = c.find_h("c2g1 report")[0]
+    c.selectPosition(pos)
+    c.k.simulateCommand('rst3')
+    &lt;&lt; html manual &gt;&gt;
+    &lt;&lt; pdf manual &gt;&gt;
+
+必須要在 c.find_h() 中填入所要處理報告的標題, 這裡的範例標題為 c2g1 report, html 部分則需要修改 mandir = d.get('path') + "/c2g1", 指定處理目錄為 c2g1, pdf 部分除了指定文件原始目錄為 c2g1 外, 還需要告知 target_name = "index", 此一設定必須與 conf.py 中的 master_doc = 'index' 彼此對應.
+
+- 設定檔案
+
+共有三個, 包括 conf.py, toc 與 make.bat, conf.py 為 sphinx 的設定檔案, toc 則指定要加入哪些章節檔案, make.bat 則是實際執行 sphinx 指令的批次檔案.
+
+conf.py 中重要的設定為:
+
+_exts = "../exts"
+extensions.append('chinese_search')
+source_suffix = '.html.txt'
+master_doc = 'index'
+latex_documents = [
+  ('index', 'index.tex', 'C2G1 使用者手冊',
+   'Chiaming Yen', 'manual'),]
+
+- 報告內容
+
+報告內容分為兩類, 一類為單機上的資料, 以 @rst 節點導入後, 可以自動依照 Leo 節點從屬關係產生標題與內文, 第二類的報告內容則為由外部送入的檔案, 可以利用 @auto 節點指令將這些內容加入, 各外部檔案的名稱必須在 index.html.txt 中宣告.</t>
+<t tx="amd_yen.20130325133433.2806"></t>
+<t tx="amd_yen.20130325133433.2807">@language python
+import os
+pos = c.find_h("c2g1 report")[0]
+c.selectPosition(pos)
+c.k.simulateCommand('rst3')
+&lt;&lt; html manual &gt;&gt;
+&lt;&lt; pdf manual &gt;&gt;
+</t>
+<t tx="amd_yen.20130325133433.2808">'''
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+'''
+d = c.scanAllDirectives(p)
+# d 為 commander 由目前所在目錄進行指令設定掃描
+# d 資料格式為 dictionary
+''' 
+實際操作下, d 為 
+{'tabwidth': -4, 'lineending': None, 'language': 'python', 'encoding': None, 'pluginsList': [], 'pagewidth': 70, 'wrap': True, 'path': 'D:\\github\\mdeCourse\\2013spring', 'delims': ('#', '', '')}
+'''
+mandir = d.get('path') + "/c2g1"
+# 取出 d dictionary 中的 path 對應值 (也就是目前所在絕對目錄), 再加上 html, 因此 mandir 即為目前所在目錄下的 html 子目錄路徑
+g.es(mandir) # 列出 html 子目錄路徑
+os.chdir(mandir)  # 更換目錄到 html 子目錄
+os.system('make html')  # 執行 make html
+</t>
+<t tx="amd_yen.20130325133433.2809"># you probably need to install several packages 
+# to create pdf (e.g. jadetex)
+mandir = d.get('path') + "/c2g1"
+g.es(mandir)
+os.chdir(mandir)
+os.system('make latex')
+os.chdir('_build/latex')
+# 接下來要設法將 .tex 轉為 .pdf
+target_name = "index"
+filename = target_name+".tex"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+filename = target_name+".xdv"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
+
+#
+#os.system(target_name.replace(".xdv", ".pdf"))
+filename = target_name+".pdf"
+os.system(filename)
+#os.system('../../fixup.pl &lt; Leodocumentation.tex &gt; LeoDoc.tex')
+#os.system('make LeoDoc.pdf')</t>
+<t tx="amd_yen.20130325133433.2810"></t>
+<t tx="amd_yen.20130325133433.2811"></t>
+<t tx="amd_yen.20130325133433.2815"></t>
+<t tx="amd_yen.20130325133433.2816">@language latex
+% Generated by Sphinx.
+\def\sphinxdocclass{report}
+\documentclass[a4paper,10pt]{sphinxmanual}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{00A0}{\nobreakspace}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{times}
+\usepackage[Sonny]{fncychap}
+\usepackage{longtable}
+\usepackage{sphinx}
+\usepackage{multirow}
+
+% \pdfpagewidth 195mm
+% \pdfpageheight 271mm
+% \textwidth 6.0in
+% \textheight 8.8in
+% \oddsidemargin -0.1in
+% \evensidemargin -0.1in
+
+\textwidth 6.8in
+\oddsidemargin -0.2in
+\evensidemargin -0.3in
+
+\usepackage{pdfpages}
+\usepackage[BoldFont,CJKchecksingle]{xeCJK}
+
+    \usepackage{fancyvrb}    % for frame on Verbatim
+    \usepackage{fancyhdr}
+    \usepackage[T1]{fontspec}    %設定字體用
+
+\usepackage{float}
+\usepackage{ccaption}
+\usepackage{pifont}
+% \usepackage{fancybox}
+\usepackage{fontspec,xunicode,xltxtra}
+
+\setsansfont{Times New Roman}
+\setmainfont{Times New Roman}
+\setmonofont{Times New Roman}
+% 新細明體
+% 文鼎ＰＬ新宋
+% 文鼎ＰＬ明體U20-L
+% 文鼎ＰＬ报宋二GBK
+\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+
+    \makeatletter
+    \def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
+    \makeatother
+
+\XeTeXlinebreaklocale "zh"    %讓中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt
+\renewcommand{\baselinestretch}{1.3} 
+\setcounter{tocdepth}{3}
+\captiontitlefont{\small\sffamily}
+\captiondelim{ - }
+\renewcommand\today{\number\year年\number\month月\number\day日}
+\makeatletter
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.0em}{4.0em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
+\makeatother
+\titleformat{\chapter}[display]
+{\bfseries\Huge}
+{\filleft \Huge 第 \hspace{2 mm} \thechapter \hspace{4 mm} 章}
+{4ex}
+{\titlerule
+\vspace{1ex}%
+\filright}
+[\vspace{1ex}%
+\titlerule]
+%\definecolor{VerbatimBorderColor}{rgb}{0.2,0.2,0.2}
+\definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
+
+
+\title{C2G1 使用者手冊}
+\date{}
+\release{1.0}
+\author{Chiaming Yen}
+\newcommand{\sphinxlogo}{}
+\renewcommand{\releasename}{釋出}
+\makeindex
+
+\makeatletter
+\def\PYG@reset{\let\PYG@it=\relax \let\PYG@bf=\relax%
+    \let\PYG@ul=\relax \let\PYG@tc=\relax%
+    \let\PYG@bc=\relax \let\PYG@ff=\relax}
+\def\PYG@tok#1{\csname PYG@tok@#1\endcsname}
+\def\PYG@toks#1+{\ifx\relax#1\empty\else%
+    \PYG@tok{#1}\expandafter\PYG@toks\fi}
+\def\PYG@do#1{\PYG@bc{\PYG@tc{\PYG@ul{%
+    \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
+\def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
+
+\expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
+\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
+\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
+\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
+\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
+\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
+\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
+\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
+\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
+\expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
+\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+
+\def\PYGZbs{\char`\\}
+\def\PYGZus{\char`\_}
+\def\PYGZob{\char`\{}
+\def\PYGZcb{\char`\}}
+\def\PYGZca{\char`\^}
+\def\PYGZam{\char`\&amp;}
+\def\PYGZlt{\char`\&lt;}
+\def\PYGZgt{\char`\&gt;}
+\def\PYGZsh{\char`\#}
+\def\PYGZpc{\char`\%}
+\def\PYGZdl{\char`\$}
+\def\PYGZhy{\char`\-}
+\def\PYGZsq{\char`\'}
+\def\PYGZdq{\char`\"}
+\def\PYGZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYGZat{@}
+\def\PYGZlb{[}
+\def\PYGZrb{]}
+\makeatother
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\phantomsection\label{index::doc}
+
+
+\href{http://blog.kmol.info}{KMOL's home page}
+
+
+\chapter{C2G1 報告}
+\label{frontmatter:kmol-s-users-guide}\label{frontmatter::doc}\label{frontmatter:c2g1}
+\index{C2G1 報告}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[frontmatter:c2g1]{C2G1 報告}}
+\begin{itemize}
+\item {} 
+{\hyperref[frontmatter:id1]{前言}}
+
+\item {} 
+{\hyperref[frontmatter:id2]{動機}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+
+\section{前言}
+\label{frontmatter:id1}
+這是前言內容
+
+
+\section{動機}
+\label{frontmatter:id2}
+這是動機內容
+
+
+\chapter{這是 outside 標題}
+\label{fromoutside::doc}\label{fromoutside:outside}
+\index{outside 標題}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[fromoutside:outside]{這是 outside 標題}}
+\begin{itemize}
+\item {} 
+{\hyperref[fromoutside:id1]{小標題}}
+
+\item {} 
+{\hyperref[fromoutside:id2]{小標題2}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+以下就是 outside 的內容, 由某一位組員負責編寫
+
+這是外部的檔案, 來自外部的內容
+
+這是第二次從外部更新的檔案
+
+
+\section{小標題}
+\label{fromoutside:id1}
+這是小標題之後的內容
+
+
+\section{小標題2}
+\label{fromoutside:id2}
+這是小標題2之後的內容
+
+\href{http://blog.kmol.info}{KMOL's home page}
+
+
+
+\renewcommand{\indexname}{索引}
+\printindex
+\end{document}
+</t>
+<t tx="amd_yen.20130325133433.2817">@language python
+
+'''
+主要用來細部修改 tex 檔案後, 再次產生所需要的 pdf 檔案
+'''
+</t>
+<t tx="amd_yen.20130325133433.2818"></t>
+<t tx="amd_yen.20130325133433.2819">@language rest
+@tabwidth -4
+
+@ @rst-options
+call_docutils=False
+code_mode=False
+generate_rst=True
+http_server_support = False
+show_organizer_nodes=True
+show_headlines=True
+show_leo_directives=True
+stylesheet_path=..\doc
+write_intermediate_file = True
+verbose=True
+@c
+</t>
+<t tx="amd_yen.20130325133433.2820">################################################
+C2G1 報告
+################################################
+
+.. index:: C2G1 報告
+
+.. contents::
+    :depth: 3</t>
+<t tx="amd_yen.20130325133433.2821">這是前言內容</t>
+<t tx="amd_yen.20130325133433.2822">這是動機內容</t>
 </tnodes>
 </leo_file>

@@ -518,36 +518,37 @@ bin/core/functions.php 中的 sys_build_filename() 對於較長的上傳中文�
     
     2. 若真要使用"-"+中文命名檔案, 也不可使用過長的檔案名稱, 否則會產生檔名過長無法上傳的錯誤.
 .. @+node:amd_yen.20130310161901.1489: *3* CD 第四週
-@language python
+.. code-block:: python
+    :linenos:
 
-# 執行以下程式時, 將滑鼠定在此內文的標題上, 然後按下 Ctrl+b
-'''
-c is the commander of the outline containing the script.
-g is Leo's leo.core.leoGlobals module.
-p is the presently selected position, the same as c.p.
-'''
-# p 為 position, subtree 為子節點, 下列程式會逐一列出子節點的 body text
-for p in p.subtree():
-    g.es(p.b)
-
-# g 為核心全域模組, 取其應用程式的圖形介面, 並且執行 AskOkDialog 對話視窗
-g.app.gui.runAskOkDialog(c,"輸入密碼",message="請輸入網誌的密碼:",text='Ok')
-
-def getInput (event=None):
-
-   stateName = 'get-input'
-   k = c.k
-   state = k.getState(stateName)
-
-   if state == 0:
-       k.setLabelBlue('Input: ',protect=True)
-       k.getArg(event,stateName,1,getInput)
-   else:
-       k.clearState()
-       g.es_print('你輸入的值為: %s' % k.arg)
-
-# 執行上述 getInput 函式
-getInput()
+    # 執行以下程式時, 將滑鼠定在此內文的標題上, 然後按下 Ctrl+b
+    '''
+    c is the commander of the outline containing the script.
+    g is Leo's leo.core.leoGlobals module.
+    p is the presently selected position, the same as c.p.
+    '''
+    # p 為 position, subtree 為子節點, 下列程式會逐一列出子節點的 body text
+    for p in p.subtree():
+        g.es(p.b)
+    
+    # g 為核心全域模組, 取其應用程式的圖形介面, 並且執行 AskOkDialog 對話視窗
+    g.app.gui.runAskOkDialog(c,"輸入密碼",message="請輸入網誌的密碼:",text='Ok')
+    
+    def getInput (event=None):
+    
+       stateName = 'get-input'
+       k = c.k
+       state = k.getState(stateName)
+    
+       if state == 0:
+           k.setLabelBlue('Input: ',protect=True)
+           k.getArg(event,stateName,1,getInput)
+       else:
+           k.clearState()
+           g.es_print('你輸入的值為: %s' % k.arg)
+    
+    # 執行上述 getInput 函式
+    getInput()
 
 
 .. @+node:amd_yen.20130317094520.1540: *4* 四次考試的 mp3 內容
@@ -790,23 +791,23 @@ https://groups.google.com/forum/?fromgroups=#!topic/simple-groupware/m5R3IzniasA
 
     View access (users)
     
-    Syntax: |::|
+    Syntax: ``|::|``
     
     Examples:
         
-    |freebusy:read:anonymous|
+    ``|freebusy:read:anonymous|``
     
-    |freebusy:read:anonymous|details:no_read:anonymous|
+   ``|freebusy:read:anonymous|details:no_read:anonymous|``
     
     Group access (groups)
     
-    Syntax: |::|
+    Syntax: ``|::|``
     
     Examples:
         
-    |freebusy:read:internals|
+    ``|freebusy:read:internals|``
     
-    |freebusy:read:internals|details:no_read:guests|
+    ``|freebusy:read:internals|details:no_read:guests|``
     
     Right: read, no_read, write, no_write 
 
@@ -922,6 +923,7 @@ store 與 restore (以 modify 為代號)
     當使用者要存在資料庫的格式, 與 Simple Groupware 存值的標準處理法不同時, 就必須使用 store 與 restore.
     
     Syntax: To collect these functions in a central place, all store and restore functions are kept in core/functions_user.php and have a ``"modify_"`` prefix (because they modify data), e.g. "modify_datetime_to_int" converts a date given as string to a timestamp using integer representation. To define a store or restore function in a sgsML file, write <store function="datetime_to_int"/> and <restore function="dateformat||d.m.Y"/> between the <field>-tags to work with a date-field using the functions modify_datetime_to_int and modify_dateformat.
+    
 As told before, Simple Groupware already knows a type called "date". Therefore you only need restore/store functions when defining your date-field with type "int". Using type "date" this is done automatically for you.
 
 資料來源 (以 select 為代號)
@@ -929,9 +931,10 @@ As told before, Simple Groupware already knows a type called "date". Therefore y
     當欄位需要從特定資料選擇時, 採用資料來源.
 
     Syntax: To collect these functions in a central place, all data functions are kept in core/functions_user.php and have a ``"select_"`` prefix (because they select data), e.g. "select_dbselect" can be used to get data from the database.
+    
 To define a data construct in a sgsML file, write <data function="getmydata"/> between the <field>-tags to call the function "select_getmydata". Here dbselect is illustrated because it is the most common function to get data from the database.
 
-############################################################
+``############################################################``
 
 以下為 sgsML 的翻譯
 
@@ -1872,115 +1875,117 @@ http://joostn.github.com/OpenJsCad/lampshadedemo.html
 .. @+node:amd_yen.20130320201815.1568: *5* Creo 零件程式化組立
 先組立第一個零件後, 第二個零件與第一個零件進行約束組立
 
-<script src="jscript/weblink/pfcUtils.js">
-</script><script language="JavaScript">
-      if (!pfcIsWindows())
-netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
-  var session = pfcGetProESession();
-// 建立擺放零件的位置矩陣
-  var identityMatrix = pfcCreate ("pfcMatrix3D");
-  for (var x = 0; x < 4; x++)
-    for (var y = 0; y < 4; y++)
-      {
-    if (x == y)
-      identityMatrix.Set (x, y, 1.0);
-    else
-      identityMatrix.Set (x, y, 0.0);
-      }
-  var transf = pfcCreate ("pfcTransform3D").Create (identityMatrix);
-// 取得目前的工作目錄
-  var currentDir = session.getCurrentDirectory();
-// 以目前已開檔, 作為 model
-  var model = session.CurrentModel;
-// 查驗有無 model, 或 model 類別是否為組立件
-  if (model == void null || model.Type != pfcCreate ("pfcModelType").MDL_ASSEMBLY)
-    throw new Error (0, "Current model is not an assembly.");
- 
-  var assembly = model;
- 
-  var descr =
-    pfcCreate ("pfcModelDescriptor").CreateFromFileName ("link1.prt");
-// 若 link1.prt 在 session 則直接取用
-  var componentModel = session.GetModelFromDescr (descr);
- 
-// 若 link1.prt 不在 session 則從工作目錄中載入 session
-  var componentModel = session.RetrieveModel(descr);
-// 若 link1.prt 已經在 session 則放入組立檔中
-  if (componentModel != void null)
-    {
-// 注意這個 asmcomp 即為設定約束條件的本體
-// asmcomp 為特徵物件,直接將零件, 以 transf 座標轉換放入組立檔案中
-  var asmcomp = assembly.AssembleComponent (componentModel, transf);
-    }
-var ids = pfcCreate ("intseq");
-// 取得 assembly 項下的元件 id, 因為只有一個零件, 採用 index 0 取出其 featID
-  var components = assembly.ListFeaturesByType(true, pfcCreate ("pfcFeatureType").FEATTYPE_COMPONENT);
-var featID = components.Item(0).Id;
-ids.Append(featID);
-// 在 assembly 模型中建立子零件所對應的路徑
-var subPath =
-    pfcCreate ("MpfcAssembly").CreateComponentPath( assembly, ids );
-document.write("id 為:"+subPath.ComponentIds(0));
-      subassembly = subPath.Leaf;
-//  設定組立檔中的三個定位面, 注意內定名稱與 Pro/E WF 中的 ASM_D_FRONT 不同, 而是 ASM_FRONT
-  var asmDatums = new Array ("COM_D_FRONT", "COM_D_TOP", "COM_D_RIGHT");
-// 設定零件檔中的三個定位面, 名稱與 Pro/E WF 中相同
-  var compDatums = new Array ("COM_D_FRONT",
-                  "COM_D_TOP",
-                  "COM_D_RIGHT");
-// 建立約束條件變數
-  var constrs = pfcCreate ("pfcComponentConstraints");
-// 利用迴圈分別約束組立與零件檔中的三個定位平面
-  for (var i = 0; i < 3; i++)
-    {
-// 設定組立參考面, asmItem 為 model item
-      var asmItem =
-    subassembly.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
-                asmDatums [i]);
-// 若無對應的組立參考面, 則啟用互動式平面選擇表單 flag
-      if (asmItem == void null)
-    {
-      interactFlag = true;
-      continue;
-    }
-// 設定零件參考面, compItem 為 model item
-      var compItem =
-    componentModel.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
-                      compDatums [i]);
-// 若無對應的零件參考面, 則啟用互動式平面選擇表單 flag
-      if (compItem == void null)
-    {
-      interactFlag = true;
-      continue;
-    }
-// 採用互動式設定相關的變數
-      var MpfcSelect = pfcCreate ("MpfcSelect");
-      var asmSel = MpfcSelect.CreateModelItemSelection (asmItem, subPath);
-      var compSel = MpfcSelect.CreateModelItemSelection (compItem, void null);
-      var constr = pfcCreate ("pfcComponentConstraint").Create (
-                                pfcCreate ("pfcComponentConstraintType").ASM_CONSTRAINT_ALIGN);
-      
-      constr.AssemblyReference  = asmSel;
-      constr.ComponentReference = compSel;
-      
-      constr.Attributes = pfcCreate ("pfcConstraintAttributes").Create (false, false);
-// 將互動選擇相關資料, 附加在程式約束變數之後
-      constrs.Append (constr);
-    }
-// 設定組立約束條件, 以 asmcomp 特徵進行約束條件設定
-// 請注意, 第二個變數必須為 void null 表示零件對零件進行約束, 若為 subPath, 則零件會與原始零件的平面進行約束
-asmcomp.SetConstraints (constrs, void null);
-        try
+.. code-block:: javascript
+
+    <script src="jscript/weblink/pfcUtils.js">
+    </script><script language="JavaScript">
+          if (!pfcIsWindows())
+    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+      var session = pfcGetProESession();
+    // 建立擺放零件的位置矩陣
+      var identityMatrix = pfcCreate ("pfcMatrix3D");
+      for (var x = 0; x < 4; x++)
+        for (var y = 0; y < 4; y++)
+          {
+        if (x == y)
+          identityMatrix.Set (x, y, 1.0);
+        else
+          identityMatrix.Set (x, y, 0.0);
+          }
+      var transf = pfcCreate ("pfcTransform3D").Create (identityMatrix);
+    // 取得目前的工作目錄
+      var currentDir = session.getCurrentDirectory();
+    // 以目前已開檔, 作為 model
+      var model = session.CurrentModel;
+    // 查驗有無 model, 或 model 類別是否為組立件
+      if (model == void null || model.Type != pfcCreate ("pfcModelType").MDL_ASSEMBLY)
+        throw new Error (0, "Current model is not an assembly.");
+     
+      var assembly = model;
+     
+      var descr =
+        pfcCreate ("pfcModelDescriptor").CreateFromFileName ("link1.prt");
+    // 若 link1.prt 在 session 則直接取用
+      var componentModel = session.GetModelFromDescr (descr);
+     
+    // 若 link1.prt 不在 session 則從工作目錄中載入 session
+      var componentModel = session.RetrieveModel(descr);
+    // 若 link1.prt 已經在 session 則放入組立檔中
+      if (componentModel != void null)
         {
-                  document.write("目前 Creo 的工作目錄:<br />"+currentDir);
-            }
-    catch (err)
-        {
-            alert ("Exception occurred: "+pfcGetExceptionType (err));
+    // 注意這個 asmcomp 即為設定約束條件的本體
+    // asmcomp 為特徵物件,直接將零件, 以 transf 座標轉換放入組立檔案中
+      var asmcomp = assembly.AssembleComponent (componentModel, transf);
         }
-  assembly.Regenerate (void null);
-  session.GetModelWindow (assembly).Repaint();
-</script>
+    var ids = pfcCreate ("intseq");
+    // 取得 assembly 項下的元件 id, 因為只有一個零件, 採用 index 0 取出其 featID
+      var components = assembly.ListFeaturesByType(true, pfcCreate ("pfcFeatureType").FEATTYPE_COMPONENT);
+    var featID = components.Item(0).Id;
+    ids.Append(featID);
+    // 在 assembly 模型中建立子零件所對應的路徑
+    var subPath =
+        pfcCreate ("MpfcAssembly").CreateComponentPath( assembly, ids );
+    document.write("id 為:"+subPath.ComponentIds(0));
+          subassembly = subPath.Leaf;
+    //  設定組立檔中的三個定位面, 注意內定名稱與 Pro/E WF 中的 ASM_D_FRONT 不同, 而是 ASM_FRONT
+      var asmDatums = new Array ("COM_D_FRONT", "COM_D_TOP", "COM_D_RIGHT");
+    // 設定零件檔中的三個定位面, 名稱與 Pro/E WF 中相同
+      var compDatums = new Array ("COM_D_FRONT",
+                      "COM_D_TOP",
+                      "COM_D_RIGHT");
+    // 建立約束條件變數
+      var constrs = pfcCreate ("pfcComponentConstraints");
+    // 利用迴圈分別約束組立與零件檔中的三個定位平面
+      for (var i = 0; i < 3; i++)
+        {
+    // 設定組立參考面, asmItem 為 model item
+          var asmItem =
+        subassembly.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
+                    asmDatums [i]);
+    // 若無對應的組立參考面, 則啟用互動式平面選擇表單 flag
+          if (asmItem == void null)
+        {
+          interactFlag = true;
+          continue;
+        }
+    // 設定零件參考面, compItem 為 model item
+          var compItem =
+        componentModel.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
+                          compDatums [i]);
+    // 若無對應的零件參考面, 則啟用互動式平面選擇表單 flag
+          if (compItem == void null)
+        {
+          interactFlag = true;
+          continue;
+        }
+    // 採用互動式設定相關的變數
+          var MpfcSelect = pfcCreate ("MpfcSelect");
+          var asmSel = MpfcSelect.CreateModelItemSelection (asmItem, subPath);
+          var compSel = MpfcSelect.CreateModelItemSelection (compItem, void null);
+          var constr = pfcCreate ("pfcComponentConstraint").Create (
+                                    pfcCreate ("pfcComponentConstraintType").ASM_CONSTRAINT_ALIGN);
+          
+          constr.AssemblyReference  = asmSel;
+          constr.ComponentReference = compSel;
+          
+          constr.Attributes = pfcCreate ("pfcConstraintAttributes").Create (false, false);
+    // 將互動選擇相關資料, 附加在程式約束變數之後
+          constrs.Append (constr);
+        }
+    // 設定組立約束條件, 以 asmcomp 特徵進行約束條件設定
+    // 請注意, 第二個變數必須為 void null 表示零件對零件進行約束, 若為 subPath, 則零件會與原始零件的平面進行約束
+    asmcomp.SetConstraints (constrs, void null);
+            try
+            {
+                      document.write("目前 Creo 的工作目錄:<br />"+currentDir);
+                }
+        catch (err)
+            {
+                alert ("Exception occurred: "+pfcGetExceptionType (err));
+            }
+      assembly.Regenerate (void null);
+      session.GetModelWindow (assembly).Repaint();
+    </script>
 .. @+node:amd_yen.20130320201815.1571: *5* 正齒輪參數繪圖
 Creo 使用步驟
 
@@ -2482,7 +2487,7 @@ Some of the basic principles and guidelines for an integrated product developmen
 
 整合產品開發的基本原理及準則如下:
 
-  1.      Understand  Customer  Needs  and  Manage  Requirements:  Customer  involvement
+1.      Understand  Customer  Needs  and  Manage  Requirements:  Customer  involvement
 increases the probability of the product meeting those needs and being successful in the market.
 
 了解客戶需求與管理需求: 客戶參與是提升產品滿足需求與市場成功的最大保證.
@@ -2495,11 +2500,11 @@ Once customer requirements are defined, track and tightly manage those requireme
 
 規劃並管理產品開發: 依照商務策略與規劃進行整合產品開發. 擬定產品開發對上市時間的衝擊, 並將時間與品質當作競爭優勢的源頭.
 
-  3.      Use Product Development Teams:  Early involvement of all the related departmental personnel in product development provides a multifunctional perspective and facilitates the integrated design of product and process.
+3.      Use Product Development Teams:  Early involvement of all the related departmental personnel in product development provides a multifunctional perspective and facilitates the integrated design of product and process.
 
 運用產品開發團隊: 產品開發中讓相關部門人員及早參與, 有助於在產品與製程之整合設計 (過程中), 獲得多功能觀點.
 
-  4.      Involve Suppliers and Subcontractors Early:  Suppliers know their product technology, product application, and process constraints best.
+4.      Involve Suppliers and Subcontractors Early:  Suppliers know their product technology, product application, and process constraints best.
 
 及早讓供應商與分包商參與 (產品開發): 供應商最了解其產品技術, 產品應用與製程限制.
 
@@ -2507,11 +2512,11 @@ Utilize this expertise during product development and optimize product designs.
 
 在產品開發過程中, 運用這些專業技術來最佳化產品設計.
 
-  5.      Integrate CAD/CAM and CAE tools:  Integrated CAD/CAM/CAE tools working with a common digital product model facilitate capture, analysis, and refinement of product and process design data in a more timely manner. Feature based solids modeling, parametric modeling, and electronic design frameworks facilitate the downstream interpretation, analysis, and use of this product data.
+5.      Integrate CAD/CAM and CAE tools:  Integrated CAD/CAM/CAE tools working with a common digital product model facilitate capture, analysis, and refinement of product and process design data in a more timely manner. Feature based solids modeling, parametric modeling, and electronic design frameworks facilitate the downstream interpretation, analysis, and use of this product data.
 
 整合 CAD/CAM 與 CAE 工具: 在共用的數位產品模型中, 整合 CAD/CAM/CAE 工具, 有助於及時獲取, 分析與係化產品與製程設計資料. 採特徵為主的實體模型, 參數模擬, 與數位設計框架, 將有助於 (產品鏈) 下游對於產品資料的整合, 分析, 與運用.
 
-  6.      Simulate Product Performance And Manufacturing Processes Electronically:  Solids
+6.      Simulate Product Performance And Manufacturing Processes Electronically:  Solids
 modeling with variation analysis and interference checking allow for electronic mock-ups.
 
 以數位的方式進行產品性能及製造流程模擬: 可變化的實體模擬與干涉查核, 可作為數位 (產品) 原型.
@@ -2520,7 +2525,7 @@ Analysis and simulation tools such as finite element analysis, thermal  analysis
 
 諸如有限元素分析, 熱分析, 網路計算機確認與軟體模擬等之分析與模擬工具, 可以低廉花費來開發並細化產品與製程設計.
 
-  7.      Improve the Design Process Continuously:  Reengineer the design process and
+7.      Improve the Design Process Continuously:  Reengineer the design process and
 eliminate non–value-added activities.
 
 持續改進設計流程: 多次重複檢視設計流程可消除無附加價值的活動.
@@ -2793,7 +2798,7 @@ Others are developing the framework that enables the designers to build integrat
     
     亦即, 可以將某一檔案夾設為成員可以讀取, 但無法寫入, 然後在 view 的部分設定
 
-    |new,edit:write:anonymous|
+    ``|new,edit:write:anonymous|``
     
     也就是任何人都可以擁有 new 與 edit 的寫入權限, 就可以有效保護該檔案夾, 不被成員刪除或改名, 但是成員可以新增與編輯, 然而卻無 delete 的功能, 若也要讓成員對於 assets 有刪除權限, 則必須要修改 write 的權限, 將內定的檔案夾權限刪除與改名權限由 write 提升到 admin, 然後授與該檔案夾的 write 權限給相關成員, 就可以讓成員對檔案夾內的 assets 有 delete 權限.
     

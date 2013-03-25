@@ -1331,8 +1331,8 @@ PyQt 應用
 
 機械設計視窗程式:
 
-.. literal-include:: ../c2/pyqt_geardesign.py
-   :language: python
+.. literalinclude:: ../c2/pyqt_geardesign.py
+    :language: python
 
 @url WinPython
 **************

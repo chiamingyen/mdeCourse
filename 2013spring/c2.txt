@@ -1306,8 +1306,8 @@ https://github.com/smjrifle/Python-Calculator
 
 機械設計視窗程式:
 
-.. literal-include:: ../c2/pyqt_geardesign.py
-   :language: python
+.. literalinclude:: ../c2/pyqt_geardesign.py
+    :language: python
 .. @+node:amd_yen.20130317160119.1728: *4* @url WinPython
 https://code.google.com/p/winpython/
 

@@ -15,9 +15,7 @@ KMOL's Users Guide
    :maxdepth: 1
 
    frontmatter
-   c2 
-   cd
-   wcm
-   misc
+   fromoutside
+
 
 `KMOL's home page`_  
