@@ -162,6 +162,15 @@ Body Editor 與 Focus
 
 Cmds 下的功能表有 Body Editor->Add-Editors 可以增加內文編輯區的個數, 此功能在不同節點內容交叉比對時, 有很大的方便, 假如再加上 Focus->Cycle-All-Focus 的輔助, 就能夠在多內文編輯區中交叉切換, 能夠引用或檢視同一節點但是不同區域的內容.
 
+設定外部的編輯器:
+
+在 start_kmol.bat 中設定 LEO_EDITOR 環境變數, 就可以直接在 Leo Editor 中使用.
+
+.. code-block:: none
+
+    REM 設定 Leo 所用的編輯器
+    set LEO_EDITOR=%Disk%:\IDE\SciTE\Sc325.exe
+
 當節點內容更新後
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -669,6 +678,260 @@ C:\Program Files\> rhc
 
 The OpenShift interactive setup wizard displays and prompts you to complete the rest of the process. If you cannot run OpenShift client tools at this point, please contact us on IRC or post in our forums for more assistance.
 
+開發 pyforum
+^^^^^^^^^^^^^^
+
+以下為直接在 OpenShift 平台上開發 pyforum 的流程:
+
+- 登錄一個帳號
+
+- 利用 community Python 3.3 建立一個應用程式
+
+- 利用 git clone 將基本程式架構下載到 local 端
+
+- 修改 setup.py, 加入 cherrypy, moko 與 pybean (注意: pybean 0.2.1 與 0.1.2 版本不相容, 0.1.2 使用 uuid, 而 0.2.1 則使用整數 index) 的模組安裝
+
+修改後的 setup.py 程式:
+
+.. code-block:: python
+
+    from setuptools import setup
+    
+    setup(name='YourAppName', version='1.0',
+          description='OpenShift Python-3.3 Community Cartridge based application',
+          author='Your Name', author_email='ramr@example.org',
+          url='http://www.python.org/sigs/distutils-sig/',
+    
+          #  Uncomment one or more lines below in the install_requires section
+          #  for the specific client drivers/modules your application needs.
+          install_requires=['WebOb','cherrypy','mako','pybean',
+                            #  'mysql-connector-python',
+                            #  'pymongo',
+                            #  'psycopg2',
+          ],
+         )
+
+- 放入下列基本測試程式:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy, os
+    
+    class HelloWorld(object):
+        def index(self):
+            return "這是一個 Cherrypy 網際程式!!"
+        index.exposed = True
+     
+    # IP 與埠號使用 OpenShift 內定值
+    #cherrypy.server.socket_port = 8083
+    #cherrypy.server.socket_host = '127.0.0.1'
+    application = cherrypy.Application(HelloWorld())
+    
+- 導入 mako 模組並且進行套稿測試:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy, os
+    from mako.template import Template
+    
+    class HelloWorld(object):
+        def index(self):
+            # 蓋掉第一階段的傳回測試
+            #return "這是一個 Cherrypy 網際程式!!"
+            return (Template("使用 mako 套稿引擎:${data}!").render(data="目前沒有問題!"))
+        index.exposed = True
+     
+    # IP 與埠號使用 OpenShift 內定值
+    #cherrypy.server.socket_port = 8083
+    #cherrypy.server.socket_host = '127.0.0.1'
+    application = cherrypy.Application(HelloWorld())
+    
+- 假如要改用套稿檔案的方式處理, 則必須將套稿寫進檔案, 然後在 render 時導入
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy, os
+    from mako.template import Template
+    
+    class HelloWorld(object):
+        def index(self):
+            # 蓋掉第一階段的傳回測試
+            #return "這是一個 Cherrypy 網際程式!!"
+            # 再蓋掉基本套稿測試
+            #return (Template("使用 mako 套稿引擎:${data}!").render(data="目前沒有問題!"))
+            mytemplate = Template(filename=os.environ['OPENSHIFT_REPO_DIR']+"/wsgi/mytmpl.txt")
+            return mytemplate.render(data="目前沒有問題!")
+        index.exposed = True
+     
+    # IP 與埠號使用 OpenShift 內定值
+    #cherrypy.server.socket_port = 8083
+    #cherrypy.server.socket_host = '127.0.0.1'
+    application = cherrypy.Application(HelloWorld())
+    
+而 mytmpl.txt 檔案內容為 utf-8 資料, 必須在標頭宣告.
+
+
+.. code-block:: python
+
+    ##encoding: utf-8
+    ## 兩個 pound signs 在 Mako 語法中為註解行
+    ## 多行註解則使用
+    <%doc>
+        這是註解
+        使用 <%! %> 表示在模組層次運作的 Python 程式碼, 可以用來 import 模組或定義相關的函式或物件
+    </%doc>
+    在套稿中的基本語法為 html <br /><br />
+    目前的套稿檔案位於: os.environ['OPENSHIFT_REPO_DIR']+"/wsgi/static/templates/mytmpl.txt"
+    <br />
+    以下資料從檔案套稿傳回:<br />
+    
+    使用 mako 套稿引擎:${data}!
+
+- 假如運用 CherryPy 的 tools 格式來定義 mako templates 所在目錄, 可以採用 decorator 格式處理套稿引用
+
+applicaiton 程式碼:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy, os
+    # 導入 Template 與 TemplateLookup
+    from mako.template import Template
+    from mako.lookup import TemplateLookup
+    
+    # 以下為 tools.mako.directories 的程式碼
+    class MakoHandler(cherrypy.dispatch.LateParamPageHandler):
+        """Callable which sets response.body."""
+        
+        def __init__(self, template, next_handler):
+            self.template = template
+            self.next_handler = next_handler
+        
+        def __call__(self):
+            env = globals().copy()
+            env.update(self.next_handler())
+            return self.template.render(**env)
+    
+    class MakoLoader(object):
+        
+        def __init__(self):
+            self.lookups = {}
+        
+        def __call__(self, filename, directories, module_directory=None,
+                     collection_size=-1):
+            # Find the appropriate template lookup.
+            key = (tuple(directories), module_directory)
+            try:
+                lookup = self.lookups[key]
+            except KeyError:
+                lookup = TemplateLookup(directories=directories,
+                                        module_directory=module_directory,
+                                        collection_size=collection_size,
+                                        )
+                self.lookups[key] = lookup
+            cherrypy.request.lookup = lookup
+            
+            # Replace the current handler.
+            cherrypy.request.template = t = lookup.get_template(filename)
+            cherrypy.request.handler = MakoHandler(t, cherrypy.request.handler)
+    
+    main = MakoLoader()
+    cherrypy.tools.mako = cherrypy.Tool('on_start_resource', main)
+    # 以上結束 cherrypy.tools.mako 的程式碼
+    
+    class HelloWorld(object):
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        # 加入 session 設定
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        # 可以利用 .openshift\action_hooks 中執行 shell command 的方式來建立 tmp 目錄
+        'tools.sessions.storage_path' : os.environ['OPENSHIFT_REPO_DIR']+"/wsgi/tmp",
+        # 內定的 session timeout 時間為 60 分鐘
+        'tools.sessions.timeout' : 60,
+        # 以下透過  @cherrypy.tools.mako(filename="mytmpl.txt") decorator 設定的套稿目錄依據
+        'tools.mako.directories' :  os.environ['OPENSHIFT_REPO_DIR']+"/wsgi/static/templates"
+        }
+    
+        @cherrypy.expose
+        @cherrypy.tools.mako(filename="mytmpl.txt")
+        def index(self):
+            # 配合 mako 傳回 dictionary 格式資料
+            return {"data":"目前沒有問題!"}
+     
+    # 靜態檔案的目錄對應設定
+    myconfig = {'/downloads':{
+        'tools.staticdir.on': True,
+        'tools.staticdir.root': os.environ['OPENSHIFT_DATA_DIR'],
+        'tools.staticdir.dir': 'downloads',
+        'tools.staticdir.index' : 'index.html'
+        },
+        # 設定靜態 templates 檔案目錄對應
+        '/templates':{
+        'tools.staticdir.on': True,
+        'tools.staticdir.root': os.environ['OPENSHIFT_REPO_DIR']+"/wsgi/static",
+        'tools.staticdir.dir': 'templates',
+        'tools.staticdir.index' : 'index.html'
+        }
+    }
+    
+    # IP 與埠號使用 OpenShift 內定值
+    #cherrypy.server.socket_port = 8083
+    #cherrypy.server.socket_host = '127.0.0.1'
+    application = cherrypy.Application(HelloWorld(), config=myconfig)
+    
+mytmpl.txt 套稿內容:
+
+.. code-block:: python
+
+    ##encoding: utf-8
+    ## 兩個 pound signs 在 Mako 語法中為註解行
+    ## 多行註解則使用
+    <%doc>
+        這是註解
+        使用 <%! %> 表示在模組層次運作的 Python 程式碼, 可以用來 import 模組或定義相關的函式或物件
+    </%doc>
+    <html>
+            <head>
+                    <title>Cherrypy Mako 表單測試</title>
+            </head>
+            <body>
+    <style type="text/css" media="all">
+    @import "templates/style/base.css";
+    </style>  
+    在套稿中的基本語法為 html <br /><br />
+    目前的套稿檔案位於: os.environ['OPENSHIFT_REPO_DIR']+"/wsgi/static/templates/mytmpl.txt"
+    <br />
+    以下資料從檔案套稿傳回:<br />
+    
+    使用 mako 套稿引擎:${data}!
+    
+            </body>
+    </html>
+
+pyforum 教學
+~~~~~~~~~~~~~~
+
+程式語言(二)將著重在此一網際 Python3 程式的開發, 基本目的:
+
+- 可以利用 Python3, CherryPy, mako, SQLite 著手開發一個網際機械設計流程框架
+
+此框架具有下列目標:
+  
+1. 可用來執行機械零組件細部設計與分析 (材料資料庫物件, 破壞理論物件, 機械元件設計物件, CAE 分析物件等).
+
+2. 可結合 Javascript, 以 Pro/Web.Link 格式完成"可程式化"零件與組件的參數繪圖.
+
+3. 可結合 OpenCascade 核心程式, 建構網際的機構動態模擬系統所需的參數化零組件檔案 (底層的機構分析與最佳化設計採用 C/C++ 或 Python 演化套件完成).
+
+4. 可結合 HTML 與 STL 零組件格式, 進行網際動態模擬.
+
 beautiful soup 相關
 *********************
 
@@ -793,4 +1056,235 @@ https://github.com/ajaxorg/cloud9
 ^^^^^^^^^^^^^^^^^^^^
 
 http://ericterpstra.com/tag/cloud9/
+
+TCExam 有關
+*************
+
+TCExam 對使用者密碼編碼採用 shared/code/tce_functions_session.php 程式中的 getPasswordHash 函式:
+
+.. code-block:: php
+
+    function getPasswordHash($password) {
+        if (defined('K_STRONG_PASSWORD_ENCRYPTION') AND K_STRONG_PASSWORD_ENCRYPTION) {
+            $pswlen = strlen($password);
+            $salt = (2 * $pswlen);
+            for ($i = 0; $i < $pswlen; ++$i) {
+                $salt += (($i + 1) * ord($password[$i]));
+            }
+            $hash = '$'.$salt.'#'.strrev($password).'$';
+            return md5($hash);
+        }
+        return md5($password);
+    }
+    
+因此, 若 K_STRONG_PASSWORD_ENCRYPTION 定義為真, 則將採用更複雜的編碼 (MySQL 中所沒有的編碼流程), 否則使用 md5() 編碼.
+
+TCExam 的強制 SSL 連線設定:
+
+若要利用 Javascript 強制 TCExam 進行 /admin/ 連線時使用 SSL, 可以在 admin/code/tce_page_header.php 中加入下列程式碼:
+
+.. code-block:: javascript
+    
+    $forSSL = <<< EOF
+    <script type="text/javascript">
+    if(window.location.protocol != "https:")
+    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
+    </script>
+    EOF;
+    echo $forSSL;
+
+假如要連 public/code/index.php 的連線 (一般用戶) 也強制採用 SSL, 則將上述 Javascript 放入 public/code/tce_page_header.php 中.
+
+TCExam 安裝設定:
+
+- 執行 /install/install.php, 並完成 MySQL 資料庫 (也可以採用 Oracle 與 PostgreSQL) 連線設定.
+
+- 安裝完畢後, 刪除 install 目錄.
+
+- 採用內建設定安裝後, 管理者帳號為 admin, 密碼為 1234, 使用者的權限則為最高的 level 10 (任何 level 10 的用戶都是管理者).
+
+- 對 fresh MySQL 儲存備份.
+
+使用者的 levels 區分:
+
+.. code-block:: none
+
+    TCExam has 10 predefined user's levels:
+    0 = anonymous user (not registered).
+    1 = basic user (registered);
+    2-9 = configurable/custom levels;
+    10 = administrator with full access rights
+
+以下為相關使用注意要項:
+
+- 已經用於考試的題目, 不可進行更改.
+
+考慮目前版次的適用性,  或者設法進行修改.
+
+- 最基本的三個資料表 (安裝後有內容的資料表)
+
+.. code-block:: none
+
+    tce_users - 基本用戶資料表
+    tce_user_groups - 基本分組資料表
+    tce_usrgroups - 基本使用者套用分組資料表
+
+- 使用基本流程
+
+.. code-block:: none
+
+    修改 shared/config/tce_user_registration.php 檔案中的設定, 決定使用者如何登錄帳號
+    shared/config/tce_user_registration.php 中的　K_USER_ENABLED 設為 false, 則不允許使用者自行註冊帳號.
+    使用者登錄帳號後, 建立班級群組, 將所登錄的帳號設定到所屬班級
+    使用者進行模擬測驗
+    使用者進行實際考試
+    考後流程檢討
+
+- LaTeX 使用安裝
+
+.. code-block:: none
+
+    利用 sudo apt-get install texlive-full 安裝完整版本的 LaTeX /usr/bin/latex.
+    利用 sudo apt-get install imagemagick 安裝影像轉換程式 /usr/bin/convert.
+    利用 sudo apt-get install ghostscript 安裝 /usr/bin/dvips.
+    利用以下標註語法測試 LaTeX 是否安裝成功.
+    [tex]\alpha+\beta[/tex]
+
+- 防火牆設置
+
+.. code-block:: none
+
+    1. 安裝 Ubuntu 12.10 伺服器操作系統, 其中包括 LAMP, Bind9, OpenSSH, ApacheDS, Stunnel 等.
+    2. 利用 ufw 設定 相關防火牆設定, 讓資料庫主機可以讓前台主機擷取, 前台可以讓客戶電腦連線等.
+
+例如: 要將連線限縮在電腦教室
+
+防火牆設定 (相關設定最好直接在伺服器上執行, 以免讓遠端主機在設定啟用後無法連線):
+
+ufw 參考: https://help.ubuntu.com/community/UFW
+
+查驗 ufw 是否啟用
+
+.. code-block:: none
+
+    sudo ufw status verbose
+
+啟用 ufw
+
+.. code-block::
+
+    sudo ufw enable
+
+對特定 IP 開啟特定應用程式
+
+.. code-block:: none
+
+    sudo ufw allow from 140.130.17.xx app OpenSSH
+    sudo ufw allow from 140.130.17.xx app Apache
+    sudo ufw allow from 140.130.17.xx app MySQL
+    sudo ufw allow from 140.130.17.xx app ApacheDS
+
+- 在 Ubuntu 安裝過程使用 http-proxy
+
+.. code-block:: none
+
+    sudo vi /etc/environment
+    在檔案中加入
+    http_proxy="http://your.proxy.server:3128/"
+
+TCExam 評分
+^^^^^^^^^^^^^
+
+MCSA (Multiple Choice Single Answers)
+單選題目
+
+For each question the possible scores are:
+針對每一題目可能的得分為:
+
+    true option selected = [question right score] = [test basic points] * [question difficulty]
+選擇正確的選項 = 答對題目給分 = 考試基本分*問題困難度
+
+    false option selected = [question wrong score] = [test points for wrong answer] * [question difficulty]
+選擇錯誤的選項 = 答錯題目給分 = 考試答錯給分*問題困難度
+
+    no option selected = [question unanswered score] = [test points for no answer] * [question difficulty]
+ 沒有選擇 = 未作答題目給分 = 未作答給分*問題困難度
+
+MCMA (Multiple Choice Multiple Answers)
+複選題目
+
+On MCMA questions, each individual alternative answer can be considered as an independent true/false question.
+就複選題目, 每一個獨立選項可作為獨立是非題目
+
+For each question the maximum scores are:
+針對每一題目, 最大得分為:
+
+    [question max right score] = [test basic points] * [question difficulty]
+答對問題最大得分 = 考試基得分*問題困難度
+
+    [question max wrong score] = [test points for wrong answer] * [question difficulty]
+答錯題目最大得分 = 考試答錯得分*問題困難度
+
+    [question max unanswered score] = [test points for no answer] * [question difficulty]
+未答題目最大得分 = 未作答得分*問題困難度
+
+For each individual answer the possible scores are:
+針對每一單獨答題可能得分:
+
+    [answer right score] = [question max right score] / [number of alternative answers]
+答對題目得分 = 答對問題最大給分/選項數目
+
+    [answer wrong score] = [question max wrong score] / [number of alternative answers]
+答錯題目得分 = 答錯題目最大得分/選項數目
+
+    [answer unanswered score] = [question max unanswered score] / [number of alternative answers]
+未答題分數 = 未答題目最大得分/選項數目
+
+The possible scores for each option are:
+每一選項可能得分:
+
+    false option set as false = [answer right score]
+錯誤的選項設為錯 = 答對題目得分 
+
+    false option set as true = [answer wrong score]
+錯誤選擇設為對 = 答錯題目得分
+
+    false option not answered = [answer unanswered score]
+錯誤的選項未作答 = 未答題分數
+
+    true option set as true = [answer right score]
+正確的選項設為對 = 答對題目得分 
+
+    true option set as false = [answer wrong score]
+正確的選項設為錯  = 答錯題目得分
+
+    true option not answered = [answer unanswered score]
+正確的選項未作答 = 未答題分數
+
+If the "partial score for MCMA" option is set, then the sum of the above scores for all answers gives you the final question score. 
+若考試設定為"複選題部分給分", 則上述所有題目給分總和就是最後答題的分數.
+
+TCExam consider an MCMA question as right if you score more than 50% of [question max right score]. 
+TCExam 評定複選題目只要分數超過"答對問題最大給分"的一半以上就算答對該題目.
+
+If the "radiobuttons for MCMA" option is unchecked, then unanswered questions are always considered marked as false, so the test-taker always get a score even not anwering (normally 50% of the score if the right and wrong answers are balanced).
+當複選題選項未作答時, 該未答題目一律視為選擇"錯誤", 在這種情形下應試者即便沒有作答也會拿到該題的分數 (當錯的選項與對的選項各半的時候, 就會拿到一半的分數).
+
+If the "partial score for MCMA" option is unset, then the final question score will be equal to [question max right score] only if the maximum score is reached, otherwise the [question max wrong score] or [question max unanswered score] is assigned.
+假如未選用"複選題部分給分", 那麼只有在拿到最大得分時, 最後答題得分才會等於'答對問題最大給分', 否則該題得分就會設為"答錯題目最大得分"或"未答題目最大得分"
+
+因此在 TCExam 系統中出題目時, 基本策略為:
+
+- 若希望在出題時選擇"複選題部分給分", 就必須同時對未答題與答錯題的選項予以倒扣分數, 否則應試者就可能採選擇每一題目的所有選項而取分 (若不倒扣).
+
+- 在複選題採"複選題部分給分"時, 必須同時對不答題者給予答錯題目相同的倒扣分數, 否則應試者將投機選擇全部不作答, 而取得比積極作答且選擇錯誤選項者分數還高 (因為若不答題不倒扣則全部未答題為 0 分, 但是積極作答者每題都答但是全部選擇錯誤, 將會拿負分).
+
+- 在採用不答題與答錯選項者均倒扣分數, 且採"複選題部分給分", 應該是最公平的策略, 考試得分的排序將具有學習效度評量的參考價值.
+
+@url adminer
+^^^^^^^^^^^^
+
+http://www.adminer.org/
+
+這是一個單一檔案的網際資料庫管理程式, 以 PHP 編寫, 適合用來管理遠端的 MySQL 資料庫, 也可以管理 SQLite 資料檔案.
 

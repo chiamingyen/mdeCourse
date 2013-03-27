@@ -140,6 +140,15 @@ mod_http.py plugin
 Body Editor 與 Focus
 
 Cmds 下的功能表有 Body Editor->Add-Editors 可以增加內文編輯區的個數, 此功能在不同節點內容交叉比對時, 有很大的方便, 假如再加上 Focus->Cycle-All-Focus 的輔助, 就能夠在多內文編輯區中交叉切換, 能夠引用或檢視同一節點但是不同區域的內容.
+
+設定外部的編輯器:
+
+在 start_kmol.bat 中設定 LEO_EDITOR 環境變數, 就可以直接在 Leo Editor 中使用.
+
+.. code-block:: none
+
+    REM 設定 Leo 所用的編輯器
+    set LEO_EDITOR=%Disk%:\IDE\SciTE\Sc325.exe
 .. @+node:amd_yen.20130308221230.2486: *5* 當節點內容更新後
 前面的小圖像就會出現黑色邊框
 
