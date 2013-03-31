@@ -2843,5 +2843,21 @@ Simple Groupware 模組欄位的修改:
 4. 設法利用 psftp 將 CMSimple.tar 送進 Ubuntu, 以 tar xvf CMSimple.tar 解開成 CMSimple 之後, 利用 sudo mv CMSimple /var/www/ 將目錄搬遷到 /var/www Apache 的根目錄下, 再進入 /var/www 目錄, 以 sudo chown -R www-data:www-data CMSimple, 表示要將 CMSimple 目錄的所有項下子目錄 ( -R 的作用) 其 owner 與 group 所有人設為 www-data (也就是啟動 Apache 的擁有者與群組), 以便讓網際端的用戶可以寫入 CMSimple.
 
 5. 確定 Ubuntu 的聯外 IP 後, 就可以在廣域網路上擷取 虛擬 Ubuntu 中的 CMSimple, 並且進一步將協同相關的二次開發程式放入此一系統中. 
+.. @+node:amd_yen.20130330144838.2032: *3* CD 第五週
+建立 sgwa.edx.tw 與 sgwb.edx.tw 作為協同設計主機, 採用 IMAP 登入驗證, 使用注意事項:
+
+::
+
+    1. 使用者的 gmail 帳號是否開啟 IMAP 驗證功能
+    
+    2. 將 Simple Groupware 登入錯誤過多後, 必須停等 15 分鐘的設定取消
+    
+    3. 在 Ubuntu 平台安裝 graphivz 模組, 用於專案流程圖繪製
+
+建立 test@mde.tw 電子郵件, 用於 SMTP 寄信使用
+
+建立 exam.edx.tw (即 cae.mde.tw, MySQL 使用 IBM server) 作為線上考試用主機, MySQL 資料庫管理採用 http://www.adminer.org/
+.. @+node:amd_yen.20130330144838.2033: *3* CD 第七週
+開始執行齒輪減速機設計專案.
 .. @-all
 .. @-leo

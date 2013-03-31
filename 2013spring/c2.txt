@@ -1314,5 +1314,120 @@ https://code.google.com/p/winpython/
 這是一套專門設計用於 Windows 環境的可攜 Python 程式開發環境, 基本設計理念與 portableKMOL 類似, 解開後容量為 540 MB.
 
 基本特點:
+.. @+node:amd_yen.20130330144838.1766: *3* C2 第五週
+協同報告架構 - 請參考 C2G1
+
+是否可以將此架構與 Pyforum 網際程式結合?
+.. @+node:amd_yen.20130330144838.1767: *3* C2 第六週
+期中專案
+
+利用 Python Tutor 與其他線上 Python3 教學套件, 整理 Python3 教學內容, 主要學習項目為:
+
+::
+
+    協同報告模式採: https://github.com/chiamingyen/mdeCourse
+
+    網際框架參考: https://github.com/chiamingyen/leo_pyforum
+
+    互動程式參考: https://github.com/bnmnetp/runestone
+
+    互動程式參考: http://docs.runestoneinteractive.org/build/html/index.html
+
+字串列印, 資料輸入, 整數與浮點數轉字串, 數值基本運算, 資料類別, Python 關鍵字: (and, as, assert, break, class, continue, def, del, elif, else, except, exec, finally, for, from, global, if, import, in, is, lambda, nonlocal, not, or, pass, raise, range, return, try, while, with, yield, True, False, None), 程式廻圈, 程式判斷式, math 與 random 模組, 函式定義與呼叫, 函式傳值與不傳值, 數列與元組, 檔案輸出入. 
+
+字串列印:
+
+.. code-block:: python
+
+    print("字串內容")
+    print("數值為:"+str(10.5))
+    print("數值為:",10.5)
+    print("數值為:"+str(10+float("0.5")))
+
+資料輸入:
+
+.. code-block:: python
+
+    輸入值 = input("請輸入數值:")
+    print("輸入值為:"+輸入值)
+    print("輸入值加上1等於:"+str(1+float(輸入值)))
+
+整數與浮點數轉字串:
+
+.. code-block:: python
+
+    整數值 = 1
+    浮點數值 = 0.1
+    print("將"+str(整數值)+"加上"+str(浮點數值)+"等於"+str(整數值+浮點數值))
+
+數值基本運算:
+
+.. code-block:: python
+    import math
+    print("圓週率為:"+str(math.pi))
+
+資料類別:
+
+.. code-block:: python
+
+    print(type(0.1))
+    print(type(10))
+    print(type("字串"))
+
+Python 關鍵字用法彙整:
+
+.. code-block:: python
+
+    def 函式(輸入):
+        輸出 = 0
+        for 索引 in range(輸入+1):
+            輸出  = 輸出 + 索引
+        return 輸出
+    
+    累加至 = 10
+    if type(累加至).__name__ != "int":
+        print(累加至, "不是整數, 無法累加!")
+    else:
+        變數 = 函式(累加至)
+        print(變數)
+    
+    累加至 = 10.1
+    if type(累加至).__name__ != "int":
+        print(累加至, "不是整數, 無法累加!")
+    else:
+        變數 = 函式(累加至)
+        print(變數)
+
+math 與 random 模組用法:
+
+函式定義與呼叫:
+
+數列與元組:
+
+檔案輸出入:
+
+期末專案
+
+項目一: 工程單位轉換與網際程式開發
+
+::
+
+單位轉換參考: https://bitbucket.org/kiv/unum/src
+
+項目二: 2D 基本繪圖與 STL 零件檔案轉換
+
+1. 使用者上傳 2D 繪圖資料檔案 (例如: Sin(t), Cos(t) 或其他函式數值資料檔), 網際程式繪圖後轉為 png 格式存檔.
+
+學習重點在於 Python 的平面繪圖, 網際檔案上傳與資料處理
+
+Pybean 與 SQLite 資料庫的使用
+
+2. 使用者上傳 ASCII STL 格式 3D 零件檔案, 網際程式轉為 Binary STL 格式 3D 零件檔案, 並且分別於瀏覽器展示零件檔案.
+
+STL ASCII 與 binary 格式的資料處理
+
+Python 程式應用項目:
+
+類別與物件導向, 資料庫, 網際框架與 template engine, 字典, 2D 繪圖, 3D 繪圖, 工程資料轉檔.
 .. @-all
 .. @-leo
