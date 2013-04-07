@@ -302,74 +302,76 @@ Binaries = V:/IDE/Python33/Lib/site-packages/PyQt4
 @url Leo scripting 說明
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-http://webpages.charter.net/edreamleo/scripting.html
-
-c, g and p
-
-All Leo scripts run with the execute-script command (Ctrl-B) have access to the following three predefined objects:
-
-c is the commander of the outline containing the script.
-g is Leo's leo.core.leoGlobals module.
-p is the presently selected position, the same as c.p.
-
-The predefined c, g and p variables give full and easy access to all the data in your outlines, as well as hundreds, if not thousands, of useful Python functions in Leo's core. These variables define an easy-to-use DOM (Document Object Model) through which you can get o set any data in your outlines. The hello world example is:
-
-for p in c.all_positions():
-    indent = '.' * p.level()
-    print('%s%s' % (indent,p.h))
-    
-以上程式會以階層式 (以 . 點數區分)列出大綱標題
-    
-Here, c.all_positions() delivers a list of positions, and p.level() and p.h deliver the indentation level and head string of position p.
-
-g
-
-The predefined object g is the leo.core.leoGlobals module. This module contains several dozen utility functions and classes.
-
-g.app
-
-g.app is the application object representing the entire Leo application. The instance variables (ivars) of g.app represent Leo's global variables.
-
-commander
-
-Commanders represent all aspects of a single Leo window. For any commander c, c.p is the presently selected position (see below), and c.rootPosition() is the root (first) position in the outline. Given c, Leo scripts can gain access to all data present while Leo is running, including all of Leo's classes, functions and data.
-
-position
-
-The predefined object p is the position of the presently selected node. Positions represent locations in Leo outlines. For any position p, p.v is the vnode at that position.
-
-vnode
-
-A vnode represents a single outline node. Because of clones, a vnode may appear in several places on the screen. Vnodes hold most of the data in Leo outlines. For any vnode v, v.h is the node's headline, and v.b is the node's body text. As a convenience, for any position p, p.h and p.b are synonyms for p.v.h and p.v.b.
-
-g.es writes to the log pane
-
-The g.es method prints its arguments to the Log tab of the log pane:
-
-g.es("Hello world")
-
-g.es converts non-string arguments using repr:
-
-g.es(c)
-
-g.es prints multiple arguments separated by commas:
-
-g.es("Hello","world")
-
-To create a tab named "Test"or make it visible if it already exists:
-
-c.frame.log.selectTab('Test')
-
-When first created, a tab contains a text widget. To write to this widget, add the tabName argument to g.es:
-
-將訊息寫進上面在 log 區域所建立的 Test tab
-
+http://leoeditor.com/scripting.html
+
+註:配合將 url 位址改為新的 leoeditor.com
+
+c, g and p
+
+All Leo scripts run with the execute-script command (Ctrl-B) have access to the following three predefined objects:
+
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+
+The predefined c, g and p variables give full and easy access to all the data in your outlines, as well as hundreds, if not thousands, of useful Python functions in Leo's core. These variables define an easy-to-use DOM (Document Object Model) through which you can get o set any data in your outlines. The hello world example is:
+
+for p in c.all_positions():
+    indent = '.' * p.level()
+    print('%s%s' % (indent,p.h))
+    
+以上程式會以階層式 (以 . 點數區分)列出大綱標題
+    
+Here, c.all_positions() delivers a list of positions, and p.level() and p.h deliver the indentation level and head string of position p.
+
+g
+
+The predefined object g is the leo.core.leoGlobals module. This module contains several dozen utility functions and classes.
+
+g.app
+
+g.app is the application object representing the entire Leo application. The instance variables (ivars) of g.app represent Leo's global variables.
+
+commander
+
+Commanders represent all aspects of a single Leo window. For any commander c, c.p is the presently selected position (see below), and c.rootPosition() is the root (first) position in the outline. Given c, Leo scripts can gain access to all data present while Leo is running, including all of Leo's classes, functions and data.
+
+position
+
+The predefined object p is the position of the presently selected node. Positions represent locations in Leo outlines. For any position p, p.v is the vnode at that position.
+
+vnode
+
+A vnode represents a single outline node. Because of clones, a vnode may appear in several places on the screen. Vnodes hold most of the data in Leo outlines. For any vnode v, v.h is the node's headline, and v.b is the node's body text. As a convenience, for any position p, p.h and p.b are synonyms for p.v.h and p.v.b.
+
+g.es writes to the log pane
+
+The g.es method prints its arguments to the Log tab of the log pane:
+
+g.es("Hello world")
+
+g.es converts non-string arguments using repr:
+
+g.es(c)
+
+g.es prints multiple arguments separated by commas:
+
+g.es("Hello","world")
+
+To create a tab named "Test"or make it visible if it already exists:
+
+c.frame.log.selectTab('Test')
+
+When first created, a tab contains a text widget. To write to this widget, add the tabName argument to g.es:
+
+將訊息寫進上面在 log 區域所建立的 Test tab
+
 g.es('Test',color='blue',tabName='Test')
 
 @url Leo 寫檔案指令比較
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-http://webpages.charter.net/edreamleo/directives.html
+http://leoeditor.com/directives.html
 
 @url 建立中間檔案備用
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

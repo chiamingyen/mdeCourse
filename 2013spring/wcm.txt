@@ -378,5 +378,161 @@ Wordpress plugin:
     add_filter("the_title","basic_title_replace");
 
 .. @+node:amd_yen.20130330144838.2031: *3* WCM 第七週
+Wordpress plugin 編寫導引: http://pelfusion.com/20-tutorials-to-develop-wordpress-plugin/
+
+將 brython console 環境寫為 Wordpress 的 plugin:
+
+.. code-block:: php
+
+    <?php
+    /*/
+    Plugin Name: Basic
+    Plugin URI: cmsimple.cycu.org
+    Description: Demonstrates how a WP plugin works
+    Version: 0.001
+    Author: CMSimple
+    Author URI: cmsimple.cycu.org
+    /*/
+    $python_console = <<<EOF
+    <p>以 Brython 編寫的線上 Python3 執行環境 (僅支援少數展示用功能):</p>
+    <p><script src="jscript/brython/brython.js"></script>
+    <script>
+    window.onload = function(){
+        brython(1);
+    }
+    </script>
+    <script type="text/python">
+    import sys
+    import time
+    import dis
+    
+    if sys.has_local_storage:
+        import local_storage
+    else:
+        storage = False
+    
+    def reset_src():
+        if local_storage.storage:
+            doc['src'].value = local_storage.storage["py_src"]
+    
+    def to_str(xx):
+        return str(xx)
+    
+    doc['version'].text = '.'.join(map(to_str,sys.version_info))
+    
+    class cons_out:
+    
+        def __init__(self,target):
+            self.target = doc[target]
+        def write(self,data):
+            self.target.value += str(data)
+    
+    sys.stdout = cons_out("console")
+    sys.stderr = cons_out("console")
+    
+    output = ''
+    
+    def show_console():
+        doc["console"].value = output
+        doc["console"].cols = 60
+    
+    def clear_text():
+        log(" event clear")
+        doc['console'].value=''
+        doc['src'].value=''
+    
+    def run():
+        global output
+        doc["console"].value=''
+        doc["console"].cols = 60
+        src = doc["src"].value
+        if local_storage.storage:
+            local_storage.storage["py_src"]=src
+        t0 = time.time()
+        exec(src)
+        output = doc["console"].value
+        print('<done in %s ms>' %(time.time()-t0))
+    
+    def show_js():
+        src = doc["src"].value
+        doc["console"].cols = 90
+        doc["console"].value = dis.dis(src)
+    </script>
+    <table width=80%>
+    <tr><td style="text-align:center"><b>Python</b>
+    </td>
+    <td>&nbsp;</td>
+    <th><button onClick="show_console()">Console</button></th>
+    <th><button onClick="show_js()">Javascript</button></th>
+    </tr>
+    <tr><td colspan><textarea id="src" cols="60" rows="20">def 執行函式(次數, 字串):
+        for 索引 in range(次數):
+            print(字串)
+    
+    執行函式(5, "Brython 可以執行")</textarea></td><td><button onClick="run()">run</button></td>
+    <td><button onClick="clear_text()">clear</button></td>
+    <td colspan=2><textarea id="console" cols=70 rows=20></textarea></td>
+    </tr>
+    <tr><td colspan=2>
+    <p>Brython version <span id="version"></span>
+    </table>
+    </p>
+    EOF;
+    
+    $view_part = <<<EOF
+    <p>Three.js 的 3D 零件展示, 目前僅支援 ASCII STL 檔案格式.</p>
+    <p>        <style type="text/css">
+            body{
+                background-color:AntiqueWhite;
+            }
+            #webgl {
+                background-color:white;
+                border:solid 1px black;
+                width:640px;
+                height:480px;
+            }
+            div.centered{
+                display:block;
+    
+                width:350px;z-index: 21;
+                background-color: MintCream;
+                border: 0px solid black;
+            }
+        </style>
+        <script src="jscript/partview/Three.js"></script>
+        <script src="jscript/partview/RequestAnimationFrame.js"></script>
+        <script src="jscript/partview/objstl.js"></script>
+        </head>
+        <body>
+        <script>
+        window.onload = function ()
+        {
+            load();example("downloads/spikeball.stl");    }
+        </script>
+        <div id="centered" class="centered">
+        </div>
+        <div id="webgl" oncontextmenu="return false;">
+        </div></p>
+    EOF;
+    
+    function basic_title_replace ($text){
+        $text = str_replace("Old","換成新的",$text);
+        return $text;
+    }
+    
+    function basic_content_replace ($text){
+        global $python_console, $view_part;
+        $text = str_replace("Old","換成新的內容",$text);
+        $text .= $python_console;
+        //$text .= $view_part;
+        return $text;
+    }
+    
+    add_filter("the_content","basic_content_replace");
+    add_filter("the_title","basic_title_replace");
+
+
+另外一個 Python3 的內容管理系統將介紹 django
+.. @+node:amd_yen.20130406103207.2284: *4* django 程式開發
 .. @-all
 .. @-leo

@@ -1414,6 +1414,64 @@ math 與 random 模組用法:
 
 單位轉換參考: https://bitbucket.org/kiv/unum/src
 
+Python 在動態機構模擬上的應用: double pendulum
+
+https://github.com/gilbertgede/pydy_examples
+
+http://www.pydy.org/double_pendulum
+
+自行車動態模擬: 
+
+http://docs.sympy.org/dev/modules/physics/mechanics/examples.html#the-bicycle
+
+https://github.com/hazelnusse/bicycle.model
+
+.. code-block:: python
+
+    from sympy import symbols  
+    from sympy.physics.mechanics import *
+     
+    q1, q2 = dynamicsymbols('q1 q2')
+    q1d, q2d = dynamicsymbols('q1 q2', 1)
+    u1, u2 = dynamicsymbols('u1 u2')
+    u1d, u2d = dynamicsymbols('u1 u2', 1)
+    l, m, g = symbols('l m g')
+     
+    N = ReferenceFrame('N')
+    A = N.orientnew('A', 'Axis', [q1, N.z])
+    B = N.orientnew('B', 'Axis', [q2, N.z])
+     
+    A.set_ang_vel(N, u1 * N.z)
+    B.set_ang_vel(N, u2 * N.z)
+     
+    O = Point('O')
+    P = O.locatenew('P', l * A.x)
+    R = P.locatenew('R', l * B.x)
+     
+    O.set_vel(N, 0)
+    P.v2pt_theory(O, N, A)
+    R.v2pt_theory(P, N, B)
+     
+    ParP = Particle('ParP', P, m)
+    ParR = Particle('ParR', R, m)
+     
+    kd = [q1d - u1, q2d - u2]
+    FL = [(P, m * g * N.x), (R, m * g * N.x)]
+    BL = [ParP, ParR]
+     
+    KM = KanesMethod(N, q_ind=[q1, q2], u_ind=[u1, u2], kd_eqs=kd)
+     
+    (fr, frstar) = KM.kanes_equations(FL, BL)
+    kdd = KM.kindiffdict()
+    mm = KM.mass_matrix_full
+    fo = KM.forcing_full
+    qudots = mm.inv() * fo
+    qudots = qudots.subs(kdd)
+    qudots.simplify()
+    mechanics_printing()
+    mprint(qudots)
+
+
 項目二: 2D 基本繪圖與 STL 零件檔案轉換
 
 1. 使用者上傳 2D 繪圖資料檔案 (例如: Sin(t), Cos(t) 或其他函式數值資料檔), 網際程式繪圖後轉為 png 格式存檔.
@@ -1429,5 +1487,369 @@ STL ASCII 與 binary 格式的資料處理
 Python 程式應用項目:
 
 類別與物件導向, 資料庫, 網際框架與 template engine, 字典, 2D 繪圖, 3D 繪圖, 工程資料轉檔.
+.. @+node:amd_yen.20130406103207.2443: *3* C2 第七週
+程式題目:
+
+1. 寫一個程式, 可以接受使用者三個數值的輸入, 然後將三個輸入值的平均數印出.
+
+2. 寫一個程式, 可以接受使用者輸入英吋, 程式會將所輸入的英吋轉為公分後印出數值.
+
+3. 寫一個網際程式, 在瀏覽器中有三個資料輸入欄位, 當使用者在三個欄位填入數值送出後, 可以直接在瀏覽器中印出所輸入三個數值的平均數.
+
+4. 寫一個網際程式, 在瀏覽器中有三個資料輸入欄位, 其中兩個欄位可以讓使用者輸入學號與姓名, 而第三個欄位則可以填入三行以上的文字資料, 使用者填完後, 按下送出鍵後, 程式會列出輸入者的學號與姓名, 並且提供一個按鍵連結, 使用者點後該連結後, 可以下載先前所輸入的文字資料檔案.
+
+5. 寫一個網際程式, 可以在瀏覽器中接受使用者上傳一個文字檔案, 其中文字檔案的格式為:
+
+學號    成績
+101      80
+102      82
+103      84
+104      85
+
+當使用者完成檔案上傳後, 該網際程式會解讀所上傳的檔案, 並且印出四位同學該次考試的平均成績.
+
+6. 假如要將上述程式中有關的資料存入資料庫, 應該如何進行.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    from pybean import Store, SQLiteWriter
+    # 將資料存入記憶體中, frozen=False 表示可以動態新增表格與欄位
+    #library = Store(SQLiteWriter(":memory:", frozen=False))
+    # 將資料存入 sqlite 資料庫檔案中, frozen=False 表示可以動態新增表格與欄位
+    # 設定 frozen=False 表示可以 create tables and columns on the fly
+    library = Store(SQLiteWriter("database.sqlite", frozen=False))
+    # 動態建立 book 資料表
+    book = library.new("book")
+    # 印出與 book 資料表對應的唯一序號
+    print (book.uuid.hex)
+    # 動態建立 title 欄位
+    book.title = "如何使用 Pybean 儲存資料"
+    # 動態建立 author 欄位
+    book.author = "Pybean 作者群"
+    # 儲存資料表內容
+    library.save(book)
+    # 利用 find 方法搜尋資料表中的資料
+    # 找出 book 資料表中 author 為 "Pybean 作者群" 的資料
+    for book in library.find("book","author like ?",["Pybean 作者群"]):
+            # 列印資料表中的 title 欄位
+            print (book.title)
+    # 搜尋資料的筆數
+    資料筆數 = library.count("book")
+    搜尋資料筆數 = library.count("book", "author like ?", ["Pybean 作者群"])
+    # 1 代表 true:沒有特別加入其他篩選條件, 排序內定為 asc, 反向排為 desc
+    搜尋資料筆數 = library.count("book", "1 order by author")
+    # 以 find_one 找出所要的一筆資料
+    一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
+    # 針對所搜尋出的一筆資料進行修改
+    一筆資料.author = "修改後的資料"
+    # 將修改後的一筆資料存入資料表中
+    library.save(一筆資料)
+    # 假如要刪除所找出的一筆資料, 使用 delete
+    #libry.delete(一筆資料)
+    print(資料筆數)
+    print(搜尋資料筆數)
+    print(一筆資料.title,"_",一筆資料.author)
+     
+    # 列出目前的資料庫內容
+    for book in library.find("book","1"):
+            # 列印資料表中的 title 欄位
+            print (book.title, book.author)
+     
+    # 刪除資料表中 book bean 的對應資料
+    #library.delete(book)
+    
+採用 uuid 的 pybean 版本:
+
+使用此一 uuid 版本的關鍵在於, 必須 from uuid import UUID, 並且利用 UUID(uuid).bytes 將 uuid 字串內容轉為 SQLite3 的 blob 資料格式, 才能正確對應到唯一的資料列.
+
+一筆資料 = library.find_one(“student”,”uuid=?”,[UUID(uuid).bytes])
+
+基本的 pybean 使用範例
+
+.. code-block:: python
+
+    #coding: utf-8
+    from pybean import Store, SQLiteWriter
+    # "frozen=True" means the SQLiteWriter won't create tables and columns on the fly
+    # 使用 frozen = False 表示可以動態建立資料表
+    library = Store(SQLiteWriter("database.sqlite", frozen=False))
+    # 建立  book 資料 bean, 也就是建立一個名稱為 book 的資料表
+    book = library.new("book")
+    # 動態建立 book 資料表中的 title 欄位, 且將字串值放入此一 book 資料表中的 title 欄位
+    book.title = "第一本書的標題"
+    # 再動態建立 author 欄位, 且將字串值放入此一 author 欄位
+    book.author = "第一本書的作者"
+    # 儲存資料表 book 中的資料
+    library.save(book)
+    # 利用資料庫檔案中的 find 方法搜尋 book 資料表, 找出其中 author 欄位值有 "Charles Xavier" 字串的資料
+    for book in library.find("book","author like ?",["第一本書的作者"]):
+            # 若找到對應資料, 印出 book 資料表中 title 欄位的資料
+            print (book.title)
+    # 找出資料表中的所有資料
+    # find all books, find method returns an iterator
+    print(library.find("book"))
+    print(library.find("book","1"))
+    for book in library.find("book","1"):
+        print (book.title)
+    # 再建立 bean 與輸入資料值
+    # 建立  book 資料 bean, 也就是建立一個名稱為 book 的資料表
+    book = library.new("book")
+    # 動態建立 book 資料表中的 title 欄位, 且將字串值放入此一 book 資料表中的 title 欄位
+    book.title = "這是書的標題"
+    # 再動態建立 author 欄位, 且將字串值放入此一 author 欄位
+    book.author = "書的作者"
+    # 儲存資料表 book 中的資料
+    library.save(book)
+    number_of_books = library.count("book")
+    number_of_書_books = library.count("book", "author like ?", ["書的作者"])
+    print(number_of_books,number_of_書_books)
+    # 刪除此一 book 資料表內容 (請注意 book 為對應 book = library.new("book") 之後的內容資料
+    library.delete(book)
+    number_of_books = library.count("book")
+    number_of_書_books = library.count("book", "author like ?", ["書的作者"])
+    print(number_of_books,number_of_書_books)
+    for book in library.find("book"):
+        print (book.title, book.author)
+    # 這是 pybean 0.2.1 版的新用法
+    #library.commit()
+
+.. code-block:: python
+
+    #coding: utf-8
+    # 目前版本僅支援 sqlite3
+    import sqlite3
+    import uuid
+    from pkg_resources import parse_version
+     
+    __version__ = "0.1.2"
+    __author__ = "Mickael Desfrenes"
+    __email__ = "desfrenes@gmail.com"
+     
+     
+    class SQLiteWriter(object):
+     
+        """
+        In frozen mode (the default), the writer will not alter db schema.
+        Just add frozen=False to enable column creation (or just add False
+        as second parameter):
+     
+        query_writer = SQLiteWriter(":memory:", False)
+        """
+        def __init__(self, db_path=":memory:", frozen=True):
+            # 為了讓 sqlite3 可以跨不同的執行緒運作, 設定 check_same_thread = False
+            # Yen add check_same_thread = False
+            self.db = sqlite3.connect(db_path, check_same_thread = False)
+            self.db.row_factory = sqlite3.Row
+            self.frozen = frozen
+            self.db.cursor().execute("PRAGMA foreign_keys=ON")
+        def __del__(self):
+            self.db.close()
+     
+        def replace(self, bean):
+            keys = []
+            values = []
+            self.__create_table(bean.__class__.__name__)
+            columns = self.__get_columns(bean.__class__.__name__)
+            for key in bean.__dict__:
+                keys.append(key)
+                if key not in columns:
+                    self.__create_column(bean.__class__.__name__, key,
+                            type(bean.__dict__[key]))
+                if isinstance(bean.__dict__[key], uuid.UUID):
+                    values.append(sqlite3.Binary(bean.__dict__[key].bytes))
+                else:
+                    values.append(bean.__dict__[key])
+            cursor = self.db.cursor()
+            sql  = "replace into " + bean.__class__.__name__ + "(" 
+            sql += ",".join(keys) + ") values (" 
+            sql += ",".join(["?" for i in keys])  +  ")"
+            cursor.execute(sql, values)
+            self.db.commit()
+     
+        def __create_column(self, table, column, sqltype):
+            if self.frozen:
+                return
+            if sqltype in [float, int, bool]:
+                sqltype = "NUMERIC"
+            else:
+                sqltype = "TEXT"
+            sql = "alter table " + table + " add " + column + " " + sqltype    
+            self.db.cursor().execute(sql)
+            self.db.commit()
+     
+        def __get_columns(self, table):
+            columns = []
+            if self.frozen:
+                return columns
+            cursor = self.db.cursor()
+            cursor.execute("PRAGMA table_info(" + table  + ")")
+            for row in cursor:
+                columns.append(row["name"])
+            return columns
+     
+        def __create_table(self, table):
+            if self.frozen:
+                return
+            sql = "create table if not exists " + table + "(uuid primary key)"
+            self.db.cursor().execute(sql)
+            self.db.commit()
+     
+        def get_rows(self, table_name, sql = "1", replace = None):
+            if replace is None : replace = []
+            self.__create_table(table_name)
+            sql = "SELECT * FROM " + table_name + " WHERE " + sql
+            cursor = self.db.cursor()
+            try:
+                cursor.execute(sql, replace)
+                for row in cursor:
+                    yield row
+            except sqlite3.OperationalError:
+                return
+     
+        def get_count(self, table_name, sql="1", replace = None):
+            if replace is None : replace = []
+            self.__create_table(table_name)
+            cursor = self.db.cursor()
+            sql = "SELECT count(*) AS cnt FROM " + table_name + " WHERE " + sql
+            try:
+                cursor.execute(sql, replace)
+            except sqlite3.OperationalError:
+                return 0
+            for row in cursor:
+                return row["cnt"]
+     
+        def delete(self, bean):
+            self.__create_table(bean.__class__.__name__)
+            sql = "delete from " + bean.__class__.__name__ + " where uuid=?"
+            self.db.cursor().execute(sql,[sqlite3.Binary(bean.uuid.bytes)])
+            self.db.commit()
+     
+        def link(self, bean_a, bean_b):
+            self.replace(bean_a)
+            self.replace(bean_b)
+            table_a = bean_a.__class__.__name__
+            table_b = bean_b.__class__.__name__
+            assoc_table = self.__create_assoc_table(table_a, table_b)
+            sql = "replace into " + assoc_table + "(" + table_a + "_uuid," + table_b
+            sql += "_uuid) values(?,?)"
+            self.db.cursor().execute(sql, 
+                    [buffer(bean_a.uuid.bytes), buffer(bean_b.uuid.bytes)])
+            self.db.commit()
+     
+        def unlink(self, bean_a, bean_b):
+            table_a = bean_a.__class__.__name__
+            table_b = bean_b.__class__.__name__
+            assoc_table = self.__create_assoc_table(table_a, table_b)
+            sql = "delete from " + assoc_table + " where " + table_a
+            sql += "_uuid=? and " + table_b + "_uuid=?"
+            self.db.cursor().execute(sql,
+                    [buffer(bean_a.uuid.bytes), buffer(bean_b.uuid.bytes)]) 
+            self.db.commit()
+     
+        def get_linked_rows(self, bean, table_name):
+            bean_table = bean.__class__.__name__
+            assoc_table = self.__create_assoc_table(bean_table, table_name)
+            cursor = self.db.cursor()
+            sql = "select t.* from " + table_name + " t inner join " + assoc_table 
+            sql += " a on a." + table_name + "_uuid = t.uuid where a." 
+            sql += bean_table + "_uuid=?"
+            cursor.execute(sql,[buffer(bean.uuid.bytes)])
+            for row in cursor:
+                yield row
+     
+        def __create_assoc_table(self, table_a, table_b):
+            assoc_table = "_".join(sorted([table_a, table_b]))
+            if not self.frozen:
+                sql = "create table if not exists " + assoc_table + "("
+                sql+= table_a + "_uuid NOT NULL REFERENCES " + table_a + "(uuid) ON DELETE cascade,"
+                sql+= table_b + "_uuid NOT NULL REFERENCES " + table_b + "(uuid) ON DELETE cascade,"
+                sql+= " PRIMARY KEY (" + table_a + "_uuid," + table_b + "_uuid));"
+                self.db.cursor().execute(sql)
+                # no real support for foreign keys until sqlite3 v3.6.19
+                # so here's the hack
+                if cmp(parse_version(sqlite3.sqlite_version),parse_version("3.6.19")) < 0:
+                    sql = "create trigger if not exists fk_" + table_a + "_" + assoc_table
+                    sql+= " before delete on " + table_a
+                    sql+= " for each row begin delete from " + assoc_table + " where " + table_a + "_uuid = OLD.uuid;end;"
+                    self.db.cursor().execute(sql)
+                    sql = "create trigger if not exists fk_" + table_b + "_" + assoc_table
+                    sql+= " before delete on " + table_b
+                    sql+= " for each row begin delete from " + assoc_table + " where " + table_b + "_uuid = OLD.uuid;end;"
+                    self.db.cursor().execute(sql)
+            self.db.commit()        
+            return assoc_table
+     
+        def delete_all(self, table_name, sql = "1", replace = None):
+            if replace is None : replace = []
+            self.__create_table(table_name)
+            cursor = self.db.cursor()
+            sql = "DELETE FROM " + table_name + " WHERE " + sql
+            try:
+                cursor.execute(sql, replace)
+                return True
+            except sqlite3.OperationalError:
+                return False
+     
+    class Store(object):
+        """
+        A SQL writer should be passed to the constructor:
+     
+        beans_save = Store(SQLiteWriter(":memory"), frozen=False)
+        """
+        def __init__(self, SQLWriter):
+            self.writer = SQLWriter 
+     
+        def new(self, table_name):
+            new_object = type(table_name,(object,),{})()
+            new_object.uuid = uuid.uuid4()
+            return new_object
+     
+        def save(self, bean):
+            self.writer.replace(bean)
+     
+        def load(self, table_name, uuid):
+            for row in self.writer.get_rows(table_name, "uuid=?", [buffer(uuid.bytes)]):
+                return self.row_to_object(table_name, row)
+     
+        def count(self, table_name, sql = "1", replace=None):
+            return self.writer.get_count(table_name, sql, replace if replace is not None else [])
+     
+        def find(self, table_name, sql = "1", replace=None):
+            for row in self.writer.get_rows(table_name, sql, replace if replace is not None else []):
+                yield self.row_to_object(table_name, row)
+     
+        def find_one(self, table_name, sql = "1", replace=None):
+            try:
+                return next(self.find(table_name, sql, replace))
+                # 原先程式只能用於 Python2, 配合 Python3, 修改為上一行
+                #return self.find(table_name, sql, replace).next()
+            except StopIteration:
+                return None
+     
+        def delete(self, bean):
+            self.writer.delete(bean)
+     
+        def link(self, bean_a, bean_b):
+            self.writer.link(bean_a, bean_b)
+     
+        def unlink(self, bean_a, bean_b):
+            self.writer.unlink(bean_a, bean_b)
+     
+        def get_linked(self, bean, table_name):
+            for row in self.writer.get_linked_rows(bean, table_name):
+                yield self.row_to_object(table_name, row)
+     
+        def delete_all(self, table_name, sql = "1", replace=None):
+            return self.writer.delete_all(table_name, sql, replace if replace is not None else [])
+     
+        def row_to_object(self, table_name, row):
+            new_object = type(table_name,(object,),{})()
+            for key in row.keys():
+                if key == "uuid":
+                    new_object.uuid = uuid.UUID(bytes=row[key])
+                else:
+                    new_object.__dict__[key] = row[key]
+            return new_object
 .. @-all
 .. @-leo

@@ -2678,7 +2678,7 @@ This  helps  reducing  and/or  eliminating  the  redundancies  of  data  and man
 
 有助於降低, 甚或消除重複資料與製造問題.
 
-Today’s  dynamic  market  demands  more  outsourcing  from vendors.
+Today's  dynamic  market  demands  more  outsourcing  from vendors.
 
 今日的動態市場需要更多來自供應商的外包業務.
 
@@ -2859,5 +2859,23 @@ Simple Groupware 模組欄位的修改:
 建立 exam.edx.tw (即 cae.mde.tw, MySQL 使用 IBM server) 作為線上考試用主機, MySQL 資料庫管理採用 http://www.adminer.org/
 .. @+node:amd_yen.20130330144838.2033: *3* CD 第七週
 開始執行齒輪減速機設計專案.
+
+正齒輪參數繪圖:
+
+http://www.bvmengineering.ac.in/docs/published%20papers/mechprod/mechprod/601019.pdf
+
+http://dspace.uta.edu/bitstream/handle/10106/5401/Patel_uta_2502M_10935.pdf
+
+下載由 PTC 所提供的 Creo 免費學生軟體:
+
+http://www.ptc.com/appserver/wcms/forms/index.jsp?&im_dbkey=86840
+
+零件繪圖參考資料:
+
+http://ebookbrowse.com/creo-parametric-lesson-18-pdf-d346381732
+
+http://ebookbrowse.com/creo-parametric-lesson-14-pdf-d359801379
+
+http://www.eng.cam.ac.uk/DesignOffice/cad/3rdyear/creo1styear.pdf
 .. @-all
 .. @-leo

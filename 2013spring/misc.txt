@@ -260,7 +260,9 @@ Python33 目錄下的 qt.conf 設定必須配合 Python 所在位置修改, i.e.
 Prefix = V:/IDE/Python33/Lib/site-packages/PyQt4
 Binaries = V:/IDE/Python33/Lib/site-packages/PyQt4
 .. @+node:amd_yen.20130308221230.2489: *5* @url Leo scripting 說明
-http://webpages.charter.net/edreamleo/scripting.html
+http://leoeditor.com/scripting.html
+
+註:配合將 url 位址改為新的 leoeditor.com
 
 c, g and p
 
@@ -325,7 +327,7 @@ When first created, a tab contains a text widget. To write to this widget, add t
 g.es('Test',color='blue',tabName='Test')
 
 .. @+node:amd_yen.20130308221230.2490: *5* @url Leo 寫檔案指令比較
-http://webpages.charter.net/edreamleo/directives.html
+http://leoeditor.com/directives.html
 .. @+node:amd_yen.20130317160119.1722: *5* @url 建立中間檔案備用
 https://groups.google.com/forum/?fromgroups=#!msg/leo-editor/_dX4UkRJDOc/iIzSaJYT1_oJ
 
