@@ -1550,6 +1550,8 @@ C2 第七週
 .. code-block:: python
 
     #encoding: utf-8
+    # 請注意以下的 pybean 語法為 0.1.2 版本, 使用 uuid 來辨識各筆資料, pybean 0.2.1 版已經改為整數 id, 不再使用 uuid, 用法上有些差異
+    # pybean 0.1.2 與 0.2.1 最大的差異為 uuid 改為 id, commit 不再放入各別資料存取流程中執行, 而是集中在 save 與 delete 時才進行 commit, 大大提升 pybean 的運行速度
     from pybean import Store, SQLiteWriter
     # 將資料存入記憶體中, frozen=False 表示可以動態新增表格與欄位
     #library = Store(SQLiteWriter(":memory:", frozen=False))
@@ -1648,7 +1650,7 @@ C2 第七週
     print(number_of_books,number_of_書_books)
     for book in library.find("book"):
         print (book.title, book.author)
-    # 這是 pybean 0.2.1 版的新用法
+    # 這是 pybean 0.2.1 版的新用法, 將各資料存取流程中所用的 commit, 集中到最後 save 與 delete 時才統一 commit, 此舉提升 pybean 0.2.1 版本的運行速度　
     #library.commit()
 
 .. code-block:: python
@@ -1888,4 +1890,1035 @@ C2 第七週
                 else:
                     new_object.__dict__[key] = row[key]
             return new_object
+
+redbean 與 pybean 的比較
+****************************
+
+redbean 為 PHP 的 ORM 介面程式庫, 而 pybean 則為 Python 的 ORM 模組, 目前只支援 SQLite.
+
+pybean 0.2.1 的用法
+
+# 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+from pybean import Store, SQLiteWriter
+# 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
+library = Store(SQLiteWriter("database.sqlite", frozen=False))
+# 動態建立 book 資料表
+book = library.new("book")
+# 動態建立 title 欄位
+book.title = "如何使用 Pybean 儲存資料"
+# 動態建立 author 欄位
+book.author = "Pybean 作者群"
+# 儲存資料表內容
+library.save(book)
+# 當資料庫內容有變更時, 必須要執行 commit() 才會有作用
+library.commit()
+
+# 資料查詢
+for book in library.find("book","author like ?",["Pybean 作者群"]):
+        # 列印資料表中的 title 欄位
+        print (book.title)
+        
+# 計算資料查詢筆數
+搜尋資料筆數 = library.count("book", "1 order by author")
+
+# 資料更新
+# 以 find_one 找出所要更新的一筆資料
+一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
+# 針對所搜尋出的一筆資料進行修改
+一筆資料.author = "修改後的資料"
+# 將修改後的一筆資料存入資料表中
+library.save(一筆資料)
+# 執行上述資料變更
+library.commit()
+
+# 資料刪除
+# 以 find_one 找出所要刪除的一筆資料
+一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
+# 針對所搜尋出的一筆資料進行刪除
+library.delete(一筆資料)
+# 執行上述資料刪除
+library.commit()
+
+readbean PHP 的用法
+
+// 導入 rb.php
+require_once('./plugins/common/rb.php');
+// 建立資料庫檔案與程式物件對應
+R::setup('sqlite:'.dirname(__FILE__).'/db/dbfile.db');
+
+// 將資料庫中的資料表與程式物件 $bean 對應
+//lewis is the type of the bean, 也就是資料庫檔案中的資料表名稱
+$bean = R::dispense('lewis');
+
+// 資料表中欄位資料設定
+// 在 gear_num 與 mould 欄位中輸入特定資料
+$bean->gear_num = "齒數";
+$bean->mould = "模數";
+
+//Store the bean, 資料儲存
+//等同 insert, 將資料表中的資料存入資料庫中, 且取回其所對應的 $id 值
+$id = R::store($bean);
+
+// 計算資料表 lewis 中的資料筆數
+$num =R::count('lewis');
+$output .= "資料庫中共有".$num."筆資料<br />";
+
+// 更改資料
+$title = "齒數";
+// 只找出符合搜尋條件的第一筆資料, 且設為 $one 物件
+$one = R::findone("lewis","gear_num=?",array($title));
+// 設定查詢物件的欄位對應值
+$one->gear_num = "小齒數";
+// 儲存上述修改
+R::store($one);
+
+// 取出資料表中的所有資料
+// 由 lewis 資料表中取出所有資料
+// 1 代表 true:沒有特別加入其他篩選條件, 排序內定為 asc, 反向排為 desc
+$all_data = R::find("lewis","1 order by id desc");
+
+foreach ($all_data as $data) {
+    $output .= $data->id.":".$data->gear_num."|".$data->mould."<br />";
+}
+
+// 關閉資料庫檔案連結
+// To disconnect use: R::close(); 
+R::close();
+
+// 建立一個 bean 物件 $shop, 與資料表 shop 對應
+$shop = R::dispense('shop');
+
+// 設定 $bean 物件的性質
+// And this is how you set properties:
+$shop->name = 'Antiques';
+
+// 儲存 $shop bean 物件
+// This is how you store the shop in the database:
+$id = R::store($shop);
+
+// 載入之前已經存檔的 shop 資料表
+// This is how you load your previously stored shop:
+$shop = R::load('shop',$id);
+
+// 刪除 $shop bean 物件
+// And this is how you delete the shop from the database:
+R::trash($shop);
+
+C2 第八週
+++++++++++++
+
+
+
+OpenCASCADE
+***********
+
+直接利用 occmodel 建立零件檔案, 並且轉為 stl 或 step 格式後直接以 Python 開啟.
+
+文件說明: http://tenko.github.io/occmodel/index.html
+
+Windows oce prebuilt: https://github.com/tpaviot/oce/downloads
+
+主要下載 oce 0.10: https://github.com/downloads/tpaviot/oce/OCE-0.10.0-Win-MSVC2010.zip
+
+.. code-bolck:: python
+
+    #coding: utf-8
+    # 使用 occmodel 模組, 間接擷取 Open CASCADE 函式庫
+    from occmodel import *
+    from occmodelviewer import *
+    from visual import scene, color, materials, faces, points
+    import os, struct
+    # 建立三個 circles, 然後 loft 成實體, 印出體積後
+    # 最後再轉成 loft.stp STEP 檔案
+    第一個圓 = Edge().createCircle(center=(0.,0.,0.),normal=(0.,0.,1.),radius = 1.2)
+    第二個圓 = Edge().createCircle(center=(0.,0.,5.),normal=(0.,0.,1.),radius = 1.5)
+    第三個圓 = Edge().createCircle(center=(0.,0.,10.),normal=(0.,0.,1.),radius = 1.0)
+    solid = Solid().loft((第一個圓,第二個圓,第三個圓), True)
+    print (solid.volume())
+    # 特別注意轉出 loft.stp 的用法
+    Tools.writeSTEP(bytes('loft.stp'.encode("utf-8")),solid)
+    # 轉成 ASCII STL
+    Tools.writeSTL(bytes('loft.stl'.encode("utf-8")),solid)
+    
+    file ="loft.stl"
+     
+    scene.width = 400
+    scene.height = 400
+    scene.background = color.white # black
+    # 視窗標題取自 cvisual.pyd, 不可使用中文
+    scene.title = "STLViewer in VPython"
+     
+    print ("利用滑鼠右鍵旋轉")
+    print ("滑鼠左右鍵同時按下後移動, 可以縮放畫面")
+     
+    # Read STL file, only use vertex-line with xyz coordinates
+    list = []
+     
+    #load stl file detects if the file is a text file or binary file
+    def load_stl(filename):
+        #read start of file to determine if its a binay stl file or a ascii stl file
+        fp=open(filename,'rb')
+        header=fp.read(80)
+        filetype=header[0:5]
+        # 這裡必須要能夠分辨二位元字串與文字字串
+        #print (type(filetype))
+        #print (filetype)
+        fp.close()
+     
+        # for Python 3
+        if filetype==b'solid':
+        # for Python 2
+        #if filetype=='solid':
+            print ("讀取文字檔案格式:"+str(filename))
+            load_text_stl(filename)
+        else:
+            print ("讀取二位元檔案格式:"+str(filename,))
+            load_binary_stl(filename)
+     
+    #load binary stl file check wikipedia for the binary layout of the file
+    #we use the struct library to read in and convert binary data into a format we can use
+    def load_binary_stl(filename):
+        '''
+        二位元 STL 檔案格式如下:
+        檔案標頭共有 80 個字元(bytes), 內容通常省略, 但是內容不可使用 solid, 以免與文字檔案 STL 混淆
+        UINT8[80] – Header
+        UINT32 – Number of triangles (I:佔 4 bytes 的 unsigned integer)
+     
+        foreach triangle
+        REAL32[3] – Normal vector (f:每一座標分量為一佔 4 bytes 的 float, 共佔 12 bytes)
+        REAL32[3] – Vertex 1
+        REAL32[3] – Vertex 2
+        REAL32[3] – Vertex 3
+        UINT16 – Attribute byte count (H:兩個 bytes 的 unsigned short, 表示 attribute byte count)
+        end
+     
+        '''
+        global list
+     
+        fp=open(filename,'rb')
+        header=fp.read(80)
+     
+        triangle_number = struct.unpack('I',fp.read(4))[0]
+        count=0
+        while True:
+            try:
+                p=fp.read(12)
+                if len(p)==12:
+                    n=[struct.unpack('f',p[0:4])[0],struct.unpack('f',p[4:8])[0],struct.unpack('f',p[8:12])[0]]
+     
+                p=fp.read(12)
+                if len(p)==12:
+                    p1=[struct.unpack('f',p[0:4])[0],struct.unpack('f',p[4:8])[0],struct.unpack('f',p[8:12])[0]]
+                    list.append(p1)
+                p=fp.read(12)
+                if len(p)==12:
+                    p2=[struct.unpack('f',p[0:4])[0],struct.unpack('f',p[4:8])[0],struct.unpack('f',p[8:12])[0]]
+                    list.append(p2)
+                p=fp.read(12)
+                if len(p)==12:
+                    p3=[struct.unpack('f',p[0:4])[0],struct.unpack('f',p[4:8])[0],struct.unpack('f',p[8:12])[0]]
+                    list.append(p3)
+                # 使用 count 來計算三角形平面個數
+                # triangle_number 為 STL 檔案中的三角形個數
+                count += 1
+                # 在前面 12*4 個 bytes 的 normal 與三個點資料後, 為
+                # 一個 2 bytes 長的 unsigned short, 其值為零, 為 attribute
+                fp.read(2)
+                # 讀完所有三角平面後, 即跳出 while
+                if count > triangle_number:
+                    break
+            except EOFError:
+                break
+        fp.close()
+     
+     
+    def load_text_stl(filename):
+        global list
+        for dataline in open(filename,"r").readlines():
+            if not dataline.strip(): # skip blank lines
+                continue
+            field = dataline.split() # split with no argument makes the right place!
+            if field[0] == "vertex":
+                list.append([float(x) for x in field[1:4]])
+                #print (list)
+                #break
+                #for x in field[1:4]:
+                    #print(x)
+     
+    load_stl(os.path.abspath('')+'/'+file)
+     
+     
+    # Graphics
+    model = faces(pos=list, color=(0.8,0.8,0.8),
+                  material=materials.plastic) # creates triangles
+    # 請注意, 這裡並沒有使用 STL 檔案中的平面 normal, 而是利用 VPython make_normals() 產生
+    model.make_normals() # creates plane normals
+    model.smooth(0.93) # smooths the edges
+    # = AllepunkteSTL points (pos = list, size = 3, color = Color.Black) # generates points
+
+C2  第九週
++++++++++++++
+
+
+
+Python 3 程式教學的主題
+******************************
+
+
+
+Python 程式簡介
+^^^^^^^^^^^^^^^^^^^
+
+Python 是一種支援物件導向的高階解譯程式語言.
+
+Python 程式可以在任何文字編輯器中編輯, 存檔時則需要給 .py 副檔名
+
+Python 程式執行 - 直接在命令列中執行
+
+python.exe prog.py
+
+程式註解 - 單行註解, 使用 # 符號作為開頭, 多行註解則可使用三個單引號開頭, 三個單引號結束, 或者使用三個雙引號開頭, 三個雙引號結束, 介於引號中間則為多行註解.
+
+# 註解說明
+'''程式說明
+
+這裡也是程式的註解說明, 通常為多行的說明.
+
+'''
+
+Python 程式變數與資料型別
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+任何程式變數, 函式與類別名稱的命名都必須避開該程式語法的關鍵保留字, 否則程式解譯時無法分辨哪些為語法關鍵字, 哪些為使用者自定的變數.
+
+Python 3 keywords: 
+
+False, class, finally, is, return
+None, continue, for, lambda, try
+True, def, from, nonlocal, while
+and, del, global, not, with
+as, elif, if, or, yield
+assert, else, import, pass
+break, except, in, raise
+
+Python 資料型別
+
+Booleans are either True or False.
+Numbers can be integers (1 and 2), floats (1.1 and 1.2), fractions (1/2 and 2/3), or even complex numbers.
+Strings are sequences of Unicode characters, e.g. an HTML document.
+Bytes and byte arrays, e.g. a JPEG image file.
+Lists are ordered sequences of values.
+Tuples are ordered, immutable sequences of values.
+Sets are unordered bags of values.
+Dictionaries are unordered bags of key-value pairs. 
+
+print(type(5)) 可以傳回整數資料型別.
+
+Python 語言具有 int, float, string, byte 等資料型別, 以及 bytearray() 函式
+
+int 整數表示
+
+57 為一個十進位 (decimal) 整數.
+
+0b111001 為一個二進位 (binary) 整數, 化為十進位則為 57.
+
+0o71 為一個八進位 (octal) 整數, 化為十進位則為 57.
+
+0x39 唯一個十六進位 (hexadecimal) 整數, 化為十進位則為 57.
+
+不同進位數的轉換, 則採用 bin(), oct(), hex() 進行二進位, 八進位, 十六進位數的轉換.
+
+.. code-block:: python
+
+    print(type(5))
+    print(0b111001)
+    print(0o71)
+    print(0x39)
+    print(bin(57))
+    print(oct(57))
+    print(hex(57))
+    
+.. code-block:: python
+
+    #coding: utf8
+    # 設定一個二位元資料變數
+    二位元變數  =  b"hello world"
+    # 列出此變數
+    print(二位元變數)
+    for 索引 in 二位元變數:
+        print(索引, end="  ")
+        print()
+        
+    # 轉為二位元陣列
+    二位元陣列  =  bytearray(二位元變數)
+    二位元陣列.pop()
+    print()
+    print(二位元陣列, "\n")
+    for 索引 in b"dogs":
+        print(hex(索引), end=" ")
+        print()
+    資料  =  b"There are \x39\x20\x64\x6f\x67\x73"
+    print(資料.upper())
+    print(資料.replace(b"There are", b"We have"))
+
+Python 程式的變數有效範圍
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+區域與廣域
+
+Python 的敘述與表示式
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+Python 運算符號與數學函式
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+運算符號:
+
+算術: +, -, *, /, and % (模數)
+比較: ==, !=, <, >, <=, >=
+邏輯: and, or, not
+階次: **
+系統指令(需要導入 os 模組): os.system('ls -l')
+    
+常用數學函式(需要導入 math 模組)
+
+絕對值: a = abs(-7.5)
+三角函數(單位為徑度): x = asin(0.5)
+Ceil (round up): print(ceil(4.2))
+Cosine: a = cos(x) #x in rads
+Degrees: a = degrees(asin(0.5)) #a=30
+Exp: y = exp(x) #y=e^x
+Floor (round down): a = floor(a+0.5)
+Log: x = log(y); #Natural Log
+       x = log(y,5); #Base-5 log
+Log Base 10: x = log10(y)
+Max: mx = max(1, 7, 3, 4) #7
+       mx = max(arr) #max value in array
+Min: mn = min(3, 0, -1, x) #min value
+Powers: x = pow(y,3) #x=y^3
+Radians: a = cos(radians(60)) #a=0.5
+Random #: Random number functions require import random
+       random.seed() #Set the seed based on the system time.
+       x = random() #Random number in the range [0.0, 1.0)
+       y = randint(a,b) #Random integer in the range [a, b]
+Round: print round(3.793,1; #3.8 - rounded to 1 decimal
+       a = round(3.793,0) #a=4.0
+Sine: a = sin(1.57) #in rads
+Square Root: x = sqrt(10) #3.16...
+Tangent: print tan(3.14)# #in rads
+
+Python 字串與數值轉換
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+資料型別轉換
+
+    str()
+    float()
+    int()
+
+字串函式應用:
+
+字串 = "這是幾個字串"
+
+利用 字串[0] 可以取出 "這"
+字串[0:2] 可以取出 "這是" 等同 字串[:2]
+字串[2:] 則可以取出 "幾個字串"
+字串[-1] 則可取出最後一個字元 "串"
+字串[-5:-3] 則取出 "是幾"
+
+字串內容不可重新設定, 例如想要將 字串[0] 設為 "不" 則會發生錯誤
+
+len(字串) 則可列出字串長度為 6
+
+字串.find("幾") 會列出 "幾"所在位置的索引值, 也就是 2
+
+利用  字串.join("內容"), 可以在原有字串中加上 "內容"
+
+字串內容的置換, 然後必須指定為其他變數
+
+字串 = "這是幾個字串, 還有字串"
+print(字串.replace("字串","學生", 1))    # 只換 1 次
+print(字串.replace("字串","學生", 2))    # 更換 2 次
+
+.. code-block:: python
+
+    #coding: utf8
+    變數 = "一二三四五六!"
+    print("變數[:2] 列出最前頭兩個元素:",變數[:2],"/",變數) # 從索引 0 開始, 列出串列中的元素, 到索引小於 2 為止 (不包括索引 2)
+    print("變數[2:] 列出索引 2 到最後一個元素:",變數[2:],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素
+    print("變數[-2:] 列出倒數 2 個元素:",變數[-2:],"/",變數) # 從索引 -2 開始 (倒數第二個), 列出串列中到最終的元素 (也就是列出倒數兩個元素)
+    print("變數[-7:] 列出倒數 7 個元素:",變數[-7:],"/",變數) # 從索引 -7 開始 (倒數第七個), 列出串列中到最終的元素 (也就是列出倒數七個元素)
+    print("len(變數) 元素個數:",len(變數),"/",變數) # 變數 共有 6 個元素
+    print("變數[0:2] 列出最前頭兩個元素:",變數[0:2],"/",變數)  # 列出索引 0, 1 等兩個元素
+    print("變數[2:-1] 由索引 2 列到最後一元素之前一個(不含倒數第一個):",變數[2:-1],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素的前一個 (不包括索引 -1)
+    print("變數[2:-3] 由索引 2 列到最後一元素之前三個(不含倒數第三個):",變數[2:-3],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素的前三個 (不包括索引 -3)
+    print("變數[-1] 列出最後一個元素:",變數[-1],"/",變數) # 列出最後一個元素
+    print("變數[-2] 列出倒數第二個元素:",變數[-2],"/",變數) # 列出倒數第二個元素
+    print("變數[-0] 列出第一個元素:",變數[-0],"/",變數) # 列出第一個元素, 索引 -0 等同 0
+
+Python 的串列與 tuple
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    #coding: utf8
+    串列 = ["一", 3, "五", 7, "九"]
+    print(串列[0:2],"/",串列)
+    串列[0:2] = [1, "三"]
+    print(串列[0:2],"/",串列)
+    # 串列元素附加, 串在最後面
+    串列.append("十")
+    print(串列[0:-2],"/",串列)
+    print(len(串列))
+    # 移除串列的最後一個元素
+    del 串列[len(串列)-1]
+    print(串列[0:-2],"/",串列)
+    print(len(串列))
+    串列[0] = "壹"
+    print(串列[0:-2],"/",串列)
+    print(len(串列))
+    
+.. code-block:: python
+
+    #coding: utf8
+    # 使用者將不同時段的課程以(列, 行, 課程名稱) 輸入串列資料中
+    # 若課程資料需要排序, 則利用 sorted() 或 itemgetter() 處理
+    # 若需要配合雙 for 迴圈將混亂排序之課程資料納入表單中, 則設法在串列中依序搜尋出與列行對應的課程, 即可順利列出課表
+    from operator import itemgetter
+    # 課程資料為串列資料, 其元件則為元組資料, 串列可排序, 元組則次序固定
+    課程資料 =[(1,2,"1,2 課程"),(1,1,"1,1 課程"),(1,1,"1,3 課程")]
+    print(sorted(課程資料, key=lambda 課程: 課程[0], reverse=True))   # 以列反向排序
+    # 假如要在兩個資料元素接續排序, 則需要 operator 中的 itemgetter()
+    print(sorted(課程資料, key=itemgetter(0,1)))   # 以列排序, 再以行排序
+    print(sorted(課程資料, key=lambda 課程: 課程[1]))   # 以行排序
+    print(sorted(課程資料, key=lambda 課程: 課程[2]))   # 以課程名稱排序
+    for 課程子內容 in 課程資料:
+        if 課程子內容[0] == 1 and 課程子內容[1] == 1:
+            print(課程子內容)
+          
+  
+將課表資料套到 html 表格列印:
+
+.. code-block:: python
+
+    #coding: utf8
+    # 使用者將不同時段的課程以(列, 行, 課程名稱) 輸入串列資料中
+    # 若課程資料需要排序, 則利用 sorted() 或 itemgetter() 處理
+    # 若需要配合雙 for 迴圈將混亂排序之課程資料納入表單中, 則設法在串列中依序搜尋出與列行對應的課程, 即可順利列出課表
+    from operator import itemgetter
+    # 課程資料為串列資料, 其元件則為元組資料, 串列可排序, 元組則次序固定
+    課程資料 =[(2,2,"1,2 課程"),(1,1,"1,1 課程"),(1,3,"1,3 課程")]
+    print(sorted(課程資料, key=lambda 課程: 課程[0], reverse=True))   # 以列反向排序
+    # 假如要在兩個資料元素接續排序, 則需要 operator 中的 itemgetter()
+    print(sorted(課程資料, key=itemgetter(0,1)))   # 以列排序, 再以行排序
+    print(sorted(課程資料, key=lambda 課程: 課程[1]))   # 以行排序
+    print(sorted(課程資料, key=lambda 課程: 課程[2]))   # 以課程名稱排序
+    for 課程子內容 in 課程資料:
+        if 課程子內容[0] == 1 and 課程子內容[1] == 1:
+            print(課程子內容)
+    有資料 = False
+    print("<table border=1>")
+    for 列 in range(1,2):
+        print("<tr>")
+        for 行 in range(1,4):
+            print("<td>")
+            for 課程子內容 in 課程資料:
+                if 課程子內容[0] == 列 and 課程子內容[1] == 行:
+                    有資料 = True
+                    print(課程子內容)
+            if (有資料 == False):
+                print("&nbsp;")
+            print("</td>")
+            有資料 = False
+        print("</tr>")
+    print("</table>")
+
+Sets
+
+Sets 與 Lists 類似但是以 { } 圈起, 與字典相同, 但是沒有 key, 也沒有特別的元件前後次序.
+
+Sets 中不能有重複元件, 這點又與 Lists 不同, Lists 是允許有重複元件的
+
+Sets 在特定查驗有無重複元件的操作上比 Lists 快.
+
+.. code-block:: python
+
+    #coding: utf8
+    # set() 可將串列轉為集合
+    一個集合 = set(['a','b','c','a'])
+    print(一個集合)
+    一個字串 = "abcdefghi"
+    # 也可以利用 set() 將字串轉為 sets
+    另外一個集合 = set(一個字串)
+    # 可以利用 ::-1 將字串順序反轉過來
+    print(一個字串[::-1])
+    # :: 與 : 相同, 都會印出全部元素
+    print(一個字串[::])
+    print(一個字串[:])
+    # 由第 1 列印到 3
+    print(一個字串[1:4])
+    # 由 0 列印到 4
+    print(一個字串[:5])
+    # 由 0 列印到最後一個的前一個
+    print(一個字串[:-1])
+    # 由 -4 列印到最後一個
+    print(一個字串[-4:])
+    # 列印第 2 個
+    print(一個字串[2])
+    # 而 list() 則可將集合轉為串列
+    一個串列 = list(一個集合)
+    print(一個串列)
+    
+.. code-block:: python
+
+    #coding: utf8
+    # 由字串取出單字, 以 set() 特性, 將重複單字去除
+    字串 = '''
+    Fundamentals discusses the basic tasks in using Creo Parametric, such as collaboration, managing data, working with the user interface, working with the model, and so on. 
+    Use Fundamentals Help when you first start learning how to use Creo Parametric or when you want to enhance your knowledge. Fundamentals Help introduces you to the basic terminology, tasks, and procedures so you can build your models efficiently and share information, ideas, and processes in real time. You will learn how to use data management tools, customize the user interface, work with your models, and manage model composition.  
+    '''
+    # 將字串以空白隔開, 並用 set() 轉為單字集合
+    # 利用 lower() 轉為小寫
+    單字集合 = set(字串.lower().split())
+    # 以 key=str.lower 使用 sorted() 將單字按照字母排序
+    單字集合 = sorted(單字集合,key=str.lower)
+    # 設法去除單字中的逗點與句點
+    for 單字 in 單字集合:
+        if "," in 單字:
+            沒有逗點的單字 = 單字.replace(",","")
+            print(沒有逗點的單字)
+        elif "." in 單字:
+            沒有句點的單字 = 單字.replace(".","")
+            print(沒有句點的單字)
+        else:
+            # 印出原本就沒有逗點與句點的單字
+            print(單字)
+
+Python 條件式與重複廻圈
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+#coding: utf8
+變數 = [1, 5, 16 , 8, 12]
+比較值 = 10
+for 索引值 in 變數: # 注意冒號與程式內縮
+    if 索引值 < 比較值:
+        print(索引值, "比", 比較值, "小")
+    elif 索引值 > 比較值: # 注意冒號與程式內縮
+        print(索引值, "比", 比較值, "大")
+print("程式執行結束")
+
+Python 定義函式與呼叫函式, 函式的內建變數
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    #coding: utf8
+    def 斐波那契數列(輸入): # 定義 Fibonacci 級數函式
+       變數1, 變數2 = 0, 1
+        while 變數2 < 輸入:
+            # 每一列印, 不以跳行結束, 而以 end=" " 所定義的空白區隔
+            print(變數2, end=" ")
+            變數1, 變數2 = 變數2, 變數1+變數2
+        print()
+    # 呼叫 斐波那契數列() 函數
+    斐波那契數列(500)
+    
+.. code-block:: python
+
+    import hashlib
+    def md5Checksum(filePath):
+        fh = open(filePath, 'rb')
+        m = hashlib.md5()
+        while True:
+            data = fh.read(8192)
+            if not data:
+                break
+            m.update(data)
+        return m.hexdigest()
+    print (md5Checksum("file.7z"))
+
+Python 的類別與物件導向
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    #coding: utf8
+    # 建立一個自行車類別
+    class 自行車:
+    
+        # 物件的內建成員變數
+        車輪數量 = 2
+        車燈型號 = "001"
+        # __init__ 為物件建構子
+        
+        def __init__(自己, 名稱):
+            自己.名稱 = 名稱
+            
+        def 列出名稱(自己):
+            print("這輛車的名稱為", 自己.名稱)
+            
+        def 車燈選擇(自己, 車燈型號):
+            自己.車燈型號 = 車燈型號
+            
+        def 列出車燈(自己):
+            print(自己.名稱, "的車燈型號為:", 自己.車燈型號)
+            
+        def 列出車輪(自己):
+            print(自己.名稱, "的車輪數量為:", 自己.車輪數量)
+            
+        def 加車輪(自己, 數量):
+            自己.數量 = 數量
+            自己.車輪數量 += 自己.數量
+            
+            
+    # 三輪車繼承自行車
+    class 三輪車(自行車):
+        車輪數量 = 3
+        
+        
+    # 四輪車繼承自行車
+    class 四輪車(自行車):
+        車輪數量 = 4
+        
+        
+    有一輛車 = 自行車("小米")
+    有一輛車.車燈選擇("1059")
+    有一輛車.車輪數量 = 3
+    有一輛車.加車輪(2)
+    有一輛車.列出名稱()
+    有一輛車.列出車燈()
+    有一輛車.列出車輪()
+    另一輛車 = 三輪車("三米")
+    另一輛車.車燈選擇("007")
+    另一輛車.列出名稱()
+    另一輛車.列出車燈()
+    另一輛車.列出車輪()
+
+.. code-block:: python
+
+    class Sample(object):
+        x = 100      
+        _a = 1
+        __b = 11               
+        def __init__(self, value):
+            self.y = value      
+            self._c = 'private'    
+            self.__d = 'more private'
+            z = 300
+       
+    '''In this example:
+    
+    x is class variable,
+    _a is private class variable (by naming convention),
+    __b is private class variable (mangled by interpreter),
+    y is instance variable,
+    _c is private instance variable (by naming convention),
+    __d is private instance variable (mangled by interpreter),
+    z is local variable within scope of __init__ method.
+    In case of single underscore in names, it's strictly a convention. It is still possible to access these variables. In case of double underscore names, they are mangled. It's still possible to circumvent that.
+    
+    '''
+
+.. code-block:: python
+
+    #coding: utf8
+    import math
+    class Point:
+        'Represents a point in two-dimensional geometric coordinates'
+        def __init__(self, x=0, y=0):
+            '''Initialize the position of a new point. The x and y  
+               coordinates can be specified. If they are not, the point  
+               defaults to the origin.'''
+            self.move(x, y)
+            
+        def move(self, x, y):
+            "Move the point to a new location in two-dimensional space."
+            self.x = x
+            self.y = y
+        def reset(self):
+            'Reset the point back to the geometric origin: 0, 0'
+            self.move(0, 0)
+        def calculate_distance(self, other_point):
+            """Calculate the distance from this point to a second point  
+               passed as a parameter.
+            This function uses the Pythagorean Theorem to calculate  
+            the distance between the two points. The distance is returned  
+            as a float."""
+            return math.sqrt(
+                    (self.x - other_point.x)**2 +
+                    (self.y - other_point.y)**2)
+                    
+    # how to use it:
+    point1 = Point()
+    point2 = Point()
+    point1.reset()
+    point2.move(5,0)
+    print(point2.calculate_distance(point1))
+    assert (point2.calculate_distance(point1) ==
+            point1.calculate_distance(point2))
+            
+    point1.move(3,4)
+    print(point1.calculate_distance(point2))
+    print(point1.calculate_distance(point1))
+    
+.. code-block:: python
+
+    # 檔案名稱為: fourbar1.py
+    # 資料來源 ; http://homepages.math.uic.edu/~jan/mcs275/
+    # P-1 MCS 275 Wed 3 Feb 2010 : oo model for 4-bar mechanism
+    # The main program to test the class prompts the user for n,
+    # a number of angles, and then prints the coordinates for the
+    # five joints that define the mechanism.
+    from math import cos, sin, pi, sqrt
+    class FourBar:
+       """
+       A 4-bar mechanism is determined by five parameters:
+       (1) a : the length of the horizontal bar,
+       (2) L : the length of the crank,
+       (3) R : the length of the bar attached to the crank,
+       (4) r : the length of the bar to the right,
+       (5) b : the length of the bar to the coupler.
+       The mechanism is driven by a crank, with angle t,
+       and we use c = cos(t) and s = sin(t).  
+       The value of t determines the state of the mechanism.
+       """
+       def __init__(self,a=100,L=50,R=125,r=125,b=125,t=pi/2):
+          """
+          Initializes a 4-bar mechanism with the 5 given lengths
+          and sets the state of the 4-bar to the angle t.
+          Default values are for the Chebyshev mechanism.
+          """
+          self.flat = a    # (0,a) is joint
+          self.crank = L   # length of the crank
+          self.top = R     # length of bar attached to crank
+          self.right = r   # length of the right bar
+          self.coupler = b # length of bar to the coupler
+          self.angle = t   # state of the 4-bar
+       def z1(self):
+          """
+          Returns the value of L^2+a^2-2*a*L*c.
+          """
+          a = self.flat
+          L = self.crank
+          c = cos(self.angle)
+          v = L**2 + a**2 - 2.0*a*L*c
+          return v
+       def z2(self):
+          """
+          Returns the value of -L*R^2*s+L^3*s+L*s*r^2+a^2*L*s-2*L^2*s*c*a.
+          """
+          a = self.flat
+          L = self.crank
+          R = self.top
+          r = self.right
+          c = cos(self.angle)
+          s = sin(self.angle)
+          v = -L*R**2*s+L**3*s+L*s*r**2+a**2*L*s-2*L**2*s*c*a 
+          return v
+       def z3(self):
+          """
+          Returns the value of the square root of the discriminant:
+             sqrt(-2*L^2*R^2*s^2*a^2-2*L^2*R^2*s^2*r^2+2*a^4*R^2-a^2*r^4
+                 +L^6*s^2-L^2*R^4+2*L^4*R^2+2*L^4*r^2-L^2*r^4-7*L^4*a^2
+                 -7*L^2*a^4-L^6-a^6+6*L^4*s^2*a^2+4*L^3*R^2*s^2*c*a
+                 -4*L^5*s^2*c*a-2*L^2*s^2*r^2*a^2-2*L^4*R^2*s^2+L^2*s^2*r^4
+                 +5*a^4*L^2*s^2+2*L^2*r^2*R^2+6*L^5*a*c+4*L^2*a^2*R^2
+                 +4*L^2*r^2*a^2+20*L^3*c*a^3+2*a^2*r^2*R^2+4*L^3*s^2*r^2*c*a
+                 -12*a^3*L^3*s^2*c+4*L^4*s^2*c^2*a^2-8*L^3*a*R^2*c-8*L^3*a*r^2*c
+                 -8*a^3*R^2*L*c-8*a^3*r^2*L*c-a^2*R^4+2*a^4*r^2+6*a^5*L*c
+                 -8*a^2*L^4*c^2-8*a^4*L^2*c^2+2*a*L*c*R^4+2*a*L*c*r^4
+                 +8*a^2*L^2*c^2*R^2+8*a^2*L^2*c^2*r^2-2*L^4*s^2*r^2
+                 +L^2*R^4*s^2-4*a*L*c*r^2*R^2)
+          If the argument of the sqrt is negative, zero is returned.
+          """
+          a = self.flat
+          L = self.crank
+          c = cos(self.angle)
+          s = sin(self.angle)
+          R = self.top
+          r = self.right
+          v = -2.0*L**2*R**2*s**2*a**2-2*L**2*R**2*s**2*r**2+2*a**4*R**2 \
+                -a**2*r**4+L**6*s**2-L**2*R**4+2*L**4*R**2+2*L**4*r**2-L**2*r**4 \
+                -7*L**4*a**2-7*L**2*a**4-L**6-a**6+6*L**4*s**2*a**2 \
+                +4*L**3*R**2*s**2*c*a-4*L**5*s**2*c*a-2*L**2*s**2*r**2*a**2 \
+                -2*L**4*R**2*s**2+L**2*s**2*r**4 +5*a**4*L**2*s**2 \
+                +2*L**2*r**2*R**2+6*L**5*a*c+4*L**2*a**2*R**2 \
+                +4*L**2*r**2*a**2+20*L**3*c*a**3+2*a**2*r**2*R**2 \
+                +4*L**3*s**2*r**2*c*a-12*a**3*L**3*s**2*c+4*L**4*s**2*c**2*a**2 \
+                -8*L**3*a*R**2*c-8*L**3*a*r**2*c-8*a**3*R**2*L*c-8*a**3*r**2*L*c \
+                -a**2*R**4+2*a**4*r**2+6*a**5*L*c-8*a**2*L**4*c**2 \
+                -8*a**4*L**2*c**2+2*a*L*c*R**4+2*a*L*c*r**4 \
+                +8*a**2*L**2*c**2*R**2+8*a**2*L**2*c**2*r**2-2*L**4*s**2*r**2 \
+                +L**2*R**4*s**2-4*a*L*c*r**2*R**2
+          if v < 0:
+             return 0
+          else:
+             return sqrt(v)
+       def y1p(self):
+          """
+          Returns the value of (1/2)*(z2+z3)/z1.
+          """
+          v = (self.z2()+self.z3())/(2*self.z1())
+          return v
+       def y1m(self):
+          """
+          Returns the value of (1/2)*(z2-z3)/z1.
+          """
+          v = (self.z2()-self.z3())/(2*self.z1())
+          return v
+       def x(self,y):
+          """
+          Returns the value of (1/2)*(-a^2+r^2+L^2-R^2-2*y*L*s)/(-a+L*c).
+          """
+          a = self.flat
+          L = self.crank
+          c = cos(self.angle)
+          s = sin(self.angle)
+          R = self.top
+          r = self.right
+          x_den = 2*(-a+L*c)
+          x_num = -a**2+r**2+L**2-R**2-2*y*L*s
+          v = x_num/x_den
+          return v
+       def ConnectorPoint(self):
+          """
+          Returns coordinates of connector point.
+          For complex values (0,0) is returned.
+          """
+          try:
+             y1pv = self.y1p(); 
+             x1pv = self.x(y1pv)
+             return (x1pv,y1pv)
+          except:
+             return (0,0)
+       def CouplerPoint(self):
+          """
+          Returns the coordinates of the coupler point.
+          """
+          t = self.angle
+          L = self.crank
+          ax = L*cos(t)
+          ay = L*sin(t)
+          p = self.ConnectorPoint()
+          dx = p[0] - ax
+          dy = p[1] - ay
+          b = self.coupler
+          if dx == 0:
+             x = ax
+             y = p[1] + b
+          else:
+             v = sqrt(dx*dx + dy*dy)
+             x = p[0] + b*dx/v
+             y = p[1] + b*dy/v
+          return (x,y)
+       def Joints(self):
+         """
+         Returns the list of the coordinates of the 
+         five joints that define the mechanism.
+         """
+         L = [(0,0),(self.flat,0)]
+         t = self.angle
+         L.append((self.crank*cos(t),self.crank*sin(t)))
+         L.append(self.ConnectorPoint())
+         L.append(self.CouplerPoint())
+         return L
+       def PrintJoints(self):
+         """
+         Prints the coordinates for the joints.
+         """
+         L = self.Joints()
+         s = "%.2f " % self.angle
+         for p in L:
+            s = s + "(%5.1f,%5.1f)" % p
+         print (s)
+       def TrackPath(self):
+          """
+          Computes coordinates of points along a path
+          tracked by the coupler point.
+          """
+          n = int(input('give number of samples = '))
+          h = 2*pi/n
+          for i in range(0,n):
+             self.PrintJoints()
+             self.angle = self.angle + h
+             if self.angle > 2*pi:
+                self.angle = self.angle - 2*pi
+    def main():
+       """
+       Evaluates the formulas for the coupler of the 4-bar mechanism
+       for values corresponding to the Chebyshev mechanism.
+       """
+       f = FourBar()
+       f.TrackPath()
+    if __name__ == "__main__": main()
+
+Python 的檔案輸出入
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: python
+
+    #coding: utf8
+    詩句 = '''\
+    月落烏啼霜滿天, 江楓漁火對愁眠.
+    姑蘇城外寒山寺, 夜半鐘聲到客船.
+    '''
+     
+    檔案 = open('楓橋夜泊.txt', 'w') # 寫入資料
+    檔案.write(詩句) # 將變數內容寫入檔案
+    檔案.close() # 關閉檔案
+     
+    另一檔案 = open('楓橋夜泊.txt') # 開檔案的內建模式為 read
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        行資料 = 另一檔案.readline()
+        if len(行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        # 比較下列, 跳行與不跳行列印的差別
+        #print(行資料, end='') # 不跳行列印
+        print(行資料)
+    另一檔案.close() # 關閉檔案
+    
+readline() 與 realines() 的差別, 以及 write()必須將數值轉為字串
+
+.. code-block:: python
+
+    #coding: utf8
+    檔案 = open("test.txt","w")
+    for 索引 in range(5):
+        數值 = 索引*2
+        # write 的內容必須為字串
+        檔案.write(str(索引)+" "+str(數值)+"\n")
+    檔案.close()
+    檔案 = open("test.txt","r")
+    while True:
+        # readline() 一次讀一行
+        # readlines() 則讀進全部行數資料
+        行資料 = 檔案.readline()
+        if len(行資料) == 0:
+            break
+        for 索引 in range(len(行資料)):
+            print("第",索引,"個資料",行資料[索引])
+    檔案.close()
+
+Python 的繪圖與影像處理功能
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+將 png 檔案全部轉為 gif
+
+.. code-block:: python
+
+    from PIL import Image
+    import glob,os
+    files = glob.glob("*.png") 
+    for imageFile in files:
+        filepath,filename = os.path.split(imageFile)
+        filterame,exts = os.path.splitext(filename)
+        print ("Processing: " + imageFile,filterame)
+        im = Image.open(imageFile)
+        im.save( filterame+'.gif','GIF')
+
+
 

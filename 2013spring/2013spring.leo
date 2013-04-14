@@ -37,7 +37,7 @@
 </v>
 <v t="amd_yen.20130312013510.1824"><vh>@button self_and_subtree</vh></v>
 <v t="amd_yen.20130308210411.2406" a="E"><vh>KMOL Guide</vh>
-<v t="amd_yen.20130308221230.3827" a="E"><vh>前言</vh>
+<v t="amd_yen.20130308221230.3827"><vh>前言</vh>
 <v t="amd_yen.20130312013510.1498"><vh>以下為電子書內容</vh></v>
 <v t="amd_yen.20130308221230.3828"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
@@ -45,6 +45,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130318140025.2833"><vh>有關程式語言</vh></v>
 <v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
+<v t="amd_yen.20130408141041.1765"><vh>有關 pybean 版次差異</vh></v>
 <v t="amd_yen.20130308221230.2438" a="E"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
@@ -62,21 +63,21 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
-<v t="amd_yen.20130309155804.1706" a="E"><vh>CD 第三週程式</vh>
+<v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
 <v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
-<v t="amd_yen.20130314194325.1746" a="E"><vh>CD 第四週程式</vh>
+<v t="amd_yen.20130314194325.1746"><vh>CD 第四週程式</vh>
 <v t="amd_yen.20130314194325.1747" a="E"><vh>@shadow cd/gearcontour.py</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130309155804.1709,amd_yen.20130314194325.1511,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
-<v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
+<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
+<v t="amd_yen.20130406103207.2438" a="E"><vh>django 程式開發</vh>
 <v t="amd_yen.20130406103207.2442"><vh>@url Tutorial 1</vh></v>
 <v t="amd_yen.20130406103207.2285"><vh>@edit wcm/django1.py</vh></v>
 <v t="amd_yen.20130406103207.2286"><vh>@button django project</vh></v>
@@ -91,16 +92,213 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.201303
 <v t="amd_yen.20130406103207.2441"><vh>啟動伺服器</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
-<v t="amd_yen.20130308210411.2407" a="E"
+<v t="amd_yen.20130308210411.2407"
 expanded="amd_yen.20130308210411.2408,amd_yen.20130330144838.2031,"><vh>@file wcm.txt</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
+<v t="amd_yen.20130308221230.2492"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
-expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,"><vh>@file misc.txt</vh></v>
+expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130406103207.2444" a="E"><vh>機械設計的本質</vh>
+<v t="amd_yen.20130409162552.1785"><vh>可攜 Leo Editor</vh>
+<v t="amd_yen.20130409162552.1786"><vh>leo editor tutorial 1</vh></v>
+<v t="amd_yen.20130409163608.1839"><vh>leo editor tutorial 2</vh></v>
+<v t="amd_yen.20130410133544.4362"><vh>leo editor tutorial 3</vh></v>
+<v t="amd_yen.20130410133544.4363"><vh>leo editor tutorial 4</vh></v>
+<v t="amd_yen.20130410133544.4364"><vh>leo editor tutorial 5</vh></v>
+<v t="amd_yen.20130410133544.4365"><vh>leo editor tutorial 6</vh></v>
+</v>
+<v t="amd_yen.20130406103207.2444"><vh>機械設計的本質</vh>
+<v t="amd_yen.20130410133544.14742" a="E"><vh>電腦輔助機械設計</vh>
+<v t="amd_yen.20130410133544.14743"><vh>電腦</vh>
+<v t="amd_yen.20130410133544.14744" a="E"><vh>程式</vh>
+<v t="amd_yen.20130410133544.14745" a="E"><vh>依自由度分類</vh>
+<v t="amd_yen.20130410133544.14746"><vh>套件</vh></v>
+<v t="amd_yen.20130410133544.14747"><vh>二次開發</vh></v>
+<v t="amd_yen.20130410133544.14748"><vh>自行編寫</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14749" a="E"><vh>依操作系統分類</vh>
+<v t="amd_yen.20130410133544.14750"><vh>Windows</vh></v>
+<v t="amd_yen.20130410133544.14751"><vh>Linux</vh></v>
+<v t="amd_yen.20130410133544.14752"><vh>iOS</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14753" a="E"><vh>依功能分類</vh>
+<v t="amd_yen.20130410133544.14754"><vh>文書處理</vh></v>
+<v t="amd_yen.20130410133544.14755" a="E"><vh>資料處理</vh>
+<v t="amd_yen.20130410133544.14756"><vh>格式轉檔</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14757"><vh>功能模擬</vh></v>
+<v t="amd_yen.20130410133544.14758"><vh>自動控制</vh></v>
+<v t="amd_yen.20130410133544.14759"><vh>內容管理</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14760"><vh>依語言分類</vh>
+<v t="amd_yen.20130410133544.14761"><vh>Python</vh></v>
+<v t="amd_yen.20130410133544.14762"><vh>C</vh></v>
+<v t="amd_yen.20130410133544.14763"><vh>C++</vh></v>
+<v t="amd_yen.20130410133544.14764"><vh>PHP</vh></v>
+<v t="amd_yen.20130410133544.14765"><vh>JavaScript</vh></v>
+<v t="amd_yen.20130410133544.14766"><vh>Java</vh></v>
+<v t="amd_yen.20130410133544.14767"><vh>Lua</vh></v>
+<v t="amd_yen.20130410133544.14768"><vh>Lisp</vh></v>
+<v t="amd_yen.20130410133544.14769"><vh>Forth</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14770" a="E"><vh>依操作模式分類</vh>
+<v t="amd_yen.20130410133544.14771"><vh>圖形化人機介面</vh></v>
+<v t="amd_yen.20130410133544.14772"><vh>文字介面</vh></v>
+<v t="amd_yen.20130410133544.14773"><vh>指令介面</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14774"><vh>網路</vh>
+<v t="amd_yen.20130410133544.14775"><vh>功能</vh>
+<v t="amd_yen.20130410133544.14776"><vh>搜尋資料</vh></v>
+<v t="amd_yen.20130410133544.14777"><vh>整合並提供資料</vh></v>
+<v t="amd_yen.20130410133544.14778"><vh>自動傳輸資料</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14779"><vh>使用注意要項</vh>
+<v t="amd_yen.20130410133544.14780"><vh>連線查詢</vh></v>
+<v t="amd_yen.20130410133544.14781"><vh>代理主機</vh></v>
+<v t="amd_yen.20130410133544.14782"><vh>DNS</vh></v>
+<v t="amd_yen.20130410133544.14783"><vh>防火牆</vh></v>
+<v t="amd_yen.20130410133544.14784"><vh>SSL</vh></v>
+<v t="amd_yen.20130410133544.14785"><vh>PGP</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14786"><vh>主機</vh>
+<v t="amd_yen.20130410133544.14787"><vh>個人電腦</vh></v>
+<v t="amd_yen.20130410133544.14788"><vh>伺服電腦</vh>
+<v t="amd_yen.20130410133544.14789"><vh>叢集電腦</vh></v>
+<v t="amd_yen.20130410133544.14790"><vh>分散式電腦</vh></v>
+<v t="amd_yen.20130410133544.14791"><vh>GPU電腦</vh></v>
+<v t="amd_yen.20130410133544.14792"><vh>雲端主機</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14793"><vh>筆記型電腦</vh></v>
+<v t="amd_yen.20130410133544.14794"><vh>平板</vh></v>
+<v t="amd_yen.20130410133544.14795"><vh>手機</vh></v>
+<v t="amd_yen.20130410133544.14796"><vh>嵌入式裝置</vh>
+<v t="amd_yen.20130410133544.14797" a="E"><vh>功能分類</vh>
+<v t="amd_yen.20130410133544.14798"><vh>感測</vh></v>
+<v t="amd_yen.20130410133544.14799"><vh>傳輸</vh></v>
+<v t="amd_yen.20130410133544.14800"><vh>遙控</vh></v>
+<v t="amd_yen.20130410133544.14801"><vh>運算</vh></v>
+</v>
+</v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14802"><vh>輔助</vh>
+<v t="amd_yen.20130410133544.14803" a="E"><vh>分類</vh>
+<v t="amd_yen.20130410133544.14804" a="E"><vh>依自動化程度</vh>
+<v t="amd_yen.20130410133544.14805"><vh>自動完成設計</vh></v>
+<v t="amd_yen.20130410133544.14806"><vh>半自動完成設計</vh></v>
+<v t="amd_yen.20130410133544.14807"><vh>增進設計效率</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14808" a="E"><vh>依所採原理</vh>
+<v t="amd_yen.20130410133544.14809" a="E"><vh>造型</vh>
+<v t="amd_yen.20130410133544.14810" a="E"><vh>平面</vh>
+<v t="amd_yen.20130410133544.14811"><vh>2D圖學</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14812" a="E"><vh>空間</vh>
+<v t="amd_yen.20130410133544.14813"><vh>3D圖學</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14814"><vh>力學</vh>
+<v t="amd_yen.20130410133544.14815"><vh>靜力</vh></v>
+<v t="amd_yen.20130410133544.14816"><vh>動力</vh></v>
+<v t="amd_yen.20130410133544.14817"><vh>材料</vh></v>
+<v t="amd_yen.20130410133544.14818"><vh>熱</vh></v>
+<v t="amd_yen.20130410133544.14819"><vh>流體</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14820" a="E"><vh>依設計者數量</vh>
+<v t="amd_yen.20130410133544.14821"><vh>個人</vh></v>
+<v t="amd_yen.20130410133544.14822"><vh>多人協同</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14823" a="E"><vh>依取得費用</vh>
+<v t="amd_yen.20130410133544.14824"><vh>商用付費</vh></v>
+<v t="amd_yen.20130410133544.14825"><vh>自由免費</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14826" a="E"><vh>依程式開放程度</vh>
+<v t="amd_yen.20130410133544.14827"><vh>原始碼封閉</vh></v>
+<v t="amd_yen.20130410133544.14828"><vh>原始碼公開</vh></v>
+<v t="amd_yen.20130410133544.14829"><vh>核心封閉方案開放</vh></v>
+</v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14830"><vh>機械設計</vh>
+<v t="amd_yen.20130410133544.14831"><vh>有關設計</vh></v>
+<v t="amd_yen.20130410133544.14832" a="E"><vh>分類</vh>
+<v t="amd_yen.20130410133544.14833"><vh>依所採原理</vh>
+<v t="amd_yen.20130410133544.14834"><vh>造型</vh></v>
+<v t="amd_yen.20130410133544.14835"><vh>力學</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14836"><vh>依元件現存與否</vh>
+<v t="amd_yen.20130410133544.14837"><vh>標準元件選用</vh></v>
+<v t="amd_yen.20130410133544.14838"><vh>客製化元件設計</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14839"><vh>依原創設計與否</vh>
+<v t="amd_yen.20130410133544.14840"><vh>原創設計</vh>
+<v t="amd_yen.20130410133544.14841"><vh>ODM</vh></v>
+<v t="amd_yen.20130410133544.14842"><vh>OBM</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14843"><vh>非原創設計</vh>
+<v t="amd_yen.20130410133544.14844"><vh>OEM</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14845" a="E"><vh>依工業分類</vh>
+<v t="amd_yen.20130410133544.14846"><vh>工具機</vh>
+<v t="amd_yen.20130410133544.14847"><vh>傳統加工機</vh>
+<v t="amd_yen.20130410133544.14848"><vh>車床</vh></v>
+<v t="amd_yen.20130410133544.14849"><vh>銑床</vh></v>
+<v t="amd_yen.20130410133544.14850"><vh>鑽床</vh></v>
+<v t="amd_yen.20130410133544.14851"><vh>磨床</vh></v>
+<v t="amd_yen.20130410133544.14852"><vh>锯床</vh></v>
+<v t="amd_yen.20130410133544.14853"><vh>沖壓床</vh></v>
+<v t="amd_yen.20130410133544.14854"><vh>剪床</vh></v>
+<v t="amd_yen.20130410133544.14855"><vh>NC 工具機</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14856"><vh>非傳統加工機</vh>
+<v t="amd_yen.20130410133544.14857"><vh>放電加工機</vh></v>
+<v t="amd_yen.20130410133544.14858"><vh>超音波加工機</vh></v>
+<v t="amd_yen.20130410133544.14859"><vh>雷射加工機</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130410133544.14860"><vh>產業機械</vh>
+<v t="amd_yen.20130410133544.14861"><vh>紡織與成衣機械</vh></v>
+<v t="amd_yen.20130410133544.14862"><vh>包裝機械</vh></v>
+<v t="amd_yen.20130410133544.14863"><vh>木工機械</vh></v>
+<v t="amd_yen.20130410133544.14864"><vh>化工機械</vh></v>
+<v t="amd_yen.20130410133544.14865"><vh>塑橡膠機械</vh></v>
+<v t="amd_yen.20130410133544.14866"><vh>造紙印刷機械</vh></v>
+<v t="amd_yen.20130410133544.14867"><vh>食品飲料機械</vh></v>
+<v t="amd_yen.20130410133544.14868"><vh>農業機械</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14869"><vh>通用機械</vh>
+<v t="amd_yen.20130410133544.14870"><vh>模具</vh></v>
+<v t="amd_yen.20130410133544.14871"><vh>壓縮機、鼓風機、風扇</vh></v>
+<v t="amd_yen.20130410133544.14872"><vh>機械手臂</vh></v>
+<v t="amd_yen.20130410133544.14873"><vh>輸送設備</vh></v>
+<v t="amd_yen.20130410133544.14874"><vh>事務機械</vh></v>
+<v t="amd_yen.20130410133544.14875"><vh>污染防治設備</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14876" a="E"><vh>動力機械</vh>
+<v t="amd_yen.20130410133544.14877"><vh>內燃機</vh></v>
+<v t="amd_yen.20130410133544.14878"><vh>渦輪機</vh></v>
+<v t="amd_yen.20130410133544.14879"><vh>鍋爐</vh></v>
+<v t="amd_yen.20130410133544.14880"><vh>電動機</vh></v>
+</v>
+<v t="amd_yen.20130410133544.14881" a="E"><vh>機械元件</vh>
+<v t="amd_yen.20130410133544.14882"><vh>軸</vh></v>
+<v t="amd_yen.20130410133544.14883"><vh>軸承</vh></v>
+<v t="amd_yen.20130410133544.14884"><vh>齒輪</vh></v>
+<v t="amd_yen.20130410133544.14885"><vh>連結</vh></v>
+<v t="amd_yen.20130410133544.14886"><vh>焊接</vh></v>
+<v t="amd_yen.20130410133544.14887"><vh>凸輪</vh></v>
+<v t="amd_yen.20130410133544.14888"><vh>液氣壓元件</vh></v>
+</v>
+</v>
+</v>
+</v>
+</v>
 <v t="amd_yen.20130406103207.2445" a="E"><vh>何謂設計?</vh>
 <v t="amd_yen.20130406103207.2447"><vh>設計衡量</vh></v>
 <v t="amd_yen.20130406103207.2449"><vh>設計類型</vh></v>
@@ -120,6 +318,14 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130406103207.2765"><vh>Chapter 3: Pointers and Strings</vh></v>
 <v t="amd_yen.20130406103207.2766"><vh>Chapter 4: More on Strings</vh></v>
 <v t="amd_yen.20130406103207.2767"><vh>Chapter 5: Pointers and Structures</vh></v>
+</v>
+<v t="amd_yen.20130413002743.2100" a="E"><vh>Berkeley CS61a 課程演變</vh>
+<v t="amd_yen.20130413002743.2101" a="E"><vh>如何學習程式語言</vh>
+<v t="amd_yen.20130413002743.2104"><vh>Python 3 安裝</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130413002743.2102" a="E"><vh>機械設計工程系程式課程演變</vh>
+<v t="amd_yen.20130413002743.2103"><vh>符號式機構分析</vh></v>
 </v>
 <v t="amd_yen.20130325133433.2805"><vh>C2G1</vh>
 <v t="amd_yen.20130325133433.2806" a="E"><vh>按鈕</vh>
@@ -2007,5 +2213,920 @@ void show_name(struct tag *p)
 Python 與 CUDA
 
 http://mathema.tician.de/software/pycuda</t>
+<t tx="amd_yen.20130408141041.1765">之前使用的 pybean 為 0.1.2, 採用 uuid 作為 id, 但是到了 0.2.1 作者放棄 uuid, 改用一般的 id, 而且截至 2013.04 pybean 仍以 Python 2 為主, 必須修改 .next() 為 next() 才可以在 Python 3 環境中正確執行.
+
+將 pybean 0.1.2 轉為 pybean 0.2.1 必須針對程式修改, 將 uuid.bytes 改為 id
+
+修改後的 0.2.1 pybean.py 程式碼如下:
+
+#coding: utf-8
+import sqlite3
+from pkg_resources import parse_version
+
+__version__ = "0.2.1"
+__author__ = "Mickael Desfrenes"
+__email__ = "desfrenes@gmail.com"
+
+# Yen 2013.04.08, 將 Python2 的 .next() 改為 next(), 以便在 Python 3 中使用
+
+class SQLiteWriter(object):
+
+    """
+    In frozen mode (the default), the writer will not alter db schema.
+    Just add frozen=False to enable column creation (or just add False
+    as second parameter):
+
+    query_writer = SQLiteWriter(":memory:", False)
+    """
+    def __init__(self, db_path=":memory:", frozen=True):
+        self.db = sqlite3.connect(db_path)
+        self.db.isolation_level = None
+        self.db.row_factory = sqlite3.Row
+        self.frozen = frozen
+        self.cursor = self.db.cursor()
+        self.cursor.execute("PRAGMA foreign_keys=ON;")
+        self.cursor.execute('PRAGMA encoding = "UTF-8";')
+        self.cursor.execute('BEGIN;')
+    def __del__(self):
+        self.db.close()
+
+    def replace(self, bean):
+        keys = []
+        values = []
+        write_operation = "replace"
+        if "id" not in bean.__dict__:
+            write_operation = "insert"
+            keys.append("id")
+            values.append(None)
+        self.__create_table(bean.__class__.__name__)
+        columns = self.__get_columns(bean.__class__.__name__)
+        for key in bean.__dict__:
+            keys.append(key)
+            if key not in columns:
+                self.__create_column(bean.__class__.__name__, key,
+                        type(bean.__dict__[key]))
+            values.append(bean.__dict__[key])
+        sql  = write_operation + " into " + bean.__class__.__name__ + "("
+        sql += ",".join(keys) + ") values (" 
+        sql += ",".join(["?" for i in keys])  +  ")"
+        self.cursor.execute(sql, values)
+        if write_operation == "insert":
+            bean.id = self.cursor.lastrowid
+        return bean.id
+
+    def __create_column(self, table, column, sqltype):
+        if self.frozen:
+            return
+        if sqltype in [float, int, bool]:
+            sqltype = "NUMERIC"
+        else:
+            sqltype = "TEXT"
+        sql = "alter table " + table + " add " + column + " " + sqltype    
+        self.cursor.execute(sql)
+
+    def __get_columns(self, table):
+        columns = []
+        if self.frozen:
+            return columns
+        self.cursor.execute("PRAGMA table_info(" + table  + ")")
+        for row in self.cursor:
+            columns.append(row["name"])
+        return columns
+
+    def __create_table(self, table):
+        if self.frozen:
+            return
+        sql = "create table if not exists " + table + "(id INTEGER PRIMARY KEY AUTOINCREMENT)"
+        self.cursor.execute(sql)
+
+    def get_rows(self, table_name, sql = "1", replace = None):
+        if replace is None : replace = []
+        self.__create_table(table_name)
+        sql = "SELECT * FROM " + table_name + " WHERE " + sql
+        try:
+            self.cursor.execute(sql, replace)
+            for row in self.cursor:
+                yield row
+        except sqlite3.OperationalError:
+            return
+   
+    def get_count(self, table_name, sql="1", replace = None):
+        if replace is None : replace = []
+        self.__create_table(table_name)
+        sql = "SELECT count(*) AS cnt FROM " + table_name + " WHERE " + sql
+        try:
+            self.cursor.execute(sql, replace)
+        except sqlite3.OperationalError:
+            return 0
+        for row in self.cursor:
+            return row["cnt"]
+
+    def delete(self, bean):
+        self.__create_table(bean.__class__.__name__)
+        sql = "delete from " + bean.__class__.__name__ + " where id=?"
+        self.cursor.execute(sql,[bean.id])
+    
+    def link(self, bean_a, bean_b):
+        self.replace(bean_a)
+        self.replace(bean_b)
+        table_a = bean_a.__class__.__name__
+        table_b = bean_b.__class__.__name__
+        assoc_table = self.__create_assoc_table(table_a, table_b)
+        sql = "replace into " + assoc_table + "(" + table_a + "_id," + table_b
+        sql += "_id) values(?,?)"
+        self.cursor.execute(sql,
+                [bean_a.id, bean_b.id])
+    
+    def unlink(self, bean_a, bean_b):
+        table_a = bean_a.__class__.__name__
+        table_b = bean_b.__class__.__name__
+        assoc_table = self.__create_assoc_table(table_a, table_b)
+        sql = "delete from " + assoc_table + " where " + table_a
+        sql += "_id=? and " + table_b + "_id=?"
+        self.cursor.execute(sql,
+                [bean_a.id, bean_b.id])
+    
+    def get_linked_rows(self, bean, table_name):
+        bean_table = bean.__class__.__name__
+        assoc_table = self.__create_assoc_table(bean_table, table_name)
+        sql = "select t.* from " + table_name + " t inner join " + assoc_table 
+        sql += " a on a." + table_name + "_id = t.id where a."
+        sql += bean_table + "_id=?"
+        self.cursor.execute(sql,[bean.id])
+        for row in self.cursor:
+            yield row
+
+    def __create_assoc_table(self, table_a, table_b):
+        assoc_table = "_".join(sorted([table_a, table_b]))
+        if not self.frozen:
+            sql = "create table if not exists " + assoc_table + "("
+            sql+= table_a + "_id NOT NULL REFERENCES " + table_a + "(id) ON DELETE cascade,"
+            sql+= table_b + "_id NOT NULL REFERENCES " + table_b + "(id) ON DELETE cascade,"
+            sql+= " PRIMARY KEY (" + table_a + "_id," + table_b + "_id));"
+            self.cursor.execute(sql)
+            # no real support for foreign keys until sqlite3 v3.6.19
+            # so here's the hack
+            if cmp(parse_version(sqlite3.sqlite_version),parse_version("3.6.19")) &lt; 0:
+                sql = "create trigger if not exists fk_" + table_a + "_" + assoc_table
+                sql+= " before delete on " + table_a
+                sql+= " for each row begin delete from " + assoc_table + " where " + table_a + "_id = OLD.id;end;"
+                self.cursor.execute(sql)
+                sql = "create trigger if not exists fk_" + table_b + "_" + assoc_table
+                sql+= " before delete on " + table_b
+                sql+= " for each row begin delete from " + assoc_table + " where " + table_b + "_id = OLD.id;end;"
+                self.cursor.execute(sql)
+        return assoc_table
+
+    def delete_all(self, table_name, sql = "1", replace = None):
+        if replace is None : replace = []
+        self.__create_table(table_name)
+        sql = "DELETE FROM " + table_name + " WHERE " + sql
+        try:
+            self.cursor.execute(sql, replace)
+            return True
+        except sqlite3.OperationalError:
+            return False
+
+    def commit(self):
+        self.db.commit()
+
+
+
+class Store(object):
+    """
+    A SQL writer should be passed to the constructor:
+
+    beans_save = Store(SQLiteWriter(":memory"), frozen=False)
+    """
+    def __init__(self, SQLWriter):
+        self.writer = SQLWriter 
+    
+    def new(self, table_name):
+        new_object = type(table_name,(object,),{})()
+        return new_object
+
+    def save(self, bean):
+        self.writer.replace(bean)
+    
+    def load(self, table_name, id):
+        for row in self.writer.get_rows(table_name, "id=?", [id]):
+            return self.row_to_object(table_name, row)
+
+    def count(self, table_name, sql = "1", replace=None):
+        return self.writer.get_count(table_name, sql, replace if replace is not None else [])
+
+    def find(self, table_name, sql = "1", replace=None):
+        for row in self.writer.get_rows(table_name, sql, replace if replace is not None else []):
+            yield self.row_to_object(table_name, row)
+
+    def find_one(self, table_name, sql = "1", replace=None):
+        try:
+            return next(self.find(table_name, sql, replace))
+        except StopIteration:
+            return None
+
+    def delete(self, bean):
+        self.writer.delete(bean)
+    
+    def link(self, bean_a, bean_b):
+        self.writer.link(bean_a, bean_b)
+    
+    def unlink(self, bean_a, bean_b):
+        self.writer.unlink(bean_a, bean_b)
+    
+    def get_linked(self, bean, table_name):
+        for row in self.writer.get_linked_rows(bean, table_name):
+            yield self.row_to_object(table_name, row)
+
+    def delete_all(self, table_name, sql = "1", replace=None):
+        return self.writer.delete_all(table_name, sql, replace if replace is not None else [])
+
+    def row_to_object(self, table_name, row):
+        new_object = type(table_name,(object,),{})()
+        for key in row.keys():
+            new_object.__dict__[key] = row[key]
+        return new_object
+
+    def commit(self):
+        self.writer.commit()
+</t>
+<t tx="amd_yen.20130409162552.1785">為了推廣 Leo 編輯器的使用, 將要先設法打造一套可以在 Win32 環境中使用的基本 Leo 編輯器可攜套件, 步驟如下:
+
+1. 從 http://www.python.org/download/ 下載 Python 3.3.1, 安裝時 Doc 與 test scripts 不安裝, 容量大約 26 MB.
+
+2. 接著從 http://www.lfd.uci.edu/~gohlke/pythonlibs/#distribute 下載 distribute-0.6.36.win32-py3.3.‌exe, 安裝後約佔 30MB.
+
+3. 接著從 http://www.lfd.uci.edu/~gohlke/pythonlibs/#pip 下載 pip-1.3.1.win32-py3.3.‌exe, 安裝後約佔 32MB.
+
+4. 接著從 http://sourceforge.net/projects/pywin32/files/pywin32/Build%20218/ 下載 pywin32-218.win32-py3.3.exe, 安裝後約佔 58MB.
+
+5. 接著從 http://www.riverbankcomputing.com/software/pyqt/download 下載 PyQt4-4.10-gpl-Py3.3-Qt5.0.1-x32-2.exe, Doc 與 Examples 不安裝, 安裝後約佔 166MB.
+
+註: 因為安裝 PyQt4/Qt5 必須要從 http://www.microsoft.com/en-us/download/search.aspx?q=directx 更新 directx, 對於沒有更新的電腦就無法讓 Leo Editor 擷取到最新的 directx dll, 因為這不是 Leo 編輯器的問題, 而是 PyQt4 連結 Qt5 dll 所造成的問題, 目前還不知道 PyQt5 是否可以在未更新 directx 的情況下讓 2014 年即將退役的 Windows XP 正常使用 Qt5 的 dll, 因此依賴 PyQt 的 Leo Editor 根本無法主動修改, 只有兩條路可以走, 就是在 PyQt4 配合 Qt5  的情況下, 更新 Windows 的 directx, 或者是回到 PyQt4 與 Qt4 的搭配, 等待 PyQt5 與 Qt5 的版本到來, 然後再看是否能在未更新 dirextx 或更新 directx 的操作系統中彼此相容.
+
+這裡我們選擇在 PyQt4/Qt4 的模式下來啟動 Leo 編輯器, 也就從  http://www.riverbankcomputing.com/software/pyqt/download 下載 PyQt4-4.10-gpl-Py3.3-Qt4.8.4-x32.exe, 而非 PyQt4-4.10-gpl-Py3.3-Qt5.0.1-x32-2.exe.
+
+6. 接著從 http://www.lfd.uci.edu/~gohlke/pythonlibs/#docutils 下載 docutils-0.10.win32-py3.3.‌exe, 安裝後約佔 172MB.
+
+7. 接著從 http://www.greygreen.org/leo/ 下載 leo-editor-snapshot-20130408.zip, 解開後將 leo 目錄放到 C:\Python33\Lib\site-packages\, 整個 C:\Python33 約為 190MB.
+
+ 安裝至此, 雖然 Leo Editor 已經可以在單機啟動, 但是我們卻希望將 Leo 編輯器放到隨身碟上工作, 因此將 C:\Python33 整個目錄複製到 C:\leoeditor\data\ 目錄中, 然後將上面 7 個步驟的安裝, 利用系統移除程式進行反安裝, 最後當然就是刪除 C:\Python33.
+
+接下來, 希望除了 Leo 編輯器外, 還要有一個可以解譯 Python3 與簡單 C 程式的搭配用文字編輯器, 可以從 http://www.scintilla.org/SciTEDownload.html 下載 http://prdownloads.sourceforge.net/scintilla/wscite330.zip?download, 解開後將 wscite 目錄, 放入 C:\leoeditor\data 目錄中.
+
+接下來, 則從 http://download.savannah.gnu.org/releases/tinycc/ 下載 tcc-0.9.26-win32-bin.zip, 解開後將 tcc 目錄,  放入 C:\leoeditor\data 目錄中.
+
+截至目前, 我們在 C:\leoeditor\data 目錄中共有 Python33, wsite 與 tcc 等三個目錄, Python33 是從正式安裝 C:\Python33 複製得來, wscite 目錄則將用來編輯文件或解譯 Python3 與 C 程式, 而 tcc 目錄中則有完整的 TinyC 0.9.26 版本程式, 接下來則是要讓此一 Leo Editor 能夠正常啟動的設定工作, 而這些設定所需要的檔案, 可以利用 wscite 目錄中的 SciTE.exe 編輯取得.
+
+以下則為此一可攜 Leo Editor 系統的設定步驟:
+
+1. 開啟 wcite/SciTE.exe, 選擇 Options-&gt;Open Global Options File, 找到 code.page=0, 然後改為 code.page=65001, 表示要將原先設為系統編碼 (在 Windows XP 中為 Big-5) 改為 65001 編碼, 也就是改為 UTF-8 編碼, 另外再新增一個 output.code.page=0 設定, 表示輸出編碼則選用系統編碼.
+
+2. 接著選擇 Options-&gt;Open cpp.properties 檔案, 將 C 程式的編譯指定給 tcc 處理:
+#ccopts=-pedantic -Os
+cc=y:/tcc/tcc.exe -run
+ccc=y:/tcc/tcc.exe -run
+command.go.*.c=$(cc) $(FileNameExt)
+#command.go.*.c=./$(FileName)
+ 
+修改之後, 就可以直接在 SciTE 中編輯一個 .c 的小程式, 然後選擇 Tools-&gt;Go 就可以在輸出區看到執行結果.
+ 
+3. 接著選擇 Options-&gt;Open python.properties 檔案, 將 Python 程式的解譯指定給 y:\Python33\pythonw.exe 處理:
+ 
+if PLAT_WIN
+command.go.*.py=y:\Python33\pythonw -u "$(FileNameExt)"
+ 
+修改之後, 就可以編輯一個 .py 程式, 然後選擇 Tools-&gt;Go 執行.
+
+4. 接著再編輯 start.bat, stop.bat 與 README.md 等三個檔案, 內容如下:
+
+start.bat 內容:
+@echo off
+REM 設定 y 硬碟代號與 data 目錄對應
+set Disk=y
+subst %Disk%: "data"
+REM 將後續的指令執行, 以 %Disk% 為主
+%Disk%:
+REM 設定 PYTHONPATH
+set PYTHONPATH=%Disk%:\Python33
+REM 設定 Leo 所用的編輯器
+set LEO_EDITOR=%Disk%:\wscite\SciTE.exe
+REM 指令搜尋路徑設定
+set path1=%PATH%;%Disk%:\commands;%Disk%:\Python33;%Disk%:\Python33\Lib\site-packages\;
+set path2=%Disk%:\Python33\Lib\site-packages\pywin32_system32;%Disk%:\Python33\Scripts;
+path=%path1%;%path2%
+REM 啟動 SciTE 編輯器
+start %Disk%:\wscite\SciTE.exe
+REM 以最小畫面開啟兩個指令視窗備用
+start cmd.exe /MIN
+start cmd.exe /MIN
+REM 啟動 Leo 編輯器
+%Disk%:\Python33\python.exe %Disk%:\commands\launchLeo.py
+EXIT
+ 
+stop.bat 內容:
+ 
+@echo off
+set Disk=y
+REM 關閉 python
+taskkill /IM python.exe /F
+path=%PATH%;
+subst %Disk%: /D
+REM 關閉 cmd 指令視窗
+taskkill /IM cmd.exe /F
+EXIT
+ 
+README.md 內容:
+ 
+portable leoeditor
+===================
+ 
+Portable Leo Editor for win32 system.
+ 
+Files structure:
+ 
+Directories:
+ 
+data/wsite - SciTE editor
+data/Python33 - Python 3.3.1 interpreter
+data/tcc - TinyC compiler
+data/commands - all the commands
+data/examples - example files
+README.md
+start.bat
+stop.bat
+ 
+5. 最後, 啟動 start.bat, 就可以自動開啟 SciTE 與 Leo Editor, 開始進入 Leo 編輯器的探索之旅, 關閉系統則執行 stop.bat.
+ 
+6. 下載可攜 Leo Editor - 共有兩個檔案: portable_leoeditor_20130409.7z.001 與 portable_leoeditor_20130409.7z.002, 在 Windows 環境下, 利用 7zip 解開後就可以執行.
+ 
+https://sites.google.com/a/mde.tw/service/public/portable_leoeditor_20130409.7z.001?attredirects=0&amp;d=1
+ 
+https://sites.google.com/a/mde.tw/service/public/portable_leoeditor_20130409.7z.002?attredirects=0&amp;d=1
+</t>
+<t tx="amd_yen.20130409162552.1786">1. 下載可攜 Leo Editor - 共有兩個檔案: portable_leoeditor_20130409.7z.001 與 portable_leoeditor_20130409.7z.002, 在 Windows 環境下, 利用 7zip 解開後就可以執行.
+
+https://sites.google.com/a/mde.tw/service/public/portable_leoeditor_20130409.7z.001?attredirects=0&amp;d=1
+
+https://sites.google.com/a/mde.tw/service/public/portable_leoeditor_20130409.7z.002?attredirects=0&amp;d=1
+
+2. 假如您不想要使用上述的可攜版本, 可以參考 http://main.kmol.info/?Python_Leo_editor 中的說明, 自行打造, 在建立此一可攜 Leo Editor 系統的同時, 有一個重要的 PyQt 設定步驟, 先前忘了說明, 也就是 leoeditor\data\Python33 目錄下的 qt.conf 設定檔案, 內容必須與可攜系統中的 Python33 搭配, 也就是必須改為:
+
+[Paths]
+Prefix = y:/Python33/Lib/site-packages/PyQt4
+Binaries = y:/Python33/Lib/site-packages/PyQt4
+
+其中指定了 PyQt4 的安裝目錄, 假如沒能正確設定, Leo Editor 開啟後, 特定的小圖像將會無法顯示.
+
+3. 當使用者執行 start.bat 後, 系統會將 leoeditor 目錄中的 data 目錄與 Y: 硬碟對應, Y:\ 硬碟中的檔案其實就是 leoeditor/data 目錄, 兩個目錄為同步對應.
+
+假設將上述兩個壓縮檔案下載後, 直接解開到 C:\Documents and Settings\amd\My Documents\Downloads\leoeditor, 然後就可以點擊其中的 start.bat, 將會分別開啟兩個 cmd.exe 視窗, SciTE 編輯器與 Leo Editor, 這時進入 Y: 硬碟, 就可以看到 commands, exammples, Python33, tcc 與 wscite 等五個目錄, 其中 Python33 為可攜的 Python 3.3.1, tcc 為 TinyC 編譯程式, scite 則為 SciTE 編輯器.
+
+啟動 Leo Editor 後, 使用者可以利用 http://leoeditor.com/ 中的說明, 逐步了解如何使用 Leo 編輯器, 以下為幾個使用上的關鍵點:
+
+1. Leo Editor 的啟動設定分為系統設定與使用者設定, 系統設定可以從下拉式功能表 Help-&gt;Open leoSettings.leo 中開啟看到內容, 其中最重要的設定之一就是畫面相關字型大小的設定, 也就是標題為 @data qt-gui-plugin-style-sheet 的內容設定.
+
+由於 Leo Editor 是一個大綱編輯器, 當使用者利用下拉式功能表 File-&gt;New 一個檔案後, 視窗正中央會出現三個不同顏色的視窗, 淺黃色的視窗稱為大綱標題視窗, 淡綠色則為 Log 視窗, 而淡紅色的則為與大綱標題對應的內容視窗, 新開一個大綱檔案後, 會有一個 NewHeadline 的標題 (稱為 outline head), 而其對應內容區 (稱為 outline body) 則為空內容.
+
+當使用者從 Help-&gt;Open leoSettings.leo 開啟系統設定後, 可以利用 ctrl+f 啟動螢幕下方淡藍色的 Minibuffer 區, 當使用者利用 ctrl 按鍵加上 f 表示要輸入搜尋關鍵字, Minibuffer 區就會自動出現 Search, 並且等待使用者輸入關鍵字, 這時若在 Search: 之後輸入 style-sheet, 然後按下 Enter,  Leo Editor 就會自動停留到標題為 @data qt-gui-plugin-style-sheet 的節點 (稱為 node), 而 @data qt-gui-plugin-style-sheet 標題節點的內容就視用來設定 Leo Editor 的各項顯示, 其中包括目前畫面各區域的字元大小設定.
+
+QTreeWidget 設定為節點標題字型設定, QTextEdit 為 log 區字型設定, QTextEdit#richTextEdit 則為節點內文字型設定, QLabel 則為 Minibuffer 區的字型設定.
+
+一勞永逸的做法可以將 leoSettings.leo 中 @data qt-gui-plugin-style-sheet 節點內容 12px 全部改為 18px, 重新開啟 Leo Editor 後, 就會依照新的設定顯示, 但是在 Leo 4.11 20130408 版本使用的結果顯示, 若隨後開啟的 .leo  檔案中有 @data qt-gui-plugin-style-sheet 節點內容, 則 Leo 會全部以新設定來顯示畫面中的內容.
+
+而更具彈性的做法則是在各別 .leo 檔案中設定 @data qt-gui-plugin-style-sheet 節點內容, 一旦開啟此 .leo 檔案, 系統就會以此設定來顯示畫面中的各區域內容.
+
+2. 開始建立大綱標題與內容
+
+利用 File-&gt;New 開啟一個新的 .leo 檔案, 然後利用 ctrl + i 插入一個大綱標題, 其他的操作為:
+
+ctrl + i 插入 (insert) 大綱節點
+
+ctrl + r 將所選擇的大綱節點往右邊 (right) 移動
+
+ctrl + l 將所選擇的大綱節點往左邊 (left) 移動
+
+ctrl + u 將所選擇的大綱節點往上方 (up) 移動
+
+ctrl + d 將所選擇的大綱節點往下邊 (down) 移動
+
+ctrl + s 存檔
+
+使用者可以從 https://sites.google.com/a/mde.tw/service/public/tutorial1.leo?attredirects=0&amp;d=1 下載 tutorial1.leo 檔案.
+
+3. 下載 tutorial1.leo 開啟後, 就可以利用滑鼠點按 newHeadline 兩次, 編輯節點標題, 移到下方的淡紅色對應內文區, 就可以輸入與 newHeadline 對應的大綱內容.
+
+在這個簡單的 Leo Editor 使用說明裏, 我們說明了如何下載或建立可攜的 Leo Editor 編輯器系統, 啟動後, 開啟 tutorial1.leo 就可以讓 Leo Editor 使用 @data qt-gui-plugin-style-sheet 節點中的設定 ,假如這時再以 Help-&gt;Open leoSettings.leo 檔案, Leo Editor 又會以 leoSettings.leo 中的小字型 (12px) 設定來顯示畫面中的各區內容.
+
+另外, File-&gt;Recent Files 下, 使用者可以選擇先前已經開啟的 .leo 檔案或清除 Recent Files 紀錄, clear 應該是暫時清除 Recent Files 顯示, 而 clean 應該就是將存在系統中的紀錄刪除 (實際測試好像看不出 clear 與 clean 的差別).
+
+好了, 你已經完成了最基本的 Leo Editor 操作, 接下來就是如何利用 Leo Editor 與外部檔案進行互動.</t>
+<t tx="amd_yen.20130409163608.1839">首先, 我們為了要方便啟動 Leo Editor, 可以在 commands 目錄下建立一個 start_leo.bat, 內容為:
+
+y:\Python33\python.exe y:\commands\launchLeo.py
+
+使用者只要在 cmd 對應視窗中, 執行 start_leo, 就可以開啟 Leo Editor.
+
+在這個教學流程中, 我們將會使用幾個 Leo Editor 特定的 @language, @path 以及 @auto 指令, 其中 @language 用於節點內文, 而 @path 與 @auto 都是節點標題中的指令.
+
+1. 利用 Leo 編輯器打開 tutorial1.leo, 我們已經學會如何利用 ctrl + i 增加節點, 也學會如何利用 ctrl + r, l, u, d 等四個快捷鍵移動所選擇的節點, 也知道可以利用 ctrl  + s 進行存檔.
+
+接下來我們就先在最外圍的區域以 ctrl + i 增加一個節點, 我們在節點標題輸入"建立外部檔案", 並且在此節點的下一階, 建立另外一個節點, 也就是在最外部建立節點後, 以 ctrl + r 向右移動.
+
+這個附屬於"建立外部檔案"第二階的節點標題, 我們輸入 @path tutorial2, 而這個標題為"@path tutorial2" 的節點內文則保持空白, 然後在"@path tutorial2" 節點的再下一階則再利用 ctrl + i 建立另一個節點, 而且標題輸入"@auto tut2.py", 內文則輸入:
+
+@language python
+#coding: utf-8
+
+for 索引 in range(5):
+    print("第"+str(索引)+"行執行 Python 程式")
+
+完成上述三個新節點的建立後, 先不要急著存檔, 先到 Y:\examples 目錄中建立一個 tutorial2  目錄, 然後再將目前編修 tutorial1.leo 檔案存在 Y:\exammples 目錄下, 存檔後, 就可以在 log  區看到:
+
+created: Y:\examples\tutorial2\tut2.py
+saved: tutorial2.leo
+
+等兩行, 表示已經建立了 tut2.py 並且對 tutorial2.leo 存檔, Leo Editor 為何會這樣做?
+
+2. 先來看標題為 @path tutorial2 的作用.
+
+@path 放在大綱標題, 表示路徑關係, 節點標題為 "@path tutorial2" 表示其下屬節點若有存檔指令 (例如:@auto) 都會是在 tutorial2 目錄之下, 而其下屬節點標題 "@auto tut2.py" 表示要求 Leo 將此節點的內文存成檔案, 而且檔案名稱就是 tut2.py, 由於其上一階層有一個 "@path tutorial2" 節點, 因此 tut2.py 檔案就會存在 tutorial2.leo 所在目錄下的 tutorial2 子目錄, 並且檔案會存為 tut2.py.
+
+3. 如何執行 tut2.py?
+
+雖然可以直接在 Leo Editor 的環境下來執行 tut2.py,  但是 Leo Editor 與 tut2.py 都是 Python3 程式, 比較好的做法是在 Leo Editor 之外來執行此一程式, 實際的操作方法為:
+
+以滑鼠點選 @auto tut2.py  節點標題, 然後以滑鼠右鍵帶出另一個小視窗, 選擇最上頭的 "Edit tut2.py in SciTE.exe", Leo Editor 就會啟動 SciTE 編輯器, 然後開啟 tut2.py, 這時只要在 SciTE 環境, 選擇 Tools-&gt;Go, 就可以執行 tut2.py, 並且在 output 區看到執行結果, 但是 Leo Editor 如何牽動 SciTE 的開啟, 答案就在 start.bat
+
+還記得 start.bat 啟動內容中有:
+
+REM 設定 Leo 所用的編輯器
+set LEO_EDITOR=%Disk%:\wscite\SciTE.exe
+
+所以利用 start.bat  啟動時, Leo Editor 就會以 SciTE 作為附屬的編輯器, 而且在 SciTE 設定中, python.properties 已經透過:
+
+if PLAT_WIN
+    command.go.*.py=y:\Python33\pythonw -u "$(FileNameExt)"
+
+指名要讓 y:\Python33\pythonw 來執行副檔名為 .py  的檔案, 因此, 一旦 @path 與 @auto 標題指令合力建立 tut2.py 後, 由 Leo 啟動 SciTE, 就可以進行 tut2.py 程式的執行.
+
+4. 接著則是節點內文中 @language  的用法說明:
+
+@language python
+
+表示內文中採用 python 語法來顯示,  @language 為內文指令.
+
+5. 最後, 關閉 tutorial2.leo 檔案, 然後以 SciTE 修改位於 y:\exammples\tutorial2 目錄中的 tut2.py, 把它改為:
+
+#coding: utf-8
+
+for 索引 in range(10):
+    print("第"+str(索引)+"行執行 Python 程式")
+
+也就是將原本的 range(5) 改為 range(10), 然後再以 Leo Editor 開啟 tutorial2.leo
+
+標題為 "@auto tut2.py" 的節點內容發生了變化, Leo Editor 不僅納入已經改變的 tut2.py 程式, 而且自動 (@auto) 將程式納入 "tut2 declarations" 節點, 並且將 "@auto tut2.py" 節點的內容改為:
+
+@language python
+@tabwidth -4
+@others
+
+其中的 @others 表示此節點下屬的所有節點內容都會被納入 tut1.py 程式中 (除了命名節點 (named node) 外,  tutorial3 會談到命名節點).
+
+6. 總結 tutorial2 所呈現的內容, 我們利用 Leo Editor  的 @path 來宣告節點的路徑關係, 並且利用 @auto 來建立外部檔案, 一個重點為:
+
+使用者必須自行建立 tutorial2 子目錄
+
+否則 tut2.py 將不會存檔.
+
+其次在節點內文中, 可以利用 @language python 來辨識 Python 程式碼, 一旦外部的 tut2.py 檔案在 Leo Editor 之外變更後, 使用者再次打開 tutorial2.leo 後, Leo 就會自動導入已經改變的 tut2.py 程式碼, 而且會自動將程式納入階層式的大綱標題與內容.
+
+好了,  終於學會 @path, @auto 與 @language 的基本用法, 這些指令有些用於標題, 有些用於內文, 除了 @language 外,  @tabwidth 與 @others 也都是內文指令, 隨後我們將會加以說明.
+
+tutorial2 可以從 https://sites.google.com/a/mde.tw/service/public/tutorial2.7z?attredirects=0&amp;d=1 下載.</t>
+<t tx="amd_yen.20130410133544.14742"></t>
+<t tx="amd_yen.20130410133544.14743"></t>
+<t tx="amd_yen.20130410133544.14744"></t>
+<t tx="amd_yen.20130410133544.14745"></t>
+<t tx="amd_yen.20130410133544.14746">指已經存在的商用或自由軟體套件, 可用來輔助操作者進行機械設計</t>
+<t tx="amd_yen.20130410133544.14747">指由操作者編寫程式, 用來延伸既有套件的功能, 以擴增設計效益.</t>
+<t tx="amd_yen.20130410133544.14748">指整體架構完全由設計者自行編寫建構的程式工具或套件系統</t>
+<t tx="amd_yen.20130410133544.14749"></t>
+<t tx="amd_yen.20130410133544.14750"></t>
+<t tx="amd_yen.20130410133544.14751"></t>
+<t tx="amd_yen.20130410133544.14752"></t>
+<t tx="amd_yen.20130410133544.14753"></t>
+<t tx="amd_yen.20130410133544.14754"></t>
+<t tx="amd_yen.20130410133544.14755"></t>
+<t tx="amd_yen.20130410133544.14756"></t>
+<t tx="amd_yen.20130410133544.14757"></t>
+<t tx="amd_yen.20130410133544.14758"></t>
+<t tx="amd_yen.20130410133544.14759"></t>
+<t tx="amd_yen.20130410133544.14760"></t>
+<t tx="amd_yen.20130410133544.14761"></t>
+<t tx="amd_yen.20130410133544.14762"></t>
+<t tx="amd_yen.20130410133544.14763"></t>
+<t tx="amd_yen.20130410133544.14764"></t>
+<t tx="amd_yen.20130410133544.14765"></t>
+<t tx="amd_yen.20130410133544.14766"></t>
+<t tx="amd_yen.20130410133544.14767"></t>
+<t tx="amd_yen.20130410133544.14768"></t>
+<t tx="amd_yen.20130410133544.14769"></t>
+<t tx="amd_yen.20130410133544.14770"></t>
+<t tx="amd_yen.20130410133544.14771"></t>
+<t tx="amd_yen.20130410133544.14772"></t>
+<t tx="amd_yen.20130410133544.14773"></t>
+<t tx="amd_yen.20130410133544.14774"></t>
+<t tx="amd_yen.20130410133544.14775"></t>
+<t tx="amd_yen.20130410133544.14776">指使用者利用電腦與網路搜尋與設計內容相關的資料
+
+取用他人所提供的相關設計資料</t>
+<t tx="amd_yen.20130410133544.14777">指由設計者利用網路, 搭建自我團隊可運用之程式, 以達到增進設計效益的目的.
+
+經由各種方法接收基本資料, 經過處理或運算成為其他可引用的設計資料</t>
+<t tx="amd_yen.20130410133544.14778">指在設計者的搭建下, 由機器對機器, 經由網路, 自動傳輸所需的設計相關資料.
+
+例如, 分散機械設計系統與自動資料備份系統</t>
+<t tx="amd_yen.20130410133544.14779"></t>
+<t tx="amd_yen.20130410133544.14780"></t>
+<t tx="amd_yen.20130410133544.14781"></t>
+<t tx="amd_yen.20130410133544.14782"></t>
+<t tx="amd_yen.20130410133544.14783"></t>
+<t tx="amd_yen.20130410133544.14784"></t>
+<t tx="amd_yen.20130410133544.14785"></t>
+<t tx="amd_yen.20130410133544.14786"></t>
+<t tx="amd_yen.20130410133544.14787"></t>
+<t tx="amd_yen.20130410133544.14788">專門用來提供資料給使用者的電腦</t>
+<t tx="amd_yen.20130410133544.14789">以近距離組合的方式組成一可共享運算資源的電腦</t>
+<t tx="amd_yen.20130410133544.14790">電腦主機分散在不同位置而組成一個可彼此共享運算資源的組合
+
+與叢集電腦相比, 以較長距離組合的方式組成一可共享運算資源的電腦</t>
+<t tx="amd_yen.20130410133544.14791">具有非常多核心運算單元的電腦</t>
+<t tx="amd_yen.20130410133544.14792">特指可採用虛擬模式, 及時依照使用負載而彈性配置運算與資料儲存單元的電腦組合.</t>
+<t tx="amd_yen.20130410133544.14793">輕便且使用者可隨身攜帶, 具有螢幕與鍵盤滑鼠等配置的電腦</t>
+<t tx="amd_yen.20130410133544.14794">輕便且使用者可隨身攜帶, 並且只具有螢幕的電腦</t>
+<t tx="amd_yen.20130410133544.14795">主要功能用於個人通訊, 但仍提供基本電腦功能之裝置.</t>
+<t tx="amd_yen.20130410133544.14796">本身具有運算單元主體的小型電子裝置.</t>
+<t tx="amd_yen.20130410133544.14797"></t>
+<t tx="amd_yen.20130410133544.14798">經由物理性質的改變而感知之電子裝置</t>
+<t tx="amd_yen.20130410133544.14799">傳遞數據或資料的電子裝置</t>
+<t tx="amd_yen.20130410133544.14800">無需實體連線, 即可藉以操作控制某一裝置的資訊傳遞元件</t>
+<t tx="amd_yen.20130410133544.14801">提供資料運算或分析的小型電子裝置</t>
+<t tx="amd_yen.20130410133544.14802">指該項事物並非主體, 而是從體.</t>
+<t tx="amd_yen.20130410133544.14803"></t>
+<t tx="amd_yen.20130410133544.14804">指從電腦與使用者之間的互動模式自動化與否進行分類</t>
+<t tx="amd_yen.20130410133544.14805">指設計者只需將設計需求告知電腦套件或程式, 由電腦設法找出可行設計方案或最佳設計方案</t>
+<t tx="amd_yen.20130410133544.14806">指由操作者與電腦程式或套件, 以對談互動的模式進行機械設計</t>
+<t tx="amd_yen.20130410133544.14807">利用電腦(網路)程式, 設法增進電腦或其操作者更高的設計效率.</t>
+<t tx="amd_yen.20130410133544.14808">指依照採用不同的設計原理來加以輔助的角度進行分類</t>
+<t tx="amd_yen.20130410133544.14809"></t>
+<t tx="amd_yen.20130410133544.14810"></t>
+<t tx="amd_yen.20130410133544.14811"></t>
+<t tx="amd_yen.20130410133544.14812"></t>
+<t tx="amd_yen.20130410133544.14813"></t>
+<t tx="amd_yen.20130410133544.14814"></t>
+<t tx="amd_yen.20130410133544.14815"></t>
+<t tx="amd_yen.20130410133544.14816"></t>
+<t tx="amd_yen.20130410133544.14817"></t>
+<t tx="amd_yen.20130410133544.14818"></t>
+<t tx="amd_yen.20130410133544.14819"></t>
+<t tx="amd_yen.20130410133544.14820"></t>
+<t tx="amd_yen.20130410133544.14821"></t>
+<t tx="amd_yen.20130410133544.14822"></t>
+<t tx="amd_yen.20130410133544.14823"></t>
+<t tx="amd_yen.20130410133544.14824"></t>
+<t tx="amd_yen.20130410133544.14825"></t>
+<t tx="amd_yen.20130410133544.14826"></t>
+<t tx="amd_yen.20130410133544.14827"></t>
+<t tx="amd_yen.20130410133544.14828"></t>
+<t tx="amd_yen.20130410133544.14829"></t>
+<t tx="amd_yen.20130410133544.14830">指從事與力學相關的工程設計, 且其產品元件或組成會隨時間而改變其屬性的設計.
+
+</t>
+<t tx="amd_yen.20130410133544.14831">設計
+
+是一種溝通與協同的創造性活動
+
+設計的本質是講道理, 定計畫, 勤執行, 做紀錄, 忙修改的求同步重複遞迴行動
+
+也就是
+
+    講道理 - 要有所本
+    定計畫 - 要有條理
+    勤執行 - 要說到做到
+    做紀錄 - 要鉅細靡遺
+    忙修改 - 要修補漏洞
+    求同步 - 要積極進取
+    重複遞迴 - 可收斂的設計才是成功的設計
+</t>
+<t tx="amd_yen.20130410133544.14832"></t>
+<t tx="amd_yen.20130410133544.14833"></t>
+<t tx="amd_yen.20130410133544.14834"></t>
+<t tx="amd_yen.20130410133544.14835"></t>
+<t tx="amd_yen.20130410133544.14836"></t>
+<t tx="amd_yen.20130410133544.14837">指採用既有之通用設計與規格之機械元件進行設計</t>
+<t tx="amd_yen.20130410133544.14838">指完全由設計者量身打造, 可專屬使用之機械元件, 通常由專屬機械元件所組成之設計產品可包含相關的產品專利與特有設計工具或技術</t>
+<t tx="amd_yen.20130410133544.14839"></t>
+<t tx="amd_yen.20130410133544.14840"></t>
+<t tx="amd_yen.20130410133544.14841"></t>
+<t tx="amd_yen.20130410133544.14842"></t>
+<t tx="amd_yen.20130410133544.14843"></t>
+<t tx="amd_yen.20130410133544.14844"></t>
+<t tx="amd_yen.20130410133544.14845"></t>
+<t tx="amd_yen.20130410133544.14846"></t>
+<t tx="amd_yen.20130410133544.14847"></t>
+<t tx="amd_yen.20130410133544.14848"></t>
+<t tx="amd_yen.20130410133544.14849"></t>
+<t tx="amd_yen.20130410133544.14850"></t>
+<t tx="amd_yen.20130410133544.14851"></t>
+<t tx="amd_yen.20130410133544.14852"></t>
+<t tx="amd_yen.20130410133544.14853"></t>
+<t tx="amd_yen.20130410133544.14854"></t>
+<t tx="amd_yen.20130410133544.14855"></t>
+<t tx="amd_yen.20130410133544.14856"></t>
+<t tx="amd_yen.20130410133544.14857"></t>
+<t tx="amd_yen.20130410133544.14858"></t>
+<t tx="amd_yen.20130410133544.14859"></t>
+<t tx="amd_yen.20130410133544.14860"></t>
+<t tx="amd_yen.20130410133544.14861"></t>
+<t tx="amd_yen.20130410133544.14862"></t>
+<t tx="amd_yen.20130410133544.14863"></t>
+<t tx="amd_yen.20130410133544.14864"></t>
+<t tx="amd_yen.20130410133544.14865"></t>
+<t tx="amd_yen.20130410133544.14866"></t>
+<t tx="amd_yen.20130410133544.14867"></t>
+<t tx="amd_yen.20130410133544.14868"></t>
+<t tx="amd_yen.20130410133544.14869"></t>
+<t tx="amd_yen.20130410133544.14870"></t>
+<t tx="amd_yen.20130410133544.14871"></t>
+<t tx="amd_yen.20130410133544.14872"></t>
+<t tx="amd_yen.20130410133544.14873"></t>
+<t tx="amd_yen.20130410133544.14874"></t>
+<t tx="amd_yen.20130410133544.14875"></t>
+<t tx="amd_yen.20130410133544.14876"></t>
+<t tx="amd_yen.20130410133544.14877"></t>
+<t tx="amd_yen.20130410133544.14878"></t>
+<t tx="amd_yen.20130410133544.14879"></t>
+<t tx="amd_yen.20130410133544.14880"></t>
+<t tx="amd_yen.20130410133544.14881"></t>
+<t tx="amd_yen.20130410133544.14882"></t>
+<t tx="amd_yen.20130410133544.14883"></t>
+<t tx="amd_yen.20130410133544.14884"></t>
+<t tx="amd_yen.20130410133544.14885"></t>
+<t tx="amd_yen.20130410133544.14886"></t>
+<t tx="amd_yen.20130410133544.14887"></t>
+<t tx="amd_yen.20130410133544.14888"></t>
+<t tx="amd_yen.20130410133544.4362">Tutorial3 練習檔案可以從 https://sites.google.com/a/mde.tw/service/public/tutorial3.7z?attredirects=0&amp;d=1 下載.
+
+本教學將延續 Tutorial 2, 介紹另一個 Leo Editor 的節點標題指令 @asis.
+
+但是何謂節點標題指令, 其實 Leo Editor 中以 @ 開頭的字串有其特殊用法, 可以導引 Leo 編輯器對標題或內容執行指令, 而這些指令有些是放在節點標題才會有作用, 例如: @auto 與 @asis 都是放在節點標題使用的指令, 而這種指令就稱為"節點標題指令".
+
+相對於放在標題才會有作用的"標題指令", 有些指令是放在節點內文才會有作用, 例如: @language, 這種指令就稱為"內文指令", 先前將 @language python 放在內文的最前頭, 就是告訴 Leo 編輯器, 這個內文要以 Python 程式語法來標示.
+
+Tutorial 2 中的 @auto 所連結的外部檔案, Leo 編輯器不僅會將此外部檔案的內容讀進內文區, 而且若檔案為程式碼, Leo 還會解讀程式碼中的類別與函式, 然後將這些程式物件以樹狀結構呈現, 這些檔案會以外部檔案為主, 假如外部檔案變更, .leo 檔案開啟時就會讀入新的檔案內容, 而在 .leo 檔案編輯時, 改變樹狀結構內容, 儲存 .leo 檔時也會同時更新外部檔案.
+
+Tutorial 3 要介紹的 @asis, 則與 @auto 指令有很大的不同, @asis 對應的外部檔案只在 .leo 存檔時會從 Leo 節點寫成外部檔, 實際的資料會存在.leo 節點中, 外部檔案變更後, 重新打開 .leo 檔, @asis 無法反應外部檔案的變更.
+
+使用者可以在打開 tutorial2.leo 後, 將外部 tut3.txt 刪除, 並不會影響存在節點中的內容, 當節點內容改變, 且儲存 .leo 檔案時, Leo 會將節點內容再存入 tut3.txt 檔案.
+
+另外一點, "tut3 的子節點"以下的節點, 無論是"命名節點"或一般節點, 內容都會被存入 tut3.txt, 而且子節點間不會自動跳行.
+
+接著來複習一下 @auto 大綱標題指令:
+
+Leo 編輯器網站有關 @auto 的說明這樣寫著:
+
+@auto 節點標題指令會自動導入外部檔案, 並且將外部檔案的內容納入節點樹狀架構, 當以 Leo 編輯器建立的外部檔案, 不希望附加 Leo 標註資料時,  @auto 節點標題指令通常為第一選擇. 儘管以 @auto 指令所連結的外部檔案沒有 Leo 標註資料, 當此外部檔案變更後, Leo 仍能配合變更其對應的節點樹狀架構.
+
+@auto 對應檔案是以輸入器 (importers) 進行資料讀取, 各程式類別、方法或函式都會單獨以節點存放, 目前 Leo 可以解讀的節點資料有 C, elisp, HTML, .ini files, Java, Javascript, Pascal, PHP, Python 與 xml. 能夠解讀的 html 標註則有 html, body, head, and div 等, 其他未支援的程式內容則會全部以複製方法導入.
+
+@auto 導入外部檔案時會自動查驗與原導入檔案的差異, 一旦發生內容差異時, Leo 就會發生錯誤或警告訊息並自動插入 @ignore  指令, 以免意外更動外部檔案原本的內容.
+
+另外, @auto 將外部程式檔案以 leoImport.py 解讀為 Leo 編輯器節點的樹狀結構, 對於 Python 程式的解讀性最佳, 原因就在於 Python 程式語法對於縮排有嚴格規定, 因此只要是能夠正確執行的 Python 程式被 @auto 正確解讀的機會最高, 而其他程式語言若編寫架構參差, Tab 與空白混用將會造成 @auto 解讀上的困難, 一旦 Leo Editor 在利用@auto 解讀過程發現內容有誤時, 並不會強制導入樹狀架構, 而是將全部內容讀到節點內文中, 若使用者無法適度修改成可以讓 @auto 解讀的版本, 使用者可以將 @auto 改為 @edit, 讓 Leo Editor 將所有程式碼存在同一節點的方式來管理.
+
+@edit 與 @auto 節點標題指令都不會在外部檔案中加上 Leo 標記, 且在 .leo 檔案中不會儲存外部檔案資料, 而是在開檔時由外部讀進檔案資料, @edit 會將檔案放在同一節點, 而 @auto 則會將外部程式檔案中的類別與函式納入 Leo 的節點架構中.
+
+Leo Editor 除了 @auto 標題指令不會在內容留下 Leo 標記外, 還有 @edit 與 @asis 等兩個標題指令 (這裡避開較少使用的 @nosent), 也不會在所建立的外部檔案中加入 Leo 標記, @edit 與 @auto 不同的地方在於:
+
+@edit 不會像 @auto 解讀外部檔案並將外部檔案, 同時納入 Leo 的樹狀架構, @edit 會將整個外部檔案放在一個節點內容中.
+
+@auto 與  @edit  標題指令都會讀入變更內容的外部檔案, 只不過 @auto  會解讀內容架構並且放到樹狀節點中, 而 @edit 則將外部檔案的全部資料放到一個節點中.
+
+@asis 標題節點指令則與 @auto/@edit 有很大不同:
+
+1. @asis 是一個以 .leo 節點資料內容為主的標題指令, 當外部檔案有變更時, @asis  並無法反應這些變更, 使用者只能從 .leo 檔案中利用節點滑鼠右鍵, 以 Refresh from disk 手動反應外部檔案最新內容.
+
+2. @asis 通常在第一時間, 以 .leo 中的節點資料為主, 在 .leo 檔案存檔時, 才會將節點以及附屬節點的內容寫入對應的外部檔案.
+
+3. @asis 下屬的子節點內容會全部從節點內容寫入 @asis 對應的外部檔案, 而且若節點內容沒有跳行符號, 則全部的內容都會直接黏合在一起, 不會自動跳行.
+
+Tutorial3 練習檔案可以從 https://sites.google.com/a/mde.tw/service/public/tutorial3.7z?attredirects=0&amp;d=1 下載.
+
+以 Leo Editor 開啟 tutorial3.leo 檔案後, 查看一下標題為 "&lt;&lt; 命名節點 &gt;&gt;" 的節點, 這種以 &lt;&lt; &gt;&gt; 標示的節點稱為"named node"
+
+相關檔案說明: http://leoeditor.com/directives.html</t>
+<t tx="amd_yen.20130410133544.4363">Tutorlal4: https://sites.google.com/a/mde.tw/service/public/tutorial4.7z?attredirects=0&amp;d=1
+
+介紹 @edit 的使用.
+
+請下載 tutorial4.7z 解開後, 以 Portable Leo Editor 開啟.
+
+@edit 也是以外部檔案為主的"標題指令", 這點與 @auto 相同.
+
+與 @auto 不同的是, @edit 讀進外部檔案後, 不會解讀也不會自動納入節點架構, 而是將所有外部檔案內容放在同一個節點內容中.
+
+因此 @edit  的使用時機與 @auto 相同, 都是先有外部程式檔案後, 再設法以節點標題指令導入 Leo 編輯器中.
+
+另外, 使用者若以滑鼠右鍵按住"@path tutorial4" 節點, 就可以看到"Import files"指令, 這是利用導入檔案的方式來執行 @auto 或 @edit, 可以一次選擇目錄下多個檔案, 並且將這些檔案以 @auto 或 @edit 模式導入 (程式檔會以 @auto 執行, 一般檔案則會以 @edit 執行).
+
+路徑節點中的 "Import files" 指令, 執行 @auto 或 @edit 後, 會以絕對路徑作為節點標題, 其實這並不是很好的做法, 因為一旦 .leo 檔案移動位置後, 這些絕對路徑"可能"不會自動調整, 我們試一下好了.
+
+我們試著以滑鼠右鍵指向"@path tutorial2", 並且要求 "Import files", 然後開啟 tut2.py, 看看 Leo Editor 會不會自動以 @auto 導入 tut2.py
+
+接著再以滑鼠右鍵指向"@path tutorial4", 並且要求 "Import files",  然後開啟 tut4.txt, 看看 Leo Editor 會不會自動以 @edit 導入 tut4.txt
+
+假如都可以順利導入 tut2.py 與 tut4.txt, 就可以看到 Leo Editor 以絕對路徑作為節點標題, 將此一檔案存為 tutorial4-1.leo, 然後將整個 examples 目錄搬到其他地方, 再次開啟 tutorial4-1.leo, 上述操作的絕對路徑標題仍然指向原先的檔案, 而不是相對目錄下的 tut2.py 與 tut4.txt, 因此假如在上一個步驟將絕對目錄標題改為相對目錄, 則移動位置後的節點就會指向相對目錄下的 tut2.py 與 tut4.txt.
+
+好了,  Tutorial4 講完了, 我們現在應該已經會使用 @auto, @asis 與 @edit 來建立 Leo 內容與外部檔案之間的關聯, 而這些關聯就是後續將 Leo Editor 用來作為 IDE 的重要功能.
+
+Tutorial 5 我們將要來看 @file 節點標題指令, 將會有更多命名節點與內文指令的應用.</t>
+<t tx="amd_yen.20130410133544.4364">Tutorial5: https://sites.google.com/a/mde.tw/service/public/tutorial5.7z?attredirects=0&amp;d=1
+
+請由上述連結下載 tutorial5.leo, 然後以可攜 Leo 編輯器開啟.
+
+先看一下"@file tut5.py" 節點的內容:
+
+@language python
+#coding: utf8
+&lt;&lt; comment &gt;&gt;
+&lt;&lt; import &gt;&gt;
+@others
+&lt;&lt; other config &gt;&gt;
+&lt;&lt; run &gt;&gt;
+
+@language python 表示這個檔案要以 Python 程式語法解讀.
+
+@others 則代表此一節點的下屬節點中所有節點的內容, 但是不包括"命名節點".
+
+所謂的命名節點, 就是節點標題中帶有 &lt;&lt; 與 &gt;&gt; 符號的節點.
+
+在 @file tut5.py 節點中, 共引用了四個命名節點, 表示要分別將這些節點內容依序放在 tut5.py 檔案中.
+
+命名節點排列的次序就代表這些內容要放入 tut5.py 的順序, 而 @others 則代表後續下一階所有內容的總合, 要放在 @others 所在的位置.
+
+這裡必須要特別注意的一點是, @others 所在的縮排位置非常重要, 因為整個 Leo Editor 中的節點標題與內文都是 Python 程式物件, 因此 @others 所在的位置就是後續程式要置入的對應位置, 假如 @others 向右縮排, 則表示後續的子節點內容,全部要以 @others 所在的縮排位置進行擺放.
+
+我們可以在 @file tut5.py 節點內容動一些手腳, 將 @others 往後跳四個 spaces, 然後存檔, 看看 tut5.py 內容有何改變?
+
+當您以滑鼠右鍵, 點住 @file tut5.py 節點, 然後選擇"Edit tut5.py in SciTE" 功能時, 打開  tut5.py 後, 就可以見到許多 # 開頭的標註記號, 這些標記就是所謂的"Leo 標記" (sentinel), 這是 Leo 用 xml 註記內容之用, 就產生外部檔案的指令而言, 只有 @file 與 @shadow 節點標題指令所產生的外部檔案才看得到.
+
+上面提到, 當 @others 改變位置後, tut5.py 也會將子節點所對應的內容向後移位, 這就是 @others 的特性.
+
+您也可以將 "&lt;&lt; comment &gt;&gt;" 命名節點在 @file tut5.py 節點內文中, 向右移動 4 個空白, 然後存檔, 看看 tut5.py 檔案中有何變化.
+
+沒有錯, 與 "&lt;&lt; comment &gt;&gt;" 命名節點對應的內文也會向右移動, 因此在 Leo Editor 中各指令標示的位置是非常重要的, 可能對於不使用 Python 程式的用戶來說, 程式碼的位置無關緊要, 但是 Python 程式語法天生就是靠縮排來確定各區域的執行範圍, 養成固定縮排寫程式的習慣在 Python 而言是必要的, 能夠執行的Python 程式一定是排列整齊的, 不僅電腦執行沒有問題, 使用者也非常容易看懂, 對於 Python 以外的程式寫法也應該如此, 使用 Leo Editor 就必須注意各指令在內文出現的位置, 否則所產生的外部 Python 程式就無法執行.
+
+總結一下 Tutorial 5 的說明, @file 節點標題指令, 會在外部檔案中加入特定的 Leo 標記, 而且外部檔案不會存在 .leo 檔案中, 而是開啟 .leo 檔案時才讀進對應的節點, 此外節點內文指令 @others 與命名節點擺放的位置會牽動對應內容寫檔時的縮排位置, 在 .leo 檔案開啟時, 修改各對應節點內容, 在存 .leo 檔時會寫入外部檔案, 可見 @file 與@auto, @edit 的資料流都是雙向的, 且都主要將內容存在外部檔案中, 只有 @asis 指令會將節點內容存在 .leo 檔案裡面.
+
+而 @file 在外部檔案寫入 Leo 標記符號的做法, 對使用 Leo Editor 的用戶而言或許沒有問題, 但是當這些充滿 Leo 標記符號的檔案交到沒有用 Leo Editor 開啟資料的用戶, 可能就沒有太大用途, 因此 Leo Editor 還有一種兩全其美的做法, 採用 @shadow 來同時建立有 Leo 標記與沒有 Leo 標記的檔案, 前者可以讓 Leo Editor 開啟時快速確認內容架構, 而後者則可以交給不用 Leo Editor 的用戶, Tutorial 6 就是要談 @shadow 的用法.</t>
+<t tx="amd_yen.20130410133544.4365">Tutorial6: https://sites.google.com/a/mde.tw/service/public/tutorial6.7z?attredirects=0&amp;d=1
+
+這個教學要來談 Leo Editor 的 @shadow 節點標題指令的用法.
+
+Tutorial 5 已經說明 @file 的基本用法, 但是 @file 指令所建立的外部檔案帶有許多 Leo 標記符號, 這些標記符號對於 Leo Editor 特定用途, 但是若不使用 Leo Editor 開啟, 這些標記符號可能就會是干擾, 這時您可以考慮改用 @shadow.
+
+Tutorial 6 的節點標題與 Tutorial 5 相同, 各命名節點的內容也都一樣, 只是將 @file 換成 @shadow, 這時 Leo Editor 就會自動建立有標記與沒有標記的外部檔案.
+
+下載 tutorial6.leo 後, 開啟, 就可以看到 @shadow tut6.py 節點標題, Leo Editor 會將 tut6.py 寫進 tutorial6 的子目錄, 請開啟 tutorial6 目錄, 您就會看到除了 tut6.py 檔案外, 還有一個 .leo_shadow 目錄, 其中外部的 tut6.py 沒有標記, 而 .leo_shadow 目錄中的 xtut6.py 就是相同內容, 但是卻有 Leo 標記符號的對應檔案.
+
+好了, 這個說明非常簡單, 您可以試著修改一下 tut6.py  各節點的內容, 然後用 SciTE 開啟執行, 操作方法為, 利用滑鼠右鍵按住 @shadow tut6.py 節點標題, 然後選擇 "Edit tut6.py in SciTE", 接著就是在 SciTE 環境, 選擇 Tools-&gt;Go, 就可以執行這個 tut6.py 程式.</t>
+<t tx="amd_yen.20130413002743.2100">http://www-inst.eecs.berkeley.edu/~cs61a/sp11/0.pdf
+
+強調要有數學背景, 最好要有一些程式語言經驗, 然後教導 Schema, 線上課本採用 http://mitpress.mit.edu/sicp/, 任課講師為 UCBLogo 作者
+
+一年之後, 就開始採用 Python 3 進行教學.
+
+http://www-inst.eecs.berkeley.edu/~cs61a/sp12/
+
+並且依照 http://mitpress.mit.edu/sicp/ 教材的編撰精神, 以 Python 3 程式語法編寫了線上教材
+
+http://www-inst.eecs.berkeley.edu/~cs61a/sp12/book/, 並採用 http://creativecommons.org/licenses/by-sa/3.0/ 授權.
+
+到了 http://www-inst.eecs.berkeley.edu/~cs61a/fa12/, 任職於 Google 的 John Denero (也是上述 Python 3 的作者之一)接手開課, 並導入 Philip Guo 所開發的 Python online tutor, 至此, Python online tutor 已經可以利用 cgi 介面執行伺服器上的 Python 3 解譯系統.
+
+http://www-inst.eecs.berkeley.edu/~cs61a/sp13/ 仍然延續 Python 3 教學, 但是講師換成 2012 年剛完成 Ph.D. 學位的 Amir Kamil.
+</t>
+<t tx="amd_yen.20130413002743.2101">無論是學習程式語言或者是教導程式語言, 其實都不容易, 因為程式語言的目的在於與電腦硬體進行溝通, 假如使用者能夠充分了解電腦硬體的架構與運作原理, 就能有效強化運用程式語言的能力.
+
+寫電腦程式並非電腦系、資訊工程或資訊管理科系所專有, 任何人西運用電腦快速的運算與資料處理能力的使用者, 都應該要能夠寫基本的電腦程式來解決自己所面臨的問題.
+
+以機械設計工程領域的產品開發人員而言, 無論是使用電腦輔助設計或分析套件, 經常必須要透過該套件的延伸程式介面, 來編寫客製化程式, 才能有效解決所面臨的特殊問題.
+
+機械設計流程中所衍生的許多數位資料, 也都必須仰賴產品資料管理與產品生命週期管理系統 (PLM), 才能在多人協同的環境中有效管理並運用各版次的設計資料.
+
+學習程式語言必須要先認清楚學習的動機, 先來看看電腦程式與網路結合下所能到完成的工作.
+
+根據: http://www.opensourceshakespeare.org/views/plays/plays.php 的資料, 莎士比亞的劇作共有 37 部, 全文可以由 http://cae.mde.tw/downloads/shakespeare.txt 下載, 假如我們要求電腦程式解讀這 37 本劇作, 然後找出來其中所用的單字, 包含 5 個與超過 5 個字母的單字中, 順拼與逆拼都是單字的特殊單字共有幾個?
+
+假如用人來進行上述工作, 這真是不可能的任務, 但是電腦程式正好適合用來處理如此繁雜的工作.
+
+.. code-block:: python
+
+    # 本程式取材自: http://www-inst.eecs.berkeley.edu/~cs61a/sp12/book/
+    #coding= utf-8
+    # 從 urllib.request 模組導入 urlopen 函式
+    # 參考資料: http://docs.python.org/3.0/library/urllib.request.html
+    from urllib.request import urlopen
+     
+    # 從網路連結, 取得莎士比亞全文(37 個劇本)資料
+    莎士比亞全文 = urlopen('http://cae.mde.tw/downloads/shakespeare.txt')
+    # 列出全文物件
+    #print(莎士比亞全文)
+     
+    # 參考資料: http://docs.python.org/3.0/library/stdtypes.html#set
+    莎翁劇中全部單字 = set(莎士比亞全文.read().decode().split())
+    # 列出全部單字物件
+    #print(words)
+     
+    # 列出 5 個(含)字母以上的單字中, 正拼與反拼都出現在單字集中的單字
+    print({單字 for 單字 in 莎翁劇中全部單字 if len(單字) &gt;= 5 and 單字[::-1] in 莎翁劇中全部單字})
+     
+    '''
+    {'rever', 'knits', 'repel', 'level', 'drawer', 'repaid', 'stink', 'redder', 'stops', 'spots', 'asses', 'leets', 'refer', 'steel', 'devil', 'speed', 'keels', 'leper', 'sleek', 'reward', 'minim', 'sessa', 'deeps', 'madam', 'lived', 'diaper'}
+    '''
+    
+也就是說, 符合條件的單字共有 26 個.
+
+再來看下一個比較簡單的範例:
+
+.. code-block:: python
+
+    from math import *
+    print(max(6.8,7.8))
+    print(max(6.8,7.8,10.2))
+    print(max([6.8,7.8,10.2]))
+    
+這個程式的第一行, from math import *, 在導入 math 模組中的所有函式, 其中包含 max() 函式, 而此一函式可以輸入多個數值, 也可以輸入數列, 都能夠在這些輸入的數值中, 找到最大的數值, 然後利用 print() 函式將結果印出來.
+
+因為程式語言就是在與電腦進行溝通, 假如將上述程式碼改為:
+
+.. code-block:: python
+
+    import math
+    print(math.max(6.8,7.8))
+    print(math.max(6.8,7.8,10.2))
+    print(math.max([6.8,7.8,10.2]))
+    
+就可以知道與電腦溝通的模式並非固定不變的, 假如導入的寫法不是 from math import *, 而是 import math, 後續的 max() 函式呼叫, 就必須冠上 math, 而成為 math.max()
+
+只要明白這個道理, 同樣在 math 模組中定義的 min(), sin(), cos() 等數學函式的用法也就能夠完全掌握, 這樣的程式學習就稱為 pattern matching, 也就是類似範式的套用, 尤其對於非電腦專業的工程師而言, 只要掌握程式語言在該專業領域應用的範式就能更容易解決可能面臨的問題, 因為大多類似的問題不僅已經被解決, 而且有許多程式碼已經被公開在任何人都可以擷取的網站上, 只要了解程式語言的基本使用原理與架構, 接下來就可以設法找到可用的問題解決範式來加以套用.</t>
+<t tx="amd_yen.20130413002743.2102">在十年前的五專時期, 程式語言大多以 C/C++ 教學為主, 尤其是以較為簡單的 C 程式語言教學為主, 在 Windows 95 操作系統上更以 Borland Turbo C/C++ 的教學為主, 到了 Windows NT 以及 Windows 2000 時期則逐步轉換為 Visual C/C++ 環境的教學為主, 進入 Windows XP 時期, 則轉而利用 Code::Block 與 NetBeans 等開放 IDE + MinGW C/C++ 編譯環境為主.
+
+2010 年則以 C+PHP 程式教學為主, 自 2011 年起則全面改採 Python3 進行教學, 主要考量在於 Python3 無論在單機環境或網際環境, 甚或工程或科學運算領域上的應用, 比 Java 更容易入手, 且提供更多的整合工具, 尤其是在最近逐步興起的開放 MCAD (Mechanical Computer Aided Design) 與 PLM 領域也大多採 Python 程式架構, 此波趨勢甚至影響到全球各電腦資工科系的基礎教學轉變, 10 年前原先採用 Java 作為導入程式語言的課程, 過去 5 年大多轉向 Python 教學, 尤其自 2009 年起 Javascript 加上 HTML5 已經全面取代 Java applet 曾經獨攬網際平台的光環, 甚而在 2013 年的現在, Node.js 已經被許多團隊用來取代原先用 Java 在 Server 端的地位.
+
+假如再以手機與平板裝置興起的角度來看, 解譯式的 Python 加上 Javascript 更能符合短生命週期與快速變遷的程式環境需求.
+
+因此目前的程式語言、電腦輔助設計、協同產品設計相關教學, 採用 Python 3 + Javascript + PHP + C/C++ 足以勝任大多數的程式環境需求.</t>
+<t tx="amd_yen.20130413002743.2103">#coding: utf-8
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+# d:f 表示由 d 到 f
+d, e, f = symbols('d:f')
+# 表示 g0 與 g1
+print(var('g:2'))
+print(diff(x**2/2, x))
+print(limit(sin(x)/x, x, 0))
+print((1/cos(x)).series(x, 0, 10))
+print(Rational(2)**50/Rational(10)**50)
+R = Rational
+print(R(1, 2))
+print(pi.evalf())
+print((pi*E).evalf())
+# oo is infinity (兩個小寫的ㄡ)
+print(oo &gt; 9999999)
+print(integrate(1/x, x))
+print(x+y*2-3*x-5*y)
+# 多項式展開
+print(((x+y)**2).expand())
+# 取代, x=1 代入多項式
+print((((x+y)**3).subs(x, 1)).expand())
+# 因式分解
+print(apart(1/((x+2)*(x+1)), x))
+# 合併
+print(together(1/x+1/y+1/z))
+# 微分
+print(diff(sin(2*x), x))
+# 複數
+print(exp(I*x).expand(complex=True))
+# 三角函數
+print(cos(x+y).expand(trig=True))
+print(sin(x+y).expand(trig=True))</t>
+<t tx="amd_yen.20130413002743.2104">下載, 解開, 執行
+
+這裡利用 Python、SciTE、TinyC 與 Leo Editor 建立一個可攜的程式環境.
+
+</t>
 </tnodes>
 </leo_file>

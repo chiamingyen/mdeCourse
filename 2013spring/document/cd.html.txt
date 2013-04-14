@@ -2957,3 +2957,341 @@ http://ebookbrowse.com/creo-parametric-lesson-14-pdf-d359801379
 
 http://www.eng.cam.ac.uk/DesignOffice/cad/3rdyear/creo1styear.pdf
 
+Simple Groupware custom 延伸程式
+************************************
+
+編寫 Simple Groupware 模組程式:
+
+基本步驟:
+
+1. 在 sgw\bin\modules\schema 目錄下, 編寫 custom.xml sgsML 程式.
+
+2. 在 sgw\bin\modules\schema\modules.xml 中登錄 custom.xml 模組, 亦即在檔案中加入 custom|Custom.
+
+3. 編寫 custom.xml 中所宣告的 ../custom/core/classes/custom.php 程式碼, 模組對應目錄以 sgw/bin 為根目錄, 若其中需要 jscript, 則需放到 sgw/bin/jscript 目錄中.
+
+4. 模組架構異動後, 必須清除先前留下的 cache 資料, 然後再進行 custom.xml 模組的功能測試.
+
+以下流程設法將 brython console 改寫為 Simple Groupware 的 plugin: custom.xml
+
+.. code-block:: xml
+
+    <table modulename="Custom PHP include" default_view="display" default_sql="no_select" schema_mode="static" load_library="../custom/core/classes/custom.php">
+      <view name="display" displayname="Display" function="get_my_data">
+      </view>
+      <field name="id" simple_type="id" displayname="{t}Id{/t}">
+      </field>
+    </table>
+    
+而 custom/core/classes/custom.php
+
+.. code-block:: php
+
+    <?php
+    
+    class custom {
+      public static function get_my_data($folder, $view, $params) {
+        $output = "<b>Hello World</b><br/>";
+        $output .= "...<br/>";
+        $output .= <<<EOF
+    <div class="entry-content">
+                <p>換成新的內容 Content</p>
+    <p>以 Brython 編寫的線上 Python3 執行環境 (僅支援少數展示用功能):</p>
+    <p><script src="jscript/brython/brython.js"></script>
+    <script>
+    window.onload = function(){
+        brython(1);
+    }
+    </script>
+    <script type="text/python">
+    import sys
+    import time
+    import dis
+    
+    if sys.has_local_storage:
+        import local_storage
+    else:
+        storage = False
+    
+    def reset_src():
+        if local_storage.storage:
+            doc['src'].value = local_storage.storage["py_src"]
+    
+    def to_str(xx):
+        return str(xx)
+    
+    doc['version'].text = '.'.join(map(to_str,sys.version_info))
+    
+    class cons_out:
+    
+        def __init__(self,target):
+            self.target = doc[target]
+        def write(self,data):
+            self.target.value += str(data)
+    
+    sys.stdout = cons_out("console2")
+    sys.stderr = cons_out("console2")
+    
+    output = ''
+    
+    def show_console2():
+        doc["console2"].value = output
+        doc["console2"].cols = 60
+    
+    def clear_text():
+        log(" event clear")
+        doc['console2'].value=''
+        doc['src'].value=''
+    
+    def run():
+        global output
+        doc["console2"].value=''
+        doc["console2"].cols = 60
+        src = doc["src"].value
+        if local_storage.storage:
+            local_storage.storage["py_src"]=src
+        t0 = time.time()
+        exec(src)
+        output = doc["console2"].value
+        print('<done in %s ms>' %(time.time()-t0))
+    
+    def show_js():
+        src = doc["src"].value
+        doc["console2"].cols = 90
+        doc["console2"].value = dis.dis(src)
+    </script>
+    <table width=80%>
+    <tr><td style="text-align:center"><b>Python</b>
+    </td>
+    <td>&nbsp;</td>
+    <th><button onClick="show_console2()">console2</button></th>
+    <th><button onClick="show_js()">Javascript</button></th>
+    </tr>
+    <tr><td colspan><textarea id="src" cols="60" rows="20">def 執行函式(次數, 字串):
+        for 索引 in range(次數):
+            print(字串)
+    
+    執行函式(5, "Brython 可以執行")</textarea></td><td><button onClick="run()">run</button></td>
+    <td><button onClick="clear_text()">clear</button></td>
+    <td colspan=2><textarea id="console2" cols="60" rows="20"></textarea></td>
+    </tr>
+    <tr><td colspan=2>
+    <p>Brython version <span id="version"></td>
+    </tr>
+    </table>
+    </p>					</div><!-- .entry-content -->
+    
+    EOF;
+    
+        /* Smarty can be also used here (templates are in templates/*):
+         *
+         * $output .= sys::$smarty->fetch("custom.tpl");
+         */
+    
+        // use echo $output to avoid output filtering for bad HTML and Javascript
+        return $output;
+      }
+    }
+
+CD 第十週
+++++++++++++
+
+有關 CAD 系統:
+
+與其他機械設計團隊進行協同之前, 必須對於全球目前的 CAD 生態有所了解, 因為其他團隊可能使用不同核心技術套件或不同版次的軟體, 通常協同過程經常需要轉檔.
+
+Kernel 技術:
+
+德國 Siemens - parasolid (原為美國 UGS 公司所有, 後來被 Siemens 收購)
+
+    http://en.wikipedia.org/wiki/Parasolid
+
+    http://www.plm.automation.siemens.com/en_us/products/open/parasolid/index.shtml
+    
+法國 Dassault - ACIS
+
+    http://en.wikipedia.org/wiki/ACIS
+    
+    http://www.spatial.com/products/3d-acis-modeling
+    
+法國 Open CASCADE - 開放源幾何模擬核心
+
+    http://www.opencascade.org/
+
+俄國 ledas
+
+    http://www.ledas.com/
+
+
+    
+CAD 套件;
+
+美國 PTC - Creo, 採用 Granite One kernel.
+
+    http://www.ptc.com/product/creo/
+
+法國 Dassault - Catia (採用 Catia Geometric Engine), SolidWorks(原為美國公司開發, 被法國達梭公司收購), 原 SolidWorks 採用 parasolid 核心, 目前正在改用 Catia 核心.
+
+    http://www.3ds.com/
+
+德國 Siemens - NX, Solid Edge (NX 與 Solid Edge 原為美國 UGS 公司開發, 被西門子收購), 均採用 parasolid 核心.
+
+    http://www.plm.automation.siemens.com/en_us/
+    
+美國 AutoDesk - Inventor (採用由 ACIS 核心衍生出來的 ShapeManager kernel)
+
+    http://www.autodesk.com/products/autodesk-inventor-family/
+
+俄國 T-Flex (採用 parasolid 核心)
+
+    http://www.tflex.com/
+
+中國 - CAXA (與美國 IronCAD (混用 ACIS 與 parasolid 核心) 進行技術策略合作)
+
+    http://www.caxa.com/
+    
+    http://www.ironcad.com/
+    
+開放原始碼 MCAD - FreeCAD - http://www.freecadweb.org/
+    
+幾何核心教學:
+
+http://www.mpi-inf.mpg.de/departments/d1/teaching/ws09_10/CGGC/Notes/LinearKernel.pdf
+
+免付費 MCAD 巡禮
+*********************
+
+在 MCAD (Mechanical Computer Aided Design) 領域的各種軟體套件, 從最早的線架構、面架構、實體架構、參數設計、變數設計
+、歷程設計, 到較近的直接建模, 其實都在反映出基本的設計本質與需求.
+
+設計的本質在追求意念的表達, 表達除了直覺外更要真實, 但是直覺建模之於人與電腦之間現階段的互動模式而言, 仍然生硬, 而且
+真實的 3D 互動實體模擬則需要高速的電腦硬體支援.
+
+因此在電腦輔助設計的流程中, 從最早的人必須完全配合電腦運作模式作為起點, 儘管已經有了長足的進步, 距離直覺與真實的建模目標, 
+其實還是非常陽春.
+
+在此除了 PTC 的 Creo parametric MCAD 工具外, 我們舉了兩個範例工具, 讓使用者在協同模式下進行實習:
+
+也就是開放原始碼的 FreeCAD 與來自 PTC 的免費直接建模套件 (Creo Elements/Direct Modeling Express 4.0).
+
+FreeCAD 是以 Open CASCADE 作為核心打造的開放 MCAD, 選擇以 Python 程式語言作為主體核心建模工具, 使用者與 FreeCAD 互動的操作過程都在執行
+對應的 Python 程式, 因此使用者可以利用程式流程來建構各種產品實體模型.
+
+而 Creo Elements/Direct Modeling Express 4.0 與商用的版本 (Creo Elements/Direct Modeling 18.0)比較:
+
+Express 版本不支援鈑金模組, 組立最多支援 60 個零件, 沒有 direct drafting, 工程圖無法轉為 iges 與 AutoCAD dwg/dwf 格式, 不支援高階材質的彩現, 無法轉為 step、sat、edrawings, 也無法與 Creo parametric 交換模型.
+
+但是 Express 版本可以將模型轉為 stl, 因此可以將模型轉出後, 利用 WebGL 進行後續的網際協同模擬.
+
+FreeCAD 導引
+**************
+
+FreeCAD 0.13 版導引
+
+FreeCAD 是利用法國馬特拉公司所釋出的開放源實體模型核心(Solid Modeling Kernel)建構的一套自由開源的 CAD 軟體, 
+此套件最大的特色就是以 Python 作為 Scripting 延伸語言, 使用者在套件中所操作的每一個步驟都有對應的 Python 程式指令, 
+目前雖然以支援 Python 2.X 為主, 但是已經著手升級為 Python 3.X, 動機之一就是另外一套以荷蘭公司為主體所發展出來的自由開源動畫模擬套件 - Blender, 
+目前已經支援最新版的 Python 3.3.0, 由於 FreeCAD 與 Blender 均支援 Python API 程式介面, 
+因此若 FreeCAD 與 Blender 同為 Python 3.X based, 兩套將可直接互相呼叫執行, 以完成更加多元的機械與動態模擬(動畫)應用.
+
+參考資料:
+
+http://www.freecadweb.org/
+
+http://freecad-tutorial.blogspot.tw/
+
+FreeCAD 基本操作
+********************
+
+參考資料: 請到 youtube 以 freecad 為關鍵字查詢, 大約有 3000 筆資料.
+
+請下載 0.13 視窗免安裝版:
+
+http://sourceforge.net/projects/free-cad/files/FreeCAD%20Windows/FreeCAD%200.13/FreeCAD_0.13.1828_x86_bin.7z/download
+
+解開後即可進入 bin 執行 FreeCAD.exe, 目前 0.13 版仍然採用 Python 2.6 解譯系統, 但是因為自帶 Python 2.6 與 PyQt 程式庫, 因此可以免安裝模式開啟.
+
+預計下一版本將可直接支援 Python 3.X, 若可以自行採用 Visual C/C++ Express 與 CMake 自行編譯, 將可進行更多客製化修改, 或可以建立延伸 workbendch 的方式擴增其他應用.
+
+基本操作:
+
+1. 開啟後, 進入 View->Workbench 可以檢視 0.13 版所提供的應用.
+
+進入 Sketcher 可以執行草圖繪製, 可以利用 constraint-based 製圖
+
+草圖繪製:
+
+隨意繪製四條直線, 利用滑鼠選擇任兩線的端點, 功能表就會出現"紅色"的約束條件設置功能, 可以選擇"coincident constraint", 就會將兩個端點植入"共點"約束.
+
+另外可以再將其他線段的點以相同的"共點"約束完成繪圖.
+
+若以滑鼠選擇線段, 則可以選擇"horizontal distance constraint", "vertical distance constraint" 或 "length of a line constraint" 等約束來置入尺寸約束.
+
+放入尺寸約束後, 若以滑鼠點選尺寸約束位置, 則可以修改尺寸大小.
+
+完成草圖繪製後, 確定草圖已經 fully constrainted, 就可以切換到 part workbench, 以該草圖長出實體.
+
+長出實體後, 目前僅能利用 Python 指令查詢相關的實體物理性質, 以下為相關指令:
+
+建立一個 Cone
+
+App.ActiveDocument.addObject("Part::Cone","Cone")
+FreeCAD.getDocument("Unnamed").getObject("Cone").Height = 40.00
+FreeCAD.getDocument("Unnamed").getObject("Cone").Radius1 = 0.00
+FreeCAD.getDocument("Unnamed").getObject("Cone").Radius2 = 30.00
+
+查詢 Cone 的體積
+
+FreeCAD.getDocument("Unnamed").getObject("Cone").Shape.Volume
+
+若 Unnamed 文件中, 以草圖長出一個實體名稱為 Extrude, 則可以下列指令查詢其體積
+
+FreeCAD.getDocument("Unnamed").getObject("Extrude").Shape.Volume
+
+FreeCAD.getDocument("Unnamed").getObject("Extrude").Shape.Volume
+
+App.ActiveDocument.getObject("Extrude").Shape.Volume
+
+FreeCAD.getDocument("Unnamed").getObject("Extrude").Shape.Volume
+
+Creo Elements/Direct Modeling Express 導引
+********************************************
+
+下載:
+
+http://www.ptc.com/products/creo-elements-direct/modeling-express/
+
+基本教學:
+
+http://www.ptc.com/products/creo-elements-direct/modeling-express/
+
+http://www.youtube.com/watch?v=hCPPFtoq2tU
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Block1_Part1/Block1_Part1.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Block1_Part2/Block1_Part2.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Block2_Part1/Block2_Part1.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Block2_Part2/Block2_Part2.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Block2_Part3/Block2_Part3.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Block2_Part4/Block2_Part4.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Create_Profile/Create_Profile.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Profile_Pull/Profile_Pull.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Mate_Align/Mate_Align.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Reorganize_Parts_Assy/Reorganize_Parts_Assy.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Repurpose_Printer/Repurpose_Printer.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Repurpose_Printer_Move/Repurpose_Printer_Move.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Create_Drawing/Create_Drawing.html
+
+http://download.ptc.com/products/creo-elements-direct/18-0/english/modeling-express/video/Create_Dimension/Create_Dimension.html
+

@@ -411,6 +411,19 @@ AssertionError
 
 目前無解決方法.
 
+Leo 的 home
+^^^^^^^^^^^^
+
+在 start.bat 中設定
+
+set HomePath=%Disk%:\home
+set HomeDrive=%Disk%:\home
+set Home=%Disk%:\home
+
+可以指令 Leo Editor 開啟時的 home 路徑, 其中必須要有 .leo 目錄, 且指定 .leoID.txt
+
+workbook.leo 也是位於 .leo 目錄中.
+
 git 相關
 **********
 
@@ -1289,4 +1302,39 @@ If the "partial score for MCMA" option is unset, then the final question score w
 http://www.adminer.org/
 
 這是一個單一檔案的網際資料庫管理程式, 以 PHP 編寫, 適合用來管理遠端的 MySQL 資料庫, 也可以管理 SQLite 資料檔案.
+
+SciTE 有關
+************
+
+SciTEGlobal.properties 檔案中
+
+load.on.activate=1
+save.on.deactivate=1
+
+可以即時反應檔案變更.
+
+deap 相關
+***********
+
+
+
+@url deap 網站
+^^^^^^^^^^^^^^^^
+
+https://code.google.com/p/deap/
+
+@url deap document
+^^^^^^^^^^^^^^^^^^
+
+http://deap.gel.ulaval.ca/doc/default/index.html
+
+sympy 相關
+************
+
+
+
+@url sympy 網站
+^^^^^^^^^^^^^^^^^
+
+http://code.google.com/p/sympy/
 
