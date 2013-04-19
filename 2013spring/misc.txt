@@ -1203,6 +1203,11 @@ load.on.activate=1
 save.on.deactivate=1
 
 可以即時反應檔案變更.
+
+
+若希望 SciTE 可以同時打開同一檔案, 則修改內建設定為:
+
+check.if.already.open=0
 .. @+node:amd_yen.20130409235757.1779: *4* deap 相關
 .. @+node:amd_yen.20130409235757.1780: *5* @url deap 網站
 https://code.google.com/p/deap/

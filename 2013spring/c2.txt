@@ -2146,6 +2146,10 @@ break, except, in, raise
 
 Python 資料型別
 
+在靜態程式語言中, 變數有型別, 但是就動態程式語言而言, 變數並沒有型別, 但是變數的對應值則有型別.
+
+Python 為一種動態且弱型別定義的程式語言, 相較於 Java 則為靜態且強型別定義的程式語言.
+
 Booleans are either True or False.
 Numbers can be integers (1 and 2), floats (1.1 and 1.2), fractions (1/2 and 2/3), or even complex numbers.
 Strings are sequences of Unicode characters, e.g. an HTML document.
@@ -2460,11 +2464,99 @@ print("程式執行結束")
         return m.hexdigest()
     print (md5Checksum("file.7z"))
 .. @+node:amd_yen.20130414200359.2130: *5* Python 的類別與物件導向
+Python 的物件宣告:
+
+class subclass[(superclass)]:
+    [attributes and methods]
+    
+Python 的案例建立:
+
+object = class()
+
+Python 的屬性與方法引用:
+
+object.attribute
+object.method()
+
+Python 的特殊類別屬性:
+
+__dict__  Dict variable of class name space
+
+__doc__  Document reference string of class
+
+__name__  Class name
+
+__module__  Module name consisting of class
+
+__bases__  The tuple including all the  superclasses
+
+Python 類別的建構子: __init__()
+
+Python 物件繼承:
+
+class class1(object):
+
+    def method1(self):
+        return "method1"
+
+class class2(class1):
+
+    def method1(self):
+        return "inheritance of class1"
+        
+
+Python 的多重繼承:
+
+.. code-block:: python
+
+    class A(object):
+        def A(self):
+            print("this is A")
+    
+    class B(object):
+        def A(self):
+            print("this is a")
+        def B(self):
+            print("this is B")
+    
+    class C(A, B):
+        def C(self):
+            print("this is C")
+    
+    C = C()
+    D = B()
+    
+    C.A()
+    C.B()
+    C.C()
+    D.A()
+    
+Python 物件中的 self, 就如同 C++ 中的 this, 在 Python 物件中, 類別中的函式 (方法) 必須透過 self 來擷取資料.
+
+Python 程式語言雖然沒有 private 與 public, 但是仍可在變數或函式名稱之前加上 _ 或 __, 就可以讓此變數或函式無法直接 (或稱為被動) 從物件外部擷取, 使用這在物件外部擷取這些隱藏的變數或函式之唯一方法就是主動寫在程式某一方法中, 以主動的方式讓使用者從物件外部擷取.
+
+例如:
+
+class A(object):
+    def __init__(self):
+        self.Var1 = "var1"
+        self.__Var2 = "var2"
+    def getVar(self):
+        print(self.Var1)
+        print(self.__Var2)
+        
+B = A()
+
+print(B.Var1) # 可以取得 "var1"
+print(B.__Var2) # 無法取的 "var2"
+B.getVar() # 可以列出 "var1" 與 "var2"
+
+
 .. code-block:: python
 
     #coding: utf8
     # 建立一個自行車類別
-    class 自行車:
+    class 自行車(object):
     
         # 物件的內建成員變數
         車輪數量 = 2
@@ -2543,7 +2635,7 @@ print("程式執行結束")
 
     #coding: utf8
     import math
-    class Point:
+    class Point(object):
         'Represents a point in two-dimensional geometric coordinates'
         def __init__(self, x=0, y=0):
             '''Initialize the position of a new point. The x and y  
@@ -2583,14 +2675,14 @@ print("程式執行結束")
     
 .. code-block:: python
 
-    # 檔案名稱為: fourbar1.py
+    # 檔案名稱為: fourbar.py
     # 資料來源 ; http://homepages.math.uic.edu/~jan/mcs275/
     # P-1 MCS 275 Wed 3 Feb 2010 : oo model for 4-bar mechanism
     # The main program to test the class prompts the user for n,
     # a number of angles, and then prints the coordinates for the
     # five joints that define the mechanism.
     from math import cos, sin, pi, sqrt
-    class FourBar:
+    class FourBar(object):
        """
        A 4-bar mechanism is determined by five parameters:
        (1) a : the length of the horizontal bar,
@@ -2771,6 +2863,234 @@ print("程式執行結束")
        f = FourBar()
        f.TrackPath()
     if __name__ == "__main__": main()
+
+.. code-block:: python
+
+    # P-1 MCS 275 Wed 3 Feb 2010 : GUI model for 4-bar mechanism
+    # 資料來源: http://homepages.math.uic.edu/~jan/mcs275/
+    # The GUI consists of one canvas to draw a 4-bar mechanism.
+    # A 4-bar mechanism consists of four rigid bars.  The first bar, the crank,
+    # drives the mechanism.  The first two scales at the left regulate the 
+    # length of the crank and the angle of the crank.
+    # The horizontal scale below the canvas determine the position of the
+    # rightmost bottom joint, at the start of the right bar.
+    
+    # the crank.  The bar attached to the crank connects to the right bar.
+    # six scales and six corresponding labels.  Five of the six scales
+    # determine the lenghts of the bars of the mechanims, 
+    
+    from tkinter import *
+    from math import cos, sin, pi, sqrt
+    from fourbar import *
+    
+    class FourBarGUI():
+       """
+       GUI to model a 4-bar mechanism.
+       """ 
+       def __init__(self,wdw,r,c):
+          """
+          Determines layout of the canvas,
+          number of rows and colums is r and c.
+          """
+          wdw.title('a 4-bar mechanism')
+          self.fbr = FourBar()
+          self.rows = r; self.cols = c
+          self.ox = c/3; self.oy = 3*r/4
+          # print "A =" , (self.ox,self.oy)
+          self.go = False
+          # the canvas and start, stop, and clear buttons
+          self.c = Canvas(wdw,width=self.cols,height=self.rows,bg='green')
+          self.c.grid(row=1,column=2,columnspan=2)
+          self.b0 = Button(wdw,text='start',command = self.start)
+          self.b0.grid(row=3,column=2,sticky=W+E)
+          self.b1 = Button(wdw,text='stop',command = self.stop)
+          self.b1.grid(row=3,column=3,sticky=W+E)
+          self.b2 = Button(wdw,text='clear',command = self.clear)
+          self.b2.grid(row=3,column=4,columnspan=3,sticky=W+E)
+          # the length of the crank
+          self.crankLbl = Label(wdw,text='crank',justify=LEFT)
+          self.crankLbl.grid(row=0,column=0)
+          self.crankBar = IntVar()
+          self.L = Scale(wdw,orient='vertical',from_=0,to=self.rows/2,\
+             tickinterval=20,resolution=1,length=self.rows,\
+             variable=self.crankBar,command=self.DrawMechanism)
+          self.L.set(self.fbr.crank)
+          self.L.grid(row=1,column=0)
+          # the angle that drives the crank
+          self.angleLbl = Label(wdw,text='angle',justify=LEFT)
+          self.angleLbl.grid(row=0,column=1)
+          self.angle = DoubleVar()
+          self.t = Scale(wdw,orient='vertical',from_=0,to=6.30,\
+             tickinterval=0.30,resolution=0.01,length=self.rows,\
+             variable=self.angle,command=self.DrawMechanism)
+          self.t.grid(row=1,column=1)
+          self.angle.set(self.fbr.angle)
+          # the bar at the right
+          self.RightBarLbl = Label(wdw,text='right bar',justify=LEFT)
+          self.RightBarLbl.grid(row=0,column=4)
+          self.rightBar = IntVar()
+          self.r = Scale(wdw,orient='vertical',from_=0,to=self.rows/2,\
+             tickinterval=20,resolution=1,length=self.rows,\
+             variable=self.rightBar,command=self.DrawMechanism)
+          self.r.grid(row=1,column=4)
+          self.rightBar.set(self.fbr.right)
+          # the top bar attached to the crank
+          self.topBarLbl = Label(wdw,text='top bar',justify=LEFT)
+          self.topBarLbl.grid(row=0,column=5)
+          self.RtopBar = IntVar()
+          self.R = Scale(wdw,orient='vertical',from_=0,to=self.rows/2,\
+             tickinterval=20,resolution=1,length=self.rows,\
+             variable=self.RtopBar,command=self.DrawMechanism)
+          self.R.grid(row=1,column=5)
+          self.RtopBar.set(self.fbr.top)
+          # the scale for the coupler bar
+          self.CouplerBarLbl = Label(wdw,text='coupler',justify=LEFT)
+          self.CouplerBarLbl.grid(row=0,column=6)
+          self.couplerBar = IntVar()
+          self.cpl = Scale(wdw,orient='vertical',from_=0,to=self.rows/2,\
+             tickinterval=20,resolution=1,length=self.rows,\
+             variable=self.couplerBar,command=self.DrawMechanism)
+          self.cpl.grid(row=1,column=6)
+          self.couplerBar.set(self.fbr.coupler)
+          # the horizontal bottom bar
+          self.flatLbl = Label(wdw,text='right joint',justify=RIGHT)
+          self.flatLbl.grid(row=2,column=1)
+          self.flat = IntVar()
+          self.f = Scale(wdw,orient='horizontal',from_=0,to=self.rows/2,\
+             tickinterval=50,resolution=1,length=self.cols,\
+             variable=self.flat,command=self.DrawMechanism)
+          self.f.grid(row=2,column=2,columnspan=2)
+          self.flat.set(self.fbr.flat)
+          # coordinates of the coupler point appear on top
+          self.ex = Entry(wdw) # for x value
+          self.ex.grid(row=0,column=2)
+          self.ex.insert(INSERT,"x = ")
+          self.ey = Entry(wdw) # for y value
+          self.ey.grid(row=0,column=3)
+          self.ey.insert(INSERT,"y = ")
+          # check button for drawing of coupler curve
+          self.curve = IntVar()
+          self.cb = Checkbutton(wdw,text='coupler',\
+            variable=self.curve,onvalue=1,offvalue=0)
+          self.curve.set(1)
+          self.cb.grid(row=3,column=0)
+          # draw the mechanism on canvas
+          self.DrawMechanism(0)
+    
+       def UpdateValues(self):
+          """
+          Takes all values of the scales and updates
+          the data attributes of self.fbr.
+          """
+          self.fbr.flat = self.flat.get()
+          self.fbr.crank = self.crankBar.get()
+          self.fbr.top = self.RtopBar.get()
+          self.fbr.right = self.rightBar.get()
+          self.fbr.coupler = self.couplerBar.get()
+          self.fbr.angle = self.angle.get()
+          #self.fbr.PrintJoints()
+    
+       def DrawCouplerPoint(self,p):
+          """
+          Draws coupler point with coordinates in p
+          if the curve checkbox is on.
+          Note that the previous values for the coordinates
+          of the coupler point are stored in the entry fields.
+          """
+          if self.curve.get() == 1:
+             px = self.ox + p[0]; py = self.oy - p[1]
+             eqx = self.ex.get(); Lx = eqx.split('='); 
+             if Lx[1] == ' ':
+                qx = 0.0
+             else:
+                qx = float(Lx[1])
+             eqy = self.ey.get(); Ly = eqy.split('=');
+             if Ly[1] == ' ':
+                qy = 0.0
+             else:
+                qy = float(Ly[1])
+             if (qx != 0.0) and (qy != 0.0):
+                qx = self.ox + qx; qy = self.oy - qy
+                self.c.create_line(qx,qy,px,py,width=1)
+    
+       def FillEntries(self,p):
+          """
+          Fills the entry fields with the coordinates
+          of the coupler point in p.
+          """
+          sx = 'x = %f' % p[0]
+          sy = 'y = %f' % p[1]
+          self.ex.delete(0,END)
+          self.ex.insert(INSERT,sx)
+          self.ey.delete(0,END)
+          self.ey.insert(INSERT,sy)
+    
+       def DrawLink(self,p,q,s):
+          """
+          Draws the link from point with coordinates in p
+          to the point with coordinates in q, using s as tag.
+          """
+          self.c.delete(s)
+          px = self.ox + p[0]; py = self.oy - p[1]
+          qx = self.ox + q[0]; qy = self.oy - q[1]
+          self.c.create_line(px,py,qx,qy,width=2,tags=s)
+    
+       def DrawMechanism(self,v):
+          """
+          Fills the canvas with the current model
+          of the planar 4-bar mechanism.
+          Because this command is called by the sliders,
+          the argument v is needed but not used.
+          """
+          self.UpdateValues()
+          L = self.fbr.Joints()
+          for i in range(0,len(L)):
+             p = L[i]
+             px = self.ox + p[0]; py = self.oy - p[1]
+             sj = 'joint%d' % i
+             self.c.delete(sj)
+             self.c.create_oval(px-6,py-6,px+6,py+6,width=1,\
+                outline='black',fill='red',tags=sj)
+          self.DrawLink(L[0],L[2],'link0')
+          self.DrawLink(L[1],L[3],'link1')
+          self.DrawLink(L[2],L[3],'link2')
+          self.DrawLink(L[2],L[4],'link3')
+          self.DrawCouplerPoint(L[4])
+          self.FillEntries(L[4])
+    
+       def start(self):
+          """
+          Starts the animation, adding 0.01 to angle.
+          """ 
+          self.go = True
+          while self.go:
+             theta = self.angle.get()
+             theta = theta + 0.01
+             if theta > 6.28: theta = 0
+             self.angle.set(theta)
+             self.DrawMechanism(0)
+             self.c.update()
+    
+       def stop(self):
+          """
+          Stops the animation.
+          """
+          self.go = False
+    
+       def clear(self):
+          """
+          Clears the canvas.
+          """
+          self.c.delete(ALL)
+    
+    def main():
+       top = Tk()
+       r = 400; c = 600
+       # r = 600; c = 800
+       show = FourBarGUI(top,r,c)
+       top.mainloop()
+    
+    if __name__ == "__main__": main()
 .. @+node:amd_yen.20130414200359.2131: *5* Python 的檔案輸出入
 .. code-block:: python
 
@@ -2817,6 +3137,34 @@ readline() 與 realines() 的差別, 以及 write()必須將數值轉為字串
         for 索引 in range(len(行資料)):
             print("第",索引,"個資料",行資料[索引])
     檔案.close()
+    
+.. code-block:: python
+
+    #coding: utf8
+    檔案內容 = '''\
+    k|p|T|E|  k|p|T|E| 
+    c|p|a|E|  k|d|r|E| 
+    k|p|T|E|  k|p|T|E| 
+    c|p|a|E|  k|d|r|E| 
+    '''
+     
+    檔案 = open('data.txt') # 開檔案的內建模式為 read
+    寫檔案 =  open('newdata.txt', 'w') # 寫檔案用 handle
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        行資料 = 檔案.readline()
+        if len(行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        # 比較下列, 跳行與不跳行列印的差別
+        #print(行資料, end='') # 不跳行列印
+        前半部, 後半部 = 行資料.split()
+        新前半部 = 前半部.replace("|","")
+        新後半部 = 後半部.replace("|", " ")
+        print(新前半部, 新後半部)
+        寫檔案.write(新前半部+"\t\t"+新後半部+"\n")
+    檔案.close() # 關閉檔案
+    寫檔案.close() # 關閉檔案
 .. @+node:amd_yen.20130414200359.2132: *5* Python 的繪圖與影像處理功能
 將 png 檔案全部轉為 gif
 
@@ -2831,6 +3179,428 @@ readline() 與 realines() 的差別, 以及 write()必須將數值轉為字串
         print ("Processing: " + imageFile,filterame)
         im = Image.open(imageFile)
         im.save( filterame+'.gif','GIF')
+        
+tkinter 與 matplotlib 繪圖結合, 利用 tkinter button 改變直線斜率
+
+.. code-block:: python
+
+    import tkinter
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+    from matplotlib.figure import Figure
+    
+    class App:
+        def __init__(self, master):
+            # Create a container
+            frame = tkinter.Frame(master)
+            # Create 2 buttons
+            self.button_left = tkinter.Button(frame,text="< Decrease Slope",
+                                            command=self.decrease)
+            self.button_left.pack(side="left")
+            self.button_right = tkinter.Button(frame,text="Increase Slope >",
+                                            command=self.increase)
+            self.button_right.pack(side="left")
+    
+            fig = Figure()
+            ax = fig.add_subplot(111)
+            self.line, = ax.plot(range(10))
+    
+            self.canvas = FigureCanvasTkAgg(fig,master=master)
+            self.canvas.show()
+            self.canvas.get_tk_widget().pack(side='top', fill='both', expand=1)
+            frame.pack()
+    
+        def decrease(self):
+            x, y = self.line.get_data()
+            self.line.set_ydata(y - 0.2 * x)
+            self.canvas.draw()
+    
+        def increase(self):
+            x, y = self.line.get_data()
+            self.line.set_ydata(y + 0.2 * x)
+            self.canvas.draw()
+    
+    root = tkinter.Tk()
+    app = App(root)
+    root.mainloop()
+
+tkinter 與 matplotlib 結合, 滑鼠互動
+
+.. code-block:: python
+
+    from tkinter import Tk, Button
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+    
+    # plotting function: clear current, plot & redraw
+    def plot(x, y):
+        plt.clf()
+        plt.plot(x,y)
+        # just plt.draw() won't do it here, strangely
+        plt.gcf().canvas.draw()
+    
+    # just to see the plot change
+    plotShift = 0
+    def main():
+        global plotShift
+    
+        x = np.arange(0.0,3.0,0.01)
+        y = np.sin(2*np.pi*x + plotShift)
+        plot(x, y)
+    
+        plotShift += 1
+    
+    # GUI
+    root = Tk()
+    
+    draw_button = Button(root, text="Plot!", command = main)
+    draw_button.grid(row=0, column=0)
+    
+    # init figure
+    fig = plt.figure()
+    
+    canvas = FigureCanvasTkAgg(fig, master=root)
+    toolbar = NavigationToolbar2TkAgg(canvas, root)
+    canvas.get_tk_widget().grid(row=0,column=1)
+    toolbar.grid(row=1,column=1)
+    
+    root.mainloop()
+
+使用 pylab 繪圖
+
+.. code-block:: python
+
+    from pylab import *
+    
+    r=arange(0,1,0.01)
+    z=arange(0,1,0.01)
+    sigma=1
+    l=1
+    kappa=1/(2*pi*sigma*l)
+    u=-(kappa/r)*sin(pi*pow(r, 2))
+    plot(r,u)
+    ylabel('$ u_r $')
+    xlabel('$ r $')
+    title('$ u_r $')
+    show()
+    
+contour 繪圖
+
+.. code-block:: python
+
+    from matplotlib import pyplot as plt
+    import numpy as np
+    
+    r = np.linspace(0.1,2,200)
+    t = np.linspace(np.pi/4,7*np.pi/4,200)
+    r,t = np.meshgrid(r,t)
+    x = r*np.cos(t)
+    y = r*np.sin(t)
+    z = (x+0.6)**2 + (y-1.)**2
+    
+    ax = plt.subplot(111)
+    
+    ax.pcolor(x,y,z[1:,1:])
+    # ax.colorbar()
+    
+    con = ax.contour(x,y,z)
+    ax.clabel(con)
+    
+    plt.show()
+    
+matplotlib 繪圖與方向鍵互動
+
+.. code-block:: python
+
+    from matplotlib import pyplot as plt
+    import numpy as np
+    
+    class MovingPlot(object):
+        """ MovingPlot plots a figure that flows across the screen.  Right and left 
+    arrows move the figure one step
+        """
+        def __init__(self, r0= [-0.8, 1.0], v0 = [0.1, 0.]):
+            # set up grid
+            r = np.linspace(0.2,2,20)
+            t = np.linspace(np.pi/4, 7*np.pi/4, 20)
+            r,t = np.meshgrid(r,t)
+            self.x = r*np.cos(t)
+            self.y = r*np.sin(t)
+    
+            self.x0 = r0[0]
+            self.y0 = r0[1]
+            self.vx = v0[0]
+            self.vy = v0[1]
+    
+            # create figure and axes for reuse
+            self.fig = plt.figure()
+            self.ax = self.fig.add_subplot(111)
+    
+            # draw the initial frame
+            self.frame = 0
+            self.draw(self.frame)
+    
+            # call self.update everytime a 'key_press_event' happens
+            # bind this behavior to an object so it persists
+            self.cid = self.fig.canvas.mpl_connect('key_press_event', self.update)
+            plt.show()
+    
+        def update(self, event):
+            """Changes the frame number based on event and draws a new frame if the 
+            frame changed"""
+            if event.key ==  'right':
+                print('forward')
+                self.frame += 1
+            elif event.key == 'left':
+                print('backward')
+                self.frame -= 1
+            else:
+                return
+            self.draw(self.frame)
+    
+        def draw(self, t):
+            """Draws the frame occuring at time=t"""
+            x = self.x - self.vx*t
+            y = self.y - self.vy*t
+            z = (x-self.x0)**2 + (y-self.y0)**2
+            self.ax.pcolor(self.x, self.y, z)
+            self.fig.canvas.draw()
+    
+    if __name__ == "__main__":
+        mplot = MovingPlot()
+.. @+node:amd_yen.20130416222738.2125: *6* tkinter 繪圖
+http://www.python-course.eu/python_tkinter.php
+
+.. code-block:: python
+
+    from tkinter import *
+    master = Tk()
+    
+    canvas_width = 80
+    canvas_height = 40
+    w = Canvas(master, 
+               width=canvas_width,
+               height=canvas_height)
+    w.pack()
+    
+    y = int(canvas_height / 2)
+    w.create_line(0, y, canvas_width, y, fill="#476042")
+    
+    mainloop()
+.. @+node:amd_yen.20130417210155.2884: *5* Python 與 C/C++
+Python 程式語言由於屬於動態資料結構且為解譯模式, 因此就某些需要較長運算時間的分析程式, 就必須與 C/C++ 程式分工合作.
+
+而這些分工合作的模式分為兩類, 一類就是利用 C/C++ 來編寫 .pyd 動態連結程式庫, 然後以 Python 程式呼叫 .pyd 程式庫中的函式執行運算.
+
+而另一類則是利用 C/C++ 來編寫 .exe 程式, 但是其中安排讓 C/C++ 執行程式在運算時呼叫 Python 程式中的某些物件 (通常為運算所需的函式, 例如要最大化或最小化的函式格式).
+
+第一類 Python 與 C/C++ 結合的模式: 將 C/C++ 程式寫為 .pyd 格式, 然後以 Python 程式執行呼叫.
+
+C 程式:
+
+.. code-block:: python
+
+    #include <Python.h>
+    // 宣告內部運算的 C 函式格式
+    int sum2(int a, int b);
+    
+    // 定義內部運算的函式內容
+    int sum2(int a, int b)
+    {
+        return a+b;
+    }
+    
+    // sum 函式的 interface
+    static PyObject* mod_sum(PyObject *self, PyObject *args)
+    {
+        int a;
+        int b;
+        int s;
+        // ii 表示兩個輸入變數都是整數
+        if (!PyArg_ParseTuple(args,"ii",&a,&b))
+           return NULL;
+        // 這裡的 sum2 則是內部的函式定義, 與外部呼叫模組或函式名稱沒有直接關係
+        s = sum2(a,b);
+        // i 表示 s 為整數
+        return Py_BuildValue("i",s);
+    }
+    
+    // 這裡的 sum 是外部模組的呼叫名稱, 而 mod_sum 則是內部的呼叫名稱 (即 interface function)
+    // Mod_Methods 為函式 (方法) 結構定義
+    static struct PyMethodDef Mod_Methods[] = {
+        {"sum", mod_sum, METH_VARARGS, "Description.."},
+        {NULL,NULL,0,NULL}
+    };
+    
+    // 配合 Python 3 新增的模組結構定義
+    static struct PyModuleDef ModMethods = {
+       PyModuleDef_HEAD_INIT,
+       "SumModule",   /* 模組名稱 */
+       "SumModule_doc", /* 模組文件, may be NULL */
+       -1,       /* size of per-interpreter state of the module,
+                    or -1 if the module keeps state in global variables. */
+       Mod_Methods  // 函式結構名稱
+    };
+    
+    // 模組啟始, PyInit_ 後必須使用"名稱".pyd 中的模組名稱, 以便啟動
+    // 換言之, 若編譯連結後的動態模組名稱為 sum.pyd, 則此地的起始函式名稱必須為 PyInit_sum
+    PyMODINIT_FUNC 
+    PyInit_sum(void)
+    {
+        // 建立模組的起始, 輸入為模組結構名稱之 address
+        (void) PyModule_Create(&ModMethods);
+    }
+
+編譯上述程式流程:
+
+.. code-block:: python
+
+    import os
+    d = c.scanAllDirectives(p)
+    # 將目錄指到 latex
+    mandir = d.get('path') + "/module"
+    g.es(mandir)
+    os.chdir(mandir)
+    os.system("mkdir build")
+    os.system("mkdir dist")
+    target_name = "pymod"
+    module_name = "sum"
+    filename = target_name+".c"
+    # compile
+    os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/IDE/Python33/include  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+    # link 因為 .c 程式中起始為 PyInit_sum, 因此
+    os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".pyd build/"+target_name+".o V:/IDE/Python33/libs/libpython33.a")
+    g.es("done")
+    
+上述 C 程式將會以 gcc 編譯連結為 sum.pyd, 然後以下列 Python 程式呼叫:
+
+.. code-block:: python
+
+    import sum
+    print(sum.sum(10,20))
+    
+第二種模式, 則取材自 http://docs.python.org/3/extending/embedding.html#pure-embedding
+
+C 程式寫法:
+
+.. code-block:: python
+
+    #include <Python.h>
+    
+    int
+    main(int argc, char *argv[])
+    {
+        PyObject *pName, *pModule, *pDict, *pFunc;
+        PyObject *pArgs, *pValue;
+        int i;
+    
+        if (argc < 3) {
+            fprintf(stderr,"Usage: call pythonfile funcname [args]\n");
+            return 1;
+        }
+    
+        Py_Initialize();
+        pName = PyUnicode_FromString(argv[1]);
+        /* Error checking of pName left out */
+    
+        pModule = PyImport_Import(pName);
+        Py_DECREF(pName);
+    
+        if (pModule != NULL) {
+            pFunc = PyObject_GetAttrString(pModule, argv[2]);
+            /* pFunc is a new reference */
+    
+            if (pFunc && PyCallable_Check(pFunc)) {
+                pArgs = PyTuple_New(argc - 3);
+                for (i = 0; i < argc - 3; ++i) {
+                    pValue = PyLong_FromLong(atoi(argv[i + 3]));
+                    if (!pValue) {
+                        Py_DECREF(pArgs);
+                        Py_DECREF(pModule);
+                        fprintf(stderr, "Cannot convert argument\n");
+                        return 1;
+                    }
+                    /* pValue reference stolen here: */
+                    PyTuple_SetItem(pArgs, i, pValue);
+                }
+                pValue = PyObject_CallObject(pFunc, pArgs);
+                Py_DECREF(pArgs);
+                if (pValue != NULL) {
+                    printf("Result of call: %ld\n", PyLong_AsLong(pValue));
+                    Py_DECREF(pValue);
+                }
+                else {
+                    Py_DECREF(pFunc);
+                    Py_DECREF(pModule);
+                    PyErr_Print();
+                    fprintf(stderr,"Call failed\n");
+                    return 1;
+                }
+            }
+            else {
+                if (PyErr_Occurred())
+                    PyErr_Print();
+                fprintf(stderr, "Cannot find function \"%s\"\n", argv[2]);
+            }
+            Py_XDECREF(pFunc);
+            Py_DECREF(pModule);
+        }
+        else {
+            PyErr_Print();
+            fprintf(stderr, "Failed to load \"%s\"\n", argv[1]);
+            return 1;
+        }
+        Py_Finalize();
+        return 0;
+    }
+    
+而負責編譯連結的程式流程則為:
+
+.. code-block:: python
+
+    import os
+    d = c.scanAllDirectives(p)
+    # 將目錄指到 pass2
+    mandir = d.get('path') + "/pass2"
+    g.es(mandir)
+    os.chdir(mandir)
+    os.system("mkdir build")
+    os.system("mkdir dist")
+    target_name = "pass2"
+    module_name = "Test"
+    filename = target_name+".c"
+    # compile
+    os.system("Y:/IDE/C/MinGW/bin/gcc.exe -c -g -IY:/IDE/Python33/include -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+    # link 因為 .c 程式中起始為 PyInit_sum, 因此
+    #os.system("Y:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".pyd build/"+target_name+".o Y:/IDE/Python33/libs/libpython33.a")
+    os.system("Y:/IDE/C/MinGW/bin/gcc.exe -o dist/"+module_name+".exe build/"+target_name+".o Y:/IDE/Python33/libs/libpython33.a")
+    g.es("done")
+
+編譯連結後, 可執行的 C 程式為 Test.exe, 必須能夠擷取 Python 的程式執行環境, 若未修改 Python 執行的系統路徑, 則 Text.exe 必須放在 python.exe 的目錄中, 而下列 Test.py 則放入 site-packages 目錄中, 然後以"Test.exe Test multiply 3 2" 執行 Test.exe, 表示要導入 Test.py 程式中的 multiply 函式, 來進行 3 乘以 2 的運算.
+
+.. code-block:: python
+
+    def multiply(a,b):
+        print("Will compute", a, "times", b)
+        c = 0
+        for i in range(0, a):
+            c = c + b
+        return c
+        
+討論: 上述 a times b 的實際運算是在 Python 程式端, 一般而言若 Python 僅負責提供 C/C++ 程式運算所需的方程式, 讓實際的運算由 C/C++ 程式完成, 應該是較佳的做法, 亦即仍然將 C/C++ 程式寫為 .pyd, 然後設法由 C/C++ 程式呼叫特定的 Python 函式, 以取得要處理的特定方程式格式, 然後再讓 C/C++ 程式來執行實際的數值運算.
+
+範例:
+
+https://code.google.com/p/pyminuit/
+
+https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後可以結合 Pygame 進行 2D 動態模擬)
+
+    C 版本: https://github.com/slembcke/Chipmunk-Physics
+    
+    Javascript 版本: https://github.com/josephg/Chipmunk-js
+    
+    Brython 版本: 還沒有開始編寫:-)
+
 .. @+node:amd_yen.20130414200359.2126: *5* 
 .. @-all
 .. @-leo

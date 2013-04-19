@@ -1313,6 +1313,11 @@ save.on.deactivate=1
 
 可以即時反應檔案變更.
 
+
+若希望 SciTE 可以同時打開同一檔案, 則修改內建設定為:
+
+check.if.already.open=0
+
 deap 相關
 ***********
 
