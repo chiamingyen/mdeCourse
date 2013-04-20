@@ -42,7 +42,7 @@
 <v t="amd_yen.20130308221230.3828"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
+<v t="amd_yen.20130308210411.2384"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130318140025.2833"><vh>有關程式語言</vh></v>
 <v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
 <v t="amd_yen.20130408141041.1765"><vh>有關 pybean 版次差異</vh></v>
@@ -81,7 +81,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 <v t="amd_yen.20130308210411.2392" a="E"
 expanded="amd_yen.20130308210411.2393,amd_yen.20130309155804.1709,amd_yen.20130314194325.1511,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
+<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438" a="E"><vh>django 程式開發</vh>
 <v t="amd_yen.20130406103207.2442"><vh>@url Tutorial 1</vh></v>
 <v t="amd_yen.20130406103207.2285"><vh>@edit wcm/django1.py</vh></v>
@@ -97,8 +97,8 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130309155804.1709,amd_yen.201303
 <v t="amd_yen.20130406103207.2441"><vh>啟動伺服器</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
-<v t="amd_yen.20130308210411.2407"
-expanded="amd_yen.20130308210411.2408,amd_yen.20130330144838.2031,"><vh>@file wcm.txt</vh></v>
+<v t="amd_yen.20130308210411.2407" a="E"
+expanded="amd_yen.20130308210411.2408,amd_yen.20130418193628.2823,"><vh>@file wcm.txt</vh></v>
 </v>
 <v t="amd_yen.20130308221230.2492"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
@@ -329,7 +329,7 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130413002743.2104"><vh>Python 3 安裝</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130413002743.2102" a="E"><vh>機械設計工程系程式課程演變</vh>
+<v t="amd_yen.20130413002743.2102"><vh>機械設計工程系程式課程演變</vh>
 <v t="amd_yen.20130413002743.2103"><vh>符號式機構分析</vh></v>
 <v t="amd_yen.20130418193628.2121"><vh>PHP 與 Javascript</vh></v>
 </v>
@@ -3088,7 +3088,9 @@ http://www-inst.eecs.berkeley.edu/~cs61a/sp13/ 仍然延續 Python 3 教學, 但
 只要明白這個道理, 同樣在 math 模組中定義的 min(), sin(), cos() 等數學函式的用法也就能夠完全掌握, 這樣的程式學習就稱為 pattern matching, 也就是類似範式的套用, 尤其對於非電腦專業的工程師而言, 只要掌握程式語言在該專業領域應用的範式就能更容易解決可能面臨的問題, 因為大多類似的問題不僅已經被解決, 而且有許多程式碼已經被公開在任何人都可以擷取的網站上, 只要了解程式語言的基本使用原理與架構, 接下來就可以設法找到可用的問題解決範式來加以套用.</t>
 <t tx="amd_yen.20130413002743.2102">在十年前的五專時期, 程式語言大多以 C/C++ 教學為主, 尤其是以較為簡單的 C 程式語言教學為主, 在 Windows 95 操作系統上更以 Borland Turbo C/C++ 的教學為主, 到了 Windows NT 以及 Windows 2000 時期則逐步轉換為 Visual C/C++ 環境的教學為主, 進入 Windows XP 時期, 則轉而利用 Code::Block 與 NetBeans 等開放 IDE + MinGW C/C++ 編譯環境為主.
 
-2010 年則以 C+PHP 程式教學為主, 自 2011 年起則全面改採 Python3 進行教學, 主要考量在於 Python3 無論在單機環境或網際環境, 甚或工程或科學運算領域上的應用, 比 Java 更容易入手, 且提供更多的整合工具, 尤其是在最近逐步興起的開放 MCAD (Mechanical Computer Aided Design) 與 PLM 領域也大多採 Python 程式架構, 此波趨勢甚至影響到全球各電腦資工科系的基礎教學轉變, 10 年前原先採用 Java 作為導入程式語言的課程, 過去 5 年大多轉向 Python 教學, 尤其自 2009 年起 Javascript 加上 HTML5 已經全面取代 Java applet 曾經獨攬網際平台的光環, 甚而在 2013 年的現在, Node.js 已經被許多團隊用來取代原先用 Java 在 Server 端的地位.
+2010 年則以 C+PHP 程式教學為主, 自 2011 年起則全面改採 Python3 進行教學, 主要考量在於 Python3 無論在單機環境或網際環境, 甚或工程或科學運算領域上的應用, 遠比 Java 更容易入手, 且提供更多的整合工具, 尤其是在最近逐步興起的開放 MCAD (Mechanical Computer Aided Design) 與 PLM 領域也大多採 Python 程式架構, 此波趨勢甚至影響到全球各電腦資工科系的基礎教學轉變, 10 年前原先採用 Java 作為導入程式語言的課程, 過去 5 年大多轉向 Python 教學, 尤其自 2009 年起 Javascript 加上 HTML5 已經全面取代 Java applet 曾經獨攬網際平台的光環, 甚而在 2013 年的現在, Node.js 已經被許多團隊用來取代原先用 Java 在 Server 端的地位.
+
+程式語言的應用階次比較 C++ &gt; Java &gt; C &gt; Python, 主要原因在於 Python 為解譯式程式語言, 上手比較容易, 當需要較高速的運算條件時則可以透過 Python 結合 C/C++ 程式, 或者透過 PyCuda 等模組使用 GPU 進行多核平行運算, 或結合 PyZMQ 執行分散運算.
 
 假如再以手機與平板裝置興起的角度來看, 解譯式的 Python 加上 Javascript 更能符合短生命週期與快速變遷的程式環境需求.
 
