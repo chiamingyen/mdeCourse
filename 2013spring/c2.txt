@@ -1471,6 +1471,40 @@ https://github.com/hazelnusse/bicycle.model
     mechanics_printing()
     mprint(qudots)
 
+sympy 的幾何運算應用:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    from sympy import *
+    from sympy.geometry import *
+    
+    # 定義四個點物件
+    x = Point(0, 0)
+    y = Point(1, 1)
+    z = Point(2, 2)
+    zp = Point(1, 0)
+    
+    # 判斷三點是否共線
+    print(Point.is_collinear(x, y, z))
+    print(Point.is_collinear(x, y, zp))
+    
+    # 利用三點定一個三角形物件
+    t = Triangle(zp, y, x)
+    # 求出三角形面積
+    print("三角形面積為:",t.area)
+    # 求出三角形的三條中線線段
+    print("三角形中線:", t.medians)
+    m = t.medians
+    # 利用三條中線求重心位置, m[x] 表示由 x 點產生的中線
+    print("三線交點",intersection(m[x], m[y], m[zp]))
+    c = Circle(x, 5)
+    l = Line(Point(5, -5), Point(5, 5))
+    print(c.is_tangent(l)) # is l tangent to c?
+    l = Line(x, y)
+    print(c.is_tangent(l)) # is l tangent to c?
+    print("圓與線的交點:",intersection(c, l))
+
 
 項目二: 2D 基本繪圖與 STL 零件檔案轉換
 
@@ -2108,11 +2142,138 @@ Windows oce prebuilt: https://github.com/tpaviot/oce/downloads
     model.make_normals() # creates plane normals
     model.smooth(0.93) # smooths the edges
     # = AllepunkteSTL points (pos = list, size = 3, color = Color.Black) # generates points
-.. @+node:amd_yen.20130414200359.2118: *3* C2  第九週
+.. @+node:amd_yen.20130414200359.2118: *3* C2 第九週
 
 
 
 
+.. @+node:amd_yen.20130421114440.2139: *4* 期中考試題目
+1. 給一個檔案, 要求查出此檔案的對應 md5 編碼 (第三週課程內容)
+
+查驗程式:
+
+.. code-block:: python
+
+    import hashlib
+     
+    def md5Checksum(filePath):
+        fh = open(filePath, 'rb')
+        m = hashlib.md5()
+        while True:
+            data = fh.read(8192)
+            if not data:
+                break
+            m.update(data)
+        return m.hexdigest()
+     
+    def sha1Checksum(filePath):
+        fh = open(filePath, 'rb')
+        m = hashlib.sha1()
+        while True:
+            data = fh.read(8192)
+            if not data:
+                break
+            m.update(data)
+        return m.hexdigest()
+     
+    print (md5Checksum("yourfile.7z"))
+    print (sha1Checksum("yourfile.7z"))
+    
+2. 給兩個檔案, 內容為利用亂數所產生的數字, 其中第一個檔案各行指定要擷取第二個檔案對應行數的數字次序 (例如, 第一個數字或第三個數字), 要求將這些數字進行累加, 給出結果.
+
+產生亂數的程式:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import random
+    起頭 = 1
+    結束 = 5
+    重複次數 = 250
+    
+    # 產生次序檔案
+    檔案 = open("file1.txt", "w")
+    for 索引 in range(重複次數):
+        產生數字 = random.randint(起頭, 結束)
+        檔案.write(str(產生數字)+"\n")
+    檔案.close()
+    
+    # 產生累加數字檔案
+    最小數 = 0
+    最大數 = 50
+    數字檔案 = open("file2.txt", "w")
+    for 行索引 in range(重複次數):
+        for 位置索引 in range(結束):
+            產生數字 = random.randint(最小數, 最大數)
+            數字檔案.write(str(產生數字)+"\t")
+        數字檔案.write("\n")
+    數字檔案.close()
+    
+根據 file1.txt 各行次序要求, 挑出 file2.txt 各行數字累加的程式:
+
+.. code-block:: python
+
+    #coding: utf-8
+    
+    # 取得各行的數字
+    次序檔案 = open('file1.txt') # 開檔案的內建模式為 read
+    數字檔案 = open('file2.txt') # 開檔案的內建模式為 read
+    # 先將數字檔案中各行資料打包成為 list
+    數字 = []
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        各行資料 = 數字檔案.readline()
+        # 以下兩行判斷式在確定檔案讀到最後一行後就會跳出 while 迴圈, 不會無限執行
+        if len(各行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        # 去掉各行最後面的跳行符號
+        各行資料 = 各行資料.rstrip()
+        # 依照資料的區隔符號 "\t" 將各行資料拆開, 並且存為 list, 到這裡各行資料為 list
+        各行資料 = 各行資料.split("\t")
+        # 可以將各行資料印出檢查
+        #print(各行資料)
+        # 將各行資料數列再疊成 數字 list
+        數字.append(各行資料)
+    # 可以將資料印出檢查, 數字大數列應該有 250 個 elements
+    #print(數字)
+    
+    # 準備讀取次序檔案, 然後從數字數列抓出對應位置的數字來進行累加
+    答案 = 0
+    次序 = 0
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        各行資料 = 次序檔案.readline()
+        # 以下兩行判斷式在確定檔案讀到最後一行後就會跳出 while 迴圈, 不會無限執行
+        if len(各行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        # 去掉各行最後面的跳行符號
+        各行資料 = 各行資料.rstrip()
+        # 已經取得各行的資料(但是資料為字串), 這裡的"各行資料"就是擷取數字的序號
+        #print(各行資料)
+        # 開始累加
+        # 要將各行資料當作索引使用, 必須由字串換成整數, 但是各行資料由 1 排序, 而 list 第一次序為 0 因此必須減 1
+        # 而"數字"的內容也都是字串, 取出後必須轉為整數, 才可以進行運算
+        print(數字[次序][int(各行資料)-1])
+        答案 += int(數字[次序][int(各行資料)-1])
+        print("目前答案為:", 答案)
+        print("次序為:", 次序)
+        # 對序號增量
+        次序 += 1
+    
+    print(答案)
+    
+    次序檔案.close() # 關閉檔案
+    數字檔案.close() # 關閉檔案
+
+假如希望只累加單數行的對應資料, 求出累加數值總額, 或者累加雙數行的對應數據.
+
+上述題目可能的變化:
+
+    根據原先  file1.txt 的數字作為次序, 選擇 file2.txt 對應行的對應數字, 若該數字為偶數則選擇進入累加, 否則進行下一行查驗, 最後列出累加結果.
+    
+    根據原先  file1.txt 的數字作為次序, 選擇 file2.txt 對應行的對應數字, 若該數字大於 20 則選擇進入累加, 否則進行下一行查驗, 最後列出累加結果, 以及不列入累加的數字累加總和.
 .. @+node:amd_yen.20130414200359.2119: *4* Python 3 程式教學的主題
 .. @+node:amd_yen.20130414200359.2120: *5* Python 程式簡介
 Python 是一種支援物件導向的高階解譯程式語言.
@@ -2291,6 +2452,20 @@ print(字串.replace("字串","學生", 2))    # 更換 2 次
     print("變數[-1] 列出最後一個元素:",變數[-1],"/",變數) # 列出最後一個元素
     print("變數[-2] 列出倒數第二個元素:",變數[-2],"/",變數) # 列出倒數第二個元素
     print("變數[-0] 列出第一個元素:",變數[-0],"/",變數) # 列出第一個元素, 索引 -0 等同 0
+
+Python 3 的字串物件型別共有三種:
+
+    str 資料型別一律為 Unicode 格式資料(immutable)
+    
+    bytes 資料型別則用來表示二位元格式資料(immutable sequence of 8-bit integers)
+    
+    bytearray 資料型別則為以陣列排列的二位元格式資料(mutable)
+    
+字串資料轉換:
+
+    str 轉為 bytes 的方法, str.encode() 或 bytes(S, encoding)
+    
+    bytes 轉為 str 的方法, bytes.decode() 或 str(B, encoding)
 .. @+node:amd_yen.20130414200359.2127: *5* Python 的串列與 tuple
 .. code-block:: python
 
@@ -3091,6 +3266,58 @@ B.getVar() # 可以列出 "var1" 與 "var2"
        top.mainloop()
     
     if __name__ == "__main__": main()
+.. @+node:amd_yen.20130423211907.2159: *6* pickle 應用
+以下範例利用 pickle 模組將物件進行序列化(serialize)資料轉換, 可以將類別物件轉換為 bytes 資料型別, 以利存入檔案或資料庫, 之後取出該 bytes 資料後, 在以反序列化轉回原始的資料內容.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    import pickle as pickle
+    '''pickle dumps 與 loads 的應用'''
+    
+    class 類別(object):
+        屬性 = '這是類別屬性'
+        def 成員函式(self):
+            print("來自成員函式的列印")
+    
+    # 將上述類別物件透過 pickle.dumps() 轉換
+    pickle輸出 = pickle.dumps(類別)
+    
+    print("pickle輸出的型別:",type(pickle輸出))
+    
+    # 利用 pickle.loads() 取出物件
+    原先壓入類別 = pickle.loads(pickle輸出)
+    
+    print("原先壓入類別的型別:",type(原先壓入類別))
+    
+    # 利用取出的類別建立案例
+    一個物件 = 原先壓入類別()
+    # 執行案例物件的方法
+    一個物件.成員函式()
+    
+字串資料的序列化與反序列化:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    import pickle as pickle
+    '''pickle dumps 與 loads 的應用'''
+    
+    字串 = "這是原始字串"
+    
+    # 將上述類別物件透過 pickle.dumps() 轉換
+    pickle輸出 = pickle.dumps(字串)
+    
+    # 請注意, 序列化之後的"pickle輸出"資料型別為 bytes
+    print("pickle輸出的型別:",type(pickle輸出))
+    
+    # 請注意, 只要將原先序列化的資料(格式為 bytes) 執行反序列化, 就可以取回原先序列化的字串內容, 且"原先的字串"資料型別為字串
+    # 利用 pickle.loads() 取出原先序列化的內容
+    原先的字串 = pickle.loads(pickle輸出)
+    
+    print("原先的字串之型別:",type(原先的字串))
+    
+    print(原先的字串)
 .. @+node:amd_yen.20130414200359.2131: *5* Python 的檔案輸出入
 .. code-block:: python
 
@@ -3387,6 +3614,699 @@ http://www.python-course.eu/python_tkinter.php
     w.create_line(0, y, canvas_width, y, fill="#476042")
     
     mainloop()
+.. @+node:amd_yen.20130421114440.2838: *5* Python 的單機視窗程式
+.. @+node:amd_yen.20130421114440.2839: *6* PyQt 程式編寫
+若程式可以採開放原始碼模式, 則可選擇 PyQt, 否則可以選擇類似的 PySide.
+
+PyQt: http://www.riverbankcomputing.com/software/pyqt/download, 採 GPL 2 or 3 and commercial license(若非開源專案則必須付費)
+
+PySide: http://qt-project.org/wiki/About-PySide, 採 LGPL 2.1
+
+GPL 與 LGPL 授權比較: http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
+.. @+node:amd_yen.20130421114440.2840: *5* Python 與資料庫
+Python 內建 SQLite 3 資料庫程式介面, 一般的機械設計程式可以考慮採用, 較大型的程式則可使用 MySQL 或 PostgreSQL.
+
+MySQL: http://www.mysql.com/
+
+PostgreSQL: http://www.postgresql.org/
+.. @+node:amd_yen.20130421114440.2841: *6* Pybean
+https://pypi.python.org/pypi/pybean
+
+為了簡化 Python 程式與資料庫連線操作的複雜度, 一般電腦輔助機械設計程式可以透過 Pybean 與 SQLite 連線.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    from pybean import Store, SQLiteWriter
+    # 將資料存入記憶體中, frozen=False 表示可以動態新增表格與欄位
+    #library = Store(SQLiteWriter(":memory:", frozen=False))
+    # 將資料存入 sqlite 資料庫檔案中, frozen=False 表示可以動態新增表格與欄位
+    # 設定 frozen=False 表示可以 create tables and columns on the fly
+    library = Store(SQLiteWriter("database.sqlite", frozen=False))
+    # 動態建立 book 資料表
+    book = library.new("book")
+    # 印出與 book 資料表對應的唯一序號
+    print (book.uuid.hex)
+    # 動態建立 title 欄位
+    book.title = "如何使用 Pybean 儲存資料"
+    # 動態建立 author 欄位
+    book.author = "Pybean 作者群"
+    # 儲存資料表內容
+    library.save(book)
+    # 利用 find 方法搜尋資料表中的資料
+    # 找出 book 資料表中 author 為 "Pybean 作者群" 的資料
+    for book in library.find("book","author like ?",["Pybean 作者群"]):
+            # 列印資料表中的 title 欄位
+            print (book.title)
+    # 搜尋資料的筆數
+    資料筆數 = library.count("book")
+    搜尋資料筆數 = library.count("book", "author like ?", ["Pybean 作者群"])
+    # 1 代表　true:沒有特別加入其他篩選條件, 排序內定為 asc, 反向排為 desc
+    搜尋資料筆數 = library.count("book", "1 order by author")
+    # 以 find_one 找出所要的一筆資料
+    一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
+    # 針對所搜尋出的一筆資料進行修改
+    一筆資料.author = "修改後的資料"
+    # 將修改後的一筆資料存入資料表中
+    library.save(一筆資料)
+    # 假如要刪除所找出的一筆資料, 使用 delete
+    #libry.delete(一筆資料)
+    print(資料筆數)
+    print(搜尋資料筆數)
+    print(一筆資料.title,"_",一筆資料.author)
+     
+    # 列出目前的資料庫內容
+    for book in library.find("book","1"):
+            # 列印資料表中的 title 欄位
+            print (book.title, book.author)
+     
+    # 刪除資料表中的所有資料
+    #library.delete(book)
+.. @+node:amd_yen.20130421114440.2842: *5* Python 網際程式
+Python 內建 W3 伺服器
+
+目前最為流行的 Python 網際方案為 django, 而較小型的網際框架目前 (2013.04) 已經能夠支援 Python 3 的則有 CherryPy 與 Bottle.
+
+一般機械設計網際程式建議採用 CherryPy 或 Bottle, 中型以上的網站則可直接採用 django.
+.. @+node:amd_yen.20130421114440.2843: *6* CherryPy
+http://www.cherrypy.org/
+
+.. code-block:: python
+
+    import cherrypy,os
+    class HelloWorld(object):
+        def index(self):
+            return "Hello World!"
+        index.exposed = True
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083")
+    cherrypy.server.socket_port = 8083
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+    
+.. code-block:: python
+
+    #coding: utf-8
+    # 最簡單的 CherryPy 程式
+    # 導入 cherrypy 與 os 模組
+    import cherrypy,os
+    # 建立 HelloWorld 類別物件
+    class HelloWorld(object):
+        # 定義一個會內建呼叫的 index 方法
+        def index(self):
+            # 傳回字串
+            return "Hello World!"
+        # 可以從外部以 index 連結呼叫此方法
+        index.exposed = True
+     
+    # 利用 os.system() 執行 chrome.exe, 直接以瀏覽器開啟 cherrypy 伺服器
+    os.system("V:/Chrome/chrome.exe http://localhost:8083")
+    # 設定 cherrypy 的連結埠號為 8083
+    cherrypy.server.socket_port = 8083
+    # 設定 cherrypy 的啟動 IP 為 127.0.0.1
+    cherrypy.server.socket_host = '127.0.0.1'
+    # 以 HelloWorld() 物件啟動 cherrypy
+    cherrypy.quickstart(HelloWorld())
+    
+.. code-block:: python
+
+    import cherrypy,os
+    class HelloWorld(object):
+        def index(self):
+            return "Hello World!"
+        index.exposed = True
+     
+        def mymethod(self):
+            return "This is my method!"
+        mymethod.exposed = True
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083/mymethod")
+    cherrypy.server.socket_port = 8083
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+
+將 mymethod.exposed = True 蓋去, 表示使用者無法直接利用瀏覽器呼叫, 而只能以 self.mymethod() 的方式, 由其他可以直接呼叫的方法中執行, 下列程式執行後, http://localhost:8083 與 http://localhost:8083/index 結果相同, 但是卻無法直接呼叫 mymethod().
+
+.. code-block:: python
+
+    import cherrypy,os
+    class HelloWorld(object):
+        def index(self):
+            #return "Hello World!"
+            return self.mymethod()
+        index.exposed = True
+     
+        def mymethod(self):
+            return "This is my method!"
+        #mymethod.exposed = True
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083")
+    os.system("V:/Chrome/chrome.exe http://localhost:8083/index")
+    os.system("V:/Chrome/chrome.exe http://localhost:8083/mymethod")
+    cherrypy.server.socket_port = 8083
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+
+Python3 程式與 Javascript 程式交換變數, 使用者呼叫時, 由 URL 連結中輸入變數值, 然後交由 Python3 傳給 Javascript 程式.
+
+.. code-block:: python
+
+    import cherrypy,os
+    class HelloWorld(object):
+        def index(self,var1=None):
+            outString = '''
+            <script>
+            '''
+            outString += "document.write('"+var1+"');"
+            outString += '''
+            </script>
+            '''
+            return outString
+        index.exposed = True
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083?var1=123")
+    os.system("V:/Chrome/chrome.exe http://localhost:8083?var1=Hello")
+    cherrypy.server.socket_port = 8083
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+
+利用 cherrypy.request.method 來判定變數取值的方法, 這裡透過 GET 取得變數值, 另外以表單取變數值的方法稱為 POST.
+
+.. code-block:: python
+
+    import cherrypy,os
+    class HelloWorld(object):
+        def index(self,var1=None):
+            outString = '''
+            <script>
+            '''
+            outString += "document.write('"+var1+"');"
+            outString += '''
+            </script>
+            '''
+            outString += cherrypy.request.method
+     
+            return outString
+        index.exposed = True
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083?var1=123")
+    cherrypy.server.socket_port = 8083
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+
+CherryPy session 用法:
+
+.. code-block:: python
+
+    import cherrypy,os
+    class HelloWorld(object):
+        # cherrypy 執行的設定檔案, 以 dictionay 資料格式設定
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        'tools.sessions.storage_path' : 'v:/tmp',
+        'tools.sessions.timeout' : 60
+        }
+     
+        def index(self,var1=None):
+            outString = '''
+            <script>
+            '''
+            if var1 != None:
+                outString += "document.write('"+var1+"');"
+            else:
+                outString += "document.write('no var1 value');"
+            outString += '''
+            </script>
+            '''
+            outString += cherrypy.request.method
+            count = cherrypy.session.get('count', 0) + 1
+            cherrypy.session['count'] = count
+            outString += " count is now:"+str(count)
+     
+            return outString
+        index.exposed = True
+     
+        def reset_session(self):
+            # delete all session data
+            #cherrypy.session.delete()
+            # only delete 'count' session
+            del cherrypy.session['count']
+            return "count is deleted"
+        reset_session.exposed = True
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083?var1=123")
+    cherrypy.server.socket_port = 8083
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+
+加上客製化錯誤訊息.
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy,os
+     
+    class HelloWorld(object):
+        # cherrypy 執行的設定檔案, 以 dictionay 資料格式設定
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        'tools.sessions.storage_path' : 'v:/tmp',
+        'tools.sessions.timeout' : 60
+        }
+     
+        def index(self,**var):
+            outString = '''
+            <script>
+            '''
+            try:
+                if var['var1'] != None:
+                    outString += "document.write('"+var['var1']+"');"
+                else:
+                    outString += "document.write('no var1 value');"
+                outString += '''
+                </script>
+                '''
+            except:
+                outString += '''
+                </script>
+                '''
+                pass
+            outString += cherrypy.request.method
+            count = cherrypy.session.get('count', 0) + 1
+            cherrypy.session['count'] = count
+            outString += " count is now:"+str(count)
+     
+            return outString
+        index.exposed = True
+     
+        def reset_session(self):
+            # delete all session data
+            #cherrypy.session.delete()
+            # only delete 'count' session
+            del cherrypy.session['count']
+            return "count is deleted"
+        reset_session.exposed = True
+     
+        # 客製化的 error 402 函式
+        def error_page_402(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 402 錯誤!" % status
+        cherrypy.config.update({'error_page.402': error_page_402})
+     
+        def error_page_404(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 404 錯誤!" % status
+        cherrypy.config.update({'error_page.404': error_page_404})
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083?var1=123")
+    cherrypy.server.socket_port = 8083
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+    
+CherryPy 程式以 http 及 https 模式啟動
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy,os
+     
+    class HelloWorld(object):
+        # cherrypy 執行的設定檔案, 以 dictionay 資料格式設定
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        'tools.sessions.storage_path' : 'v:/tmp',
+        'tools.sessions.timeout' : 60
+        }
+     
+        def index(self,**var):
+            outString = '''
+            <script>
+            '''
+            try:
+                if var['var1'] != None:
+                    outString += "document.write('"+var['var1']+"');"
+                else:
+                    outString += "document.write('no var1 value');"
+                outString += '''
+                </script>
+                '''
+            except:
+                outString += '''
+                </script>
+                '''
+                pass
+            outString += cherrypy.request.method
+            count = cherrypy.session.get('count', 0) + 1
+            cherrypy.session['count'] = count
+            outString += " count is now:"+str(count)
+     
+            return outString
+        index.exposed = True
+     
+        def reset_session(self):
+            # delete all session data
+            #cherrypy.session.delete()
+            # only delete 'count' session
+            del cherrypy.session['count']
+            return "count is deleted"
+        reset_session.exposed = True
+     
+        # 客製化的 error 402 函式
+        def error_page_402(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 402 錯誤!" % status
+        cherrypy.config.update({'error_page.402': error_page_402})
+     
+        def error_page_404(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 404 錯誤!" % status
+        cherrypy.config.update({'error_page.404': error_page_404})
+     
+    os.system("V:/Chrome/chrome.exe http://localhost:8083?var1=123")
+    os.system("V:/Chrome/chrome.exe https://localhost:8093?var1=123")
+     
+    cherrypy.config.update({'server.socket_port': 8083, 'server.socket_host': '127.0.0.1'})
+     
+    from cherrypy._cpserver import Server
+    server = Server()
+    server.socket_port = 8093
+    server.socket_host = '127.0.0.1'
+    server.ssl_certificate = 'v:/ssl_cert.pem'
+    server.ssl_private_key = 'v:/ssl_cert.pem'
+    server.subscribe()
+    #cherrypy.server.socket_port = 8083
+    #cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+    
+僅使用 https 模式啟動上述 CherryPy 程式:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy,os
+     
+    class HelloWorld(object):
+        # cherrypy 執行的設定檔案, 以 dictionay 資料格式設定
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        'tools.sessions.storage_path' : 'v:/tmp',
+        'tools.sessions.timeout' : 60
+        }
+     
+        def index(self,**var):
+            outString = '''
+            <script>
+            '''
+            try:
+                if var['var1'] != None:
+                    outString += "document.write('"+var['var1']+"');"
+                else:
+                    outString += "document.write('no var1 value');"
+                outString += '''
+                </script>
+                '''
+            except:
+                outString += '''
+                </script>
+                '''
+                pass
+            outString += cherrypy.request.method
+            count = cherrypy.session.get('count', 0) + 1
+            cherrypy.session['count'] = count
+            outString += " count is now:"+str(count)
+     
+            return outString
+        index.exposed = True
+     
+        def reset_session(self):
+            # delete all session data
+            #cherrypy.session.delete()
+            # only delete 'count' session
+            del cherrypy.session['count']
+            return "count is deleted"
+        reset_session.exposed = True
+     
+        # 客製化的 error 402 函式
+        def error_page_402(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 402 錯誤!" % status
+        cherrypy.config.update({'error_page.402': error_page_402})
+     
+        def error_page_404(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 404 錯誤!" % status
+        cherrypy.config.update({'error_page.404': error_page_404})
+     
+    os.system("V:/Chrome/chrome.exe https://localhost:8093?var1=123")
+     
+    cherrypy.config.update({'server.socket_port': 8093, 'server.socket_host': '127.0.0.1',
+                            'server.ssl_certificate': 'v:/ssl_cert.pem',
+                            'server.ssl_private_key': 'v:/ssl_cert.pem'})
+     
+    #cherrypy.server.socket_port = 8083
+    #cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(HelloWorld())
+    
+另一種以 https 啟動 CherryPy 的方法:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy,os
+     
+    class HelloWorld(object):
+        # cherrypy 執行的設定檔案, 以 dictionay 資料格式設定
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        'tools.sessions.storage_path' : 'v:/tmp',
+        'tools.sessions.timeout' : 60
+        }
+     
+        def index(self,**var):
+            outString = '''
+            <script>
+            '''
+            try:
+                if var['var1'] != None:
+                    outString += "document.write('"+var['var1']+"');"
+                else:
+                    outString += "document.write('no var1 value');"
+                outString += '''
+                </script>
+                '''
+            except:
+                outString += '''
+                </script>
+                '''
+                pass
+            outString += cherrypy.request.method
+            count = cherrypy.session.get('count', 0) + 1
+            cherrypy.session['count'] = count
+            outString += " count is now:"+str(count)
+     
+            return outString
+        index.exposed = True
+     
+        def reset_session(self):
+            # delete all session data
+            #cherrypy.session.delete()
+            # only delete 'count' session
+            del cherrypy.session['count']
+            return "count is deleted"
+        reset_session.exposed = True
+     
+        # 客製化的 error 402 函式
+        def error_page_402(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 402 錯誤!" % status
+        cherrypy.config.update({'error_page.402': error_page_402})
+     
+        def error_page_404(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 404 錯誤!" % status
+        cherrypy.config.update({'error_page.404': error_page_404})
+     
+    os.system("V:/Chrome/chrome.exe https://localhost:8093?var1=123")
+     
+    cherrypy.server.socket_port = 8093
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.server.ssl_certificate = 'v:/ssl_cert.pem'
+    cherrypy.server.ssl_private_key = 'v:/ssl_cert.pem'
+    cherrypy.quickstart(HelloWorld())
+    
+CherryPy 虛擬主機設定方法:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import cherrypy,os
+    '''
+    CherryPy 的虛擬主機對應
+     
+    1. 修改 Windows C:\WINDOWS\system32\drivers\etc\hosts 檔案
+    127.0.0.1 server1.my.domain
+    127.0.0.1 server2.my.domain
+     
+    2. 以下設定將可透過
+    https://server1.my.domain:8093
+    https://server2.my.domain:8093 
+    連結到同一 CherryPy 網際程式的不同對應物件方法
+    '''
+    class Root(object):
+        def __init__(self):
+            self.server1 = HelloWorld1()
+            self.server2 = HelloWorld2()
+     
+    class HelloWorld1(object):
+        # cherrypy 執行的設定檔案, 以 dictionay 資料格式設定
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        'tools.sessions.storage_path' : 'v:/tmp',
+        'tools.sessions.timeout' : 60
+        }
+     
+        def index(self,**var):
+            outString = '''這是 server1.my.domain
+            <script>
+            '''
+            try:
+                if var['var1'] != None:
+                    outString += "document.write('"+var['var1']+"');"
+                else:
+                    outString += "document.write('no var1 value');"
+                outString += '''
+                </script>
+                '''
+            except:
+                outString += '''
+                </script>
+                '''
+                pass
+            outString += cherrypy.request.method
+            count = cherrypy.session.get('count', 0) + 1
+            cherrypy.session['count'] = count
+            outString += " count is now:"+str(count)
+     
+            return outString
+        index.exposed = True
+     
+        def reset_session(self):
+            # delete all session data
+            #cherrypy.session.delete()
+            # only delete 'count' session
+            del cherrypy.session['count']
+            return "count is deleted"
+        reset_session.exposed = True
+     
+        # 客製化的 error 402 函式
+        def error_page_402(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 402 錯誤!" % status
+        cherrypy.config.update({'error_page.402': error_page_402})
+     
+        def error_page_404(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 404 錯誤!" % status
+        cherrypy.config.update({'error_page.404': error_page_404})
+     
+    class HelloWorld2(object):
+        # cherrypy 執行的設定檔案, 以 dictionay 資料格式設定
+        _cp_config = {
+        # 配合 utf-8 格式之表單內容
+        # 若沒有 utf-8 encoding 設定,則表單不可輸入中文
+        'tools.encode.encoding': 'utf-8',
+        'tools.sessions.on' : True,
+        'tools.sessions.storage_type' : 'file',
+        'tools.sessions.locking' : 'explicit',
+        'tools.sessions.storage_path' : 'v:/tmp',
+        'tools.sessions.timeout' : 60
+        }
+     
+        def index(self,**var):
+            outString = '''這是 server2.my.domain
+            <script>
+            '''
+            try:
+                if var['var1'] != None:
+                    outString += "document.write('"+var['var1']+"');"
+                else:
+                    outString += "document.write('no var1 value');"
+                outString += '''
+                </script>
+                '''
+            except:
+                outString += '''
+                </script>
+                '''
+                pass
+            outString += cherrypy.request.method
+            count = cherrypy.session.get('count', 0) + 1
+            cherrypy.session['count'] = count
+            outString += " count is now:"+str(count)
+     
+            return outString
+        index.exposed = True
+     
+        def reset_session(self):
+            # delete all session data
+            #cherrypy.session.delete()
+            # only delete 'count' session
+            del cherrypy.session['count']
+            return "count is deleted"
+        reset_session.exposed = True
+     
+        # 客製化的 error 402 函式
+        def error_page_402(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 402 錯誤!" % status
+        cherrypy.config.update({'error_page.402': error_page_402})
+     
+        def error_page_404(status, message, traceback, version):
+            return "Error %s - 抱歉! 發生 404 錯誤!" % status
+        cherrypy.config.update({'error_page.404': error_page_404})
+     
+    os.system("V:/Chrome/chrome.exe https://server1.my.domain:8093?var1=123")
+    os.system("V:/Chrome/chrome.exe https://server2.my.domain:8093?var1=123")
+     
+    hostmap = {
+        'server1.my.domain:8093': '/server1',
+        'server2.my.domain:8093': '/server2',
+    }
+     
+    config = {
+        'request.dispatch': cherrypy.dispatch.VirtualHost(**hostmap)
+    }
+     
+    cherrypy.server.socket_port = 8093
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.server.ssl_certificate = 'v:/ssl_cert.pem'
+    cherrypy.server.ssl_private_key = 'v:/ssl_cert.pem'
+    #cherrypy.quickstart(HelloWorld())
+    cherrypy.quickstart(Root(), '/', {'/': config})
+    
+.. @+node:amd_yen.20130421114440.2844: *6* Bottle
+http://bottlepy.org/docs/dev/
+.. @+node:amd_yen.20130421114440.2846: *6* django
+https://www.djangoproject.com/
 .. @+node:amd_yen.20130417210155.2884: *5* Python 與 C/C++
 Python 程式語言由於屬於動態資料結構且為解譯模式, 因此就某些需要較長運算時間的分析程式, 就必須與 C/C++ 程式分工合作.
 
@@ -3602,5 +4522,84 @@ https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後�
     Brython 版本: 還沒有開始編寫:-)
 
 .. @+node:amd_yen.20130414200359.2126: *5* 
+.. @+node:amd_yen.20130424175812.2164: *3* C2 第十週
+Python 程式在機械設計工程領域的應用:
+
+1. 一般的工程分析運算及動態模擬
+
+    微積分與工程數學 - 使用 Scipy, Numpy 與 Sympy, 可以解決科學、數值分析與符號式運算等問題
+
+2. 網際協同設計程式與系統編寫
+
+3. 2D/3D 繪圖
+
+    2D 繪圖 - PythonCAD
+
+    3D 繪圖 - 在機械設計流程中的 3D 動態模擬應用領域, Python 程式語言具有舉足輕重的地位, 無論是造型設計套件 Rhinoceros, AutoDesk maya 或 Blender 都選擇 Python 作為 API 程式語言, 此外許多中大型線上遊戲也採用 Python 作為場景與動作邏輯的 Scripting 語言, 儘管這些應用多與工業設計、造形設計或動畫設計較有密切關係, 但是在許多專案執行過程中, 也需要許多具有深厚機械造形設計、力學、機構設計、自動控制等領域知識的機械設計工程師配合.
+    
+    電腦輔助機械設計繪圖 - FreeCAD
+
+參考資料: 
+
+rhino: http://python.rhino3d.com/
+
+maya: http://download.autodesk.com/global/docs/maya2013/en_us/index.html
+
+blender: http://www.blender.org/
+.. @+node:amd_yen.20130423211907.2156: *4* 2D PythonCAD
+PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於:
+
+    自行打造一個小型的 2D 繪圖 kernel
+    
+    使用 SQLite 資料庫系統
+    
+    支援 Scriptable 程式介面
+
+使用者可以透過此一完全以 Python 程式語言打造的 2D 來了解電腦輔助機械設計製圖的初步架構, 進而建立其他客製化的 2D 繪圖應用模組.
+
+截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
+    
+    IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+    
+    必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+    
+    實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+    
+    此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+    
+以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計:
+
+CREATE TABLE pycadent(
+                    pycad_id INTEGER PRIMARY KEY,
+                    pycad_entity_id INTEGER,
+                    pycad_object_type TEXT,
+                    pycad_object_definition TEXT,
+                    pycad_object_style TEXT,
+                    pycad_security_id INTEGER,
+                    pycad_undo_id INTEGER,
+                    pycad_entity_state TEXT,
+                    pycad_index NUMERIC,
+                    pycad_visible INTEGER,
+                    pycad_undo_visible INTEGER,
+                    pycad_locked INTEGER,
+                    pycad_bbox_xmin REAL,
+                    pycad_bbox_ymin REAL,
+                    pycad_bbox_xmax REAL,
+                    pycad_bbox_ymax REAL, pycad_property TEXT)
+                    
+為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
+.. @+node:amd_yen.20130423211907.2158: *5* pickle 與 unpickle
+根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
+
+The following types can be pickled:
+
+    None, True, and False
+    integers, floating point numbers, complex numbers
+    strings, bytes, bytearrays
+    tuples, lists, sets, and dictionaries containing only picklable objects
+    functions defined at the top level of a module
+    built-in functions defined at the top level of a module
+    classes that are defined at the top level of a module
+    instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
 .. @-all
 .. @-leo

@@ -42,14 +42,14 @@
 <v t="amd_yen.20130308221230.3828"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2384"><vh>程式語言(二)</vh>
+<v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130318140025.2833"><vh>有關程式語言</vh></v>
-<v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
+<v t="amd_yen.20130308221230.2437" a="E"><vh>C2 第一週程式</vh>
 <v t="amd_yen.20130408141041.1765"><vh>有關 pybean 版次差異</vh></v>
 <v t="amd_yen.20130308221230.2438" a="E"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2457"><vh>C2 第二週程式</vh>
+<v t="amd_yen.20130308221230.2457" a="E"><vh>C2 第二週程式</vh>
 <v t="amd_yen.20130308221230.2458" a="E"><vh>@shadow c2/docutils_ex1.py</vh></v>
 <v t="amd_yen.20130308221230.2462"><vh>課程規劃</vh></v>
 <v t="amd_yen.20130308221230.2463" a="E"><vh>課程進行</vh>
@@ -62,26 +62,26 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
-<v t="amd_yen.20130308210411.2387"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,"><vh>@file c2.txt</vh></v>
+<v t="amd_yen.20130308210411.2387" a="E"
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,"><vh>@file c2.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2385"><vh>協同產品設計實習</vh>
+<v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
 <v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
-<v t="amd_yen.20130314194325.1746" a="E"><vh>CD 第四週程式</vh>
+<v t="amd_yen.20130314194325.1746"><vh>CD 第四週程式</vh>
 <v t="amd_yen.20130314194325.1747" a="E"><vh>@shadow cd/gearcontour.py</vh></v>
 </v>
-<v t="amd_yen.20130418193628.2122" a="E"><vh>CD 第八週程式</vh>
+<v t="amd_yen.20130418193628.2122"><vh>CD 第八週程式</vh>
 <v t="amd_yen.20130418193628.2123" a="E"><vh>@shadow cd/partview/objstl.js</vh></v>
 <v t="amd_yen.20130418193628.2126"><vh>@edit cd/partview/RequestAnimationFrame.js</vh></v>
 <v t="amd_yen.20130418193628.2127"><vh>@edit cd/partview/index.php</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130309155804.1709,amd_yen.20130314194325.1511,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130314194325.1511,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130413002743.2095,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
+<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438" a="E"><vh>django 程式開發</vh>
 <v t="amd_yen.20130406103207.2442"><vh>@url Tutorial 1</vh></v>
 <v t="amd_yen.20130406103207.2285"><vh>@edit wcm/django1.py</vh></v>
@@ -100,7 +100,7 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130309155804.1709,amd_yen.201303
 <v t="amd_yen.20130308210411.2407" a="E"
 expanded="amd_yen.20130308210411.2408,amd_yen.20130418193628.2823,"><vh>@file wcm.txt</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2492"><vh>綜合資料</vh>
+<v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
 expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
@@ -315,6 +315,12 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130406103207.2451"><vh>協同設計</vh></v>
 <v t="amd_yen.20130406103207.2768"><vh>GPU 相關</vh></v>
 </v>
+<v t="amd_yen.20130423211907.2155" a="E"><vh>電腦輔助機械繪圖</vh>
+<v t="amd_yen.20130423211907.2156" a="E"><vh>2D PythonCAD</vh>
+<v t="amd_yen.20130423211907.2158"><vh>pickle 與 unpickle</vh></v>
+</v>
+<v t="amd_yen.20130423211907.2157"><vh>3D FreeCAD</vh></v>
+</v>
 <v t="amd_yen.20130406103207.2760"><vh>C Pointer and Array</vh>
 <v t="amd_yen.20130406103207.2761"><vh>PREFACE</vh></v>
 <v t="amd_yen.20130406103207.2762"><vh>INTRODUCTION</vh></v>
@@ -329,7 +335,7 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130413002743.2104"><vh>Python 3 安裝</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130413002743.2102"><vh>機械設計工程系程式課程演變</vh>
+<v t="amd_yen.20130413002743.2102" a="E"><vh>機械設計工程系程式課程演變</vh>
 <v t="amd_yen.20130413002743.2103"><vh>符號式機構分析</vh></v>
 <v t="amd_yen.20130418193628.2121"><vh>PHP 與 Javascript</vh></v>
 </v>
@@ -544,7 +550,37 @@ if "%1" == "html" (
 最好的方式當然是全文搜尋, 但是必須耗費較多時間, 有關這點必須再加以深入考量.
 
 假如能夠將 Sphinx 所產生的 html 導入 CMSimple XH 的 content.htm 中, 應該就可以解決許多問題, 至於對應的 images, downloads, jscripts 與 plugins 也都必須要加以整合.</t>
-<t tx="amd_yen.20130308210411.2384"></t>
+<t tx="amd_yen.20130308210411.2384">為何選擇 Python 3
+
+這項主題應該在程式語言(一) 的第一堂課程就已經說明, 但是對於程式語言的初學者, 假如只學過 Python, 可能對於程式語言之間的比較與印象並不會十分深刻, 若以曾經使用過 FORTRAN, Pascal, Basic, Perl, Visual Basic, C/C++, PHP, Java, Forth, Lisp 等程式語言的經驗來說, Python 語言對於機械設計工程專業人員來說, 具有下列優點:
+
+Python 程式容易閱讀, Python 程式語言採用內縮 (每一個內縮單位通常為 4 個空白鍵)來界定區域執行的範圍, 因此能夠正確執行的 Python 程式必須排列整齊, 區段明確, 因此容易閱讀(C/C++, PHP, Java 等程式語言都採用 {} 來界定執行區段, 且允許各種程式碼行段的排列方式, 因此可能造成程式碼不易閱讀).
+
+Python 程式語言內建高階資料結構, list, tuple, dictionary, set, string, bytes, int, float 等格式的交互應用下, 可以在不使用資料庫的情況下, 完成許多方便的數據與資料處理工作.
+
+Python 程式語言採解譯(interpretation)執行, 動態性的資料型別方便程式的架構與編寫, 程式開發流程通常比採用編譯式(compiled)程式語言快上幾倍 (但是必須在程式執行速度上付出代價).
+
+Python 程式語言內建許多常用的程式庫模組(modules), 即使在未安裝其他附屬模組情況下, 就能夠解決許多機械設計相關流程問題.
+
+Python 程式語言自由開放(採接近 BSD 使用授權, 並且開放程式語言解譯系統的 C 原始碼, 除了 CPython, 還有以 Python 寫的 Pypy, 以 Java 寫的 Jython,  以 .Net 技術編寫的 IronPython, 以 Javascript 寫的 Skulpt 解譯系統)且跨操作系統平台 (可以在 Windows, Linux, Mac 系統上使用).
+
+參考資料: https://github.com/bnmnetp/skulpt
+
+Python 程式語言支援許多原本採 C/C++ 編寫程式庫的 CAD 核心碼介面擷取模組 (Open CASCADE), 2D 繪圖套件有 PythonCAD (PyQt), 3D CAD 則有 FreeCAD (PyQt), PLM 則有 OpenPLM (PyQt), 以及支援 mechanics, multibody dynamics 分析用的模擬套件.
+
+參考資料: 
+
+http://www.libremechanics.com/
+
+Mechanics
+
+http://sourceforge.net/projects/libremechanics/files/
+
+Multibody dynamics
+
+http://sourceforge.net/projects/pymbs/files/
+
+Python 程式語言支援許多科學(Scipy)、數值(Numpy)與符號式(Sympy)運算模組, 可以解決許多類似 Matlab 套件的工程運算問題.</t>
 <t tx="amd_yen.20130308210411.2385"></t>
 <t tx="amd_yen.20130308210411.2386"></t>
 <t tx="amd_yen.20130308210411.2403">@language python
@@ -821,8 +857,8 @@ c.k.simulateCommand('rst3')
     程式語言基本概念
     
         會否採用程式方法進行數值運算、科學運算、資料處理 (程式語言(一)) - C1_intro
-        會否採用程式方法建立單機程式  (程式語言(二)) - C2_app
-        會否採用程式方法建立網際程式  (程式語言(一)) - C1_web
+        會否採用程式方法建立單機程式  (程式語言(二)) - C2_app (採用 tkinter 與 PyQt GUI 介面)
+        會否採用程式方法建立網際程式  (程式語言(一)) - C1_web (採用 CherryPy, bottle 與 django 網際框架)
         
     會否採用程式方法進行文書處理 (程式語言(二)) - C2_leo
     會否採用程式方法建立網站、登錄日誌  (程式語言(一)) - C1_cms
@@ -835,9 +871,9 @@ C1_cms - 網際內容管理, CMSimple XH
 C1_web - 網際程式框架, CherryPy
 
 C2_leo - 文書處理, docutils, Sphinx, Leo Editor, MikTeX
-C2_app - 應用程式, PyQt
-C2_web - 網際程式框架, CherryPy
-C2_cd - 網際協同, c9.io, Simple Groupware</t>
+C2_app - 應用程式, tkinter 與 PyQt
+C2_web - 網際程式框架, CherryPy, bottle 與 django
+C2_cd - 網際協同, c9.io, 免費虛擬主機 (http://www.1freehosting.com/) , Simple Groupware</t>
 <t tx="amd_yen.20130325133433.2805">以下示範如何在 KMOL Guide 的架構下, 新增一個節點用來產生第二本協同手冊
 
 一本協同手冊的建立總共有三個部分
@@ -3096,7 +3132,8 @@ http://www-inst.eecs.berkeley.edu/~cs61a/sp13/ 仍然延續 Python 3 教學, 但
 
 因此目前的程式語言、電腦輔助設計、協同產品設計相關教學, 採用 Python 3 + Javascript + PHP + C/C++ 足以勝任大多數的程式環境需求.</t>
 <t tx="amd_yen.20130413002743.2103">#coding: utf-8
-from sympy import *
+from sympy
+ import *
 x, y, z, t = symbols('x y z t')
 k, m, n = symbols('k m n', integer=True)
 f, g, h = symbols('f g h', cls=Function)
@@ -3547,5 +3584,62 @@ EOF;
 return $output;
 }</t>
 <t tx="amd_yen.20130418193628.2122"></t>
+<t tx="amd_yen.20130423211907.2155"></t>
+<t tx="amd_yen.20130423211907.2156">PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於:
+
+    自行打造一個小型的 2D 繪圖 kernel
+    
+    使用 SQLite 資料庫系統
+    
+    支援 Scriptable 程式介面
+
+使用者可以透過此一完全以 Python 程式語言打造的 2D 來了解電腦輔助機械設計製圖的初步架構, 進而建立其他客製化的 2D 繪圖應用模組.
+
+截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
+    
+    IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+    
+    必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+    
+    實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+    
+    此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+    
+以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計:
+
+CREATE TABLE pycadent(
+                    pycad_id INTEGER PRIMARY KEY,
+                    pycad_entity_id INTEGER,
+                    pycad_object_type TEXT,
+                    pycad_object_definition TEXT,
+                    pycad_object_style TEXT,
+                    pycad_security_id INTEGER,
+                    pycad_undo_id INTEGER,
+                    pycad_entity_state TEXT,
+                    pycad_index NUMERIC,
+                    pycad_visible INTEGER,
+                    pycad_undo_visible INTEGER,
+                    pycad_locked INTEGER,
+                    pycad_bbox_xmin REAL,
+                    pycad_bbox_ymin REAL,
+                    pycad_bbox_xmax REAL,
+                    pycad_bbox_ymax REAL, pycad_property TEXT)
+                    
+為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
+</t>
+<t tx="amd_yen.20130423211907.2157"></t>
+<t tx="amd_yen.20130423211907.2158">根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
+
+The following types can be pickled:
+
+    None, True, and False
+    integers, floating point numbers, complex numbers
+    strings, bytes, bytearrays
+    tuples, lists, sets, and dictionaries containing only picklable objects
+    functions defined at the top level of a module
+    built-in functions defined at the top level of a module
+    classes that are defined at the top level of a module
+    instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
+</t>
 </tnodes>
 </leo_file>
