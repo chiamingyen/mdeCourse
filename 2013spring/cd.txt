@@ -3017,13 +3017,13 @@ http://www.eng.cam.ac.uk/DesignOffice/cad/3rdyear/creo1styear.pdf
 
 Kernel 技術:
 
-德國 Siemens - parasolid (原為美國 UGS 公司所有, 後來被 Siemens 收購)
+德國 Siemens - Parasolid (原為美國 UGS 公司所有, 後來被 Siemens 收購)
 
     http://en.wikipedia.org/wiki/Parasolid
 
     http://www.plm.automation.siemens.com/en_us/products/open/parasolid/index.shtml
     
-法國 Dassault - ACIS
+法國 Dassault - ACIS (2000 年併入)
 
     http://en.wikipedia.org/wiki/ACIS
     
@@ -3037,8 +3037,6 @@ Kernel 技術:
 
     http://www.ledas.com/
 
-
-    
 CAD 套件;
 
 美國 PTC - Creo, 採用 Granite One kernel.

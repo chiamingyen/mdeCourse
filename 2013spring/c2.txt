@@ -2371,6 +2371,62 @@ int 整數表示
 .. @+node:amd_yen.20130414200359.2122: *5* Python 程式的變數有效範圍
 區域與廣域
 .. @+node:amd_yen.20130414200359.2123: *5* Python 的敘述與表示式
+Expression - 13. Computers. a combination of variables, constants, and functions linked by operation symbols and any required punctuation that describe a rule for calculating a value.
+
+noun
+
+1. the act of expressing or setting forth in words: the free expression of political opinions.
+
+2. a particular word, phrase, or form of words: old-fashioned expressions.
+
+3. the manner or form in which a thing is expressed in words; wording; phrasing: delicacy of expression.
+
+4. the power of expressing in words: joy beyond expression.
+
+5. indication of feeling, spirit, character, etc., as on the face, in the voice, or in artistic execution: the lyric expression embodied in his poetry.
+
+6. a look or intonation expressing personal reaction, feeling, etc.: a shocked expression.
+
+7. the quality or power of expressing an attitude, emotion, etc.: a face that lacks expression; to read with expression.
+
+8. the act of expressing or representing, as by symbols.
+
+9. Mathematics . a symbol or a combination of symbols representing a value, relation, or the like.
+
+10. Linguistics . the stylistic characteristics of an utterance ( opposed to meaning ).
+
+11. Linguistics . the system of verbal utterances specific to a language ( opposed to content ).
+
+12. the act of expressing or pressing out.
+
+13. Computers. a combination of variables, constants, and functions linked by operation symbols and any required punctuation that describe a rule for calculating a value.
+
+14. Genetics.
+
+    a. the action of a gene in the production of a protein or a phenotype.
+
+    b. expressivity (  def 2 ) .
+    
+
+Statement - 8. Computers. an instruction or other elementary component in a high-level programming language.
+
+noun
+
+1. something stated.
+
+2. a communication or declaration in speech or writing, setting forth facts, particulars, etc.
+
+3. a single sentence or assertion: I agree with everything you said except for your last statement.
+
+4. Commerce . an abstract of an account, as one rendered to show the balance due.
+
+5. an appearance of a theme, subject, or motif within a musical composition.
+
+6. the act or manner of stating something.
+
+7. the communication of an idea, position, mood, or the like through something other than words: The furniture in the room makes a statement about the occupant's love of color. Walking out of the meeting will be a statement of our refusal to submit.
+
+8. Computers. an instruction or other elementary component in a high-level programming language.
 .. @+node:amd_yen.20130414200359.2124: *5* Python 運算符號與數學函式
 運算符號:
 

@@ -37,9 +37,9 @@
 </v>
 <v t="amd_yen.20130312013510.1824"><vh>@button self_and_subtree</vh></v>
 <v t="amd_yen.20130308210411.2406" a="E"><vh>KMOL Guide</vh>
-<v t="amd_yen.20130308221230.3827"><vh>前言</vh>
+<v t="amd_yen.20130308221230.3827" a="E"><vh>前言</vh>
 <v t="amd_yen.20130312013510.1498"><vh>以下為電子書內容</vh></v>
-<v t="amd_yen.20130308221230.3828"
+<v t="amd_yen.20130308221230.3828" a="E"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
@@ -63,7 +63,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
@@ -554,17 +554,29 @@ if "%1" == "html" (
 
 這項主題應該在程式語言(一) 的第一堂課程就已經說明, 但是對於程式語言的初學者, 假如只學過 Python, 可能對於程式語言之間的比較與印象並不會十分深刻, 若以曾經使用過 FORTRAN, Pascal, Basic, Perl, Visual Basic, C/C++, PHP, Java, Forth, Lisp 等程式語言的經驗來說, Python 語言對於機械設計工程專業人員來說, 具有下列優點:
 
+縮排造就程式容易解讀 
+
 Python 程式容易閱讀, Python 程式語言採用內縮 (每一個內縮單位通常為 4 個空白鍵)來界定區域執行的範圍, 因此能夠正確執行的 Python 程式必須排列整齊, 區段明確, 因此容易閱讀(C/C++, PHP, Java 等程式語言都採用 {} 來界定執行區段, 且允許各種程式碼行段的排列方式, 因此可能造成程式碼不易閱讀).
+
+高階資料結構有利運算
 
 Python 程式語言內建高階資料結構, list, tuple, dictionary, set, string, bytes, int, float 等格式的交互應用下, 可以在不使用資料庫的情況下, 完成許多方便的數據與資料處理工作.
 
+解譯流程允許嘗試設計
+
 Python 程式語言採解譯(interpretation)執行, 動態性的資料型別方便程式的架構與編寫, 程式開發流程通常比採用編譯式(compiled)程式語言快上幾倍 (但是必須在程式執行速度上付出代價).
 
+模組眾多有利延伸應用
+
 Python 程式語言內建許多常用的程式庫模組(modules), 即使在未安裝其他附屬模組情況下, 就能夠解決許多機械設計相關流程問題.
+
+自由開源且免付費
 
 Python 程式語言自由開放(採接近 BSD 使用授權, 並且開放程式語言解譯系統的 C 原始碼, 除了 CPython, 還有以 Python 寫的 Pypy, 以 Java 寫的 Jython,  以 .Net 技術編寫的 IronPython, 以 Javascript 寫的 Skulpt 解譯系統)且跨操作系統平台 (可以在 Windows, Linux, Mac 系統上使用).
 
 參考資料: https://github.com/bnmnetp/skulpt
+
+黏結力強有利整合
 
 Python 程式語言支援許多原本採 C/C++ 編寫程式庫的 CAD 核心碼介面擷取模組 (Open CASCADE), 2D 繪圖套件有 PythonCAD (PyQt), 3D CAD 則有 FreeCAD (PyQt), PLM 則有 OpenPLM (PyQt), 以及支援 mechanics, multibody dynamics 分析用的模擬套件.
 
@@ -631,7 +643,15 @@ os.system(filename)
 #os.system('../../fixup.pl &lt; Leodocumentation.tex &gt; LeoDoc.tex')
 #os.system('make LeoDoc.pdf')</t>
 <t tx="amd_yen.20130308210411.2406"></t>
-<t tx="amd_yen.20130308221230.2437"></t>
+<t tx="amd_yen.20130308221230.2437">程式語言(二) 承接程式語言(一) 課程內容除繼續強化學員對於 Python 基本程式語言的認識外, 將逐步導入最基本的程式化文書處理、網際程式、資料庫程式與輔助繪圖程式套件等單元教學.
+
+程式化文書處理 - Leo editor 與 docutil 、Sphinx 等工具結合 restructuredText 格式資料的處理.
+
+網際程式 - 以 CherryPy 網際框架為主的程式開發流程與基本雛形.
+
+資料庫程式 - 以 SQLite 與 Pybean 為主的資料庫程式用法.
+
+輔助繪圖程式套件 - 以 PythonCAD PyQt 程式套件為基礎的輔助繪圖程式開發.</t>
 <t tx="amd_yen.20130308221230.2457">程式語言(二)
 
 Python docutils 相關功能的應用, 可以透過網路擷取特定文件檔案 (mark down) 與影像檔, 然後以程式方法將資料轉成 html 文件.
@@ -840,7 +860,9 @@ c.k.simulateCommand('rst3')
     資訊密集 - 機械設計所做的每一個決策都會產生資料, 這些資料包括用來定義產品的規格, 以及訂定此規格的環境與緣由.
     
         產品規格 (specifications) - 包括產品性能、零組件尺寸、零組件材料、零組件加工流程、替代零組件等.
+        
         訂定規格的環境 (environment) - 包括假設條件 (conditions and models)、如何 (how) 完成性能評估、如何取得優勢 (專利)、如何進行協同、如何管理等 (where, who, when, what).
+        
         訂定規格的緣由 (reasons) - 包括產生各項資訊的前因與後果 (why).
     
     遞廻流程 - 重複因應問題、變更設計、期在產品生命週期流程中求取產品價值最大化.
@@ -848,8 +870,11 @@ c.k.simulateCommand('rst3')
 因此程式語言就機械設計工程師運用電腦執行上述工作項目時, 期採最具效率的方式進行:
     
     以電腦管理資訊 - 文書處理、建立網站、登錄日誌
+    
     以電腦評估規格 - 數值運算 (numerical)、科學運算 (science)、建立模型、執行工程設計分析
+    
     以電腦建構環境 - 單機程式、網際程式、協同專案環境
+    
     以電腦因應問題 - on demand 處理問題、以工作流程 (審批流程) 留下決策的細節資料
     
 程式語言工作項目:
@@ -857,22 +882,31 @@ c.k.simulateCommand('rst3')
     程式語言基本概念
     
         會否採用程式方法進行數值運算、科學運算、資料處理 (程式語言(一)) - C1_intro
+        
         會否採用程式方法建立單機程式  (程式語言(二)) - C2_app (採用 tkinter 與 PyQt GUI 介面)
+        
         會否採用程式方法建立網際程式  (程式語言(一)) - C1_web (採用 CherryPy, bottle 與 django 網際框架)
         
     會否採用程式方法進行文書處理 (程式語言(二)) - C2_leo
+    
     會否採用程式方法建立網站、登錄日誌  (程式語言(一)) - C1_cms
+    
     會否採用程式方法搭建協同專案環境 (程式語言(二)) - C2_web, C2_cd
 
 程式語言課程規劃內容
 
 C1_intro - 基本程式語法, 程式數值運算與資料處理
+
 C1_cms - 網際內容管理, CMSimple XH
+
 C1_web - 網際程式框架, CherryPy
 
 C2_leo - 文書處理, docutils, Sphinx, Leo Editor, MikTeX
+
 C2_app - 應用程式, tkinter 與 PyQt
+
 C2_web - 網際程式框架, CherryPy, bottle 與 django
+
 C2_cd - 網際協同, c9.io, 免費虛擬主機 (http://www.1freehosting.com/) , Simple Groupware</t>
 <t tx="amd_yen.20130325133433.2805">以下示範如何在 KMOL Guide 的架構下, 新增一個節點用來產生第二本協同手冊
 
