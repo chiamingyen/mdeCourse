@@ -538,3 +538,61 @@ django 程式開發
 
 
 
+WCM 第十週
++++++++++++++
+
+
+
+建立各小組遠端主機
+***************************
+
+為了讓各小組可以擁有一台廣域網路上的網際內容管理與協同產品設計主機, 擬透過免費虛擬主機進行:
+
+選擇提供 10GB 空間的免費虛擬主機商: http://www.1freehosting.com/
+
+特別注意: 採用網路上類似的免費虛擬主機時, 必須了解這些公司提供免費主機的目的, 通常在策略性增加公司網路對外連線與用戶數量, 因為網路連線與用戶使用紀錄可以提升這些公司在許多創投或貸款抵押之談判籌碼, 一旦達到階段性任務目的或用戶未能配合遵守使用規範, 都可能因為突然斷線或免費帳戶被刪除而無法使用, 因此免費虛擬主機僅可提供短期測試用, 比較不建議長期作為運轉主機.
+
+免費虛擬主機與付費虛擬主機的差別:
+
+1. 就一般使用操作流程, 兩者幾乎沒有差別, 都提供一流的瀏覽器介面服務, 且大多提供 PHP 程式伺服, 少數提供 Python、Java 或 Ruby 等伺服程式技術.
+
+2. 部分免費虛擬主機也提供 https:// 與 SFTP 等安全連線, 但是大多數都不提供安全連線, 因此僅能作為測試使用.
+
+3. 免費虛擬主機的斷線比例與帳號正常使用率, 通常比付費帳號低, 但是在短期使用時通常可達 99 %.
+
+問題: 為何這裡將 Web Hosting (網際主機) 稱為 Virtual Hosting (虛擬主機)? 答案就在全球資訊網伺服器的設定, 允許將一台硬體透過 Virtual Host 的設定, 讓多個網域名稱共用同一硬體, 且可以透過同一埠號 (80) 進行伺服.
+
+執行步驟:
+
+1. 利用電子郵箱到 http://www.1freehosting.com/ 登記一個帳號.
+
+2. 收信點擊確認帳號連結後即可完成登錄, 開始建立虛擬主機帳號.
+
+3. 下載 Filezilla (可攜或安裝版都可以), 設定 ftp 檔案傳輸連線設定. (免費帳號僅可使用 ftp, port 21 傳輸資料沒有編碼, 而非較安全的 sftp, port 22, 編碼後傳輸).
+
+4. 先確認網址已經可以連線, 將 default.php 改為 index.php 測試是否可以連線.
+
+5. 先將 CMSimple 程式碼以 ftp 連線送到 public_html 目錄下.
+
+6. 確定 CMSimple 網站可以正常運作, 例如: http://2012c1.hostingsiteforfree.com/ (免費帳號並不提供 SSL 連線, 僅能以 http:// 連線)
+
+7. 設定 MySQL 帳號, 並且再建立一個給 Wordpress 或 Simple Groupware 架站使用的虛擬主機 subdomain.
+
+8. 將 Wordpress 或 Simple Groupware 程式送到主機對應的 public_html 目錄 subdomain 下, 例如 Simple Groupware subdomain 為 sgw, 則程式位於 public_html/sgw, 而 Wordpress 之 subdomain 為 wordpress, 程式目錄為 public_html/wordpress (對應的網址則為 http://sgw.2012c1.hostingsiteforfree.com 與 http://wordpress.2012c1.hostingsiteforfree.com.
+
+9. 根據所設定的 MySQL 帳號, 開始安裝 Simple Groupware, 而 Wordpress 可以使用 Website->Auto Installer 將 Wordpress 3.3.1 安裝到 public_html/wordpress, 並且與上一步驟的 subdomain 設定對應, 使用者可以透過 http://wordpress.2012c1.hostingsiteforfree.com 或  http://2012c1.hostingsiteforfree.com/wordpress 連線到所安裝的 Wordpress, 使用 Auto Installer 功能並不建議使用線上版次升級, 因為會讓 Auto Installer 工具無法控管, 因此 Wordpress 就停留在 3.3.1 版.
+
+9.1. (for 協同產品設計實習) 在實際安裝 Simple Groupware 過程, 發現遠端主機由 src 目錄複製 bin 目錄過程較為緩慢, 建議使用者可以在單機先選擇 English 安裝, 並在近端先完成 bin 目錄的複製後, 再將程式碼以 FTP 送到遠端主機後執行第二階段的資料庫設定安裝.
+
+9.1. (for 網際內容管理) 採用 Auto Installer 的 Wordpress 網站無法正確顯示中文內容, 因此最後建議採用自行安裝 3.5.1 版.
+
+10. 測試是否安裝完成.
+
+11. (for 協同產品設計實習) 將 Simple Groupware 設為 IMAP 驗證, 各小組成員在廣域主機登錄帳號.
+
+12. (for 協同產品設計實習) 設定主機之寄信功能, 完成後開始進行各小組的協同產品設計實習, 並著手建立正齒輪減速機模組程式與 Python Console 程式環境.
+
+11. (for 網際內容管理) 在 Wordpress 主機上為各小組成員建立帳號, 並且由各成員利用 Python 程式將網誌內容送到遠端主機.
+
+12. (for 網際內容管理) 在 Wordpress 主機上建立 Python Console 以及 View Part plugins 程式.
+

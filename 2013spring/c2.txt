@@ -2293,6 +2293,26 @@ python.exe prog.py
 
 '''
 .. @+node:amd_yen.20130414200359.2121: *5* Python 程式變數與資料型別
+Python 程式語言主要的內建型別物件(type object)有數字(numerics)、序列(sequences)、對應(mappings)、類別(mappings)、案例(instances)與例外(exceptions).
+
+數字型別 - 包含整數(int)、浮點數(float)與複數(complex)
+
+序列型別 - 包含數列(list)、元組(tuple)、範圍(range)、文字序列(string)與二位元序列(bytes, bytearray, memoryview)
+
+集合型別 - 包含集合(set)
+
+對應型別 - 包含字典(dictionary)
+
+Iterator Types
+
+Context Manager Types
+
+類別型別 - Class
+
+案例型別 - Instance
+
+例外型別 - Exceptions
+
 任何程式變數, 函式與類別名稱的命名都必須避開該程式語法的關鍵保留字, 否則程式解譯時無法分辨哪些為語法關鍵字, 哪些為使用者自定的變數.
 
 Python 3 keywords: 
@@ -2304,6 +2324,20 @@ and, del, global, not, with
 as, elif, if, or, yield
 assert, else, import, pass
 break, except, in, raise
+
+利用程式列出 Python 3 程式語言中的所有關鍵字, 以 Python 3.3.0 為例, 共有 33 個:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    import sys
+    import keyword
+    版次  = sys.version_info[:3]
+    關鍵字數列 = keyword.kwlist
+    print("Python", 版次, "版, 關鍵字共有以下", len(關鍵字數列), "個")
+    print(關鍵字數列)
+
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
 
 Python 資料型別
 
@@ -2368,6 +2402,20 @@ int 整數表示
     資料  =  b"There are \x39\x20\x64\x6f\x67\x73"
     print(資料.upper())
     print(資料.replace(b"There are", b"We have"))
+    
+Python 程式中, 每一個物件都有一個獨特的 id:
+
+特別注意下列程式中, 一開始變數的 id, 當兩個變數互相指向時, 其變數將擁有相同的 id.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    變數 = "字串內容"
+    print(id(變數))
+    變數 = 2
+    另一變數= 變數
+    print(id(變數))
+    print(id(另一變數))
 .. @+node:amd_yen.20130414200359.2122: *5* Python 程式的變數有效範圍
 區域與廣域
 .. @+node:amd_yen.20130414200359.2123: *5* Python 的敘述與表示式
@@ -2463,6 +2511,10 @@ Sine: a = sin(1.57) #in rads
 Square Root: x = sqrt(10) #3.16...
 Tangent: print tan(3.14)# #in rads
 .. @+node:amd_yen.20130414200359.2125: *5* Python 字串與數值轉換
+字串由一系列字元組成, 且字元次序不可變更 (immutable)
+
+A string is an immutable sequence of characters. Since it is a sequence, all of the common operations to sequences apply. We can append strings together, select characters from a string. When we select a slice from a string, we've extracted a substring.
+
 資料型別轉換
 
     str()
@@ -4577,7 +4629,145 @@ https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後�
     
     Brython 版本: 還沒有開始編寫:-)
 
-.. @+node:amd_yen.20130414200359.2126: *5* 
+.. @+node:amd_yen.20130414200359.2126: *5* Python 與 Natural Language
+直接連線, 利用 urlopen 擷取網路主機的檔案:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    # 導入 urlopen 方法
+    from urllib.request import urlopen
+    # 準備網際上的文字檔案
+    資料連結 = "http://www.gutenberg.org/files/2554/2554.txt"
+    讀取資料 = urlopen(資料連結).read()
+    # 讀取資料的型別
+    print(type(讀取資料))
+    #所讀取資料的所有內容長度
+    print(len(讀取資料))
+    # 取第一行的資料內容
+    print(讀取資料[:75])
+    
+假如需要透過代理主機擷取資料:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    # 導入 urlopen 方法
+    from urllib.request import urlopen
+    import urllib.request as req
+    # 準備網際上的文字檔案
+    資料連結 = "http://www.gutenberg.org/files/2554/2554.txt"
+    # 若需要透過代理主機擷取遠端網站上的資料
+    # 無需身分驗證的代理主機設定
+    代理主機 = req.ProxyHandler({'http': 'http://your.proxy.server:3128'})
+    # 對於需要身分驗證的代理主機設定
+    # 代理主機 = req.ProxyHandler({'http': r'http://username:password@proxyserverurl:port'})
+    #身分驗證 = req.HTTPBasicAuthHandler()
+    # 若需要身分驗證
+    #opener = req.build_opener(代理主機, 身分驗證, req.HTTPHandler)
+    # 若無需身分驗證
+    opener = req.build_opener(代理主機, req.HTTPHandler)
+    req.install_opener(opener)
+    讀取資料 = urlopen(資料連結).read()
+    # 讀取資料的型別
+    print(type(讀取資料))
+    #所讀取資料的所有內容長度
+    print(len(讀取資料))
+    # 取第一行的資料內容
+    print(讀取資料[:75])
+
+接著將導入 Python3 的自然語言處理模組( http://nltk.org/nltk3-alpha/ ), 將網路上的文字檔案資料進行分析處理;
+
+.. code-block:: python
+
+    #encoding: utf-8
+    # 導入 urlopen 方法
+    from urllib.request import urlopen
+    import urllib.request as req
+    # 導入 nltk 模組, http://nltk.org/nltk3-alpha/
+    import nltk
+    # 準備網際上的文字檔案
+    資料連結 = "http://www.gutenberg.org/files/2554/2554.txt"
+    # 若需要透過代理主機擷取遠端網站上的資料
+    # 無需身分驗證的代理主機設定
+    代理主機 = req.ProxyHandler({'http': 'http://your.proxy.server:3128'})
+    # 對於需要身分驗證的代理主機設定
+    # 代理主機 = req.ProxyHandler({'http': r'http://username:password@proxyserverurl:port'})
+    #身分驗證 = req.HTTPBasicAuthHandler()
+    # 若需要身分驗證
+    #opener = req.build_opener(代理主機, 身分驗證, req.HTTPHandler)
+    # 若無需身分驗證
+    opener = req.build_opener(代理主機, req.HTTPHandler)
+    req.install_opener(opener)
+    讀取資料 = urlopen(資料連結).read()
+    # 讀取資料的型別
+    print(type(讀取資料))
+    #所讀取資料的所有內容長度
+    print(len(讀取資料))
+    # 取第一行的資料內容
+    print(讀取資料[:75])
+    
+    # 因為"讀取資料"變數為 bytes 資料格式, 必須經過 decode 才能轉為字串
+    單字與符號 = nltk.word_tokenize(讀取資料.decode("UTF-8"))
+    print(type(單字與符號))
+    # 單字與符號數列的長度
+    print(len(單字與符號))
+    # 列出最前面的 10 個單字與符號
+    print(單字與符號[:10])
+
+文章關鍵字搜尋:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    # 導入 urlopen 方法
+    from urllib.request import urlopen
+    import urllib.request as req
+    # 導入 nltk 模組, http://nltk.org/nltk3-alpha/
+    import nltk
+    # 準備網際上的文字檔案
+    資料連結 = "http://www.gutenberg.org/files/2554/2554.txt"
+    # 若需要透過代理主機擷取遠端網站上的資料
+    # 無需身分驗證的代理主機設定
+    代理主機 = req.ProxyHandler({'http': 'http://your.proxy.server:3128'})
+    # 對於需要身分驗證的代理主機設定
+    # 代理主機 = req.ProxyHandler({'http': r'http://username:password@proxyserverurl:port'})
+    #身分驗證 = req.HTTPBasicAuthHandler()
+    # 若需要身分驗證
+    #opener = req.build_opener(代理主機, 身分驗證, req.HTTPHandler)
+    # 若無需身分驗證
+    opener = req.build_opener(代理主機, req.HTTPHandler)
+    req.install_opener(opener)
+    讀取資料 = urlopen(資料連結).read()
+    # 讀取資料的型別
+    print(type(讀取資料))
+    #所讀取資料的所有內容長度
+    print(len(讀取資料))
+    # 取第一行的資料內容
+    print(讀取資料[:75])
+    
+    # 因為"讀取資料"變數為 bytes 資料格式, 必須經過 decode 才能轉為字串
+    單字與符號 = nltk.word_tokenize(讀取資料.decode("UTF-8"))
+    print("單字與符號的型別為:", type(單字與符號))
+    # 單字與符號數列的長度
+    print(len(單字與符號))
+    # 列出最前面的 10 個單字與符號
+    print(單字與符號[:10])
+    
+    # 正向搜尋
+    print(讀取資料.decode("UTF-8").find("PART I"))
+    # 反向搜尋 rfind
+    print(讀取資料.decode("UTF-8").rfind("End of Project Gutenberg's Crime"))
+    
+    文章 = nltk.Text(單字與符號)
+    print("文章的型別為:",type(文章))
+    print(len(文章))
+    print(文章[:10])
+    
+    # 列出文章中出現關鍵字的內容
+    print(文章.concordance('crime'))
+    print(文章.concordance('illness'))
+
 .. @+node:amd_yen.20130424175812.2164: *3* C2 第十週
 Python 程式在機械設計工程領域的應用:
 

@@ -1808,6 +1808,18 @@ This is only a small tutorial describing the basic ideas and elements behind sgs
 
 想要更深入了解 sgsML, 可以查看 "src/modules/schema_sys" (包含 Simple Groupware 系統模組與外部資料來源的處理器).
 這個簡介只說明有關 sgsML 的基本概念與元件. 您若自行編寫模組, 有哪些功能無法運作或不清楚, 可以寫信給我.
+.. @+node:amd_yen.20130426235501.4330: *5* 目錄權限管理
+View Access 主要權限設定的目錄在於進行 tabs 的進階管理:
+
+例如: 
+
+|answers:no_read:users_self_registration|details:no_read:users_self_registration|
+
+表示要將 answers 與 details tabs 以群組 View Access 設定, 全部設為 no_read
+
+設定完成後, 必須要清除 schema cache, 並且以清除 session 方式, 讓所有用戶登出後再登入, 設定才可以生效.
+
+特別注意: 若未能以清除 session 方式強迫登入的用戶登出再登入, 則用戶將會以先前的 session 資料權限執行各目錄模組功能.
 .. @+node:amd_yen.20130319174748.1563: *4* peerreview 模組
 以下 Simple Groupwae 模組 Peer Review:
 

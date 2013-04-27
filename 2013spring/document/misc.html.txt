@@ -450,6 +450,12 @@ git clone https://github.com/chiamingyen/mdeCourse.git
 
 將資料更新到 remote 端
 
+利用 git 下載特定 branch 版本資料:
+
+git clone -b R38 https://chiamingyen@git.code.sf.net/u/chiamingyen/pythoncad
+
+可以指定 clone branch R38 版本
+
 Sphinx 相關
 *************
 

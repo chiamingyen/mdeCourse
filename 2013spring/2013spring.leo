@@ -69,7 +69,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
 <v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
-<v t="amd_yen.20130314194325.1746"><vh>CD 第四週程式</vh>
+<v t="amd_yen.20130314194325.1746" a="E"><vh>CD 第四週程式</vh>
 <v t="amd_yen.20130314194325.1747" a="E"><vh>@shadow cd/gearcontour.py</vh></v>
 </v>
 <v t="amd_yen.20130418193628.2122"><vh>CD 第八週程式</vh>
@@ -79,7 +79,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130314194325.1511,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130413002743.2095,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130413002743.2095,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438" a="E"><vh>django 程式開發</vh>
@@ -330,13 +330,17 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130406103207.2766"><vh>Chapter 4: More on Strings</vh></v>
 <v t="amd_yen.20130406103207.2767"><vh>Chapter 5: Pointers and Structures</vh></v>
 </v>
-<v t="amd_yen.20130413002743.2100"><vh>Berkeley CS61a 課程演變</vh>
+<v t="amd_yen.20130413002743.2100" a="E"><vh>Berkeley CS61a 課程演變</vh>
 <v t="amd_yen.20130413002743.2101" a="E"><vh>如何學習程式語言</vh>
 <v t="amd_yen.20130413002743.2104"><vh>Python 3 安裝</vh></v>
 </v>
 </v>
 <v t="amd_yen.20130413002743.2102" a="E"><vh>機械設計工程系程式課程演變</vh>
 <v t="amd_yen.20130413002743.2103"><vh>符號式機構分析</vh></v>
+<v t="amd_yen.20130426235501.4331" a="E"><vh>Python 與動態系統分析</vh>
+<v t="amd_yen.20130426235501.4332"><vh>Modelica 簡介</vh></v>
+<v t="amd_yen.20130426235501.4333"><vh>Sympy 機構模擬</vh></v>
+</v>
 <v t="amd_yen.20130418193628.2121"><vh>PHP 與 Javascript</vh></v>
 </v>
 <v t="amd_yen.20130325133433.2805"><vh>C2G1</vh>
@@ -3675,5 +3679,200 @@ The following types can be pickled:
     classes that are defined at the top level of a module
     instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
 </t>
+<t tx="amd_yen.20130426235501.4331">機械動態系統分析模擬為自動控制系統設計的第一歩, 這裡所要介紹的系統模擬語言為 Modelica, 執行系統運動方程式數值分析的運算工具則為 OpenModelica, 而進行模擬的套件平台則為 Pysimulator.
+
+在業界(尤其是德國、荷蘭、瑞典與芬蘭), 經常被用來模擬工業機器人(industrial robots)與汽車(automobile).
+
+Modelica: https://www.modelica.org/
+
+OpenModelica: https://www.openmodelica.org/
+
+PySimulator: https://code.google.com/p/pysimulator/ (截至 2013.05, 僅支援 Python 2.7.X)
+
+Modelica 為一種機電光系統的物件導向動態模擬語言, 可用來建立複雜系統的動態模型.</t>
+<t tx="amd_yen.20130426235501.4332">Modelica 的資料型別
+
+Real, Integer, Boolean, String
+
+簡單的質量運動模型:
+
+.. code-block:: python
+
+    model MovingMass1        "Moving Mass";
+        parameter Real m=2    "Mass of the block";
+        parameter Real f=6      "Force";
+        Real s                         "Position of the block";
+        Real v                         "Velocity of the block";
+    equation
+        v=der(s);
+        m*der(v)=f;
+    end MovingMass1;
+    
+在模型中對分析變數加入屬性:
+
+.. code-block:: modelica
+
+    model MovingMass2        "Moving Mass";
+        parameter Real m(min=0, unit="kg")=2    "Mass of the block";
+        parameter Real f(unit="N")=6      "Force";
+        Real s                         "Position of the block";
+        Real v                         "Velocity of the block";
+    equation
+        v=der(s);
+        m*der(v)=f;
+    end MovingMass2;
+    
+導入分析模組後的模型:
+
+.. code-block:: modelica
+
+    model MovingMass3
+        package SIunits = Modelica.SIunits;
+        parameter SIunits.Mass m = 2 "mass of block";
+        parameter SIunits.Force f = 6 "force to pull block";
+        SIunits.Position s "position of block";
+        SIunits.Velocity v "velocity of block";
+        annotation(Diagram(Rectangle(extent=..)..)..);
+    equation
+        v = der(s);
+        m*der(v) = f;
+    end MovingMass3;
+    
+註解: 從 http://www.pydy.org/ 網站中, 可以看出來, 假如能夠在 Sympy 的輔助下, 應該有機會直接利用 Python 來進行複雜系統的動態模擬, 也就是說 Modelica 的所謂物件導向模擬語言, 其實就是用 Modelica 的語法來描述動態系統元件中的變數關係, 然後再定義各元件的介面關係, 最後再以硬體組裝的方式, 將這些  Modelica 模擬元件組合成一個複雜系統的模型, 最後再經過運動方程式推導與約束條件轉換為數值分析程式, 編譯後即可執行分析運算.
+
+例如, 若已經透過 Sympy 推導出系統的運動方程式, 就可以使用 Scipy 解出結果.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    # 導入 scipy 解常微分方程式用
+    from scipy.integrate import odeint
+    # 繪圖用
+    from pylab import *
+    # 定義微分方程式
+    def 微分式(y, t):
+         a = -2.0
+         b = -0.1
+         return array([ y[1], a*y[0]+b*y[1] ])
+    
+    時間級數 = linspace(0.0,10.0,1000)
+    y起始條件 = array([0.0005,0.2]) 
+    y = odeint(微分式, y起始條件, 時間級數)
+    figure()
+    plot(時間級數,y[:,0]) 
+    xlabel('t')
+    ylabel('y')
+    show()</t>
+<t tx="amd_yen.20130426235501.4333">利用 Sympy 模組中的 KanesMethod() 推導 double pendulum 系統的運動方程式:
+
+http://docs.sympy.org/dev/modules/physics/mechanics/kane.html
+
+.. code-block:: python
+
+    from sympy import symbols  
+    from sympy.physics.mechanics import *
+     
+    q1, q2 = dynamicsymbols('q1 q2')
+    q1d, q2d = dynamicsymbols('q1 q2', 1)
+    u1, u2 = dynamicsymbols('u1 u2')
+    u1d, u2d = dynamicsymbols('u1 u2', 1)
+    l, m, g = symbols('l m g')
+     
+    N = ReferenceFrame('N')
+    A = N.orientnew('A', 'Axis', [q1, N.z])
+    B = N.orientnew('B', 'Axis', [q2, N.z])
+     
+    A.set_ang_vel(N, u1 * N.z)
+    B.set_ang_vel(N, u2 * N.z)
+     
+    O = Point('O')
+    P = O.locatenew('P', l * A.x)
+    R = P.locatenew('R', l * B.x)
+     
+    O.set_vel(N, 0)
+    P.v2pt_theory(O, N, A)
+    R.v2pt_theory(P, N, B)
+     
+    ParP = Particle('ParP', P, m)
+    ParR = Particle('ParR', R, m)
+     
+    kd = [q1d - u1, q2d - u2]
+    FL = [(P, m * g * N.x), (R, m * g * N.x)]
+    BL = [ParP, ParR]
+     
+    KM = KanesMethod(N, q_ind=[q1, q2], u_ind=[u1, u2], kd_eqs=kd)
+     
+    (fr, frstar) = KM.kanes_equations(FL, BL)
+    kdd = KM.kindiffdict()
+    mm = KM.mass_matrix_full
+    fo = KM.forcing_full
+    qudots = mm.inv() * fo
+    qudots = qudots.subs(kdd)
+    qudots.simplify()
+    mechanics_printing()
+    mprint(qudots)
+    
+執行後可以得到以下運動方程式:
+
+[u1]
+
+[u2]
+
+[((2*g*sin(q1) + l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u2**2)*((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2/((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2 - 2) - 1)/2 - (g*sin(q2) - l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u1**2)*(sin(q1)*sin(q2) + cos(q1)*cos(q2))/((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2 - 2))/l]
+
+[(2*g*sin(q2) - 2*l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u1**2 - (2*g*sin(q1) + l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u2**2)*(sin(q1)*sin(q2) + cos(q1)*cos(q2)))/(l*((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2 - 2))]
+
+透過
+
+q1 = y[0]
+q2 = y[1]
+u1 = y[2]
+u2 = y[3]
+
+可以轉為系統的 State Equations 常微分方程式, 接著利用 Scipy 進行積分, 並且利用 pylab 將結果繪出:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    # 導入 scipy 解常微分方程式用
+    from scipy.integrate import odeint
+    from math import *
+    # 繪圖用
+    from pylab import *
+    # 定義微分方程式
+    def 微分式(y, t):
+        # 系統常數
+        # 質量
+        m = 1
+        # 重力加速度
+        g = 9.81
+        # 桿長
+        l = 1
+        #系統變數轉為狀態變數
+        u1 = y[2]
+        u2 = y[3]
+        q1 = y[0]
+        q2 = y[1]
+        eq3 = ((2*g*sin(q1) + l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u2**2)*((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2/((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2 - 2) - 1)/2 - (g*sin(q2) - l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u1**2)*(sin(q1)*sin(q2) + cos(q1)*cos(q2))/((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2 - 2))/l
+        eq4 = (2*g*sin(q2) - 2*l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u1**2 - (2*g*sin(q1) + l*(sin(q1)*cos(q2) - sin(q2)*cos(q1))*u2**2)*(sin(q1)*sin(q2) + cos(q1)*cos(q2)))/(l*((sin(q1)*sin(q2) + cos(q1)*cos(q2))**2 - 2))
+        ode_eq = [u1, u2, eq3, eq4]
+        return ode_eq
+    
+    時間級數 = linspace(0.0, 10.0, 1000)
+    y起始條件 = array([0.1, 0.2, 0, 0]) 
+    y = odeint(微分式, y起始條件, 時間級數)
+    q1 = y[:, 0]
+    q2 = y[:, 1]
+    u1 = y[:, 2]
+    u2 = y[:, 3]
+    figure()
+    plot(時間級數, q1, label="q1") 
+    plot(時間級數, q2, label="q2") 
+    plot(時間級數, u1, label="u1") 
+    plot(時間級數, u2, label="u2") 
+    xlabel('t')
+    ylabel('y')
+    legend(loc=1)
+    show()</t>
 </tnodes>
 </leo_file>
