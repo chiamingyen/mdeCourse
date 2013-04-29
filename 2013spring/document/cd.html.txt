@@ -1859,6 +1859,21 @@ This is only a small tutorial describing the basic ideas and elements behind sgs
 想要更深入了解 sgsML, 可以查看 "src/modules/schema_sys" (包含 Simple Groupware 系統模組與外部資料來源的處理器).
 這個簡介只說明有關 sgsML 的基本概念與元件. 您若自行編寫模組, 有哪些功能無法運作或不清楚, 可以寫信給我.
 
+目錄權限管理
+^^^^^^^^^^^^^^^^^^
+
+View Access 主要權限設定的目錄在於進行 tabs 的進階管理:
+
+例如: 
+
+|answers:no_read:users_self_registration|details:no_read:users_self_registration|
+
+表示要將 answers 與 details tabs 以群組 View Access 設定, 全部設為 no_read
+
+設定完成後, 必須要清除 schema cache, 並且以清除 session 方式, 讓所有用戶登出後再登入, 設定才可以生效.
+
+特別注意: 若未能以清除 session 方式強迫登入的用戶登出再登入, 則用戶將會以先前的 session 資料權限執行各目錄模組功能.
+
 peerreview 模組
 *****************
 
@@ -3156,8 +3171,39 @@ CAD 套件;
 
 http://www.mpi-inf.mpg.de/departments/d1/teaching/ws09_10/CGGC/Notes/LinearKernel.pdf
 
+協同產品設計現況
+************************
+
+過去有能力打造 SolidWorks 的團隊, 二十年後正在做甚麼? 答案是:
+
+https://lagoa.com/
+
+也就是網際上的協同設計平台, 另一個較小型的平台則是:
+
+https://sunglass.io/
+
+以及提供全球機械設計工程師共享零組件的:
+
+http://grabcad.com/
+
+這些網站具有以下特點:
+
+1. 直接在瀏覽器上提供協同設計所需功能
+
+2. 具備設計 3D 資料的版次管理
+
+3. 未來全球標準設計零件共享的開放機制
+
 建立各小組遠端主機
 ***************************
+
+提醒: 
+
+1. 網路上的免費虛擬主機通常並不支援 SSL 與 SFTP, 因此只能作為測試之用, 儘量不要用於 production.
+
+2. 免費虛擬主機為了"導引"用戶使用付費服務, 因此可能會禁止使用某些特定的網路協定或降低網站的"可用性", 這些可用性包括只能上傳至多 8 MB 的檔案, 無法透過 socket 傳輸資料 (因而無法使用寄信與 IMAP/SMTP 認證).
+
+3. 免費虛擬主機所建立的網站在特定時間可能會突然斷線, 而且一旦公司策略達成, 將會無預警斷線而無法使用.
 
 為了讓各小組可以擁有一台廣域網路上的網際內容管理與協同產品設計主機, 擬透過免費虛擬主機進行:
 

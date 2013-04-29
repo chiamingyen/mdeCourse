@@ -1418,6 +1418,10 @@ Python 在動態機構模擬上的應用: double pendulum
 
 https://github.com/gilbertgede/pydy_examples
 
+Pydy
+
+https://github.com/hazelnusse/pydy
+
 http://www.pydy.org/double_pendulum
 
 自行車動態模擬: 
@@ -3731,6 +3735,80 @@ PyQt: http://www.riverbankcomputing.com/software/pyqt/download, 採 GPL 2 or 3 a
 PySide: http://qt-project.org/wiki/About-PySide, 採 LGPL 2.1
 
 GPL 與 LGPL 授權比較: http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
+
+最基本的 PyQt 程式:
+
+.. literalinclude:: ../c2/pyqt_1.py
+    :language: python
+    :linenos:
+
+增加視窗大小與標題的設定.
+
+.. literalinclude:: ../c2/pyqt_2.py
+    :language: python
+    :linenos:
+
+利用按鈕關閉視窗.
+
+.. literalinclude:: ../c2/pyqt_3.py
+    :language: python
+    :linenos:
+    
+以水平配置方式擺放四個按鈕.
+    
+.. literalinclude:: ../c2/pyqt_4.py
+    :language: python
+    :linenos:
+
+接著利用 QTextEdit 組件來建立文字編輯器.
+
+.. literalinclude:: ../c2/pyqt_notepad1.py
+    :language: python
+    :linenos:
+    
+擴增上述簡單的文字編輯器, 加上開檔案、存檔案與退出視窗的功能表, 並且以 UTF-8 編碼處理文字內容.
+
+.. literalinclude:: ../c2/pyqt_notepad.py
+    :language: python
+    :linenos:
+
+簡單的俄羅斯方塊, 啟動後 按下 p 鍵將可暫停, 按下 space 鍵將可直接將方塊放到最下方, 得分就是填滿的列數, 狀態列中可顯示得分、是否暫停狀態中以及遊戲終止等訊息.
+
+在繪圖第一階段過程, 共有兩種情況: 繪出所有方塊或者繪出已經被放到遊戲板最下方位置的剩餘方塊, 所有方塊都被紀錄在 self.board 數列變數中, 然後透過 shapeAt() 方法進行擷取.
+
+左右鍵可以移動方塊(除非已經到了邊界). 
+
+.. literalinclude:: ../c2/pyqt_tetris.py
+    :language: python
+    :linenos:
+
+利用 PyQt 編寫瀏覽器, 這裡所使用的開源瀏覽器核心引擎為 WebKit( http://www.webkit.org/ ), 並且利用改寫成 QtWebKit( http://trac.webkit.org/wiki/QtWebKit ), 可以在 PyQt 程式中引用.
+
+QtWebKit 不僅提供可以在 PyQt 應用程式中加入網際瀏覽器, 而且還提供與文件物件模型及相關環境互動的介面.
+
+以下為最簡單的 PyQt 瀏覽器應用程式.
+
+.. literalinclude:: ../c2/pyqt_browser1.py
+    :language: python
+    :linenos:
+
+在 QtWebKit 環境中執行 JavaScript 程式.
+
+.. literalinclude:: ../c2/pyqt_browser2.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c2/pyqt_browser3.py
+    :language: python
+    :linenos:
+
+利用 PyQt 編寫瀏覽器 (準備將單機視窗程式與 CherryPy 網際程式進行整合).
+
+.. literalinclude:: ../c2/pyqt_browser.py
+    :language: python
+    :linenos:
+
+更完整的  PyQt 瀏覽器位於  c2/pyqt_browser 目錄中.
 .. @+node:amd_yen.20130421114440.2840: *5* Python 與資料庫
 Python 內建 SQLite 3 資料庫程式介面, 一般的機械設計程式可以考慮採用, 較大型的程式則可使用 MySQL 或 PostgreSQL.
 

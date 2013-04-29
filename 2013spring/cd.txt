@@ -3082,7 +3082,35 @@ CAD 套件;
 幾何核心教學:
 
 http://www.mpi-inf.mpg.de/departments/d1/teaching/ws09_10/CGGC/Notes/LinearKernel.pdf
+.. @+node:amd_yen.20130426235501.5061: *4* 協同產品設計現況
+過去有能力打造 SolidWorks 的團隊, 二十年後正在做甚麼? 答案是:
+
+https://lagoa.com/
+
+也就是網際上的協同設計平台, 另一個較小型的平台則是:
+
+https://sunglass.io/
+
+以及提供全球機械設計工程師共享零組件的:
+
+http://grabcad.com/
+
+這些網站具有以下特點:
+
+1. 直接在瀏覽器上提供協同設計所需功能
+
+2. 具備設計 3D 資料的版次管理
+
+3. 未來全球標準設計零件共享的開放機制
 .. @+node:amd_yen.20130418193628.2822: *4* 建立各小組遠端主機
+提醒: 
+
+1. 網路上的免費虛擬主機通常並不支援 SSL 與 SFTP, 因此只能作為測試之用, 儘量不要用於 production.
+
+2. 免費虛擬主機為了"導引"用戶使用付費服務, 因此可能會禁止使用某些特定的網路協定或降低網站的"可用性", 這些可用性包括只能上傳至多 8 MB 的檔案, 無法透過 socket 傳輸資料 (因而無法使用寄信與 IMAP/SMTP 認證).
+
+3. 免費虛擬主機所建立的網站在特定時間可能會突然斷線, 而且一旦公司策略達成, 將會無預警斷線而無法使用.
+
 為了讓各小組可以擁有一台廣域網路上的網際內容管理與協同產品設計主機, 擬透過免費虛擬主機進行:
 
 選擇提供 10GB 空間的免費虛擬主機商: http://www.1freehosting.com/
@@ -3752,5 +3780,91 @@ bconsole.xml 內容則需要跟著配合修改:
     }
     
     }
+
+透過 Cango 2D 繪圖指令, 在 Simple Groupware Brython 模組上的滑鼠互動繪圖:
+
+.. code-block:: python
+
+    import Cango2v03
+    # 必須要將繪圖指到內建的 plotarea 區域
+    g = Cango2v03.cango("plotarea")
+    g.setViewport()
+    g.fillViewport("lightyellow")
+    g.setWorldCoords(0, 200, 0, 70)
+    g.setPenColor("blue")
+    x1 = 40
+    y1 = 10
+    cx1 = 90
+    cy1 = 60
+    x2 = 120
+    y2 = 50
+    cx2 = 130
+    cy2 = 10
+    cx3 = 150
+    cy3 = 60
+    x3 = 180
+    y3 = 30
+    grabOfsX = 0
+    grabOfsY = 0
+    def dragC1(mousePos):
+        global cx1,cy1
+        wPos = g.toWorldCoords(mousePos.x , mousePos.y)
+        cx1 = wPos.x
+        cy1 = wPos.y
+        drawCurve()
+    def dragC2(mousePos):
+        global cx2,cy2
+        wPos = g.toWorldCoords(mousePos.x , mousePos.y)
+        cx2 = wPos.x
+        cy2 = wPos.y
+        drawCurve()
+    def dragC3(mousePos):
+        global cx3,cy3
+        wPos = g.toWorldCoords(mousePos.x , mousePos.y)
+        cx3 = wPos.x
+        cy3 = wPos.y
+        drawCurve()
+    def drawCurve():
+        g.clearCanvas()
+        g.setPenColor('blue')
+        data = ['M', x1, y1, 'Q', cx1, cy1, x2, y2]
+        g.drawPath(data)
+        g.setPenColor('green')
+        data = ['M', x2, y2, 'C', cx2, cy2, cx3, cy3, x3, y3]
+        g.drawPath(data)
+        g.setPenColor("rgba(0, 0, 0, 0.2)")
+        data = ['M', x1, y1, 'L', cx1, cy1, x2, y2]
+        g.drawPath(data)
+        data = ['M', x2, y2, 'L', cx2, cy2]
+        g.drawPath(data)
+        data = ['M', x3, y3, 'L', cx3, cy3]
+        g.drawPath(data)
+        g.render(c1, cx1, cy1)
+        g.render(c2, cx2, cy2)
+        g.render(c3, cx3, cy3)
+    #dragC1 = null
+    #dragC2 = null
+    #dragC3 = null
+    dragObj1 = Cango2v03.drag2d(g, null, dragC1, null)
+    c1 = g.compileShape(Cango2v03.shapedefs.circle, 'red', 'red', 'iso', dragObj1)
+    c1.scale(4)
+    dragObj2 = Cango2v03.drag2d(g, null, dragC2, null)
+    c2 = g.compileShape(Cango2v03.shapedefs.circle, 'red', 'red', 'iso', dragObj2)
+    c2.scale(4)
+    dragObj3 = Cango2v03.drag2d(g, null, dragC3, null)
+    c3 = g.compileShape(Cango2v03.shapedefs.circle, 'red', 'red', 'iso', dragObj3)
+    c3.scale(4)
+    drawCurve()
+    
+Brython 在執行區與 html 選單的互動, 以下程式表示要將三個選擇項目, 放入 id 名稱為 outputdiv 的 div 標註區中.
+
+.. code-block:: python
+
+    import html
+    項目 = ['選項一', '選項二', '選項三']
+    選擇表單 = html.SELECT(name="selection")
+    for 索引, 選擇 in enumerate(項目):
+        選擇表單 <= html.OPTION(選擇, value = 索引)
+    doc['outputdiv'] <= 選擇表單
 .. @-all
 .. @-leo

@@ -1452,6 +1452,10 @@ Python 在動態機構模擬上的應用: double pendulum
 
 https://github.com/gilbertgede/pydy_examples
 
+Pydy
+
+https://github.com/hazelnusse/pydy
+
 http://www.pydy.org/double_pendulum
 
 自行車動態模擬: 
@@ -2353,6 +2357,26 @@ python.exe prog.py
 Python 程式變數與資料型別
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Python 程式語言主要的內建型別物件(type object)有數字(numerics)、序列(sequences)、對應(mappings)、類別(mappings)、案例(instances)與例外(exceptions).
+
+數字型別 - 包含整數(int)、浮點數(float)與複數(complex)
+
+序列型別 - 包含數列(list)、元組(tuple)、範圍(range)、文字序列(string)與二位元序列(bytes, bytearray, memoryview)
+
+集合型別 - 包含集合(set)
+
+對應型別 - 包含字典(dictionary)
+
+Iterator Types
+
+Context Manager Types
+
+類別型別 - Class
+
+案例型別 - Instance
+
+例外型別 - Exceptions
+
 任何程式變數, 函式與類別名稱的命名都必須避開該程式語法的關鍵保留字, 否則程式解譯時無法分辨哪些為語法關鍵字, 哪些為使用者自定的變數.
 
 Python 3 keywords: 
@@ -2364,6 +2388,20 @@ and, del, global, not, with
 as, elif, if, or, yield
 assert, else, import, pass
 break, except, in, raise
+
+利用程式列出 Python 3 程式語言中的所有關鍵字, 以 Python 3.3.0 為例, 共有 33 個:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    import sys
+    import keyword
+    版次  = sys.version_info[:3]
+    關鍵字數列 = keyword.kwlist
+    print("Python", 版次, "版, 關鍵字共有以下", len(關鍵字數列), "個")
+    print(關鍵字數列)
+
+['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
 
 Python 資料型別
 
@@ -2428,6 +2466,20 @@ int 整數表示
     資料  =  b"There are \x39\x20\x64\x6f\x67\x73"
     print(資料.upper())
     print(資料.replace(b"There are", b"We have"))
+    
+Python 程式中, 每一個物件都有一個獨特的 id:
+
+特別注意下列程式中, 一開始變數的 id, 當兩個變數互相指向時, 其變數將擁有相同的 id.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    變數 = "字串內容"
+    print(id(變數))
+    變數 = 2
+    另一變數= 變數
+    print(id(變數))
+    print(id(另一變數))
 
 Python 程式的變數有效範圍
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -2534,6 +2586,10 @@ Tangent: print tan(3.14)# #in rads
 
 Python 字串與數值轉換
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+字串由一系列字元組成, 且字元次序不可變更 (immutable)
+
+A string is an immutable sequence of characters. Since it is a sequence, all of the common operations to sequences apply. We can append strings together, select characters from a string. When we select a slice from a string, we've extracted a substring.
 
 資料型別轉換
 
@@ -3782,6 +3838,191 @@ PyQt: http://www.riverbankcomputing.com/software/pyqt/download, 採 GPL 2 or 3 a
 PySide: http://qt-project.org/wiki/About-PySide, 採 LGPL 2.1
 
 GPL 與 LGPL 授權比較: http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
+
+最基本的 PyQt 程式:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    from PyQt4.QtGui import *
+    import sys
+    
+    應用程式 = QApplication(sys.argv)
+    組件 = QWidget()
+    組件.show()
+    應用程式.exec_()
+
+增加視窗大小與標題的設定.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    from PyQt4.QtGui import *
+    import sys
+    
+    應用程式 = QApplication(sys.argv)
+    組件 = QWidget()
+    組件.resize(400, 300)
+    組件.setWindowTitle("PyQt 視窗")
+    組件.show()
+    應用程式.exec_()
+
+利用按鈕關閉視窗.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    from PyQt4.QtGui import *
+    import sys
+    
+    應用程式 = QApplication(sys.argv)
+    #組件 = QWidget()
+    #QPushButton 繼承自 QWidget
+    組件 = QPushButton("&Quit")
+    # 將按鈕 clicked 後與 組件.close 進行連結
+    # 也就是按下按鈕後, 視窗就會關閉
+    組件.clicked.connect(組件.close)
+    組件.resize(400, 300)
+    組件.setWindowTitle("PyQt 視窗")
+    組件.show()
+    應用程式.exec_()
+    
+以水平配置方式擺放四個按鈕.
+    
+.. code-block:: python
+
+    #encoding: utf-8
+    from PyQt4.QtGui import *
+    import sys
+    
+    應用程式 = QApplication(sys.argv)
+    
+    按鈕1 = QPushButton("&Quit")
+    按鈕2 = QPushButton("&Ok")
+    按鈕3 = QPushButton("&Quit1")
+    按鈕4 = QPushButton("&Ok1")
+    # QHBoxLayout 為 Horizontal (水平)配置方塊區
+    方塊區 = QHBoxLayout()
+    方塊區.addWidget(按鈕1)
+    方塊區.addWidget(按鈕2)
+    方塊區.addWidget(按鈕3)
+    方塊區.addWidget(按鈕4)
+    
+    組件 = QWidget()
+    組件.setLayout(方塊區)
+    # 其中只有按鈕1按下有反應
+    按鈕1.clicked.connect(組件.close)
+    組件.resize(400, 300)
+    組件.setWindowTitle("PyQt 視窗")
+    組件.show()
+    應用程式.exec_()
+
+接著利用 QTextEdit 組件來建立文字編輯器.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    # 導入 QTextEdit 組件
+    from PyQt4.QtGui import QApplication, QTextEdit
+    import sys
+    
+    應用程式 = QApplication(sys.argv)
+    文字編輯組件 = QTextEdit()
+    文字編輯組件.setText("編輯區內容")
+    文字編輯組件.setWindowTitle("文字編輯器")
+    文字編輯組件.show()
+    應用程式.exec_()
+    
+擴增上述簡單的文字編輯器, 加上開檔案、存檔案與退出視窗的功能表, 並且以 UTF-8 編碼處理文字內容.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    import sys
+    from PyQt4.QtGui import QApplication, QMainWindow, QAction, QTextEdit, \
+                                            QFileDialog, QMessageBox
+    from PyQt4.QtCore import pyqtSlot, QFile, QIODevice, QTextStream
+     
+    class 文字編輯器(QMainWindow):
+     
+        def __init__(self, parent=None):
+            super(文字編輯器, self).__init__(parent)
+     
+            # 定義功能表動作
+            開檔 = QAction(self.tr("&Open..."), self)
+            存檔 = QAction(self.tr("&Save..."), self)
+            退出 = QAction(self.tr("&Exit"), self)
+     
+            # 設定事件處理訊號連結, 分別指到成員函式
+            開檔.triggered.connect(self._open)
+            存檔.triggered.connect(self._save)
+            退出.triggered.connect(QApplication.instance().quit)
+     
+            # 建立下拉式功能表
+            檔案功能表 = self.menuBar().addMenu(self.tr("&File..."))
+     
+            # 在檔案功能表區域增加開檔與存檔動作
+            檔案功能表.addAction(開檔)
+            檔案功能表.addAction(存檔)
+     
+            # 將退出動作作為獨立的功能表
+            self.menuBar().addAction(退出)
+    
+            # 建立文字編輯物件
+            self._textEdit = QTextEdit()
+            # 將文字編輯物件放到組件中央
+            self.setCentralWidget(self._textEdit)
+     
+            # 設定視窗標題
+            self.setWindowTitle("文字編輯器")
+     
+        # 建立開檔的成員函式
+        def _open(self):
+            檔案名稱= QFileDialog.getOpenFileName(self,
+                                                   self.tr("Open file..."),
+                                                   "",
+                                                   self.tr("Text files (*.txt);;Python files (*.py *.pyw)"))
+            if 檔案名稱:
+                檔案物件 = QFile(檔案名稱)
+                if not (檔案物件.open(QIODevice.ReadOnly)):
+                    QMessageBox.critical(self,
+                                        # 利用 self.tr() 可以保障 PyQt 跨平台字串內容(?)
+                                         self.tr("Error"),
+                                         self.tr("Could not open file."))
+                    return
+                # 利用 Stream line by line 讀取
+                檔案內容 = QTextStream(檔案物件)
+                # 利用 setCodec() 改變語系編碼
+                檔案內容.setCodec("UTF-8")
+                self._textEdit.setText(檔案內容.readAll())
+                檔案物件.close()
+     
+     
+        # 建立存檔的成員函式
+        def _save(self):
+            檔案名稱 = QFileDialog.getSaveFileName(self,
+                                                   self.tr("Save file"),
+                                                   '',
+                                                   self.tr("Text files (*.txt);;Python files (*.py *.pyw)"))
+            if 檔案名稱:
+                檔案物件 = QFile(檔案名稱)
+                if not (file.open(QIODevice.WriteOnly)):
+                    QMessageBox.critical(self,
+                                         self.tr("Error"),
+                                         self.tr("Could not write to file."))
+                    return
+                else:
+                    檔案內容 = QTextStream(檔案物件)
+                    # 利用 setCodec() 改變語系編碼
+                    檔案內容.setCodec("UTF-8")
+                    檔案內容 << self._textEdit.toPlainText()
+                    檔案內容.flush()
+                    檔案物件.close()
+     
+    應用程式 = QApplication(sys.argv)
+    編輯器案例 = 文字編輯器()
+    編輯器案例.show()
+    應用程式.exec_()
 
 Python 與資料庫
 ^^^^^^^^^^^^^^^^^^^
