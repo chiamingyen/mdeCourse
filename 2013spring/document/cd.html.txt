@@ -1559,7 +1559,6 @@ Note: To be able to select a module in the list when creating a new folder, you 
 
 Note: Every .xml file defines a structure of a table in the database. The name of the table is automatically set by the filename and ``"simple_"`` as prefix. E.g. the table name for schema/tasks.xml is set to simple_tasks. If the module is a system module, the prefix will be ``"simple_sys_"``. E.g. the table name for schema_sys/users.xml will be simple_sys_users. The "modulename" attribute is only the name displayed above the tree on every page.
 
-
 Translations
 
 With Simple Groupware you can translate everything: It doesn't matter if the strings that should translated are inside XML, PHP, Html, sgsML, etc. Every string that needs to be translated is covered with {t} and {/t}. E.g. to make "username" translatable, use it as "{t}username{/t}".
@@ -1574,8 +1573,11 @@ Examples
 blank.xml:
 
 <table modulename="{t}Blank{/t}" default_view="display" default_sql="no_select">
+
 <view name="display" displayname="{t}Display{/t}" />
+
 <field name="id" simple_type="id" displayname="{t}Id{/t}" />
+
 </table>
 
 This module has the name blank. It will be displayed as {t}Blank{/t} where "{t}Blank{/t}" will be translated using the language files. As we defined one view (display), the default view is also display. The view "display" will be displayed as the translation of {t}Display{/t}.
@@ -1589,9 +1591,13 @@ Now, let's make a second field called "Last name". Since every person should hav
 blank.xml:
 
 <table modulename="{t}Blank{/t}" default_view="display">
+
 <view name="display" displayname="{t}Display{/t}" />
+
 <field name="id" simple_type="id" displayname="{t}Id{/t}" />
+
 <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+
 </table>
 
 Adding "first name" is done the same way:
@@ -1614,27 +1620,35 @@ The field description will be displayed as the translation of {t}Description{/t}
 
 Now we have:
 
-blank.xml:
+blank.xml::
 
-<table modulename="{t}Blank{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
-<view name="display" displayname="{t}Display{/t}" />
-<field name="id" simple_type="id" displayname="{t}Id{/t}" />
-<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
-<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
-<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
-</table>
+    <table modulename="{t}Blank{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
+    
+    <view name="display" displayname="{t}Display{/t}" />
+    
+    <field name="id" simple_type="id" displayname="{t}Id{/t}" />
+    
+    <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+    
+    <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+    
+    <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+    
+    </table>
 
 To rename our module from blank to "My Addresses", use ...
 
 myaddresses.xml:
 
-<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
-<view name="display" displayname="{t}Display{/t}" />
-<field name="id" simple_type="id" displayname="{t}Id{/t}" />
-<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
-<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
-<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
-</table>
+.. code-block:: none
+
+    <table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
+    <view name="display" displayname="{t}Display{/t}" />
+    <field name="id" simple_type="id" displayname="{t}Id{/t}" />
+    <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+    <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+    <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+    </table>
 
 ... and rename the file from "src/modules/schema/blank.xml" to "src/modules/schema/myaddresses.xml" if you installed Simple Groupware with language "Developer". If you installed it with English or German, rename the file from "bin/modules/schema/blank.xml" to "bin/modules/schema/myaddresses.xml".
 
@@ -1654,15 +1668,21 @@ enable_empty="true"
 
 This automatically adds the "Empty" button.
 
-myaddresses.xml:
+myaddresses.xml::
 
-<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
-<view name="display" displayname="{t}Display{/t}" />
-<field name="id" simple_type="id" displayname="{t}Id{/t}" />
-<field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
-<field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
-<field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
-</table>
+    <table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+    
+    <view name="display" displayname="{t}Display{/t}" />
+    
+    <field name="id" simple_type="id" displayname="{t}Id{/t}" />
+    
+    <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+    
+    <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+    
+    <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+    
+    </table>
 
 To deploy your new web application, make sure that the module is stored in "src/modules/schema/myaddresses.xml" (Developer language) or "bin/modules/schema/myaddresses.xml" (English, German, etc. language).
 
@@ -1675,9 +1695,13 @@ Note: The modules in the list contain the filenames without the extension (.xml)
 To improve "My Addresses" we add some more fields:
 
 <field name="street" displayname="{t}Street{/t}" simple_type="text" />
+
 <field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+
 <validate function="numeric" />
+
 </field>
+
 <field name="city" displayname="{t}City{/t}" simple_type="text" />
 
 All three are of type "text", but the zip code should be validated by some constraints: The first validation is done with db_size=6 which means that the field may not be longer than 6 characters. Since zip codes are numeric (in Germany) we add the validator "numeric" (when creating or editing a new asset the function "validate_numeric" is called). If your zip codes are not numeric, leave this step out.
@@ -1700,21 +1724,37 @@ Summarizing our activities
 myaddresses.xml:
 
 <table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+
 <view name="display" displayname="{t}Display{/t}" />
+
 <view name="details" displayname="{t}Details{/t}" showinsingleview="true" tfield_1="firstname" tfield_2="lastname" />
+
 <field name="id" simple_type="id" displayname="{t}Id{/t}">
+
 <notin views="display" />
+
 </field>
+
 <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+
 <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+
 <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4">
+
 <notin views="display" />
+
 </field>
+
 <field name="street" displayname="{t}Street{/t}" simple_type="text" />
+
 <field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+
 <validate function="numeric"/>
+
 </field>
+
 <field name="city" displayname="{t}City{/t}" simple_type="text" />
+
 </table>
 
 When saving changes to the xml file you only need to hit the "Refresh" button in your browser to make Simple Groupware apply your changes.
@@ -1732,6 +1772,7 @@ Another way to avoid overloading of the display view is using simple_tabs.
 So we define two tabs, one for general information, the other one for the details (both displayed with the translation from the language file):
 
 <tab name="general" displayname="{t}General{/t}" />
+
 <tab name="details" displayname="{t}Details{/t}" />
 
 The difference between "views" and "tabs" is the time when the information is loaded. With views, only the information for the current view is loaded. Using tabs all the information is loaded, but hided using Javascript until you hit the tab. Switching between tabs is much faster because you have already loaded all the information in your browser, but loading the page takes longer at the beginning.
@@ -1741,24 +1782,39 @@ The same example using tabs instead of views looks like this:
 myaddresses.xml:
 
 <table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+
 <view name="display" displayname="{t}Display{/t}" />
+
 <tab name="general" displayname="{t}General{/t}" />
+
 <tab name="details" displayname="{t}Details{/t}" />
+
 <field name="id" simple_type="id" displayname="{t}Id{/t}" simple_tab="details" />
+
 <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+
 <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+
 <field name="description" displayname="{t}Description{/t}" simple_type="htmlarea" simple_size="4" simple_tab="details" />
+
 <field name="street" displayname="{t}Street{/t}" simple_type="text" />
+
 <field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+
 <validate function="numeric" />
+
 </field>
+
 <field name="city" displayname="{t}City{/t}" simple_type="text" />
+
 </table>
 
 To add a gender selectbox with the values male, female, use:
 
 <field name="gender" displayname="{t}Gender{/t}" db_size="10" simple_type="select" simple_size="1" simple_tab="details">
+
 <data values="{t}male{/t}|{t}female{/t}"/>
+
 </field>
 
 The field gender has a maximum of 10 characters, is displayed as a selectbox (simple_type select) and the user can select 1 item (instead of multiple items).
@@ -1785,24 +1841,43 @@ The complete code of the example
 myaddresses.xml:
 
 <table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+
 <view name="display" displayname="{t}Display{/t}" />
+
 <tab name="general" displayname="{t}General{/t}" />
+
 <tab name="details" displayname="{t}Details{/t}" />
+
 <field name="id" simple_type="id" displayname="{t}Id{/t}" simple_tab="details" />
+
 <field name="gender" displayname="{t}Gender{/t}" db_size="10" simple_type="select" simple_size="1" simple_tab="details">
+
 <data values="{t}male{/t}|{t}female{/t}"/>
+
 </field>
+
 <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+
 <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+
 <field name="description" displayname="{t}Description{/t}" simple_type="htmlarea" simple_size="4" simple_tab="details" />
+
 <field name="street" displayname="{t}Street{/t}" simple_type="text" />
+
 <field name="zipcode" displayname="{t}Zipcode{/t}" db_size="6" simple_type="text">
+
 <validate function="numeric"/>
+
 </field>
+
 <field name="city" displayname="{t}City{/t}" simple_type="text" />
+
 <field name="isrelatedto" displayname="{t}Is related to{/t}" simple_type="select" simple_size="3" is_linked="simple_myaddresses|details|lastname" multiple="&lt;br&gt;" simple_tab="details" allow_custom="true">
+
 <data function="dbselect|simple_myaddresses|lastname,lastname||lastname asc|10"/>
+
 </field>
+
 </table>
 
 Note: Using translations normally takes more time, so it is on you to use them or not.
@@ -1864,9 +1939,9 @@ This is only a small tutorial describing the basic ideas and elements behind sgs
 
 View Access 主要權限設定的目錄在於進行 tabs 的進階管理:
 
-例如: 
+例如::
 
-|answers:no_read:users_self_registration|details:no_read:users_self_registration|
+    |answers:no_read:users_self_registration|details:no_read:users_self_registration|
 
 表示要將 answers 與 details tabs 以群組 View Access 設定, 全部設為 no_read
 
@@ -3902,4 +3977,90 @@ bconsole.xml 內容則需要跟著配合修改:
     }
     
     }
+
+透過 Cango 2D 繪圖指令, 在 Simple Groupware Brython 模組上的滑鼠互動繪圖:
+
+.. code-block:: python
+
+    import Cango2v03
+    # 必須要將繪圖指到內建的 plotarea 區域
+    g = Cango2v03.cango("plotarea")
+    g.setViewport()
+    g.fillViewport("lightyellow")
+    g.setWorldCoords(0, 200, 0, 70)
+    g.setPenColor("blue")
+    x1 = 40
+    y1 = 10
+    cx1 = 90
+    cy1 = 60
+    x2 = 120
+    y2 = 50
+    cx2 = 130
+    cy2 = 10
+    cx3 = 150
+    cy3 = 60
+    x3 = 180
+    y3 = 30
+    grabOfsX = 0
+    grabOfsY = 0
+    def dragC1(mousePos):
+        global cx1,cy1
+        wPos = g.toWorldCoords(mousePos.x , mousePos.y)
+        cx1 = wPos.x
+        cy1 = wPos.y
+        drawCurve()
+    def dragC2(mousePos):
+        global cx2,cy2
+        wPos = g.toWorldCoords(mousePos.x , mousePos.y)
+        cx2 = wPos.x
+        cy2 = wPos.y
+        drawCurve()
+    def dragC3(mousePos):
+        global cx3,cy3
+        wPos = g.toWorldCoords(mousePos.x , mousePos.y)
+        cx3 = wPos.x
+        cy3 = wPos.y
+        drawCurve()
+    def drawCurve():
+        g.clearCanvas()
+        g.setPenColor('blue')
+        data = ['M', x1, y1, 'Q', cx1, cy1, x2, y2]
+        g.drawPath(data)
+        g.setPenColor('green')
+        data = ['M', x2, y2, 'C', cx2, cy2, cx3, cy3, x3, y3]
+        g.drawPath(data)
+        g.setPenColor("rgba(0, 0, 0, 0.2)")
+        data = ['M', x1, y1, 'L', cx1, cy1, x2, y2]
+        g.drawPath(data)
+        data = ['M', x2, y2, 'L', cx2, cy2]
+        g.drawPath(data)
+        data = ['M', x3, y3, 'L', cx3, cy3]
+        g.drawPath(data)
+        g.render(c1, cx1, cy1)
+        g.render(c2, cx2, cy2)
+        g.render(c3, cx3, cy3)
+    #dragC1 = null
+    #dragC2 = null
+    #dragC3 = null
+    dragObj1 = Cango2v03.drag2d(g, null, dragC1, null)
+    c1 = g.compileShape(Cango2v03.shapedefs.circle, 'red', 'red', 'iso', dragObj1)
+    c1.scale(4)
+    dragObj2 = Cango2v03.drag2d(g, null, dragC2, null)
+    c2 = g.compileShape(Cango2v03.shapedefs.circle, 'red', 'red', 'iso', dragObj2)
+    c2.scale(4)
+    dragObj3 = Cango2v03.drag2d(g, null, dragC3, null)
+    c3 = g.compileShape(Cango2v03.shapedefs.circle, 'red', 'red', 'iso', dragObj3)
+    c3.scale(4)
+    drawCurve()
+    
+Brython 在執行區與 html 選單的互動, 以下程式表示要將三個選擇項目, 放入 id 名稱為 outputdiv 的 div 標註區中.
+
+.. code-block:: python
+
+    import html
+    項目 = ['選項一', '選項二', '選項三']
+    選擇表單 = html.SELECT(name="selection")
+    for 索引, 選擇 in enumerate(項目):
+        選擇表單 <= html.OPTION(選擇, value = 索引)
+    doc['outputdiv'] <= 選擇表單
 

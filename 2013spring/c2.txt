@@ -1363,6 +1363,7 @@ https://code.google.com/p/winpython/
 數值基本運算:
 
 .. code-block:: python
+
     import math
     print("圓週率為:"+str(math.pi))
 
@@ -1409,8 +1410,6 @@ math 與 random 模組用法:
 期末專案
 
 項目一: 工程單位轉換與網際程式開發
-
-::
 
 單位轉換參考: https://bitbucket.org/kiv/unum/src
 
@@ -1526,6 +1525,28 @@ Python 程式應用項目:
 
 類別與物件導向, 資料庫, 網際框架與 template engine, 字典, 2D 繪圖, 3D 繪圖, 工程資料轉檔.
 .. @+node:amd_yen.20130406103207.2443: *3* C2 第七週
+從 C1 到 C2 的程式語言課程, 主要在從簡單的命令列程式、視窗程式、資料庫程式到網際程式的整合, 茲列出基本的 pseudo code 與程式流程規劃圖, 作為每位學員的學習參考:
+
+基本程式一: 接受使用者輸入, 經過程式數值運算後, 將運算結果印出
+
+基本變化: 以命令列模式設計程式、以單機視窗程式設計程式、以資料庫儲存輸入與運算結果、以網際介面模式設計程式
+
+命令列程式設計:
+
+    以 input() 函式接收使用者輸入, 然後進行數值運算, 最後列出結果
+    
+    設計考量: 由於 input() 所取得的變數內容其資料型別為字串, 因此必須要設法轉為數值後才能夠進行運算
+
+視窗程式設計:
+
+    為了方便使用者操作程式, 改用視窗介面設計程式, 擬採用 PyQt 圖形介面設計程式, 以輸入欄位接受使用者輸入後, 執行運算, 然後列出結果.
+    
+資料庫程式設計:
+
+    無論是命令列或視窗程式都可以將資料存入資料庫檔案 (SQLite 以 Pybean ORM 方式完成)
+
+將相同程式流程轉為 CherryPy 網際程式, 並且利用 SQLite 儲存資料.
+.. @+node:amd_yen.20130429221223.2311: *4* 程式題目
 程式題目:
 
 1. 寫一個程式, 可以接受使用者三個數值的輸入, 然後將三個輸入值的平均數印出.
@@ -1545,7 +1566,7 @@ Python 程式應用項目:
 104      85
 
 當使用者完成檔案上傳後, 該網際程式會解讀所上傳的檔案, 並且印出四位同學該次考試的平均成績.
-
+.. @+node:amd_yen.20130429221223.2312: *4* 資料庫程式
 6. 假如要將上述程式中有關的資料存入資料庫, 應該如何進行.
 
 .. code-block:: python
@@ -1572,8 +1593,8 @@ Python 程式應用項目:
     # 利用 find 方法搜尋資料表中的資料
     # 找出 book 資料表中 author 為 "Pybean 作者群" 的資料
     for book in library.find("book","author like ?",["Pybean 作者群"]):
-            # 列印資料表中的 title 欄位
-            print (book.title)
+        # 列印資料表中的 title 欄位
+        print (book.title)
     # 搜尋資料的筆數
     資料筆數 = library.count("book")
     搜尋資料筆數 = library.count("book", "author like ?", ["Pybean 作者群"])
@@ -1593,8 +1614,8 @@ Python 程式應用項目:
      
     # 列出目前的資料庫內容
     for book in library.find("book","1"):
-            # 列印資料表中的 title 欄位
-            print (book.title, book.author)
+        # 列印資料表中的 title 欄位
+        print (book.title, book.author)
      
     # 刪除資料表中 book bean 的對應資料
     #library.delete(book)
@@ -1624,8 +1645,8 @@ Python 程式應用項目:
     library.save(book)
     # 利用資料庫檔案中的 find 方法搜尋 book 資料表, 找出其中 author 欄位值有 "Charles Xavier" 字串的資料
     for book in library.find("book","author like ?",["第一本書的作者"]):
-            # 若找到對應資料, 印出 book 資料表中 title 欄位的資料
-            print (book.title)
+        # 若找到對應資料, 印出 book 資料表中 title 欄位的資料
+        print (book.title)
     # 找出資料表中的所有資料
     # find all books, find method returns an iterator
     print(library.find("book"))
@@ -1896,111 +1917,113 @@ redbean 為 PHP 的 ORM 介面程式庫, 而 pybean 則為 Python 的 ORM 模組
 
 pybean 0.2.1 的用法
 
-# 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
-from pybean import Store, SQLiteWriter
-# 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
-library = Store(SQLiteWriter("database.sqlite", frozen=False))
-# 動態建立 book 資料表
-book = library.new("book")
-# 動態建立 title 欄位
-book.title = "如何使用 Pybean 儲存資料"
-# 動態建立 author 欄位
-book.author = "Pybean 作者群"
-# 儲存資料表內容
-library.save(book)
-# 當資料庫內容有變更時, 必須要執行 commit() 才會有作用
-library.commit()
+.. code-block:: python
 
-# 資料查詢
-for book in library.find("book","author like ?",["Pybean 作者群"]):
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
+    library = Store(SQLiteWriter("database.sqlite", frozen=False))
+    # 動態建立 book 資料表
+    book = library.new("book")
+    # 動態建立 title 欄位
+    book.title = "如何使用 Pybean 儲存資料"
+    # 動態建立 author 欄位
+    book.author = "Pybean 作者群"
+    # 儲存資料表內容
+    library.save(book)
+    # 當資料庫內容有變更時, 必須要執行 commit() 才會有作用
+    library.commit()
+    
+    # 資料查詢
+    for book in library.find("book","author like ?",["Pybean 作者群"]):
         # 列印資料表中的 title 欄位
         print (book.title)
-        
-# 計算資料查詢筆數
-搜尋資料筆數 = library.count("book", "1 order by author")
-
-# 資料更新
-# 以 find_one 找出所要更新的一筆資料
-一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
-# 針對所搜尋出的一筆資料進行修改
-一筆資料.author = "修改後的資料"
-# 將修改後的一筆資料存入資料表中
-library.save(一筆資料)
-# 執行上述資料變更
-library.commit()
-
-# 資料刪除
-# 以 find_one 找出所要刪除的一筆資料
-一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
-# 針對所搜尋出的一筆資料進行刪除
-library.delete(一筆資料)
-# 執行上述資料刪除
-library.commit()
-
-readbean PHP 的用法
-
-// 導入 rb.php
-require_once('./plugins/common/rb.php');
-// 建立資料庫檔案與程式物件對應
-R::setup('sqlite:'.dirname(__FILE__).'/db/dbfile.db');
-
-// 將資料庫中的資料表與程式物件 $bean 對應
-//lewis is the type of the bean, 也就是資料庫檔案中的資料表名稱
-$bean = R::dispense('lewis');
-
-// 資料表中欄位資料設定
-// 在 gear_num 與 mould 欄位中輸入特定資料
-$bean->gear_num = "齒數";
-$bean->mould = "模數";
-
-//Store the bean, 資料儲存
-//等同 insert, 將資料表中的資料存入資料庫中, 且取回其所對應的 $id 值
-$id = R::store($bean);
-
-// 計算資料表 lewis 中的資料筆數
-$num =R::count('lewis');
-$output .= "資料庫中共有".$num."筆資料<br />";
-
-// 更改資料
-$title = "齒數";
-// 只找出符合搜尋條件的第一筆資料, 且設為 $one 物件
-$one = R::findone("lewis","gear_num=?",array($title));
-// 設定查詢物件的欄位對應值
-$one->gear_num = "小齒數";
-// 儲存上述修改
-R::store($one);
-
-// 取出資料表中的所有資料
-// 由 lewis 資料表中取出所有資料
-// 1 代表 true:沒有特別加入其他篩選條件, 排序內定為 asc, 反向排為 desc
-$all_data = R::find("lewis","1 order by id desc");
-
-foreach ($all_data as $data) {
-    $output .= $data->id.":".$data->gear_num."|".$data->mould."<br />";
-}
-
-// 關閉資料庫檔案連結
-// To disconnect use: R::close(); 
-R::close();
-
-// 建立一個 bean 物件 $shop, 與資料表 shop 對應
-$shop = R::dispense('shop');
-
-// 設定 $bean 物件的性質
-// And this is how you set properties:
-$shop->name = 'Antiques';
-
-// 儲存 $shop bean 物件
-// This is how you store the shop in the database:
-$id = R::store($shop);
-
-// 載入之前已經存檔的 shop 資料表
-// This is how you load your previously stored shop:
-$shop = R::load('shop',$id);
-
-// 刪除 $shop bean 物件
-// And this is how you delete the shop from the database:
-R::trash($shop); 
+            
+    # 計算資料查詢筆數
+    搜尋資料筆數 = library.count("book", "1 order by author")
+    
+    # 資料更新
+    # 以 find_one 找出所要更新的一筆資料
+    一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
+    # 針對所搜尋出的一筆資料進行修改
+    一筆資料.author = "修改後的資料"
+    # 將修改後的一筆資料存入資料表中
+    library.save(一筆資料)
+    # 執行上述資料變更
+    library.commit()
+    
+    # 資料刪除
+    # 以 find_one 找出所要刪除的一筆資料
+    一筆資料 = library.find_one("book","author=?",["Pybean 作者群"])
+    # 針對所搜尋出的一筆資料進行刪除
+    library.delete(一筆資料)
+    # 執行上述資料刪除
+    library.commit()
+    
+    readbean PHP 的用法
+    
+    // 導入 rb.php
+    require_once('./plugins/common/rb.php');
+    // 建立資料庫檔案與程式物件對應
+    R::setup('sqlite:'.dirname(__FILE__).'/db/dbfile.db');
+    
+    // 將資料庫中的資料表與程式物件 $bean 對應
+    //lewis is the type of the bean, 也就是資料庫檔案中的資料表名稱
+    $bean = R::dispense('lewis');
+    
+    // 資料表中欄位資料設定
+    // 在 gear_num 與 mould 欄位中輸入特定資料
+    $bean->gear_num = "齒數";
+    $bean->mould = "模數";
+    
+    //Store the bean, 資料儲存
+    //等同 insert, 將資料表中的資料存入資料庫中, 且取回其所對應的 $id 值
+    $id = R::store($bean);
+    
+    // 計算資料表 lewis 中的資料筆數
+    $num =R::count('lewis');
+    $output .= "資料庫中共有".$num."筆資料<br />";
+    
+    // 更改資料
+    $title = "齒數";
+    // 只找出符合搜尋條件的第一筆資料, 且設為 $one 物件
+    $one = R::findone("lewis","gear_num=?",array($title));
+    // 設定查詢物件的欄位對應值
+    $one->gear_num = "小齒數";
+    // 儲存上述修改
+    R::store($one);
+    
+    // 取出資料表中的所有資料
+    // 由 lewis 資料表中取出所有資料
+    // 1 代表 true:沒有特別加入其他篩選條件, 排序內定為 asc, 反向排為 desc
+    $all_data = R::find("lewis","1 order by id desc");
+    
+    foreach ($all_data as $data) {
+        $output .= $data->id.":".$data->gear_num."|".$data->mould."<br />";
+    }
+    
+    // 關閉資料庫檔案連結
+    // To disconnect use: R::close(); 
+    R::close();
+    
+    // 建立一個 bean 物件 $shop, 與資料表 shop 對應
+    $shop = R::dispense('shop');
+    
+    // 設定 $bean 物件的性質
+    // And this is how you set properties:
+    $shop->name = 'Antiques';
+    
+    // 儲存 $shop bean 物件
+    // This is how you store the shop in the database:
+    $id = R::store($shop);
+    
+    // 載入之前已經存檔的 shop 資料表
+    // This is how you load your previously stored shop:
+    $shop = R::load('shop',$id);
+    
+    // 刪除 $shop bean 物件
+    // And this is how you delete the shop from the database:
+    R::trash($shop); 
 .. @+node:amd_yen.20130411195311.2086: *3* C2 第八週
 .. @+node:amd_yen.20130411195311.2087: *4* OpenCASCADE
 直接利用 occmodel 建立零件檔案, 並且轉為 stl 或 step 格式後直接以 Python 開啟.
@@ -2011,7 +2034,7 @@ Windows oce prebuilt: https://github.com/tpaviot/oce/downloads
 
 主要下載 oce 0.10: https://github.com/downloads/tpaviot/oce/OCE-0.10.0-Win-MSVC2010.zip
 
-.. code-bolck:: python
+.. code-block:: python
 
     #coding: utf-8
     # 使用 occmodel 模組, 間接擷取 Open CASCADE 函式庫
@@ -2279,6 +2302,7 @@ Windows oce prebuilt: https://github.com/tpaviot/oce/downloads
     
     根據原先  file1.txt 的數字作為次序, 選擇 file2.txt 對應行的對應數字, 若該數字大於 20 則選擇進入累加, 否則進行下一行查驗, 最後列出累加結果, 以及不列入累加的數字累加總和.
 .. @+node:amd_yen.20130414200359.2119: *4* Python 3 程式教學的主題
+這裡將與 Python 3 程式教學有關的主題收集在此:
 .. @+node:amd_yen.20130414200359.2120: *5* Python 程式簡介
 Python 是一種支援物件導向的高階解譯程式語言.
 
@@ -2453,11 +2477,11 @@ noun
 
 13. Computers. a combination of variables, constants, and functions linked by operation symbols and any required punctuation that describe a rule for calculating a value.
 
-14. Genetics.
+14. Genetics:
 
-    a. the action of a gene in the production of a protein or a phenotype.
+- the action of a gene in the production of a protein or a phenotype.
 
-    b. expressivity (  def 2 ) .
+- expressivity (  def 2 ) .
     
 
 Statement - 8. Computers. an instruction or other elementary component in a high-level programming language.
@@ -2497,20 +2521,30 @@ Cosine: a = cos(x) #x in rads
 Degrees: a = degrees(asin(0.5)) #a=30
 Exp: y = exp(x) #y=e^x
 Floor (round down): a = floor(a+0.5)
-Log: x = log(y); #Natural Log
-       x = log(y,5); #Base-5 log
+Log::
+
+    x = log(y); #Natural Log
+    x = log(y,5); #Base-5 log
+    
 Log Base 10: x = log10(y)
-Max: mx = max(1, 7, 3, 4) #7
-       mx = max(arr) #max value in array
+Max::
+
+    mx = max(1, 7, 3, 4) #7
+    mx = max(arr) #max value in array
+    
 Min: mn = min(3, 0, -1, x) #min value
 Powers: x = pow(y,3) #x=y^3
 Radians: a = cos(radians(60)) #a=0.5
 Random #: Random number functions require import random
-       random.seed() #Set the seed based on the system time.
-       x = random() #Random number in the range [0.0, 1.0)
-       y = randint(a,b) #Random integer in the range [a, b]
-Round: print round(3.793,1; #3.8 - rounded to 1 decimal
+random.seed() #Set the seed based on the system time::
+
+    x = random() #Random number in the range [0.0, 1.0)
+    y = randint(a,b) #Random integer in the range [a, b]
+    
+Round: print round(3.793,1; #3.8 - rounded to 1 decimal::
+
        a = round(3.793,0) #a=4.0
+       
 Sine: a = sin(1.57) #in rads
 Square Root: x = sqrt(10) #3.16...
 Tangent: print tan(3.14)# #in rads
@@ -2519,7 +2553,7 @@ Tangent: print tan(3.14)# #in rads
 
 A string is an immutable sequence of characters. Since it is a sequence, all of the common operations to sequences apply. We can append strings together, select characters from a string. When we select a slice from a string, we've extracted a substring.
 
-資料型別轉換
+資料型別轉換::
 
     str()
     float()
@@ -2565,7 +2599,7 @@ print(字串.replace("字串","學生", 2))    # 更換 2 次
     print("變數[-2] 列出倒數第二個元素:",變數[-2],"/",變數) # 列出倒數第二個元素
     print("變數[-0] 列出第一個元素:",變數[-0],"/",變數) # 列出第一個元素, 索引 -0 等同 0
 
-Python 3 的字串物件型別共有三種:
+Python 3 的字串物件型別共有三種::
 
     str 資料型別一律為 Unicode 格式資料(immutable)
     
@@ -2573,7 +2607,7 @@ Python 3 的字串物件型別共有三種:
     
     bytearray 資料型別則為以陣列排列的二位元格式資料(mutable)
     
-字串資料轉換:
+字串資料轉換::
 
     str 轉為 bytes 的方法, str.encode() 或 bytes(S, encoding)
     
@@ -2714,15 +2748,17 @@ Sets 在特定查驗有無重複元件的操作上比 Lists 快.
             # 印出原本就沒有逗點與句點的單字
             print(單字)
 .. @+node:amd_yen.20130414200359.2128: *5* Python 條件式與重複廻圈
-#coding: utf8
-變數 = [1, 5, 16 , 8, 12]
-比較值 = 10
-for 索引值 in 變數: # 注意冒號與程式內縮
-    if 索引值 < 比較值:
-        print(索引值, "比", 比較值, "小")
-    elif 索引值 > 比較值: # 注意冒號與程式內縮
-        print(索引值, "比", 比較值, "大")
-print("程式執行結束")
+.. code-block:: python
+
+    #coding: utf8
+    變數 = [1, 5, 16 , 8, 12]
+    比較值 = 10
+    for 索引值 in 變數: # 注意冒號與程式內縮
+        if 索引值 < 比較值:
+            print(索引值, "比", 比較值, "小")
+        elif 索引值 > 比較值: # 注意冒號與程式內縮
+            print(索引值, "比", 比較值, "大")
+    print("程式執行結束")
 .. @+node:amd_yen.20130414200359.2129: *5* Python 定義函式與呼叫函式, 函式的內建變數
 .. code-block:: python
 
@@ -2751,10 +2787,10 @@ print("程式執行結束")
         return m.hexdigest()
     print (md5Checksum("file.7z"))
 .. @+node:amd_yen.20130414200359.2130: *5* Python 的類別與物件導向
-Python 的物件宣告:
+Python 的物件宣告::
 
-class subclass[(superclass)]:
-    [attributes and methods]
+    class subclass[(superclass)]:
+        [attributes and methods]
     
 Python 的案例建立:
 
@@ -2779,17 +2815,17 @@ __bases__  The tuple including all the  superclasses
 
 Python 類別的建構子: __init__()
 
-Python 物件繼承:
+Python 物件繼承::
 
-class class1(object):
+    class class1(object):
+    
+        def method1(self):
+            return "method1"
 
-    def method1(self):
-        return "method1"
-
-class class2(class1):
-
-    def method1(self):
-        return "inheritance of class1"
+    class class2(class1):
+    
+        def method1(self):
+            return "inheritance of class1"
         
 
 Python 的多重繼承:
@@ -2824,19 +2860,21 @@ Python 程式語言雖然沒有 private 與 public, 但是仍可在變數或函�
 
 例如:
 
-class A(object):
-    def __init__(self):
-        self.Var1 = "var1"
-        self.__Var2 = "var2"
-    def getVar(self):
-        print(self.Var1)
-        print(self.__Var2)
-        
-B = A()
+.. code-block:: python
 
-print(B.Var1) # 可以取得 "var1"
-print(B.__Var2) # 無法取的 "var2"
-B.getVar() # 可以列出 "var1" 與 "var2"
+    class A(object):
+        def __init__(self):
+            self.Var1 = "var1"
+            self.__Var2 = "var2"
+        def getVar(self):
+            print(self.Var1)
+            print(self.__Var2)
+            
+    B = A()
+
+    print(B.Var1) # 可以取得 "var1"
+    print(B.__Var2) # 無法取的 "var2"
+    B.getVar() # 可以列出 "var1" 與 "var2"
 
 
 .. code-block:: python
@@ -2905,18 +2943,18 @@ B.getVar() # 可以列出 "var1" 與 "var2"
             self.__d = 'more private'
             z = 300
        
-    '''In this example:
-    
-    x is class variable,
-    _a is private class variable (by naming convention),
-    __b is private class variable (mangled by interpreter),
-    y is instance variable,
-    _c is private instance variable (by naming convention),
-    __d is private instance variable (mangled by interpreter),
-    z is local variable within scope of __init__ method.
-    In case of single underscore in names, it's strictly a convention. It is still possible to access these variables. In case of double underscore names, they are mangled. It's still possible to circumvent that.
-    
-    '''
+        '''In this example:
+        
+        x is class variable,
+        _a is private class variable (by naming convention),
+        __b is private class variable (mangled by interpreter),
+        y is instance variable,
+        _c is private instance variable (by naming convention),
+        __d is private instance variable (mangled by interpreter),
+        z is local variable within scope of __init__ method.
+        In case of single underscore in names, it's strictly a convention. It is still possible to access these variables. In case of double underscore names, they are mangled. It's still possible to circumvent that.
+        
+        '''
 
 .. code-block:: python
 
@@ -3842,8 +3880,8 @@ https://pypi.python.org/pypi/pybean
     # 利用 find 方法搜尋資料表中的資料
     # 找出 book 資料表中 author 為 "Pybean 作者群" 的資料
     for book in library.find("book","author like ?",["Pybean 作者群"]):
-            # 列印資料表中的 title 欄位
-            print (book.title)
+        # 列印資料表中的 title 欄位
+        print (book.title)
     # 搜尋資料的筆數
     資料筆數 = library.count("book")
     搜尋資料筆數 = library.count("book", "author like ?", ["Pybean 作者群"])
@@ -3863,8 +3901,8 @@ https://pypi.python.org/pypi/pybean
      
     # 列出目前的資料庫內容
     for book in library.find("book","1"):
-            # 列印資料表中的 title 欄位
-            print (book.title, book.author)
+        # 列印資料表中的 title 欄位
+        print (book.title, book.author)
      
     # 刪除資料表中的所有資料
     #library.delete(book)
@@ -4699,7 +4737,7 @@ C 程式寫法:
 
 https://code.google.com/p/pyminuit/
 
-https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後可以結合 Pygame 進行 2D 動態模擬)
+https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後可以結合 Pygame 進行 2D 動態模擬)::
 
     C 版本: https://github.com/slembcke/Chipmunk-Physics
     
@@ -4849,13 +4887,13 @@ https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後�
 .. @+node:amd_yen.20130424175812.2164: *3* C2 第十週
 Python 程式在機械設計工程領域的應用:
 
-1. 一般的工程分析運算及動態模擬
+1. 一般的工程分析運算及動態模擬::
 
     微積分與工程數學 - 使用 Scipy, Numpy 與 Sympy, 可以解決科學、數值分析與符號式運算等問題
 
 2. 網際協同設計程式與系統編寫
 
-3. 2D/3D 繪圖
+3. 2D/3D 繪圖::
 
     2D 繪圖 - PythonCAD
 
@@ -4871,7 +4909,7 @@ maya: http://download.autodesk.com/global/docs/maya2013/en_us/index.html
 
 blender: http://www.blender.org/
 .. @+node:amd_yen.20130423211907.2156: *4* 2D PythonCAD
-PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於:
+PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於::
 
     自行打造一個小型的 2D 繪圖 kernel
     
@@ -4883,39 +4921,39 @@ PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在�
 
 截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
     
-    IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+- IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
     
-    必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+- 必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
     
-    實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+- 實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
     
-    此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
     
-以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計:
+以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計::
 
-CREATE TABLE pycadent(
-                    pycad_id INTEGER PRIMARY KEY,
-                    pycad_entity_id INTEGER,
-                    pycad_object_type TEXT,
-                    pycad_object_definition TEXT,
-                    pycad_object_style TEXT,
-                    pycad_security_id INTEGER,
-                    pycad_undo_id INTEGER,
-                    pycad_entity_state TEXT,
-                    pycad_index NUMERIC,
-                    pycad_visible INTEGER,
-                    pycad_undo_visible INTEGER,
-                    pycad_locked INTEGER,
-                    pycad_bbox_xmin REAL,
-                    pycad_bbox_ymin REAL,
-                    pycad_bbox_xmax REAL,
-                    pycad_bbox_ymax REAL, pycad_property TEXT)
+    CREATE TABLE pycadent(
+                        pycad_id INTEGER PRIMARY KEY,
+                        pycad_entity_id INTEGER,
+                        pycad_object_type TEXT,
+                        pycad_object_definition TEXT,
+                        pycad_object_style TEXT,
+                        pycad_security_id INTEGER,
+                        pycad_undo_id INTEGER,
+                        pycad_entity_state TEXT,
+                        pycad_index NUMERIC,
+                        pycad_visible INTEGER,
+                        pycad_undo_visible INTEGER,
+                        pycad_locked INTEGER,
+                        pycad_bbox_xmin REAL,
+                        pycad_bbox_ymin REAL,
+                        pycad_bbox_xmax REAL,
+                        pycad_bbox_ymax REAL, pycad_property TEXT)
                     
 為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
 .. @+node:amd_yen.20130423211907.2158: *5* pickle 與 unpickle
 根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
 
-The following types can be pickled:
+The following types can be pickled::
 
     None, True, and False
     integers, floating point numbers, complex numbers
@@ -4925,5 +4963,215 @@ The following types can be pickled:
     built-in functions defined at the top level of a module
     classes that are defined at the top level of a module
     instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
+.. @+node:amd_yen.20130429221223.2310: *3* C2 第十一週
+本週起將著手將第七週所列出的程式題目, 分別以命令列、視窗程式、資料庫程式與網際程式的模式建構.
+.. @+node:amd_yen.20130429221223.2311: *4* 程式題目
+程式題目:
+
+1. 寫一個程式, 可以接受使用者三個數值的輸入, 然後將三個輸入值的平均數印出.
+
+2. 寫一個程式, 可以接受使用者輸入英吋, 程式會將所輸入的英吋轉為公分後印出數值.
+
+3. 寫一個網際程式, 在瀏覽器中有三個資料輸入欄位, 當使用者在三個欄位填入數值送出後, 可以直接在瀏覽器中印出所輸入三個數值的平均數.
+
+4. 寫一個網際程式, 在瀏覽器中有三個資料輸入欄位, 其中兩個欄位可以讓使用者輸入學號與姓名, 而第三個欄位則可以填入三行以上的文字資料, 使用者填完後, 按下送出鍵後, 程式會列出輸入者的學號與姓名, 並且提供一個按鍵連結, 使用者點後該連結後, 可以下載先前所輸入的文字資料檔案.
+
+5. 寫一個網際程式, 可以在瀏覽器中接受使用者上傳一個文字檔案, 其中文字檔案的格式為:
+
+學號    成績
+101      80
+102      82
+103      84
+104      85
+
+當使用者完成檔案上傳後, 該網際程式會解讀所上傳的檔案, 並且印出四位同學該次考試的平均成績.
+.. @+node:amd_yen.20130429221223.2313: *4* 命令列程式
+1. 寫一個程式, 可以接受使用者三個數值的輸入, 然後將三個輸入值的平均數印出.
+
+利用 input() 函式取得三個輸入, 將字串轉為浮點數, 然後求平均數後印出::
+
+    取三個輸入
+    
+    資料型別轉換
+    
+    求平均數運算
+    
+    列出結果
+
+先設計取三個變數的流程程式:
+
+.. code-block:: python
+
+    #encoding: utf-8
+    幾個變數 = 3
+    for 索引 in range(幾個變數):
+        變數 = input("輸入第"+str(索引+1)+"個數值")
+        print("您所輸入的第", 索引+1, "個數值為", 變數)
+        
+由於 input() 只能接受一個輸入變數字串, 因此中間的 索引+1 必須要先轉為字串(透過 str() 函式), 才可以與前後的字串相加(就字串而言是串在一起).
+
+接下來的程式設計, 可以直接在取完三個數值的迴圈就進行總數值的累加, 等退出迴圈後再直接計算平均值, 或者也可以利用數列, 不僅將所輸入的資料存入, 同時計算數值總和, 等跳出迴圈後, 再進行平均數的計算, 第一種方法, 在退出迴圈後, 就失去各個所輸入的數值, 而第二種方法雖然比較麻煩, 但是可以在退出迴圈後, 再分別將數值存入資料庫, 當然也可以直接在取數值的迴圈中同時進行取值、進行累加、並且同時將資料存入資料庫, 就看使用者要如何切割程式邏輯, 若將各個不同應用邏輯 (取值、累加、存值)區分開來, 可以方便後續的物件分段設計, 程式較容易分割, 但是若是採取只解決現階段問題的設計法, 將所有邏輯混在一起, 可能會增加後續程式延伸與維護上的困難.
+.. @+node:amd_yen.20130429221223.2314: *4* 視窗程式
+Python 程式的內建 GUI(Graphics User Interface) 介面為 tkinter, 其他 GUI 還包括 wxPython 與 PyQt, 這裡要介紹 PyQt.
+
+PyQt 是 Nokia Qt 圖形介面框架的 Python 程式版本, 若開發開放源程式碼無需付費(採 GPL 授權), 但是若開發非開放源程式則必須購買商業版本, 假如使用者決定開發非開放源的 Qt 介面 Python 程式, 可以考慮採用與 PyQt 類似的 PySide GUI 框架(採 LGPL 授權).
+
+在 PyQt 視窗程式中, 送出(sender)通知(notification)資料稱為 signal, 而接收(receiver)動作(action)資料則稱為 slot.
+
+簡單的 PyQt 程式表單可以使用手動設計, 例如:
+
+.. literalinclude:: ../c2/pyqt_button1.py
+    :language: python
+    :linenos:
+
+兩數值相加的視窗程式, 以手動設計表單與資料連結:
+
+.. literalinclude:: ../c2/pyqt_add1.py
+    :language: python
+    :linenos:
+
+數學算式運算:
+
+.. literalinclude:: ../c2/pyqt_calculate1.py
+    :language: python
+    :linenos:
+
+利用程式進行 2D 繪圖:
+
+.. literalinclude:: ../c2/pyqt_painter1.py
+    :language: python
+    :linenos:
+
+但是元件較多的畫面則可以使用 Qt Design 進行設計, 例如: c2/Gmail 中利用 Qt designer 設計 qtui 目錄下的主視窗 MainWindow.ui, 有關對話框 AboutDialog.ui 以及表單未填顯示框 MissingDialog.ui 等, 可以利用 IDE\Python33\Lib\site-packages\PyQt4\pyuic4.bat 轉為 .py 對應程式.
+.. @+node:amd_yen.20130429221223.2316: *5* Qt designer 操作
+Qt designer.exe 位於 IDE\Python33\Lib\site-packages\PyQt4 目錄, 可以直接執行, 假如要使用英文介面啟動, 則可以在 PyQt4 目錄中建立 start_designer.bat, 內容為:
+
+.. code-block:: none
+
+    set LANG=en_US
+    V:\IDE\Python33\Lib\site-packages\PyQt4\designer.exe
+    
+另外一個位於 PyQt4 目錄下的 qt.conf 設定, 也必須配合可攜版 Python 進行修改:
+
+.. code-block:: none
+
+    [Paths]
+    Prefix = V:/IDE/Python33/Lib/site-packages/PyQt4
+    Binaries = V:/IDE/Python33/Lib/site-packages/PyQt4
+
+啟動後的 Qt designer.exe 包括 Widget Box、Object Inspector、Property Editor、Resources Browser、Action Editor 與 Signal/Slot Editor 等區域.
+
+Qt designer 的基本操作步驟:
+
+- 新增一個表單(form)
+
+- 選用 Widget Box 中的組件, 在表單畫面中配置所需要的 GUI 組件
+
+- 利用 Signal/Sloe Editor, 編輯信號的發送與接收設計後, 將表單存為 .ui 檔案
+
+- 利用  IDE\Python33\Lib\site-packages\PyQt4\pyuic4.bat 將 .ui 轉為 .py 程式
+
+- 執行 pyuic4.bat 之前先檢查一下內容是否為:
+    
+.. code-block:: none
+
+    @"V:\IDE\Python33\python" "V:\IDE\Python33\Lib\site-packages\PyQt4\uic\pyuic.py" %1 %2 %3 %4 %5 %6 %7 %8 %9
+
+假如內容為 C:\Python33, 必須修改為可攜版本的指令, 否則無法執行.
+
+將 .ui 表單轉為 Python 程式的執行指令則為:
+
+V:\IDE\Python33\Lib\site-packages\PyQt4\pyuic4.bat yourform.ui > yourform.py
+
+- 編寫主 Python 程式導入表單轉出的 .py 程式類別, 透過應用程式啟動執行
+.. @+node:amd_yen.20130429221223.8707: *6* 程式開發流程
+PyQt 程式開發流程:
+
+- 利用 Qt designer 設計主要的視窗配置(選擇 MainWindows template), 命名為 MainWindows.ui, 設計對應的下拉式功能表, 之後可以設法利用 pyuic4.bat 轉為 MainWindow.py
+
+- 利用 Qt designer 設計需要的對話視窗配置, 例如: About, 以及可能的功能對話框, 命名為 About.ui 與 Dialog1.ui 等, 利用 pyuic4.bat 轉為 About.py Dialog1.py 等.
+
+- 假如某一下拉式功能表也使用 MainWindow Widget 來配置選單或輸入組件, 則在使用主功能表時, 此一 Widget 必須 hide, 等對應功能選項觸發後再顯示出來.
+.. @+node:amd_yen.20130429221223.2315: *5* 幣值單位換算
+程式重點, 以 urlopen 載入遠端伺服器的 Excel 檔案, 解讀後納入選項單, 然後將選項中的數值參與運算.
+
+.. code-block:: python
+
+    #encoding: utf-8
+    import sys
+    import locale
+    import urllib.request as urllib2
+    from PyQt4.QtCore import *
+    from PyQt4.QtGui import *
+    
+    class Form(QDialog):
+    
+        def __init__(self, parent=None):
+            super(Form, self).__init__(parent)
+    
+            date = self.getdata()
+            rates = sorted(self.rates.keys())
+    
+            dateLabel = QLabel(date)
+            self.fromComboBox = QComboBox()
+            self.fromComboBox.addItems(rates)
+            self.fromSpinBox = QDoubleSpinBox()
+            self.fromSpinBox.setRange(0.01, 10000000.00)
+            self.fromSpinBox.setValue(1.00)
+            self.toComboBox = QComboBox()
+            self.toComboBox.addItems(rates)
+            self.toLabel = QLabel("1.00")
+            grid = QGridLayout()
+            grid.addWidget(dateLabel, 0, 0)
+            grid.addWidget(self.fromComboBox, 1, 0)
+            grid.addWidget(self.fromSpinBox, 1, 1)
+            grid.addWidget(self.toComboBox, 2, 0)
+            grid.addWidget(self.toLabel, 2, 1)
+            self.setLayout(grid)
+            self.connect(self.fromComboBox,
+                SIGNAL("currentIndexChanged(int)"), self.updateUi)
+            self.connect(self.toComboBox,
+                SIGNAL("currentIndexChanged(int)"), self.updateUi)
+            self.connect(self.fromSpinBox,
+                SIGNAL("valueChanged(double)"), self.updateUi)
+            self.setWindowTitle("Currency")
+    
+        def updateUi(self):
+            to = self.toComboBox.currentText()
+            from_ = self.fromComboBox.currentText()
+            amount = (self.rates[from_] / self.rates[to]) * \
+                     self.fromSpinBox.value()
+            self.toLabel.setText(locale.format("%0.2f", \
+                amount, True))
+    
+        def getdata(self): # Idea taken from the Python Cookbook
+            self.rates = {}
+            try:
+                date = "Unknown"
+                fh = urllib2.urlopen("http://www.bankofcanada.ca/en/markets/csv/exchange_eng.csv")
+                for line in fh:
+                    line = line.rstrip().decode("UTF-8")
+                    if not line or line.startswith(("#", \
+                        "Closing ")):
+                        continue
+                    fields = line.split(",")
+                    if line.startswith("Date "):
+                        date = fields[-1]
+                    else:
+                        try:
+                            value = float(fields[-1])
+                            self.rates[fields[0]] = value
+                        except ValueError:
+                            pass
+                self.rates["Canadian Dollar"] = 1.00
+                return "Exchange Rates Date: " + date
+            except Exception as e:
+               return "Failed to download:\n%s" % e
+    
+    
+    app = QApplication(sys.argv)
+    form = Form()
+    form.show()
+    app.exec_()
 .. @-all
 .. @-leo

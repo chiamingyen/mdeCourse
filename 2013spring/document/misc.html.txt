@@ -1192,7 +1192,7 @@ ufw 參考: https://help.ubuntu.com/community/UFW
 
 啟用 ufw
 
-.. code-block::
+.. code-block:: none
 
     sudo ufw enable
 
@@ -1220,67 +1220,86 @@ MCSA (Multiple Choice Single Answers)
 單選題目
 
 For each question the possible scores are:
-針對每一題目可能的得分為:
+針對每一題目可能的得分為::
 
     true option selected = [question right score] = [test basic points] * [question difficulty]
-選擇正確的選項 = 答對題目給分 = 考試基本分*問題困難度
+    
+    選擇正確的選項 = 答對題目給分 = 考試基本分*問題困難度
 
     false option selected = [question wrong score] = [test points for wrong answer] * [question difficulty]
-選擇錯誤的選項 = 答錯題目給分 = 考試答錯給分*問題困難度
+    
+    選擇錯誤的選項 = 答錯題目給分 = 考試答錯給分*問題困難度
 
     no option selected = [question unanswered score] = [test points for no answer] * [question difficulty]
- 沒有選擇 = 未作答題目給分 = 未作答給分*問題困難度
+    
+    沒有選擇 = 未作答題目給分 = 未作答給分*問題困難度
 
 MCMA (Multiple Choice Multiple Answers)
 複選題目
 
 On MCMA questions, each individual alternative answer can be considered as an independent true/false question.
+
 就複選題目, 每一個獨立選項可作為獨立是非題目
 
 For each question the maximum scores are:
-針對每一題目, 最大得分為:
+
+針對每一題目, 最大得分為::
 
     [question max right score] = [test basic points] * [question difficulty]
-答對問題最大得分 = 考試基得分*問題困難度
+    
+    答對問題最大得分 = 考試基得分*問題困難度
 
     [question max wrong score] = [test points for wrong answer] * [question difficulty]
-答錯題目最大得分 = 考試答錯得分*問題困難度
+
+    答錯題目最大得分 = 考試答錯得分*問題困難度
 
     [question max unanswered score] = [test points for no answer] * [question difficulty]
-未答題目最大得分 = 未作答得分*問題困難度
+    
+    未答題目最大得分 = 未作答得分*問題困難度
 
 For each individual answer the possible scores are:
-針對每一單獨答題可能得分:
+
+針對每一單獨答題可能得分::
 
     [answer right score] = [question max right score] / [number of alternative answers]
-答對題目得分 = 答對問題最大給分/選項數目
+
+    答對題目得分 = 答對問題最大給分/選項數目
 
     [answer wrong score] = [question max wrong score] / [number of alternative answers]
-答錯題目得分 = 答錯題目最大得分/選項數目
+
+    答錯題目得分 = 答錯題目最大得分/選項數目
 
     [answer unanswered score] = [question max unanswered score] / [number of alternative answers]
-未答題分數 = 未答題目最大得分/選項數目
+
+    未答題分數 = 未答題目最大得分/選項數目
 
 The possible scores for each option are:
-每一選項可能得分:
+
+每一選項可能得分::
 
     false option set as false = [answer right score]
-錯誤的選項設為錯 = 答對題目得分 
+    
+    錯誤的選項設為錯 = 答對題目得分 
 
     false option set as true = [answer wrong score]
-錯誤選擇設為對 = 答錯題目得分
+    
+    錯誤選擇設為對 = 答錯題目得分
 
     false option not answered = [answer unanswered score]
-錯誤的選項未作答 = 未答題分數
+    
+    錯誤的選項未作答 = 未答題分數
 
     true option set as true = [answer right score]
-正確的選項設為對 = 答對題目得分 
+    
+    正確的選項設為對 = 答對題目得分 
 
     true option set as false = [answer wrong score]
-正確的選項設為錯  = 答錯題目得分
+    
+    正確的選項設為錯  = 答錯題目得分
 
     true option not answered = [answer unanswered score]
-正確的選項未作答 = 未答題分數
+    
+    正確的選項未作答 = 未答題分數
 
 If the "partial score for MCMA" option is set, then the sum of the above scores for all answers gives you the final question score. 
 若考試設定為"複選題部分給分", 則上述所有題目給分總和就是最後答題的分數.

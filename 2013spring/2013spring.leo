@@ -14,7 +14,7 @@
 <v t="amd_yen.20130306001037.1798"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="amd_yen.20130306001037.1799"><vh>@string initial_split_orientation = vertical</vh></v>
 </v>
-<v t="amd_yen.20130307204656.1443" a="E"><vh>課程規劃與進行</vh>
+<v t="amd_yen.20130307204656.1443"><vh>課程規劃與進行</vh>
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
@@ -45,12 +45,12 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130429141318.2219"><vh>為何要學習程式?</vh></v>
 <v t="amd_yen.20130318140025.2833"><vh>有關程式語言</vh></v>
-<v t="amd_yen.20130308221230.2437"><vh>C2 第一週程式</vh>
+<v t="amd_yen.20130308221230.2437" a="E"><vh>C2 第一週程式</vh>
 <v t="amd_yen.20130408141041.1765"><vh>有關 pybean 版次差異</vh></v>
 <v t="amd_yen.20130308221230.2438" a="E"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2457"><vh>C2 第二週程式</vh>
+<v t="amd_yen.20130308221230.2457" a="E"><vh>C2 第二週程式</vh>
 <v t="amd_yen.20130308221230.2458"><vh>@shadow c2/docutils_ex1.py</vh></v>
 <v t="amd_yen.20130308221230.2462"><vh>課程規劃</vh></v>
 <v t="amd_yen.20130308221230.2463"><vh>課程進行</vh>
@@ -62,6 +62,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130317160119.1727"><vh>@shadow c2/pyqt_geardesign.py</vh></v>
 </v>
 <v t="amd_yen.20130426235501.5059" a="E"><vh>C2 第九週程式</vh>
+<v t="amd_yen.20130501090735.2391"><vh>@shadow c2/get_score.py</vh></v>
 <v t="amd_yen.20130429141318.2172"><vh>@shadow c2/pyqt_1.py</vh></v>
 <v t="amd_yen.20130429141318.2173"><vh>@shadow c2/pyqt_2.py</vh></v>
 <v t="amd_yen.20130429141318.2174"><vh>@shadow c2/pyqt_3.py</vh></v>
@@ -69,11 +70,11 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130429141318.2176"><vh>@shadow c2/pyqt_notepad1.py</vh></v>
 <v t="amd_yen.20130426235501.5060"><vh>@shadow c2/pyqt_notepad.py</vh></v>
 <v t="amd_yen.20130429141318.2177"><vh>@auto c2/pyqt_tetris.py</vh></v>
-<v t="amd_yen.20130429141318.2220"><vh>@auto c2/pyqt_browser1.py</vh></v>
-<v t="amd_yen.20130429141318.2221"><vh>@auto c2/pyqt_browser2.py</vh></v>
-<v t="amd_yen.20130429141318.2218"><vh>@shadow c2/pyqt_brower3.py</vh></v>
+<v t="amd_yen.20130429141318.2220" a="E"><vh>@auto c2/pyqt_browser1.py</vh></v>
+<v t="amd_yen.20130429141318.2221" a="E"><vh>@auto c2/pyqt_browser2.py</vh></v>
+<v t="amd_yen.20130429141318.2218"><vh>@shadow c2/pyqt_browser3.py</vh></v>
 <v t="amd_yen.20130429141318.2217"><vh>@shadow c2/pyqt_browser.py</vh></v>
-<v t="amd_yen.20130429214002.3978" a="E"><vh>@path c2/pyqt_browser</vh>
+<v t="amd_yen.20130429214002.3978"><vh>@path c2/pyqt_browser</vh>
 <v t="amd_yen.20130429214002.4048"><vh>@file webbrowser.py</vh></v>
 <v t="amd_yen.20130429214002.3979"><vh>@file bookmark.py</vh></v>
 <v t="amd_yen.20130429214002.3987"><vh>@file flickcharm.py</vh></v>
@@ -82,10 +83,32 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130429214002.4039"><vh>@file ui_mainwindow.py</vh></v>
 </v>
 </v>
+<v t="amd_yen.20130429221223.2317" a="E"><vh>C2 第十一週程式</vh>
+<v t="amd_yen.20130429221223.2318"><vh>@shadow c2/pyqt_add1.py</vh></v>
+<v t="amd_yen.20130429221223.2321"><vh>@shadow c2/pyqt_button1.py</vh></v>
+<v t="amd_yen.20130429221223.2322"><vh>@shadow c2/pyqt_calculate1.py</vh></v>
+<v t="amd_yen.20130429221223.2323"><vh>@shadow c2/pyqt_painter1.py</vh></v>
+<v t="amd_yen.20130429221223.10895"><vh>@path c2/Gmail</vh>
+<v t="amd_yen.20130429221223.10896" a="E"><vh>@file main.py</vh></v>
+<v t="amd_yen.20130429221223.10899"><vh>@file About.py</vh></v>
+<v t="amd_yen.20130429221223.10903"><vh>@file AboutDialog.py</vh></v>
+<v t="amd_yen.20130429221223.10908"><vh>@file bmain.py</vh></v>
+<v t="amd_yen.20130429221223.10917"><vh>@file GMail.py</vh></v>
+<v t="amd_yen.20130429221223.10925"><vh>@file MainWindow.py</vh></v>
+<v t="amd_yen.20130429221223.10930"><vh>@file Missing.py</vh></v>
+<v t="amd_yen.20130429221223.10934"><vh>@@file MissingDialog.py</vh>
+<v t="amd_yen.20130429221223.10935"><vh>&lt;&lt;declarations&gt;&gt; (MissingDialog)</vh></v>
+<v t="amd_yen.20130429221223.10936" a="E"><vh>class Ui_MissingDialog</vh>
+<v t="amd_yen.20130429221223.10937"><vh>setupUi</vh></v>
+<v t="amd_yen.20130429221223.10938"><vh>retranslateUi</vh></v>
+</v>
+</v>
+</v>
+</v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130411195311.2086,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130429221223.2316,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
@@ -104,7 +127,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
-<v t="amd_yen.20130406103207.2438" a="E"><vh>django 程式開發</vh>
+<v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
 <v t="amd_yen.20130406103207.2442"><vh>@url Tutorial 1</vh></v>
 <v t="amd_yen.20130406103207.2285"><vh>@edit wcm/django1.py</vh></v>
 <v t="amd_yen.20130406103207.2286"><vh>@button django project</vh></v>
@@ -118,17 +141,21 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.201303
 <v t="amd_yen.20130406103207.2440"><vh>@edit wcm/mysite/mysite/urls.py</vh></v>
 <v t="amd_yen.20130406103207.2441"><vh>啟動伺服器</vh></v>
 </v>
+<v t="amd_yen.20130429221223.2319" a="E"><vh>WCM 第十週程式</vh>
+<v t="amd_yen.20130429221223.2320"><vh>@shadow wcm/exchange1.py</vh></v>
+</v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2407" a="E"
 expanded="amd_yen.20130308210411.2408,amd_yen.20130418193628.2823,"><vh>@file wcm.txt</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2492"><vh>綜合資料</vh>
+<v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
-expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
+expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130409162552.1785"><vh>可攜 Leo Editor</vh>
+<v t="amd_yen.20130409162552.1785" a="E"><vh>可攜 Leo Editor</vh>
+<v t="amd_yen.20130429221223.8683"><vh>從 LeoDocs.leo 學習</vh></v>
 <v t="amd_yen.20130409162552.1786"><vh>leo editor tutorial 1</vh></v>
 <v t="amd_yen.20130409163608.1839"><vh>leo editor tutorial 2</vh></v>
 <v t="amd_yen.20130410133544.4362"><vh>leo editor tutorial 3</vh></v>
@@ -3660,7 +3687,7 @@ return $output;
 }</t>
 <t tx="amd_yen.20130418193628.2122"></t>
 <t tx="amd_yen.20130423211907.2155"></t>
-<t tx="amd_yen.20130423211907.2156">PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於:
+<t tx="amd_yen.20130423211907.2156">PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於::
 
     自行打造一個小型的 2D 繪圖 kernel
     
@@ -3672,40 +3699,40 @@ return $output;
 
 截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
     
-    IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+- IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
     
-    必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+- 必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
     
-    實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+- 實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
     
-    此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
     
-以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計:
+以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計::
 
-CREATE TABLE pycadent(
-                    pycad_id INTEGER PRIMARY KEY,
-                    pycad_entity_id INTEGER,
-                    pycad_object_type TEXT,
-                    pycad_object_definition TEXT,
-                    pycad_object_style TEXT,
-                    pycad_security_id INTEGER,
-                    pycad_undo_id INTEGER,
-                    pycad_entity_state TEXT,
-                    pycad_index NUMERIC,
-                    pycad_visible INTEGER,
-                    pycad_undo_visible INTEGER,
-                    pycad_locked INTEGER,
-                    pycad_bbox_xmin REAL,
-                    pycad_bbox_ymin REAL,
-                    pycad_bbox_xmax REAL,
-                    pycad_bbox_ymax REAL, pycad_property TEXT)
+    CREATE TABLE pycadent(
+                        pycad_id INTEGER PRIMARY KEY,
+                        pycad_entity_id INTEGER,
+                        pycad_object_type TEXT,
+                        pycad_object_definition TEXT,
+                        pycad_object_style TEXT,
+                        pycad_security_id INTEGER,
+                        pycad_undo_id INTEGER,
+                        pycad_entity_state TEXT,
+                        pycad_index NUMERIC,
+                        pycad_visible INTEGER,
+                        pycad_undo_visible INTEGER,
+                        pycad_locked INTEGER,
+                        pycad_bbox_xmin REAL,
+                        pycad_bbox_ymin REAL,
+                        pycad_bbox_xmax REAL,
+                        pycad_bbox_ymax REAL, pycad_property TEXT)
                     
 為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
 </t>
 <t tx="amd_yen.20130423211907.2157"></t>
 <t tx="amd_yen.20130423211907.2158">根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
 
-The following types can be pickled:
+The following types can be pickled::
 
     None, True, and False
     integers, floating point numbers, complex numbers
@@ -3954,5 +3981,68 @@ u2 = y[3]
 
 解決問題 - 工程師存在的目的是在解決問題, 絕非製造問題.</t>
 <t tx="amd_yen.20130429214002.3978"></t>
+<t tx="amd_yen.20130429221223.10895"></t>
+<t tx="amd_yen.20130429221223.10934">#encoding: utf-8
+# MissingDialog ui 設計
+
+
+@language python
+@tabwidth -4
+
+&lt;&lt;declarations&gt;&gt;
+@others
+</t>
+<t tx="amd_yen.20130429221223.10935">from PyQt4 import QtCore, QtGui
+
+try:
+    _fromUtf8 = QtCore.QString.fromUtf8
+except AttributeError:
+    def _fromUtf8(s):
+        return s
+
+try:
+    _encoding = QtGui.QApplication.UnicodeUTF8
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig, _encoding)
+except AttributeError:
+    def _translate(context, text, disambig):
+        return QtGui.QApplication.translate(context, text, disambig)
+</t>
+<t tx="amd_yen.20130429221223.10936">class Ui_MissingDialog(object):
+    @others
+</t>
+<t tx="amd_yen.20130429221223.10937">def setupUi(self, MissingDialog):
+    MissingDialog.setObjectName(_fromUtf8("MissingDialog"))
+    MissingDialog.resize(402, 136)
+    self.label = QtGui.QLabel(MissingDialog)
+    self.label.setGeometry(QtCore.QRect(20, 10, 91, 17))
+    self.label.setObjectName(_fromUtf8("label"))
+    self.missingValueslabel = QtGui.QLabel(MissingDialog)
+    self.missingValueslabel.setGeometry(QtCore.QRect(20, 40, 321, 21))
+    self.missingValueslabel.setText(_fromUtf8(""))
+    self.missingValueslabel.setObjectName(_fromUtf8("missingValueslabel"))
+    self.pushButton = QtGui.QPushButton(MissingDialog)
+    self.pushButton.setGeometry(QtCore.QRect(170, 90, 71, 27))
+    self.pushButton.setObjectName(_fromUtf8("pushButton"))
+
+    self.retranslateUi(MissingDialog)
+    QtCore.QMetaObject.connectSlotsByName(MissingDialog)
+</t>
+<t tx="amd_yen.20130429221223.10938">def retranslateUi(self, MissingDialog):
+    MissingDialog.setWindowTitle(_translate("MissingDialog", "Missing Fields", None))
+    self.label.setText(_translate("MissingDialog", "Missing Fields !!!", None))
+    self.pushButton.setText(_translate("MissingDialog", "Ok", None))
+</t>
+<t tx="amd_yen.20130429221223.2317"></t>
+<t tx="amd_yen.20130429221223.2319"></t>
+<t tx="amd_yen.20130429221223.8683">有關 @chapters 的用法
+
+為何使用 @auto-rst
+
+使用 @@pagewidth 70 以及 @@language rest
+
+針對特定 tree 執行 rst3 的指令: c.rstCommands.rst3()
+
+</t>
 </tnodes>
 </leo_file>
