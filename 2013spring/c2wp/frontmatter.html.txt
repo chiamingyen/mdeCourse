@@ -1,0 +1,432 @@
+.. rst3: filename: c2wp/frontmatter.html
+
+################################################
+C2G1 報告
+################################################
+
+.. index:: C2G1 報告
+
+.. contents::
+    :depth: 3
+
+前言
+++++++
+
+.. centered:: 有關文書處理
+
+雙欄位編排
+\documentclass[11pt,twocolumn]{article}
+
+數學方程式(LaTeX)
+++++++++++++++++++++++
+
+.. 註解:: LaTeX raw 資料無法由 Sphinx 轉為 html
+
+.. raw:: latex
+     
+    \chapter{數學方程式排版}
+    
+    \begin{intro}
+      Now you are ready! In this chapter, we will attack the main strength
+      of \TeX{}: mathematical typesetting. But be warned, this chapter
+      only scratches the surface. While the things explained here are
+      sufficient for many people, don't despair if you can't find a
+      solution to your mathematical typesetting needs here. It is highly likely
+      that your problem is addressed in \AmS-\LaTeX{}%
+      \footnote{The \emph{American Mathematical Society} has produced a
+      powerful extension to \LaTeX{}. Many of the examples in this
+      chapter make use of this extension. It is provided with all recent
+      \TeX{} distributions. If yours is missing it, go to \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}
+    \end{intro}
+      
+    \section{General}
+    
+    \LaTeX{} has a special mode for typesetting \wi{mathematics}. Mathematics
+    can be typeset inline within a paragraph, or the paragraph can be broken to
+    typeset it separately. Mathematical text \emph{within} a paragraph is entered between \ci{(}
+    and \ci{)}, \index{$@\texttt{\$}} %$
+    between \texttt{\$} and \texttt{\$}, or between %}
+    \verb|\begin{|\ei{math}\verb|}| and \verb|\end{math}|.\index{formulae}
+    \begin{example}
+    Add $a$ squared and $b$ squared 
+    to get $c$ squared. Or, using 
+    a more mathematical approach:
+    $c^{2}=a^{2}+b^{2}$
+    \end{example}
+    \begin{example}
+    \TeX{} is pronounced as 
+    \(\tau\epsilon\chi\).\\[6pt]
+    100~m$^{3}$ of water\\[6pt]
+    This comes from my
+    \begin{math}\heartsuit\end{math}
+    \end{example}
+    
+    When you want your larger mathematical equations or formulae to be set apart
+    from the rest of the paragraph, it is preferable to \emph{display} them,
+    rather than to break the paragraph apart.
+    To do this, you can either enclose them
+    in \ci{[} and \ci{]}, or between
+    \verb|\begin{|\ei{displaymath}\verb|}| and
+    \verb|\end{displaymath}|.
+    \begin{example}
+    Add $a$ squared and $b$ squared
+    to get $c$ squared. Or, using
+    a more mathematical approach:
+    \begin{displaymath}
+    c^{2}=a^{2}+b^{2}
+    \end{displaymath}
+    or you can type less with:
+    \[a+b=c\]
+    \end{example}
+    If you want \LaTeX{} to enumerate your equations, you can use the
+    \ei{equation} environment.
+    You can then \ci{label} an equation number and refer to it somewhere else in the
+    text by using \ci{ref} or \ci{eqref}:
+    \begin{example}
+    \begin{equation} \label{eq:eps}
+    \epsilon > 0
+    \end{equation}
+    From (\ref{eq:eps}), we gather 
+    \ldots{}From \eqref{eq:eps} we
+    do the same.
+    \end{example}
+    
+    Note the difference in typesetting style between equations that are typeset and those
+    that are displayed:
+    
+    \begin{example}
+    $\lim_{n \to \infty} 
+    \sum_{k=1}^n \frac{1}{k^2} 
+    = \frac{\pi^2}{6}$
+    \end{example}
+    \begin{example}
+    \begin{displaymath}
+    \lim_{n \to \infty} 
+    \sum_{k=1}^n \frac{1}{k^2} 
+    = \frac{\pi^2}{6}
+    \end{displaymath}
+    \end{example}
+    
+    
+    
+    There are differences between \emph{math mode} and \emph{text mode}. For
+    example, in \emph{math mode}: 
+    
+    \begin{enumerate}
+    
+    \item Most spaces and line breaks do not have any significance, as all spaces
+    are either derived logically from the mathematical expressions, or
+    have to be specified with special commands such as \ci{,}, \ci{quad} or
+    \ci{qquad}.
+     
+    \item Empty lines are not allowed. Only one paragraph per formula.
+    
+    \item Each letter is considered to be the name of a variable and will be
+    typeset as such. If you want to typeset normal text within a formula
+    (normal upright font and normal spacing) then you have to enter the
+    text using the \verb|\textrm{...}| commands.
+    \end{enumerate}
+    \begin{example}
+    \begin{equation}
+    \forall x \in \mathbf{R}:
+    \qquad x^{2} \geq 0
+    \end{equation}
+    \end{example}
+    \begin{example}
+    \begin{equation}
+    x^{2} \geq 0\qquad
+    \textrm{for all }x\in\mathbf{R}
+    \end{equation}
+    \end{example}
+     
+    
+    %
+    % Add AMSSYB Package ... Blackboard bold .... R for realnumbers
+    %
+    Mathematicians can be very fussy about which symbols are used:
+    it would be conventional here to use `\wi{blackboard bold}',
+    \index{bold symbols} which is obtained using \ci{mathbb} from the
+    package \pai{amsfonts} or \pai{amssymb}.
+    \ifx\mathbb\undefined\else
+    The last example becomes
+    \begin{example}
+    \begin{displaymath}
+    x^{2} \geq 0\qquad
+    \textrm{for all }x\in\mathbb{R}
+    \end{displaymath}
+    \end{example}
+    \fi
+    
+    \section{Grouping in Math Mode}
+    
+    Most math mode commands act only on the next character, so if you
+    want a command to affect several characters, you have to group them
+    together using curly braces: \verb|{...}|.
+    \begin{example}
+    \begin{equation}
+    a^x+y \neq a^{x+y}
+    \end{equation}
+    \end{example}
+
+圖形
+++++++
+
+.. 註解:: LaTeX picture: http://en.wikibooks.org/wiki/LaTeX/Picture
+
+.. 註解:: 使用 Tikz 的繪圖範例: http://www.texample.net/tikz/examples/all/
+
+.. raw:: latex
+
+    %Version Aug 93    cgl@risc1.rug.nl
+    \noindent
+           \setlength{\unitlength}{3.8ex}
+    \begin{picture}(14,15.6)(-.5, -2.5)
+    %1st column
+    \put(1, 0){\line(0, 1){1.5}}
+    \put(1, 2){\oval(2, 1)}
+    \put(1, 2){\makebox(0, 0){\texttt{.pk}}}
+    \put(1, 4){\vector(0, -1){1.5}}
+    \put(-.5, 4){\framebox(3, 1){METAfont}}
+    \put(1, 6.5){\vector(0, -1){1.5}}
+    \put(1,7){\oval(2, 1)}
+    \put(1, 7){\makebox(0, 0){\texttt{.mf}}}
+    %second column
+    \put(7.5, -.5){\framebox(2, 1){driver}}
+    \put(9.75, .75){\line(-1, 0){1.25}}
+    \put(9.75, .75){\line( 0, -1){.5}}
+    \put(9.75, .25){\line(-1, 0){.25}}
+    \put(9.85, .23){{\tiny \texttt{dvips}}}
+    \put(10, 1){\line(-1, 0){1.25}}
+    \put(10, 1){\line( 0, -1){.5}}
+    \put(10, .5){\line(-1, 0){.25}}
+    \put(8.75, 1){\line( 0, -1){.25}}
+    \put(10.1, .63){{\tiny \texttt{xdvi}}}
+    \put(10.1, 1.1){\hbox{.}\kern.1ex\raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+    \put(8.5, 1.5){\vector(0, -1){1}}
+    \put(8.5, 2){\oval(2, 1)}
+    \put(8.5, 2){\makebox(0, 0){\texttt{.dvi}}}
+    \put(8.5, 4){\vector(0, -1){1.5}}
+    \put(7.5, 4){\framebox(2, 1){\TeX}}
+    %Plain
+    \put(9.75, 5.25){\line(-1, 0){1.25}}
+    \put(9.75, 5.25){\line( 0, -1){.5}}
+    \put(9.75, 4.75){\line(-1, 0){.25}}
+    \put(9.8, 4.68){{\tiny Plain}}
+    %LaTeX
+    \put(10, 5.5){\line(-1, 0){1.25}}
+    \put(10, 5.5){\line( 0, -1){.5}}
+    \put(10, 5){\line(-1, 0){.25}}
+    \put(8.75, 5.5){\line( 0, -1){.25}}
+    \put(10.1, 4.95){{\tiny \LaTeXe}}
+    \put(10.25, 5.75){\line(-1, 0){1.25}}
+    \put(10.25, 5.75){\line( 0, -1){.5}}
+    \put(10.25, 5.25){\line(-1, 0){.25}}
+    \put(9, 5.75){\line( 0, -1){.25}}
+    \put(10.35, 5.4){{\tiny AMS-Package}}
+    %
+    \put(10.35, 5.85){\hbox{.}\kern.1ex
+    \raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+    %
+    \put(8.5, 6.5){\vector(0, -1){1.5}}
+    \put(8.5, 7){\oval(2, 1)}
+    \put(8.5, 7){\makebox(0, 0){\texttt{.tex}}}
+    %
+    \multiput(8.5, 9)(0, -.415){3}{\line(0, -1){.25}}
+    \put(8.5, 8.7){\vector(0, 1){.3}}
+    \put(8.5, 7.8){\vector(0, -1){.3}}
+    \put(7.5, 9){\framebox(2, 1){editor}}
+    %Spelling checker
+    \put(9.75, 10.25){\line(-1, 0){1.25}}
+    \put(9.75, 10.25){\line( 0, -1){.5}}
+    \put(9.75, 9.75){\line(-1, 0){.25}}
+    \put(9.85, 9.75){{\tiny \texttt{emacs}}}
+    %Style checker
+    \put(10, 10.5){\line(-1, 0){1.25}}
+    \put(10, 10.5){\line( 0, -1){.5}}
+    \put(10, 10){\line(-1, 0){.25}}
+    \put(8.75, 10.5){\line( 0, -1){.25}}
+    \put(10.1, 10){{\tiny \texttt{ispell}}}
+    %
+    \put(10.1, 10.6){\hbox{.}\kern.1ex
+    \raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+    %
+    \put(8.5, 11.5){\vector(0, -1){1.5}}
+    \put(8.5, 12){\oval(2, 1)}
+    \put(8.5, 12){\makebox(0, 0){copy}}
+    %basis
+    \put(1, 0){\vector(1, 0){6.5}}
+    \put(9.5, 0){\vector(1, 0){2}}
+    \put(11.5, -.75){\framebox(2, 1.5){}}
+    \put(11.70, -.4){\shortstack{\small printer\\\small screen}}
+    %middle
+    \multiput(5, 5.25)(0, 1){3}{\line(0,1){.5}}
+    \multiput(5,  .25)(0, 1){4}{\line(0,1){.5}}
+    \multiput(5, -1.75)(0, 1.3){2}{\line(0,1){.2}}
+    %
+    \put(3.5, -1.250){\dashbox{.25}(3, .5){{\tiny \textsc{PostScript}}}}
+    \multiput(6.5, -1)(.45, 0){4}{\line(1,0){.25}}
+    \put(8.5, -1){\line( -1, 0){.2}}
+    %
+    \put(8.5, -1){\vector(0, 1){.5}}
+    \put(2.5, 4.5){\vector(1, 0){1.5}}
+    \put(5, 4.5){\oval(2, 1)}
+    \put(5, 4.5){\makebox(0, 0){\texttt{.tfm}}}
+    \put(6, 4.5){\vector(1, 0){1.5}}
+    \put(9.5, 4.5){\vector(1, 0){2}}
+    \put(12.5, 4.5){\oval(2, 1)}
+    \put(12.5, 4.5){\makebox(0, 0){\texttt{.log}}}
+    %base line
+    \put(.51,-1.75){\vector(-1, 0){1}}
+    \put(2.25, -1.75){\makebox(0, 0){Fonts}}
+    \put(3.9,-1.75){\vector( 1, 0){1}}
+    \put(6.1,-1.75){\vector(-1, 0){1}}
+    \put(9, -1.75){\makebox(0, 0){Typesetting}}
+    \put(12.4,-1.75){\vector(1, 0){1}}
+    \end{picture}
+
+數學(rest)
+++++++++++++
+
+以下為數學式:
+
+.. math::
+
+   E_r^2 - |\boldsymbol{p}|^2 c^2 &= m_0^2 c^4 \\
+   E_r^2 - (pc)^2 &= (m_0 c^2)^2
+
+或者
+
+.. math::
+
+   E_r = \sqrt{(m_0 c^2)^2 + (pc)^2}
+   
+至於文章中的數學符號用法:
+
+Here the :math:`(pc)^2` term represents the square of the Euclidean norm (total vector length) of the various momentum vectors in the system, which reduces to the square of the simple momentum magnitude, if only a single particle is considered. This equation reduces to |E=mc²| when the momentum term is zero. For photons where :math:`\boldsymbol{m_0 = 0}`, the equation reduces to :math:`\boldsymbol{E_r = pc}`.
+
+
+.. math::
+
+   E_k = m_0(\gamma-1)c^2 = \frac{m_0 c^2}{\sqrt{1 - \frac{v^2}{c^2}}} - {m_0 c^2},
+
+with |v| the velocity, :math:`m_0` the rest mass, and γ the Lorentz factor.
+
+He included the second term on the right to make sure that for small velocities, the energy would be the same as in classical mechanics:
+
+.. math::
+
+   E_k = \frac{1}{2} m_0 v^2 + \cdots.
+
+Without this second term, there would be an additional contribution in the energy when the particle is not moving.
+
+Einstein found that the total momentum of a moving particle is:
+
+.. math::
+
+   P = \frac{m_0 v}{\sqrt{1-\frac{v^2}{c^2}}}.
+
+and it is this quantity which is conserved in collisions. The ratio of the momentum to the velocity is the relativistic mass, |m|:
+
+.. math::
+
+   m = \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+
+and the relativistic mass and the relativistic kinetic energy are related by the formula:
+
+.. math::
+
+   E_k = {m c^2} - {m_0 c^2}.
+
+Einstein wanted to omit the unnatural second term on the right-hand side, whose only purpose is to make the energy at rest zero, and to declare that the particle has a total energy which obeys:
+
+.. math::
+
+   E = mc^2
+
+which is a sum of the rest energy :math:`m_0 c^2` and the kinetic energy. This total energy is mathematically more elegant, and fits better with the momentum in relativity. But to come to this conclusion, Einstein needed to think carefully about collisions. This expression for the energy implied that matter at rest has a huge amount of energy, and it is not clear whether this energy is physically real, or just a mathematical artifact with no physical meaning.
+
+In a collision process where all the rest-masses are the same at the beginning as at the end, either expression for the energy is conserved. The two expressions only differ by a constant which is the same at the beginning and at the end of the collision. Still, by analyzing the situation where particles are thrown off a heavy central particle, it is easy to see that the inertia of the central particle is reduced by the total energy emitted. This allowed Einstein to conclude that the inertia of a heavy particle is increased or diminished according to the energy it absorbs or emits.
+
+參考資料
+++++++++++++
+
+.. 註解:: 以下將 latex 語法的內容直接透過 raw 指令傳遞, 但是 LaTeX raw 資料無法由 Sphinx 轉為 html
+
+.. raw:: latex
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Contents: The Bibliography
+    % File: biblio.tex (lshort2e.tex)
+    % $Id: biblio.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{thebibliography}{99}
+    % 因為會自動加上 \bibname, 因此蓋掉下列重複的 \bibname
+    %\addcontentsline{toc}{chapter}{\bibname} 
+    \bibitem{manual} Leslie Lamport.  \newblock \emph{{\LaTeX:} A Document
+        Preparation System}.  \newblock Addison-Wesley, Reading,
+      Massachusetts, second edition, 1994, ISBN~0-201-52983-1.
+      
+    \bibitem{texbook} Donald~E. Knuth.  \newblock \textit{The \TeX{}book,}
+      Volume~A of \textit{Computers and Typesetting}, Addison-Wesley,
+      Reading, Massachusetts, second edition, 1984, ISBN~0-201-13448-9.
+    
+    \bibitem{companion} Michel Goossens, Frank Mittelbach and Alexander
+      Samarin.  \newblock \emph{The {\LaTeX} Companion}.  \newblock
+      Addison-Wesley, Reading, Massachusetts, 1994, ISBN~0-201-54199-8.
+     
+    \bibitem{local} Each \LaTeX{} installation should provide a so-called
+      \emph{\LaTeX{} Local Guide}, which explains the things that are
+      special to the local system.  It should be contained in a file called
+      \texttt{local.tex}. Unfortunately, some lazy sysops do not provide such a
+      document. In this case, go and ask your local \LaTeX{} guru for help.
+     
+    \bibitem{usrguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~for
+        authors}.  \newblock Comes with the \LaTeXe{} distribution as
+      \texttt{usrguide.tex}.
+    
+    \bibitem{clsguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~for
+        Class and Package writers}.  \newblock Comes with the \LaTeXe{}
+      distribution as \texttt{clsguide.tex}.
+    
+    \bibitem{fntguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~Font
+        selection}.  \newblock Comes with the \LaTeXe{} distribution as
+      \texttt{fntguide.tex}.
+    
+    \bibitem{graphics} D.~P.~Carlisle.  \newblock \emph{Packages in the
+        `graphics' bundle}.  \newblock Comes with the `graphics' bundle as
+      \texttt{grfguide.tex}, available from the same source your \LaTeX{}
+      distribution came from.
+    
+    \bibitem{verbatim} Rainer~Sch\"opf, Bernd~Raichle, Chris~Rowley.  
+    \newblock \emph{A New Implementation of \LaTeX's verbatim
+      Environments}.
+     \newblock Comes with the `tools' bundle as
+      \texttt{verbatim.dtx}, available from the same source your \LaTeX{}
+      distribution came from. 
+    
+    \bibitem{catalogue} Graham~Williams.  \newblock \emph{The TeX
+        Catalogue} is a very complete listing of many \TeX{} and \LaTeX{}
+        related packages.
+      \newblock Available online from \texttt{CTAN:/tex-archive/help/Catalogue/catalogue.html}
+      
+    \bibitem{eps} Keith~Reckdahl.  \newblock \emph{Using EPS Graphics in
+        \LaTeXe{} Documents}, which explains everything and much more than
+      you ever wanted to know about EPS files and their use in \LaTeX{}
+      documents.  \newblock Available online from
+      \texttt{CTAN:/tex-archive/info/epslatex.ps}
+    
+    \bibitem{xy-pic} Kristoffer H. Rose
+      \newblock \emph{\Xy-pic User's Guide}.  \newblock
+      Downloadable from CTAN with \Xy-pic distribution 
+    
+    \end{thebibliography}
+    
+    
+    %
+    
+    % Local Variables:
+    % TeX-master: "lshort2e"
+    % mode: latex
+    % mode: flyspell
+    % End:
+

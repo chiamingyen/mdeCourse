@@ -1,0 +1,212 @@
+%@+leo-ver=5-thin
+%@+node:amd_yen.20130503185304.1804: * @file c2wp/latex/ex1.tex
+%@@language latex
+%@+<< document class >>
+%@+middle:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1824: *3* << document class >>
+% The first line \documentclass{article} tells LATEX that what we want to produce is an article.
+% 假如要使用雙欄位
+\documentclass[twocolumn]{article}
+%\documentclass{article}
+%@-<< document class >>
+%@+<< CJK >>
+%@+middle:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1823: *3* << CJK >>
+\usepackage{xeCJK}    %使用中文環境
+\usepackage[T1]{fontspec}    %設定字體用
+\usepackage{graphicx}
+\usepackage{fancyvrb} % for frame on Verbatim
+% 新細明體
+% 文鼎ＰＬ新宋
+\setCJKmainfont{新細明體}
+
+
+
+%@-<< CJK >>
+%@+<< author title >>
+%@+middle:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1822: *3* << author title >>
+% 加入標題與作者資料, 然後在文章中的 maketitle 中才會顯示出來
+\title{就是要學 \LaTeX}
+\author{小作者 \and 大作者\footnote{小作者為大老師,
+and 大作者為小學生.}}
+\date{\today}
+%@-<< author title >>
+%@+<< verbatim >>
+%@+middle:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1821: *3* << verbatim >>
+% 為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
+\makeatletter
+\def\verbatim@font{\rmfamily\small}
+\makeatother
+%@-<< verbatim >>
+%@+<< begin document >>
+%@+middle:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1820: *3* << begin document >>
+\begin{document}
+%@-<< begin document >>
+%@+<< make title >>
+%@+middle:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1819: *3* << make title >>
+\maketitle
+%@-<< make title >>
+%@+others
+%@+node:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1813: ** 內文
+This is my \emph{first} document prepared in \LaTeX.
+This is my \emph{first} document prepared in \LaTeX. I typed it on \today.
+
+\noindent We have seen that to typeset something in \LaTeX, we type in the
+text to be typeset together with some \LaTeX\ commands.
+Words must be separated by spaces (does not matter how many)
+and lines maybe broken arbitrarily.
+The end of a paragraph is specified by a \emph{blank line}
+in the input. In other words, whenever you want to start a new
+paragraph, just leave a blank line and proceed.
+
+Carrots are good for your eyes, since they contain Vitamin A\@. Have
+you ever seen a rabbit wearing glasses?
+
+Carrots are good for your eyes, since they contain Vitamin A. Have
+you ever seen a rabbit wearing glasses?
+
+The numbers 1, 2, 3, etc.\ are called natural numbers. According to
+Kronecker, they were made by God;all else being the works of Man.
+I think \LaTeX is fun.
+I think \LaTeX\ is fun.
+Note the difference in right and left quotes in `single quotes'
+and ``double quotes''.
+
+Note the difference in right and left quotes in \lq single
+quotes\rq\ and \lq\lq double quotes\rq\rq.
+X-rays are discussed in pages 221--225 of Volume 3---the volume on
+electromagnetic waves.
+\`{E}l est\`{a} aqu\`{\i}
+Maybe I have now learnt about 1\% of \LaTeX.
+以下為特殊符號的輸入方法:以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法
+\textasciitilde  \&
+ \# \_
+\$ \textbackslash
+ \%  \{
+\textasciicircum 
+ \}
+ 
+We can also give an optional argument to \\ to increase the vertical distance between the
+lines. For example,
+This is the first line.\\[10pt]
+This is the second line
+
+Now there is an extra 10 points of space between the lines (1point is about 1/72nd of an
+inch).
+
+\begin{center}
+The \TeX nical Institute\\[.75cm]
+Certificate 證書
+\end{center}
+\noindent This is to certify that Mr. N. O. Vice has undergone a
+course at this institute and is qualified to be a \TeX nician.\\[.75cm]
+\noindent 沒有錯, 這裡要證明他真的要下台了.
+
+\begin{flushright}
+The Director\\
+The \TeX nical Institute
+\end{flushright}
+
+\rule{80mm}{.2pt}
+% 要讓 fbox 可以旋轉, 必須要導入 graphicx package
+\rotatebox{45}{\fbox{\LARGE{\LaTeX}}}\\[2cm]
+\rotatebox{45}{\fbox{\LARGE{真的可以轉}}}
+\rotatebox{225}{\fbox{\LARGE{真的可以轉}}}\\[2cm]
+
+文字之間的數學
+
+The equation $x + 2y = 3$ is a linear function,
+its graph is a line.
+The equation $y = (x-1)^2 + 2$ is a quadratic function,
+its graph is a parabola.
+
+The price of the 大爛書 textbook is \$500 NT dollars.
+
+還有以下的數學符號
+
+If the following limit exists:
+$$
+\lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}
+$$
+The limit is called {\it the derivative of $f(x)$ at $x_0$},
+denoted by $f'(x)$.
+
+準備要列舉
+
+\begin{itemize}
+\item Calculus
+\item Linear Algebra
+\item Basic Computer Concepts
+\end{itemize}
+
+還是要列舉
+
+\begin{enumerate}
+\item Calculus
+\item Linear Algebra
+\item Basic Computer Concepts
+\end{enumerate}
+
+也是來列舉
+
+\begin{description}
+\item [Calculus] Integration and Differentiation
+\item [Linear Algebra] Vector space and Basis
+\item [Basic Computer Concepts] Programming Language
+\end{description}
+
+自己定指令
+
+\newcommand{\nfu}{國立虎尾小科技大學}
+
+我們的學校就是 \nfu
+
+% 要讓 Verbatim 發揮作用需要 \usepackage{fancyvrb} % for frame on Verbatim
+% frame=single 會以四邊框起, 若以 frame=lines 會以最長程式為主
+\begin{Verbatim}[frame=single, numbers=left]
+# 請注意程式內縮
+for i in range(4):
+    print('Hello!')
+    print("應該沒有問題")
+\end{Verbatim}
+%@+node:amd_yen.20130503185304.1814: ** 測試
+這是第一行\\
+這是第二行, 所以兩個反斜線就是強制跳行\\
+\framebox [5cm][r]{這是裡面的字串}\\
+\framebox [5cm][c]{這是裡面的字串}\\
+\framebox [5cm][l]{這是裡面的字串}\\
+{\centering
+這些內容可以置中這些內容可以置中% 請注意下面一行空白非常重要, 否則無法讓 centering 執行
+
+}
+
+X  X\\
+X\enspace  X\\
+%@+node:amd_yen.20130503185304.1815: ** 以下為來自外部的檔案
+%@+node:amd_yen.20130503185304.1816: ** @auto latex/outside.tex
+這是來自外部的檔案資料
+
+也是來列舉用的
+
+\begin{itemize}
+\item 微積分
+\item 線性代數
+\item 電腦小概念
+\end{itemize}
+%@+node:amd_yen.20130503185304.1817: ** 相關設定
+%@-others
+%@+<< end document >>
+%@+middle:amd_yen.20130503185304.1817: ** 相關設定
+%@+node:amd_yen.20130503185304.1818: *3* << end document >>
+\end{document}
+%@-<< end document >>
+%@-leo

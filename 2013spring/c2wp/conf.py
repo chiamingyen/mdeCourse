@@ -32,6 +32,8 @@ extensions = ['sphinx.ext.graphviz', 'sphinx.ext.pngmath', 'sphinx.ext.mathjax']
 
 # 附加位於 exts 目錄中的 chinese_search.py 程式, 主要用來啟用結巴分詞套件
 extensions.append('chinese_search')
+# 加入文獻資料處理延伸程式
+extensions.append('sphinxcontrib.bibtex')
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -46,7 +48,7 @@ source_suffix = '.html.txt'
 master_doc = 'index' # don't use any prefix.
 
 # General information about the project.
-project = 'C2G1'
+project = 'C2WP'
 
 copyright = '2013, Chiaming Yen'
 
@@ -230,7 +232,7 @@ latex_paper_size = 'a4'
 # Grouping the document tree into LaTeX files. List of tuples
 # tex_documents(source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'index.tex', 'C2G1 使用者手冊',
+  ('index', 'index.tex', 'C2WP 使用者手冊',
    'Chiaming Yen', 'manual'),
 ]
 

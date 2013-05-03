@@ -395,7 +395,7 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130413002743.2104"><vh>Python 3 安裝</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130413002743.2102" a="E"><vh>機械設計工程系程式課程演變</vh>
+<v t="amd_yen.20130413002743.2102"><vh>機械設計工程系程式課程演變</vh>
 <v t="amd_yen.20130413002743.2103"><vh>符號式機構分析</vh></v>
 <v t="amd_yen.20130426235501.4331" a="E"><vh>Python 與動態系統分析</vh>
 <v t="amd_yen.20130426235501.4332"><vh>Modelica 簡介</vh></v>
@@ -403,33 +403,83 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 </v>
 <v t="amd_yen.20130418193628.2121"><vh>PHP 與 Javascript</vh></v>
 </v>
-<v t="amd_yen.20130325133433.2805"><vh>C2G1</vh>
-<v t="amd_yen.20130325133433.2806" a="E"><vh>按鈕</vh>
-<v t="amd_yen.20130325133433.2807" a="E"><vh>@button c2g1</vh>
-<v t="amd_yen.20130325133433.2808"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
-<v t="amd_yen.20130325133433.2809"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.2957" a="E"><vh>C2WP</vh>
+<v t="amd_yen.20130503185304.2958"><vh>Leo 編輯器文書處理</vh></v>
+<v t="amd_yen.20130503185304.2959"><vh>文書處理討論</vh></v>
+<v t="amd_yen.20130503185304.2960"><vh>直接採 LaTeX 編輯</vh>
+<v t="amd_yen.20130503185304.2961"><vh>LaTeX</vh>
+<v t="amd_yen.20130503185304.2962"><vh>@button latex ex1.tex</vh></v>
+<v t="amd_yen.20130503185304.2963" a="EO"><vh>@file c2wp/latex/ex1.tex</vh>
+<v t="amd_yen.20130503185304.2976" a="E"><vh>相關設定</vh>
+<v t="amd_yen.20130503185304.2977"><vh>&lt;&lt; end document &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.2978"><vh>&lt;&lt; make title &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.2979"><vh>&lt;&lt; begin document &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.2980"><vh>&lt;&lt; verbatim &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.2981"><vh>&lt;&lt; author title &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.2982"><vh>&lt;&lt; CJK &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.2983"><vh>&lt;&lt; document class &gt;&gt;</vh></v>
+</v>
+<v t="amd_yen.20130503185304.2972"><vh>內文</vh></v>
+<v t="amd_yen.20130503185304.2973"><vh>測試</vh></v>
+<v t="amd_yen.20130503185304.2974"><vh>以下為來自外部的檔案</vh></v>
+<v t="amd_yen.20130503185304.2975"><vh>@auto latex/outside.tex</vh></v>
+<v t="amd_yen.20130503185304.2976" a="E"></v>
 </v>
 </v>
-<v t="amd_yen.20130325133433.2810" a="E"><vh>設定檔案</vh>
-<v t="amd_yen.20130325133433.2811" a="E"><vh>@path c2g1</vh>
-<v t="amd_yen.20130325133433.2812"><vh>@edit conf.py</vh></v>
-<v t="amd_yen.20130325133433.2813"><vh>@edit index.html.txt</vh></v>
-<v t="amd_yen.20130325133433.2814"><vh>@edit make.bat</vh></v>
+<v t="amd_yen.20130503185304.2984"><vh>參考資料</vh>
+<v t="amd_yen.20130503185304.2985"><vh>向量繪圖</vh></v>
+<v t="amd_yen.20130503185304.2986"><vh>About Leo</vh>
+<v t="amd_yen.20130503185304.2987"><vh>reread node</vh></v>
+<v t="amd_yen.20130503185304.2988"><vh>有關編寫 php 程式碼</vh></v>
+<v t="amd_yen.20130503185304.2989"><vh>有關註解符號</vh></v>
+<v t="amd_yen.20130503185304.2990"><vh>以 plugin 增加選單</vh></v>
+<v t="amd_yen.20130503185304.2991"><vh>利用 Leo 開發 Leo</vh></v>
+</v>
+<v t="amd_yen.20130503185304.2992"><vh>LaTeX 參考</vh>
+<v t="amd_yen.20130503185304.2993"><vh>簡介 LaTeX</vh></v>
+<v t="amd_yen.20130503185304.2994"><vh>標題中文化</vh></v>
+<v t="amd_yen.20130503185304.2995"><vh>特殊處理</vh></v>
+</v>
+<v t="amd_yen.20130503185304.2996"><vh>rst3 討論</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130325133433.2815" a="E"><vh>Latex 後續處理(選項)</vh>
-<v t="amd_yen.20130325133433.2816" a="O"><vh>@edit c2g1/_build/latex/index.tex</vh></v>
-<v t="amd_yen.20130325133433.2817"><vh>@button latex pdf</vh></v>
-</v>
-<v t="amd_yen.20130325133433.2818" a="E"><vh>c2g1 report</vh>
-<v t="amd_yen.20130325133433.2819" a="E"><vh>選項設定</vh>
-<v t="amd_yen.20130325133433.2820" a="E"><vh>@rst c2g1/frontmatter.html</vh>
-<v t="amd_yen.20130325133433.2821"><vh>前言</vh></v>
-<v t="amd_yen.20130325133433.2822"><vh>動機</vh></v>
+<v t="amd_yen.20130503185304.2997"><vh>按鈕</vh>
+<v t="amd_yen.20130503185304.2998" a="E"><vh>@button c2wp</vh>
+<v t="amd_yen.20130503185304.2999"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
+<v t="amd_yen.20130503185304.3000"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
 </v>
 </v>
+<v t="amd_yen.20130503185304.3001"><vh>設定檔案</vh>
+<v t="amd_yen.20130503185304.3002" a="E"><vh>@path c2wp</vh>
+<v t="amd_yen.20130503185304.3003"><vh>@edit conf.py</vh></v>
+<v t="amd_yen.20130503185304.3004"><vh>@edit index.html.txt</vh></v>
+<v t="amd_yen.20130503185304.3005"><vh>@edit make.bat</vh></v>
 </v>
-<v t="amd_yen.20130325133433.2823"><vh>@auto c2g1/fromoutside.html.txt</vh></v>
+<v t="amd_yen.20130503185304.3006"><vh>位於 exts 目錄的中文分詞程式</vh>
+<v t="amd_yen.20130503185304.3007"><vh>@edit exts\zh.py</vh></v>
+<v t="amd_yen.20130503185304.3008"><vh>@edit exts\chinese_search.py</vh></v>
+<v t="amd_yen.20130503185304.3009"><vh>@edit exts\sphinx.search.py</vh></v>
+</v>
+</v>
+<v t="amd_yen.20130503185304.3010"><vh>Latex 後續處理(選項)</vh>
+<v t="amd_yen.20130503185304.3011" a="O"><vh>@edit c2wp/_build/latex/index.tex</vh></v>
+<v t="amd_yen.20130503185304.3012" a="O"><vh>@edit c2wp/_build/latex/index_twocolumn.tex</vh></v>
+<v t="amd_yen.20130503185304.3013"><vh>以下為雙欄位 pdf 產生按鈕</vh></v>
+<v t="amd_yen.20130503185304.3014"><vh>@button two_column</vh></v>
+</v>
+<v t="amd_yen.20130503185304.3015"><vh>c2wp report</vh>
+<v t="amd_yen.20130503185304.3016" a="E"><vh>選項設定</vh>
+<v t="amd_yen.20130503185304.3017" a="E"><vh>@rst c2wp/frontmatter.html</vh>
+<v t="amd_yen.20130503185304.3018"><vh>前言</vh></v>
+<v t="amd_yen.20130503185304.3019"><vh>數學方程式(LaTeX)</vh></v>
+<v t="amd_yen.20130503185304.3020"><vh>圖形</vh></v>
+<v t="amd_yen.20130503185304.3021"><vh>數學(rest)</vh></v>
+<v t="amd_yen.20130503185304.3022"><vh>參考資料</vh></v>
+</v>
+</v>
+</v>
+<v t="amd_yen.20130503185304.3023"><vh>@auto c2wp/fromoutside.html.txt</vh></v>
+<v t="amd_yen.20130503185304.3024"><vh>@auto c2wp/collaboration3.html.txt</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -987,479 +1037,6 @@ C2_app - 應用程式, tkinter 與 PyQt
 C2_web - 網際程式框架, CherryPy, bottle 與 django
 
 C2_cd - 網際協同, c9.io, 免費虛擬主機 (http://www.1freehosting.com/) , Simple Groupware</t>
-<t tx="amd_yen.20130325133433.2805">以下示範如何在 KMOL Guide 的架構下, 新增一個節點用來產生第二本協同手冊
-
-一本協同手冊的建立總共有三個部分
-
-- 按鈕
-
-用來執行 make html 與 make latex 以及最後的 xelatex 指令, 可以產生 html 與 pdf 格式的報告內容
-
-按鈕的內容如下:
-
-.. code-block:: python
-
-    @language python
-    import os
-    pos = c.find_h("c2g1 report")[0]
-    c.selectPosition(pos)
-    c.k.simulateCommand('rst3')
-    &lt;&lt; html manual &gt;&gt;
-    &lt;&lt; pdf manual &gt;&gt;
-
-必須要在 c.find_h() 中填入所要處理報告的標題, 這裡的範例標題為 c2g1 report, html 部分則需要修改 mandir = d.get('path') + "/c2g1", 指定處理目錄為 c2g1, pdf 部分除了指定文件原始目錄為 c2g1 外, 還需要告知 target_name = "index", 此一設定必須與 conf.py 中的 master_doc = 'index' 彼此對應.
-
-- 設定檔案
-
-共有三個, 包括 conf.py, toc 與 make.bat, conf.py 為 sphinx 的設定檔案, toc 則指定要加入哪些章節檔案, make.bat 則是實際執行 sphinx 指令的批次檔案.
-
-conf.py 中重要的設定為:
-
-_exts = "../exts"
-extensions.append('chinese_search')
-source_suffix = '.html.txt'
-master_doc = 'index'
-latex_documents = [
-  ('index', 'index.tex', 'C2G1 使用者手冊',
-   'Chiaming Yen', 'manual'),]
-
-- 報告內容
-
-報告內容分為兩類, 一類為單機上的資料, 以 @rst 節點導入後, 可以自動依照 Leo 節點從屬關係產生標題與內文, 第二類的報告內容則為由外部送入的檔案, 可以利用 @auto 節點指令將這些內容加入, 各外部檔案的名稱必須在 index.html.txt 中宣告.</t>
-<t tx="amd_yen.20130325133433.2806"></t>
-<t tx="amd_yen.20130325133433.2807">@language python
-import os
-pos = c.find_h("c2g1 report")[0]
-c.selectPosition(pos)
-c.k.simulateCommand('rst3')
-&lt;&lt; html manual &gt;&gt;
-&lt;&lt; pdf manual &gt;&gt;
-</t>
-<t tx="amd_yen.20130325133433.2808">'''
-c is the commander of the outline containing the script.
-g is Leo's leo.core.leoGlobals module.
-p is the presently selected position, the same as c.p.
-'''
-d = c.scanAllDirectives(p)
-# d 為 commander 由目前所在目錄進行指令設定掃描
-# d 資料格式為 dictionary
-''' 
-實際操作下, d 為 
-{'tabwidth': -4, 'lineending': None, 'language': 'python', 'encoding': None, 'pluginsList': [], 'pagewidth': 70, 'wrap': True, 'path': 'D:\\github\\mdeCourse\\2013spring', 'delims': ('#', '', '')}
-'''
-mandir = d.get('path') + "/c2g1"
-# 取出 d dictionary 中的 path 對應值 (也就是目前所在絕對目錄), 再加上 html, 因此 mandir 即為目前所在目錄下的 html 子目錄路徑
-g.es(mandir) # 列出 html 子目錄路徑
-os.chdir(mandir)  # 更換目錄到 html 子目錄
-os.system('make html')  # 執行 make html
-</t>
-<t tx="amd_yen.20130325133433.2809"># you probably need to install several packages 
-# to create pdf (e.g. jadetex)
-mandir = d.get('path') + "/c2g1"
-g.es(mandir)
-os.chdir(mandir)
-os.system('make latex')
-os.chdir('_build/latex')
-# 接下來要設法將 .tex 轉為 .pdf
-target_name = "index"
-filename = target_name+".tex"
-os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
-os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
-filename = target_name+".xdv"
-os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
-
-#
-#os.system(target_name.replace(".xdv", ".pdf"))
-filename = target_name+".pdf"
-os.system(filename)
-#os.system('../../fixup.pl &lt; Leodocumentation.tex &gt; LeoDoc.tex')
-#os.system('make LeoDoc.pdf')</t>
-<t tx="amd_yen.20130325133433.2810"></t>
-<t tx="amd_yen.20130325133433.2811"></t>
-<t tx="amd_yen.20130325133433.2815"></t>
-<t tx="amd_yen.20130325133433.2816">@language latex
-% Generated by Sphinx.
-\def\sphinxdocclass{report}
-\documentclass[a4paper,10pt]{sphinxmanual}
-\usepackage[utf8]{inputenc}
-\DeclareUnicodeCharacter{00A0}{\nobreakspace}
-\usepackage[T1]{fontenc}
-\usepackage{babel}
-\usepackage{times}
-\usepackage[Sonny]{fncychap}
-\usepackage{longtable}
-\usepackage{sphinx}
-\usepackage{multirow}
-
-% \pdfpagewidth 195mm
-% \pdfpageheight 271mm
-% \textwidth 6.0in
-% \textheight 8.8in
-% \oddsidemargin -0.1in
-% \evensidemargin -0.1in
-
-\textwidth 6.8in
-\oddsidemargin -0.2in
-\evensidemargin -0.3in
-
-\usepackage{pdfpages}
-\usepackage[BoldFont,CJKchecksingle]{xeCJK}
-
-    \usepackage{fancyvrb}    % for frame on Verbatim
-    \usepackage{fancyhdr}
-    \usepackage[T1]{fontspec}    %設定字體用
-
-\usepackage{float}
-\usepackage{ccaption}
-\usepackage{pifont}
-% \usepackage{fancybox}
-\usepackage{fontspec,xunicode,xltxtra}
-
-\setsansfont{Times New Roman}
-\setmainfont{Times New Roman}
-\setmonofont{Times New Roman}
-% 新細明體
-% 文鼎ＰＬ新宋
-% 文鼎ＰＬ明體U20-L
-% 文鼎ＰＬ报宋二GBK
-\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-
-    \makeatletter
-    \def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
-    \makeatother
-
-\XeTeXlinebreaklocale "zh"    %讓中文自動換行
-\XeTeXlinebreakskip = 0pt plus 1pt
-\renewcommand{\baselinestretch}{1.3} 
-\setcounter{tocdepth}{3}
-\captiontitlefont{\small\sffamily}
-\captiondelim{ - }
-\renewcommand\today{\number\year年\number\month月\number\day日}
-\makeatletter
-\renewcommand*\l@subsection{\@dottedtocline{2}{2.0em}{4.0em}}
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
-\makeatother
-\titleformat{\chapter}[display]
-{\bfseries\Huge}
-{\filleft \Huge 第 \hspace{2 mm} \thechapter \hspace{4 mm} 章}
-{4ex}
-{\titlerule
-\vspace{1ex}%
-\filright}
-[\vspace{1ex}%
-\titlerule]
-%\definecolor{VerbatimBorderColor}{rgb}{0.2,0.2,0.2}
-\definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
-
-
-\title{C2G1 使用者手冊}
-\date{}
-\release{1.0}
-\author{Chiaming Yen}
-\newcommand{\sphinxlogo}{}
-\renewcommand{\releasename}{釋出}
-\makeindex
-
-\makeatletter
-\def\PYG@reset{\let\PYG@it=\relax \let\PYG@bf=\relax%
-    \let\PYG@ul=\relax \let\PYG@tc=\relax%
-    \let\PYG@bc=\relax \let\PYG@ff=\relax}
-\def\PYG@tok#1{\csname PYG@tok@#1\endcsname}
-\def\PYG@toks#1+{\ifx\relax#1\empty\else%
-    \PYG@tok{#1}\expandafter\PYG@toks\fi}
-\def\PYG@do#1{\PYG@bc{\PYG@tc{\PYG@ul{%
-    \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
-\def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
-
-\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
-\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
-\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
-\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
-\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
-\expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
-\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
-\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
-\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
-\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
-\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
-\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
-\expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
-\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
-\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
-
-\def\PYGZbs{\char`\\}
-\def\PYGZus{\char`\_}
-\def\PYGZob{\char`\{}
-\def\PYGZcb{\char`\}}
-\def\PYGZca{\char`\^}
-\def\PYGZam{\char`\&amp;}
-\def\PYGZlt{\char`\&lt;}
-\def\PYGZgt{\char`\&gt;}
-\def\PYGZsh{\char`\#}
-\def\PYGZpc{\char`\%}
-\def\PYGZdl{\char`\$}
-\def\PYGZhy{\char`\-}
-\def\PYGZsq{\char`\'}
-\def\PYGZdq{\char`\"}
-\def\PYGZti{\char`\~}
-% for compatibility with earlier versions
-\def\PYGZat{@}
-\def\PYGZlb{[}
-\def\PYGZrb{]}
-\makeatother
-
-\begin{document}
-
-\maketitle
-\tableofcontents
-\phantomsection\label{index::doc}
-
-
-\href{http://blog.kmol.info}{KMOL's home page}
-
-
-\chapter{C2G1 報告}
-\label{frontmatter:kmol-s-users-guide}\label{frontmatter::doc}\label{frontmatter:c2g1}
-\index{C2G1 報告}\setbox0\vbox{
-\begin{minipage}{0.95\linewidth}
-\textbf{Contents}
-
-\medskip
-
-\begin{itemize}
-\item {} 
-{\hyperref[frontmatter:c2g1]{C2G1 報告}}
-\begin{itemize}
-\item {} 
-{\hyperref[frontmatter:id1]{前言}}
-
-\item {} 
-{\hyperref[frontmatter:id2]{動機}}
-
-\end{itemize}
-
-\end{itemize}
-\end{minipage}}
-\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
-
-
-\section{前言}
-\label{frontmatter:id1}
-這是前言內容
-
-
-\section{動機}
-\label{frontmatter:id2}
-這是動機內容
-
-
-\chapter{這是 outside 標題}
-\label{fromoutside::doc}\label{fromoutside:outside}
-\index{outside 標題}\setbox0\vbox{
-\begin{minipage}{0.95\linewidth}
-\textbf{Contents}
-
-\medskip
-
-\begin{itemize}
-\item {} 
-{\hyperref[fromoutside:outside]{這是 outside 標題}}
-\begin{itemize}
-\item {} 
-{\hyperref[fromoutside:id1]{小標題}}
-
-\item {} 
-{\hyperref[fromoutside:id2]{小標題2}}
-
-\end{itemize}
-
-\end{itemize}
-\end{minipage}}
-\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
-
-以下就是 outside 的內容, 由某一位組員負責編寫
-
-這是外部的檔案, 來自外部的內容
-
-這是第二次從外部更新的檔案
-
-
-\section{小標題}
-\label{fromoutside:id1}
-這是小標題之後的內容, 假如希望從網際系統取得組員的 frontouside.html.txt, 可以透過 CMSimple 的 upload 機制.
-
-
-\section{小標題2}
-\label{fromoutside:id2}
-這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
-
-以下嘗試由 literalinclude 導入程式碼:
-
-\begin{Verbatim}[commandchars=\\\{\}]
-\# -*- coding: utf-8 -*-
-\# 配合程式所使用的 @asis 會將資料存在 .leo 檔案
-\# 建立虛擬的班級人員名單
-import random
-import string
-學號碼數 = 4
-姓名字數 = 3
-姓氏檔案 = "lastname.txt"
-名字檔案 = "firstname.txt"
-學生人數 = [53, 55]
-\# 讀進姓氏檔案與名字檔案
-各班學生人數=random.randint(學生人數[0], 學生人數[1])
-def makeNumber(學號碼數):
-    return ''.join([random.choice(string.digits) for 索引 in range(學號碼數)])
-
-開啟姓氏檔案 = open(姓氏檔案, "r", encoding="utf-8")
-姓氏 = 開啟姓氏檔案.readlines()
-開啟名字檔案 = open(名字檔案, "r", encoding="utf-8")
-學員檔案 = open("虛設學員.txt","w",encoding='utf-8')
-名字 = 開啟名字檔案.readlines()
-科系碼 = makeNumber(學號碼數)
-for 索引 in range(1, 各班學生人數):
-    if(len(str(索引)) == 1):
-        學號 = "0" + str(索引)
-    else:
-        學號 = str(索引)
-    \# 設法製造缺號
-    if random.randint(0, 100) \textgreater{} 3 :
-        姓 = 姓氏[0][random.randint(0, len(姓氏[0])-1)]
-        名 = 名字[0][random.randint(0, len(名字[0])-1)]
-        名 += 名字[0][random.randint(0, len(名字[0])-1)]
-        print("90"+科系碼+學號+" "+姓+名)
-        學員檔案.write("90"+科系碼+學號+" "+姓+名+"\PYGZbs{}n")
-
-開啟姓氏檔案.close()
-開啟名字檔案.close()
-學員檔案.close()
-
-'''
-
-以下為 lastname.txt 的內容:
-
-趙錢孫李周吳鄭王馮陳褚衛蔣沈韓楊朱秦尤許何呂施張孔曹嚴華金魏陶薑
-戚謝鄒喻柏水竇章雲蘇潘葛奚範彭郎魯韋昌馬苗鳳花方俞任袁柳酆鮑史唐
-費廉岑薛雷賀倪湯滕殷羅畢郝鄔安常樂於時傅皮卞齊康伍餘元蔔顧孟平黃
-和穆蕭尹姚邵湛汪祁毛禹狄米貝明臧計伏成戴談宋茅龐熊紀舒屈項祝董梁
-杜阮藍閔席季麻強賈路婁危江童顏郭梅盛林刁鍾徐邱駱高夏蔡田樊胡淩霍
-虞萬支柯昝管盧莫柯房裘繆幹解應宗丁宣賁鄧鬱單杭洪包諸左石崔吉鈕龔
-程嵇邢滑裴陸榮翁荀羊于惠甄曲家封芮羿儲靳汲邴糜松井段富巫烏焦巴弓
-牧隗山穀車侯宓蓬全郗班仰秋仲伊宮甯仇欒暴甘鈄曆戎祖武符劉景詹束龍
-葉幸司韶郜黎薊溥印宿白懷蒲邰從鄂索鹹籍賴卓藺屠蒙池喬陽鬱胥能蒼雙
-聞莘党翟譚貢勞逄姬申扶堵冉宰酈雍卻璩桑桂濮牛壽通邊扈燕冀浦尚農溫
-別莊晏柴瞿閻充慕連茹習宦艾魚容向古易慎戈廖庾終暨居衡步都耿滿弘匡
-國文寇廣祿闕東歐殳沃利蔚越夔隆師鞏厙聶晁勾敖融冷訾辛闞那簡饒空曾
-毋沙乜養鞠須豐巢關蒯相查後荊紅
-
-以下為 firstname.txt 的內容:
-
-平燦惠歡佩泰州江揚剛乃屏珊易吟定小其菱幼函琴青博兆菁重立呈然永奕
-漢義萍皓力昌妍合仲佳虹慧蓮恭石展軒啟奇秀駿晉冰政綸丹邦大冠貞生思
-玄威嘉依音雲英能緯彬妙聖協法瑞恆采心友昀花樺航玫宛順儀寶婷書妮胤
-彥修火雨俞孝蕙允城盈家陽琳阿紹誠倫亨星美和予念鳳凱松幸凡雯士達泓
-金瑜勇必珍芷岳鈺方琬成霞麟致哲台睿賢珠瑩南克為尹妤春怡亮伯喬夫昕
-亞真喜初愛清禮斌吉淳百臻寧以筠諭仕子文雅郁柏秋蓉伸福劭木宗傑丞昭
-芝弘宇明月峰東聿登左祥迪蘭佑甫雄俊之卉谷玲禾茹榮堯芬姍少謙琇禎蘋
-年姵勳任信旭燕苓豐惟盛發齊介芳容于維侑舜洋璇茂芃伊玉海建季雪柔汝
-千富男新昱人添群欣綠馨利宜堅意名右姿智韻典竹巧坤可全潔裕毓孜仁韋
-慈志琦宣希云茜辛薇梅樂妏嬌安上仰長承旺珮良鑫桓瑋光貴茵憲品綺芸天
-源娟輝君銘夙來昇如泉正廷峻瑤恬靖淑瑄行秉伶康水羽治妹宥夢映霖儒枝
-沛香皇一龍興延翰山卿白忠恩亭俐孟均元凌又偉強育辰萱鴻宸亦娥振中紫
-倩民隆善玟紋杰旻學若華豪湖帆恒佐桂蓁穎軍德財庭琪世林純岑原尚昆妃
-宏
-'''
-\end{Verbatim}
-
-\href{http://blog.kmol.info}{KMOL's home page}
-
-
-
-\renewcommand{\indexname}{索引}
-\printindex
-\end{document}
-</t>
-<t tx="amd_yen.20130325133433.2817">@language python
-
-'''
-主要用來細部修改 tex 檔案後, 再次產生所需要的 pdf 檔案
-'''
-</t>
-<t tx="amd_yen.20130325133433.2818"></t>
-<t tx="amd_yen.20130325133433.2819">@language rest
-@tabwidth -4
-
-@ @rst-options
-call_docutils=False
-code_mode=False
-generate_rst=True
-http_server_support = False
-show_organizer_nodes=True
-show_headlines=True
-show_leo_directives=True
-stylesheet_path=..\doc
-write_intermediate_file = True
-verbose=True
-@c
-</t>
-<t tx="amd_yen.20130325133433.2820">################################################
-C2G1 報告
-################################################
-
-.. index:: C2G1 報告
-
-.. contents::
-    :depth: 3</t>
-<t tx="amd_yen.20130325133433.2821">這是前言內容</t>
-<t tx="amd_yen.20130325133433.2822">這是動機內容</t>
 <t tx="amd_yen.20130406103207.2286">@language python
 import os
 d = c.scanAllDirectives(p)
@@ -4056,5 +3633,1819 @@ except AttributeError:
 
 </t>
 <t tx="amd_yen.20130503085936.2410"></t>
+<t tx="amd_yen.20130503185304.2957">以下示範如何在 KMOL Guide 的架構下, 新增一個節點用來產生第二本協同手冊
+
+一本協同手冊的建立總共有三個部分
+
+- 按鈕
+
+用來執行 make html 與 make latex 以及最後的 xelatex 指令, 可以產生 html 與 pdf 格式的報告內容
+
+按鈕的內容如下:
+
+.. code-block:: python
+
+    @language python
+    import os
+    pos = c.find_h("c2g1 report")[0]
+    c.selectPosition(pos)
+    c.k.simulateCommand('rst3')
+    &lt;&lt; html manual &gt;&gt;
+    &lt;&lt; pdf manual &gt;&gt;
+
+必須要在 c.find_h() 中填入所要處理報告的標題, 這裡的範例標題為 c2g1 report, html 部分則需要修改 mandir = d.get('path') + "/c2g1", 指定處理目錄為 c2g1, pdf 部分除了指定文件原始目錄為 c2g1 外, 還需要告知 target_name = "index", 此一設定必須與 conf.py 中的 master_doc = 'index' 彼此對應.
+
+- 設定檔案
+
+共有三個, 包括 conf.py, toc 與 make.bat, conf.py 為 sphinx 的設定檔案, toc 則指定要加入哪些章節檔案, make.bat 則是實際執行 sphinx 指令的批次檔案.
+
+conf.py 中重要的設定為:
+
+_exts = "../exts"
+extensions.append('chinese_search')
+source_suffix = '.html.txt'
+master_doc = 'index'
+latex_documents = [
+  ('index', 'index.tex', 'C2G1 使用者手冊',
+   'Chiaming Yen', 'manual'),]
+
+- 報告內容
+
+報告內容分為兩類, 一類為單機上的資料, 以 @rst 節點導入後, 可以自動依照 Leo 節點從屬關係產生標題與內文, 第二類的報告內容則為由外部送入的檔案, 可以利用 @auto 節點指令將這些內容加入, 各外部檔案的名稱必須在 index.html.txt 中宣告.</t>
+<t tx="amd_yen.20130503185304.2958">本檔案主要配合 portableKMOL 系統中的 MiKTeX(位於 portableKMOL\data\extensions\portableLatex 目錄下)與 Sphinx 系統進行文書處理.
+
+Docutils, Sphinx 與 LaTeX 等都是排版系統, 可以將特定格式的標註文件轉換成操作者所希望的最後文檔結果, 這些文書處理的結果可能是 pdf, html, epub 或 chm (Microsoft Compiled HTML Help).</t>
+<t tx="amd_yen.20130503185304.2959">許多人曾經浪費許多時間來比較 MicroSoft Word 與 LaTex, 但是千萬要記住, 這兩種產品或技術雖然都可用來處理文書資料, 但是直接比較其功能或優劣並不是很恰當, 簡單說 Word 是一套文書處理系統, 具有"所見即所得"的特性, 而 LaTeX 則是一套"排版程式", LaTeX 系統通常不具備文書編輯時就能"直接"看到文件處理的結果(也就是不具備"所見即所得"的特性).
+
+排版系統是文書處理套件的核心, 就好像拿引擎(LaTeX)與汽車(Word)來比較哪一個是比較好的"交通工具", 並不是很恰當.
+
+因此直接比較"文書處理套件"與"排版程式", 實在無法說明其特點, 只能將兩者的功能列出, 讓使用者在不同需求情境下, 選擇最適合的文書處理工具.
+
+Word 文書處理套件的優勢在於文書內容編排時同時決定初步的文書"整體"格式, 因此具有所見即所得的文書編排結果, 讓使用者以最直覺的方式來處理文書列印後可能的結果. (上了車(Word) 就可以馬上啟動開車, 並且到處遊歷, 但是光拿一顆引擎(LaTeX) 哪裡都不能去, 只是可以先草擬"旅遊計畫", 再想辦法將這顆引擎作為動力來實現所草擬的"旅遊規劃")
+
+LaTeX 排版系統則將文書處理流程切成幾個階段, 當使用者決定採用 LaTeX 進行文書排版後, 可以無需決定文書編排的"整體"格式, 但是仍然必須在局部內容使用 LaTeX 程式的語法(或指令)來編排文書內容, 例如, 輸入數學方程式需要採用特殊標註語法編寫, 特定段落的粗體或斜體文字也都有對應的 LaTeX 標註指令用法.
+
+基本差別: Word 先初步決定整理文書處理格式, 隨後各階段也都可以局部或整體進行格式設定修改, 且在修改後分段執行處理運算, 因此操作流程將資料處理運算分割, 使用者在執行過程並不會覺得文書處理需要"電腦運算".
+
+而 LaTeX 則是完全在資料準備初步時只局部利用特定的標註指令來編寫文書內容, 無論是一般文字、數學方程式或圖形的引用(甚或用指令產生圖檔), 其內容都是純文字資料(就好像在編寫"旅遊計畫"時很難感受到旅遊所可能帶來的快感:-), 也由於在內容準備過程, 沒有將內容資料處理成需要的最後格式編排.
+
+因此就輸入而言, 操作 LaTeX 排版時間就花在輸入標註指令, 最後文書處理流程則是在內容準備完成後, 集中執行轉換運算, 因此許多使用者在用慣 Word 之後, 對於 LaTeX 排版系統需要執行編譯花費不少時間而覺得不可思議, 其實 Word 因為是將處理流程分割, 讓使用者在輸入內容時就決定"局部"或整體的格式, 並且馬上完成處理, 並且顯示出結果, 文書處理運算分散因此讓使用者感受不到轉換運算所花的時間, 但是若使用者要求 Word 自動產生目錄、索引或參考文件與內文參照等資料時, 其實與 LaTeX 排版系統一樣, 仍然必須綜觀全文後, 執行運算後才能產生所需的連結資料.
+
+所以, Word 系統內部仍然有一套類似 LaTeX 的排版系統, 只不過並沒有將送入排版系統的"編排指令"全盤輸出給使用者, 也不允許(?)使用者直接以編寫"文書編排指令"的模式來操作 Word, 同樣道理, 假如在 LaTeX 排版系統的外部包裹一套使用者操作介面, 並且讓使用者在輸入局部內容時就決定局部或整體格式, 並且將處理運算結果及時顯示在文書處理區, 以達到"所見即所得"的文書處理結果, 其實也能夠做到類似 Word 的"簡單易用".
+
+既然這樣, 以 LaTeX 為核心的 "Word" 為何從來就沒有出現過?主要原因可能因為 MicroSoft Word 所屬的 Office 套件, 在過去 30 年內, 無論是行銷或是功能都是世界一流, 而當年曾經擁抱 TeX 或 LaTeX 的電腦界尖兵, 現在大多已經是上了年紀的"待退或已退"老兵, 說說故事還可以, 要集中心力弄出一套能與 Word 抗衡的簡單易用套件, 可能並不容易:-)
+
+而精通 TeX 或 LaTeX 相關編程技術的年輕人也並不是沒有, 但是大多被網際大公司網羅 (Google, Facebook 等) 或者正在創業 (github, dropbox, c9.io 等), 因此也無心與 MS 這這種大公司過不去, 另一個原因則是未來的戰場並非在單機而是在網際空間, 因此目前已經有不少採 LaTeX 的網際編輯器正在發展, 產品發展重點自然不會是類似 Word  的文書處理套件開發.
+
+LaTex 適合用來:
+
+- 執行多人協同文件編輯, 其中在個人產生內容資料的同時, 無需置入文件格式, 只要依循一定的編輯流程, 並且可以直接利用 github 或 bitbucket 等版次管理系統(適合純文字的資料檔案), 同步進行文件內容的編修(透過 fork 與 merge).
+
+- 工程設計文件的編輯, 可以透過文字格式編輯修改數學方程式, 多人協同環境下更可以共享或協同管理相同格式的數學表示式.
+
+- 進行同一基本內容但是輸出許多不同數位格式的出版需求, 例如: 同時出版不同編排模式(單欄位雙欄位), pdf, html, epub 等電子格式資料.
+
+- 管理許多參考文獻的引用與列印編排時.
+
+但是 LaTeX 仍具有下列缺點:
+
+- 等同學習新程式語言來執行文書處理, 而且各種延伸套件眾多, 新手比較不容易入門
+
+- 文書處理過程採用程式編譯流程, 若其中發生錯誤, 需要花時間逐一除錯
+</t>
+<t tx="amd_yen.20130503185304.2960"></t>
+<t tx="amd_yen.20130503185304.2961"></t>
+<t tx="amd_yen.20130503185304.2962">@language python
+
+import os
+'''
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+'''
+d = c.scanAllDirectives(p)
+#g.es(d)
+# d 為 commander 由目前所在目錄進行指令設定掃描
+# d 資料格式為 dictionary
+''' 
+實際操作下, d 為 
+{'tabwidth': -4, 'lineending': None, 'language': 'python', 'encoding': None, 'pluginsList': [], 'pagewidth': 70, 'wrap': True, 'path': 'D:\\github\\mdeCourse\\2013spring', 'delims': ('#', '', '')}
+'''
+# 將目錄指到 latex
+mandir = d.get('path') + "/latex"
+g.es(mandir)
+os.chdir(mandir)
+target_name = "ex1"
+filename = target_name+".tex"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+filename = target_name+".xdv"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
+
+filename = target_name+".pdf"
+os.system(filename)</t>
+<t tx="amd_yen.20130503185304.2963">@language latex
+&lt;&lt; document class &gt;&gt;
+&lt;&lt; CJK &gt;&gt;
+&lt;&lt; author title &gt;&gt;
+&lt;&lt; verbatim &gt;&gt;
+&lt;&lt; begin document &gt;&gt;
+&lt;&lt; make title &gt;&gt;
+@others
+&lt;&lt; end document &gt;&gt;
+</t>
+<t tx="amd_yen.20130503185304.2972">This is my \emph{first} document prepared in \LaTeX.
+This is my \emph{first} document prepared in \LaTeX. I typed it on \today.
+
+\noindent We have seen that to typeset something in \LaTeX, we type in the
+text to be typeset together with some \LaTeX\ commands.
+Words must be separated by spaces (does not matter how many)
+and lines maybe broken arbitrarily.
+The end of a paragraph is specified by a \emph{blank line}
+in the input. In other words, whenever you want to start a new
+paragraph, just leave a blank line and proceed.
+
+Carrots are good for your eyes, since they contain Vitamin A\@. Have
+you ever seen a rabbit wearing glasses?
+
+Carrots are good for your eyes, since they contain Vitamin A. Have
+you ever seen a rabbit wearing glasses?
+
+The numbers 1, 2, 3, etc.\ are called natural numbers. According to
+Kronecker, they were made by God;all else being the works of Man.
+I think \LaTeX is fun.
+I think \LaTeX\ is fun.
+Note the difference in right and left quotes in `single quotes'
+and ``double quotes''.
+
+Note the difference in right and left quotes in \lq single
+quotes\rq\ and \lq\lq double quotes\rq\rq.
+X-rays are discussed in pages 221--225 of Volume 3---the volume on
+electromagnetic waves.
+\`{E}l est\`{a} aqu\`{\i}
+Maybe I have now learnt about 1\% of \LaTeX.
+以下為特殊符號的輸入方法:以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法以下為特殊符號的輸入方法
+以下為特殊符號的輸入方法
+\textasciitilde  \&amp;
+ \# \_
+\$ \textbackslash
+ \%  \{
+\textasciicircum 
+ \}
+ 
+We can also give an optional argument to \\ to increase the vertical distance between the
+lines. For example,
+This is the first line.\\[10pt]
+This is the second line
+
+Now there is an extra 10 points of space between the lines (1point is about 1/72nd of an
+inch).
+
+\begin{center}
+The \TeX nical Institute\\[.75cm]
+Certificate 證書
+\end{center}
+\noindent This is to certify that Mr. N. O. Vice has undergone a
+course at this institute and is qualified to be a \TeX nician.\\[.75cm]
+\noindent 沒有錯, 這裡要證明他真的要下台了.
+
+\begin{flushright}
+The Director\\
+The \TeX nical Institute
+\end{flushright}
+
+\rule{80mm}{.2pt}
+% 要讓 fbox 可以旋轉, 必須要導入 graphicx package
+\rotatebox{45}{\fbox{\LARGE{\LaTeX}}}\\[2cm]
+\rotatebox{45}{\fbox{\LARGE{真的可以轉}}}
+\rotatebox{225}{\fbox{\LARGE{真的可以轉}}}\\[2cm]
+
+文字之間的數學
+
+The equation $x + 2y = 3$ is a linear function,
+its graph is a line.
+The equation $y = (x-1)^2 + 2$ is a quadratic function,
+its graph is a parabola.
+
+The price of the 大爛書 textbook is \$500 NT dollars.
+
+還有以下的數學符號
+
+If the following limit exists:
+$$
+\lim_{\Delta x\to 0} \frac{f(x_0+\Delta x) - f(x_0)}{\Delta x}
+$$
+The limit is called {\it the derivative of $f(x)$ at $x_0$},
+denoted by $f'(x)$.
+
+準備要列舉
+
+\begin{itemize}
+\item Calculus
+\item Linear Algebra
+\item Basic Computer Concepts
+\end{itemize}
+
+還是要列舉
+
+\begin{enumerate}
+\item Calculus
+\item Linear Algebra
+\item Basic Computer Concepts
+\end{enumerate}
+
+也是來列舉
+
+\begin{description}
+\item [Calculus] Integration and Differentiation
+\item [Linear Algebra] Vector space and Basis
+\item [Basic Computer Concepts] Programming Language
+\end{description}
+
+自己定指令
+
+\newcommand{\nfu}{國立虎尾小科技大學}
+
+我們的學校就是 \nfu
+
+% 要讓 Verbatim 發揮作用需要 \usepackage{fancyvrb} % for frame on Verbatim
+% frame=single 會以四邊框起, 若以 frame=lines 會以最長程式為主
+\begin{Verbatim}[frame=single, numbers=left]
+# 請注意程式內縮
+for i in range(4):
+    print('Hello!')
+    print("應該沒有問題")
+\end{Verbatim}
+</t>
+<t tx="amd_yen.20130503185304.2973">這是第一行\\
+這是第二行, 所以兩個反斜線就是強制跳行\\
+\framebox [5cm][r]{這是裡面的字串}\\
+\framebox [5cm][c]{這是裡面的字串}\\
+\framebox [5cm][l]{這是裡面的字串}\\
+{\centering
+這些內容可以置中這些內容可以置中% 請注意下面一行空白非常重要, 否則無法讓 centering 執行
+
+}
+
+X  X\\
+X\enspace  X\\
+</t>
+<t tx="amd_yen.20130503185304.2974"></t>
+<t tx="amd_yen.20130503185304.2976"></t>
+<t tx="amd_yen.20130503185304.2977">\end{document}
+</t>
+<t tx="amd_yen.20130503185304.2978">\maketitle
+</t>
+<t tx="amd_yen.20130503185304.2979">\begin{document}
+</t>
+<t tx="amd_yen.20130503185304.2980">% 為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
+\makeatletter
+\def\verbatim@font{\rmfamily\small}
+\makeatother
+</t>
+<t tx="amd_yen.20130503185304.2981">% 加入標題與作者資料, 然後在文章中的 maketitle 中才會顯示出來
+\title{就是要學 \LaTeX}
+\author{小作者 \and 大作者\footnote{小作者為大老師,
+and 大作者為小學生.}}
+\date{\today}
+</t>
+<t tx="amd_yen.20130503185304.2982">\usepackage{xeCJK}    %使用中文環境
+\usepackage[T1]{fontspec}    %設定字體用
+\usepackage{graphicx}
+\usepackage{fancyvrb} % for frame on Verbatim
+% 新細明體
+% 文鼎ＰＬ新宋
+\setCJKmainfont{新細明體}
+
+
+
+</t>
+<t tx="amd_yen.20130503185304.2983">% The first line \documentclass{article} tells LATEX that what we want to produce is an article.
+% 假如要使用雙欄位
+\documentclass[twocolumn]{article}
+%\documentclass{article}
+</t>
+<t tx="amd_yen.20130503185304.2984">網際上的 LaTeX editor
+
+http://jaxedit.com/</t>
+<t tx="amd_yen.20130503185304.2985">http://asymptote.sourceforge.net/
+
+https://github.com/memmett/PyAsy</t>
+<t tx="amd_yen.20130503185304.2986">Leo calculates the home directory in leoApp.py, the method computeHomeDir.
+
+core/leoApp.py 的修改:
+
+因為在 Windows 中文環境下, cp950 若未宣告 encoding 為 utf-8, 存檔會有問題
+
+第 3234 行:
+
+theFile = open(fileName, encoding="utf-8")</t>
+<t tx="amd_yen.20130503185304.2987">Scripts can reread @auto nodes with::
+
+    at = c.atFileCommands 
+    p = c.currentPosition() # get the current position 
+    fileName = p.atAutoNodeName() 
+    at.readOneAtAutoNode(fileName,p) 
+
+and can reread @edit nodes with::
+        
+    at = c.atFileCommands
+    p = c.currentPosition() # get the current position 
+    fileName = p.atEditNodeName()
+    at.readOneAtEditNode (fileName,p)
+    
+p = g.findNodeAnywhere(c,headline) and/or
+p = g.findNodeInTree(c,p,headline)
+
+p.headString() and  p.bodyString()</t>
+<t tx="amd_yen.20130503185304.2988">@first &lt;?php
+@first $comment = &lt;&lt;&lt;EOD
+EOD;
+
+// php code goes here.
+echo "boogie";
+
+$comment2 = &lt;&lt;&lt;EOD
+@last EOD;
+@last ?&gt;</t>
+<t tx="amd_yen.20130503185304.2989">@delims /* */
+Javascript stuff
+@delims &lt;-- --&gt;
+HTML stuff
+
+或者
+
+@first &lt;?php
+@first /*
+*/
+
+echo "hi";
+
+@delims /* */
+@last ?&gt;</t>
+<t tx="amd_yen.20130503185304.2990">def callback(*args,**keys):
+    g.trace()
+
+table = (("Test1",None,callback),)
+
+c.frame.menu.createMenuItemsFromTable('File',table)
+
+另外一個範例
+
+def callback(*args,**keys):
+    g.trace()
+
+fileMenu = c.frame.menu.getMenu('File')
+
+# 3 is the position in the menu.  Other kinds of indices are possible.
+fileMenu.insert(3,'command',label='Test2',command=callback)</t>
+<t tx="amd_yen.20130503185304.2991">The trick is to create a workflow that separates editing from testing. Putting test code in LeoPy.leo would waste a lot of time. To run tests you would have to exit Leo and reload LeoPy.leo. A much quicker way is to put all test code in a test.leo file. So to change and test code, do the following:
+
+Save LeoPy.leo but do not exit Leo.
+Quit the copy of Leo running test.leo, then reload test.leo.
+Run test scripts from test.leo.
+That’s all. Python will recompile any changed .py files in the new copy of Leo. Note: I create a batch file called t.bat that runs test.leo, so to the “edit-reload-test” cycle is just:
+
+Control-S (in LeoPy.leo: saves the .leo file)
+t (in a console window: runs test.leo, compiling all changed .py files as a side effect)
+Control-E (in test.leo: runs the test script)
+The benefits of the new workflow:
+
+test.leo loads _much_ more quickly than LeoPy.leo does. This new approach can increase the speed of the edit-reload-test cycle by more than a factor of 10. Hitting Control-S, t, Control-E takes about 5 seconds.
+LeoPy.leo runs with the old code, so it is much easier to fix syntax errors or exceptions in the new code: just fix the problem and save LeoPy.leo without closing LeoPy.leo, then restart test.leo. You run your tests on the new code, but you edit the new code with the old, stable code.
+test.leo is the perfect place to develop test. I can create and organize those tests and when I am done, ‘’test.leo’’ is a log of my work.</t>
+<t tx="amd_yen.20130503185304.2992">LaTeX 教學
+
+http://web.mit.edu/texsrc/source/latex/lshort/src/</t>
+<t tx="amd_yen.20130503185304.2993">\command[optinal parameter]{parameter}
+
+Thus every LaTeX input file must start with the command
+\documentclass{...}
+
+文件類別指令:
+
+\documentclass[options]{class}
+
+以下則為可以選擇的文件類別:
+
+article for articles in scientiﬁc journals, presentations, short reports, program documentation, invitations, . . .
+proc a class for proceedings based on the article class.
+minimal is as small as it can get. It only sets a page size and a base font. It
+is mainly used for debugging purposes.
+report for longer reports containing several chapters, small books, PhD
+theses, . . .
+book for real books
+slides for slides. The class uses big sans serif letters. You might want to
+consider using the Beamer class instead.
+
+以下則為文件類別選項:
+
+10pt, 11pt, 12pt Sets the size of the main font in the document. If no
+option is speciﬁed, 10pt is assumed.
+a4paper, letterpaper, . . . Deﬁnes the paper size. The default size is
+letterpaper. Besides that, a5paper, b5paper, executivepaper,
+and legalpaper can be speciﬁed.
+fleqn Typesets displayed formulae left-aligned instead of centred.
+leqno Places the numbering of formulae on the left hand side instead of
+the right.
+titlepage, notitlepage Speciﬁes whether a new page should be started
+after the document title or not. The article class does not start a
+new page by default, while report and book do.
+onecolumn, twocolumn Instructs LATEX to typeset the document in one
+column or two columns.
+twoside, oneside Speciﬁes whether double or single sided output
+should be generated. The classes article and report are single sided
+and the book class is double sided by default. Note that this option
+concerns the style of the document only. The option twoside does not
+tell the printer you use that it should actually make a two-sided
+printout.
+landscape Changes the layout of the document to print in landscape
+mode.
+openright, openany Makes chapters begin either only on right hand
+pages or on the next page available. This does not work with the
+article class, as it does not know about chapters. The report class
+by default starts chapters on the next page available and the book
+class starts them on right hand pages.
+
+特殊套件(package)指令:
+
+\usepackage[options]{package}
+
+以下則為 LaTeX 內建的套件:
+
+doc Allows the documentation of LATEX programs.
+exscale Provides scaled versions of the math extension font.
+fontenc Speciﬁes which font encoding LATEX should use.
+ifthen Provides commands of the form
+‘if. . . then do. . . otherwise do. . . .’
+latexsym To access the LATEX symbol font, you should use the latexsym
+package.
+makeidx Provides commands for producing indexes.
+syntonly Processes a document without typesetting it.
+inputenc Allows the specification of an input encoding such as ASCII, ISO
+Latin-1, ISO Latin-2, 437/850 IBM code pages, Apple Macintosh, Next,
+ANSI-Windows or user-defined one.
+
+\documentclass{...} specifies what sort of document you intend to write. After that, add
+commands to influence the style of the whole document, or load packages
+that add new features to the LATEX system. To load such a package you use
+the command
+
+\usepackage{...}
+
+When all the setup work is done, you start the body of the text with
+the command
+
+\begin{document}
+
+Now you enter the text mixed with some useful LATEX commands. At
+the end of the document you add the
+
+\end{document}
+
+以下則為典型的 .tex 檔案
+
+\documentclass[a4paper,11pt]{article}
+% define the title
+\author{H.~Partl}
+\title{Minimalism}
+\begin{document}
+% generates the title
+\maketitle
+% insert the table of contents
+\tableofcontents
+\section{Some Interesting Words}
+Well, and here begins my lovely article.
+\section{Good Bye World}
+\ldots{} and here it ends.
+\end{document}
+
+有關 page style
+
+LATEX supports three predeﬁned header/footer combinations—so-called page
+styles. The style parameter of the
+
+\pagestyle{style}
+
+command defines which one to use. Table 1.4 lists the predfined page styles.
+
+The Predefined Page Styles of LATEX.
+
+plain prints the page numbers on the bottom of the page, in the middle of
+the footer. This is the default page style.
+headings prints the current chapter heading and the page number in the
+header on each page, while the footer remains empty.
+empty sets both the header and the footer to be empty.
+
+It is possible to change the page style of the current page with the
+command
+
+\thispagestyle{style}
+
+處理 LaTeX 時, 有關的檔案類型
+
+.tex LATEX or TEX input file. Can be compiled with latex.
+.sty LATEX Macro package. Load this into your LATEX document using the
+\usepackage command.
+.dtx Documented TEX. This is the main distribution format for LATEX style
+files. If you process a .dtx file you get documented macro code of the
+LATEX package contained in the .dtx file.
+.ins The installer for the files contained in the matching .dtx file. If you
+download a LATEX package from the net, you will normally get a .dtx
+and a .ins file. Run LATEX on the .ins file to unpack the .dtx file.
+.cls Class files define what your document looks like. They are selected
+with the \documentclass command.
+.fd Font description file telling LATEX about new fonts.
+The following files are generated when you run LATEX on your input file:
+.dvi Device Independent File. This is the main result of a LATEX compile
+run. Look at its content with a DVI previewer program or send it to a
+printer with dvips or a similar application.
+.log Gives a detailed account of what happened during the last compiler
+run.
+.toc Stores all your section headers. It gets read in for the next compiler
+run and is used to produce the table of content.
+.lof This is like .toc but for the list of figures.
+.lot And again the same for the list of tables.
+.aux Another file that transports information from one compiler run to the
+next. Among other things, the .aux file is used to store information
+associated with cross-references.
+.idx If your document contains an index. LATEX stores all the words that
+go into the index in this file. Process this file with makeindex.
+.ind The processed .idx file, ready for inclusion into your document on the
+next compile cycle.
+.ilg Logfile telling what makeindex did.
+
+處理較大的專案
+
+When working on big documents, you might want to split the input file into
+several parts. LATEX has two commands that help you to do that.
+
+\include{filename}
+
+The second command can be used in the preamble. It allows you to
+instruct LATEX to only input some of the \included files.
+
+\includeonly{filename,filename,. . .}
+
+After this command is executed in the preamble of the document, only
+\include commands for the filenames that are listed in the argument of
+the \includeonly command will be executed. Note that there must be no
+spaces between the filenames and the commas.
+
+The \include command starts typesetting the included text on a new
+page. This is helpful when you use \includeonly, because the page breaks
+will not move, even when some include files are omitted. Sometimes this
+might not be desirable. In this case, use the
+
+\input{filename}
+
+command. It simply includes the file specified. No flashy suits, no strings
+attached.
+
+To make LATEX quickly check your document use the syntonly package.
+This makes LATEX skim through your document only checking for proper
+syntax and usage of the commands, but doesn’t produce any (DVI) output.
+As LATEX runs faster in this mode you may save yourself valuable time. Usage
+is very simple:
+
+\usepackage{syntonly}
+\syntaxonly</t>
+<t tx="amd_yen.20130503185304.2994">\renewcommand\refname{參考文獻} % 針對 article
+\renewcommand\bibname{參考文獻} % 針對 book
+\renewcommand\contentsname{目錄}
+\renewcommand\listfigurename{插圖目錄}
+\renewcommand\listtablename{表格目錄}
+\renewcommand\indexname{索引}
+\renewcommand\figurename{圖}
+\renewcommand\tablename{表}
+\renewcommand\abstractname{摘要}
+\renewcommand\partname{部}
+\renewcommand\appendixname{附錄}</t>
+<t tx="amd_yen.20130503185304.2995">\noindent\rule[-1ex]{\textwidth}{3pt}\\[2.0ex] %輸出一條橫線</t>
+<t tx="amd_yen.20130503185304.2996">rST support within Leo used to be a plugin but is now a part of Leo's
+core.  However, the documentation is still located in Chapter 14 of
+Leo's User Guide (http://webpages.charter.net/edreamleo/
+rstplugin3.html).  I use rST to create HTML files.  Maybe somebody
+else can describe what needs to be done to output Latex files.
+
+Note: The following text uses the code/compile analogy to describe the
+use of rST.  I think it best reflects the operation being performed.
+Others disagree.
+
+The rST "code" (actually written in the "docutils" language) is placed
+within a Leo node that has an "@rst" directive in the node's header.
+For example: @rst MyLatexFile
+
+The rST "code" will be stored inside the leo file.  If you prefer to
+keep the "code" in a separate file then place the "@rst" node under a
+"@thin" node.  For example:
+
+   @thin MyLatexFile.tex
+      @rst MyLatexFile
+
+The rST "code" is "compiled" into an HTML or Latex file by issuing the
+command: "c.rstCommands.rst3()".  The easiest way to do this is to
+create a button in Leo by placing the following node structure in the
+Leo outline (or better yet, place it in the outline of your
+myLeoSettings.leo file).  You can open up the myLeoSettings.leo file
+from the "Help" menu.
+
+   @settings
+      @button rst3
+
+Place the "c.rstCommands.rst3()" text (without the quotes) in the body
+of the "@button rst3 node".  Save the myLeoSettings.leo file and re-
+open your leo file and you should see the button.  Select the @rst
+node that you want to "compile" and select the "rst3" button.  This
+will place the output file in a directory defined by rST's
+"default_path" option.
+
+The rst options are defined in the body of the "@rst MyLatexFile" node
+or you can put them in an ancestor node.  See Chapter 14 of the User
+Guide for a list of the options.
+
+@ @rst-options
+code_mode=False
+show_doc_parts_in_rst_mode = False
+generate_rst=True
+show_organizer_nodes=False
+show_headlines=False
+show_leo_directives=True
+write_intermediate_file = False
+verbose=True
+@c</t>
+<t tx="amd_yen.20130503185304.2997"></t>
+<t tx="amd_yen.20130503185304.2998">@language python
+import os
+pos = c.find_h("c2wp report")[0]
+c.selectPosition(pos)
+c.k.simulateCommand('rst3')
+&lt;&lt; html manual &gt;&gt;
+&lt;&lt; pdf manual &gt;&gt;
+
+</t>
+<t tx="amd_yen.20130503185304.2999">'''
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+'''
+d = c.scanAllDirectives(p)
+# d 為 commander 由目前所在目錄進行指令設定掃描
+# d 資料格式為 dictionary
+''' 
+實際操作下, d 為 
+{'tabwidth': -4, 'lineending': None, 'language': 'python', 'encoding': None, 'pluginsList': [], 'pagewidth': 70, 'wrap': True, 'path': 'D:\\github\\mdeCourse\\2013spring', 'delims': ('#', '', '')}
+'''
+mandir = d.get('path') + "/c2wp"
+# 取出 d dictionary 中的 path 對應值 (也就是目前所在絕對目錄), 再加上 html, 因此 mandir 即為目前所在目錄下的 html 子目錄路徑
+g.es(mandir) # 列出 html 子目錄路徑
+os.chdir(mandir)  # 更換目錄到 html 子目錄
+os.system('make html')  # 執行 make html
+</t>
+<t tx="amd_yen.20130503185304.3000"># you probably need to install several packages 
+# to create pdf (e.g. jadetex)
+mandir = d.get('path') + "/c2wp"
+g.es(mandir)
+os.chdir(mandir)
+os.system('make latex')
+os.chdir('_build/latex')
+# 接下來要設法將 .tex 轉為 .pdf
+target_name = "index"
+filename = target_name+".tex"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+filename = target_name+".xdv"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
+
+#
+#os.system(target_name.replace(".xdv", ".pdf"))
+filename = target_name+".pdf"
+os.system(filename)
+#os.system('../../fixup.pl &lt; Leodocumentation.tex &gt; LeoDoc.tex')
+#os.system('make LeoDoc.pdf')</t>
+<t tx="amd_yen.20130503185304.3001"></t>
+<t tx="amd_yen.20130503185304.3002"></t>
+<t tx="amd_yen.20130503185304.3006"></t>
+<t tx="amd_yen.20130503185304.3010"></t>
+<t tx="amd_yen.20130503185304.3011">@language latex
+% Generated by Sphinx.
+\def\sphinxdocclass{report}
+\documentclass[a4paper,10pt]{sphinxmanual}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{00A0}{\nobreakspace}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{times}
+\usepackage[Sonny]{fncychap}
+\usepackage{longtable}
+\usepackage{sphinx}
+\usepackage{multirow}
+
+% \pdfpagewidth 195mm
+% \pdfpageheight 271mm
+% \textwidth 6.0in
+% \textheight 8.8in
+% \oddsidemargin -0.1in
+% \evensidemargin -0.1in
+
+\textwidth 6.8in
+\oddsidemargin -0.2in
+\evensidemargin -0.3in
+
+\usepackage{pdfpages}
+\usepackage[BoldFont,CJKchecksingle]{xeCJK}
+
+    \usepackage{fancyvrb}    % for frame on Verbatim
+    \usepackage{fancyhdr}
+    \usepackage[T1]{fontspec}    %設定字體用
+
+\usepackage{float}
+\usepackage{ccaption}
+\usepackage{pifont}
+% \usepackage{fancybox}
+\usepackage{fontspec,xunicode,xltxtra}
+
+\setsansfont{Times New Roman}
+\setmainfont{Times New Roman}
+\setmonofont{Times New Roman}
+% 新細明體
+% 文鼎ＰＬ新宋
+% 文鼎ＰＬ明體U20-L
+% 文鼎ＰＬ报宋二GBK
+\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+
+    \makeatletter
+    \def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
+    \makeatother
+
+\XeTeXlinebreaklocale "zh"    %讓中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt
+\renewcommand{\baselinestretch}{1.3} 
+\setcounter{tocdepth}{3}
+\captiontitlefont{\small\sffamily}
+\captiondelim{ - }
+\renewcommand\today{\number\year年\number\month月\number\day日}
+\makeatletter
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.0em}{4.0em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
+\makeatother
+\titleformat{\chapter}[display]
+{\bfseries\Huge}
+{\filleft \Huge 第 \hspace{2 mm} \thechapter \hspace{4 mm} 章}
+{4ex}
+{\titlerule
+\vspace{1ex}%
+\filright}
+[\vspace{1ex}%
+\titlerule]
+%\definecolor{VerbatimBorderColor}{rgb}{0.2,0.2,0.2}
+\definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
+
+
+\title{C2G1 使用者手冊}
+\date{}
+\release{1.0}
+\author{Chiaming Yen}
+\newcommand{\sphinxlogo}{}
+\renewcommand{\releasename}{釋出}
+\makeindex
+
+\makeatletter
+\def\PYG@reset{\let\PYG@it=\relax \let\PYG@bf=\relax%
+    \let\PYG@ul=\relax \let\PYG@tc=\relax%
+    \let\PYG@bc=\relax \let\PYG@ff=\relax}
+\def\PYG@tok#1{\csname PYG@tok@#1\endcsname}
+\def\PYG@toks#1+{\ifx\relax#1\empty\else%
+    \PYG@tok{#1}\expandafter\PYG@toks\fi}
+\def\PYG@do#1{\PYG@bc{\PYG@tc{\PYG@ul{%
+    \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
+\def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
+
+\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
+\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
+\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
+\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
+\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
+\expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
+\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
+\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
+\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
+\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
+\expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+
+\def\PYGZbs{\char`\\}
+\def\PYGZus{\char`\_}
+\def\PYGZob{\char`\{}
+\def\PYGZcb{\char`\}}
+\def\PYGZca{\char`\^}
+\def\PYGZam{\char`\&amp;}
+\def\PYGZlt{\char`\&lt;}
+\def\PYGZgt{\char`\&gt;}
+\def\PYGZsh{\char`\#}
+\def\PYGZpc{\char`\%}
+\def\PYGZdl{\char`\$}
+\def\PYGZhy{\char`\-}
+\def\PYGZsq{\char`\'}
+\def\PYGZdq{\char`\"}
+\def\PYGZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYGZat{@}
+\def\PYGZlb{[}
+\def\PYGZrb{]}
+\makeatother
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\phantomsection\label{index::doc}
+
+
+\href{http://blog.kmol.info}{KMOL's home page}
+
+
+\chapter{C2G1 報告}
+\label{frontmatter:kmol-s-users-guide}\label{frontmatter::doc}\label{frontmatter:c2g1}
+\index{C2G1 報告}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[frontmatter:c2g1]{C2G1 報告}}
+\begin{itemize}
+\item {} 
+{\hyperref[frontmatter:id1]{前言}}
+
+\item {} 
+{\hyperref[frontmatter:id2]{動機}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+
+\section{前言}
+\label{frontmatter:id1}
+這是前言內容1234
+
+
+\section{動機}
+\label{frontmatter:id2}
+這是動機內容
+
+
+\chapter{這是 outside 標題}
+\label{fromoutside::doc}\label{fromoutside:outside}
+\index{outside 標題}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[fromoutside:outside]{這是 outside 標題}}
+\begin{itemize}
+\item {} 
+{\hyperref[fromoutside:id1]{小標題}}
+
+\item {} 
+{\hyperref[fromoutside:id2]{小標題2}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+以下就是 outside 的內容, 由某一位組員負責編寫
+
+這是外部的檔案, 來自外部的內容
+
+這是第二次從外部更新的檔案
+
+
+\section{小標題}
+\label{fromoutside:id1}
+這是小標題之後的內容, 假如希望從網際系統取得組員的 frontouside.html.txt, 可以透過 CMSimple 的 upload 機制.
+
+
+\section{小標題2}
+\label{fromoutside:id2}
+這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
+
+以下嘗試由 literalinclude 導入程式碼:
+
+
+\chapter{這是 collaboration3 標題}
+\label{collaboration3::doc}\label{collaboration3:collaboration3}
+\index{outside 標題}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[collaboration3:collaboration3]{這是 collaboration3 標題}}
+\begin{itemize}
+\item {} 
+{\hyperref[collaboration3:id1]{小標題}}
+
+\item {} 
+{\hyperref[collaboration3:id2]{小標題2}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+若檔案未關閉, 必須要 refresh from outside
+
+以下就是 outside 的內容, 由某一位組員負責編寫
+
+這是外部的檔案, 來自外部的內容
+
+這是第二次從外部更新的檔案
+
+
+\section{小標題}
+\label{collaboration3:id1}
+這是小標題之後的內容, 假如希望從網際系統取得組員的 frontouside.html.txt, 可以透過 CMSimple 的 upload 機制.
+
+
+\section{小標題2}
+\label{collaboration3:id2}
+這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
+
+以下嘗試由 literalinclude 導入程式碼:
+
+\href{http://blog.kmol.info}{KMOL's home page}
+
+
+
+\renewcommand{\indexname}{索引}
+\printindex
+\end{document}
+</t>
+<t tx="amd_yen.20130503185304.3012">@language latex
+% Generated by Sphinx.
+\def\sphinxdocclass{report}
+\documentclass[twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\DeclareUnicodeCharacter{00A0}{\nobreakspace}
+\usepackage[T1]{fontenc}
+\usepackage{babel}
+\usepackage{times}
+\usepackage[Sonny]{fncychap}
+\usepackage{longtable}
+\usepackage{sphinx}
+\usepackage{multirow}
+
+% \pdfpagewidth 195mm
+% \pdfpageheight 271mm
+% \textwidth 6.0in
+% \textheight 8.8in
+% \oddsidemargin -0.1in
+% \evensidemargin -0.1in
+
+\textwidth 6.8in
+\oddsidemargin -0.2in
+\evensidemargin -0.3in
+
+\usepackage{pdfpages}
+\usepackage[BoldFont,CJKchecksingle]{xeCJK}
+
+    \usepackage{fancyvrb}    % for frame on Verbatim
+    \usepackage{fancyhdr}
+    \usepackage[T1]{fontspec}    %設定字體用
+
+\usepackage{float}
+\usepackage{ccaption}
+\usepackage{pifont}
+% \usepackage{fancybox}
+\usepackage{fontspec,xunicode,xltxtra}
+
+\setsansfont{Times New Roman}
+\setmainfont{Times New Roman}
+\setmonofont{Times New Roman}
+% 新細明體
+% 文鼎ＰＬ新宋
+% 文鼎ＰＬ明體U20-L
+% 文鼎ＰＬ报宋二GBK
+\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+
+    \makeatletter
+    \def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
+    \makeatother
+
+\XeTeXlinebreaklocale "zh"    %讓中文自動換行
+\XeTeXlinebreakskip = 0pt plus 1pt
+\renewcommand{\baselinestretch}{1.3} 
+\setcounter{tocdepth}{3}
+\captiontitlefont{\small\sffamily}
+\captiondelim{ - }
+\renewcommand\today{\number\year年\number\month月\number\day日}
+\makeatletter
+\renewcommand*\l@subsection{\@dottedtocline{2}{2.0em}{4.0em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
+\makeatother
+\titleformat{\chapter}[display]
+{\bfseries\Huge}
+{\filleft \Huge 第 \hspace{2 mm} \thechapter \hspace{4 mm} 章}
+{4ex}
+{\titlerule
+\vspace{1ex}%
+\filright}
+[\vspace{1ex}%
+\titlerule]
+%\definecolor{VerbatimBorderColor}{rgb}{0.2,0.2,0.2}
+\definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
+
+
+\title{C2G1 使用者手冊}
+\date{}
+\release{1.0}
+\author{Chiaming Yen}
+\newcommand{\sphinxlogo}{}
+\renewcommand{\releasename}{版次}
+\makeindex
+
+\makeatletter
+\def\PYG@reset{\let\PYG@it=\relax \let\PYG@bf=\relax%
+    \let\PYG@ul=\relax \let\PYG@tc=\relax%
+    \let\PYG@bc=\relax \let\PYG@ff=\relax}
+\def\PYG@tok#1{\csname PYG@tok@#1\endcsname}
+\def\PYG@toks#1+{\ifx\relax#1\empty\else%
+    \PYG@tok{#1}\expandafter\PYG@toks\fi}
+\def\PYG@do#1{\PYG@bc{\PYG@tc{\PYG@ul{%
+    \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
+\def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
+
+\expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
+\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
+\expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
+\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
+\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
+\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
+\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
+\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
+\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
+\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
+\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+
+\def\PYGZbs{\char`\\}
+\def\PYGZus{\char`\_}
+\def\PYGZob{\char`\{}
+\def\PYGZcb{\char`\}}
+\def\PYGZca{\char`\^}
+\def\PYGZam{\char`\&amp;}
+\def\PYGZlt{\char`\&lt;}
+\def\PYGZgt{\char`\&gt;}
+\def\PYGZsh{\char`\#}
+\def\PYGZpc{\char`\%}
+\def\PYGZdl{\char`\$}
+\def\PYGZhy{\char`\-}
+\def\PYGZsq{\char`\'}
+\def\PYGZdq{\char`\"}
+\def\PYGZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYGZat{@}
+\def\PYGZlb{[}
+\def\PYGZrb{]}
+\makeatother
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\phantomsection\label{index::doc}
+
+
+\href{http://blog.kmol.info}{KMOL's home page}
+
+
+\chapter{C2G1 報告}
+\label{frontmatter::doc}\label{frontmatter:kmol-s-users-guide}\label{frontmatter:c2g1}
+\index{C2G1 報告}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[frontmatter:c2g1]{C2G1 報告}}
+\begin{itemize}
+\item {} 
+{\hyperref[frontmatter:id1]{前言}}
+
+\item {} 
+{\hyperref[frontmatter:id2]{動機}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+
+\section{前言}
+\label{frontmatter:id1}
+這是前言內容1234
+
+
+\section{動機}
+\label{frontmatter:id2}
+這是動機內容
+
+
+\chapter{這是 outside 標題}
+\label{fromoutside::doc}\label{fromoutside:outside}
+\index{outside 標題}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[fromoutside:outside]{這是 outside 標題}}
+\begin{itemize}
+\item {} 
+{\hyperref[fromoutside:id1]{小標題}}
+
+\item {} 
+{\hyperref[fromoutside:id2]{小標題2}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+以下就是 outside 的內容, 由某一位組員負責編寫
+
+這是外部的檔案, 來自外部的內容
+
+這是第二次從外部更新的檔案
+
+
+\section{小標題}
+\label{fromoutside:id1}
+這是小標題之後的內容, 假如希望從網際系統取得組員的 frontouside.html.txt, 可以透過 CMSimple 的 upload 機制.
+
+
+\section{小標題2}
+\label{fromoutside:id2}
+這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
+
+以下嘗試由 literalinclude 導入程式碼:
+
+
+\chapter{這是 collaboration3 標題}
+\label{collaboration3::doc}\label{collaboration3:collaboration3}
+\index{outside 標題}\setbox0\vbox{
+\begin{minipage}{0.95\linewidth}
+\textbf{Contents}
+
+\medskip
+
+\begin{itemize}
+\item {} 
+{\hyperref[collaboration3:collaboration3]{這是 collaboration3 標題}}
+\begin{itemize}
+\item {} 
+{\hyperref[collaboration3:id1]{小標題}}
+
+\item {} 
+{\hyperref[collaboration3:id2]{小標題2}}
+
+\end{itemize}
+
+\end{itemize}
+\end{minipage}}
+\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
+
+若檔案未關閉, 必須要 refresh from outside
+
+以下就是 outside 的內容, 由某一位組員負責編寫
+
+這是外部的檔案, 來自外部的內容
+
+這是第二次從外部更新的檔案
+
+
+\section{小標題}
+\label{collaboration3:id1}
+這是小標題之後的內容, 假如希望從網際系統取得組員的 frontouside.html.txt, 可以透過 CMSimple 的 upload 機制.
+
+
+\section{小標題2}
+\label{collaboration3:id2}
+這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
+
+以下嘗試由 literalinclude 導入程式碼:
+
+\href{http://blog.kmol.info}{KMOL's home page}
+
+
+
+\renewcommand{\indexname}{索引}
+\printindex
+\end{document}
+</t>
+<t tx="amd_yen.20130503185304.3013"></t>
+<t tx="amd_yen.20130503185304.3014">@language python
+
+'''
+主要用來細部修改 tex 檔案後, 再次產生所需要的 pdf 檔案
+'''
+#encoding: utf-8
+import os
+d = c.scanAllDirectives(p)
+# you probably need to install several packages 
+# to create pdf (e.g. jadetex)
+# 讀取原先單欄位的 index.tex 內容, 以 readlines 讀出所有內容
+mandir = d.get('path') + "/c2wp/_build/latex"
+filehandle = open(mandir+"/index.tex", encoding="UTF-8")
+texcontent = filehandle.readlines()
+filehandle.close()
+#g.es(texcontent)
+#texcontent[2] = "\documentclass[twocolumn]{article}"
+# 將數列中設定單欄位與雙欄位的第三行, 也就是 index 索引為 2 的行內容替換後重新寫檔, 改寫為 index_twocolumn.tex 檔案然後轉為 pdf
+filehandle = open(mandir+"/index_twocolumn.tex", "w", encoding="UTF-8")
+linenumber = len(texcontent)
+#g.es(linenumber)
+for i in range(linenumber):
+    if i == 2:
+        filehandle.write("\documentclass[twocolumn]{article}\n")
+    else:
+        filehandle.write(texcontent[i])
+filehandle.close()
+#g.es("done")
+g.es(mandir)
+os.chdir(mandir)
+#os.system('make latex')
+#os.chdir('_build/latex')
+# 接下來要設法將 .tex 轉為 .pdf
+target_name = "index_twocolumn"
+filename = target_name+".tex"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+filename = target_name+".xdv"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
+
+#
+#os.system(target_name.replace(".xdv", ".pdf"))
+filename = target_name+".pdf"
+os.system(filename)
+#os.system('../../fixup.pl &lt; Leodocumentation.tex &gt; LeoDoc.tex')
+#os.system('make LeoDoc.pdf')</t>
+<t tx="amd_yen.20130503185304.3015"></t>
+<t tx="amd_yen.20130503185304.3016">@language rest
+@tabwidth -4
+
+@ @rst-options
+call_docutils=False
+code_mode=False
+generate_rst=True
+http_server_support = False
+show_organizer_nodes=True
+show_headlines=True
+show_leo_directives=True
+stylesheet_path=..\doc
+write_intermediate_file = True
+verbose=True
+@c
+</t>
+<t tx="amd_yen.20130503185304.3017">################################################
+C2G1 報告
+################################################
+
+.. index:: C2G1 報告
+
+.. contents::
+    :depth: 3</t>
+<t tx="amd_yen.20130503185304.3018">.. centered:: 有關文書處理
+
+雙欄位編排
+\documentclass[11pt,twocolumn]{article}</t>
+<t tx="amd_yen.20130503185304.3019">.. 註解:: LaTeX raw 資料無法由 Sphinx 轉為 html
+
+.. raw:: latex
+     
+    \chapter{數學方程式排版}
+    
+    \begin{intro}
+      Now you are ready! In this chapter, we will attack the main strength
+      of \TeX{}: mathematical typesetting. But be warned, this chapter
+      only scratches the surface. While the things explained here are
+      sufficient for many people, don't despair if you can't find a
+      solution to your mathematical typesetting needs here. It is highly likely
+      that your problem is addressed in \AmS-\LaTeX{}%
+      \footnote{The \emph{American Mathematical Society} has produced a
+      powerful extension to \LaTeX{}. Many of the examples in this
+      chapter make use of this extension. It is provided with all recent
+      \TeX{} distributions. If yours is missing it, go to \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}
+    \end{intro}
+      
+    \section{General}
+    
+    \LaTeX{} has a special mode for typesetting \wi{mathematics}. Mathematics
+    can be typeset inline within a paragraph, or the paragraph can be broken to
+    typeset it separately. Mathematical text \emph{within} a paragraph is entered between \ci{(}
+    and \ci{)}, \index{$@\texttt{\$}} %$
+    between \texttt{\$} and \texttt{\$}, or between %}
+    \verb|\begin{|\ei{math}\verb|}| and \verb|\end{math}|.\index{formulae}
+    \begin{example}
+    Add $a$ squared and $b$ squared 
+    to get $c$ squared. Or, using 
+    a more mathematical approach:
+    $c^{2}=a^{2}+b^{2}$
+    \end{example}
+    \begin{example}
+    \TeX{} is pronounced as 
+    \(\tau\epsilon\chi\).\\[6pt]
+    100~m$^{3}$ of water\\[6pt]
+    This comes from my
+    \begin{math}\heartsuit\end{math}
+    \end{example}
+    
+    When you want your larger mathematical equations or formulae to be set apart
+    from the rest of the paragraph, it is preferable to \emph{display} them,
+    rather than to break the paragraph apart.
+    To do this, you can either enclose them
+    in \ci{[} and \ci{]}, or between
+    \verb|\begin{|\ei{displaymath}\verb|}| and
+    \verb|\end{displaymath}|.
+    \begin{example}
+    Add $a$ squared and $b$ squared
+    to get $c$ squared. Or, using
+    a more mathematical approach:
+    \begin{displaymath}
+    c^{2}=a^{2}+b^{2}
+    \end{displaymath}
+    or you can type less with:
+    \[a+b=c\]
+    \end{example}
+    If you want \LaTeX{} to enumerate your equations, you can use the
+    \ei{equation} environment.
+    You can then \ci{label} an equation number and refer to it somewhere else in the
+    text by using \ci{ref} or \ci{eqref}:
+    \begin{example}
+    \begin{equation} \label{eq:eps}
+    \epsilon &gt; 0
+    \end{equation}
+    From (\ref{eq:eps}), we gather 
+    \ldots{}From \eqref{eq:eps} we
+    do the same.
+    \end{example}
+    
+    Note the difference in typesetting style between equations that are typeset and those
+    that are displayed:
+    
+    \begin{example}
+    $\lim_{n \to \infty} 
+    \sum_{k=1}^n \frac{1}{k^2} 
+    = \frac{\pi^2}{6}$
+    \end{example}
+    \begin{example}
+    \begin{displaymath}
+    \lim_{n \to \infty} 
+    \sum_{k=1}^n \frac{1}{k^2} 
+    = \frac{\pi^2}{6}
+    \end{displaymath}
+    \end{example}
+    
+    
+    
+    There are differences between \emph{math mode} and \emph{text mode}. For
+    example, in \emph{math mode}: 
+    
+    \begin{enumerate}
+    
+    \item Most spaces and line breaks do not have any significance, as all spaces
+    are either derived logically from the mathematical expressions, or
+    have to be specified with special commands such as \ci{,}, \ci{quad} or
+    \ci{qquad}.
+     
+    \item Empty lines are not allowed. Only one paragraph per formula.
+    
+    \item Each letter is considered to be the name of a variable and will be
+    typeset as such. If you want to typeset normal text within a formula
+    (normal upright font and normal spacing) then you have to enter the
+    text using the \verb|\textrm{...}| commands.
+    \end{enumerate}
+    \begin{example}
+    \begin{equation}
+    \forall x \in \mathbf{R}:
+    \qquad x^{2} \geq 0
+    \end{equation}
+    \end{example}
+    \begin{example}
+    \begin{equation}
+    x^{2} \geq 0\qquad
+    \textrm{for all }x\in\mathbf{R}
+    \end{equation}
+    \end{example}
+     
+    
+    %
+    % Add AMSSYB Package ... Blackboard bold .... R for realnumbers
+    %
+    Mathematicians can be very fussy about which symbols are used:
+    it would be conventional here to use `\wi{blackboard bold}',
+    \index{bold symbols} which is obtained using \ci{mathbb} from the
+    package \pai{amsfonts} or \pai{amssymb}.
+    \ifx\mathbb\undefined\else
+    The last example becomes
+    \begin{example}
+    \begin{displaymath}
+    x^{2} \geq 0\qquad
+    \textrm{for all }x\in\mathbb{R}
+    \end{displaymath}
+    \end{example}
+    \fi
+    
+    \section{Grouping in Math Mode}
+    
+    Most math mode commands act only on the next character, so if you
+    want a command to affect several characters, you have to group them
+    together using curly braces: \verb|{...}|.
+    \begin{example}
+    \begin{equation}
+    a^x+y \neq a^{x+y}
+    \end{equation}
+    \end{example}</t>
+<t tx="amd_yen.20130503185304.3020">.. 註解:: LaTeX picture: http://en.wikibooks.org/wiki/LaTeX/Picture
+
+.. 註解:: 使用 Tikz 的繪圖範例: http://www.texample.net/tikz/examples/all/
+
+.. raw:: latex
+
+    %Version Aug 93    cgl@risc1.rug.nl
+    \noindent
+           \setlength{\unitlength}{3.8ex}
+    \begin{picture}(14,15.6)(-.5, -2.5)
+    %1st column
+    \put(1, 0){\line(0, 1){1.5}}
+    \put(1, 2){\oval(2, 1)}
+    \put(1, 2){\makebox(0, 0){\texttt{.pk}}}
+    \put(1, 4){\vector(0, -1){1.5}}
+    \put(-.5, 4){\framebox(3, 1){METAfont}}
+    \put(1, 6.5){\vector(0, -1){1.5}}
+    \put(1,7){\oval(2, 1)}
+    \put(1, 7){\makebox(0, 0){\texttt{.mf}}}
+    %second column
+    \put(7.5, -.5){\framebox(2, 1){driver}}
+    \put(9.75, .75){\line(-1, 0){1.25}}
+    \put(9.75, .75){\line( 0, -1){.5}}
+    \put(9.75, .25){\line(-1, 0){.25}}
+    \put(9.85, .23){{\tiny \texttt{dvips}}}
+    \put(10, 1){\line(-1, 0){1.25}}
+    \put(10, 1){\line( 0, -1){.5}}
+    \put(10, .5){\line(-1, 0){.25}}
+    \put(8.75, 1){\line( 0, -1){.25}}
+    \put(10.1, .63){{\tiny \texttt{xdvi}}}
+    \put(10.1, 1.1){\hbox{.}\kern.1ex\raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+    \put(8.5, 1.5){\vector(0, -1){1}}
+    \put(8.5, 2){\oval(2, 1)}
+    \put(8.5, 2){\makebox(0, 0){\texttt{.dvi}}}
+    \put(8.5, 4){\vector(0, -1){1.5}}
+    \put(7.5, 4){\framebox(2, 1){\TeX}}
+    %Plain
+    \put(9.75, 5.25){\line(-1, 0){1.25}}
+    \put(9.75, 5.25){\line( 0, -1){.5}}
+    \put(9.75, 4.75){\line(-1, 0){.25}}
+    \put(9.8, 4.68){{\tiny Plain}}
+    %LaTeX
+    \put(10, 5.5){\line(-1, 0){1.25}}
+    \put(10, 5.5){\line( 0, -1){.5}}
+    \put(10, 5){\line(-1, 0){.25}}
+    \put(8.75, 5.5){\line( 0, -1){.25}}
+    \put(10.1, 4.95){{\tiny \LaTeXe}}
+    \put(10.25, 5.75){\line(-1, 0){1.25}}
+    \put(10.25, 5.75){\line( 0, -1){.5}}
+    \put(10.25, 5.25){\line(-1, 0){.25}}
+    \put(9, 5.75){\line( 0, -1){.25}}
+    \put(10.35, 5.4){{\tiny AMS-Package}}
+    %
+    \put(10.35, 5.85){\hbox{.}\kern.1ex
+    \raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+    %
+    \put(8.5, 6.5){\vector(0, -1){1.5}}
+    \put(8.5, 7){\oval(2, 1)}
+    \put(8.5, 7){\makebox(0, 0){\texttt{.tex}}}
+    %
+    \multiput(8.5, 9)(0, -.415){3}{\line(0, -1){.25}}
+    \put(8.5, 8.7){\vector(0, 1){.3}}
+    \put(8.5, 7.8){\vector(0, -1){.3}}
+    \put(7.5, 9){\framebox(2, 1){editor}}
+    %Spelling checker
+    \put(9.75, 10.25){\line(-1, 0){1.25}}
+    \put(9.75, 10.25){\line( 0, -1){.5}}
+    \put(9.75, 9.75){\line(-1, 0){.25}}
+    \put(9.85, 9.75){{\tiny \texttt{emacs}}}
+    %Style checker
+    \put(10, 10.5){\line(-1, 0){1.25}}
+    \put(10, 10.5){\line( 0, -1){.5}}
+    \put(10, 10){\line(-1, 0){.25}}
+    \put(8.75, 10.5){\line( 0, -1){.25}}
+    \put(10.1, 10){{\tiny \texttt{ispell}}}
+    %
+    \put(10.1, 10.6){\hbox{.}\kern.1ex
+    \raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+    %
+    \put(8.5, 11.5){\vector(0, -1){1.5}}
+    \put(8.5, 12){\oval(2, 1)}
+    \put(8.5, 12){\makebox(0, 0){copy}}
+    %basis
+    \put(1, 0){\vector(1, 0){6.5}}
+    \put(9.5, 0){\vector(1, 0){2}}
+    \put(11.5, -.75){\framebox(2, 1.5){}}
+    \put(11.70, -.4){\shortstack{\small printer\\\small screen}}
+    %middle
+    \multiput(5, 5.25)(0, 1){3}{\line(0,1){.5}}
+    \multiput(5,  .25)(0, 1){4}{\line(0,1){.5}}
+    \multiput(5, -1.75)(0, 1.3){2}{\line(0,1){.2}}
+    %
+    \put(3.5, -1.250){\dashbox{.25}(3, .5){{\tiny \textsc{PostScript}}}}
+    \multiput(6.5, -1)(.45, 0){4}{\line(1,0){.25}}
+    \put(8.5, -1){\line( -1, 0){.2}}
+    %
+    \put(8.5, -1){\vector(0, 1){.5}}
+    \put(2.5, 4.5){\vector(1, 0){1.5}}
+    \put(5, 4.5){\oval(2, 1)}
+    \put(5, 4.5){\makebox(0, 0){\texttt{.tfm}}}
+    \put(6, 4.5){\vector(1, 0){1.5}}
+    \put(9.5, 4.5){\vector(1, 0){2}}
+    \put(12.5, 4.5){\oval(2, 1)}
+    \put(12.5, 4.5){\makebox(0, 0){\texttt{.log}}}
+    %base line
+    \put(.51,-1.75){\vector(-1, 0){1}}
+    \put(2.25, -1.75){\makebox(0, 0){Fonts}}
+    \put(3.9,-1.75){\vector( 1, 0){1}}
+    \put(6.1,-1.75){\vector(-1, 0){1}}
+    \put(9, -1.75){\makebox(0, 0){Typesetting}}
+    \put(12.4,-1.75){\vector(1, 0){1}}
+    \end{picture}
+
+
+
+</t>
+<t tx="amd_yen.20130503185304.3021">以下為數學式:
+
+.. math::
+
+   E_r^2 - |\boldsymbol{p}|^2 c^2 &amp;= m_0^2 c^4 \\
+   E_r^2 - (pc)^2 &amp;= (m_0 c^2)^2
+
+或者
+
+.. math::
+
+   E_r = \sqrt{(m_0 c^2)^2 + (pc)^2}
+   
+至於文章中的數學符號用法:
+
+Here the :math:`(pc)^2` term represents the square of the Euclidean norm (total vector length) of the various momentum vectors in the system, which reduces to the square of the simple momentum magnitude, if only a single particle is considered. This equation reduces to |E=mc²| when the momentum term is zero. For photons where :math:`\boldsymbol{m_0 = 0}`, the equation reduces to :math:`\boldsymbol{E_r = pc}`.
+
+
+.. math::
+
+   E_k = m_0(\gamma-1)c^2 = \frac{m_0 c^2}{\sqrt{1 - \frac{v^2}{c^2}}} - {m_0 c^2},
+
+with |v| the velocity, :math:`m_0` the rest mass, and γ the Lorentz factor.
+
+He included the second term on the right to make sure that for small velocities, the energy would be the same as in classical mechanics:
+
+.. math::
+
+   E_k = \frac{1}{2} m_0 v^2 + \cdots.
+
+Without this second term, there would be an additional contribution in the energy when the particle is not moving.
+
+Einstein found that the total momentum of a moving particle is:
+
+.. math::
+
+   P = \frac{m_0 v}{\sqrt{1-\frac{v^2}{c^2}}}.
+
+and it is this quantity which is conserved in collisions. The ratio of the momentum to the velocity is the relativistic mass, |m|:
+
+.. math::
+
+   m = \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+
+and the relativistic mass and the relativistic kinetic energy are related by the formula:
+
+.. math::
+
+   E_k = {m c^2} - {m_0 c^2}.
+
+Einstein wanted to omit the unnatural second term on the right-hand side, whose only purpose is to make the energy at rest zero, and to declare that the particle has a total energy which obeys:
+
+.. math::
+
+   E = mc^2
+
+which is a sum of the rest energy :math:`m_0 c^2` and the kinetic energy. This total energy is mathematically more elegant, and fits better with the momentum in relativity. But to come to this conclusion, Einstein needed to think carefully about collisions. This expression for the energy implied that matter at rest has a huge amount of energy, and it is not clear whether this energy is physically real, or just a mathematical artifact with no physical meaning.
+
+In a collision process where all the rest-masses are the same at the beginning as at the end, either expression for the energy is conserved. The two expressions only differ by a constant which is the same at the beginning and at the end of the collision. Still, by analyzing the situation where particles are thrown off a heavy central particle, it is easy to see that the inertia of the central particle is reduced by the total energy emitted. This allowed Einstein to conclude that the inertia of a heavy particle is increased or diminished according to the energy it absorbs or emits.
+</t>
+<t tx="amd_yen.20130503185304.3022">.. 註解:: 以下將 latex 語法的內容直接透過 raw 指令傳遞, 但是 LaTeX raw 資料無法由 Sphinx 轉為 html
+
+.. raw:: latex
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Contents: The Bibliography
+    % File: biblio.tex (lshort2e.tex)
+    % $Id: biblio.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \begin{thebibliography}{99}
+    % 因為會自動加上 \bibname, 因此蓋掉下列重複的 \bibname
+    %\addcontentsline{toc}{chapter}{\bibname} 
+    \bibitem{manual} Leslie Lamport.  \newblock \emph{{\LaTeX:} A Document
+        Preparation System}.  \newblock Addison-Wesley, Reading,
+      Massachusetts, second edition, 1994, ISBN~0-201-52983-1.
+      
+    \bibitem{texbook} Donald~E. Knuth.  \newblock \textit{The \TeX{}book,}
+      Volume~A of \textit{Computers and Typesetting}, Addison-Wesley,
+      Reading, Massachusetts, second edition, 1984, ISBN~0-201-13448-9.
+    
+    \bibitem{companion} Michel Goossens, Frank Mittelbach and Alexander
+      Samarin.  \newblock \emph{The {\LaTeX} Companion}.  \newblock
+      Addison-Wesley, Reading, Massachusetts, 1994, ISBN~0-201-54199-8.
+     
+    \bibitem{local} Each \LaTeX{} installation should provide a so-called
+      \emph{\LaTeX{} Local Guide}, which explains the things that are
+      special to the local system.  It should be contained in a file called
+      \texttt{local.tex}. Unfortunately, some lazy sysops do not provide such a
+      document. In this case, go and ask your local \LaTeX{} guru for help.
+     
+    \bibitem{usrguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~for
+        authors}.  \newblock Comes with the \LaTeXe{} distribution as
+      \texttt{usrguide.tex}.
+    
+    \bibitem{clsguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~for
+        Class and Package writers}.  \newblock Comes with the \LaTeXe{}
+      distribution as \texttt{clsguide.tex}.
+    
+    \bibitem{fntguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~Font
+        selection}.  \newblock Comes with the \LaTeXe{} distribution as
+      \texttt{fntguide.tex}.
+    
+    \bibitem{graphics} D.~P.~Carlisle.  \newblock \emph{Packages in the
+        `graphics' bundle}.  \newblock Comes with the `graphics' bundle as
+      \texttt{grfguide.tex}, available from the same source your \LaTeX{}
+      distribution came from.
+    
+    \bibitem{verbatim} Rainer~Sch\"opf, Bernd~Raichle, Chris~Rowley.  
+    \newblock \emph{A New Implementation of \LaTeX's verbatim
+      Environments}.
+     \newblock Comes with the `tools' bundle as
+      \texttt{verbatim.dtx}, available from the same source your \LaTeX{}
+      distribution came from. 
+    
+    \bibitem{catalogue} Graham~Williams.  \newblock \emph{The TeX
+        Catalogue} is a very complete listing of many \TeX{} and \LaTeX{}
+        related packages.
+      \newblock Available online from \texttt{CTAN:/tex-archive/help/Catalogue/catalogue.html}
+      
+    \bibitem{eps} Keith~Reckdahl.  \newblock \emph{Using EPS Graphics in
+        \LaTeXe{} Documents}, which explains everything and much more than
+      you ever wanted to know about EPS files and their use in \LaTeX{}
+      documents.  \newblock Available online from
+      \texttt{CTAN:/tex-archive/info/epslatex.ps}
+    
+    \bibitem{xy-pic} Kristoffer H. Rose
+      \newblock \emph{\Xy-pic User's Guide}.  \newblock
+      Downloadable from CTAN with \Xy-pic distribution 
+    
+    \end{thebibliography}
+    
+    
+    %
+    
+    % Local Variables:
+    % TeX-master: "lshort2e"
+    % mode: latex
+    % mode: flyspell
+    % End:
+</t>
 </tnodes>
 </leo_file>

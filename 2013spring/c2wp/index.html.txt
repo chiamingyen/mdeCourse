@@ -16,6 +16,7 @@ KMOL's Users Guide
 
    frontmatter
    fromoutside
+   collaboration3
 
 
 `KMOL's home page`_  
