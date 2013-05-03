@@ -30,36 +30,37 @@ def read_lines(input_filename):
     f.close()
     return output_list
 
-# mylist 為各檔案內容
-mylist = []
-# finallist 為最後擷取出來的資料內容
-finallist = []
-# 分別取得檔案名稱
-for filename in find_files('./', '*.txt'):
-    # we go through all the files, and read file content in to my list
-    mylist = read_lines(filename)
-    # mylist 為各檔案中的所有資料
-    # 取各檔案的各行內容, mylist[myindex]
-    for myindex in range(len(mylist)):
-        for lineindex in range(len(mylist[myindex])):
-            # yes we print line by line for each file
-            mycolumn = ((mylist[myindex][lineindex]).rstrip()).split('\t')
-            # only list the first column is digit
-            if mycolumn[0].isdigit():
-                #mycolumn[6] 為學號
-                # mycolumn[8] 為成績
-                course_title = filename.split('\\')[0][2:]
-                exam_title = filename.split('\\')[1]
-                # 動態建立 book 資料表
-                score = library.new("score")
-                score.title = course_title
-                score.exam = exam_title
-                score.student = mycolumn[6]
-                score.points = mycolumn[8]
-                library.save(score)
-                library.commit()
-                finallist.append([course_title, exam_title, mycolumn[6],mycolumn[8]])
-                #print(course_title,":", exam_title, ":", mycolumn[6],":",mycolumn[8])
+if __name__ == '__main__':
+    # mylist 為各檔案內容
+    mylist = []
+    # finallist 為最後擷取出來的資料內容
+    finallist = []
+    # 分別取得檔案名稱
+    for filename in find_files('./', '*.txt'):
+        # we go through all the files, and read file content in to my list
+        mylist = read_lines(filename)
+        # mylist 為各檔案中的所有資料
+        # 取各檔案的各行內容, mylist[myindex]
+        for myindex in range(len(mylist)):
+            for lineindex in range(len(mylist[myindex])):
+                # yes we print line by line for each file
+                mycolumn = ((mylist[myindex][lineindex]).rstrip()).split('\t')
+                # only list the first column is digit
+                if mycolumn[0].isdigit():
+                    #mycolumn[6] 為學號
+                    # mycolumn[8] 為成績
+                    course_title = filename.split('\\')[0][2:]
+                    exam_title = filename.split('\\')[1]
+                    # 動態建立 book 資料表
+                    score = library.new("score")
+                    score.title = course_title
+                    score.exam = exam_title
+                    score.student = mycolumn[6]
+                    score.points = mycolumn[8]
+                    library.save(score)
+                    library.commit()
+                    finallist.append([course_title, exam_title, mycolumn[6],mycolumn[8]])
+                    #print(course_title,":", exam_title, ":", mycolumn[6],":",mycolumn[8])
 #@nonl
 #@-node:amd_yen.20130501090735.2391:@shadow c2/get_score.py
 #@-leo

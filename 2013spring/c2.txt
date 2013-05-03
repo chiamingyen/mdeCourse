@@ -5043,6 +5043,77 @@ PyQt 是 Nokia Qt 圖形介面框架的 Python 程式版本, 若開發開放源�
     :linenos:
 
 但是元件較多的畫面則可以使用 Qt Design 進行設計, 例如: c2/Gmail 中利用 Qt designer 設計 qtui 目錄下的主視窗 MainWindow.ui, 有關對話框 AboutDialog.ui 以及表單未填顯示框 MissingDialog.ui 等, 可以利用 IDE\Python33\Lib\site-packages\PyQt4\pyuic4.bat 轉為 .py 對應程式.
+.. @+node:amd_yen.20130501090735.3344: *5* PyQt 與 PySide 的差別
+PyQt 採 GPL 與商業授權 - 基本上若採用 PyQt 所編寫的程式碼若非開放源模式釋出, 就必須付費購買商業授權.
+
+PySide 採 LGPL - 可以用來開發開源或非開源的各種套件, 沒有付費需求與限制.
+
+- 模組呼叫名稱上的差異
+
+from PyQt4.QtCore import *
+
+或
+
+import PyQt4.QtCore
+
+要改為
+
+from PySide.QtCore import *
+
+或
+import PySide.QtCore
+
+- 支援程度上的差異
+
+其他參考資料:
+
+http://qt-project.org/wiki/Differences_Between_PySide_and_PyQt
+
+http://qt-project.org/wiki/PySide
+.. @+node:amd_yen.20130501090735.3345: *6* PySide 教學
+- 先取得 PySide for portableKMOL: http://qt-project.org/wiki/Get-PySide
+
+以下教學資料取自:
+
+http://qt-project.org/wiki/PySide_Tutorials 與 http://zetcode.com/gui/pysidetutorial/
+
+最簡單的 PySide 視窗程式:
+
+.. literalinclude:: ../c2/pyside/hello1.py
+    :language: python
+    :linenos:
+
+利用 QML 建立 PySide 視窗程式:
+
+.. literalinclude:: ../c2/pyside/hello_qml1.py
+    :language: python
+    :linenos:
+    
+執行時需要 view.qml
+
+.. literalinclude:: ../c2/pyside/view.qml
+    :language: none
+    :linenos:
+    
+PySide Tetris
+
+.. literalinclude:: ../c2/pyside/tetris.py
+    :language: none
+    :linenos:
+
+利用 PySide 編寫簡單的瀏覽器
+
+.. literalinclude:: ../c2/pyside/browser1.py
+    :language: none
+    :linenos:
+    
+其他 PySide 範例:
+
+https://github.com/PySide/Examples
+
+https://github.com/shuge/Enjoy-Qt-Python-Binding
+
+https://github.com/bootchk/freehandTool
 .. @+node:amd_yen.20130429221223.2316: *5* Qt designer 操作
 Qt designer.exe 位於 IDE\Python33\Lib\site-packages\PyQt4 目錄, 可以直接執行, 假如要使用英文介面啟動, 則可以在 PyQt4 目錄中建立 start_designer.bat, 內容為:
 

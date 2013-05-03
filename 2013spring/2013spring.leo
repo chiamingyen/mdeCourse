@@ -63,6 +63,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130426235501.5059" a="E"><vh>C2 第九週程式</vh>
 <v t="amd_yen.20130501090735.2391"><vh>@shadow c2/get_score.py</vh></v>
+<v t="amd_yen.20130501090735.3343"><vh>@shadow c2/list_score.py</vh></v>
 <v t="amd_yen.20130429141318.2172"><vh>@shadow c2/pyqt_1.py</vh></v>
 <v t="amd_yen.20130429141318.2173"><vh>@shadow c2/pyqt_2.py</vh></v>
 <v t="amd_yen.20130429141318.2174"><vh>@shadow c2/pyqt_3.py</vh></v>
@@ -71,7 +72,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130426235501.5060"><vh>@shadow c2/pyqt_notepad.py</vh></v>
 <v t="amd_yen.20130429141318.2177"><vh>@auto c2/pyqt_tetris.py</vh></v>
 <v t="amd_yen.20130429141318.2220" a="E"><vh>@auto c2/pyqt_browser1.py</vh></v>
-<v t="amd_yen.20130429141318.2221" a="E"><vh>@auto c2/pyqt_browser2.py</vh></v>
+<v t="amd_yen.20130429141318.2221"><vh>@auto c2/pyqt_browser2.py</vh></v>
 <v t="amd_yen.20130429141318.2218"><vh>@shadow c2/pyqt_browser3.py</vh></v>
 <v t="amd_yen.20130429141318.2217"><vh>@shadow c2/pyqt_browser.py</vh></v>
 <v t="amd_yen.20130429214002.3978"><vh>@path c2/pyqt_browser</vh>
@@ -88,6 +89,12 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130429221223.2321"><vh>@shadow c2/pyqt_button1.py</vh></v>
 <v t="amd_yen.20130429221223.2322"><vh>@shadow c2/pyqt_calculate1.py</vh></v>
 <v t="amd_yen.20130429221223.2323"><vh>@shadow c2/pyqt_painter1.py</vh></v>
+<v t="amd_yen.20130501090735.3346"><vh>@shadow c2/pyside/hello1.py</vh></v>
+<v t="amd_yen.20130501090735.3347"><vh>@shadow c2/pyside/hello_qml1.py</vh></v>
+<v t="amd_yen.20130501090735.3348"><vh>@edit c2/pyside/view.qml</vh></v>
+<v t="amd_yen.20130501090735.3349"><vh>@shadow c2/pyside/tetris.py</vh></v>
+<v t="amd_yen.20130501090735.3350"><vh>@shadow c2/pyside/browser1.py</vh></v>
+<v t="amd_yen.20130501090735.3351"><vh>@shadow c2/pyside/notepad1.py</vh></v>
 <v t="amd_yen.20130429221223.10895"><vh>@path c2/Gmail</vh>
 <v t="amd_yen.20130429221223.10896" a="E"><vh>@file main.py</vh></v>
 <v t="amd_yen.20130429221223.10899"><vh>@file About.py</vh></v>
@@ -108,7 +115,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130411195311.2086,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130429221223.2316,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130411195311.2086,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
@@ -124,7 +131,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130413002743.2095,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
@@ -141,8 +148,12 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.201303
 <v t="amd_yen.20130406103207.2440"><vh>@edit wcm/mysite/mysite/urls.py</vh></v>
 <v t="amd_yen.20130406103207.2441"><vh>啟動伺服器</vh></v>
 </v>
+<v t="amd_yen.20130503085936.2410" a="E"><vh>WCM 第三週程式</vh>
+<v t="amd_yen.20130503085936.2411"><vh>@shadow wcm/wordpress1.py</vh></v>
+</v>
 <v t="amd_yen.20130429221223.2319" a="E"><vh>WCM 第十週程式</vh>
 <v t="amd_yen.20130429221223.2320"><vh>@shadow wcm/exchange1.py</vh></v>
+<v t="amd_yen.20130503085936.2409"><vh>@shadow wcm/pyside_exchange1.py</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2407" a="E"
@@ -4044,5 +4055,6 @@ except AttributeError:
 針對特定 tree 執行 rst3 的指令: c.rstCommands.rst3()
 
 </t>
+<t tx="amd_yen.20130503085936.2410"></t>
 </tnodes>
 </leo_file>
