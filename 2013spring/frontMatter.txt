@@ -36,6 +36,8 @@
        :delim: |
     
         2013/02/28|採用 Leo Editor、Sphinx 與 MiKTeX, 著手建立KMOL 手冊第 1.0 版本.
+        
+        2013/05/04|採用 Leo Editor 4.11 build 5768 develop 版本
 
 .. @+node:amd_yen.20130308221230.3830: *3* @rst-no-head Links
 .. @+node:amd_yen.20130314194325.5951: *3* @rst-ignore 致謝
@@ -107,5 +109,16 @@ https://github.com/chiamingyen/mdeCourse
 - 要自我訂定看書的範圍與規劃, 假如是在學校, 可以按照課程的安排進行閱讀計畫, 若是屬於課程以外的主題研究或探討, 則選定某一時段, 專注研究特定與課程相關的內容, 並且透過筆記的整理, 定期重新審視整理或補遺.
 
 - 筆記的發布, 可以透過網誌或制式的論文發表方式公諸於世, 未經發表的心得無法讓有需要的人取用, 因此除了持續閱讀整理筆記外, 也必須要有系統地讓他人有機會分享.
+.. @+node:amd_yen.20130504232827.2626: *3* Leo Editor 程式修改
+2013.05.04 使用最新版的 Leo Editor(http://www.greygreen.org/leo/):
+
+必須修正 core/LeoApp.py 第 3237 行, 加入 encoding="UTF-8", 否則會發出 CP950 無法解讀 UTF-8 編碼內容的錯誤.
+
+        try:
+            theFile = open(fileName, encoding="UTF-8")
+            lines = theFile.readlines()
+            if lines and rf.sanitize(lines[0])=='readonly':
+                # g.trace('read-only: %s' %fileName)
+                return False
 .. @-all
 .. @-leo

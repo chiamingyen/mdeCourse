@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: The title page
+% $Id: title.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 中文~4.20~翻譯：zpxing@bbs.ctex email: zpxing at gmail dot com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifx\pdfoutput\undefined % We're not running pdftex
+\else
+%\pdfbookmark{Title Page}{title}
+\pdfbookmark{標題頁}{title}
+\fi
+\newlength{\centeroffset}
+\setlength{\centeroffset}{-0.5\oddsidemargin}
+\addtolength{\centeroffset}{0.5\evensidemargin}
+%\addtolength{\textwidth}{-\centeroffset}
+\thispagestyle{empty}
+\vspace*{\stretch{1}}
+\noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
+\flushright
+{\huge \bfseries 不算短的~\LaTeXe{}~介紹}
+\noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
+\hfill\emph{\Large 或~\pageref{verylast}~分鐘學會~\LaTeXe}
+%{\Huge\bfseries The Not So Short\\
+%Introduction to \LaTeXe
+%
+%}
+%\noindent\rule[-1ex]{\textwidth}{5pt}\\[2.5ex]
+%\hfill\emph{\Large Or \LaTeXe{} in \pageref{verylast} minutes}
+\end{minipage}}
+
+\vspace{\stretch{1}}
+\noindent\hspace*{\centeroffset}\makebox[0pt][l]{\begin{minipage}{\textwidth}
+\flushright
+{\bfseries 原版作者：} Tobias Oetiker\\[1.5ex]
+　　　　　             Hubert Partl, Irene Hyna and  Elisabeth Schlegl\\[1.5ex]
+{\bfseries 原版版本：} Version~4.20, May 31, 2006\\[3ex]
+{\bfseries 中文翻譯：} 中文~\TeX{}~學會\\[1.5ex]
+{\bfseries 中文版本：} 版本~4.20，二零零七年九月\\[1.5ex]
+{\bfseries 重製版本：} 版本~4.21，二零壹參年五月，portableKMOL
+\end{minipage}}
+
+
+%\addtolength{\textwidth}{\centeroffset}
+\vspace{\stretch{2}}
+
+
+\pagebreak
+\begin{small}
+%  Copyright \copyright 1995-2005 Tobias Oetiker and Contributers.  All rights reserved.
+   Tobias\ Oetiker~及貢獻者擁有版權~\copyright\ 1995 -- 2005。
+   保留所有權利。
+
+%  This document is free; you can redistribute it and/or modify it
+%  under the terms of the GNU General Public License as published by
+%  the Free Software Foundation; either version 2 of the License, or
+%  (at your option) any later version.
+   這份文檔是免費的；在~Free Software Foundation~頒布的~GNU~通用出版許可證的條款下，
+   你可以再版或者修改它。許可證可以是第二版，或者任何後繼版本（隨你意）。
+
+%  This document is distributed in the hope that it will be useful, but
+%  WITHOUT ANY WARRANTY; without even the implied warranty of
+%  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE\@.  See the GNU
+%  General Public License for more details.
+   發佈這份文檔是希望它會有用，但並不提供任何保障；甚至沒有用於商業的或者
+   適用某一特定目的的暗含保證。更多的細節請查看~GNU~通用出版許可證。
+
+%  You should have received a copy of the GNU General Public License
+%  along with this document; if not, write to the Free Software
+%  Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+   你應該隨這份文檔收到一份~GNU~通用出版許可證的拷貝；如果沒有，寫信到
+   ~Free Software Foundation，地址：675 Mass Ave, Cambridge, MA 02139, USA。
+
+\end{small}
+
+
+\endinput
+
+%
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% mode: flyspell
+% End:
+

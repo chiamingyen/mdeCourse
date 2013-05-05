@@ -77,6 +77,403 @@ http://www.virtualenv.org/en/latest/
 
 使用 virtualenv 工具來處理不同應用程式彼此版次相依的問題
 
+LaTeX 簡介
+************
+
+LaTeX 源自 TeX, 而 TeX 是一套在 1978年由 Donald E. Knuth 所開發的一套排版系統(typesetting system or document preparation system), 電腦排版系統的流程由使用者利用 TeX 程式標註語法來編寫排版流程中所需要的文字檔案, 之後經過 LaTeX 系統編譯後可以輸出各種格式的出版文件, 其中包括 pdf, html, epub 與 chm 等常用格式.
+
+中文參考資料: http://zzg34b.w3.c361.com/
+
+英文參考資料: http://tobi.oetiker.ch/lshort/lshort.pdf
+
+以下為一個簡單的 LaTeX 文件, 可以利用 SciTE 編輯後存成 mytext.tex 檔案.
+
+.. code-block:: none
+
+    \documentclass{article}
+    \title{My title}
+    
+    \begin{document}
+    
+    \maketitle
+    
+    This i my document content
+    
+    \end{document}
+
+如何利用 LaTeX 將 mytext.tex 轉為 pdf 格式文件?
+
+Simple. When you write a line like:
+
+定義標題
+
+\title{My title}
+
+產生標題
+
+\maketitle
+
+宣告文件類別
+
+\documentclass{article}
+
+文件開頭標註
+
+\begin{document}
+
+文件結束標註
+
+\end{document}
+
+段落與子段落
+
+.. code-block:: none
+
+    \documentclass {article}
+    \title{A sample document}
+    \author{The Author}
+    \date{23 Jan 2013}
+    
+    \begin{document}
+    
+    \maketitle
+    
+    \section{This is a section}
+    
+    Articles are usually organized as sections, sub-sections etc.
+    
+    \subsection{This is a sub section}
+    
+    A subsection is part of a section.
+    
+    \section{This is another section}
+    
+    This section does not have any sub-section!
+    
+    \end{document}
+    
+    \documentclass {article}
+    
+    \begin{document}
+    
+    Here is how you typeset a short quotation:
+    
+    \begin{quote}
+    This is an example of a short quotation. It consists of a single
+    para of text. See how it is formatted.
+    \end{quote}
+    
+    And, here is an example of a longer quotation:
+    
+    \begin{quotation}
+    This is an example of a longer quotation. It consists of more
+    than one paragraph of text.
+    
+    This is the second para of the quotation.
+    \end{quotation}
+    
+    Here is an example of an unnumbered list:
+    \begin{itemize}
+     \item Apple
+     \item Orange
+     \item Banana
+    \end{itemize}
+    
+    And, an example of a numbered list:
+    \begin{enumerate}
+     \item Newton
+     \item Pascal
+     \item Euler
+    \end{enumerate}
+    
+    \end{document}
+    
+.. code-block:: none
+    
+    \documentclass {article}
+    \begin{document}
+    
+    Here is a formula: $E = mc^{2}$
+    
+    Same formula, but this is typeset differently: \[ E = mc^{2} \]
+    
+    Same formula again, different typesetting:
+     \begin{equation}
+     E = mc^{2}
+     \end{equation}
+    
+    Repeat:
+     \begin{equation}
+      E = mc^{2}
+     \end{equation}
+    
+    \end{document}
+    
+    picture environment
+    
+    \documentclass {article}
+    \begin{document}
+    
+    \section{This is a section}
+    
+    \begin{picture}(100,200)
+    
+    \put (0,0) {A}
+    \put (100,0) {B}
+    \put (100, 200) {C}
+    \put (0, 200) {D}
+    \end{picture}
+    
+    \end{document}
+
+
+The LaTeX command:
+
+\begin{picture}(100, 200)
+creates a “picture environment” of width 100 units and height 200 units (imagine the picture environment producing a 100x200 box) - a unit has a default value of about 0.35mm. The command:
+
+\put (0,0) {A}
+writes the symbol “A” at location (0,0) of the box; location (0,0) is the (x, y) co-ordinate of the lower left corner of the box (it is the origin). The +ve X axis is towards the right and the upward direction represents +ve Y axis. The command:
+
+\put (100,200) {C}
+places the symbol C at the top right corner. The commands:
+
+\put (100, 0) {B}
+\put (0, 200) {D}
+places the symbols B and D at the bottom right and top left corners of the box.
+
+16.2. Drawing Lines
+Drawing lines in LaTeX is tricky business - due to certain limitations, it is not possible to draw lines with any random slope. The natural way for a line drawing command to work would be to accept the co-ordinates of the end points and draw a line connecting the points. But that is not the way it is done in LaTeX. To simplify things, we consider three separate cases: drawing a horizontal line, drawing a vertical line and drawing lines with many other slopes. For all three cases, we assume a box of size 100x200 with origin (0, 0) at the bottom left corner (the same box as in the previous section).
+
+16.2.1. Horizontal lines
+Let’s say we wish to draw a horizontal line of length 40 units from point (30, 90). Here is how it is done:
+
+\put(30,90){\line(1,0){40}}
+We can identify two separate parts in this command; the first part:
+
+\put(30, 90)
+says: start the line at point (30, 90). The next part is:
+
+\line(1,0){40}
+This is how it works: LaTeX draws a line of length 40 units and passing through the points:
+
+(30, 90) and (30 + 1, 90 + 0)
+and ending at (70, 90).
+
+What if we write:
+
+\put(30, 90){ \line(-1, 0) {30} }
+We get a line passing through (30, 90) and (30 - 1, 90 + 0) of length 30 units, ending at (0, 90).
+
+So, the general command for drawing a horizontal line is:
+
+\put(x,y) { \line(A, 0){len} }
+Where (x,y) is the starting co-ordinate of the line, A is +1 or -1 (depending on whether you want to draw to the right of (x, y) or left of (x, y) and len is the length of the line.
+
+16.2.2. Vertical lines
+It should be easy to guess how vertical lines are drawn! Here is an example:
+
+\put(30,90) {\line(0,1) {40}}
+This draws a vertical line connecting (30, 90) and (30, 91) of length 40 units ending at (30, 130). The general command is:
+
+\put(x,y) { \line(0, A){len} }
+Where (x, y) is the starting co-ordinate of the line, A is +1 or -1 depending on whether the line goes up or down and len is the length of the line.
+
+16.2.3. Slanted lines (neither vertical nor horizontal)
+What kind of line does LaTeX draw if we write:
+
+\put(30,90) {\line(1, -1) {40}}
+LaTeX draws a line going through (30, 90) and (31, 89) (ie, sloping down to the right); what is the length of this line? That is not specified here - the number 40 written in curly brackets simply indicates the fact that as the line moves down to the right, it will end at that point where the X co-ordinate is 30 + 40.
+
+What if we write:
+
+\put(40,90) {\line(-1, 1) {30}}
+We get a line starting at (40, 90), going through (39, 91) (going up to the left) and ending at a point whose X co-ordinate is 40 - 30, ie 10.
+
+The general form of the command for a slanted line is:
+
+\put(x,y) {\line(p, q) {len}}
+LaTeX has certain restrictions on the values of p and q - this places a limit on the slopes of the lines which we can draw. Both p and q should be integers between -6 and +6, inclusive. Also, they should have no common divisor bigger than 1. That is, p/q should be a fraction in its simplest form - you can’t have something like p = 2 and q = 4; you should write p = 1 and q = 2. The following are all illegal values for p and q:
+
+(1.2, 3) --- no decimal permitted
+(3, 6) --- common divisor 3 bigger than 1
+(1, 7) --- one value bigger than +6
+The smallest slanted line which LaTeX can draw is a line of length 10 points (about 3.5mm). LaTeX will draw nothing if you try to draw slanted lines less than this length.
+
+16.3. Circles, ovals and bezier curves
+Note We are assuming that the picture environment has width 100 units and height 200 units in all the examples below.
+Here is how you can draw a circle:
+
+\put(20,30) {circle{20}}
+This draws a circle at center (20,30) with diameter 20 points.
+
+The command:
+
+\put(20,30) {\circle*{20}}
+draws a disc (a filled circle) at (20,30) with a diameter of 20 points.
+
+LaTeX knows to draw discs/circles with only a certain fixed number of diameters - it will choose the one whose diameter is closest to what you have specified. Also, the set of possible diameters has an upper limit.
+
+The command:
+
+\put(30,30) {\oval(20,10)}
+will draw an oval (a rectangle with rounded corners) of width 20 units and height 10 units.
+
+The qbezier command takes three points as arguments and draws a quadratic bezier curve connecting them:
+
+\qbezier (0,0) (50,100) (100, 0)
+16.4. Using the “graphics” package
+Using a package called “graphics”, we can include images in our LaTeX document, perform manipulations like rotation/scaling, add colour etc.
+
+16.4.1. Scaling, Rotation, Colour change
+Create a file called pic2.tex with the following lines in it:
+
+.. code-block:: none
+
+    \documentclass {article}
+    \usepackage{graphics}
+    \usepackage{color}
+    
+    \begin{document}
+    
+    \scalebox{4}{Hello}
+    
+    \rotatebox{40} {Maths}
+    
+    Python \reflectbox{Python}
+    
+    \textcolor{red}{GNU/Linux} means Freedom!
+    
+    \colorbox{green}{Malayalam}
+    
+    \end{document}
+
+16.4.2. Displaying images
+Sometimes, you may have to include an external image file (say a JPG or PNG file) in your LaTeX document. There are two ways to do it.
+
+Suppose you are using the “pdflatex” command and want to display a photo of Ramanujan somewhere in your document. Just write:
+
+\includegraphics{ramanujan.jpg}
+Note that “pdflatex” supports only JPG and PNG formats. The file “ramanujan.jpg” should exist in the folder(directory) from where you are issuing the “pdflatex” command.
+
+If you are using the “latex” command, you will have to first convert your JPG/PNG image to what is called an encapsulated postscript file. This can be done very easily on GNU/Linux systems by using a command called “convert”. At the command prompt, you should type:
+
+convert ramanujan.jpg ramanujan.eps
+Once this is done, you can use:
+
+\includegraphics{ramanujan.eps}
+to include the image in your document.
+
+16.5. Using “pstricks” for advanced picture drawing
+We have seen that the facilities available by default in LaTeX for drawing lines, circles etc are not very sophisticated. A package called “pstricks” can be used for generating complex figures without too much trouble. Let’s try to plot a curve using pstricks:
+
+.. code-block:: none
+    
+    \documentclass {article}
+    \usepackage{pstricks}
+    \usepackage{pst-plot}
+    
+    \begin{document}
+    
+    \begin{pspicture}(-3, -2)(3, 2)
+    \psaxes(0,0)(-3,-2)(3,2)
+    \psplot[plotstyle=curve] {-1.5} {1.5} {x 3 exp x sub}
+    \end{pspicture}
+    
+    \end{document}
+    
+Two packages have to be included: pstricks and pst-plot. Also, “pdflatex” will not work with the above file - you have to use the “latex” command itself.
+
+The line:
+
+\begin{pspicture} (-3, -2) (3, 2)
+starts a “pspicture” environment - think of it as a request to LaTeX to leave enough space for a rectangle whose bottom left corner has co-ordinate (-3, -2) and top right corner has co-ordinate (3, 2).
+
+The next command:
+
+\psaxes(0,0) (-3, -2) (3, 2)
+draws the co-ordinate axes. The X axis and Y axis meet at the point (0, 0) and they have to be visualized as being enclosed in an imaginary rectangular box with bottom left corner at (-3, -2) and top right corner at (3, 2).
+
+We are plotting the curve:
+
+y = (x * x * x) - x
+This equation has to be specified in a peculiar form called postfix. An arithmetic expression written in the usual way:
+
+2 * 3 + 4
+is called an infix expression. Here is another way to write the same expression:
+
+2 3 * 4 +
+This is called a postfix expression. The logic is simple. Read the expression from left to right. When you encounter an operator, simply apply the operator to the two operands to the left. In the above case, the moment we see the * operator (multiplication), we can rewrite the expression as:
+
+6 4 +
+Now, when we encounter the + operator, we can rewrite the expression as:
+
+10
+Let’s examine this line in our LaTeX document:
+
+\psplot[plotstyle=curve] {-1.5} {1.5} {x 3 exp x sub}
+We are asking LaTeX to plot a curve; the curve is given by the equation:
+
+y = x 3 exp x sub
+(note: you need to specify only the right hand side of the equation).
+
+This equation is written in postfix form; exp is the exponentiation operator and sub is the subtraction operator. So we can read this as:
+
+y = (x raised to 3) minus x
+The numbers -1.5 and +1.5 in brackets refers to the range of possible values for x.
+
+LaTeX 範例
+^^^^^^^^^^^^
+
+.. code-block:: none
+
+    \documentclass[12pt]{article}
+    \usepackage{amsmath}
+    \title{\LaTeX}
+    \date{}
+    \begin{document}
+      \maketitle
+      \LaTeX{} is a document preparation system for the \TeX{}
+      typesetting program. It offers programmable desktop publishing
+      features and extensive facilities for automating most aspects of
+      typesetting and desktop publishing, including numbering and
+      cross-referencing, tables and figures, page layout, bibliographies,
+      and much more. \LaTeX{} was originally written in 1984 by Leslie
+      Lamport and has become the dominant method for using \TeX; few
+      people write in plain \TeX{} anymore. The current version is
+      \LaTeXe.
+     
+      % This is a comment; it will not be shown in the final output.
+      % The following shows a little of the typesetting power of LaTeX:
+      \begin{align}
+        E &= mc^2                              \\
+        m &= \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+      \end{align}
+    \end{document}
+    
+.. code-block:: none
+
+    \documentclass{article}
+    % Begin 中文設定 不需要中文時, % 放入行頭, 作 comment
+    \usepackage{fontspec} %加這個就可以設定字體 
+    \usepackage{xeCJK} %讓中英文字體分開設置
+    \setCJKmainfont{HanWangWCL06}
+    %字型設定變換請參考王漢宗教授字型表
+    \XeTeXlinebreaklocale "zh" %這兩行一定要加，中文才能自動換行
+    \XeTeXlinebreakskip = 0pt plus 1pt
+    % End 中文設定
+    
+    \title{Test Title}
+    \author{Yu-Tuan Lin}
+    \date{October 2011}  
+    % date{} --> Today ;  Latex 中 % 之後為說明, 不會在文件顯現 
+    
+    \begin{document}
+    \maketitle
+       Hello world! 可以輸入中文! 點選 TextArea 下方 \\
+        Launch CodeCogs Equation Editor 取得 Tex 格式方程式.
+    \end{document}
+
 Linux 操作
 ************
 
@@ -140,7 +537,59 @@ http://cad-3d.blogspot.tw/2011/10/pythonocc-open-source-interactive-cad.html
 Leo 相關
 **********
 
+@@tabwidth
 
+tabwidth 用於內文中的指令, 設定 tabs 的寬度, 負值代表要將 tabs 轉換為幾個空白鍵, 例如 @@tabwidth -4, 表示要用 4 個空白鍵來取代一個 tab.
+
+Ctrl+b 表示要執行節點對應的內文程式, 假如此時滑鼠選擇內文中的某一部分程式, 則 Ctrl+b 將只會執行該選擇範圍內的程式碼(?).
+
+g.es(p.b) # 列出 position 所對應的 body 內文
+
+g.es(p.h) # 列出 position 所對應的 head 標題
+
+Leo 的 iterator
+
+c.all_nodes             # all vnodes in c.
+
+c.all_unique_nodes      # all unique vnodes in c.
+
+c.all_positions         # all positions in c.
+
+c.all_unique_positions  # all unique positions in c.
+
+p.children              # all children of p.
+
+p.following_siblings    # all siblings of p that follow p.
+
+p.nodes                 # all vnodes in p's subtree.
+
+p.parents               # all parents of p.
+
+p.self_and_parents      # p and all parents of p.
+
+p.siblings              # all siblings of p, including p.
+
+p.subtree               # all positions in p's subtree, excluding p.
+
+p.self_and_subtree      # all positions in p's subtree, including p.
+
+p.unique_nodes          # all unique vnodes in p's subtree.
+
+p.unique_subtree        # all unique positions in p's subtree.
+
+設定
+
+p.b = s  # Sets the body text of p.
+
+移動節點
+
+p.moveAfter(v2)           # move p after v2
+
+p.moveToNthChildOf(v2,n)  # move p to the n'th child of v2
+
+p.moveToRoot(oldRoot)     # make p the root position.
+                          # oldRoot must be the old root position if it exists.
+p.h = s  # Sets the headline text of p.
 
 基本操作
 ^^^^^^^^^^^^
@@ -505,6 +954,8 @@ fireflysung.ttf 文鼎 P L 新宋 (15 MB)
 
 arplbaosong2gbklt.ttf 文鼎ＰＬ报宋二GBK (16 MB)
 
+simhei.ttf SimHei (10MB)
+
 目前 portableLatex 所支援的中文字型:
 
 以 fc-list :lang=zh > font.txt 取得
@@ -534,6 +985,25 @@ cwTeXKai,cwTeX 楷書:style=Medium
 MingLiU,細明體:style=Regular
 
 cwTeXYen,cwTeX 圓體:style=Medium
+
+中文字型設定
+
+\usepackage[BoldFont,CJKchecksingle]{xeCJK} % 表示要將中文字型與英文字型分開設置
+
+\usepackage[T1]{fontspec}    %表示隨後要自行設定字型
+
+設定英文字型為 Times New Roman
+
+\setsansfont{Times New Roman}
+\setmainfont{Times New Roman}
+\setmonofont{Times New Roman}
+
+將中文字型設為 SimHei
+
+\setCJKsansfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
+\setCJKromanfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
+\setCJKmainfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
+\setCJKmonofont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
 
 數學方程式
 ^^^^^^^^^^^^^^^

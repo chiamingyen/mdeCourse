@@ -14,11 +14,11 @@
 <v t="amd_yen.20130306001037.1798"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="amd_yen.20130306001037.1799"><vh>@string initial_split_orientation = vertical</vh></v>
 </v>
-<v t="amd_yen.20130307204656.1443"><vh>課程規劃與進行</vh>
+<v t="amd_yen.20130307204656.1443" a="E"><vh>課程規劃與進行</vh>
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
-<v t="amd_yen.20130308210411.2383"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
+<v t="amd_yen.20130308210411.2383" a="E"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
 <v t="amd_yen.20130314194325.1514" a="E"><vh>@button generate-current</vh>
 <v t="amd_yen.20130308210411.2404"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
 <v t="amd_yen.20130308210411.2405"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
@@ -115,9 +115,9 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130411195311.2086,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130411195311.2086,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,"><vh>@file c2.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
+<v t="amd_yen.20130308210411.2385"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
 <v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
@@ -134,15 +134,15 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130413002743.2095,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
-<v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
+<v t="amd_yen.20130406103207.2438" a="E"><vh>django 程式開發</vh>
 <v t="amd_yen.20130406103207.2442"><vh>@url Tutorial 1</vh></v>
 <v t="amd_yen.20130406103207.2285"><vh>@edit wcm/django1.py</vh></v>
-<v t="amd_yen.20130406103207.2286"><vh>@button django project</vh></v>
+<v t="amd_yen.20130406103207.2286"><vh>@@button django project</vh></v>
 <v t="amd_yen.20130406103207.2435"><vh>@edit wcm/mysite/mysite/settings.py</vh></v>
-<v t="amd_yen.20130406103207.2434"><vh>@button sync db</vh></v>
-<v t="amd_yen.20130406103207.2287"><vh>@button startapp polls</vh></v>
+<v t="amd_yen.20130406103207.2434"><vh>@@button sync db</vh></v>
+<v t="amd_yen.20130406103207.2287"><vh>@@button startapp polls</vh></v>
 <v t="amd_yen.20130406103207.2436"><vh>@edit wcm/mysite/polls/models.py</vh></v>
-<v t="amd_yen.20130406103207.2437"><vh>@button sql polls</vh></v>
+<v t="amd_yen.20130406103207.2437"><vh>@@button sql polls</vh></v>
 <v t="amd_yen.20130406103207.2434"></v>
 <v t="amd_yen.20130406103207.2439"><vh>@url Tutorial 2</vh></v>
 <v t="amd_yen.20130406103207.2440"><vh>@edit wcm/mysite/mysite/urls.py</vh></v>
@@ -162,7 +162,7 @@ expanded="amd_yen.20130308210411.2408,amd_yen.20130418193628.2823,"><vh>@file wc
 <v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
-expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130308221230.2482,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
+expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130503185304.5151,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
 </v>
 </v>
 <v t="amd_yen.20130409162552.1785" a="E"><vh>可攜 Leo Editor</vh>
@@ -382,6 +382,16 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130423211907.2157"><vh>3D FreeCAD</vh></v>
 </v>
 <v t="amd_yen.20130406103207.2760"><vh>C Pointer and Array</vh>
+<v t="amd_yen.20130503185304.5137" a="E"><vh>C 程式</vh>
+<v t="amd_yen.20130503185304.5138"><vh>@auto c/ch1_1.c</vh></v>
+<v t="amd_yen.20130503185304.5139"><vh>@auto c/ch1.1.c</vh></v>
+<v t="amd_yen.20130503185304.5140"><vh>@auto c/ch2.1.c</vh></v>
+<v t="amd_yen.20130503185304.5141"><vh>@auto c/ch3.1.c</vh></v>
+<v t="amd_yen.20130503185304.5142"><vh>@auto c/ch4.1.c</vh></v>
+<v t="amd_yen.20130503185304.5143"><vh>@auto c/ch5.1.c</vh></v>
+<v t="amd_yen.20130503185304.5144"><vh>@auto c/ch5.2.c</vh></v>
+<v t="amd_yen.20130503185304.5146"><vh>@auto c/ch6.1.c</vh></v>
+</v>
 <v t="amd_yen.20130406103207.2761"><vh>PREFACE</vh></v>
 <v t="amd_yen.20130406103207.2762"><vh>INTRODUCTION</vh></v>
 <v t="amd_yen.20130406103207.2763"><vh>Chapter 1: What is a Pointer?</vh></v>
@@ -389,13 +399,18 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130406103207.2765"><vh>Chapter 3: Pointers and Strings</vh></v>
 <v t="amd_yen.20130406103207.2766"><vh>Chapter 4: More on Strings</vh></v>
 <v t="amd_yen.20130406103207.2767"><vh>Chapter 5: Pointers and Structures</vh></v>
+<v t="amd_yen.20130503185304.5145"><vh>Chapter 6: More on Strings and Arrays of Strings</vh></v>
+<v t="amd_yen.20130503185304.5147"><vh>Chapter 7: More on Multi-Dimensional Arrays</vh></v>
+<v t="amd_yen.20130503185304.5148"><vh>Chapter 8: Pointers to Arrays</vh></v>
+<v t="amd_yen.20130503185304.5149"><vh>Chapter 9: Pointers and Dynamic Allocation of Memory</vh></v>
+<v t="amd_yen.20130503185304.5150"><vh>Chapter 10: Pointers to Functions</vh></v>
 </v>
 <v t="amd_yen.20130413002743.2100" a="E"><vh>Berkeley CS61a 課程演變</vh>
 <v t="amd_yen.20130413002743.2101" a="E"><vh>如何學習程式語言</vh>
 <v t="amd_yen.20130413002743.2104"><vh>Python 3 安裝</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130413002743.2102"><vh>機械設計工程系程式課程演變</vh>
+<v t="amd_yen.20130413002743.2102" a="E"><vh>機械設計工程系程式課程演變</vh>
 <v t="amd_yen.20130413002743.2103"><vh>符號式機構分析</vh></v>
 <v t="amd_yen.20130426235501.4331" a="E"><vh>Python 與動態系統分析</vh>
 <v t="amd_yen.20130426235501.4332"><vh>Modelica 簡介</vh></v>
@@ -403,11 +418,11 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 </v>
 <v t="amd_yen.20130418193628.2121"><vh>PHP 與 Javascript</vh></v>
 </v>
-<v t="amd_yen.20130503185304.2957" a="E"><vh>C2WP</vh>
+<v t="amd_yen.20130503185304.2957"><vh>C2WP</vh>
 <v t="amd_yen.20130503185304.2958"><vh>Leo 編輯器文書處理</vh></v>
 <v t="amd_yen.20130503185304.2959"><vh>文書處理討論</vh></v>
-<v t="amd_yen.20130503185304.2960"><vh>直接採 LaTeX 編輯</vh>
-<v t="amd_yen.20130503185304.2961"><vh>LaTeX</vh>
+<v t="amd_yen.20130503185304.2960" a="E"><vh>直接採 LaTeX 編輯</vh>
+<v t="amd_yen.20130503185304.2961" a="E"><vh>LaTeX</vh>
 <v t="amd_yen.20130503185304.2962"><vh>@button latex ex1.tex</vh></v>
 <v t="amd_yen.20130503185304.2963" a="EO"><vh>@file c2wp/latex/ex1.tex</vh>
 <v t="amd_yen.20130503185304.2976" a="E"><vh>相關設定</vh>
@@ -426,16 +441,16 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130503185304.2976" a="E"></v>
 </v>
 </v>
-<v t="amd_yen.20130503185304.2984"><vh>參考資料</vh>
+<v t="amd_yen.20130503185304.2984" a="E"><vh>參考資料</vh>
 <v t="amd_yen.20130503185304.2985"><vh>向量繪圖</vh></v>
-<v t="amd_yen.20130503185304.2986"><vh>About Leo</vh>
+<v t="amd_yen.20130503185304.2986" a="E"><vh>About Leo</vh>
 <v t="amd_yen.20130503185304.2987"><vh>reread node</vh></v>
 <v t="amd_yen.20130503185304.2988"><vh>有關編寫 php 程式碼</vh></v>
 <v t="amd_yen.20130503185304.2989"><vh>有關註解符號</vh></v>
 <v t="amd_yen.20130503185304.2990"><vh>以 plugin 增加選單</vh></v>
 <v t="amd_yen.20130503185304.2991"><vh>利用 Leo 開發 Leo</vh></v>
 </v>
-<v t="amd_yen.20130503185304.2992"><vh>LaTeX 參考</vh>
+<v t="amd_yen.20130503185304.2992" a="E"><vh>LaTeX 參考</vh>
 <v t="amd_yen.20130503185304.2993"><vh>簡介 LaTeX</vh></v>
 <v t="amd_yen.20130503185304.2994"><vh>標題中文化</vh></v>
 <v t="amd_yen.20130503185304.2995"><vh>特殊處理</vh></v>
@@ -443,7 +458,7 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130503185304.2996"><vh>rst3 討論</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130503185304.2997"><vh>按鈕</vh>
+<v t="amd_yen.20130503185304.2997" a="E"><vh>按鈕</vh>
 <v t="amd_yen.20130503185304.2998" a="E"><vh>@button c2wp</vh>
 <v t="amd_yen.20130503185304.2999"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
 <v t="amd_yen.20130503185304.3000"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
@@ -461,9 +476,9 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130503185304.3009"><vh>@edit exts\sphinx.search.py</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130503185304.3010"><vh>Latex 後續處理(選項)</vh>
+<v t="amd_yen.20130503185304.3010" a="E"><vh>Latex 後續處理(選項)</vh>
 <v t="amd_yen.20130503185304.3011" a="O"><vh>@edit c2wp/_build/latex/index.tex</vh></v>
-<v t="amd_yen.20130503185304.3012" a="O"><vh>@edit c2wp/_build/latex/index_twocolumn.tex</vh></v>
+<v t="amd_yen.20130503185304.3012"><vh>@edit c2wp/_build/latex/index_twocolumn.tex</vh></v>
 <v t="amd_yen.20130503185304.3013"><vh>以下為雙欄位 pdf 產生按鈕</vh></v>
 <v t="amd_yen.20130503185304.3014"><vh>@button two_column</vh></v>
 </v>
@@ -480,6 +495,18 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 </v>
 <v t="amd_yen.20130503185304.3023"><vh>@auto c2wp/fromoutside.html.txt</vh></v>
 <v t="amd_yen.20130503185304.3024"><vh>@auto c2wp/collaboration3.html.txt</vh></v>
+</v>
+<v t="amd_yen.20130504232827.6216" a="E"><vh>履歷表</vh>
+<v t="amd_yen.20130504232827.6219"><vh>@button gen resume</vh></v>
+<v t="amd_yen.20130504232827.6217"><vh>@edit c2wp/resume/resume.cls</vh></v>
+<v t="amd_yen.20130504232827.6218"><vh>@edit c2wp/resume/myresume.tex</vh></v>
+</v>
+<v t="amd_yen.20130504232827.8947"><vh>lshort</vh>
+<v t="amd_yen.20130504232827.8948"><vh>@button lshort pdf</vh></v>
+<v t="amd_yen.20130504232827.8949"><vh>@edit lshort/lshort.tex</vh></v>
+<v t="amd_yen.20130504232827.8950"><vh>@edit lshort/lshort-base.tex</vh></v>
+<v t="amd_yen.20130504232827.8951"><vh>@edit lshort/overview.tex</vh></v>
+<v t="amd_yen.20130504232827.8952"><vh>@edit lshort/title.tex</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -1247,6 +1274,7 @@ Chapter 10: Pointers to Functions
 Epilog
 結語</t>
 <t tx="amd_yen.20130406103207.2761">PREFACE
+
 前言
 
 本文件旨在向 C 程式語言的初學者介紹指標. 過去幾年, 無論是在 FidoNet 與 UseNet 有關 C 的會議場合, 特別注意到有許多 C 程式語言的初學者, 似乎對於指標的基本用法, 感到有些困難. 因此特別利用較多的範例, 希望以淺顯的說明來解釋指標的用法.
@@ -1255,7 +1283,7 @@ Epilog
 
 致謝
 
-要感謝許多不為人知的使用者, 將許多問題公佈在 FidoNet 的 C Echo 論壇中,  或是 UseNet comp.lang.c 新聞群組中, 或是在其他網路上的幾個會議區,這些要感謝的人士可能無法一一列出. 其中特別要感謝 Bob Stout 肯將這份資料的第一版本放入他所收集的 SNIPPETS 檔案中.
+要感謝許多不為人知的使用者, 將許多問題公佈在 FidoNet 的 C Echo 論壇中,  或是 UseNet comp.lang.c 新聞群組中, 或是在其他網路上的幾個會議區, 這些要感謝的人士可能無法一一列出. 其中特別要感謝 Bob Stout 肯將這份資料的第一版本放入他所收集的 SNIPPETS 檔案中.
 
 關於作者:
 
@@ -1274,6 +1302,7 @@ P.O. Box 324     1-415-365-8452
 Redwood City, CA 94064
 Dec. 1995</t>
 <t tx="amd_yen.20130406103207.2762">INTRODUCTION
+
 簡介
 
 若您想要專精於利用 C 程式語言編寫程式碼, 就必須徹底了解如何使用指標. 然而, C 指標對初學者而言, 經常是一項障礙, 尤其對於從 Fortran, Pascal 或 Basic 程式語言轉進的學習者.
@@ -1305,16 +1334,18 @@ C 程式中的整數變數存放範圍大小, 在各種機器上不一定相同.
 
 可以採用下列程式碼,在您所使用的系統中, 查探特定整數型別所需要的記憶體空間:
 
+// ch1_1.c 程式, 用來查詢電腦整數型別所佔的記憶體空間
+
 #include &lt;stdio.h&gt;
 
 int main()
 {
-printf("size of a short is %d\n", sizeof(short));
-printf("size of a int is %d\n", sizeof(int));
-printf("size of a long is %d\n", sizeof(long));
+    printf("size of a short is %d\n", sizeof(short));
+    printf("size of a int is %d\n", sizeof(int));
+    printf("size of a long is %d\n", sizeof(long));
 }
 
-當我們宣告一個變數時, 亦即告知編譯器兩件事, 變數名稱與變數型別. 例如, 可以透過
+(在 C 程式中) 當我們宣告一個變數時, 亦即告知編譯器兩件事, 變數名稱與變數型別. 例如, 可以透過
 
     int k; 
 
@@ -1418,9 +1449,13 @@ int main(void)
 結論:
 
     1. 變數宣告必須指定名稱與型別. (例如: int k;)
+    
     2. 指標變數宣告也是指定名稱與型別. (例如: int *ptr;), 其中的 * 告知編譯器, 該名稱為 ptr 的變數, 為一個指標變數, 而其型別為該指標指向的資料型別 (這裡為整數).
+    
     3.  一旦變數已經宣告, 可以透過變數前方的位址運算子, 取得其位址, 例如 &amp;k.
+    
     4. 可以由指標中"取值", 亦即, 以 * 指定到指標所參照的值, 例如: *ptr.
+    
     5. 變數的左值為被用來存放在記憶體中的位址值, 而變數的右值則式被存放在該位址的數值.
 
 參考資料:
@@ -1461,7 +1496,7 @@ ptr + 1;
 
 例如:
 
-    int my_array[] = {1,23,17,4,-5,100}; 
+    int my_array[] = {1, 23, 17, 4, -5, 100}; 
 
 陣列中帶有 6 個整數. 可以透過 my_array 的索引代表這些整數. 亦即利用 my_array[0] 到 my_array[5] 加以表示, 也可以透過指標加以表示成:
 
@@ -1479,7 +1514,7 @@ ptr + 1;
 
 #include &lt;stdio.h&gt;
 
-int my_array[] = {1,23,17,4,-5,100};
+int my_array[] = {1, 23, 17, 4, -5, 100};
 
 int *ptr;
 
@@ -1601,6 +1636,7 @@ void *vptr;
 字串的研究不僅對進一步理解指標與陣列的關聯有些幫助,也能用來彰顯某些標準 C 字串函數的使用. 最後也可以理解指標如何將資料傳給函式.
 
 就 C 而言, 字串為字元所組成的陣列, 其他的語言則未必如此.
+
 無論是 BASIC, Pascal 或是 Fortran 與其他幾種程式語言, 字串自有其資料類別.  C 則不然, 字串之於 C 被表為以 0 位元 (寫為'\0').
 
 這裡要以幾行程式碼作為開端, 來加以說明, 如下:
@@ -1689,12 +1725,9 @@ pA = strA;
 
 執行此一程式時, 當使用者透過除錯器看著 strA, strB, pA 與 pB 一步步執行, 將非常具有教育意義.
 
-It is even more educational if instead of simply defining strB[] as has been done above, initialize it also with something like:
-
 更有意思的是, 若不將 strB[] 按上述方法定義時, 而是將其起始值設為:
 
-    strB[80] = 
-"12345678901234567890123456789012345678901234567890"
+    strB[80] = "12345678901234567890123456789012345678901234567890"
 
 讓其數字個數大於 strA  的長度, 然後一步步看著這些變數設定數值. 大家一定得親自做做看.
 
@@ -1851,6 +1884,7 @@ int main()
 複習一下, 我們可以利用點運算子來擷取結構成員, 正如:
 
 --------------- 程式 5.1 ------------------
+
 /* 程式 5.1 from PTRTUT10.HTM     6/13/97 */
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
@@ -1869,7 +1903,9 @@ int main(void)
     printf("%s\n",my_struct.lname);
     return 0;
 }
+
 -------------- 結束程式 5.1 --------------
+
 或許這裏所使用的結構與一般 C 程式所使用的相比還要小, 為了驗證也可以加入:
 
     date_of_hire;                  (未顯示資料型別)
@@ -1909,6 +1945,7 @@ int main(void)
 了解了之後, 參考下列程式:
 
 ------------ 程式 5.2 ---------------------
+
 /* 程式 5.2 from PTRTUT10.HTM   6/13/97 */
 #include &lt;stdio.h&gt;
 #include &lt;string.h&gt;
@@ -1938,7 +1975,9 @@ void show_name(struct tag *p)
     printf("%s ", p-&gt;lname);
     printf("%d\n", p-&gt;age);
 }
+
 -------------------- 結束程式 5.2 ----------------
+
 這裡要了解不少東西. 讀者必須實際執行一下上面的程式, 並且利用除錯器一步步觀察  my_struct 與 p 在主函式執行流程中, 才能實際了解函式執行的內容.</t>
 <t tx="amd_yen.20130406103207.2768">趨勢發展:
 
@@ -3732,7 +3771,7 @@ d = c.scanAllDirectives(p)
 {'tabwidth': -4, 'lineending': None, 'language': 'python', 'encoding': None, 'pluginsList': [], 'pagewidth': 70, 'wrap': True, 'path': 'D:\\github\\mdeCourse\\2013spring', 'delims': ('#', '', '')}
 '''
 # 將目錄指到 latex
-mandir = d.get('path') + "/latex"
+mandir = d.get('path') + "/c2wp/latex"
 g.es(mandir)
 os.chdir(mandir)
 target_name = "ex1"
@@ -4408,12 +4447,12 @@ os.system(filename)
 \definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
 
 
-\title{C2G1 使用者手冊}
+\title{C2WP 使用者手冊}
 \date{}
 \release{1.0}
 \author{Chiaming Yen}
 \newcommand{\sphinxlogo}{}
-\renewcommand{\releasename}{釋出}
+\renewcommand{\releasename}{版次}
 \makeindex
 
 \makeatletter
@@ -4427,66 +4466,66 @@ os.system(filename)
     \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
 \def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
 
-\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
-\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
-\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
-\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
-\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
-\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
-\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
 \expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
-\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
 \expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
 \expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
-\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
+\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
 \expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
+\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
+\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
+\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
+\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
+\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
+\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
+\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
+\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
 \expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
 \expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
+\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
 \expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
 \expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
-\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
-\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
-\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
-\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
-\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
+\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
 \expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
 
 \def\PYGZbs{\char`\\}
 \def\PYGZus{\char`\_}
@@ -4535,7 +4574,16 @@ os.system(filename)
 {\hyperref[frontmatter:id1]{前言}}
 
 \item {} 
-{\hyperref[frontmatter:id2]{動機}}
+{\hyperref[frontmatter:latex]{數學方程式(LaTeX)}}
+
+\item {} 
+{\hyperref[frontmatter:id2]{圖形}}
+
+\item {} 
+{\hyperref[frontmatter:rest]{數學(rest)}}
+
+\item {} 
+{\hyperref[frontmatter:id3]{參考資料}}
 
 \end{itemize}
 
@@ -4546,13 +4594,387 @@ os.system(filename)
 
 \section{前言}
 \label{frontmatter:id1}
-這是前言內容1234
+\begin{center}有關文書處理
+\end{center}
+雙欄位編排
+documentclass{[}11pt,twocolumn{]}\{article\}
 
 
-\section{動機}
-\label{frontmatter:id2}
-這是動機內容
+\section{數學方程式(LaTeX)}
+\label{frontmatter:latex}\chapter{數學方程式排版}
 
+\begin{intro}
+  Now you are ready! In this chapter, we will attack the main strength
+  of \TeX{}: mathematical typesetting. But be warned, this chapter
+  only scratches the surface. While the things explained here are
+  sufficient for many people, don't despair if you can't find a
+  solution to your mathematical typesetting needs here. It is highly likely
+  that your problem is addressed in \AmS-\LaTeX{}%
+  \footnote{The \emph{American Mathematical Society} has produced a
+  powerful extension to \LaTeX{}. Many of the examples in this
+  chapter make use of this extension. It is provided with all recent
+  \TeX{} distributions. If yours is missing it, go to \texttt{CTAN:/tex-archive/macros/latex/required/amslatex}.}
+\end{intro}
+
+\section{General}
+
+\LaTeX{} has a special mode for typesetting \wi{mathematics}. Mathematics
+can be typeset inline within a paragraph, or the paragraph can be broken to
+typeset it separately. Mathematical text \emph{within} a paragraph is entered between \ci{(}
+and \ci{)}, \index{$@\texttt{\$}} %$
+between \texttt{\$} and \texttt{\$}, or between %}
+\verb|\begin{|\ei{math}\verb|}| and \verb|\end{math}|.\index{formulae}
+\begin{example}
+Add $a$ squared and $b$ squared
+to get $c$ squared. Or, using
+a more mathematical approach:
+$c^{2}=a^{2}+b^{2}$
+\end{example}
+\begin{example}
+\TeX{} is pronounced as
+\(\tau\epsilon\chi\).\\[6pt]
+100~m$^{3}$ of water\\[6pt]
+This comes from my
+\begin{math}\heartsuit\end{math}
+\end{example}
+
+When you want your larger mathematical equations or formulae to be set apart
+from the rest of the paragraph, it is preferable to \emph{display} them,
+rather than to break the paragraph apart.
+To do this, you can either enclose them
+in \ci{[} and \ci{]}, or between
+\verb|\begin{|\ei{displaymath}\verb|}| and
+\verb|\end{displaymath}|.
+\begin{example}
+Add $a$ squared and $b$ squared
+to get $c$ squared. Or, using
+a more mathematical approach:
+\begin{displaymath}
+c^{2}=a^{2}+b^{2}
+\end{displaymath}
+or you can type less with:
+\[a+b=c\]
+\end{example}
+If you want \LaTeX{} to enumerate your equations, you can use the
+\ei{equation} environment.
+You can then \ci{label} an equation number and refer to it somewhere else in the
+text by using \ci{ref} or \ci{eqref}:
+\begin{example}
+\begin{equation} \label{eq:eps}
+\epsilon &gt; 0
+\end{equation}
+From (\ref{eq:eps}), we gather
+\ldots{}From \eqref{eq:eps} we
+do the same.
+\end{example}
+
+Note the difference in typesetting style between equations that are typeset and those
+that are displayed:
+
+\begin{example}
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}$
+\end{example}
+\begin{example}
+\begin{displaymath}
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+\end{displaymath}
+\end{example}
+
+
+
+There are differences between \emph{math mode} and \emph{text mode}. For
+example, in \emph{math mode}:
+
+\begin{enumerate}
+
+\item Most spaces and line breaks do not have any significance, as all spaces
+are either derived logically from the mathematical expressions, or
+have to be specified with special commands such as \ci{,}, \ci{quad} or
+\ci{qquad}.
+
+\item Empty lines are not allowed. Only one paragraph per formula.
+
+\item Each letter is considered to be the name of a variable and will be
+typeset as such. If you want to typeset normal text within a formula
+(normal upright font and normal spacing) then you have to enter the
+text using the \verb|\textrm{...}| commands.
+\end{enumerate}
+\begin{example}
+\begin{equation}
+\forall x \in \mathbf{R}:
+\qquad x^{2} \geq 0
+\end{equation}
+\end{example}
+\begin{example}
+\begin{equation}
+x^{2} \geq 0\qquad
+\textrm{for all }x\in\mathbf{R}
+\end{equation}
+\end{example}
+
+
+%
+% Add AMSSYB Package ... Blackboard bold .... R for realnumbers
+%
+Mathematicians can be very fussy about which symbols are used:
+it would be conventional here to use `\wi{blackboard bold}',
+\index{bold symbols} which is obtained using \ci{mathbb} from the
+package \pai{amsfonts} or \pai{amssymb}.
+\ifx\mathbb\undefined\else
+The last example becomes
+\begin{example}
+\begin{displaymath}
+x^{2} \geq 0\qquad
+\textrm{for all }x\in\mathbb{R}
+\end{displaymath}
+\end{example}
+\fi
+
+\section{Grouping in Math Mode}
+
+Most math mode commands act only on the next character, so if you
+want a command to affect several characters, you have to group them
+together using curly braces: \verb|{...}|.
+\begin{example}
+\begin{equation}
+a^x+y \neq a^{x+y}
+\end{equation}
+\end{example}
+
+\section{圖形}
+\label{frontmatter:id2}%Version Aug 93    cgl@risc1.rug.nl
+\noindent
+       \setlength{\unitlength}{3.8ex}
+\begin{picture}(14,15.6)(-.5, -2.5)
+%1st column
+\put(1, 0){\line(0, 1){1.5}}
+\put(1, 2){\oval(2, 1)}
+\put(1, 2){\makebox(0, 0){\texttt{.pk}}}
+\put(1, 4){\vector(0, -1){1.5}}
+\put(-.5, 4){\framebox(3, 1){METAfont}}
+\put(1, 6.5){\vector(0, -1){1.5}}
+\put(1,7){\oval(2, 1)}
+\put(1, 7){\makebox(0, 0){\texttt{.mf}}}
+%second column
+\put(7.5, -.5){\framebox(2, 1){driver}}
+\put(9.75, .75){\line(-1, 0){1.25}}
+\put(9.75, .75){\line( 0, -1){.5}}
+\put(9.75, .25){\line(-1, 0){.25}}
+\put(9.85, .23){{\tiny \texttt{dvips}}}
+\put(10, 1){\line(-1, 0){1.25}}
+\put(10, 1){\line( 0, -1){.5}}
+\put(10, .5){\line(-1, 0){.25}}
+\put(8.75, 1){\line( 0, -1){.25}}
+\put(10.1, .63){{\tiny \texttt{xdvi}}}
+\put(10.1, 1.1){\hbox{.}\kern.1ex\raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+\put(8.5, 1.5){\vector(0, -1){1}}
+\put(8.5, 2){\oval(2, 1)}
+\put(8.5, 2){\makebox(0, 0){\texttt{.dvi}}}
+\put(8.5, 4){\vector(0, -1){1.5}}
+\put(7.5, 4){\framebox(2, 1){\TeX}}
+%Plain
+\put(9.75, 5.25){\line(-1, 0){1.25}}
+\put(9.75, 5.25){\line( 0, -1){.5}}
+\put(9.75, 4.75){\line(-1, 0){.25}}
+\put(9.8, 4.68){{\tiny Plain}}
+%LaTeX
+\put(10, 5.5){\line(-1, 0){1.25}}
+\put(10, 5.5){\line( 0, -1){.5}}
+\put(10, 5){\line(-1, 0){.25}}
+\put(8.75, 5.5){\line( 0, -1){.25}}
+\put(10.1, 4.95){{\tiny \LaTeXe}}
+\put(10.25, 5.75){\line(-1, 0){1.25}}
+\put(10.25, 5.75){\line( 0, -1){.5}}
+\put(10.25, 5.25){\line(-1, 0){.25}}
+\put(9, 5.75){\line( 0, -1){.25}}
+\put(10.35, 5.4){{\tiny AMS-Package}}
+%
+\put(10.35, 5.85){\hbox{.}\kern.1ex
+\raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+%
+\put(8.5, 6.5){\vector(0, -1){1.5}}
+\put(8.5, 7){\oval(2, 1)}
+\put(8.5, 7){\makebox(0, 0){\texttt{.tex}}}
+%
+\multiput(8.5, 9)(0, -.415){3}{\line(0, -1){.25}}
+\put(8.5, 8.7){\vector(0, 1){.3}}
+\put(8.5, 7.8){\vector(0, -1){.3}}
+\put(7.5, 9){\framebox(2, 1){editor}}
+%Spelling checker
+\put(9.75, 10.25){\line(-1, 0){1.25}}
+\put(9.75, 10.25){\line( 0, -1){.5}}
+\put(9.75, 9.75){\line(-1, 0){.25}}
+\put(9.85, 9.75){{\tiny \texttt{emacs}}}
+%Style checker
+\put(10, 10.5){\line(-1, 0){1.25}}
+\put(10, 10.5){\line( 0, -1){.5}}
+\put(10, 10){\line(-1, 0){.25}}
+\put(8.75, 10.5){\line( 0, -1){.25}}
+\put(10.1, 10){{\tiny \texttt{ispell}}}
+%
+\put(10.1, 10.6){\hbox{.}\kern.1ex
+\raise.5ex\hbox{.}\kern.1ex\raise1ex\hbox{.}}
+%
+\put(8.5, 11.5){\vector(0, -1){1.5}}
+\put(8.5, 12){\oval(2, 1)}
+\put(8.5, 12){\makebox(0, 0){copy}}
+%basis
+\put(1, 0){\vector(1, 0){6.5}}
+\put(9.5, 0){\vector(1, 0){2}}
+\put(11.5, -.75){\framebox(2, 1.5){}}
+\put(11.70, -.4){\shortstack{\small printer\\\small screen}}
+%middle
+\multiput(5, 5.25)(0, 1){3}{\line(0,1){.5}}
+\multiput(5,  .25)(0, 1){4}{\line(0,1){.5}}
+\multiput(5, -1.75)(0, 1.3){2}{\line(0,1){.2}}
+%
+\put(3.5, -1.250){\dashbox{.25}(3, .5){{\tiny \textsc{PostScript}}}}
+\multiput(6.5, -1)(.45, 0){4}{\line(1,0){.25}}
+\put(8.5, -1){\line( -1, 0){.2}}
+%
+\put(8.5, -1){\vector(0, 1){.5}}
+\put(2.5, 4.5){\vector(1, 0){1.5}}
+\put(5, 4.5){\oval(2, 1)}
+\put(5, 4.5){\makebox(0, 0){\texttt{.tfm}}}
+\put(6, 4.5){\vector(1, 0){1.5}}
+\put(9.5, 4.5){\vector(1, 0){2}}
+\put(12.5, 4.5){\oval(2, 1)}
+\put(12.5, 4.5){\makebox(0, 0){\texttt{.log}}}
+%base line
+\put(.51,-1.75){\vector(-1, 0){1}}
+\put(2.25, -1.75){\makebox(0, 0){Fonts}}
+\put(3.9,-1.75){\vector( 1, 0){1}}
+\put(6.1,-1.75){\vector(-1, 0){1}}
+\put(9, -1.75){\makebox(0, 0){Typesetting}}
+\put(12.4,-1.75){\vector(1, 0){1}}
+\end{picture}
+
+\section{數學(rest)}
+\label{frontmatter:rest}
+以下為數學式:
+\begin{gather}
+\begin{split}E_r^2 - |\boldsymbol{p}|^2 c^2 &amp;= m_0^2 c^4 \\
+E_r^2 - (pc)^2 &amp;= (m_0 c^2)^2\end{split}\notag
+\end{gather}
+或者
+\begin{gather}
+\begin{split}E_r = \sqrt{(m_0 c^2)^2 + (pc)^2}\end{split}\notag
+\end{gather}
+至於文章中的數學符號用法:
+
+Here the $(pc)^2$ term represents the square of the Euclidean norm (total vector length) of the various momentum vectors in the system, which reduces to the square of the simple momentum magnitude, if only a single particle is considered. This equation reduces to {\color{red}\bfseries{}\textbar{}E=mc²\textbar{}} when the momentum term is zero. For photons where $\boldsymbol{m_0 = 0}$, the equation reduces to $\boldsymbol{E_r = pc}$.
+\begin{gather}
+\begin{split}E_k = m_0(\gamma-1)c^2 = \frac{m_0 c^2}{\sqrt{1 - \frac{v^2}{c^2}}} - {m_0 c^2},\end{split}\notag
+\end{gather}
+with {\color{red}\bfseries{}\textbar{}v\textbar{}} the velocity, $m_0$ the rest mass, and \(\gamma\) the Lorentz factor.
+
+He included the second term on the right to make sure that for small velocities, the energy would be the same as in classical mechanics:
+\begin{gather}
+\begin{split}E_k = \frac{1}{2} m_0 v^2 + \cdots.\end{split}\notag
+\end{gather}
+Without this second term, there would be an additional contribution in the energy when the particle is not moving.
+
+Einstein found that the total momentum of a moving particle is:
+\begin{gather}
+\begin{split}P = \frac{m_0 v}{\sqrt{1-\frac{v^2}{c^2}}}.\end{split}\notag
+\end{gather}
+and it is this quantity which is conserved in collisions. The ratio of the momentum to the velocity is the relativistic mass, {\color{red}\bfseries{}\textbar{}m\textbar{}}:
+\begin{gather}
+\begin{split}m = \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}\end{split}\notag
+\end{gather}
+and the relativistic mass and the relativistic kinetic energy are related by the formula:
+\begin{gather}
+\begin{split}E_k = {m c^2} - {m_0 c^2}.\end{split}\notag
+\end{gather}
+Einstein wanted to omit the unnatural second term on the right-hand side, whose only purpose is to make the energy at rest zero, and to declare that the particle has a total energy which obeys:
+\begin{gather}
+\begin{split}E = mc^2\end{split}\notag
+\end{gather}
+which is a sum of the rest energy $m_0 c^2$ and the kinetic energy. This total energy is mathematically more elegant, and fits better with the momentum in relativity. But to come to this conclusion, Einstein needed to think carefully about collisions. This expression for the energy implied that matter at rest has a huge amount of energy, and it is not clear whether this energy is physically real, or just a mathematical artifact with no physical meaning.
+
+In a collision process where all the rest-masses are the same at the beginning as at the end, either expression for the energy is conserved. The two expressions only differ by a constant which is the same at the beginning and at the end of the collision. Still, by analyzing the situation where particles are thrown off a heavy central particle, it is easy to see that the inertia of the central particle is reduced by the total energy emitted. This allowed Einstein to conclude that the inertia of a heavy particle is increased or diminished according to the energy it absorbs or emits.
+
+
+\section{參考資料}
+\label{frontmatter:id3}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: The Bibliography
+% File: biblio.tex (lshort2e.tex)
+% $Id: biblio.tex,v 1.1.1.1 2002/02/26 10:04:20 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{thebibliography}{99}
+% 因為會自動加上 \bibname, 因此蓋掉下列重複的 \bibname
+%\addcontentsline{toc}{chapter}{\bibname}
+\bibitem{manual} Leslie Lamport.  \newblock \emph{{\LaTeX:} A Document
+    Preparation System}.  \newblock Addison-Wesley, Reading,
+  Massachusetts, second edition, 1994, ISBN~0-201-52983-1.
+
+\bibitem{texbook} Donald~E. Knuth.  \newblock \textit{The \TeX{}book,}
+  Volume~A of \textit{Computers and Typesetting}, Addison-Wesley,
+  Reading, Massachusetts, second edition, 1984, ISBN~0-201-13448-9.
+
+\bibitem{companion} Michel Goossens, Frank Mittelbach and Alexander
+  Samarin.  \newblock \emph{The {\LaTeX} Companion}.  \newblock
+  Addison-Wesley, Reading, Massachusetts, 1994, ISBN~0-201-54199-8.
+
+\bibitem{local} Each \LaTeX{} installation should provide a so-called
+  \emph{\LaTeX{} Local Guide}, which explains the things that are
+  special to the local system.  It should be contained in a file called
+  \texttt{local.tex}. Unfortunately, some lazy sysops do not provide such a
+  document. In this case, go and ask your local \LaTeX{} guru for help.
+
+\bibitem{usrguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~for
+    authors}.  \newblock Comes with the \LaTeXe{} distribution as
+  \texttt{usrguide.tex}.
+
+\bibitem{clsguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~for
+    Class and Package writers}.  \newblock Comes with the \LaTeXe{}
+  distribution as \texttt{clsguide.tex}.
+
+\bibitem{fntguide} \LaTeX3 Project Team.  \newblock \emph{\LaTeXe~Font
+    selection}.  \newblock Comes with the \LaTeXe{} distribution as
+  \texttt{fntguide.tex}.
+
+\bibitem{graphics} D.~P.~Carlisle.  \newblock \emph{Packages in the
+    `graphics' bundle}.  \newblock Comes with the `graphics' bundle as
+  \texttt{grfguide.tex}, available from the same source your \LaTeX{}
+  distribution came from.
+
+\bibitem{verbatim} Rainer~Sch\"opf, Bernd~Raichle, Chris~Rowley.
+\newblock \emph{A New Implementation of \LaTeX's verbatim
+  Environments}.
+ \newblock Comes with the `tools' bundle as
+  \texttt{verbatim.dtx}, available from the same source your \LaTeX{}
+  distribution came from.
+
+\bibitem{catalogue} Graham~Williams.  \newblock \emph{The TeX
+    Catalogue} is a very complete listing of many \TeX{} and \LaTeX{}
+    related packages.
+  \newblock Available online from \texttt{CTAN:/tex-archive/help/Catalogue/catalogue.html}
+
+\bibitem{eps} Keith~Reckdahl.  \newblock \emph{Using EPS Graphics in
+    \LaTeXe{} Documents}, which explains everything and much more than
+  you ever wanted to know about EPS files and their use in \LaTeX{}
+  documents.  \newblock Available online from
+  \texttt{CTAN:/tex-archive/info/epslatex.ps}
+
+\bibitem{xy-pic} Kristoffer H. Rose
+  \newblock \emph{\Xy-pic User's Guide}.  \newblock
+  Downloadable from CTAN with \Xy-pic distribution
+
+\end{thebibliography}
+
+
+%
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% mode: flyspell
+% End:
 
 \chapter{這是 outside 標題}
 \label{fromoutside::doc}\label{fromoutside:outside}
@@ -4595,6 +5017,82 @@ os.system(filename)
 這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
 
 以下嘗試由 literalinclude 導入程式碼:
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\# -*- coding: utf-8 -*-
+\# 配合程式所使用的 @asis 會將資料存在 .leo 檔案
+\# 建立虛擬的班級人員名單
+import random
+import string
+學號碼數 = 4
+姓名字數 = 3
+姓氏檔案 = "lastname.txt"
+名字檔案 = "firstname.txt"
+學生人數 = [53, 55]
+\# 讀進姓氏檔案與名字檔案
+各班學生人數=random.randint(學生人數[0], 學生人數[1])
+def makeNumber(學號碼數):
+    return ''.join([random.choice(string.digits) for 索引 in range(學號碼數)])
+
+開啟姓氏檔案 = open(姓氏檔案, "r", encoding="utf-8")
+姓氏 = 開啟姓氏檔案.readlines()
+開啟名字檔案 = open(名字檔案, "r", encoding="utf-8")
+學員檔案 = open("虛設學員.txt","w",encoding='utf-8')
+名字 = 開啟名字檔案.readlines()
+科系碼 = makeNumber(學號碼數)
+for 索引 in range(1, 各班學生人數):
+    if(len(str(索引)) == 1):
+        學號 = "0" + str(索引)
+    else:
+        學號 = str(索引)
+    \# 設法製造缺號
+    if random.randint(0, 100) \textgreater{} 3 :
+        姓 = 姓氏[0][random.randint(0, len(姓氏[0])-1)]
+        名 = 名字[0][random.randint(0, len(名字[0])-1)]
+        名 += 名字[0][random.randint(0, len(名字[0])-1)]
+        print("90"+科系碼+學號+" "+姓+名)
+        學員檔案.write("90"+科系碼+學號+" "+姓+名+"\PYGZbs{}n")
+
+開啟姓氏檔案.close()
+開啟名字檔案.close()
+學員檔案.close()
+
+'''
+
+以下為 lastname.txt 的內容:
+
+趙錢孫李周吳鄭王馮陳褚衛蔣沈韓楊朱秦尤許何呂施張孔曹嚴華金魏陶薑
+戚謝鄒喻柏水竇章雲蘇潘葛奚範彭郎魯韋昌馬苗鳳花方俞任袁柳酆鮑史唐
+費廉岑薛雷賀倪湯滕殷羅畢郝鄔安常樂於時傅皮卞齊康伍餘元蔔顧孟平黃
+和穆蕭尹姚邵湛汪祁毛禹狄米貝明臧計伏成戴談宋茅龐熊紀舒屈項祝董梁
+杜阮藍閔席季麻強賈路婁危江童顏郭梅盛林刁鍾徐邱駱高夏蔡田樊胡淩霍
+虞萬支柯昝管盧莫柯房裘繆幹解應宗丁宣賁鄧鬱單杭洪包諸左石崔吉鈕龔
+程嵇邢滑裴陸榮翁荀羊于惠甄曲家封芮羿儲靳汲邴糜松井段富巫烏焦巴弓
+牧隗山穀車侯宓蓬全郗班仰秋仲伊宮甯仇欒暴甘鈄曆戎祖武符劉景詹束龍
+葉幸司韶郜黎薊溥印宿白懷蒲邰從鄂索鹹籍賴卓藺屠蒙池喬陽鬱胥能蒼雙
+聞莘党翟譚貢勞逄姬申扶堵冉宰酈雍卻璩桑桂濮牛壽通邊扈燕冀浦尚農溫
+別莊晏柴瞿閻充慕連茹習宦艾魚容向古易慎戈廖庾終暨居衡步都耿滿弘匡
+國文寇廣祿闕東歐殳沃利蔚越夔隆師鞏厙聶晁勾敖融冷訾辛闞那簡饒空曾
+毋沙乜養鞠須豐巢關蒯相查後荊紅
+
+以下為 firstname.txt 的內容:
+
+平燦惠歡佩泰州江揚剛乃屏珊易吟定小其菱幼函琴青博兆菁重立呈然永奕
+漢義萍皓力昌妍合仲佳虹慧蓮恭石展軒啟奇秀駿晉冰政綸丹邦大冠貞生思
+玄威嘉依音雲英能緯彬妙聖協法瑞恆采心友昀花樺航玫宛順儀寶婷書妮胤
+彥修火雨俞孝蕙允城盈家陽琳阿紹誠倫亨星美和予念鳳凱松幸凡雯士達泓
+金瑜勇必珍芷岳鈺方琬成霞麟致哲台睿賢珠瑩南克為尹妤春怡亮伯喬夫昕
+亞真喜初愛清禮斌吉淳百臻寧以筠諭仕子文雅郁柏秋蓉伸福劭木宗傑丞昭
+芝弘宇明月峰東聿登左祥迪蘭佑甫雄俊之卉谷玲禾茹榮堯芬姍少謙琇禎蘋
+年姵勳任信旭燕苓豐惟盛發齊介芳容于維侑舜洋璇茂芃伊玉海建季雪柔汝
+千富男新昱人添群欣綠馨利宜堅意名右姿智韻典竹巧坤可全潔裕毓孜仁韋
+慈志琦宣希云茜辛薇梅樂妏嬌安上仰長承旺珮良鑫桓瑋光貴茵憲品綺芸天
+源娟輝君銘夙來昇如泉正廷峻瑤恬靖淑瑄行秉伶康水羽治妹宥夢映霖儒枝
+沛香皇一龍興延翰山卿白忠恩亭俐孟均元凌又偉強育辰萱鴻宸亦娥振中紫
+倩民隆善玟紋杰旻學若華豪湖帆恒佐桂蓁穎軍德財庭琪世林純岑原尚昆妃
+宏
+'''
+\end{Verbatim}
 
 
 \chapter{這是 collaboration3 標題}
@@ -4641,324 +5139,81 @@ os.system(filename)
 
 以下嘗試由 literalinclude 導入程式碼:
 
-\href{http://blog.kmol.info}{KMOL's home page}
+\begin{Verbatim}[commandchars=\\\{\}]
+\# -*- coding: utf-8 -*-
+\# 配合程式所使用的 @asis 會將資料存在 .leo 檔案
+\# 建立虛擬的班級人員名單
+import random
+import string
+學號碼數 = 4
+姓名字數 = 3
+姓氏檔案 = "lastname.txt"
+名字檔案 = "firstname.txt"
+學生人數 = [53, 55]
+\# 讀進姓氏檔案與名字檔案
+各班學生人數=random.randint(學生人數[0], 學生人數[1])
+def makeNumber(學號碼數):
+    return ''.join([random.choice(string.digits) for 索引 in range(學號碼數)])
 
+開啟姓氏檔案 = open(姓氏檔案, "r", encoding="utf-8")
+姓氏 = 開啟姓氏檔案.readlines()
+開啟名字檔案 = open(名字檔案, "r", encoding="utf-8")
+學員檔案 = open("虛設學員.txt","w",encoding='utf-8')
+名字 = 開啟名字檔案.readlines()
+科系碼 = makeNumber(學號碼數)
+for 索引 in range(1, 各班學生人數):
+    if(len(str(索引)) == 1):
+        學號 = "0" + str(索引)
+    else:
+        學號 = str(索引)
+    \# 設法製造缺號
+    if random.randint(0, 100) \textgreater{} 3 :
+        姓 = 姓氏[0][random.randint(0, len(姓氏[0])-1)]
+        名 = 名字[0][random.randint(0, len(名字[0])-1)]
+        名 += 名字[0][random.randint(0, len(名字[0])-1)]
+        print("90"+科系碼+學號+" "+姓+名)
+        學員檔案.write("90"+科系碼+學號+" "+姓+名+"\PYGZbs{}n")
 
+開啟姓氏檔案.close()
+開啟名字檔案.close()
+學員檔案.close()
 
-\renewcommand{\indexname}{索引}
-\printindex
-\end{document}
-</t>
-<t tx="amd_yen.20130503185304.3012">@language latex
-% Generated by Sphinx.
-\def\sphinxdocclass{report}
-\documentclass[twocolumn]{article}
-\usepackage[utf8]{inputenc}
-\DeclareUnicodeCharacter{00A0}{\nobreakspace}
-\usepackage[T1]{fontenc}
-\usepackage{babel}
-\usepackage{times}
-\usepackage[Sonny]{fncychap}
-\usepackage{longtable}
-\usepackage{sphinx}
-\usepackage{multirow}
-
-% \pdfpagewidth 195mm
-% \pdfpageheight 271mm
-% \textwidth 6.0in
-% \textheight 8.8in
-% \oddsidemargin -0.1in
-% \evensidemargin -0.1in
-
-\textwidth 6.8in
-\oddsidemargin -0.2in
-\evensidemargin -0.3in
-
-\usepackage{pdfpages}
-\usepackage[BoldFont,CJKchecksingle]{xeCJK}
-
-    \usepackage{fancyvrb}    % for frame on Verbatim
-    \usepackage{fancyhdr}
-    \usepackage[T1]{fontspec}    %設定字體用
-
-\usepackage{float}
-\usepackage{ccaption}
-\usepackage{pifont}
-% \usepackage{fancybox}
-\usepackage{fontspec,xunicode,xltxtra}
-
-\setsansfont{Times New Roman}
-\setmainfont{Times New Roman}
-\setmonofont{Times New Roman}
-% 新細明體
-% 文鼎ＰＬ新宋
-% 文鼎ＰＬ明體U20-L
-% 文鼎ＰＬ报宋二GBK
-\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-
-    \makeatletter
-    \def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
-    \makeatother
-
-\XeTeXlinebreaklocale "zh"    %讓中文自動換行
-\XeTeXlinebreakskip = 0pt plus 1pt
-\renewcommand{\baselinestretch}{1.3} 
-\setcounter{tocdepth}{3}
-\captiontitlefont{\small\sffamily}
-\captiondelim{ - }
-\renewcommand\today{\number\year年\number\month月\number\day日}
-\makeatletter
-\renewcommand*\l@subsection{\@dottedtocline{2}{2.0em}{4.0em}}
-\renewcommand*\l@subsubsection{\@dottedtocline{3}{3em}{5em}}
-\makeatother
-\titleformat{\chapter}[display]
-{\bfseries\Huge}
-{\filleft \Huge 第 \hspace{2 mm} \thechapter \hspace{4 mm} 章}
-{4ex}
-{\titlerule
-\vspace{1ex}%
-\filright}
-[\vspace{1ex}%
-\titlerule]
-%\definecolor{VerbatimBorderColor}{rgb}{0.2,0.2,0.2}
-\definecolor{VerbatimColor}{rgb}{0.95,0.95,0.95}
-
-
-\title{C2G1 使用者手冊}
-\date{}
-\release{1.0}
-\author{Chiaming Yen}
-\newcommand{\sphinxlogo}{}
-\renewcommand{\releasename}{版次}
-\makeindex
-
-\makeatletter
-\def\PYG@reset{\let\PYG@it=\relax \let\PYG@bf=\relax%
-    \let\PYG@ul=\relax \let\PYG@tc=\relax%
-    \let\PYG@bc=\relax \let\PYG@ff=\relax}
-\def\PYG@tok#1{\csname PYG@tok@#1\endcsname}
-\def\PYG@toks#1+{\ifx\relax#1\empty\else%
-    \PYG@tok{#1}\expandafter\PYG@toks\fi}
-\def\PYG@do#1{\PYG@bc{\PYG@tc{\PYG@ul{%
-    \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
-\def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
-
-\expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
-\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
-\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
-\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
-\expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
-\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
-\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
-\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
-\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
-\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
-\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
-\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
-\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
-\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
-\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
-\expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
-\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
-\expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-
-\def\PYGZbs{\char`\\}
-\def\PYGZus{\char`\_}
-\def\PYGZob{\char`\{}
-\def\PYGZcb{\char`\}}
-\def\PYGZca{\char`\^}
-\def\PYGZam{\char`\&amp;}
-\def\PYGZlt{\char`\&lt;}
-\def\PYGZgt{\char`\&gt;}
-\def\PYGZsh{\char`\#}
-\def\PYGZpc{\char`\%}
-\def\PYGZdl{\char`\$}
-\def\PYGZhy{\char`\-}
-\def\PYGZsq{\char`\'}
-\def\PYGZdq{\char`\"}
-\def\PYGZti{\char`\~}
-% for compatibility with earlier versions
-\def\PYGZat{@}
-\def\PYGZlb{[}
-\def\PYGZrb{]}
-\makeatother
-
-\begin{document}
-
-\maketitle
-\tableofcontents
-\phantomsection\label{index::doc}
-
-
-\href{http://blog.kmol.info}{KMOL's home page}
-
-
-\chapter{C2G1 報告}
-\label{frontmatter::doc}\label{frontmatter:kmol-s-users-guide}\label{frontmatter:c2g1}
-\index{C2G1 報告}\setbox0\vbox{
-\begin{minipage}{0.95\linewidth}
-\textbf{Contents}
-
-\medskip
-
-\begin{itemize}
-\item {} 
-{\hyperref[frontmatter:c2g1]{C2G1 報告}}
-\begin{itemize}
-\item {} 
-{\hyperref[frontmatter:id1]{前言}}
-
-\item {} 
-{\hyperref[frontmatter:id2]{動機}}
-
-\end{itemize}
-
-\end{itemize}
-\end{minipage}}
-\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
-
-
-\section{前言}
-\label{frontmatter:id1}
-這是前言內容1234
-
-
-\section{動機}
-\label{frontmatter:id2}
-這是動機內容
-
-
-\chapter{這是 outside 標題}
-\label{fromoutside::doc}\label{fromoutside:outside}
-\index{outside 標題}\setbox0\vbox{
-\begin{minipage}{0.95\linewidth}
-\textbf{Contents}
-
-\medskip
-
-\begin{itemize}
-\item {} 
-{\hyperref[fromoutside:outside]{這是 outside 標題}}
-\begin{itemize}
-\item {} 
-{\hyperref[fromoutside:id1]{小標題}}
-
-\item {} 
-{\hyperref[fromoutside:id2]{小標題2}}
-
-\end{itemize}
-
-\end{itemize}
-\end{minipage}}
-\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
-
-以下就是 outside 的內容, 由某一位組員負責編寫
-
-這是外部的檔案, 來自外部的內容
-
-這是第二次從外部更新的檔案
-
-
-\section{小標題}
-\label{fromoutside:id1}
-這是小標題之後的內容, 假如希望從網際系統取得組員的 frontouside.html.txt, 可以透過 CMSimple 的 upload 機制.
-
-
-\section{小標題2}
-\label{fromoutside:id2}
-這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
-
-以下嘗試由 literalinclude 導入程式碼:
-
-
-\chapter{這是 collaboration3 標題}
-\label{collaboration3::doc}\label{collaboration3:collaboration3}
-\index{outside 標題}\setbox0\vbox{
-\begin{minipage}{0.95\linewidth}
-\textbf{Contents}
-
-\medskip
-
-\begin{itemize}
-\item {} 
-{\hyperref[collaboration3:collaboration3]{這是 collaboration3 標題}}
-\begin{itemize}
-\item {} 
-{\hyperref[collaboration3:id1]{小標題}}
-
-\item {} 
-{\hyperref[collaboration3:id2]{小標題2}}
-
-\end{itemize}
-
-\end{itemize}
-\end{minipage}}
-\begin{center}\setlength{\fboxsep}{5pt}\shadowbox{\box0}\end{center}
-
-若檔案未關閉, 必須要 refresh from outside
-
-以下就是 outside 的內容, 由某一位組員負責編寫
-
-這是外部的檔案, 來自外部的內容
-
-這是第二次從外部更新的檔案
-
-
-\section{小標題}
-\label{collaboration3:id1}
-這是小標題之後的內容, 假如希望從網際系統取得組員的 frontouside.html.txt, 可以透過 CMSimple 的 upload 機制.
-
-
-\section{小標題2}
-\label{collaboration3:id2}
-這是小標題2之後的內容, 經過 sphinx 處理後的 html 目錄則可以利用 mongoose 或 nginx 派送到網站上, 也可以將 html 目錄中的內容轉送到雲端網站中.
-
-以下嘗試由 literalinclude 導入程式碼:
+'''
+
+以下為 lastname.txt 的內容:
+
+趙錢孫李周吳鄭王馮陳褚衛蔣沈韓楊朱秦尤許何呂施張孔曹嚴華金魏陶薑
+戚謝鄒喻柏水竇章雲蘇潘葛奚範彭郎魯韋昌馬苗鳳花方俞任袁柳酆鮑史唐
+費廉岑薛雷賀倪湯滕殷羅畢郝鄔安常樂於時傅皮卞齊康伍餘元蔔顧孟平黃
+和穆蕭尹姚邵湛汪祁毛禹狄米貝明臧計伏成戴談宋茅龐熊紀舒屈項祝董梁
+杜阮藍閔席季麻強賈路婁危江童顏郭梅盛林刁鍾徐邱駱高夏蔡田樊胡淩霍
+虞萬支柯昝管盧莫柯房裘繆幹解應宗丁宣賁鄧鬱單杭洪包諸左石崔吉鈕龔
+程嵇邢滑裴陸榮翁荀羊于惠甄曲家封芮羿儲靳汲邴糜松井段富巫烏焦巴弓
+牧隗山穀車侯宓蓬全郗班仰秋仲伊宮甯仇欒暴甘鈄曆戎祖武符劉景詹束龍
+葉幸司韶郜黎薊溥印宿白懷蒲邰從鄂索鹹籍賴卓藺屠蒙池喬陽鬱胥能蒼雙
+聞莘党翟譚貢勞逄姬申扶堵冉宰酈雍卻璩桑桂濮牛壽通邊扈燕冀浦尚農溫
+別莊晏柴瞿閻充慕連茹習宦艾魚容向古易慎戈廖庾終暨居衡步都耿滿弘匡
+國文寇廣祿闕東歐殳沃利蔚越夔隆師鞏厙聶晁勾敖融冷訾辛闞那簡饒空曾
+毋沙乜養鞠須豐巢關蒯相查後荊紅
+
+以下為 firstname.txt 的內容:
+
+平燦惠歡佩泰州江揚剛乃屏珊易吟定小其菱幼函琴青博兆菁重立呈然永奕
+漢義萍皓力昌妍合仲佳虹慧蓮恭石展軒啟奇秀駿晉冰政綸丹邦大冠貞生思
+玄威嘉依音雲英能緯彬妙聖協法瑞恆采心友昀花樺航玫宛順儀寶婷書妮胤
+彥修火雨俞孝蕙允城盈家陽琳阿紹誠倫亨星美和予念鳳凱松幸凡雯士達泓
+金瑜勇必珍芷岳鈺方琬成霞麟致哲台睿賢珠瑩南克為尹妤春怡亮伯喬夫昕
+亞真喜初愛清禮斌吉淳百臻寧以筠諭仕子文雅郁柏秋蓉伸福劭木宗傑丞昭
+芝弘宇明月峰東聿登左祥迪蘭佑甫雄俊之卉谷玲禾茹榮堯芬姍少謙琇禎蘋
+年姵勳任信旭燕苓豐惟盛發齊介芳容于維侑舜洋璇茂芃伊玉海建季雪柔汝
+千富男新昱人添群欣綠馨利宜堅意名右姿智韻典竹巧坤可全潔裕毓孜仁韋
+慈志琦宣希云茜辛薇梅樂妏嬌安上仰長承旺珮良鑫桓瑋光貴茵憲品綺芸天
+源娟輝君銘夙來昇如泉正廷峻瑤恬靖淑瑄行秉伶康水羽治妹宥夢映霖儒枝
+沛香皇一龍興延翰山卿白忠恩亭俐孟均元凌又偉強育辰萱鴻宸亦娥振中紫
+倩民隆善玟紋杰旻學若華豪湖帆恒佐桂蓁穎軍德財庭琪世林純岑原尚昆妃
+宏
+'''
+\end{Verbatim}
 
 \href{http://blog.kmol.info}{KMOL's home page}
 
@@ -5447,5 +5702,1117 @@ In a collision process where all the rest-masses are the same at the beginning a
     % mode: flyspell
     % End:
 </t>
+<t tx="amd_yen.20130503185304.5137"></t>
+<t tx="amd_yen.20130503185304.5145">Chapter 6: More on Strings and Arrays of Strings
+
+第六章: 更多關於字串與字串陣列的用法
+
+接著, 再回到字串的用法. 下面的例子, 都以全域的方式運用, 亦即, 可以在任何函式之外發生作用, 包括主函式.
+
+先前的章節曾經談過:
+
+   char my_string[40] = "Ted";
+   
+將會配置足夠存放 40 個位元組陣列的空間來存放該變數的值, 並且在最前面的 4 個位元組中放入所設定的字元 (前面三個位元組放入雙引號中的字元, 而最後則放入 '\0')
+
+而實際上, 也可以將 "Ted"  這個字串寫成:
+
+   char my_name[] = "Ted";
+   
+編譯器屆時就會計算字元個數, 並且預留最後的 null 字元, 以便能將全部四個字元存入記憶體, 並傳回存放字元的陣列名稱, 這裡採用 my_name.
+
+在某些程式中, 也可以寫成:
+
+   char *my_name = "Ted";
+   
+這種方式, 與先前兩種方法有何不同? 答案是: 當然不同. 採用陣列來存放四個位元組是將資料放在靜態記憶體區塊, 每一個字元的最後都會放入 null 字元. 但是若採用指標的方式, 也是需要相同的四個位元組, 並加上 N 個位元組來存放 my_name 這個指標變數 (N 取決於系統, 但通常至少 2 位元組, 也可能是 4 個以上)
+
+陣列的表示法中, my_name 是 &amp;myname[0] 的縮寫, 也就是第一個陣列元素的位址. 由於該陣列位址在執行期間是固定的, 因此不會改變 (不是變數). 而若採用指標的方式, my_name 則是變數. 因此採用指標是較好的方式, 當然也取決於隨後要如何應用這個變數.
+
+若再進一步觀察採用不同方式宣告後, 在函數內將如何發生變化, 這與處在任何函式外的全域用法有很大的不同.
+
+void my_function_A(char *ptr)
+{
+    char a[] = "ABCDE"
+    .
+    .
+} 
+void my_function_B(char *ptr)
+{
+    char *cp = "FGHIJ"
+    .
+    .
+}
+
+在 my_function_A 的案例中, 陣列 a[] 的值, 就是存放其中的資料. 陣列可視為以 ABCDE 值進行啟始化. 而在 my_function_B 的案例, cp 指標值才代表所存放的資料. 指標的啟始是指向 FGHIJ 字串. 在兩個函式內, 變數定義都是局部, 因此 ABCDE 字串存在指標變數所對應值的堆疊中, 而 FGHIJ 則可能存在任何地方. 在我的系統中, 是存在資料區段中.
+
+此外, 採陣列變數自動起始, 就如同 my_function_A 中所示, 在舊的 K&amp;R C 中是無法使用的, 只能用在 ANSI C 的環境中. 這點在考量程式的可攜或向後相容時就顯得很重要.
+
+只要討論有關指標與陣列的關係與差異時, 就需要更進一步討論多維度陣列. 例如下列陣列:
+
+    char multi[5][10];
+    
+這代表什麼? 讓我們看看.
+
+    char multi[5][10];
+    
+若將有底線的部分視為陣列的變數名稱. 先前的 char 代表資料型別, 而隨後的 [10] 則代表擁有時個字元的陣列. 但是 multi[5] 本身又是一個具有 5 個成員的陣列, 而每一個都帶有 10 個字元的陣列. 亦即, 總共有 5 個陣列各自帶有 10 個字元的陣列.
+
+假設將這個二維的陣列填入資料, 在記憶體中, 可以表示成為五個各自分離的陣列:
+
+    multi[0] = {'0','1','2','3','4','5','6','7','8','9'}
+    multi[1] = {'a','b','c','d','e','f','g','h','i','j'}
+    multi[2] = {'A','B','C','D','E','F','G','H','I','J'}
+    multi[3] = {'9','8','7','6','5','4','3','2','1','0'}
+    multi[4] = {'J','I','H','G','F','E','D','C','B','A'}
+    
+同時, 個別元素可以再表示為:
+
+    multi[0][3] = '3'
+    multi[1][7] = 'h'
+    multi[4][0] = 'J'
+    
+由於陣列在記憶體中是連續的資料, 因此在真實的記憶區段中, 就成為:
+
+    0123456789abcdefghijABCDEFGHIJ9876543210JIHGFEDCBA
+    ^
+    |_____ starting at the address &amp;multi[0][0]
+    
+請注意, 這裡並沒有將 multi[0] 寫成"0123456789". 因為若寫成這樣, 電腦會在最
+後面補上字串結束用的 '\0', 因為雙引號中間的資料會被當作字串. 這樣, 每一個變數
+就會帶有 11 個字元, 而非該有的 10 個字元.
+
+前面的用意在昭示記憶體如何處理二維陣列. 亦即, 以一個二維字元陣列來存放資料, 而不是存成字串陣列.
+
+接著, 編譯器知道陣列中需要多少行, 因此會用 mylti +1 作為 'a' 在第二列之首, 也就是每一列會加上 10, 結合所指的列數來取得正確的資料.
+
+若處理的數值為整數與相同維數的陣列, 在我使用的機器上, 編譯器會加上 10*sizeof(int), 而得到 20. 因此第四列第九行的位址, 表示為指標, 將會是 &amp;multi[3][0] 或 *(multi + 3). 若希望取得第四列第二個數值, 就可以在此位址上加上 1, 得到下列結果
+
+    *(*(multi + 3) + 1)
+    
+再繼續探究, 可知
+
+    *(*(multi + row) + col)    與
+    
+    multi[row][col]            可得到相同的結果.
+
+下列程式採用整數數列而非字元陣列來驗證這個結果:
+
+------------------- program 6.1 ----------------------
+
+/* Program 6.1 from PTRTUT10.HTM   6/13/97*/
+
+#include &lt;stdio.h&gt;
+#define ROWS 5
+#define COLS 10
+int multi[ROWS][COLS];
+int main(void)
+{
+    int row, col;
+    for (row = 0; row &lt; ROWS; row++)
+    {
+        for (col = 0; col &lt; COLS; col++)
+        {
+            multi[row][col] = row*col;
+        }
+    }
+    for (row = 0; row &lt; ROWS; row++)
+    {
+        for (col = 0; col &lt; COLS; col++)
+        {
+            printf("\n%d  ",multi[row][col]);
+            printf("%d ",*(*(multi + row) + col));
+        }
+    }
+    return 0;
+}
+
+----------------- end of program 6.1 ---------------------   
+
+由於在陣列程式版本中進行了兩次交互參照取值, 二維陣列的名稱就如同指向陣列的指標. 至於三維陣列則用來處理陣列中陣列所指向的陣列, 因此也等同是指向陣列中陣列的指標. 但這裡的說明將陣列所佔記憶體區段以陣列來加以表示, 因此所處理的記憶體位址為常數而非變數. 亦即所討論的是固定的位址而非變數指標.
+
+上述的取值函式允許從陣列中, 以無需變更位址數值的方式從陣列中取出任何數值 (例如, 以 multi[0][0]  的位址取 multi 符號所對應的值)
+</t>
+<t tx="amd_yen.20130503185304.5147">CHAPTER 7: More on Multi-Dimensional Arrays
+
+In the previous chapter we noted that given
+
+    #define ROWS 5
+    #define COLS 10
+
+    int multi[ROWS][COLS];
+we can access individual elements of the array multi using either:
+
+    multi[row][col]
+or
+
+    *(*(multi + row) + col)
+To understand more fully what is going on, let us replace
+
+    *(multi + row)
+with X as in:
+
+    *(X + col)
+Now, from this we see that X is like a pointer since the expression is de-referenced and we know that col is an integer. Here the arithmetic being used is of a special kind called "pointer arithmetic" is being used. That means that, since we are talking about an integer array, the address pointed to by (i.e. value of) X + col + 1 must be greater than the address X + col by and amount equal to sizeof(int).
+
+Since we know the memory layout for 2 dimensional arrays, we can determine that in the expression multi + row as used above, multi + row + 1 must increase by value an amount equal to that needed to "point to" the next row, which in this case would be an amount equal to COLS * sizeof(int).
+
+That says that if the expression *(*(multi + row) + col) is to be evaluated correctly at run time, the compiler must generate code which takes into consideration the value of COLS, i.e. the 2nd dimension. Because of the equivalence of the two forms of expression, this is true whether we are using the pointer expression as here or the array expression multi[row][col].
+
+Thus, to evaluate either expression, a total of 5 values must be known:
+
+The address of the first element of the array, which is returned by the expression multi, i.e., the name of the array.
+The size of the type of the elements of the array, in this case sizeof(int).
+The 2nd dimension of the array
+The specific index value for the first dimension, row in this case.
+The specific index value for the second dimension, col in this case.
+Given all of that, consider the problem of designing a function to manipulate the element values of a previously declared array. For example, one which would set all the elements of the array multi to the value 1.
+
+    void set_value(int m_array[][COLS])
+    {
+        int row, col;
+        for (row = 0; row &lt; ROWS; row++)
+        {
+            for (col = 0; col &lt; COLS; col++)
+            {
+                m_array[row][col] = 1;
+            }
+        }
+    }
+
+And to call this function we would then use:
+
+    set_value(multi);
+Now, within the function we have used the values #defined by ROWS and COLS that set the limits on the for loops. But, these #defines are just constants as far as the compiler is concerned, i.e. there is nothing to connect them to the array size within the function. row and col are local variables, of course. The formal parameter definition permits the compiler to determine the characteristics associated with the pointer value that will be passed at run time. We really don’t need the first dimension and, as will be seen later, there are occasions where we would prefer not to define it within the parameter definition, out of habit or consistency, I have not used it here. But, the second dimension must be used as has been shown in the expression for the parameter. The reason is that we need this in the evaluation of m_array[row][col] as has been described. While the parameter defines the data type (int in this case) and the automatic variables for row and column are defined in the for loops, only one value can be passed using a single parameter. In this case, that is the value of multi as noted in the call statement, i.e. the address of the first element, often referred to as a pointer to the array. Thus, the only way we have of informing the compiler of the 2nd dimension is by explicitly including it in the parameter definition.
+
+In fact, in general all dimensions of higher order than one are needed when dealing with multi-dimensional arrays. That is if we are talking about 3 dimensional arrays, the 2nd and 3rd dimension must be specified in the parameter definition.
+
+
+</t>
+<t tx="amd_yen.20130503185304.5148">CHAPTER 8: Pointers to Arrays
+
+Pointers, of course, can be "pointed at" any type of data object, including arrays. While that was evident when we discussed program 3.1, it is important to expand on how we do this when it comes to multi-dimensional arrays.
+
+To review, in Chapter 2 we stated that given an array of integers we could point an integer pointer at that array using:
+
+    int *ptr;
+    ptr = &amp;my_array[0];       /* point our pointer at the first
+                                 integer in our array */
+As we stated there, the type of the pointer variable must match the type of the first element of the array.
+
+In addition, we can use a pointer as a formal parameter of a function which is designed to manipulate an array. e.g.
+
+Given:
+
+    int array[3] = {1, 5, 7};
+    void a_func(int *p);
+Some programmers might prefer to write the function prototype as:
+
+   void a_func(int p[]);
+which would tend to inform others who might use this function that the function is designed to manipulate the elements of an array. Of course, in either case, what actually gets passed is the value of a pointer to the first element of the array, independent of which notation is used in the function prototype or definition. Note that if the array notation is used, there is no need to pass the actual dimension of the array since we are not passing the whole array, only the address to the first element.
+
+We now turn to the problem of the 2 dimensional array. As stated in the last chapter, C interprets a 2 dimensional array as an array of one dimensional arrays. That being the case, the first element of a 2 dimensional array of integers is a one dimensional array of integers. And a pointer to a two dimensional array of integers must be a pointer to that data type. One way of accomplishing this is through the use of the keyword "typedef". typedef assigns a new name to a specified data type. For example:
+
+    typedef unsigned char byte;
+causes the name byte to mean type unsigned char. Hence
+
+    byte b[10];     would be an array of unsigned characters.
+Note that in the typedef declaration, the word byte has replaced that which would normally be the name of our unsigned char. That is, the rule for using typedef is that the new name for the data type is the name used in the definition of the data type. Thus in:
+
+    typedef int Array[10];
+Array becomes a data type for an array of 10 integers. i.e. Array my_arr; declares my_arr as an array of 10 integers and Array arr2d[5]; makes arr2d an array of 5 arrays of 10 integers each.
+
+Also note that Array *p1d; makes p1d a pointer to an array of 10 integers. Because *p1d points to the same type as arr2d, assigning the address of the two dimensional array arr2d to p1d, the pointer to a one dimensional array of 10 integers is acceptable. i.e. p1d = &amp;arr2d[0]; or p1d = arr2d; are both correct.
+
+Since the data type we use for our pointer is an array of 10 integers we would expect that incrementing p1d by 1 would change its value by 10*sizeof(int), which it does. That is, sizeof(*p1d) is 20. You can prove this to yourself by writing and running a simple short program.
+
+Now, while using typedef makes things clearer for the reader and easier on the programmer, it is not really necessary. What we need is a way of declaring a pointer like p1d without the need of the typedef keyword. It turns out that this can be done and that
+
+    int (*p1d)[10];
+is the proper declaration, i.e. p1d here is a pointer to an array of 10 integers just as it was under the declaration using the Array type. Note that this is different from
+
+    int *p1d[10];
+which would make p1d the name of an array of 10 pointers to type int.
+</t>
+<t tx="amd_yen.20130503185304.5149">CHAPTER 9: Pointers and Dynamic Allocation of Memory
+
+There are times when it is convenient to allocate memory at run time using malloc(), calloc(), or other allocation functions. Using this approach permits postponing the decision on the size of the memory block need to store an array, for example, until run time. Or it permits using a section of memory for the storage of an array of integers at one point in time, and then when that memory is no longer needed it can be freed up for other uses, such as the storage of an array of structures.
+
+When memory is allocated, the allocating function (such as malloc(), calloc(), etc.) returns a pointer. The type of this pointer depends on whether you are using an older K&amp;R compiler or the newer ANSI type compiler. With the older compiler the type of the returned pointer is char, with the ANSI compiler it is void.
+
+If you are using an older compiler, and you want to allocate memory for an array of integers you will have to cast the char pointer returned to an integer pointer. For example, to allocate space for 10 integers we might write:
+
+    int *iptr;
+    iptr = (int *)malloc(10 * sizeof(int));
+    if (iptr == NULL)
+
+    { .. ERROR ROUTINE GOES HERE .. }
+If you are using an ANSI compliant compiler, malloc() returns a void pointer and since a void pointer can be assigned to a pointer variable of any object type, the (int *) cast shown above is not needed. The array dimension can be determined at run time and is not needed at compile time. That is, the 10 above could be a variable read in from a data file or keyboard, or calculated based on some need, at run time.
+
+Because of the equivalence between array and pointer notation, once iptr has been assigned as above, one can use the array notation. For example, one could write:
+
+    int k;
+    for (k = 0; k &lt; 10; k++)
+       iptr[k] = 2;
+to set the values of all elements to 2.
+
+Even with a reasonably good understanding of pointers and arrays, one place the newcomer to C is likely to stumble at first is in the dynamic allocation of multi-dimensional arrays. In general, we would like to be able to access elements of such arrays using array notation, not pointer notation, wherever possible. Depending on the application we may or may not know both dimensions at compile time. This leads to a variety of ways to go about our task.
+
+As we have seen, when dynamically allocating a one dimensional array its dimension can be determined at run time. Now, when using dynamic allocation of higher order arrays, we never need to know the first dimension at compile time. Whether we need to know the higher dimensions depends on how we go about writing the code. Here I will discuss various methods of dynamically allocating room for 2 dimensional arrays of integers.
+
+First we will consider cases where the 2nd dimension is known at compile time.
+
+METHOD 1:
+
+One way of dealing with the problem is through the use of the typedef keyword. To allocate a 2 dimensional array of integers recall that the following two notations result in the same object code being generated:
+
+    multi[row][col] = 1;     *(*(multi + row) + col) = 1;
+
+It is also true that the following two notations generate the same code:
+
+    multi[row]            *(multi + row)
+
+Since the one on the right must evaluate to a pointer, the array notation on the left must also evaluate to a pointer. In fact multi[0] will return a pointer to the first integer in the first row, multi[1] a pointer to the first integer of the second row, etc. Actually, multi[n] evaluates to a pointer to that array of integers that make up the n-th row of our 2 dimensional array. That is, multi can be thought of as an array of arrays and multi[n] as a pointer to the n-th array of this array of arrays. Here the word pointer is being used to represent an address value. While such usage is common in the literature, when reading such statements one must be careful to distinguish between the constant address of an array and a variable pointer which is a data object in itself.
+
+Consider now:
+
+--------------- Program 9.1 --------------------------------
+
+/* Program 9.1 from PTRTUT10.HTM  6/13/97 */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define COLS 5
+
+typedef int RowArray[COLS];
+RowArray *rptr;
+
+int main(void)
+{
+    int nrows = 10;
+    int row, col;
+    rptr = malloc(nrows * COLS * sizeof(int));
+    for (row = 0; row &lt; nrows; row++)
+    {
+        for (col = 0; col &lt; COLS; col++)
+        {
+            rptr[row][col] = 17;
+        }
+    }
+
+    return 0;
+}
+------------- End of Prog. 9.1 --------------------------------
+
+Here I have assumed an ANSI compiler so a cast on the void pointer returned by malloc() is not required. If you are using an older K&amp;R compiler you will have to cast using:
+
+    rptr = (RowArray *)malloc(.... etc.
+Using this approach, rptr has all the characteristics of an array name name, (except that rptr is modifiable), and array notation may be used throughout the rest of the program. That also means that if you intend to write a function to modify the array contents, you must use COLS as a part of the formal parameter in that function, just as we did when discussing the passing of two dimensional arrays to a function.
+
+METHOD 2:
+
+In the METHOD 1 above, rptr turned out to be a pointer to type "one dimensional array of COLS integers". It turns out that there is syntax which can be used for this type without the need of typedef. If we write:
+
+    int (*xptr)[COLS];
+
+the variable xptr will have all the same characteristics as the variable rptr in METHOD 1 above, and we need not use the typedef keyword. Here xptr is a pointer to an array of integers and the size of that array is given by the #defined COLS. The parenthesis placement makes the pointer notation predominate, even though the array notation has higher precedence. i.e. had we written
+
+    int *xptr[COLS];
+we would have defined xptr as an array of pointers holding the number of pointers equal to that #defined by COLS. That is not the same thing at all. However, arrays of pointers have their use in the dynamic allocation of two dimensional arrays, as will be seen in the next 2 methods.
+
+METHOD 3:
+
+Consider the case where we do not know the number of elements in each row at compile time, i.e. both the number of rows and number of columns must be determined at run time. One way of doing this would be to create an array of pointers to type int and then allocate space for each row and point these pointers at each row. Consider:
+
+-------------- Program 9.2 ------------------------------------
+
+/* Program 9.2 from PTRTUT10.HTM   6/13/97 */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void)
+{
+    int nrows = 5;     /* Both nrows and ncols could be evaluated */
+    int ncols = 10;    /* or read in at run time */
+    int row;
+    int **rowptr;
+    rowptr = malloc(nrows * sizeof(int *));
+    if (rowptr == NULL)
+    {
+        puts("\nFailure to allocate room for row pointers.\n");
+        exit(0);
+    }
+
+    printf("\n\n\nIndex   Pointer(hex)   Pointer(dec)   Diff.(dec)");
+
+    for (row = 0; row &lt; nrows; row++)
+    {
+        rowptr[row] = malloc(ncols * sizeof(int));
+        if (rowptr[row] == NULL)
+        {
+            printf("\nFailure to allocate for row[%d]\n",row);
+            exit(0);
+        }
+        printf("\n%d         %p         %d", row, rowptr[row], rowptr[row]);
+        if (row &gt; 0)
+        printf("              %d",(int)(rowptr[row] - rowptr[row-1]));
+    }
+
+    return 0;
+}
+
+--------------- End 9.2 ------------------------------------
+
+In the above code rowptr is a pointer to pointer to type int. In this case it points to the first element of an array of pointers to type int. Consider the number of calls to malloc():
+
+    To get the array of pointers             1     call
+    To get space for the rows                5     calls
+                                          -----
+                     Total                   6     calls
+If you choose to use this approach note that while you can use the array notation to access individual elements of the array, e.g. rowptr[row][col] = 17;, it does not mean that the data in the "two dimensional array" is contiguous in memory.
+
+You can, however, use the array notation just as if it were a continuous block of memory. For example, you can write:
+
+    rowptr[row][col] = 176;
+just as if rowptr were the name of a two dimensional array created at compile time. Of course row and col must be within the bounds of the array you have created, just as with an array created at compile time.
+
+If you want to have a contiguous block of memory dedicated to the storage of the elements in the array you can do it as follows:
+
+METHOD 4:
+
+In this method we allocate a block of memory to hold the whole array first. We then create an array of pointers to point to each row. Thus even though the array of pointers is being used, the actual array in memory is contiguous. The code looks like this:
+
+----------------- Program 9.3 -----------------------------------
+
+/* Program 9.3 from PTRTUT10.HTM   6/13/97 */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main(void)
+{
+    int **rptr;
+    int *aptr;
+    int *testptr;
+    int k;
+    int nrows = 5;     /* Both nrows and ncols could be evaluated */
+    int ncols = 8;    /* or read in at run time */
+    int row, col;
+
+    /* we now allocate the memory for the array */
+
+    aptr = malloc(nrows * ncols * sizeof(int));
+    if (aptr == NULL)
+    {
+        puts("\nFailure to allocate room for the array");
+        exit(0);
+    }
+
+    /* next we allocate room for the pointers to the rows */
+
+    rptr = malloc(nrows * sizeof(int *));
+    if (rptr == NULL)
+    {
+        puts("\nFailure to allocate room for pointers");
+        exit(0);
+    }
+
+    /* and now we 'point' the pointers */
+
+    for (k = 0; k &lt; nrows; k++)
+    {
+        rptr[k] = aptr + (k * ncols);
+    }
+
+    /* Now we illustrate how the row pointers are incremented */
+    printf("\n\nIllustrating how row pointers are incremented");
+    printf("\n\nIndex   Pointer(hex)  Diff.(dec)");
+
+    for (row = 0; row &lt; nrows; row++)
+    {
+        printf("\n%d         %p", row, rptr[row]);
+        if (row &gt; 0)
+        printf("              %d",(rptr[row] - rptr[row-1]));
+    }
+    printf("\n\nAnd now we print out the array\n");
+    for (row = 0; row &lt; nrows; row++)
+    {
+        for (col = 0; col &lt; ncols; col++)
+        {
+            rptr[row][col] = row + col;
+            printf("%d ", rptr[row][col]);
+        }
+        putchar('\n');
+    }
+
+    puts("\n");
+
+    /* and here we illustrate that we are, in fact, dealing with
+       a 2 dimensional array in a contiguous block of memory. */
+    printf("And now we demonstrate that they are contiguous in memory\n");
+
+    testptr = aptr;
+    for (row = 0; row &lt; nrows; row++)
+    {
+        for (col = 0; col &lt; ncols; col++)
+        {
+            printf("%d ", *(testptr++));
+        }
+        putchar('\n');
+    }
+
+    return 0;
+}
+
+
+
+
+------------- End Program 9.3 -----------------
+
+Consider again, the number of calls to malloc()
+
+    To get room for the array itself      1      call
+    To get room for the array of ptrs     1      call
+                                        ----
+                         Total            2      calls
+
+Now, each call to malloc() creates additional space overhead since malloc() is generally implemented by the operating system forming a linked list which contains data concerning the size of the block. But, more importantly, with large arrays (several hundred rows) keeping track of what needs to be freed when the time comes can be more cumbersome. This, combined with the contiguousness of the data block that permits initialization to all zeroes using memset() would seem to make the second alternative the preferred one.
+
+As a final example on multidimensional arrays we will illustrate the dynamic allocation of a three dimensional array. This example will illustrate one more thing to watch when doing this kind of allocation. For reasons cited above we will use the approach outlined in alternative two. Consider the following code:
+
+------------------- Program 9.4 -------------------------------------
+
+/* Program 9.4 from PTRTUT10.HTM   6/13/97 */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stddef.h&gt;
+
+int X_DIM=16;
+int Y_DIM=5;
+int Z_DIM=3;
+
+int main(void)
+{
+    char *space;
+    char ***Arr3D;
+    int y, z;
+    ptrdiff_t diff;
+
+    /* first we set aside space for the array itself */
+
+    space = malloc(X_DIM * Y_DIM * Z_DIM * sizeof(char));
+
+    /* next we allocate space of an array of pointers, each
+       to eventually point to the first element of a
+       2 dimensional array of pointers to pointers */
+
+    Arr3D = malloc(Z_DIM * sizeof(char **));
+
+    /* and for each of these we assign a pointer to a newly
+       allocated array of pointers to a row */
+
+    for (z = 0; z &lt; Z_DIM; z++)
+    {
+        Arr3D[z] = malloc(Y_DIM * sizeof(char *));
+
+        /* and for each space in this array we put a pointer to
+           the first element of each row in the array space
+           originally allocated */
+
+        for (y = 0; y &lt; Y_DIM; y++)
+        {
+            Arr3D[z][y] = space + (z*(X_DIM * Y_DIM) + y*X_DIM);
+        }
+    }
+
+    /* And, now we check each address in our 3D array to see if
+       the indexing of the Arr3d pointer leads through in a
+       continuous manner */
+
+    for (z = 0; z &lt; Z_DIM; z++)
+    {
+        printf("Location of array %d is %p\n", z, *Arr3D[z]);
+        for ( y = 0; y &lt; Y_DIM; y++)
+        {
+            printf("  Array %d and Row %d starts at %p", z, y, Arr3D[z][y]);
+            diff = Arr3D[z][y] - space;
+            printf("    diff = %d  ",diff);
+            printf(" z = %d  y = %d\n", z, y);
+        }
+    }
+    return 0;
+}
+
+------------------- End of Prog. 9.4 ----------------------------
+
+If you have followed this tutorial up to this point you should have no problem deciphering the above on the basis of the comments alone. There are a couple of points that should be made however. Let's start with the line which reads:
+
+    Arr3D[z][y] = space + (z*(X_DIM * Y_DIM) + y*X_DIM);
+Note that here space is a character pointer, which is the same type as Arr3D[z][y]. It is important that when adding an integer, such as that obtained by evaluation of the expression (z*(X_DIM * Y_DIM) + y*X_DIM), to a pointer, the result is a new pointer value. And when assigning pointer values to pointer variables the data types of the value and variable must match.
+</t>
+<t tx="amd_yen.20130503185304.5150">CHAPTER 10: Pointers to Functions
+
+Up to this point we have been discussing pointers to data objects. C also permits the declaration of pointers to functions. Pointers to functions have a variety of uses and some of them will be discussed here.
+
+Consider the following real problem. You want to write a function that is capable of sorting virtually any collection of data that can be stored in an array. This might be an array of strings, or integers, or floats, or even structures. The sorting algorithm can be the same for all. For example, it could be a simple bubble sort algorithm, or the more complex shell or quick sort algorithm. We'll use a simple bubble sort for demonstration purposes.
+
+Sedgewick [1] has described the bubble sort using C code by setting up a function which when passed a pointer to the array would sort it. If we call that function bubble(), a sort program is described by bubble_1.c, which follows:
+
+/*-------------------- bubble_1.c --------------------*/
+
+/* Program bubble_1.c from PTRTUT10.HTM   6/13/97 */
+
+#include &lt;stdio.h&gt;
+
+int arr[10] = { 3,6,1,2,3,8,4,1,7,2};
+
+void bubble(int a[], int N);
+
+int main(void)
+{
+    int i;
+    putchar('\n');
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    bubble(arr,10);
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+
+void bubble(int a[], int N)
+{
+    int i, j, t;
+    for (i = N-1; i &gt;= 0; i--)
+    {
+        for (j = 1; j &lt;= i; j++)
+        {
+            if (a[j-1] &gt; a[j])
+            {
+                t = a[j-1];
+                a[j-1] = a[j];
+                a[j] = t;
+            }
+        }
+    }
+}
+
+
+
+/*---------------------- end bubble_1.c -----------------------*/
+
+The bubble sort is one of the simpler sorts. The algorithm scans the array from the second to the last element comparing each element with the one which precedes it. If the one that precedes it is larger than the current element, the two are swapped so the larger one is closer to the end of the array. On the first pass, this results in the largest element ending up at the end of the array. The array is now limited to all elements except the last and the process repeated. This puts the next largest element at a point preceding the largest element. The process is repeated for a number of times equal to the number of elements minus 1. The end result is a sorted array.
+
+Here our function is designed to sort an array of integers. Thus in line 1 we are comparing integers and in lines 2 through 4 we are using temporary integer storage to store integers. What we want to do now is see if we can convert this code so we can use any data type, i.e. not be restricted to integers.
+
+At the same time we don't want to have to analyze our algorithm and the code associated with it each time we use it. We start by removing the comparison from within the function bubble() so as to make it relatively easy to modify the comparison function without having to re-write portions related to the actual algorithm. This results in bubble_2.c:
+
+/*---------------------- bubble_2.c -------------------------*/
+
+/* Program bubble_2.c from PTRTUT10.HTM   6/13/97 */
+
+   /* Separating the comparison function */
+
+#include &lt;stdio.h&gt;
+
+int arr[10] = { 3,6,1,2,3,8,4,1,7,2};
+
+void bubble(int a[], int N);
+int compare(int m, int n);
+
+int main(void)
+{
+    int i;
+    putchar('\n');
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    bubble(arr,10);
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+
+void bubble(int a[], int N)
+
+{
+    int i, j, t;
+    for (i = N-1; i &gt;= 0; i--)
+    {
+        for (j = 1; j &lt;= i; j++)
+        {
+            if (compare(a[j-1], a[j]))
+            {
+                t = a[j-1];
+                a[j-1] = a[j];
+                a[j] = t;
+            }
+        }
+    }
+}
+
+int compare(int m, int n)
+{
+    return (m &gt; n);
+}
+/*--------------------- end of bubble_2.c -----------------------*/
+If our goal is to make our sort routine data type independent, one way of doing this is to use pointers to type void to point to the data instead of using the integer data type. As a start in that direction let's modify a few things in the above so that pointers can be used. To begin with, we'll stick with pointers to type integer.
+
+/*----------------------- bubble_3.c -------------------------*/
+
+/* Program bubble_3.c from PTRTUT10.HTM    6/13/97 */
+
+#include &lt;stdio.h&gt;
+
+int arr[10] = { 3,6,1,2,3,8,4,1,7,2};
+
+void bubble(int *p, int N);
+int compare(int *m, int *n);
+
+int main(void)
+{
+    int i;
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    bubble(arr,10);
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+
+void bubble(int *p, int N)
+{
+    int i, j, t;
+    for (i = N-1; i &gt;= 0; i--)
+    {
+        for (j = 1; j &lt;= i; j++)
+        {
+            if (compare(&amp;p[j-1], &amp;p[j]))
+            {
+                t = p[j-1];
+                p[j-1] = p[j];
+                p[j] = t;
+            }
+        }
+    }
+}
+
+int compare(int *m, int *n)
+{
+    return (*m &gt; *n);
+}
+
+/*------------------ end of bubble3.c -------------------------*/
+
+Note the changes. We are now passing a pointer to an integer (or array of integers) to bubble(). And from within bubble we are passing pointers to the elements of the array that we want to compare to our comparison function. And, of course we are dereferencing these pointer in our compare() function in order to make the actual comparison. Our next step will be to convert the pointers in bubble() to pointers to type void so that that function will become more type insensitive. This is shown in bubble_4.
+
+/*------------------ bubble_4.c ----------------------------*/
+
+/* Program bubble_4.c from PTRTUT10,HTM   6/13/97 */
+
+#include &lt;stdio.h&gt;
+
+int arr[10] = { 3,6,1,2,3,8,4,1,7,2};
+
+void bubble(int *p, int N);
+int compare(void *m, void *n);
+
+int main(void)
+{
+    int i;
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    bubble(arr,10);
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+
+void bubble(int *p, int N)
+{
+    int i, j, t;
+    for (i = N-1; i &gt;= 0; i--)
+    {
+        for (j = 1; j &lt;= i; j++)
+        {
+            if (compare((void *)&amp;p[j-1], (void *)&amp;p[j]))
+            {
+                t = p[j-1];
+                p[j-1] = p[j];
+                p[j] = t;
+            }
+        }
+    }
+}
+
+int compare(void *m, void *n)
+{
+    int *m1, *n1;
+    m1 = (int *)m;
+    n1 = (int *)n;
+    return (*m1 &gt; *n1);
+}
+
+/*------------------ end of bubble_4.c ---------------------*/
+
+Note that, in doing this, in compare() we had to introduce the casting of the void pointer types passed to the actual type being sorted. But, as we'll see later that's okay. And since what is being passed to bubble() is still a pointer to an array of integers, we had to cast these pointers to void pointers when we passed them as parameters in our call to compare().
+
+We now address the problem of what we pass to bubble(). We want to make the first parameter of that function a void pointer also. But, that means that within bubble() we need to do something about the variable t, which is currently an integer. Also, where we use t = p[j-1]; the type of p[j-1] needs to be known in order to know how many bytes to copy to the variable t (or whatever we replace t with).
+
+Currently, in bubble_4.c, knowledge within bubble() as to the type of the data being sorted (and hence the size of each individual element) is obtained from the fact that the first parameter is a pointer to type integer. If we are going to be able to use bubble() to sort any type of data, we need to make that pointer a pointer to type void. But, in doing so we are going to lose information concerning the size of individual elements within the array. So, in bubble_5.c we will add a separate parameter to handle this size information.
+
+These changes, from bubble4.c to bubble5.c are, perhaps, a bit more extensive than those we have made in the past. So, compare the two modules carefully for differences.
+
+/*---------------------- bubble5.c ---------------------------*/
+
+/* Program bubble_5.c from PTRTUT10.HTM    6/13/97 */
+
+
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+long arr[10] = { 3,6,1,2,3,8,4,1,7,2};
+
+void bubble(void *p, size_t width, int N);
+int compare(void *m, void *n);
+
+int main(void)
+{
+    int i;
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    bubble(arr, sizeof(long), 10);
+    putchar('\n');
+
+    for (i = 0; i &lt; 10; i++)
+    {
+        printf("%ld ", arr[i]);
+    }
+
+    return 0;
+}
+
+void bubble(void *p, size_t width, int N)
+{
+    int i, j;
+    unsigned char buf[4];
+    unsigned char *bp = p;
+
+    for (i = N-1; i &gt;= 0; i--)
+    {
+        for (j = 1; j &lt;= i; j++)
+        {
+            if (compare((void *)(bp + width*(j-1)),
+                        (void *)(bp + j*width)))  /* 1 */
+            {
+/*              t = p[j-1];   */
+                memcpy(buf, bp + width*(j-1), width);
+/*              p[j-1] = p[j];   */
+                memcpy(bp + width*(j-1), bp + j*width , width);
+/*              p[j] = t;   */
+                memcpy(bp + j*width, buf, width);
+            }
+        }
+    }
+}
+
+int compare(void *m, void *n)
+{
+    long *m1, *n1;
+    m1 = (long *)m;
+    n1 = (long *)n;
+    return (*m1 &gt; *n1);
+}
+
+/*--------------------- end of bubble5.c ---------------------*/
+
+Note that I have changed the data type of the array from int to long to illustrate the changes needed in the compare() function. Within bubble() I've done away with the variable t (which we would have had to change from type int to type long). I have added a buffer of size 4 unsigned characters, which is the size needed to hold a long (this will change again in future modifications to this code). The unsigned character pointer *bp is used to point to the base of the array to be sorted, i.e. to the first element of that array.
+
+We also had to modify what we passed to compare(), and how we do the swapping of elements that the comparison indicates need swapping. Use of memcpy() and pointer notation instead of array notation work towards this reduction in type sensitivity.
+
+Again, making a careful comparison of bubble5.c with bubble4.c can result in improved understanding of what is happening and why.
+
+We move now to bubble6.c where we use the same function bubble() that we used in bubble5.c to sort strings instead of long integers. Of course we have to change the comparison function since the means by which strings are compared is different from that by which long integers are compared. And,in bubble6.c we have deleted the lines within bubble() that were commented out in bubble5.c.
+
+/*--------------------- bubble6.c ---------------------*/
+/* Program bubble_6.c from PTRTUT10.HTM   6/13/97 */
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX_BUF 256
+
+char arr2[5][20] = {  "Mickey Mouse",
+
+                      "Donald Duck",
+
+                      "Minnie Mouse",
+
+                      "Goofy",
+
+                      "Ted Jensen" };
+
+void bubble(void *p, int width, int N);
+int compare(void *m, void *n);
+
+int main(void)
+{
+    int i;
+    putchar('\n');
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        printf("%s\n", arr2[i]);
+    }
+    bubble(arr2, 20, 5);
+    putchar('\n\n');
+
+    for (i = 0; i &lt; 5; i++)
+    {
+        printf("%s\n", arr2[i]);
+    }
+    return 0;
+}
+
+void bubble(void *p, int width, int N)
+{
+    int i, j, k;
+    unsigned char buf[MAX_BUF];
+    unsigned char *bp = p;
+
+    for (i = N-1; i &gt;= 0; i--)
+    {
+        for (j = 1; j &lt;= i; j++)
+        {
+          k = compare((void *)(bp + width*(j-1)), (void *)(bp + j*width));
+          if (k &gt; 0)
+            {
+             memcpy(buf, bp + width*(j-1), width);
+             memcpy(bp + width*(j-1), bp + j*width , width);
+             memcpy(bp + j*width, buf, width);
+            }
+        }
+    }
+}
+
+int compare(void *m, void *n)
+{
+    char *m1 = m;
+    char *n1 = n;
+    return (strcmp(m1,n1));
+}
+
+/*------------------- end of bubble6.c ---------------------*/
+
+But, the fact that bubble() was unchanged from that used in bubble5.c indicates that that function is capable of sorting a wide variety of data types. What is left to do is to pass to bubble() the name of the comparison function we want to use so that it can be truly universal. Just as the name of an array is the address of the first element of the array in the data segment, the name of a function decays into the address of that function in the code segment. Thus we need to use a pointer to a function. In this case the comparison function.
+
+Pointers to functions must match the functions pointed to in the number and types of the parameters and the type of the return value. In our case, we declare our function pointer as:
+
+   int (*fptr)(const void *p1, const void *p2);
+Note that were we to write:
+
+    int *fptr(const void *p1, const void *p2);
+we would have a function prototype for a function which returned a pointer to type int. That is because in C the parenthesis () operator have a higher precedence than the pointer * operator. By putting the parenthesis around the string (*fptr) we indicate that we are declaring a function pointer.
+
+We now modify our declaration of bubble() by adding, as its 4th parameter, a function pointer of the proper type. It's function prototype becomes:
+
+    void bubble(void *p, int width, int N,
+                int(*fptr)(const void *, const void *));
+When we call the bubble(), we insert the name of the comparison function that we want to use. bubble7.c illustrate how this approach permits the use of the same bubble() function for sorting different types of data.
+
+/*------------------- bubble7.c ------------------*/
+
+/* Program bubble_7.c from PTRTUT10.HTM  6/10/97 */
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define MAX_BUF 256
+
+long arr[10] = { 3,6,1,2,3,8,4,1,7,2};
+char arr2[5][20] = {  "Mickey Mouse",
+                      "Donald Duck",
+                      "Minnie Mouse",
+                      "Goofy",
+                      "Ted Jensen" };
+
+void bubble(void *p, int width, int N,
+            int(*fptr)(const void *, const void *));
+int compare_string(const void *m, const void *n);
+int compare_long(const void *m, const void *n);
+
+int main(void)
+{
+    int i;
+    puts("\nBefore Sorting:\n");
+
+    for (i = 0; i &lt; 10; i++)               /* show the long ints */
+    {
+        printf("%ld ",arr[i]);
+    }
+    puts("\n");
+
+    for (i = 0; i &lt; 5; i++)                  /* show the strings */
+    {
+        printf("%s\n", arr2[i]);
+    }
+    bubble(arr, 4, 10, compare_long);          /* sort the longs */
+    bubble(arr2, 20, 5, compare_string);     /* sort the strings */
+    puts("\n\nAfter Sorting:\n");
+
+    for (i = 0; i &lt; 10; i++)             /* show the sorted longs */
+    {
+        printf("%d ",arr[i]);
+    }
+    puts("\n");
+
+    for (i = 0; i &lt; 5; i++)            /* show the sorted strings */
+    {
+        printf("%s\n", arr2[i]);
+    }
+    return 0;
+}
+
+void bubble(void *p, int width, int N,
+            int(*fptr)(const void *, const void *))
+{
+    int i, j, k;
+    unsigned char buf[MAX_BUF];
+    unsigned char *bp = p;
+
+    for (i = N-1; i &gt;= 0; i--)
+    {
+        for (j = 1; j &lt;= i; j++)
+        {
+            k = fptr((void *)(bp + width*(j-1)), (void *)(bp + j*width));
+            if (k &gt; 0)
+            {
+                memcpy(buf, bp + width*(j-1), width);
+                memcpy(bp + width*(j-1), bp + j*width , width);
+                memcpy(bp + j*width, buf, width);
+            }
+        }
+    }
+}
+
+int compare_string(const void *m, const void *n)
+{
+    char *m1 = (char *)m;
+    char *n1 = (char *)n;
+    return (strcmp(m1,n1));
+}
+
+int compare_long(const void *m, const void *n)
+{
+    long *m1, *n1;
+    m1 = (long *)m;
+    n1 = (long *)n;
+    return (*m1 &gt; *n1);
+}
+
+/*----------------- end of bubble7.c -----------------*/
+
+References for Chapter 10:
+
+"Algorithms in C"
+Robert Sedgewick
+Addison-Wesley
+ISBN 0-201-51425-7</t>
+<t tx="amd_yen.20130504232827.6216"></t>
+<t tx="amd_yen.20130504232827.6219">@language python
+
+import os
+'''
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+'''
+d = c.scanAllDirectives(p)
+#g.es(d)
+# d 為 commander 由目前所在目錄進行指令設定掃描
+# d 資料格式為 dictionary
+''' 
+實際操作下, d 為 
+{'tabwidth': -4, 'lineending': None, 'language': 'python', 'encoding': None, 'pluginsList': [], 'pagewidth': 70, 'wrap': True, 'path': 'D:\\github\\mdeCourse\\2013spring', 'delims': ('#', '', '')}
+'''
+# 將目錄指到 latex
+mandir = d.get('path') + "/c2wp/resume"
+g.es(mandir)
+os.chdir(mandir)
+target_name = "myresume"
+filename = target_name+".tex"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename)
+filename = target_name+".xdv"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
+
+filename = target_name+".pdf"
+os.system(filename)</t>
+<t tx="amd_yen.20130504232827.8947"></t>
+<t tx="amd_yen.20130504232827.8948">@language python
+
+import os
+'''
+c is the commander of the outline containing the script.
+g is Leo's leo.core.leoGlobals module.
+p is the presently selected position, the same as c.p.
+'''
+d = c.scanAllDirectives(p)
+#g.es(d)
+# d 為 commander 由目前所在目錄進行指令設定掃描
+# d 資料格式為 dictionary
+''' 
+實際操作下, d 為 
+{'tabwidth': -4, 'lineending': None, 'language': 'python', 'encoding': None, 'pluginsList': [], 'pagewidth': 70, 'wrap': True, 'path': 'D:\\github\\mdeCourse\\2013spring', 'delims': ('#', '', '')}
+'''
+# 將目錄指到 latex
+mandir = d.get('path') + "/lshort"
+g.es(mandir)
+os.chdir(mandir)
+target_name = "lshort"
+filename = target_name+".tex"
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename+" -output-directory=_build")
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xelatex.exe -no-pdf -interaction=nonstopmode "+filename+" -output-directory=_build")
+filename = target_name+".xdv"
+os.chdir("_build")
+os.system("V:\\extensions\\portableLatex\\MiKTeX\\texmf\\miktex\\bin\\xdvipdfmx.exe -vv -E "+filename)
+
+filename = target_name+".pdf"
+os.system(filename)</t>
 </tnodes>
 </leo_file>

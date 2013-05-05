@@ -5054,13 +5054,13 @@ PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在�
 
 使用者可以透過此一完全以 Python 程式語言打造的 2D 來了解電腦輔助機械設計製圖的初步架構, 進而建立其他客製化的 2D 繪圖應用模組.
 
-截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改::
+截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
     
-    IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+- IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
     
-    必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+- 必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
     
-    實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+- 實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
     
 此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
     
@@ -5192,7 +5192,84 @@ PyQt 是 Nokia Qt 圖形介面框架的 Python 程式版本, 若開發開放源�
     :language: python
     :linenos:
 
-但是元件較多的畫面則可以使用 Qt Design 進行設計.
+但是元件較多的畫面則可以使用 Qt Design 進行設計, 例如: c2/Gmail 中利用 Qt designer 設計 qtui 目錄下的主視窗 MainWindow.ui, 有關對話框 AboutDialog.ui 以及表單未填顯示框 MissingDialog.ui 等, 可以利用 IDE\Python33\Lib\site-packages\PyQt4\pyuic4.bat 轉為 .py 對應程式.
+
+PyQt 與 PySide 的差別
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+PyQt 採 GPL 與商業授權 - 基本上若採用 PyQt 所編寫的程式碼若非開放源模式釋出, 就必須付費購買商業授權.
+
+PySide 採 LGPL - 可以用來開發開源或非開源的各種套件, 沒有付費需求與限制.
+
+- 模組呼叫名稱上的差異
+
+from PyQt4.QtCore import *
+
+或
+
+import PyQt4.QtCore
+
+要改為
+
+from PySide.QtCore import *
+
+或
+import PySide.QtCore
+
+- 支援程度上的差異
+
+其他參考資料:
+
+http://qt-project.org/wiki/Differences_Between_PySide_and_PyQt
+
+http://qt-project.org/wiki/PySide
+
+PySide 教學
+~~~~~~~~~~~~~
+
+- 先取得 PySide for portableKMOL: http://qt-project.org/wiki/Get-PySide
+
+以下教學資料取自:
+
+http://qt-project.org/wiki/PySide_Tutorials 與 http://zetcode.com/gui/pysidetutorial/
+
+最簡單的 PySide 視窗程式:
+
+.. literalinclude:: ../c2/pyside/hello1.py
+    :language: python
+    :linenos:
+
+利用 QML 建立 PySide 視窗程式:
+
+.. literalinclude:: ../c2/pyside/hello_qml1.py
+    :language: python
+    :linenos:
+    
+執行時需要 view.qml
+
+.. literalinclude:: ../c2/pyside/view.qml
+    :language: none
+    :linenos:
+    
+PySide Tetris
+
+.. literalinclude:: ../c2/pyside/tetris.py
+    :language: none
+    :linenos:
+
+利用 PySide 編寫簡單的瀏覽器
+
+.. literalinclude:: ../c2/pyside/browser1.py
+    :language: none
+    :linenos:
+    
+其他 PySide 範例:
+
+https://github.com/PySide/Examples
+
+https://github.com/shuge/Enjoy-Qt-Python-Binding
+
+https://github.com/bootchk/freehandTool
 
 Qt designer 操作
 ^^^^^^^^^^^^^^^^^^
@@ -5237,6 +5314,17 @@ Qt designer 的基本操作步驟:
 V:\IDE\Python33\Lib\site-packages\PyQt4\pyuic4.bat yourform.ui > yourform.py
 
 - 編寫主 Python 程式導入表單轉出的 .py 程式類別, 透過應用程式啟動執行
+
+程式開發流程
+~~~~~~~~~~~~~~~~~~
+
+PyQt 程式開發流程:
+
+- 利用 Qt designer 設計主要的視窗配置(選擇 MainWindows template), 命名為 MainWindows.ui, 設計對應的下拉式功能表, 之後可以設法利用 pyuic4.bat 轉為 MainWindow.py
+
+- 利用 Qt designer 設計需要的對話視窗配置, 例如: About, 以及可能的功能對話框, 命名為 About.ui 與 Dialog1.ui 等, 利用 pyuic4.bat 轉為 About.py Dialog1.py 等.
+
+- 假如某一下拉式功能表也使用 MainWindow Widget 來配置選單或輸入組件, 則在使用主功能表時, 此一 Widget 必須 hide, 等對應功能選項觸發後再顯示出來.
 
 幣值單位換算
 ^^^^^^^^^^^^^^^^^^

@@ -256,36 +256,49 @@ latex_preamble = r"""
 \evensidemargin -0.3in
 
 \usepackage{pdfpages}
-\usepackage[BoldFont,CJKchecksingle]{xeCJK}
+\usepackage[BoldFont,CJKchecksingle]{xeCJK} % 使用  xeCJK 套件表示要將中文字型與英文字型分開設置
 
-    \usepackage{fancyvrb}    % for frame on Verbatim
-    \usepackage{fancyhdr}
-    \usepackage[T1]{fontspec}    %設定字體用
+\usepackage{fancyvrb}    % for frame on Verbatim
+\usepackage{fancyhdr}
+\usepackage[T1]{fontspec}    % 希望設定字體必須要導入 fontspec 套件
 
 \usepackage{float}
 \usepackage{ccaption}
 \usepackage{pifont}
-% \usepackage{fancybox}
+\usepackage{fancybox}
 \usepackage{fontspec,xunicode,xltxtra}
 
+% 以下設定英文字型, 採用 Times New Roman
 \setsansfont{Times New Roman}
 \setmainfont{Times New Roman}
 \setmonofont{Times New Roman}
+
 % 新細明體
 % 文鼎ＰＬ新宋
 % 文鼎ＰＬ明體U20-L
 % 文鼎ＰＬ报宋二GBK
-\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+% SimHei
+% cwTeXMing
+% cwTeXKai
+% cwTeXHeiBold
 
-    \makeatletter
-    \def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
-    \makeatother
+% 接著設定中文字型
+%\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+%\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+%\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+%\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
 
-\XeTeXlinebreaklocale "zh"    %讓中文自動換行
+\defaultfontfeatures{Mapping=tex-text}
+\setCJKmainfont[BoldFont=cwTeXHeiBold,Scale=1.1]{cwTeXMing}
+\setCJKsansfont[BoldFont=cwTeXHeiBold,Scale=1.1]{cwTeXKai}
+
+\makeatletter
+\def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體
+\makeatother
+
+\XeTeXlinebreaklocale "zh"    % 以下兩行讓中文自動換行
 \XeTeXlinebreakskip = 0pt plus 1pt
+
 \renewcommand{\baselinestretch}{1.3} 
 \setcounter{tocdepth}{3}
 \captiontitlefont{\small\sffamily}

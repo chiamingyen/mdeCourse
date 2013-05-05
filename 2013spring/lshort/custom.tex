@@ -1,0 +1,1169 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Customising LaTeX output
+% $Id: custom.tex,v 1.2 2003/03/19 20:57:45 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 中文~4.20~翻譯：zpxing@bbs.ctex  email: zpxing at gmail dot com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\chapter{Customising \LaTeX}
+\chapter{定製 \LaTeX}
+\begin{intro}
+%Documents produced with the commands you have learned up to this
+%point will look acceptable to a large audience. While they are not
+%fancy-looking, they obey all the established rules of good
+%typesetting, which will make them easy to read and pleasant to look at.
+到目前為止，運用你所學過的命令可以製作出能被絕大多數讀者接受的文檔。
+儘管這些文檔看上去不夠奇妙，但它們遵循了高質量排版的已有規則，
+這些規則可以使得文檔易讀，同時看起來也非常舒適。
+
+%However, there are situations where \LaTeX{} does not provide a
+%command or environment that matches your needs, or the output
+%produced by some existing command may not meet your requirements.
+然而在一些情況下，\LaTeX{} 也許並沒有提供適合你需要的命令或者環境，
+或者現有的命令產生的輸出和你想要的不同。
+
+%In this chapter, I will try to give some hints on
+%how to teach \LaTeX{} new tricks and how to make it produce output
+%that looks different from what is provided by default.
+本章中，我將嘗試給出一些新的技巧，運用這些技巧可以教會 \LaTeX{} 玩
+一些新的把戲，也可以使得 \LaTeX{} 產生與眾不同的輸出。
+\end{intro}
+
+
+%\section{New Commands, Environments and Packages}
+\section{新建命令、環境和宏包}
+%You may have noticed that all the commands I introduce in this
+%book are typeset in a box, and that they show up in the index at the end
+%of the book. Instead of directly using the necessary \LaTeX{} commands
+%to achieve this, I have created a \wi{package} in which I defined new
+%commands and environments for this purpose. Now I can simply write:
+你也許已經注意到我在這本書中介紹的所有命令都被包含在一個矩形框裡，
+並且出現在本書最後的索引中。 我並沒有直接使用所需的 \LaTeX{} 命令
+來實現這個，而是創建了一個宏包 (\wi{package})，並在其中定義了我
+所需要的命令和環境。 現在我可以簡單的寫：
+
+\begin{example}
+\begin{lscommand}
+\ci{dum}
+\end{lscommand}
+\end{example}
+
+%In this example, I am using both a new environment called\\
+%\ei{lscommand}, which is responsible for drawing the box around the
+%command, and a new command named \ci{ci}, which typesets the command
+%name and makes a corresponding entry in the index. You can check
+%this out by looking up the \ci{dum} command in the index at the back
+%of this book, where you'll find an entry for \ci{dum}, pointing to
+%every page where I mentioned the \ci{dum} command.
+在這個例子中，我使用了一個新的環境：\ei{lscommand}。這個環境負責在命令
+的周圍畫出一個矩形框。同時我還使用了一個命令：\ci{ci}， 這個命令負責輸出
+命令的名字，並且在索引中添加相應的條目。你可以在本書最後的索引中查找命令 \ci{dum}，
+然後你會發現有一個 \ci{dum} 的條目，這個條目中列出了包含有 \ci{dum} 命令
+的所有頁的頁碼。
+
+%If I ever decide that I do not like the commands to be typeset in
+%a box any more, I can simply change the definition of the
+%\texttt{lscommand} environment to create a new look. This is much
+%easier than going through the whole document to hunt down all the
+%places where I have used some generic \LaTeX{} commands to draw a
+%box around some word.
+一旦我不再喜歡在一個矩形框中排版命令，我可以輕鬆的
+改變 \texttt{lscommand} 環境的定義，來創建新的外觀。跟追蹤並修改所有
+使用原始的 \LaTeX{} 命令在文字周圍畫框的地方相比，這種做法容易得多。
+
+%\subsection{New Commands}
+\subsection{新建命令}
+
+%To add your own commands, use the
+%\begin{lscommand}
+%\ci{newcommand}\verb|{|%
+%       \emph{name}\verb|}[|\emph{num}\verb|]{|\emph{definition}\verb|}|
+%\end{lscommand}
+%\noindent command.
+%Basically, the command requires two arguments: the \emph{name} of the
+%command you want to create, and the \emph{definition} of the command.
+%The \emph{num} argument in square brackets is optional and specifies the number
+%of arguments the new command takes (up to 9 are possible).
+%If missing it defaults to 0, i.e. no argument allowed.
+為了建立你自己的命令，可以使用如下的命令：
+\begin{lscommand}
+\ci{newcommand}\verb|{|%
+       \emph{name}\verb|}[|\emph{num}\verb|]{|\emph{definition}\verb|}|
+\end{lscommand}
+基本上，這個命令有兩個參量，第一個 \emph{name} 是你想要建立的命令
+的名稱，第二個 \emph{definition} 是命令的定義。方括號裡的參數 \emph{num} 是可選的，
+用於指定新命令所需的參量數目（最多 9 個）。如果不給
+出這個參數，默認就是 0，也就是新建的命令不要任何參量。
+
+%The following two examples should help you to get the idea.
+%The first example defines a new command called \ci{tnss}. This is
+%short for ``The Not So Short Introduction to \LaTeXe.'' Such a command
+%could come in handy if you had to write the title of this book over
+%and over again.
+接下來的兩個例子有助你的理解。第一個例子定義了一個新的命令：\ci{tnss}。
+這個命令是句子 ``The\ Not\ So\ Short\ Introduction\ to\ \LaTeXe'' 的簡寫。
+如果你需要在文檔中多次使用本書的名稱，那麼定義這個命令將是非常方便的。
+
+\begin{example}
+\newcommand{\tnss}{The not
+    so Short Introduction to
+    \LaTeXe}
+This is ``\tnss'' \ldots{}
+``\tnss''
+\end{example}
+
+%The next example illustrates how to define a new
+%command that takes one argument.
+%The \verb|#1| tag gets replaced by the argument you specify.
+%If you wanted to use more than one argument, use \verb|#2| and
+%so on.
+下一個例子演示了如何建立一個接受單一參數的命令。在命令的定義中，標記 \verb|#1| 
+將被你指定的參量所代替。如果你想使用多個參量，那麼可以依次使用 \verb|#2|、……、
+\verb|#9| 等標記。
+
+\begin{example}
+\newcommand{\txsit}[1]
+ {This is the \emph{#1} Short
+      Introduction to \LaTeXe}
+% in the document body:
+\begin{itemize}
+\item \txsit{not so}
+\item \txsit{very}
+\end{itemize}
+\end{example}
+
+%\LaTeX{} will not allow you to create a new command that would
+%overwrite an existing one. But there is a special command in case you
+%explicitly want this: \ci{renewcommand}.
+%It uses the same syntax as the \verb|\newcommand|
+%command.
+\LaTeX{} 不允許你新建一個與現有命令重名的命令。 如果你確實需要這麼做，有一個專門
+的命令用於處理這種情況：\ci{renewcommand}。它使用與命令 \verb|\newcommand| 
+相同的語法。
+
+%In certain cases you might also want to use the \ci{providecommand}
+%command. It works like \ci{newcommand}, but if the command is
+%already defined, \LaTeXe{} will silently ignore it.
+在某些情況之下，你可能會希望使用 \ci{providecommand} 命令。它完成與 \ci{newcommand} 
+命令相同的工作。但如果命令已經存在，\LaTeXe{} 將會悄悄忽略原有的那個。
+
+%There are some points to note about whitespace following \LaTeX{} commands. See
+%page \pageref{whitespace} for more information.
+處理 \LaTeX{} 命令後尾隨的空格有一些要注意的事項，參看第 \pageref{whitespace} 頁
+可以獲得更多這方面的信息。
+
+%\subsection{New Environments}
+\subsection{新建環境}
+
+%Just as with the \verb|\newcommand| command, there is a command
+%to create your own environments. The \ci{newenvironment} command uses the
+%following syntax:
+與 \verb|\newcommand| 命令類似，有一個命令用於建立新的環境。這個命令就是
+ \ci{newenvironment}，它的語法如下所示：
+
+\begin{lscommand}
+\ci{newenvironment}\verb|{|%
+       \emph{name}\verb|}[|\emph{num}\verb|]{|%
+       \emph{before}\verb|}{|\emph{after}\verb|}|
+\end{lscommand}
+
+%Again \ci{newenvironment} can have
+%an optional argument. The material specified
+%in the \emph{before} argument is processed before the text in the
+%environment gets processed. The material in the \emph{after} argument gets
+%processed when the \verb|\end{|\emph{name}\verb|}| command is encountered.
+同樣地，\ci{newenvironment} 命有一個可選的
+參量。在 \emph{before} 中的內容將在此環境包含的文本之前處理，而在
+ \emph{after} 中的內容將在遇到 \verb|\end{|\emph{name}\verb|}| 命令時處理。
+
+%The example below illustrates the usage of the \ci{newenvironment}
+%command.
+%\begin{example}
+%\newenvironment{king}
+% {\rule{1ex}{1ex}%
+%      \hspace{\stretch{1}}}
+% {\hspace{\stretch{1}}%
+%      \rule{1ex}{1ex}}
+%
+%\begin{king}
+%My humble subjects \ldots
+%\end{king}
+%\end{example}
+
+下面的例子演示了 \ci{newenvironment} 命令的用法：
+\begin{example}
+\newenvironment{king}
+{\rule{1ex}{1ex}%
+     \hspace{\stretch{1}}}
+{\hspace{\stretch{1}}%
+     \rule{1ex}{1ex}}
+
+\begin{king}
+My humble subjects \ldots
+\end{king}
+\end{example}
+
+%The \emph{num} argument is used the same way as in the
+%\verb|\newcommand| command. \LaTeX{} makes sure that you do not define
+%an environment that already exists. If you ever want to change an
+%existing command, you can use the \ci{renewenvironment} command. It
+%uses the same syntax as the \ci{newenvironment} command.
+參量 \emph{num} 的使用方式與 \verb|\newcommand| 命令相同。\LaTeX{} 還同樣保證你
+不會不小心新建重名的環境。如果你確實希望改變一個現有的環境，你可以使用命令
+ \ci{renewenvironment}，它使用和命令 \ci{newenvironment} 相同的語法。
+
+%The commands used in this example will be explained later. For the
+%\ci{rule} command see page \pageref{sec:rule}, for \ci{stretch} go to
+%page \pageref{cmd:stretch}, and more information on \ci{hspace} can be
+%found on page \pageref{sec:hspace}.
+在這個例子中用到一些命令將在隨後解釋：\ci{rule} 命令的解釋可以參看第 \pageref{sec:rule} 頁，
+\ci{stretch} 命令的解釋可以參看第 \pageref{cmd:stretch} 頁，關於 \ci{hspace} 的
+信息可以在第 \pageref{sec:hspace} 頁找到。
+
+%\subsection{Extra Space}
+\subsection{額外的空白間距}
+
+%When creating a new environment you may easily get bitten by extra spaces
+%creaping in, which can potentially have fatal effects. For example when you
+%want to create a title environemnt which supresses its own indentation as
+%well as the one on the following paragraph. The \ci{ignorespaces} command in
+%the begin block of the environment will make it ignore any space after
+%executing the begin block. The end block is a bit more tricky as special
+%processing occurs at the end of an environment. With the
+%\ci{ignorespacesafterend} \LaTeX{} will issue an \ci{ignorespaces} after the
+%special `end' processing has occured.
+當創建新的環境時，你或許會為遇到額外的空白間距而煩擾，這些間距可能產生嚴重的後果。比如當你
+建立一個標題環境，既不要自身的縮進也不要緊接著的下一段縮進時，在 begin 中加入
+命令 \ci{ignorespaces} 會使新環境忽略執行 begin 之後遇到的一切空白間距，而 end 
+就需要耍個小花招，因為我們要等到環境結束後才開始處理。使用 \ci{ignorespacesafterend}，\LaTeX{} 會
+在 end 處理完畢後，產生一個 \ci{ignorespaces}。
+
+\begin{example}
+\newenvironment{simple}%
+ {\noindent}%
+ {\par\noindent}
+
+\begin{simple}
+See the space\\to the left.
+\end{simple}
+Same\\here.
+\end{example}
+
+\begin{example}
+\newenvironment{correct}%
+ {\noindent\ignorespaces}%
+ {\par\noindent%
+   \ignorespacesafterend}
+
+\begin{correct}
+No space\\to the left.
+\end{correct}
+Same\\here.
+\end{example}
+
+%\subsection{Commandline \LaTeX}
+\subsection{命令行的 \LaTeX}
+%If you work on a Unix like OS, you might be using Makefiles to build your
+%\LaTeX{} projects. In that connection it might be interesting to produce
+%different versions of the same document by calling \LaTeX{} with commandline
+%parameters. If you add the following structure to your document:
+如果使用類 Unix 的操作系統工作，你可能會在使用 Makefiles 建立你的 \LaTeX{} 項目。
+那樣的話，用命令行參數操控 \LaTeX{} 來創建同一份文檔的不同版本可是十分有趣的。如果
+把下列設定寫入你的文檔：
+\begin{verbatim}
+\usepackage{ifthen}
+\ifthenelse{\equal{\blackandwhite}{true}}{
+  % "black and white" mode; do something..
+}{
+  % "color" mode; do something different..
+}
+\end{verbatim}
+
+%Now you can call \LaTeX{} like this:
+現在，你可以像這樣來操作 \LaTeX{}：
+\begin{verbatim}
+latex '\newcommand{\blackandwhite}{true}\input{test.tex}'
+\end{verbatim}
+
+%First the command \verb|\blackandwhite| gets defined and then the actual file is read with input.
+%By setting \verb|\blackandwhite| to false the color version of the document would be produced.
+首先，定義命令 \verb|\blackandwhite|，然後使用 input 來讀入實際的文檔。要創建彩色版本文檔，需要
+設定 \verb|\blackandwhite| 為 false。
+
+%\subsection{Your Own Package}
+\subsection{自建宏包}
+
+%If you define a lot of new environments and commands, the preamble of
+%your document will get quite long. In this situation, it is a good
+%idea to create a \LaTeX{} package containing all your command and
+%environment definitions. You can then use the \ci{usepackage}
+%command to make the package available in your document.
+如果你定義了很多新的環境和命令，你的文檔的導言部分將變得相當長，在這種情況下，
+建立一個新的 \LaTeX{} 宏包來存放所有你自己定義的命令和環境將是一個好的處理方式。
+然後你可以在文檔中使用 \ci{usepackage} 命令來引入自定義宏包。
+
+\begin{figure}[!htbp]
+\begin{lined}{\textwidth}
+\begin{verbatim}
+% Demo Package by Tobias Oetiker
+\ProvidesPackage{demopack}
+\newcommand{\tnss}{The not so Short Introduction
+                   to \LaTeXe}
+\newcommand{\txsit}[1]{The \emph{#1} Short
+                       Introduction to \LaTeXe}
+\newenvironment{king}{\begin{quote}}{\end{quote}}
+\end{verbatim}
+\end{lined}
+\caption{宏包樣例。} \label{package}
+\end{figure}
+
+%Writing a package basically consists of copying the contents of
+%your document preamble into a separate file with a name ending in
+%\texttt{.sty}. There is one special command,
+寫一個宏包的基本工作就是將你原本很長的文檔導言內容拷貝到另外一個的文件中去，
+ 這個文件需要以 \texttt{.sty} 結尾。你還加入一個專用的命令：
+\begin{lscommand}
+\ci{ProvidesPackage}\verb|{|\emph{package name}\verb|}|
+\end{lscommand}
+%\noindent for use at the very beginning of your package
+%file. \verb|\ProvidesPackage| tells \LaTeX{} the name of the package
+%and will allow it to issue a sensible error message when you try to
+%include a package twice. Figure \ref{package} shows a small example
+%package that contains the commands defined in the examples above.
+\noindent 這個命令應該放在你的宏包的最前面。\verb|\ProvidesPackage| 告訴 \LaTeX{} 
+宏包的名稱從而讓 \LaTeX{} 在你嘗試兩次引入同一個宏包的時候給出一個明顯的
+錯誤信息，圖 \ref{package} 給出了一個小的宏包示例，其中包含了我們之前定義的一些命令。
+
+%\section{Fonts and Sizes}
+\section{字體和字號}
+
+%\subsection{Font Changing Commands}
+\subsection{字體變換命令}
+%\index{font}\index{font size} \LaTeX{} chooses the appropriate font
+%and font size based on the logical structure of the document
+%(sections, footnotes, \ldots).  In some cases, one might like to change
+%fonts and sizes by hand. To do this, you can use the commands listed in
+%Tables \ref{fonts} and \ref{sizes}. The actual size of each font
+%is a design issue and depends on the document class and its options.
+%Table \ref{tab:pointsizes} shows the absolute point size for these
+%commands as implemented in the standard document classes.
+\index{font}\index{font size} \LaTeX{} 根據文檔的邏輯結構（章節、腳註……）
+來選擇合適的字體和字體大小。在某些情況下，你可能會想要手動改變文檔使用的
+字體及其大小。為了完成這個目的，你可以使用表 \ref{fonts} 和表 \ref{sizes} 中
+列出的那些命令。每個字體的實際大小是一個設計問題，並且它依賴於文檔所使用
+的文檔類及其選項。表 \ref{tab:pointsizes} 列出了這些命令在標準文檔類中的絕對 pt 大小。
+
+\begin{example}
+{\small The small and
+\textbf{bold} Romans ruled}
+{\Large all of great big
+\textit{Italy}.}
+\end{example}
+
+%One important feature of \LaTeXe{} is that the font attributes are
+%independent. This means that you can issue size or even font
+%changing commands, and still keep the bold or slant attribute set
+%earlier.
+\LaTeXe{} 的一個重要特徵是字體的各種屬性是相互獨立的，這意味著你可以改變字體
+的大小而仍然保留字體原有的粗體或者斜體的特性。
+
+%In \emph{math mode} you can use the font changing \emph{commands} to
+%temporarily exit \emph{math mode} and enter some normal text. If you want to
+%switch to another font for math typesetting you need another
+%special set of commands; refer to Table \ref{mathfonts}.
+在\textbf{數學模式}中你可以使用字體變換命令來暫時退出\textbf{數學模式}，然後輸入
+一些正常的文字。如果你希望改變數學公式本身所使用的字體，\LaTeX{} 提供了另外一套命令。
+參看表 \ref{mathfonts}。
+
+\begin{table}[!bp]
+\caption{字體。} \label{fonts}
+\begin{lined}{12cm}
+%
+% Alan suggested not to tell about the other form of the command
+% eg \verb|\sffamily| or \verb|\bfseries|. This seems a good thing to me.
+%
+\begin{tabular}{@{}rl@{\qquad}rl@{}}
+\fni{textrm}\verb|{...}|        &      \textrm{\wi{roman}}&
+\fni{textsf}\verb|{...}|        &      \textsf{\wi{sans serif}}\\
+\fni{texttt}\verb|{...}|        &      \texttt{typewriter}\\[6pt]
+\fni{textmd}\verb|{...}|        &      \textmd{medium}&
+\fni{textbf}\verb|{...}|        &      \textbf{\wi{bold face}}\\[6pt]
+\fni{textup}\verb|{...}|        &       \textup{\wi{upright}}&
+\fni{textit}\verb|{...}|        &       \textit{\wi{italic}}\\
+\fni{textsl}\verb|{...}|        &       \textsl{\wi{slanted}}&
+\fni{textsc}\verb|{...}|        &       \textsc{\wi{Small Caps}}\\[6pt]
+\ci{emph}\verb|{...}|          &            \emph{emphasized} &
+\fni{textnormal}\verb|{...}|    &    \textnormal{document} font
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+
+\begin{table}[!bp]
+\index{font size} \caption{字號。} \label{sizes}
+\begin{lined}{12cm}
+\begin{tabular}{@{}ll}
+\fni{tiny}      & \tiny        tiny font \\
+\fni{scriptsize}   & \scriptsize  very small font\\
+\fni{footnotesize} & \footnotesize  quite small font \\
+\fni{small}        &  \small            small font \\
+\fni{normalsize}   &  \normalsize  normal font \\
+\fni{large}        &  \large       large font
+\end{tabular}%
+\qquad\begin{tabular}{ll@{}}
+\fni{Large}        &  \Large       larger font \\[5pt]
+\fni{LARGE}        &  \LARGE       very large font \\[5pt]
+\fni{huge}         &  \huge        huge \\[5pt]
+\fni{Huge}         &  \Huge        largest
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+\begin{table}[!tbp]
+\caption{標準文檔類中的絕對 pt 大小。}\label{tab:pointsizes}
+\label{tab:sizes}
+\begin{lined}{12cm}
+\begin{tabular}{lrrr}
+\multicolumn{1}{c}{大小} &
+\multicolumn{1}{c}{10pt （默認）} &
+           \multicolumn{1}{c}{11pt 選項}  &
+           \multicolumn{1}{c}{12pt 選項}\\
+\verb|\tiny|       & 5pt  & 6pt & 6pt\\
+\verb|\scriptsize| & 7pt  & 8pt & 8pt\\
+\verb|\footnotesize| & 8pt & 9pt & 10pt \\
+\verb|\small|        & 9pt & 10pt & 11pt \\
+\verb|\normalsize| & 10pt & 11pt & 12pt \\
+\verb|\large|      & 12pt & 12pt & 14pt \\
+\verb|\Large|      & 14pt & 14pt & 17pt \\
+\verb|\LARGE|      & 17pt & 17pt & 20pt\\
+\verb|\huge|       & 20pt & 20pt & 25pt\\
+\verb|\Huge|       & 25pt & 25pt & 25pt\\
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+
+\begin{table}[!bp]
+\caption{數學字體。} \label{mathfonts}
+\begin{lined}{0.7\textwidth}
+\begin{tabular}{@{}ll@{}}
+\fni{mathrm}\verb|{...}|&     $\mathrm{Roman\ Font}$\\
+\fni{mathbf}\verb|{...}|&     $\mathbf{Boldface\ Font}$\\
+\fni{mathsf}\verb|{...}|&     $\mathsf{Sans\ Serif\ Font}$\\
+\fni{mathtt}\verb|{...}|&     $\mathtt{Typewriter\ Font}$\\
+\fni{mathit}\verb|{...}|&     $\mathit{Italic\ Font}$\\
+\fni{mathcal}\verb|{...}|&    $\mathcal{CALLIGRAPHIC\ FONT}$\\
+\fni{mathnormal}\verb|{...}|& $\mathnormal{Normal\ Font}$\\
+\end{tabular}
+
+%\begin{tabular}{@{}lll@{}}
+%\textit{Command}&\textit{Example}&    \textit{Output}\\[6pt]
+%\fni{mathcal}\verb|{...}|&    \verb|$\mathcal{B}=c$|&     $\mathcal{B}=c$\\
+%\fni{mathscr}\verb|{...}|&    \verb|$\mathscr{B}=c$|&     $\mathscr{B}=c$\\
+%\fni{mathrm}\verb|{...}|&     \verb|$\mathrm{K}_2$|&      $\mathrm{K}_2$\\
+%\fni{mathbf}\verb|{...}|&     \verb|$\sum x=\mathbf{v}$|& $\sum x=\mathbf{v}$\\
+%\fni{mathsf}\verb|{...}|&     \verb|$\mathsf{G\times R}$|&        $\mathsf{G\times R}$\\
+%\fni{mathtt}\verb|{...}|&     \verb|$\mathtt{L}(b,c)$|&   $\mathtt{L}(b,c)$\\
+%\fni{mathnormal}\verb|{...}|& \verb|$\mathnormal{R_{19}}\neq R_{19}$|&
+%$\mathnormal{R_{19}}\neq R_{19}$\\
+%\fni{mathit}\verb|{...}|&     \verb|$\mathit{ffi}\neq ffi$|& $\mathit{ffi}\neq ffi$
+%\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+%In connection with the font size commands, \wi{curly braces} play a
+%significant role. They are used to build \emph{groups}.  Groups
+%limit the scope of most \LaTeX{} commands.\index{grouping}
+使用字體命令的時候，大括號 (\wi{curly braces}) 扮演了一個重要角色。它們被用於
+建立所謂的\textbf{組} (group)。組限制了大多數 \LaTeX{} 命令的作用範圍。\index{grouping}
+
+\begin{example}
+He likes {\LARGE large and
+{\small small} letters}.
+\end{example}
+
+%The font size commands also change the line spacing, but only if the
+%paragraph ends within the scope of the font size command. The closing curly
+%brace \verb|}| should therefore not come too early.  Note the position of
+%the \ci{par} command in the next two examples. \footnote{\texttt{\bs{}par}
+%is equivalent to a blank line}
+如果段落在字體的作用範圍中結束，那麼字號命令還將改變段落中行距。因此
+用於分組的反向大括號 \verb|}| 不應該太早出現。注意下面兩個例子中
+\ci{par} 命令的位置
+\footnote{\texttt{\bs{}par} 相當於一個空行}。
+
+\begin{example}
+{\Large Don't read this!
+ It is not true.
+ You can believe me!\par}
+\end{example}
+
+\begin{example}
+{\Large This is not true either.
+But remember I am a liar.}\par
+\end{example}
+
+%If you want to activate a size changing command for a whole paragraph
+%of text or even more, you might want to use the environment syntax for
+%font changing commands.
+如果你希望改變整段甚至更多文本的字體，你可能應該使用字體變換命令的環境語法。
+
+\begin{example}
+\begin{Large}
+This is not true.
+But then again, what is these
+days \ldots
+\end{Large}
+\end{example}
+
+%\noindent This will save you from counting lots of curly braces.
+\noindent 這將使你從一堆大括號中解脫出來。
+
+%\subsection{Danger, Will Robinson, Danger}
+\subsection{戰戰兢兢，如履薄冰}
+
+%As noted at the beginning of this chapter, it is dangerous to clutter
+%your document with explicit commands like this, because they work in
+%opposition to the basic idea of \LaTeX{}, which is to separate the
+%logical and visual markup of your document.  This means that if you
+%use the same font changing command in several places in order to
+%typeset a special kind of information, you should use
+%\verb|\newcommand| to define a ``logical wrapper command'' for the font
+%changing command.
+正如本章開頭曾經說過的那樣，在你的文檔中直接運用這些命令來修改格式是非常
+危險的事情，因為這種做法和 \LaTeX{} 的基礎理念相反。在編寫 \LaTeX{} 文檔
+的時候，要始終注意文章邏輯標記和樣式標識的分離。也就是如果你在文
+章的多個地方採用某種特殊的格式來排版一類經常使用的內容，
+就應該使用 \verb|\newcommand| 來定義一個邏輯封裝命令，並通過這個命令來修改相應的表現格式。
+
+\begin{example}
+\newcommand{\oops}[1]{%
+ \textbf{#1}}
+Do not \oops{enter} this room,
+it's occupied by \oops{machines}
+of unknown origin and purpose.
+\end{example}
+
+%This approach has the advantage that you can decide at some later
+%stage that you want to use some visual representation of danger other
+%than \verb|\textbf|, without having to wade through your document,
+%identifying all the occurrences of \verb|\textbf| and then figuring out
+%for each one whether it was used for pointing out danger or for some other
+%reason.
+這種方法具有一個明顯的優點，你可以在以後決定使用一些不是很有把握實現的特別外觀並
+使之不同於 \verb|\textbf|，
+那時你就不需要遍歷你的整篇文章來找出所有 \verb|\textbf| 的地方，
+然後一個一個地確定是不是要改成沒有把握的外觀。
+
+%\subsection{Advice}
+\subsection{建議}
+
+%To conclude this journey into the land of fonts and font sizes,
+%here is a little word of advice:\nopagebreak
+總結這一章中關於字體和字號的命令，下面是一個簡短的建議：\nopagebreak
+%\begin{quote}
+%  \underline{\textbf{Remember\Huge!}} \textit{The}
+%  \textsf{M\textbf{\LARGE O} \texttt{R}\textsl{E}} fonts \Huge you
+%  \tiny use \footnotesize \textbf{in} a \small \texttt{document},
+%  \large \textit{the} \normalsize more \textsc{readable} and
+%  \textsl{\textsf{beautiful} it bec\large o\Large m\LARGE e\huge s}.
+%\end{quote}
+\begin{quote}
+ \underline{\textbf{Remember\Huge!}} \textit{The}
+ \textsf{M\textbf{\LARGE O} \texttt{R}\textsl{E}} fonts \Huge you
+ \tiny use \footnotesize \textbf{in} a \small \texttt{document},
+ \large \textit{the} \normalsize more \textsc{readable} and
+ \textsl{\textsf{beautiful} it bec\large o\Large m\LARGE e\huge s}.\\
+ 記住！你使用的字體越多，文章看起來就越易讀越美觀。
+\end{quote}
+
+%\section{Spacing}
+\section{間距}
+
+%\subsection{Line Spacing}
+\subsection{行距}
+%
+%\index{line spacing} If you want to use larger inter-line spacing in a
+%document, you can change its value by putting the
+\index{line spacing}如果你想在文檔中使用更大的行距，你可以在導言中使用
+如下命令進行設定：
+\begin{lscommand}
+\ci{linespread}\verb|{|\emph{factor}\verb|}|
+\end{lscommand}
+%\noindent command into the preamble of your document.
+%Use \verb|\linespread{1.3}| for ``one and a half'' line
+%spacing, and \verb|\linespread{1.6}| for ``double'' line spacing.  Normally
+%the lines are not spread, so the default line spread factor
+%is 1.\index{double line spacing}
+如 \verb|\linespread{1.3}| 產生 $1.5$ 倍行距，而 \verb|\linespread{1.6}| 
+則產生雙倍行距。缺省情況下的行距為 $1$。 \index{double line spacing}
+
+%Note that the effect of the \ci{linespread} command is rather drastic and
+%not appropriate for published work. So if you have a good reason for
+%changing the line spacing you might want to use the command:
+注意 \ci{linespread} 的效果相當誇張而且不適合出版工作。因此如果你很想改變行距
+可能會希望使用如下的命令：
+\begin{lscommand}
+\verb|\setlength{\baselineskip}{1.5\baselineskip}|
+\end{lscommand}
+
+\begin{example}
+{\setlength{\baselineskip}%
+           {1.5\baselineskip}
+This paragraph is typeset with
+the baseline skip set to 1.5 of
+what it was before. Note the par
+command at the end of the
+paragraph.\par}
+
+This paragraph has a clear
+purpose, it shows that after the
+curly brace has been closed,
+everything is back to normal.
+\end{example}
+
+%\subsection{Paragraph Formatting}\label{parsp}
+\subsection{段落格式}\label{parsp}
+
+%In \LaTeX{}, there are two parameters influencing paragraph layout.
+%By placing a definition like
+在 \LaTeX{} 中，有兩個參數可以影響段落的佈局。在文檔的導言部分，可以通過
+如下的定義來改變段落的佈局。
+\begin{code}
+\ci{setlength}\verb|{|\ci{parindent}\verb|}{0pt}| \\
+\verb|\setlength{|\ci{parskip}\verb|}{1ex plus 0.5ex minus 0.2ex}|
+\end{code}
+%in the preamble of the input file, you can change the layout of
+%paragraphs. These two commands increase the space between two paragraphs
+%while setting the paragraph indent to zero.
+這兩個命令增加了段落間距，並將首行縮進設置為 $0$。
+
+%The \texttt{plus} and \texttt{minus} parts of the length above tell
+%\TeX{} that it can compress and expand the inter paragraph skip by the
+%amount specified, if this is necessary to properly fit the paragraphs
+%onto the page.
+例子中，長度設定中的 \texttt{plus} 和 \texttt{minus} 部分將使得 \TeX{} 按照指定大小
+壓縮和伸展段落間距。為了使得段落正確的顯示在頁面之上，\TeX{} 將在 0.8ex 
+到 1.5ex 之間調整段落間距。
+
+%In continental Europe,
+%paragraphs are often separated by some space and not indented. But
+%beware, this also has its effect on the table of contents. Its lines
+%get spaced more loosely now as well. To avoid this, you might want to
+%move the two commands from the preamble into your document to some
+%place below the command \verb|\tableofcontents| or to not use them at all,
+%because you'll find that most professional books use indenting and not
+%spacing to separate paragraphs.
+在歐洲大陸，段落通常用一些空白分隔並且一般首行不縮進。但是值得注意的是，這也會影響目錄。
+目錄的行距也會變得非常疏鬆。為了避免這種情況，你可能需要將上面的兩個命令從導言中移到文檔
+中 \verb|\tableofcontents| 以下適合的位置，或者根本不要使用這些，因為一般來說專業的書籍都是用縮進並且
+通常不用空白來分離段落。
+%
+%If you want to indent a paragraph that is not indented, you can use
+%\begin{lscommand}
+%\ci{indent}
+%\end{lscommand}
+%\noindent at the beginning of the paragraph.\footnote{To indent the first paragraph after each section head, use
+%  the \pai{indentfirst} package in the `tools' bundle.} Obviously,
+%this will only have an effect when \verb|\parindent| is not set to
+%zero.
+如果你想縮進一個本來沒有縮進的段落\footnote{為了縮進章節標題之後的第一個
+段落，可以使用 \pai{indentfirst} 包。}，可以在段落的開始使用命令：
+\begin{lscommand}
+\ci{indent}
+\end{lscommand}
+當然，這個命令只有在 \verb|\parindent| 不為零的情況下才有效果。
+
+%To create a non-indented paragraph, you can use
+%\begin{lscommand}
+%\ci{noindent}
+%\end{lscommand}
+%\noindent as the first command of the paragraph. This might come in handy when
+%you start a document with body text and not with a sectioning command.
+為了創建一個不縮進的段落，你可以在段落的開始部分使用命令：
+\begin{lscommand}
+\ci{noindent}
+\end{lscommand}
+當文檔以正文而不是章節命令開始的時候，這個命令會提供方便。
+
+%\subsection{Horizontal Space}
+\subsection{水平間距}
+\label{sec:hspace}
+\LaTeX{} 系統自動決定單詞和句子之間的距離。為了增加水平距離，
+使用命令：\index{horizontal!space}
+\begin{lscommand}
+\ci{hspace}\verb|{|\emph{length}\verb|}|
+\end{lscommand}
+%If such a space should be kept even if it falls at the end or the
+%start of a line, use \verb|\hspace*| instead of \verb|\hspace|.  The
+%\emph{length} in the simplest case is just a number plus a unit.  The
+%most important units are listed in Table \ref{units}.
+%\index{units}\index{dimensions}
+如果這個水平間距即使在行首或者行末也應該保持的話，用命令 \verb|\hspace*| 代替 \verb|\hspace|。命令的 \emph{length} 參數在簡單的情況下只是一個帶有單位
+的數字。最重要的長度單位在表 \ref{units} 中列了出來。
+\index{units}\index{dimensions}
+
+\begin{example}
+This\hspace{1.5cm}is a space
+of 1.5 cm.
+\end{example}
+\suppressfloats
+\begin{table}[tbp]
+\caption{\TeX{} 單位。} \label{units}\index{units}
+\begin{lined}{9.5cm}
+\begin{tabular}{@{}ll@{}}
+\texttt{mm} & millimetre $\approx 1/25$ inch \quad \demowidth{1mm} \\
+\texttt{cm} & centimetre = 10 mm  \quad \demowidth{1cm}                     \\
+\texttt{in} & inch $=$ 25.4 mm \quad \demowidth{1in}                    \\
+\texttt{pt} & point $\approx 1/72$ inch $\approx \frac{1}{3}$ mm  \quad\demowidth{1pt}\\
+\texttt{em} & approx width of an `M' in the current font \quad \demowidth{1em}\\
+\texttt{ex} & approx height of an `x' in the current font \quad \demowidth{1ex}
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+%\label{cmd:stretch}
+%The command
+%\begin{lscommand}
+%\ci{stretch}\verb|{|\emph{n}\verb|}|
+%\end{lscommand}
+%\noindent generates a special rubber space. It stretches until all the
+%remaining space on a line is filled up. If two
+%\verb|\hspace{\stretch{|\emph{n}\verb|}}| commands are issued on the
+%same line, they grow according to the stretch factor.
+\label{cmd:stretch}
+下面的命令
+\begin{lscommand}
+\ci{stretch}\verb|{|\emph{n}\verb|}|
+\end{lscommand}
+\noindent 將產生一個特殊的橡皮長度：一個能把行內賸餘所有空隙填滿的空白。
+如果兩個 \verb|\hspace{\stretch{|\emph{n}\verb|}}| 命令位於同一行，那麼它們將根據伸縮因子分配空間。
+
+\begin{example}
+x\hspace{\stretch{1}}
+x\hspace{\stretch{3}}x
+\end{example}
+
+%When using horizontal space together with text, it may make sense to make
+%the space adjust its size relative to the size of the current font.
+%This can be done by using the text-relative units \texttt{em} and
+%\texttt{ex}:
+當在正文中使用水平間距的時候，相對於字號來調整間距大小會更有道理。這可以通過使用
+與文本有關的單位 \texttt{em} 和 \texttt{ex} 來實現:
+\begin{example}
+{\Large{}big\hspace{1em}y}\\
+{\tiny{}tin\hspace{1em}y}
+\end{example}
+
+%\subsection{Vertical Space}
+\subsection{垂直間距}
+%The space between paragraphs, sections, subsections, \ldots\ is
+%determined automatically by \LaTeX. If necessary, additional vertical
+%space \emph{between two paragraphs} can be added with the command:
+在段落、節、小節…… 之間的距離是由 \LaTeX{} 系統自動決定的。如果必要的話，可以在兩段之間
+增加額外的距離，使用的命令如下所示：
+\begin{lscommand}
+\ci{vspace}\verb|{|\emph{length}\verb|}|
+\end{lscommand}
+
+%This command should normally be used between two empty lines.  If the
+%space should be preserved at the top or at the bottom of a page, use
+%the starred version of the command, \verb|\vspace*|, instead of \verb|\vspace|.
+%\index{vertical space}
+這個命令通常用於兩個空行之間。如果這個額外的行距應該在於頁的頂部和末尾也保留下來，那麼使用
+這個命令的星號版本 \verb|\vspace*| 來代替 \verb|\vspace|。
+\index{vertical space}
+
+%The \verb|\stretch| command, in connection with \verb|\pagebreak|, can
+%be used to typeset text on the last line of a page, or to centre text
+%vertically on a page.
+命令 \verb|\stretch| 和 \verb|\pagebreak| 結合使用可以在頁的最後一行輸出文本，也可以
+用來保證文本在頁面上垂直居中。
+\begin{code}
+\begin{verbatim}
+Some text \ldots
+
+\vspace{\stretch{1}}
+This goes onto the last line of the page.\pagebreak
+\end{verbatim}
+\end{code}
+
+%Additional space between two lines of \emph{the same} paragraph or
+%within a table is specified with the
+\textbf{同一}段或\textbf{同一}個表格中兩行之間的距離可以用如下命令來指定：
+\begin{lscommand}
+\ci{\bs}\verb|[|\emph{length}\verb|]|
+\end{lscommand}
+%\noindent command.
+
+%With \ci{bigskip} and \ci{smallskip} you can skip a predefined amount of
+%vertical space without having to worry about exact numbers.
+使用命令 \ci{bigskip} 和 \ci{smallskip} 你可以獲得一個預定義的垂直間距。
+
+%\section{Page Layout}
+\section{頁面佈局}
+
+\begin{figure}[!hp]
+\begin{center}
+\makeatletter\@mylayout\makeatother
+\end{center}
+\vspace*{1.8cm}
+\caption{頁面佈局參數。}
+\label{fig:layout}
+\cih{footskip}
+\cih{headheight}
+\cih{headsep}
+\cih{marginparpush}
+\cih{marginparsep}
+\cih{marginparwidth}
+\cih{oddsidemargin}
+\cih{paperheight}
+\cih{paperwidth}
+\cih{textheight}
+\cih{textwidth}
+\cih{topmargin}
+\end{figure}
+%\index{page layout}
+%\LaTeXe{} allows you to specify the \wi{paper size} in the
+%\verb|\documentclass| command. It then automatically picks the right
+%text \wi{margins}, but sometimes you may not be happy with
+%the predefined values. Naturally, you can change them.
+%%no idea why this is needed here ...
+%\thispagestyle{fancyplain}
+%Figure \ref{fig:layout} shows all the parameters that can be changed.
+%The figure was produced with the \pai{layout} package from the tools bundle.%
+%\footnote{\CTANref|macros/latex/required/tools|}
+\index{page layout}
+\LaTeXe{} 允許你在 \verb|\documentclass| 命令中指定紙張尺寸 (\wi{paper size})。
+然後它將自動的選擇合適的頁邊距。但有些時候你可能不滿意 \LaTeX{} 的預設值，這個
+時候你可以自己改變這些參數。
+%no idea why this is needed here ...
+\thispagestyle{fancyplain}
+圖 \ref{fig:layout} 中顯示了所有能改變的頁面參數。這個圖是用 \pai{layout} 宏包
+產生的\footnote{\CTANref|macros/latex/required/tools|}。
+
+%\textbf{WAIT!} \ldots before you launch into a ``Let's make that
+%narrow page a bit wider'' frenzy, take a few seconds to think. As with
+%most things in \LaTeX, there is a good reason for the page layout to
+%be as it is.
+\textbf{先等等!} ……在你開始幻想「讓這個狹窄的頁面看起來寬一點」之前，先花一些時間
+想想。和 \LaTeX{} 中的大多數規定一樣，缺省的頁面佈局是有其合理原因的。
+
+%Sure, compared to your off-the-shelf MS Word page, it looks awfully
+%narrow. But take a look at your favourite book\footnote{I mean a real
+%  printed book produced by a reputable publisher.} and count the number
+%of characters on a standard text line. You will find that there are no
+%more than about 66 characters on each line. Now do the same on your
+%\LaTeX{} page. You will find that there are also about 66 characters
+%per line.  Experience shows that the reading gets difficult as soon as
+%there are more characters on a single line. This is because it is
+%difficult for the eyes to move from the end of one line to the start of the next one.
+%This is also why newspapers are typeset in multiple columns.
+確實，相對於你的 MS\ Word 頁面來說，它看上去非常的狹窄。但是看看你喜歡的書籍
+\footnote{我說的是卓有聲譽的出版商正式出版的書籍。}並且統計每個標準文本行的字符數目。
+你會發現每行的字符不超過 66 個。現在你的 \LaTeX{} 頁面也正是如此。經驗顯示，如果在
+一行中塞入更多的字符，閱讀將變得困難。這是因為眼睛從行的開始移動到行的結束變得困難了。
+這也是報紙為何要排版成多欄形式的原因。
+
+%So if you increase the width of your body text, keep in mind that you
+%are making life difficult for the readers of your paper. But enough
+%of the cautioning, I promised to tell you how you do it \ldots
+因此如果你決定增加版芯的寬度，頭腦中要明白你正在使給你的讀者製造困難。警告已經
+說的夠多了，接下來我將告訴你如何去做……
+
+%\LaTeX{} provides two commands to change these parameters. They are
+%usually used in the document preamble.
+\LaTeX{} 提供了兩個命令來改變這些參數。他們通常在文章的導言部分使用。
+
+%The first command assigns a fixed value to any of the parameters:
+第一個命令給某些參數一個固定的值：
+\begin{lscommand}
+\ci{setlength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
+\end{lscommand}
+
+
+%The second command adds a length to any of the parameters:
+第二個命令給某些參數增加一個長度：
+\begin{lscommand}
+\ci{addtolength}\verb|{|\emph{parameter}\verb|}{|\emph{length}\verb|}|
+\end{lscommand}
+
+%This second command is actually more useful than the \ci{setlength}
+%command, because you can now work relative to the existing settings.
+%To add one centimetre to the overall text width, I put the
+%following commands into the document preamble:
+第二個命令實際上比 \ci{setlength} 命令更為實用，因為你可以相對於現有的設置來獲得
+所需的結果。為了給文本的寬度增加 1 釐米，我將如下的命令放置到文檔導言：
+\begin{code}
+\verb|\addtolength{\hoffset}{-0.5cm}|\\
+\verb|\addtolength{\textwidth}{1cm}|
+\end{code}
+
+%In this context, you might want to look at the \pai{calc} package.
+%It allows you to use arithmetic operations in the argument of \ci{setlength}
+%and other places where you can enter numeric values into function
+%arguments.
+這時候，你可能會想要看看 \pai{calc} 包，它允許你在 \ci{setlength} 的參量
+中進行算術運算。它也可以運用到任何用數值作為函數參量的地方。
+
+
+%\section{More Fun With Lengths}
+\section{更有趣的長度}
+
+%Whenever possible, I avoid using absolute lengths in
+%\LaTeX{} documents. I rather try to base things on the width or height
+%of other page elements. For the width of a figure this could
+%be \verb|\textwidth| in order to make it fill the page.
+只要可能，就應該避免在 \LaTeX{} 文檔中使用絕對長度。我更願意通過頁面
+中其他元素的寬度或高度來指定長度。比如一個圖形，我指定 \verb|\textwidth| 作為
+它的寬度從而使得圖形恰好充滿整個頁面。
+
+%The following 3 commands allow you to determine the width, height and
+%depth of a text string.
+下面的三個命令允許你獲得一個文本串的寬度、高度以及深度。
+
+\begin{lscommand}
+\ci{settoheight}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+\ci{settodepth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|\\
+\ci{settowidth}\verb|{|\emph{variable}\verb|}{|\emph{text}\verb|}|
+\end{lscommand}
+
+%\noindent The example below shows a possible application of these commands.
+\noindent 下面的例子顯示了如何應用這些命令：
+\begin{example}
+\flushleft
+\newenvironment{vardesc}[1]{%
+  \settowidth{\parindent}{#1:\ }
+  \makebox[0pt][r]{#1:\ }}{}
+
+\begin{displaymath}
+a^2+b^2=c^2
+\end{displaymath}
+
+\begin{vardesc}{Where}$a$,
+$b$ -- are adjoin to the right
+angle of a right-angled triangle.
+
+$c$ -- is the hypotenuse of
+the triangle and feels lonely.
+
+$d$ -- finally does not show up
+here at all. Isn't that puzzling?
+\end{vardesc}
+\end{example}
+
+
+%\section{Boxes}
+\section{盒子}
+%\LaTeX{} builds up its pages by pushing around boxes. At first, each
+%letter is a little box, which is then glued to other letters to form
+%words. These are again glued to other words, but with special glue,
+%which is elastic so that a series of words can be squeezed or
+%stretched as to exactly fill a line on the page.
+\LaTeX{} 使用盒子來建立頁面。首先，每個字符都是一個小的盒子，
+這些盒子粘結起來構成單詞，單詞粘結起來構成一行。值得注意的是，單詞
+之間粘結的是一種特殊的「膠水」 (glue)，它是有彈性的，可以使 \LaTeX{} 壓縮或者延伸使得單詞將恰好構成頁面的一行。
+
+%I admit, this is a very simplistic version of what really happens, but
+%the point is that \TeX{} operates on glue and boxes. Letters are not the only things that
+%can be boxes. You can put virtually everything into a box, including
+%other boxes. Each box will then be handled by \LaTeX{} as if it were a
+%single letter.
+我承認，這裡的描述是實際情況一個極度簡化了的版本，但關鍵在於 \TeX{} 
+對盒子和膠水進行操作。不是只有字母才能成為盒子，你幾乎可以把
+任何東西包括其他盒子放到一個盒子中。 然後 \LaTeX{} 將會像處理
+單個字母一樣處理這個盒子。
+
+%In the past chapters you have already encountered some boxes, although
+%I did not tell you. The \ei{tabular} environment and the
+%\ci{includegraphics}, for example, both produce a box. This means that you can
+%easily arrange two tables or images side by side. You just have to
+%make sure that their combined width is not larger than the textwidth.
+在過去的章節中，儘管我並沒有明確的說出來，你已經遇到了一些盒子。例如
+ \ei{tabular} 環境和 \ci{includegraphics} 命令就都產生了一個盒子。這就
+意味著你可以輕鬆的將兩個表格或圖像並列。你唯一需要保證的就是它們
+寬度的總和不大於文本寬度。
+
+%You can also pack a paragraph of your choice into a box with either
+%the
+使用如下命令可以把一個段落放置到盒子中：
+\begin{lscommand}
+\ci{parbox}\verb|[|\emph{pos}\verb|]{|\emph{width}\verb|}{|\emph{text}\verb|}|
+\end{lscommand}
+
+%\noindent command or the
+\noindent 或者用下面這個環境完成同樣的事情：
+
+\begin{lscommand}
+\verb|\begin{|\ei{minipage}\verb|}[|\emph{pos}\verb|]{|\emph{width}\verb|}| text
+\verb|\end{|\ei{minipage}\verb|}|
+\end{lscommand}
+
+%\noindent environment. The \texttt{pos} parameter can take one of the letters
+%\texttt{c, t} or \texttt{b} to control the vertical alignment of the box,
+%relative to the baseline of the surrounding text. \texttt{width} takes
+%a length argument specifying the width of the box. The main difference
+%between a \ei{minipage} and a \ci{parbox} is that you cannot use all commands
+%and environments inside a \ei{parbox}, while almost anything is possible in
+%a \ei{minipage}.
+參數 \texttt{pos} 可以取以下字符中的一個 \texttt{c}、\texttt{t}
+ 或 \texttt{b}，
+這個參數用於控制盒子相對周圍文本基線的垂直方向對齊。\texttt{width} 是一個長度參量用於
+調整盒子的寬度。\ei{minipage} 和 \ci{parbox} 的區別在於你可能無法在一個 \ei{parbox} 中使用所有的命令或者環境，而幾乎任何東西都可以在 \ei{minipage} 中使用。
+
+%While \ci{parbox} packs up a whole paragraph doing line breaking and
+%everything, there is also a class of boxing commands that operates
+%only on horizontally aligned material. We already know one of them;
+%it's called \ci{mbox}. It simply packs up a series of boxes into
+%another one, and can be used to prevent \LaTeX{} from breaking two
+%words. As you can put boxes inside boxes, these horizontal box packers
+%give you ultimate flexibility.
+雖然\ci{parbox} 可以打包整個段落，完成分行在內的幾乎所有事情，
+\LaTeX{} 中還存在與此不同的另外一類盒子命令用於處理水平對齊的東西。我們已經知道其中的
+一個 \pozhehao \ci{mbox}，它只是簡單地將其它盒子包含在一個盒子裡，從而防止
+ \LaTeX{} 斷開兩個單詞。因為盒子中可以包含盒子，它可以給予作者幾乎無限的靈活性。
+
+\begin{lscommand}
+\ci{makebox}\verb|[|\emph{width}\verb|][|\emph{pos}\verb|]{|\emph{text}\verb|}|
+\end{lscommand}
+
+%\noindent \texttt{width} defines the width of the resulting box as
+%seen from the outside.\footnote{This means it can be smaller than the
+%material inside the box. You can even set the
+%width to 0pt so that the text inside the box will be typeset without
+%influencing the surrounding boxes.}  Besides the length
+%expressions, you can also use \ci{width}, \ci{height}, \ci{depth}, and
+%\ci{totalheight} in the width parameter. They are set from values
+%obtained by measuring the typeset \emph{text}. The \emph{pos} parameter takes
+%a one letter value: \textbf{c}enter, flush\textbf{l}eft,
+%flush\textbf{r}ight, or \textbf{s}pread the text to fill the box.
+\noindent \texttt{width} 定義了生成的盒子的外部寬度\footnote{這意味著在盒子
+內部看來，盒子的寬度可能會小一些，你甚至可以將盒子的寬度設置為 0\,pt，這樣可以
+使得盒子中的內容不影響其外部的佈局。}。 除了長度表達式，你也可以傳遞
+ \ci{width}、 \ci{height}、 \ci{depth} 和 \ci{totalheight} 給 \texttt{width}。
+這幾個值是測量盒子內部文本來獲得的。參數 \emph{pos} 接受一個字符值：
+\textbf{c} -- 居中、\textbf{l} -- 靠左、\textbf{r} -- 靠右和 \textbf{s} -- 
+將文本均勻分佈到整個盒子中。
+
+%The command \ci{framebox} works exactly the same as \ci{makebox}, but
+%it draws a box around the text.
+命令 \ci{framebox} 和 \ci{makebox} 完成同樣的工作，不同之處在於它在內部文本
+的周圍畫出一個矩形框。
+
+%The following example shows you some things you could do with
+%the \ci{makebox} and \ci{framebox} commands.
+下面的例子演示了你使用命令 \ci{makebox} 和 \ci{framebox} 能完成的一些工作：
+
+\begin{example}
+\makebox[\textwidth]{%
+    c e n t r a l}\par
+\makebox[\textwidth][s]{%
+    s p r e a d}\par
+\framebox[1.1\width]{Guess I'm
+    framed now!} \par
+\framebox[0.8\width][r]{Bummer,
+    I am too wide} \par
+\framebox[1cm][l]{never
+    mind, so am I}
+Can you read this?
+\end{example}
+
+%Now that we control the horizontal, the obvious next step is to go for
+%  the vertical.\footnote{Total control is only to be obtained by
+%  controlling both the horizontal and the vertical \ldots}
+% No problem for \LaTeX{}. The
+現在我們已經知道怎麼控制盒子的水平方向長度了，接下來的步驟是學習如何控制
+垂直方向\footnote{全面控制僅僅是水平方向控制和垂直方向控制的同時運用……}。
+對於 \LaTeX{} 來說，輕而易舉。命令
+
+\begin{lscommand}
+\ci{raisebox}\verb|{|\emph{lift}\verb|}[|\emph{extend-above-baseline}\verb|][|\emph{extend-below-baseline}\verb|]{|\emph{text}\verb|}|
+\end{lscommand}
+
+%\noindent command lets you define the vertical properties of a
+%box. You can use \ci{width}, \ci{height}, \ci{depth}, and
+%  \ci{totalheight} in the first three parameters, in order to act
+%  upon the size of the box inside the \emph{text} argument.
+\noindent 讓你能夠定義一個盒子在垂直方向的屬性。在前面的三個參數中，
+你可以使用 \ci{width}、\ci{height}、\ci{depth} 
+和 \ci{totalheight}，這樣可以使得盒子的參數能夠與盒子內部的文本匹配。
+
+\begin{example}
+\raisebox{0pt}[0pt][0pt]{\Large%
+\textbf{Aaaa\raisebox{-0.3ex}{a}%
+\raisebox{-0.7ex}{aa}%
+\raisebox{-1.2ex}{r}%
+\raisebox{-2.2ex}{g}%
+\raisebox{-4.5ex}{h}}}
+he shouted but not even the next
+one in line noticed that something
+terrible had happened to him.
+\end{example}
+
+
+%\section{Rules and Struts}
+\section{標尺和支撐}
+\label{sec:rule}
+
+%A few pages back you may have noticed the command
+很多頁之前你可能注意到這樣的命令：
+\begin{lscommand}
+\ci{rule}\verb|[|\emph{lift}\verb|]{|\emph{width}\verb|}{|\emph{height}\verb|}|
+\end{lscommand}
+
+%\noindent In normal use it produces a simple black box.
+\noindent 通常它被用來輸出一個簡單的黑色盒子。
+
+\begin{example}
+\rule{3mm}{.1pt}%
+\rule[-1mm]{5mm}{1cm}%
+\rule{3mm}{.1pt}%
+\rule[1mm]{1cm}{5mm}%
+\rule{3mm}{.1pt}
+\end{example}
+
+%\noindent This is useful for drawing vertical and horizontal
+%lines. The line on the title page, for example, has been created with a
+%\ci{rule} command.
+\noindent 這個命令可以用來產生水平方向和垂直方向的線條。例如標題頁上的直線就是用一個 \ci{rule} 命令創建的。
+
+%A special case is a rule with no width but a certain height. In
+%professional typesetting, this is called a \wi{strut}. It is used to
+%guarantee that an element on a page has a certain minimal height. You
+%could use it in a \texttt{tabular} environment to make sure a row has
+%a certain minimum height.
+一種特殊的例子是沒有寬度只有高度的標尺。在專業的出版中，這被稱為支撐 (\wi{Struts})。
+它被用來保證頁面的某個元素具有一個確定的高度最小值。你可以在 \texttt{tabular} 環境中使用支撐
+來使得某行具有一個特定的高度最小值。
+
+\begin{example}
+\begin{tabular}{|c|}
+\hline
+\rule{1pt}{4ex}Pitprop \ldots\\
+\hline
+\rule{0pt}{4ex}Strut\\
+\hline
+\end{tabular}
+\end{example}
+
+\bigskip
+%{\flushright The End.\par}
+{\flushright 全篇結束。\par}
+%
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% mode: flyspell
+% End:
+

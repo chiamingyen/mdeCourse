@@ -1,0 +1,1783 @@
+﻿%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Specialities of the LaTeX system
+% $Id: spec.tex,v 1.2 2003/03/19 20:57:47 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 中文 4.20 翻譯：lijian605@bbs.ctex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\chapter{Specialities}
+%\begin{intro}
+% When putting together a large document, \LaTeX{} will help you
+%  with some special features like index generation,
+%  bibliography management, and other things.
+%  A much more complete description of specialities and
+%  enhancements possible with \LaTeX{} can be found in the
+%  {\normalfont\manual{}} and {\normalfont \companion}.
+%\end{intro}
+
+\chapter{專業功能}
+
+\begin{intro}
+  當你整理一個大型文檔時， \LaTeX{} 的一些專門功能，例如自動生成索引、
+  管理參考文獻等等，會給你以很大的幫助。
+  詳細的關於 \LaTeX{} 專業功能以及增強功能的描述可以在
+   {\normalfont\manual{}} 和 {\normalfont \companion} 找到。
+\end{intro}
+
+%\section{Including \EPSi{}}\label{eps}
+
+\section{插入 EPS 圖形}\label{eps}
+
+%\LaTeX{} provides the basic facilities to work with floating bodies,
+%such as images or graphics, with the \texttt{figure} and
+%\texttt{table} environments.
+
+\LaTeX{} 通過 \texttt{figure} 和 \texttt{table} 環境提供了
+處理圖像圖形等浮動體的基本工具。
+
+%There are several ways to generate the actual \wi{graphics} with
+%basic \LaTeX{} or a \LaTeX{} extension package, a few of them are
+%described in chapter \ref{chap:graphics}. Please refer to
+%\companion{} and the \manual{} for more information on that subject.
+
+有幾種辦法可以通過使用基本 \LaTeX{} 命令或者 \LaTeX{} 擴展宏包來產生實際的
+圖形 (\wi{graphics})，第 \ref{chap:graphics} 章中將會介紹其中的幾種方法。
+如果需要這方面的詳細信息，請參閱 \companion{} 和 \manual{}。
+
+%A much easier way to get graphics into a document is to generate
+%them with a specialised software package\footnote{Such as XFig,
+%CorelDraw!,
+%  Freehand, Gnuplot, \ldots} and then include the finished graphics
+%into the document. Here again, \LaTeX{} packages offer many ways to do
+%this, but this introduction will only discuss the use of \EPSi{}
+%(EPS) graphics, because it is quite
+%easy to do and widely used.  In order to use pictures in the EPS
+%format, you must have a \PSi{} printer\footnote{Another
+%  possibility to output \PSi{} is the \textsc{\wi{GhostScript}}
+%  program available from
+%  \CTANref|support/ghostscript|. Windows and OS/2 users might
+%  want to look for \textsc{GSview}.} available for output.
+
+在文檔中使用圖形，一個相對容易的辦法就是使用專門的軟件包\footnote{例如 XFig、
+CorelDraw!、 Freehand、
+Gnuplot……}生成圖形文件，然後將最終的圖形文件插入
+到文檔中。\LaTeX{} 的宏包提供了許多方法來完成這個工作。在這個手冊裡，我們只
+討論 \EPSi{} (EPS) 圖形文件的使用，因為它比較簡單而且被廣
+泛地使用。為了使用 EPS 格式的圖片，你必須有一個 \PSi 列印機
+\footnote{另外一個可以用來輸出 \PSi{} 的工具是 \textsc{\wi{GhostScript}} 程序，
+它可以從 \CTANref|support/ghostscript| 得到。Windows 和 OS/2 
+用戶可能更喜歡用 \textsc{GSview}。}來輸出結果。
+
+%A good set of commands for inclusion of graphics is provided in the
+%\pai{graphicx} package by D. P. Carlisle. It is part of a whole family
+%of packages called the ``graphics''
+%bundle.\footnote{\CTANref|macros/latex/required/graphics|}
+
+由 D. P. Carlisle 製作的 \pai{graphicx} 宏包提供了一套很好的插圖命令。
+它是一個叫作 ``graphics'' 的宏包集中的一部分
+\footnote{\CTANref|macros/latex/required/graphics|}。
+
+%Assuming you are working on a system with a \PSi{} printer available
+%for output and with the \textsf{graphicx} package installed, you can
+%use the following step by step guide to include a picture into your
+%document:
+
+假設你使用的系統安裝了 \PSi{} 列印機和 \textsf{graphicx} 宏包，
+那麼你就可以通過下面的步驟把一幅圖片加入你的文檔中：
+
+%\begin{enumerate}
+%\item Export the picture from your graphics program in EPS
+%  format.\footnote{If your software can not export into EPS format, you
+%    can try to install a \PSi{} printer driver (such as an Apple
+%    LaserWriter, for example) and then print to a file with this
+%    driver. With some luck this file will be in EPS format. Note that
+%    an EPS must not contain more than one page. Some printer drivers
+%    can be explicitly configured to produce EPS format.}
+%\item Load the \textsf{graphicx} package in the preamble of the input
+%  file with
+%\begin{lscommand}
+%\verb|\usepackage[|\emph{driver}\verb|]{graphicx}|
+%\end{lscommand}
+%\noindent where \emph{driver} is the name of your ``dvi to postscript''
+%converter program. The most
+%widely used program is called \texttt{dvips}. The name of the driver is
+%required, because there is no standard on how graphics are included in
+%\TeX{}. Knowing the name of the \emph{driver}, the
+%\textsf{graphicx} package can choose the correct method to insert
+%information about the graphics into the \eei{.dvi} file, so that the
+%printer understands it and can correctly include the \eei{.eps}
+%file.
+%\item Use the command
+%\begin{lscommand}
+%\ci{includegraphics}\verb|[|\emph{key}=\emph{value}, \ldots\verb|]{|\emph{file}\verb|}|
+%\end{lscommand}
+%\noindent to include \emph{file} into your document. The optional parameter
+%accepts a comma separated list of \emph{keys} and associated
+%\emph{values}. The \emph{keys} can be used to alter the width, height
+%and rotation of the included graphic. Table \ref{keyvals} lists the
+%most important keys.
+%\end{enumerate}
+
+\begin{enumerate}
+\item 用你的圖形軟件輸出 EPS 格式的文件\footnote{如果你的軟件不能輸出 EPS 
+      格式的文件，你可以嘗試安裝一個 \PSi{} 列印機驅動程序（例如 Apple
+      LaserWriter），然後將你的圖形通過這個驅動程序列印到文件。運氣好的話，
+      這個文件會是 EPS 格式的。注意一個 EPS 圖片不能包含超過一頁的內容。
+      一些列印機驅動程序可以明確地指定輸出 EPS 格式。}。
+\item 在源文件的導言中加上下面的命令來載入 \textsf{graphicx} 宏包。
+      \begin{lscommand}
+         \verb|\usepackage[|\emph{driver}\verb|]{graphicx}|
+      \end{lscommand}
+      這裡 \emph{driver} 是你使用的 「dvi 到 postscript」 的轉換程序。最常用的
+      是 \texttt{dvips}。因為 \TeX{} 中沒有規定插入圖形的標準，所以 \emph{driver} 的名字
+      是必需的。知道了 \emph{driver} 的名字，\textsf{graphicx} 宏包就可以選擇
+      合適的方法在 \texttt{.dvi} 文件中插入關於圖形的信息。然後列印機理解
+      這些信息並能正確的插入 \texttt{.eps} 文件。
+\item 使用命令
+      \begin{lscommand}
+         \ci{includegraphics}\verb|[|\emph{key}=\emph{value}, \ldots\verb|]{|\emph{file}\verb|}|
+      \end{lscommand}
+      來把 \emph{file} 加入你的文檔。可選的參數是一系列由逗號隔開的
+       \emph{keys} 和相應的 (\emph{values})。\emph{keys} 可以用來改變插圖
+      的寬度、高度以及旋轉。表 \ref{keyvals} 列出了最重要的關鍵詞。
+\end{enumerate}
+
+%\begin{table}[htb]
+%\caption{Key Names for \textsf{graphicx} Package.}
+%\label{keyvals}
+%\begin{lined}{9cm}
+%\begin{tabular}{@{}ll}
+%\texttt{width}& scale graphic to the specified width\\
+%\texttt{height}& scale graphic to the specified height\\
+%\texttt{angle}& rotate graphic counterclockwise\\
+%\texttt{scale}& scale graphic \\
+%\end{tabular}
+
+%\bigskip
+%\end{lined}
+%\end{table}
+
+\begin{table}[!htb]
+\caption{\textsf{graphicx} 宏包使用的關鍵詞。} \label{keyvals}
+\begin{lined}{9cm}
+\begin{tabular}{@{}ll}
+\texttt{width}& 把圖形調整到指定的寬度\\
+\texttt{height}& 把圖形調整到指定的高度\\
+\texttt{angle}& 逆時針旋轉圖形\\
+\texttt{scale}& 縮放圖形\\
+\end{tabular}
+
+\bigskip
+\end{lined}
+\end{table}
+
+%\pagebreak
+
+%The following example code may help to clarify things:
+%\begin{code}
+%\begin{verbatim}
+%\begin{figure}
+%\centering
+%\includegraphics[angle=90,
+%                 width=0.5\textwidth]{test}
+%\caption{This is a test.}
+%\end{figure}
+%\end{verbatim}
+%\end{code}
+%It includes the graphic stored in the file \texttt{test.eps}. The
+%graphic is \emph{first} rotated by an angle of 90 degrees and
+%\emph{then} scaled to the final width of 0.5 times the width of a
+%standard paragraph.  The aspect ratio is $1.0$, because no special
+%height is specified.  The width and height parameters can also be
+%specified in absolute dimensions. Refer to Table \ref{units} on
+%page \pageref{units} for more information. If you want to know more
+%about this topic, make sure to read \cite{graphics} and \cite{eps}.
+
+下面的示例代碼可以幫助我們理解整個過程：
+\begin{code}
+\begin{verbatim}
+\begin{figure}
+\centering
+\includegraphics[angle=90,
+                 width=0.5\textwidth]{test}
+\caption{This is a test.}
+\end{figure}
+\end{verbatim}
+\end{code}
+這段代碼把文件 \texttt{test.eps} 中的圖形插入到文檔裡。{\textbf
+首先}圖形被旋轉 90 度，{\textbf
+然後}進行縮放使得圖形的寬度等於標準段落寬度的 0.5 倍。
+因為沒有指定圖形的高度，圖形的高寬變化的比例是 $1.0$，也就是保持原來的高寬比。
+高度和寬度參數也可以指定為絕對長度單位。詳細的信息可以在第 \pageref{units} 頁
+的表 \ref{units} 中找到。如果你想知道更多這方面的知識，請閱讀文獻 \cite{graphics} 
+和 \cite{eps}。
+
+%\section{Bibliography}
+\section{參考文獻}
+
+%You can produce a \wi{bibliography} with the \ei{thebibliography}
+%environment.  Each entry starts with
+%\begin{lscommand}
+%\ci{bibitem}\verb|[|\emph{label}\verb|]{|\emph{marker}\verb|}|
+%\end{lscommand}
+%The \emph{marker} is then used to cite the book, article or paper
+%within the document.
+%\begin{lscommand}
+%\ci{cite}\verb|{|\emph{marker}\verb|}|
+%\end{lscommand}
+%If you do not use the \emph{label} option, the entries will get
+%enumerated automatically.  The parameter after the
+%\verb|\begin{thebibliography}| command defines how much space to
+%reserve for the number of labels. In the example below, \verb|{99}|
+%tells \LaTeX{} to expect that none of the bibliography item numbers
+%will be wider than the number 99. \enlargethispage{2cm}
+%\begin{example}
+%Partl \cite{pa} has
+%proposed that \ldots
+%\begin{thebibliography}{99}
+%\bibitem{pa} H. Partl:
+%\emph{German \TeX},
+%TUGboat Volume 9, Issue 1 (1988)
+%\end{thebibliography}
+%\end{example}
+
+你可以通過 \ei{thebibliography} 環境來產生一個參考文獻 (\wi{bibliography})。每個參考文獻的
+條目以如下的命令開頭
+  \begin{lscommand}
+    \ci{bibitem}\verb|[|\emph{label}\verb|]{|\emph{marker}\verb|}|
+  \end{lscommand}
+然後使用 \emph{marker} 在正文中引用這本書、這篇文章或者論文。
+  \begin{lscommand}
+    \ci{cite}\verb|{|\emph{marker}\verb|}|
+  \end{lscommand}
+如果你不使用參數 \emph{label}，參考文獻條目的編號是自動生成的。 \verb|\begin{thebibliography}| 
+命令後的參數設定了最大的編號寬度。在下面的例子中， \verb|{99}| 告訴
+ \LaTeX{} 參考文獻條目的編號不會比數字 $99$ 更寬。
+%\enlargethispage{2cm}
+ \begin{example}
+ Partl \cite{pa} has
+ proposed that \ldots
+ \begin{thebibliography}{99}
+ \bibitem{pa} H. Partl:
+ \emph{German \TeX},
+ TUGboat Volume 9, Issue 1
+  (1988)
+ \end{thebibliography}
+ \end{example}
+
+%\chaptermark{Specialities} % w need to fix the damage done by the
+                           %bibliography example.
+\chaptermark{專業功能}
+\thispagestyle{fancyplain}
+
+%For larger projects, you might want to check out the Bib\TeX{}
+%program. Bib\TeX{} is included with most \TeX{} distributions. It
+%allows you to maintain a bibliographic database and then extract the
+%references relevant to things you cited in your paper. The visual
+%presentation of Bib\TeX{} generated bibliographies is based on a
+%style sheets concept that allows you to create bibliographies
+%following a wide range of established designs.
+
+對於大型項目，你也許需要使用 Bib\TeX{} 程序。 Bib\TeX{} 包含在大多數
+的 \TeX{} 發行版本中。它能夠讓你維護一個參考文獻資料庫，並從中生成你的
+論文引用到的文獻條目。 Bib\TeX{} 產生的參考文獻的外觀是基於樣式表，
+它可以讓你按照大量預先設計好的格式來創建你的參考文獻。
+
+%\newpage
+
+%\section{Indexing} \label{sec:indexing}
+
+\section{索引}\label{sec:indexing}
+
+%A very useful feature of many books is their \wi{index}. With
+%\LaTeX{} and the support program \texttt{makeindex},\footnote{On
+%systems not
+%  necessarily supporting
+%  filenames longer than 8 characters, the program may be called
+%  \texttt{makeidx}.} an index can be generated quite easily.  This
+%introduction will only explain the basic index generation commands.
+%For a more in-depth view, please refer to \companion.
+%\index{makeindex program} \index{makeidx package}
+
+許多書籍的一個非常有用的部分就是它們的索引 (\wi{index}) 了。使用 \LaTeX{} 和輔助工具
+ \texttt{makeindex}\footnote{在文件名不能超過 8 個字符的操作系統上，
+這個程序被命名為 \texttt{makeidx}。}，我們能夠很容易的生成索引。在這個手冊裡，
+只介紹了最基本的索引生成命令。更進一步的瞭解請參考 \companion。
+\index{makeindex program} \index{makeidx package}
+
+%To enable the indexing feature of \LaTeX{}, the \pai{makeidx} package
+%must be loaded in the preamble with:
+%\begin{lscommand}
+%\verb|\usepackage{makeidx}|
+%\end{lscommand}
+%\noindent and the special indexing commands must be enabled by putting
+%the
+%\begin{lscommand}
+%  \ci{makeindex}
+%\end{lscommand}
+%\noindent command into the input file preamble.
+
+為了使用 \LaTeX{} 的索引功能，宏包 \pai{makeidx} 必須在導言部分被載入：
+\begin{lscommand}
+  \verb|\usepackage{makeidx}|
+\end{lscommand}
+\noindent 然後在導言中使用
+\begin{lscommand}
+  \ci{makeindex}
+\end{lscommand}
+\noindent 啟動索引命令。
+
+%The content of the index is specified with
+%\begin{lscommand}
+%  \ci{index}\verb|{|\emph{key}\verb|}|
+%\end{lscommand}
+%\noindent commands, where \emph{key} is the index entry. You enter the
+%index commands at the points in the text that you want the final index
+%entries to point to.  Table \ref{index} explains the syntax of the
+%\emph{key} argument with several examples.
+
+索引的內容通過命令
+\begin{lscommand}
+  \ci{index}\verb|{|\emph{key}\verb|}|
+\end{lscommand}
+\noindent
+指定，這裡 \emph{key} 是索引項的關鍵詞。你可以在需要被索引的地方
+加入這條命令。表 \ref{index} 舉例解釋了參量 \emph{key} 語法。
+
+%\begin{table}[!tp]
+%\caption{Index Key Syntax Examples.}
+%\label{index}
+%\begin{center}
+%\begin{tabular}{@{}lll@{}}
+%  \textbf{Example} &\textbf{Index Entry} &\textbf{Comment}\\\hline
+%  \rule{0pt}{1.05em}\verb|\index{hello}| &hello, 1 &Plain entry\\
+%\verb|\index{hello!Peter}|   &\hspace*{2ex}Peter, 3 &Subentry under `hello'\\
+%\verb|\index{Sam@\textsl{Sam}}|     &\textsl{Sam}, 2& Formatted entry\\
+%\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& Same as above\\
+%\verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& Formatted page number\\
+%\verb.\index{Joe|textit}.     &Joe, \textit{5}& Same as above\\
+%\verb.\index{ecole@\'ecole}.     &\'ecole, 4& Handling of accents
+%\end{tabular}
+%\end{center}
+%\end{table}
+
+\begin{table}[!tp]
+\caption{索引關鍵詞語法示例。} \label{index}
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+  \textbf{示例} &\textbf{索引項} &\textbf{註釋}\\\hline
+  \rule{0pt}{1.05em}\verb|\index{hello}| &hello, 1 & 普通格式的索引項\\
+\verb|\index{hello!Peter}|   &\hspace*{2ex}Peter, 3 & `hello' 下的子項\\
+\verb|\index{Sam@\textsl{Sam}}|     &\textsl{Sam}, 2& 格式化的索引項\\
+\verb|\index{Lin@\textbf{Lin}}|     &\textbf{Lin}, 7& 同上\\
+\verb.\index{Jenny|textbf}.     &Jenny, \textbf{3}& 格式化的頁碼\\
+\verb.\index{Joe|textit}.     &Joe, \textit{5}& 同上\\
+\verb.\index{ecole@\'ecole}.     &\'ecole, 4& 重音標記
+\end{tabular}
+\end{center}
+\end{table}
+
+%When the input file is processed with \LaTeX{}, each \verb|\index|
+%command writes an appropriate index entry, together with the current
+%page number, to a special file. The file has the same name as the
+%\LaTeX{} input file, but a different extension (\verb|.idx|). This
+%\eei{.idx} file can then be processed with the \texttt{makeindex}
+%program.
+
+當 \LaTeX{} 處理源文檔時，每個 \verb|\index| 命令都會將適當的索引項
+和當前頁碼寫入一個專門的文件中。這個文件的名字和 \LaTeX{} 源文檔相同，
+但具有不同的擴展名後綴 (\verb|.idx|)。這個 \texttt{.idx} 文件需要用
+ \texttt{makeindex} 程序來處理。
+
+%\begin{lscommand}
+%  \texttt{makeindex} \emph{filename}
+%\end{lscommand}
+%The \texttt{makeindex} program generates a sorted index with the same base
+%file name, but this time with the extension \eei{.ind}. If now the
+%\LaTeX{} input file is processed again, this sorted index gets
+%included into the document at the point where \LaTeX{} finds
+%\begin{lscommand}
+%  \ci{printindex}
+%\end{lscommand}
+
+\begin{lscommand}
+  \texttt{makeindex} \emph{filename}
+\end{lscommand}
+\texttt{makeindex} 程序生成一個與源文件同名的序列化索引文件，
+這個文件使用 \texttt{.ind} 為擴展名。當再次用 \LaTeX{} 處理源文件時，
+這個序列化索引文件將被包含到源文件中
+\begin{lscommand}
+  \ci{printindex}
+\end{lscommand}
+\noindent 命令出現的位置。
+
+%The \pai{showidx} package that comes with \LaTeXe{} prints out all
+%index entries in the left margin of the text. This is quite useful for
+%proofreading a document and verifying the index.
+
+\LaTeXe{} 附帶的宏包 \pai{showidx} 可以在正文的左邊列印出索引項。
+這個功能在校對文檔和索引項時十分有用。
+
+% Note that the \ci{index}
+%command can affect your layout if not used carefully.
+
+%\begin{example}
+%My Word \index{Word}. As opposed
+%to Word\index{Word}. Note the
+%position of the full stop.
+%\end{example}
+
+請注意不謹慎地使用 \ci{index} 命令，將會影響文檔頁版面佈局。
+\begin{example}
+My Word \index{Word}. As opposed
+to Word\index{Word}. Note the
+position of the full stop.
+\end{example}
+
+%\section{Fancy Headers}
+%\label{sec:fancy}
+\section{定製頁眉和頁腳}
+\label{sec:fancy}
+
+%The \pai{fancyhdr} package,\footnote{Available from
+%  \CTANref|macros/latex/contrib/supported/fancyhdr|.} written by
+%Piet van Oostrum, provides a few simple commands that allow you to
+%customize the header and footer lines of your document.  If you look
+%at the top of this page, you can see a possible application of this
+%package.
+
+Piet van
+Oostrum 編寫的 \pai{fancyhdr} 宏包\footnote{可以在 \CTANref|macros/latex/contrib/supported/fancyhdr| 得到。}，
+提供了一些簡單的命令使得我們可以定製文檔的頁眉和頁腳。看一眼本頁的頂部，
+你就能發現這個宏包的用處。
+
+%\begin{figure}[!htbp]
+%\begin{lined}{\textwidth}
+%\begin{verbatim}
+%\documentclass{book}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+% with this we ensure that the chapter and section
+% headings are in lowercase.
+%\renewcommand{\chaptermark}[1]{%
+%        \markboth{#1}{}}
+%\renewcommand{\sectionmark}[1]{%
+%        \markright{\thesection\ #1}}
+%\fancyhf{}  % delete current header and footer
+%\fancyhead[LE,RO]{\bfseries\thepage}
+%\fancyhead[LO]{\bfseries\rightmark}
+%\fancyhead[RE]{\bfseries\leftmark}
+%\renewcommand{\headrulewidth}{0.5pt}
+%\renewcommand{\footrulewidth}{0pt}
+%\addtolength{\headheight}{0.5pt} % space for the rule
+%\fancypagestyle{plain}{%
+%   \fancyhead{} % get rid of headers on plain pages
+%   \renewcommand{\headrulewidth}{0pt} % and the line
+%}
+%\end{verbatim}
+%\end{lined}
+%\caption{Example \pai{fancyhdr} Setup.} \label{fancyhdr}
+%\end{figure}
+
+\begin{figure}[!htbp]
+\begin{lined}{\textwidth}
+\begin{verbatim}
+\documentclass{book}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+ with this we ensure that the chapter and section
+ headings are in lowercase.
+\renewcommand{\chaptermark}[1]{%
+        \markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{%
+        \markright{\thesection\ #1}}
+\fancyhf{}  % delete current header and footer
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO]{\bfseries\rightmark}
+\fancyhead[RE]{\bfseries\leftmark}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\addtolength{\headheight}{0.5pt} % space for the rule
+\fancypagestyle{plain}{%
+   \fancyhead{} % get rid of headers on plain pages
+   \renewcommand{\headrulewidth}{0pt} % and the line
+}
+\end{verbatim}
+\end{lined}
+\caption{\pai{fancyhdr} 設置實例。} \label{fancyhdr}
+\end{figure}
+
+%The tricky problem when customising headers and footers is to get
+%things like running section and chapter names in there. \LaTeX{}
+%accomplishes this with a two-stage approach. In the header and footer
+%definition, you use the commands \ci{rightmark} and \ci{leftmark} to
+%represent the current section and chapter heading, respectively.
+%The values of these two commands are overwritten whenever a chapter or
+%section command is processed.
+
+定製頁眉和頁腳時一件棘手的事情就是得到每個頁面所屬的章節名稱。
+\LaTeX{} 通過兩個步驟來完成這個任務。在定義頁眉和頁腳時，你可以使用
+ \ci{rightmark} 命令來代表當前的 section 名，使用 \ci{leftmark} 來代表當前的 chapter 名。
+這兩個命令的值將在處理 chapter 或者 section 命令時被重新賦值。
+
+%For ultimate flexibility, the \verb|\chapter| command and its friends
+%do not redefine \ci{rightmark} and \ci{leftmark} themselves. They call
+%yet another command (\ci{chaptermark}, \ci{sectionmark}, or
+%\ci{subsectionmark}) that is responsible for redefining \ci{rightmark}
+%and \ci{leftmark}.
+
+為了獲得最大的靈活性， \verb|\chapter| 等命令並不對 \ci{rightmark} 和
+ \ci{leftmark} 直接進行重定義，而是間接地通過調用 \ci{chaptermark}、
+\ci{sectionmark} 或者 \ci{subsectionmark} 來重新定義 \ci{rightmark} 和
+ \ci{leftmark}。
+
+%If you want to change the look of the chapter
+%name in the header line, you need only ``renew'' the \ci{chaptermark}
+%command. \cih{sectionmark}\cih{subsectionmark}
+
+因此，只需要重新定義 \ci{chaptermark} 命令，\cih{sectionmark}\cih{subsectionmark}
+就能修改頁眉上顯示的章名。
+
+%Figure \ref{fancyhdr} shows a possible setup for the \pai{fancyhdr}
+%package that makes the headers look about the same as they look in
+%this booklet. In any case, I suggest you fetch the documentation for
+%the package at the address mentioned in the footnote.
+
+圖 \ref{fancyhdr} 顯示了如何設定 \pai{fancyhdr} 來得到和本文相似的頁眉。
+無論如何我還是建議你先閱讀一下 \pai{fancyhdr} 宏包所帶的文檔。
+
+%\section{The Verbatim Package}
+\section{Verbatim 宏包}
+
+%Earlier in this book, you got to know the \ei{verbatim}
+%\emph{environment}.  In this section, you are going to learn about the
+%\pai{verbatim} \emph{package}. The \pai{verbatim} package is basically
+%a re-implementation of the \ei{verbatim} environment that works around
+%some of the limitations of the original \ei{verbatim} environment.
+%This by itself is not spectacular, but the implementation of the
+%\pai{verbatim} package added new functionality, which is
+%why I am mentioning the package here. The \pai{verbatim}
+%package provides the
+
+在本文的前面部分你已經知道了 \ei{verbatim} {\textbf
+環境}。在這一節中， 你將學會使用 \pai{verbatim} {\textbf
+宏包}。 \pai{verbatim} 宏包重新
+實現了 \ei{verbatim} 環境，並解決了原來的 \ei{verbatim} 環境的一些限制。
+這本身並沒有什麼特別的，但 \pai{verbatim} 宏包還實現了一些新增的功能，
+這才是我在這裡提到這個宏包的原因。 \pai{verbatim} 宏包提供了
+
+\begin{lscommand}
+\ci{verbatiminput}\verb|{|\emph{filename}\verb|}|
+\end{lscommand}
+
+%\noindent command, which allows you to include raw ASCII text into your
+%document as if it were inside a \ei{verbatim} environment.
+
+\noindent
+命令，這個命令允許你把一個 ASCII 碼的文本文件包含到你的文檔中來，
+就好像它們是在 \ei{verbatim} 環境中一樣。
+
+%As the \pai{verbatim} package is part of the `tools' bundle, you
+%should find it pre-installed on most systems. If you want to know more
+%about this package, make sure to read \cite{verbatim}.
+
+\pai{verbatim} 宏包是 `tools' 宏包集的一部分，大多數的系統中都預裝了這個宏包集。
+如果你想更多地瞭解這個宏包，可以閱讀 \cite{verbatim}。
+
+%\section{Installing Extra Packages}\label{sec:Packages}
+\section{安裝額外的宏包}\label{sec:Packages}
+
+%Most \LaTeX{} installations come with a large set of pre-installed
+%style packages, but many more are available on the net. The main
+%place to look for style packages on the Internet is CTAN
+%(\url{http://www.ctan.org/}).
+
+大多數的 \LaTeX{} 安裝都帶有大量預裝的樣式宏包，但更多的宏包可以在網上得到。
+在互聯網尋找樣式宏包的一個主要的地方就是 CTAN
+(\url{http://www.ctan.org/})。
+
+%Packages such as \pai{geometry}, \pai{hyphenat}, and many
+%others are typically made up of two files: a file with the extension
+%\texttt{.ins} and another with the extension \texttt{.dtx}. There
+%will often be a \texttt{readme.txt} with a brief description of the
+%package. You should of course read this file first.
+
+各種宏包的源文件，例如 \pai{geometry}， \pai{hyphenat} 等等，一般來說都包含
+兩個文件：一個擴展名為 \texttt{.ins}，另一個擴展名為 \texttt{.dtx}。
+此外，通常會有一個 \texttt{readme.txt} 對宏包進行簡要的說明。你應該先閱讀這個文件。
+
+%In any event, once you have copied the package files onto your
+%machine, you still have to process them in a way that (a) tells your
+%\TeX\ distribution about the new style package and (b) gives you
+%the documentation.  Here's how you do the first part:
+
+無論如何，一旦你得到了宏包的源文件，你還要對它們進行處理使得 (a) 你的 \TeX{} 系統知道這個新的宏包， (b) 生成說明文檔。下面是第一部分的步驟：
+
+%\begin{enumerate}
+%\item Run \LaTeX{} on the \texttt{.ins} file. This will
+%  extract a \eei{.sty} file.
+%\item Move the \eei{.sty} file to a place where your distribution
+%  can find it. Usually this is in your \texttt{\ldots/\emph{localtexmf}/tex/latex}
+%  subdirectory (Windows or OS/2 users should feel free to change the
+%  direction of the slashes).
+%\item Refresh your distribution's file-name database. The command
+%  depends on the \LaTeX distribution you use:
+%  teTeX, fpTeX -- \texttt{texhash}; web2c -- \texttt{maktexlsr};
+%  MikTeX -- \texttt{initexmf -update-fndb} or use the GUI.
+%\end{enumerate}
+
+\begin{enumerate}
+\item 對 \texttt{.ins} 文件運行 \LaTeX{} 命令。這將會產生一個 \texttt{.sty} 文件。
+\item 把 \texttt{.sty} 文件移到 \LaTeX{} 系統能找到的地方。一般是在 
+      \texttt{\ldots/\emph{localtexmf}/tex/latex} 子目錄下（Windows 或者 OS/2 用戶應該改變斜線為反斜線）。
+\item 刷新系統的文件名資料庫。具體的命令取決於你使用的 \LaTeX{} 系統：
+       teTeX, fpTeX -- \texttt{texhash}; web2c -- \texttt{maktexlsr};
+      MikTeX -- \texttt{initexmf -update-fndb} 或者使用圖形界面。
+\end{enumerate}
+
+%\noindent Now you can extract the documentation from the
+%\texttt{.dtx} file:
+
+\noindent 現在你可以從 \texttt{.dtx} 文件生成說明文檔：
+
+%\begin{enumerate}
+%\item Run \LaTeX\ on the \texttt{.dtx} file.  This will generate a
+%  \texttt{.dvi} file. Note that you may have to run \LaTeX\
+%  several times before it gets the cross-references right.
+%\item Check to see if \LaTeX\ has produced a \texttt{.idx} file
+%  among the various files you now have.
+%  If you do not see this file, then you may proceed to
+%  step \ref{step:final}.
+%\item In order to generate the index, type the following:\\
+%        \fbox{\texttt{makeindex -s gind.ist \textit{name}}}\\
+%        (where \textit{name} stands for the main-file name without any
+%    extension).
+% \item Run \LaTeX\ on the \texttt{.dtx} file once again. \label{step:next}
+%
+%\item Last but not least, make a \texttt{.ps} or \texttt{.pdf}
+%  file to increase your reading pleasure.\label{step:final}
+%
+%\end{enumerate}
+
+\begin{enumerate}
+\item 對 \texttt{.dtx} 文件運行 \LaTeX{} 命令。這會生成一個 \texttt{.dvi} 文件。
+      注意你可能需要多次運行 \LaTeX{} 命令來正確處理交叉引用。
+\item 檢查一下 \LaTeX{} 命令是否產生了 \texttt{.idx} 文件。如果沒發現這個文件，
+      你就可以執行第 \ref{step:final} 步了。
+\item 為了生成索引，敲入命令：\\
+      \fbox{\texttt{makeindex -s gind.ist \textit{name}}}\\
+      （這裡 \textit{name} 表示不帶擴展名的主文件名）。
+\item 再次對 \texttt{.dtx} 文件運行 \LaTeX{} 命令。\label{step:next}
+\item 最後一步但不是必需的，生成 \texttt{.ps} 文件或者 \texttt{.pdf} 文件以方便閱讀。\label{step:final}
+
+\end{enumerate}
+
+%Sometimes you will see that a \texttt{.glo}
+%(glossary) file has been produced. Run the following
+%command between
+%step \ref{step:next} and \ref{step:final}:
+
+有時你會看見生成了一個 \texttt{.glo}
+(glossary) 文件。在第 \ref{step:next} 步和第 \ref{step:final} 步之間
+運行下面的命令：
+
+\noindent\texttt{makeindex -s gglo.ist -o \textit{name}.gls \textit{name}.glo}
+
+%\noindent Be sure to run \LaTeX\ on the \texttt{.dtx} one last
+%time before moving on to step \ref{step:final}.
+
+\noindent
+確認在執行第 \ref{step:final} 步前最後對 \texttt{.dtx} 文件運行一遍 \LaTeX{} 命令。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Chapter on pdfLaTeX
+% French original by Daniel Flipo 14/07/2004
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Working with pdf\LaTeX}
+
+\section{使用 pdf\LaTeX} \label{sec:pdftex}\index{PDF}
+\secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+%\footnote{翻譯: Li Jian. lijian605@yahoo.com.cn}}
+%
+%\begin{tiny}
+%by Daniel Flipo $<$Daniel.Flipo@univ-lille1.fr$>$
+%\end{tiny}%
+
+
+%PDF is a \wi{hypertext} document format. Much like in a web page,
+%some words in the document are marked as hyperlinks. They link to
+%other places in the document or even to other documents. If you
+%click on such a hyperlink you get transported to the destination of
+%the link. In the context of \LaTeX{}, this means that all
+%occurrences of \ci{ref} and \ci{pageref} become hyperlinks.
+%Additionally, the table of contents, the index and all the other
+%similar structures become collections of hyperlinks.
+
+PDF 是一種超文本文檔 (\wi{hypertext}) 格式。類似於網頁，
+文檔中的某些詞可以被超超連結標記。它們鏈接到這個文檔的另一個地方，
+甚至是另外一個文檔。如果你點擊這樣一個超超連結，
+你將轉調到超連結的目的地。
+這意味著在 \LaTeX{} 格式的文檔中所有 \ci{ref} 和 \ci{pageref} 出現的位置都變成超超連結。此外，目錄、
+索引和其它類似的結構變成超超連結的集合。
+
+%Most web pages you find today are written in HTML \emph{(HyperText
+%  Markup Language)}. This format has two significant disadvantages
+%when writing scientific documents:
+%\begin{enumerate}
+%\item Including mathematical formulae into HTML documents is not
+%  generally supported. While there is a standard for it, most browsers
+%  used today do not support it, or lack the required fonts.
+%\item Printing HTML documents is possible, but the results vary widely
+%  between platforms and browsers. The results are miles removed from
+%  the quality we have come to expect in the \LaTeX{} world.
+%\end{enumerate}
+
+現在大多數的網頁都是用 HTML \textbf{超文本標記語言}編寫。
+在寫科技文檔的時候，這種格式有兩個嚴重的缺陷：
+\begin{enumerate}
+\item 數學公式在 HTML 文檔中通常都不被支持。儘管對此有一個標準，
+但是大多是現在使用的瀏覽器都不支持，或者缺少需要的字體。
+\item 列印 HTML 文檔是比較容易的，但列印的結果會因系統平台和瀏覽器的不同
+而出現差異。
+這結果與我們在 \LaTeX{} 世界中期待的高質量相差十萬八千里。
+\end{enumerate}
+
+% There have been many attempts to create translators
+%from \LaTeX{} to HTML. Some were even quite successful in the sense
+%that they are able to produce legible web pages from a standard
+%\LaTeX{} input file. But all of them cut corners left and right to
+%get the job done. As soon as you start using more complex \LaTeX{}
+%features and external packages things tend to fall apart. Authors
+%wishing to preserve the unique typographic quality of their
+%documents even when publishing on the web turn to PDF
+%\emph{(Portable Document Format)}, which preserves the layout of the
+%document and permits hypertext navigation. Most modern browsers come
+%with plugins that allow the direct display of PDF documents.
+
+有許多將 \LaTeX{} 轉為 HTML 的嘗試。其中一些可以說是相當成功的，
+它們能將一個標準的 \LaTeX{} 源文件生成一個合格的網頁。
+但是為了達到目的，需要去掉一些支持。
+當你開始使用 \LaTeX{} 的複雜功能和擴展宏包時，那些嘗試就行不通了。
+若希望即使是發不到網上也保留文檔的高質量，
+作者們就要使用 PDF \textbf{（便攜式文檔格式）}，
+它保留了文檔的版式和允許超超連結導航。
+現在大多數瀏覽器只要帶上相應的插件都可以直接顯示 PDF 文檔。
+
+%Even though there are DVI and PS viewers for almost every platform, you will find that
+%\wi{Acrobat Reader} and \wi{Xpdf} for viewing PDF documents
+%are more widely deployed. So providing PDF versions of your documents will
+%make them much more accessible to your potential readers.
+
+儘管幾乎所有的操作系統都有 DVI 和 PS 格式的閱讀器，
+但你會發現人們更多地使用 \wi{Acrobat
+Reader} 和 \wi{Xpdf} 來閱讀 PDF 文檔。
+因而提供 PDF 格式的文檔將使得潛在的讀者更容易閱讀。
+
+
+%\subsection{PDF Documents for the Web}
+\subsection{發佈到網上的 PDF 文檔}
+
+% The creation of a PDF file from \LaTeX{} source is very simple,
+%thanks to the pdf\TeX{} program developed by
+%H\`an Th\'{\^e} Th\`anh. pdf\TeX{} produces PDF output where normal
+%\TeX{} produces DVI. There is also a pdf\LaTeX{}, which produces
+%  PDF output from \LaTeX{} sources. \index{pdftex@pdf\TeX}\index{pdftex@pdf\LaTeX}
+
+有了 H\`an Th\'{\^e} Th\`anh 開發的 pdf\TeX{} 程序，使用 \LaTeX 源文件來創建 PDF 文件將變得非常簡單。
+一般的 TeX{} 生成 DVI，
+而 pdf\TeX{} 生成 PDF。還有 pdf\LaTeX{} 程序將 LaTeX{} 源文件生成 PDF。
+\index{pdftex@pdf\TeX}\index{pdftex@pdf\LaTeX}
+
+%Both pdf\TeX{} and pdf\LaTeX{} are installed automatically by most
+%modern \TeX{} distributions, such as te\TeX{}, fp\TeX{}, Mik\TeX,
+%\TeX{}Live and CMac\TeX{}.
+
+現在大多數的 \TeX{} 發行版本都自動集成安裝了 pdf\TeX{} 和 pdf\LaTeX{}，
+例如： te\TeX{}， fp\TeX{}， Mik\TeX{}， \TeX{}Live 和 CMac\TeX{}。
+
+%To produce a PDF instead of DVI, it is sufficient to replace the
+%command \texttt{latex file.tex} by
+%\texttt{pdflatex file.tex}. On systems where \LaTeX{} is not called from the
+%command line, you may find a special button in the \TeX{}ControlCenter.
+
+為了生成 PDF 而不是 DVI，只需要將命令 \texttt{latex
+file.tex} 改成 \texttt{pdflatex
+file.tex}。在不是使用命令行的 \LaTeX{} 系統中，你可以在 \TeX{} 控制中心找到一個專門的按鈕。
+
+%In \LaTeX{} you can define the paper size with an
+%optional documentclass argument such as \texttt{a4paper} or
+%\texttt{letterpaper}. This works in pdf\LaTeX{} too, but on top of this
+%pdf\TeX{} also needs to know the physical size of the paper to determine the physical
+%size of the pages in the pdf file.
+%\index{paper size}
+%If you use the
+%\pai{hyperref} package (see page \pageref{ssec:pdfhyperref}), the
+%papersize will be adjusted automatically. Otherwise you have to do this
+%manually by putting the following lines into the preamble of the document:
+%\begin{code}
+%\begin{verbatim}
+%\pdfpagewidth=\paperwidth
+%\pdfpageheight=\paperheight
+%\end{verbatim}
+%\end{code}
+
+在 \LaTeX{} 中，
+你可以通過 documentclass 的參數選項來定義頁面的大小，
+例如：\texttt{a4paper} 或 \texttt{letterpaper}。這些也
+對 pdf\LaTeX{} 有效，但是首先要讓 pdf\TeX{} 知道這種頁
+面的實際大小來控制 PDF 文件的頁面大小。若你使用 \pai{hyperref} 宏
+包（參見第 \pageref{ssec:pdfhyperref} 頁），頁面的大小將自動調整。
+否則，你需要手動的將下面兩行加入到文檔的導言區：
+\begin{code}
+\begin{verbatim}
+\pdfpagewidth=\paperwidth
+\pdfpageheight=\paperheight
+\end{verbatim}
+\end{code}
+
+%The following section will go into more detail regarding the
+%differences between normal \LaTeX{} and pdf\LaTeX{}. The main
+%differences concern three areas: the fonts to use, the format of
+%images to include, and the manual configuration of hyperlinks.
+
+接下來的一節將深入介紹 \LaTeX{} 和 pdf\LaTeX{} 之間的不同。主要的不同
+有三個方面：採用的字體，包含圖像的格式和超超連結的手動設定。
+
+%\subsection{The Fonts}
+\subsection{字體}
+
+%\wi{pdf\LaTeX} can deal with all sorts of fonts (PK bitmaps,
+%TrueType,
+%%\PSi{} type 1\dots) but the normal \LaTeX{} font format, the bitmap PK
+%PostScript type 1\dots) but the normal \LaTeX{} font format, the
+%bitmap PK fonts produce very ugly results when the document is
+%%displayed with Acrobat Reader. It is best to use \PSi{} Type 1 fonts
+%displayed with Acrobat Reader. It is best to use PostScript Type 1
+%fonts exclusively to produce documents that display well.
+%\emph{Modern TeX installations will be setup so that this happens
+%automatically. Best is to try. If it works for you, just skip this
+%whole section.}
+
+\wi{pdf\LaTeX} 能處理所有的字體 （PK 點陣、TrueType、 \PSi{}
+type 1……），但是作為 \LaTeX{} 通常的字體格式， PK 點陣字體在 Acrobat
+Reader 下的顯示效果非常差。為了獲得文檔更高的顯示效果，最好使用 \PSi{}
+Type 1 字體。{\textbf
+高級的 \TeX{} 安裝程序會自動設置好，你最好試一下，如果它正常運作，你就可以跳過這一節。}
+
+%The \PSi{} Type 1 implementation of the Computer Modern and AMSFonts
+%was produced by Blue Sky Research and Y\&Y, Inc., who then
+%transferred copyright to the American Mathematical Society. The
+%fonts were made publicly available in early 1997 and currently come
+%with most of \TeX{} distributions.
+
+\PSi{} Type 1 的 Computer Modern 和 AMSFonts 字體由 Blue Sky
+Research 和 Y\&Y,
+Inc. 製作，後來版權屬於美國數學學會 (AMS)。這些字體在 1997 年被開放，並且出現在大多數 \TeX{} 發行版中。
+
+%However, if you are using \LaTeX{} to create documents in languages
+%other than English, you might want to use EC, LH, or CB fonts (see the
+%discussion about \texttt{OT1} fonts on the page \pageref{OT1}).
+%Vladimir Volovich has created the cm-super font bundle which covers the
+%entire EC/TC, EC Concrete, EC Bright and LH font sets. It is available from
+%\texttt{CTAN:/fonts/ps-type1/cm-super} and is included with \TeX{}Live7
+%and Mik\TeX. Similar type 1 CB Greek fonts created by Apostolos
+%Syropoulos are available at
+%\texttt{CTAN:/tex-archive/fonts/greek/cb}. Unfortunately, both of
+%these font sets are not of the same typographic quality as the Type1
+%CM fonts by Blue Sky/Y\&Y. They were automatically hinted, and the
+%document might look not as neat on the screen as the ones using Blue
+%Sky/Y\&Y type 1 CM fonts, on high resolution output devices they
+%produce results identical to the original bitmap EC/LH/CB fonts.
+
+然而，如果你使用 \LaTeX{} 來創建非英文的文檔，你可能用到 EC， LH 或 CB 字體（關於
+ \texttt{OT1} 字體的討論可參見第 \pageref{OT1} 頁）。Vladimir
+Volovich 創建了 cm-super 字體包，包含全部 EC/TC、EC Concrete、EC
+Bright 和 LH 字體集。在 \texttt{CTAN:/fonts/ps-type1/cm-super} 可以獲得，也被集成進了
+ \TeX{}Live7 和 Mik\TeX\/。由 Apostolos Syropoulos 創建類似 type 1
+CB 的希臘字體可在 \texttt{CTAN:/tex-archive/fonts/greek/cb} 獲得。不幸的是，這些字體集跟 Blue
+Sky/Y\&Y 的 Type 1
+CM 字體的印刷質量不一樣。\LaTeX{} 會自動提示，而且文檔在螢幕的顯示效果也不如 Blue
+Sky/Y\&Y type 1
+CM 字體那麼整潔。在高分辨率的輸出設備下，它們生成的效果跟原來的 EC/LH/CB 點陣字體一樣。
+
+% If you are creating document in one of Latin-based
+%languages, you have several other options.
+%\begin{itemize}
+%\item You might want to use \pai{aeguill} package, aka
+%  \emph{Almost European Computer Modern with Guillemets}. Just put the
+%  line
+%  \newline
+ % \verb+\usepackage{aeguill}+\ into the preamble of
+ % your document, to enable AE virtual fonts instead of EC fonts.
+%\item Alternatively, you can use \pai{mltex} package, but this only works when
+%  your pdf\TeX{} has been compiled with the \wi{mltex} option.
+%\end{itemize}
+
+如果你使用一種拉丁語系的語文來創建文檔，你有其它一些選擇。
+\begin{itemize}
+\item 使用 \pai{aeguill} 宏包，也叫 \emph{Almost European Computer Modern with
+Guillemets}。只需在導言區添加一行 \verb+\usepackage{aeguill}+，來啟用 AE 虛擬字體替代 EC 字體。
+\item 或者使用 \pai{mltex} 宏包，但是它只在 pdf\TeX{} 設置了 \wi{mltex} 選項時有效。
+\end{itemize}
+
+%The AE virtual fontset, like the {Ml\TeX} system, makes \TeX{} believe
+%it has a full 256 character fontset at its disposal by creating most of
+%the missing letters from characters of the CM font and rearranging them
+%in the EC order, this allows to use the excellent type 1 format CM
+%fonts available on most systems. As the font is now in T1 encoding,
+%hyphenation will work well in Latin-based European languages.  The only
+%disadvantage of this approach is that the artificial AE characters do
+%not work with Acrobat Reader's \texttt{Find} function, so you cannot
+%search for words with accented characters in your final PDF file.
+
+AE 虛擬字體集，像 {Ml\TeX} 系統，在 CM 字體的字符基礎上創建
+全部缺失的字母並按 EC 順序重新排列，就使得 \TeX{} 處理它的時候
+認為它有一個全部 256 個字符的字體集。這樣就可使用大部分系統中優質的 type
+1 格式的 cm 字體。這套字體現在為 T1 編碼，在拉丁語系的歐洲語文中能很好的運作。
+唯一的不足就是創建的 AE 字符不支持 Acrobat
+Reader 的查找功能，因此你不能在 PDF 文檔中搜索那些帶重音符號的單詞。
+
+%For the Russian language a similar solution is to use C1 virtual fonts
+%available at \texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts}.
+%These fonts combine the standard CM type 1
+%fonts from Bluesky collection and CMCYR type 1 fonts from  Paradissa and
+%BaKoMa collection, all available on CTAN. Because Paradissa fonts
+%contain only Russian letters, C1 fonts are
+%missing other Cyrillic glyphs.
+
+對於俄文，一個類似的解決辦法是使用 C1 虛擬字體，這可以在 \texttt{ftp://ftp.vsu.ru/pub/tex/font-packs/c1fonts} 
+上獲得。這套字體集成了標準的 Bluesky CM type 1 字體和 Paradissa 
+與 BaKoMa 的 CMCYR
+type 1 字體，這些都可以在 CTAN 上找到。由於 Paradissa 字體只包含俄文字母，C1 字體裡就沒有
+其他西里爾字符了。
+
+%Another solution is to switch to other \PSi{} type 1 fonts.
+%Actually, some of them are even included with every copy of Acrobat
+%Reader. Because these fonts have different character sizes, the text
+%layout on your pages will change. Generally these other fonts will
+%use more space than the CM fonts, which are very space-efficient.
+%Also, the overall visual coherence of your document will suffer
+%because Times, Helvetica and Courier (the primary candidates for
+%such a replacement job) have not been designed to work in harmony in
+%a single document.
+
+另一種解決辦法是使用其它 \PSi{}
+type 1 字體。事實上，其中一些字體被包含在 Acrobat
+Reader 的相應語言版本中。由於這些字體有不同的字符大小，頁面上的文本格式將會
+改變。一般地，這類字體佔得空間要比 CM 字體大，因為 CM 字體是一種
+非常節省空間的字體。而且文檔可視的一致性也被破壞了，因為 Times、
+Helvetica 和 Courier 字體（這些是 Acrobat 裡基本的可替換字體）沒有
+被設計來在單個文檔中和平共處。
+
+%Two ready-made font sets are available for this purpose:
+%\pai{pxfonts}, which is based on \emph{Palatino} as its main text body font,
+%and the \pai{txfonts} package, which is based on \emph{Times}. To use them it is
+%sufficient to put the following lines into the preamble of your
+%document:
+%\begin{code}
+%\begin{verbatim}
+%\usepackage[T1]{fontenc}
+%\usepackage{pxfonts}
+%\end{verbatim}
+%\end{code}
+
+為了達到上述目的，有兩套字體已經做好：\pai{pxfonts}，它基於作為正文
+字體的 \emph{Palatino}；另外就是基於 \emph{Times} 的 \pai{txfonts} 宏包。只需要在文檔的導言區加入下列幾行就可以使用這些字體：
+\begin{code}
+\begin{verbatim}
+\usepackage[T1]{fontenc}
+\usepackage{pxfonts}
+\end{verbatim}
+\end{code}
+
+%Note: you may find lines like
+%\begin{verbatim}
+%Warning: pdftex (file eurmo10): Font eur... not found
+%\end{verbatim}
+%in the  \texttt{.log} file after compiling your input file. They mean
+%that some font used in the document has not been found. You really have
+%to fix these problems, as the resulting PDF document may
+%\emph{not display the pages with the missing characters at all}.
+
+註：當你編譯的時候，在 .log 文件中出現下面的信息：
+\begin{verbatim}
+Warning: pdftex (file eurmo10): Font eur... not found
+\end{verbatim}
+這意味著文檔使用的某些字體沒有被找到。你必須解決這些問題，否則輸出的 PDF 
+文件可能\textbf{不會顯示缺失字符的頁面}。
+
+%As you can see this whole font business, especially the lack of a
+%good EC fontset equivalent in quality to the CM font in type 1
+%format, has been occupying many peoples minds. Recently a new set of
+%high quality outline fonts called Latin Modern (LM) has become
+%available. It puts an end to the misery. If you have a recent \TeX{}
+%installation, chances are that you already have a copy of them
+%installed all you need todo is to add
+%\begin{code}
+%\begin{verbatim}
+%\usepackage{lmodern}
+%\usepackage[T1]{fontenc}
+%\usepackage{textcomp}
+%\end{verbatim}
+%\end{code}
+%to the preamble of your document and you are all set for creating excellent
+%pdf output with full support for the full Latin character set.
+
+上面討論了如此多的字體問題，特別是缺乏與 type 1 格式的 CM 字體同樣高質量的 EC 字體一
+直困擾大家。最近一套新的被稱為  Latin Modern
+(LM) 的高質量字體已開發完成。這使得前面的擔心都是多餘的。如果你安裝了最新的 \TeX{}，
+你可能已經安裝好這套字體，需要做的只是在你的文檔的導言區添加
+\begin{code}
+\begin{verbatim}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\end{verbatim}
+\end{code}
+就可以創建支持所有拉丁字符的優質 PDF 輸出文件。
+
+
+%\subsection{Using Graphics}
+\subsection{使用圖形}
+\label{ssec:pdfgraph}
+
+%Including graphics into a document works best with the
+%\pai{graphicx} package (see page \pageref{eps}).
+%By using the special \emph{driver} option \texttt{pdftex} the
+%package will work with pdf\LaTeX{} as well:
+%\begin{code}
+%\begin{verbatim}
+%\usepackage[pdftex]{color,graphicx}
+%\end{verbatim}
+%\end{code}
+%In the sample above I have included the color option, as using color in
+%documents displayed on the web comes quite naturally.
+
+通過 \pai{graphicx} 宏包
+（參見第 \pageref{eps} 頁），你可以在文檔中插入圖形。使用 \texttt{pdftex} 
+作為 \emph{driver} 的選項，這個宏包也可用於 pdf\LaTeX{}：
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex]{color,graphicx}
+\end{verbatim}
+\end{code}
+上面這個例子中，我還包含了 color 宏包，因此網頁上彩色的文檔會看起來更自然一些。
+
+%%So much for the good news. The bad news is that graphics in \EPSi{}
+%format do not work with Pdf\LaTeX{}. If you don't define a file
+%extension in the \ci{includegraphics} command, \pai{graphicx} will
+%go looking for a suitable file on its own, depending on the setting
+%of the \emph{driver} option. For \texttt{pdftex} this is formats
+%\texttt{.png}, \texttt{.pdf}, \texttt{.jpg} and \texttt{.mps}
+%%(\MP\index{metapost@\MP})---but \emph{not} \texttt{.eps}.
+
+好消息到此為止。壞消息就是 \EPSi{} 格式的圖形並不被 Pdf\LaTeX{} 所支持。
+如果你不在命令 \ci{includegraphics} 聲明加載的文件的擴展名，
+宏包 \pai{graphicx} 將依賴於 \emph{driver} 選項
+的設置自動尋找一個合適的文件。
+對於 \texttt{pdftex} ，它支持的格式有 \texttt{.png}，\texttt{.pdf}，
+\texttt{.jpg} 和 \texttt{.mps} (\texttt{MetaPost}\index{metapost@\MP})，但{\textbf
+不}支持 \texttt{.eps}。
+
+% The simple way out of this problem is
+%to just convert your EPS files into PDF format using the
+%\texttt{epstopdf} utility found on many systems. For vector graphics
+%(drawings) this is a great solution. For bitmaps (photos, scans)
+%this is not ideal, because the PDF format natively supports the
+%inclusion of PNG and JPEG images. PNG is good for screenshots and
+%other images with few colors. JPEG is great for photos, as it is
+%very space-efficient.
+
+一個解決這個問題的簡單方法是通過在很多系統中可找到的 \texttt{epstopdf} 工具
+將你的 EPS 文件轉化為 PDF 格式。
+對於矢量圖（畫），這時一個很好的解決辦法，但對於位圖（相片、掃瞄圖），
+這並不是很理想，因為 PDF 格式本來就支持包含 PNG 和 JPEG 圖像。PNG 格式適合螢幕截圖和其它一些只有較少顏色的圖像。JPEG 是一種
+非常適合於相片的格式，而且佔用空間少。
+
+% It may even be desirable not to draw certain geometric
+%figures, but rather describe the figure with a specialized command
+%language, such as
+%\MP\index{metapost@\MP},
+%METAPOST
+%which can be found in most \TeX{} distributions, and comes
+%with its own extensive manual.
+
+可能對於畫一些特殊的幾何圖形這也不是很理想，幸好可以通過一些專門
+的命令語言來畫圖形，例如 \texttt{MetaPost}\index{metapost@\MP}，
+它可以在大多數的 \TeX{} 發行版本中找到，並且也包含它的擴展手冊。
+
+%\subsection{Hypertext Links}
+\subsection{超超連結}
+\label{ssec:pdfhyperref}
+
+%The \pai{hyperref} package will take care of turning all internal
+%references of your document into hyperlinks. For this to work
+%properly some magic is necessary, so you have to put
+%\verb+\usepackage[pdftex]{hyperref}+ as the \emph{last} command into
+%the preamble of your document.
+
+\pai{hyperref} 宏包將你的文檔中的所有內部引用變成超超連結。
+為此，一些特殊的設置是必須的，保證
+\verb+\usepackage[pdftex]{hyperref}+ 是你的文檔導言區的{\textbf
+最後}一行命令。
+
+%Many options are available to customize the behaviour of the
+%\pai{hyperref} package:
+%\begin{itemize}
+%\item either as a comma separated list after the pdftex option\\
+%  \verb+\usepackage[pdftex]{hyperref}+
+%\item or on individual lines with the command
+%  \verb+\hypersetup{+\emph{options}\verb+}+.
+%\end{itemize}
+
+有很多選項用於定義 \pai{hyperref} 宏包的效果:
+\begin{itemize}
+\item
+或者在 \verb+\usepackage[pdftex]{hyperref}+ 的 pdftex 選項後用逗號隔開列出；
+\item 或者使用單獨一行的命令 \verb+\hypersetup{+\emph{options}\verb+}+。
+\end{itemize}
+
+%The only required option is \texttt{pdftex}; the others are
+%optional and allow you to change the default behaviour of hyperref.\footnote{It
+%is worth noting that the \pai{hyperref} package is not limited to
+%work with pdf\TeX{}. It can also be configured to embed PDF-specific
+%information into the DVI output of normal \LaTeX{}, which then gets put
+%into the PS file by \texttt{dvips} and is finally picked up by Adobe
+%Distiller when it is used to turn the PS file into PDF.} In the following
+%list the default values are written in an upright font.
+
+\texttt{pdftex} 是唯一必須的選項，其他參數用來改變 hyperref 的
+默認效果\footnote{值得注意的是 \pai{hyperref} 宏包並不只是在 pdf\TeX{} 下可用。
+它也可以用於將 PDF 特殊信息嵌入到由通常 \LaTeX{} 生成的 DVI 文件中。
+然後通過 \texttt{dvips} 轉化為 PS 格式，最後用 Adobe
+Distiller 將 PS 格式轉成 PDF。}。下面的列表中默認值被寫成 upright 字體。
+
+%\begin{flushleft}
+%\begin{description}
+%  \item [\texttt{bookmarks (=true,\textit{false})}] show or hide the
+%    bookmarks bar when displaying the document
+%  \item [\texttt{unicode (=false,\textit{true})}] allows to use
+%%    characters of non-latin based languages in Acrobat's bookmarks
+%  \item [\texttt{pdftoolbar (=true,\textit{false})}] show or hide
+%    Acrobat's toolbar
+% \item [\texttt{pdfmenubar (=true,\textit{false})}] show or hide
+%    Acrobat's menu
+%  \item [\texttt{pdffitwindow (=true,\textit{false})}] adjust the
+%    initial magnification of the pdf when displayed
+%  \item [\texttt{pdftitle (=\{text\})}] define the title that gets
+%    displayed in the \texttt{Document Info} window of Acrobat
+%  \item [\texttt{pdfauthor (=\{text\})}] the name of the PDF's author
+%  \item [\texttt{pdfnewwindow (=true,\textit{false})}] define if a new
+%    window should get opened when a link leads out of the current
+%    document
+%  \item [\texttt{colorlinks (=false,\textit{true})}] surround the
+%   links by color frames (\texttt{false}) or colors the text of the links
+%   (\texttt{true}). The color of these links can be configured
+%   using the following options (default colors are shown):
+%   \begin{description}
+%   \item [\texttt{linkcolor (=red)}] color of internal
+% %     links (sections, pages, etc.),
+%    \item [\texttt{citecolor (=green)}] color of
+%%      citation links (bibliography)
+ %   \item [\texttt{filecolor (=magenta)}] color of file
+%      links
+%    \item [\texttt{urlcolor (=cyan)}] color of URL
+%%      links (mail, web)
+%    \end{description}
+%\end{description}
+%\end{flushleft}
+
+
+\begin{flushleft}
+\begin{description}
+  \item [\texttt{bookmarks (=true,\textit{false})}] 顯示或隱藏書籤欄
+  \item [\texttt{unicode (=false,\textit{true})}] 允許在 Acrobat 書籤欄使用非拉丁語系的字符
+  \item [\texttt{pdftoolbar (=true,\textit{false})}] 顯示或隱藏 Acrobat 的工具欄
+  \item [\texttt{pdfmenubar (=true,\textit{false})}] 顯示或隱藏 Acrobat 的菜單欄
+  \item [\texttt{pdffitwindow (=true,\textit{false})}] 調整顯示 PDF 的初始化放大倍率
+  \item [\texttt{pdftitle (=\{text\})}] 定義 Acrobat 顯示的文檔信息 (\texttt{Document
+  Info})
+  \item [\texttt{pdfauthor (=\{text\})}] PDF 文件作者名字
+  \item [\texttt{pdfnewwindow (=true,\textit{false})}] 定義當超超連結到另一個文檔時，是否打開一個新的窗口
+  \item [\texttt{colorlinks (=false,\textit{true})}]
+  超連結有一個彩色框架 (\texttt{false})   或者鏈接文本的顏色設置 (\texttt{true})。鏈接的顏色通過下面的參數來控制（默認的顏色已列出）
+    \begin{description}
+    \item [\texttt{linkcolor (=red)}]內部超連結的顏色 (sections, pages, etc.),
+    \item [\texttt{citecolor (=green)}]引用超連結的顏色 (bibliography)
+    \item [\texttt{filecolor (=magenta)}] 文件超連結的顏色
+    \item [\texttt{urlcolor (=cyan)}] URL 超連結的顏色 (mail, web)
+    \end{description}
+\end{description}
+\end{flushleft}
+
+%If you are happy with the defaults, use
+%\begin{code}
+%\begin{verbatim}
+%\usepackage[pdftex]{hyperref}
+%\end{verbatim}
+%\end{code}
+
+如果你覺得這些默認值合適，就直接使用
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex]{hyperref}
+\end{verbatim}
+\end{code}
+
+% To have the bookmark list open and links in color
+%(the \texttt{=true} values are optional):
+%\begin{code}
+%\begin{verbatim}
+%\usepackage[pdftex,bookmarks,colorlinks]{hyperref}
+%\end{verbatim}
+%\end{code}
+
+為了使書籤列表打開和超連結為彩色 （\texttt{=true} 不需要寫出來）：
+\begin{code}
+\begin{verbatim}
+\usepackage[pdftex,bookmarks,colorlinks]{hyperref}
+\end{verbatim}
+\end{code}
+
+%When creating PDFs destined for printing, colored links are not a
+%  good thing as they end up in gray in the final output, making it
+%  difficult to read. You can use color frames, which are not printed:
+
+當創建 PDF 文檔是用來列印的，使用彩色的超連結並不是一件好事，因為彩色的鏈接將會被
+列印成灰色，從而難以閱讀。你可以設置不列印彩色的框架：
+\begin{code}
+\begin{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+\end{verbatim}
+\end{code}
+%\noindent or make links black:
+\noindent 或者將超超連結變成黑色：
+\begin{code}
+\begin{verbatim}
+\usepackage{hyperref}
+\hypersetup{colorlinks,%
+            citecolor=black,%
+            filecolor=black,%
+            linkcolor=black,%
+            urlcolor=black,%
+            pdftex}
+\end{verbatim}
+\end{code}
+
+
+% When you just want to provide information for the
+% \texttt{Document Info} section of the PDF file:
+當你只想提供 PDF 文件的文檔信息 (\texttt{Document Info})：
+\begin{code}
+\begin{verbatim}
+\usepackage[pdfauthor={Pierre Desproges},%
+            pdftitle={Des femmes qui tombent},%
+            pdftex]{hyperref}
+\end{verbatim}
+\end{code}
+
+\vspace{\baselineskip}
+
+%In addition to the automatic hyperlinks for cross references, it is
+%possible to embed explicit links using
+除了自動的交叉引用的超超連結，通過下面的命令可以嵌入明確的鏈接：
+\begin{lscommand}
+\ci{href}\verb|{|\emph{url}\verb|}{|\emph{text}\verb|}|
+\end{lscommand}
+
+%The code
+代碼
+\begin{code}
+\begin{verbatim}
+The \href{http://www.ctan.org}{CTAN} website.
+\end{verbatim}
+\end{code}
+%produces the output ``\href{http://www.ctan.org}{CTAN}'';
+%a click on the word ``\textcolor{magenta}{CTAN}''
+%will take you to the CTAN website.
+生成的效果為 ``\href{http://www.ctan.org}{CTAN}''；單擊詞 ``\textcolor{magenta}{CTAN}'' 將把你帶到 CTAN 網站。
+
+%If the destination of the link is not a URL but a local file,
+%  you can use the \ci{href} command:
+%\begin{verbatim}
+%  The complete document is \href{manual.pdf}{here}
+%\end{verbatim}
+%Which produces the text ``The complete document is \textcolor{cyan}{here}''.
+%A click on the word
+%``\textcolor{cyan}{here}''
+%will open the file \texttt{manual.pdf}. (The filename is relative to
+%the location of the current document).
+
+若超連結的目的地不是一個 URL ，而是一個本地文件，你可以使用 \ci{href} 命令：
+\begin{verbatim}
+  The complete document is \href{manual.pdf}{here}
+\end{verbatim}
+生成的效果為 ``The complete document is
+\textcolor{cyan}{here}''。單擊 ``\textcolor{cyan}{here}'' 將打開文件 \texttt{manual.pdf}
+（文件名跟依賴於當前文檔的位置）。
+
+%The author of an article might want her readers to easily send
+%  email messages by using the \ci{href} command inside the \ci{author}
+%  command on the title page of the document:
+%\begin{code}
+%\begin{verbatim}
+%\author{Mary Oetiker $<$\href{mailto:mary@oetiker.ch}%
+%       {mary@oetiker.ch}$>$
+%\end{verbatim}
+%\end{code}
+%Note that I have put the link so that my email address appears not only
+%in the link but also on the page itself. I did this because the
+%link\\
+%\verb+\href{mailto:mary@oetiker.ch}{Mary Oetiker}+\\
+%would
+%work well within Acrobat, but once the page is printed the email address
+%would not be visible anymore.
+
+若文章的作者希望讀者可以容易地發郵件給她，只需要在文檔的標題頁的 \ci{author} 命令中使用命令
+ \ci{href}：
+\begin{code}
+\begin{verbatim}
+\author{Mary Oetiker $<$\href{mailto:mary@oetiker.ch}%
+       {mary@oetiker.ch}$>$
+\end{verbatim}
+\end{code}
+注意到這個超連結不僅顯示在鏈接中還顯示在頁面上。下面的鏈接\\
+\verb+\href{mailto:mary@oetiker.ch}{Mary Oetiker}+ \\
+在 Acrobat 中可正常使用，但頁面被列印時，郵箱地址將不可見。
+
+
+%\subsection{Problems with Links}
+\subsection{超連結的問題}
+
+%Messages like the following:
+%\begin{verbatim}
+%! pdfTeX warning (ext4): destination with the same
+%  identifier (name{page.1}) has been already used,
+%  duplicate ignored
+%\end{verbatim}
+%appear when a counter gets reinitialized, for example by using
+%the command \ci{mainmatter} provided by the \texttt{book} document class. It
+%resets the page number counter to 1 prior to the first chapter of the
+%book. But as the preface of the book also has a page number 1 all
+%links to ``page 1'' would not be unique anymore, hence the notice
+%that ``\verb+duplicate+ has been \verb+ignored+.''
+
+當一個計數器被重新初始化後可能出現下面的信息：
+\begin{verbatim}
+! pdfTeX warning (ext4): destination with the same
+  identifier (name{page.1}) has been already used,
+  duplicate ignored
+\end{verbatim}
+例如，在 \texttt{book} 類的文檔中使用命令 \ci{mainmatter} 就可能出現上面的警告。
+它在書的第一章重設頁碼計數器為 1，但是書的序言部分也有頁碼 1，從而超連結到「頁碼 1」不再是
+唯一的，故出現了 ``\verb+duplicate+ has been \verb+ignored+.''
+
+%The counter measure consists of putting \texttt{plainpages=false} into
+%the hyperref options. This unfortunately only helps with the page
+%counter.
+%An even more radical solution is to use the option\\
+%\texttt{hypertexnames=false}, but this will cause the page links in
+%the index to stop working.
+
+一個解決的辦法是將 \texttt{plainpages=false} 加入到 hyperref 選項中。
+不幸的是這樣只對頁碼計數器有效。或者冒險使用
+\texttt{hypertexnames=false}，但是這會使得索引中的頁碼超連結失效。
+
+%\subsection{Problems with Bookmarks}
+\subsection{書籤的問題}
+
+%The text displayed by bookmarks does not always look like you expect
+%it to look. Because bookmarks are ``just text,'' much fewer
+%characters are available for bookmarks than for normal \LaTeX{} text.
+%Hyperref will normally notice such problems and put up a warning:
+%\begin{code}
+%\begin{verbatim}
+%Package hyperref Warning:
+%Token not allowed in a PDFDocEncoded string:
+%\end{verbatim}
+%\end{code}
+
+書籤中的文本有時並不會像你想像中的那樣顯示，因為書籤僅僅是「文本」，其中可使用的字符要比
+正常 \LaTeX{} 文件的少得多。Hyperref 經常遇到這類問題而出現下面的警告：
+
+\begin{code}
+\begin{verbatim}
+Package hyperref Warning:
+Token not allowed in a PDFDocEncoded string:
+\end{verbatim}
+\end{code}
+
+%You can now work around this problem by providing a text string for
+%the bookmarks, which replaces the offending text:
+%\begin{lscommand}
+%\ci{texorpdfstring}\verb|{|\emph{\TeX{} text}\verb|}{|\emph{Bookmark Text}\verb|}|
+%\end{lscommand}
+
+現在你可以通過為書籤提供一個文本字符串來解決這個問題，用
+\begin{lscommand}
+\ci{texorpdfstring}\verb|{|\emph{\TeX{} text}\verb|}{|\emph{Bookmark Text}\verb|}|
+\end{lscommand}
+\noindent 來替換不正常顯示的文本。
+
+%Math expressions are a prime candidate for this kind of problem:
+%\begin{code}
+%\begin{verbatim}
+%\section{\texorpdfstring{$E=mc^2$}%
+%        {E=mc^2}}
+%\end{verbatim}
+%\end{code}
+%which turns \verb+\section{$E=mc^2$}+ to ``E=mc2'' in the bookmark area.
+
+數學表達式也是這類問題的典型代表：
+\begin{code}
+\begin{verbatim}
+\section{\texorpdfstring{$E=mc^2$}%
+        {E=mc^2}}
+\end{verbatim}
+\end{code}
+而通常在書籤中 \verb+\section{$E=mc^2$}+ 顯示為「E=mc2」。
+
+%Color changes also do not travel well into bookmarks:
+%\begin{code}
+%\verb+\section{\textcolor{red}{Red !}}+
+%\end{code}
+%produces the string ``redRed!''. The command \verb+\textcolor+ gets ignored
+%but its argument (red) gets printed.
+
+顏色的改變也在書籤顯示中出問題：
+\begin{code}
+\verb+\section{\textcolor{red}{Red !}}+
+\end{code}
+顯示的結果為「redRed!」。命令 \verb+\textcolor+ 被忽略。而它的參數 (red) 被輸出。
+
+% If you use
+%\begin{code}
+%\verb+\section{\texorpdfstring{\textcolor{red}{Red !}}{Red\ !}}+
+%\end{code}
+%the result will be much more legible.
+
+如果你使用
+\begin{code}
+\verb+\section{\texorpdfstring{\textcolor{red}{Red !}}{Red\ !}}+
+\end{code}
+結果將更美觀。
+
+%If you write your document in unicode and use the \verb+unicode+ option for
+%the \pai{hyperref} package you can use unicode characters in bookmarks. This
+%will give you a much larger selection of characters to pick from
+%when using \ci{texorpdfstring}.
+
+如果你寫 unicode （統一字符編碼）類型的文檔，就需添加宏包 \pai{hyperref} 的選
+項 \verb+unicode+，這樣你就
+可以在書籤中使用 unicode 字符。然後使用 \ci{texorpdfstring} 命令將讓
+你有較大範圍的字符供選擇。
+
+%\subsubsection{Source Compatibility Between \LaTeX{} and pdf\LaTeX{}}
+\subsubsection{\LaTeX{} 和 pdf\LaTeX{} 的源文件的兼容性}
+\label{sec:pdfcompat}
+
+%Ideally your document would compile equally well with \LaTeX{} and
+%pdf\LaTeX{}. The main problem in this respect is the inclusion of
+%graphics. The simple solution is to \emph{systematically drop} the
+%file extension from \ci{includegraphics} commands. They will then
+%automatically look for a file of a suitable format in the current
+%directory. All you have to do is create appropriate versions of the
+%graphics files. \LaTeX{} will look for \texttt{.eps}, and
+%pdf\LaTeX{} will try to include a file with the extension
+%\texttt{.png}, \texttt{.pdf}, \texttt{.jpg} or \texttt{.mps} (in
+%that order).
+
+理想的話，你的文檔用 \LaTeX{} 和 pdf\LaTeX{} 編譯的效果應該一致，
+這方面的問題主要是包含的圖像。
+一個簡單的解決辦法是在命令 \ci{includegraphics} 中不設置加載的圖像的擴展名，
+它們會自動在當前目錄尋找一個格式適合的文件，
+你需要做的是創建相應格式的圖像文件。\LaTeX{} 會尋找 \texttt{.eps} 格式，
+而 pdf\LaTeX{} 會嘗試包含一個擴展名 為 \texttt{.png}，
+\texttt{.pdf}，\texttt{.jpg} 或 \texttt{.mps} （按這個順序）的文件。
+
+%For the cases where you want to use different code for the
+%PDF version of your document, you can simply add the package \pai{ifpdf}%
+%\footnote{If you want the whole story on why to use this package then
+%   go to the \TeX{} FAQ under the item\\
+%   \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ifpdf}.}  to
+%your preamble. Chances are that you already have it installed; if not
+%then you're probably using MiK\TeX{} which will install it for you
+%automatically the first time you try to use it. This package defines
+%the special command \ci{ifpdf} that will allow you to write
+%conditional code easily. In this example, we want the PostScript
+%version to be black and white due to the printing costs but we want
+%the PDF version for online viewing to be colourful.
+
+若你想在 PDF 格式的文件中使用不同的代碼，只需要簡單地在導言區加入宏包 \pai{ifpdf}
+\footnote{如果你想知道為什麼要使用這個宏包，可以參見 \TeX{} FAQ 的這個欄目\\
+   \url{http://www.tex.ac.uk/cgi-bin/texfaq2html?label=ifpdf}。}。
+但前提是你已經安裝了這個宏包，如果沒有安裝而你又使用 MiK\TeX{} 的話，
+它將在你第一次使用的時候自動安裝。
+這個宏包定義了一個特殊的命令 \ci{ifpdf}，利用它你可很容易編寫條件代碼。
+例如，考慮到列印費用，用 PostScript 
+格式僅使用黑白色，但在線查看的 PDF 格式將是彩色的。
+
+\begin{code}
+\begin{verbatim}
+\RequirePackage{ifpdf} % running on pdfTeX?
+\ifpdf
+  \documentclass[a4paper,12pt,pdftex]{book}
+\else
+  \documentclass[a4paper,12pt,dvips]{book}
+\fi
+
+\ifpdf
+  \usepackage{lmodern}
+\fi
+\usepackage[bookmarks, % add hyperlinks
+            colorlinks,
+            plainpages=false]{hyperref}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+...
+\end{verbatim}
+\end{code}
+
+%In the example above I have included the \pai{hyperref} package even in the
+%non-PDF version. The effect of this is to make the \ci{href} command
+%work in all cases, which saves me from wrapping every occurrence into a
+%conditional statement.
+
+在上面的例子中，在非 PDF 格式中我也包含了 \pai{hyperref} 宏包，這樣 \ci{href} 命令
+在所有情形下都有效，這也使得我不用在每個情況下都使用條件聲明。
+
+%Note that in recent \TeX{} distributions (\TeX{}Live for example), the
+%normal \TeX{} program is actually pdf\TeX{} it will automatically switch
+%between producing pdf and dvi according to the settings in the document
+%class. If you use the code above then you can still use the \verb|pdflatex|
+%command to get pdf output and \verb|latex| for normal dvi output.
+
+注意到當前的 \TeX{} 發行版本（例如 \TeX{}Live），通常的 \TeX{} 會根據
+文檔類型的設置自動選擇輸出 PDF 還是 DVI。
+如果你使用上面的代碼，你仍然可以使用 \verb|pdflatex| 命令來得到 PDF 格式
+的輸出或使用 \verb|latex| 得到 DVI 格式。
+
+%\section{Creating Presentations}
+%\label{sec:beamer}
+
+\section{創建演示文稿}
+\label{sec:beamer} \secby{Daniel Flipo}{Daniel.Flipo@univ-lille1.fr}
+
+%You can present the results of your scientific work on a blackboard,
+%with transparencies, or directly from your laptop using some
+%presentation software.
+
+你可以將你的科學工作成果通過黑板、透明片或者在你的筆記本電腦上直接使用演示文稿軟件呈現。
+
+%\wi{pdf\LaTeX} combined with the \pai{beamer} class allows you to
+%create presentations in PDF, looking much like something you might be
+%able to generate with PowerPoint if you had a very good day, but much
+%more portable because Acrobat Reader is available on many more
+%systems.
+
+\wi{pdf\LaTeX} 和 \pai{beamer} 文檔類允許你創建 PDF 格式的演示文稿，
+結果跟你用一天時間製作的 PowerPoint 看上去差不多，
+但更便攜因為 Acrobat Reader 支持更多的系統平台。
+
+%The \pai{beamer} class uses \pai{graphicx}, \pai{color} and
+%\pai{hyperref} with options adapted to screen presentations.
+
+
+\pai{beamer} 文檔類使用帶參數的宏包 \pai{graphicx}、 \pai{color} 和 \pai{hyperref} 來適應螢幕閱讀的演示文稿。
+
+%La figure \ref{fig:pdfscr} contient un exemple de fichier minimal ?%compiler avec \wi{pdf\LaTeX} et le
+%r閟ultat produit.
+
+% 蒫ran captur?par ImageMagick (man ImageMagick) fonction ?import ?% et convertie en jpg toujours par ImageMagick.
+
+\begin{figure}[htbp]
+\begin{verbatim}
+\documentclass[10pt]{beamer}
+\mode<beamer>{%
+  \usetheme[hideothersubsections,
+            right,width=22mm]{Goettingen}
+}
+
+\title{Simple Presentation}
+\author[D. Flipo]{Daniel Flipo}
+\institute{U.S.T.L. \& GUTenberg}
+\titlegraphic{\includegraphics[width=20mm]{USTL}}
+\date{2005}
+
+\begin{document}
+
+\begin{frame}<handout:0>
+  \titlepage
+\end{frame}
+
+\section{一個例子}
+
+\begin{frame}
+  \frametitle{Things to do on a Sunday Afternoon}
+  \begin{block}{One could \ldots}
+    \begin{itemize}
+      \item walk the dog\dots \pause
+      \item read a book\pause
+      \item confuse a cat\pause
+    \end{itemize}
+  \end{block}
+  and many other things
+\end{frame}
+\end{document}
+\end{verbatim}
+%  \caption{Sample code for the \pai{beamer} class}
+\caption{ \pai{beamer} 文檔類的範例。}
+  \label{fig:code-beamer}
+\end{figure}
+
+%When you compile the code presented in figure \ref{fig:code-beamer}
+%with \wi{PDF\LaTeX} you get a PDF file with a title page and a second page
+%showing several items that will be reveled one at a time as you step
+%though your presentation.
+
+當你用 \wi{PDF\LaTeX} 編譯圖 \ref{fig:code-beamer} 中的代碼時，
+你將得到一個 PDF 文件，第一頁為標題頁，第二頁有幾個
+欄目，但當你單擊你的演示文檔時，一次顯示一條欄目。
+
+%One of the advantages of the beamer class is that it produces a PDF
+%file that is directly usable without first going through a PostScript
+%stage like \pai{prosper} or requiring additional post processing like
+%presentations created with the \pai{ppower4} package.
+
+beamer 類創建 PDF 文件的一個優點是直接生成可用的文檔，而不像 \pai{prosper} 需要先通過
+一個 PostScript 步驟，也不像 \pai{ppower4} 宏包需要一個後加工處理才能生成演示文檔。
+
+%With the \pai{beamer} class you can produce several versions (modes) of your
+%document from the same input file. The input file may contain special
+%instructions for the different modes in angular brackets. The
+%following modes are available.
+
+用 \pai{beamer} 類，你可以用一個源文件生成幾種版本。可以在源文件的
+中括弧中加入特定的選項來生成不同的版本。有下面幾種版式：
+
+%\begin{description}
+%\item[beamer] for the presentation PDF
+%  discussed above.
+%\item[trans] for slides.
+%\item[handout] for the printed version.
+%\end{description}
+
+\begin{description}
+\item[beamer]  PDF 螢幕閱讀版本；
+\item[trans] 幻燈片版本；
+\item[handout]  PDF 講義版本。
+\end{description}
+
+%The default mode is \texttt{beamer}, you can change it by setting a
+%different mode as a global option, like
+%\verb|\documentclass[10pt,handout]{beamer}| to print the handouts for
+%example.
+
+默認的版本為 \texttt{beamer}，你可以通過設置不同的全局選項來修改，
+例如：用 \verb|\documentclass[10pt,handout]{beamer}| 來生成講義版本。
+
+%The look of the screen presentation depends on the theme you choose. You can either
+%pick one of the themes shipped with the beamer class or you can
+%even create your own. See the beamer class documentation in
+%\texttt{beameruserguide.pdf} for more information on this.
+
+%Lets have a closer look at the code in figure \ref{fig:code-beamer}.
+
+演示文稿外觀依賴於你選擇的主題。你可以選擇 beamer 類自帶的一個主題，
+也可以自己定義一個新的主題。
+詳情請參見 beamer 類的幫助文檔 \texttt{beameruserguide.pdf}。
+
+讓我們再來仔細分析圖 \ref{fig:code-beamer} 中的代碼。
+
+% For the screen version of the presentation
+%\verb|\mode<beamer>| we have chosen the \emph{Goettingen} theme to
+%show a navigation panel integrated into the table of contents. The
+%options allow to choose the size of the panel (22 mm in this case)
+%and its position (on the right side of the body text). The option
+%\emph{hideothersubsections}, shows the chapter titles, but only the
+%subsections of the present chapter. There are no special settings
+%for \verb|\mode<trans>| and \verb|\mode<handout>|. They appear in
+%their standard layout.
+
+對於螢幕閱讀版本的演示文稿 \verb|\mode<beamer>|，我們選擇了 \emph{Goettingen} 主題，
+它將目錄合成到導航面板。通過選項控製麵板的大小（這個例子採用 22 mm），和確定面板的位置
+（正文右側）。選項 \emph{hideothersubsections} 顯示章節的標題，
+但只顯示當前章節的子節標題。對於
+ \verb|\mode<trans>| 和 \verb|\mode<handout>| 的設置也是一樣的，它們將出現在它們標準的版面上。
+
+%The commands \verb|\title{}|, \verb|\author{}|, \verb|\institute{}|,
+%and\\ \verb|\titlegraphic{}| set the content of the title page. The
+%optional arguments of \verb|\title[]{}| and \verb|\author[]{}|
+%let you specify a special version of the title and the author
+%name to be displayed on the panel of the \emph{Goettingen} theme.
+
+命令 \verb|\title{}|，\verb|\author{}|，\verb|\institute{}| 和 \verb|\titlegraphic{}| 定義標題頁
+的內容。\verb|\title[]{}| 和 \verb|\author[]{}| 的選項允許你定義
+顯示在 \emph{Goettingen} 主題的面板上的標題和作者名。
+
+%The titles and subtitles in the panel are created with normal
+%\verb|\section{}| and \verb|\subsection{}| commands that you place
+%\emph{outside} the \ei{frame} environment.
+
+面板中的標題和子標題由 \ei{frame} 環境{\textbf
+外面}的命令 \verb|\section{}| 和 \verb|\subsection{}| 來創建。
+
+%The tiny navigation icons at the bottom of the screen also allow to
+%navigate the document. Their presence is not dependent on the theme
+%you choose.
+
+螢幕底部的一些微型導航圖標也可以讓你瀏覽整個文檔。它們的出現不依賴你選擇的主題。
+
+%The contents of each slide or screen has to be placed inside a
+%\ei{frame} environment. There is an optional argument in angular
+%brackets (\verb|<| and \verb|>|), it allows to suppress a particular
+%frame in one of the versions of the presentation. In the example the
+%first page would not be shown in the handout version due to the
+%\verb|<handout:0>| argument.
+
+每張幻燈片或每版螢幕的內容放在 \ei{frame} 環境中。利用尖括弧（\verb|<| 
+和 \verb|>|）裡面的選項，用演示文檔的一個版式來定義一個特殊的幀。在這個例子中，
+第一頁不會由於參量 \verb|<handout:0>| 而顯示為講義模式。
+
+%It is highly recommended to set a title for each slide apart from the
+%title slide. This is done with the command \verb|\frametitle{}|. If a
+%subtitle is necessary you can use the \ei{block} environment as shown
+%in the example. Note that the sectioning commands \verb|\section{}|
+%and \verb|\subsection{}| do not produce output on the slide proper.
+
+除了幻燈片的標題頁，強烈建議通過命令 \verb|\frametitle{}| 來重新設置每一張幻燈片的標題。
+如果需要，使用 \ei{block} 環境可以來定義子標題，在這個例子中也可體現出來。
+注意到章節命令 \verb|\section{}| 和 \verb|\subsection{}| 不在幻燈片上產生輸出結果。
+
+%The command \verb|\pause| in the itemize environment lets you reveal
+%the items one by one. For other presentation effects check out the
+%commands \verb|\only|, \verb|\uncover|, \verb|\alt| and
+%\verb|\temporal|. In many place you can also use angular brakes to
+%further customize the presentation.
+
+列表環境中的命令 \verb|\pause| 允許你一個接一個地顯示列表欄目的內容。
+命令：\verb|\only|、\verb|\uncover|、
+\verb|\alt| 和 \verb|\temporal|，可以讓你獲得其他的一些演示效果。
+很多情況下，你可以通過尖括弧中的內容來定製演示效果。
+
+%In any case make sure you read through the beamer class documentation
+%\texttt{beameruserguide.pdf} to get a complete picture of what is in
+%store for you. This package is being actively developed, check out their website
+%\href{http://latex-beamer.sourceforge.net/}{http://latex-beamer.sourceforge.net/}
+%to get the latest information.
+
+無論如何，建議你閱讀 beamer 類的文檔 \texttt{beameruserguide.pdf} 來獲得一個全面的瞭解。
+這個宏包正在活躍地開發中，去它們的網站\\
+\href{http://latex-beamer.sourceforge.net/}{http://latex-beamer.sourceforge.net/}
+可獲取最新的信息。
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% mode: flyspell
+% End:
+

@@ -1,0 +1,968 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Contents: Math typesetting with LaTeX
+% $Id: math.tex,v 1.2 2003/03/19 20:57:46 oetiker Exp $
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 中文 4.20 翻譯：liwenjun@bbs.ctex  email:sydlee@gmail.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\chapter{Typesetting Mathematical Formulae}
+
+\chapter{數學公式}
+
+%\begin{intro}
+%  Now you are ready! In this chapter, we will attack the main strength
+%  of \TeX{}: mathematical typesetting. But be warned, this chapter
+%  only scratches the surface. While the things explained here are
+%  sufficient for many people, don't despair if you can't find a
+%  solution to your mathematical typesetting needs here. It is highly likely
+%  that your problem is addressed in \AmS-\LaTeX{}%
+%  \footnote{The \emph{American Mathematical Society} has produced a
+%  powerful extension to \LaTeX{}. Many of the examples in this
+%  chapter make use of this extension. It is provided with all recent
+%  \TeX{} distributions. If yours is missing it, go to \CTANref|macros/latex/required/amslatex|.}
+%\end{intro}
+\begin{intro}
+現在你已經準備好了。那麼在這一章裡，讓我們來著手於 \TeX{} 的強大之處：數學排版。但是，要提醒你的是，本章
+只是淺嘗輒止。可對很多人來說，這裡所講述的內容已很受用，如果你在這裡找不到你所需數學排版的解決方案的話，
+也請不要灰心。極有可能在 \AmS-\LaTeX{}\footnote{\normalfont{\textbf
+美國數學學會} 製作了
+一個強大的 \LaTeX{} 擴展。本章的很多例子都使用了這個擴展。所有最近的 \TeX{} 發行版中都提供了這個擴展。如果
+你的系統中沒有，可以去 \CTANref|macros/latex/required/amslatex| 找找看。} 中能找到針對你的問題的某個解決方案。
+
+
+\end{intro}
+
+
+%\section{General}
+\section{綜述}
+% \LaTeX{} has a special mode for typesetting \wi{mathematics}. Mathematics can be typeset inline
+%within a paragraph, or the paragraph can be broken to typeset it separately. Mathematical text
+%\emph{within} a paragraph is entered between \ci{(}
+%and \ci{)}, \index{$@\texttt{\$}} %$
+%between \texttt{\$} and \texttt{\$}, or between %}
+%\verb|\begin{|\ei{math}\verb|}| and \verb|\end{math}|.\index{formulae}
+\LaTeX{} 使用一種特有的模式來排版數學 (\wi{mathematics}) 公式。數學公式允許以行間形式排版在一個段落之中，
+也可以以獨立形式排版，此時段落可能會被拆開。處於{\textbf
+段內}的數學文本要放在 \ci{(} 與 \ci{)} 之間，
+\index{$@\texttt{\$}}\texttt{\$} 與 \texttt{\$} 之間，或者 \verb|\begin{|\ei{math}\verb|}| 與 \verb|\end{math}| 之間。\index{formulae}
+
+\begin{example}
+Add $a$ squared and $b$ squared
+to get $c$ squared. Or, using
+a more mathematical approach:
+$c^{2}=a^{2}+b^{2}$
+\end{example}
+\begin{example}
+\TeX{} is pronounced as
+\(\tau\epsilon\chi\).\\[6pt]
+100 m$^{3}$ of water\\[6pt]
+This comes from my
+\begin{math}\heartsuit\end{math}
+\end{example}
+
+%When you want your larger mathematical equations or formulae to be set apart
+%from the rest of the paragraph, it is preferable to \emph{display} them,
+%rather than to break the paragraph apart.
+%To do this, you can either enclose them
+%in \ci{[} and \ci{]}, or between
+%\verb|\begin{|\ei{displaymath}\verb|}| and
+%\verb|\end{displaymath}|.
+
+當你希望把自己的一些較長的數學方程或是公式單獨的放在段落之外的時候，那麼你最好{\textbf
+顯示} (display) 它們，而不要拆開此段落。
+為此，你可以把它們放在 \ci{[} 與 \ci{]} 之間，或者 \verb|\begin{|\ei{displaymath}\verb|}| 與 \verb|\end{displaymath}| 之間。
+
+\begin{example}
+Add $a$ squared and $b$ squared
+to get $c$ squared. Or, using
+a more mathematical approach:
+\begin{displaymath}
+c^{2}=a^{2}+b^{2}
+\end{displaymath}
+or you can type less with:
+\[a+b=c\]
+\end{example}
+%If you want \LaTeX{} to enumerate your equations, you can use the
+%\ei{equation} environment.
+%You can then \ci{label} an equation number and refer to it somewhere else in the
+%text by using \ci{ref} or the  \ci{eqref} command from the \pai{amsmath} package:
+
+
+如果你希望 \LaTeX{} 給你的方程編上號，你可以使用 \ei{equation} 環境。然後你就可以用 \ci{label} 來給一個方程加上
+標籤並在文中的某處用 \ci{ref} 或 \pai{amsmath} 宏包中的 \ci{eqref} 命令來引用它。
+\begin{example}
+\begin{equation} \label{eq:eps}
+\epsilon > 0
+\end{equation}
+From (\ref{eq:eps}), we gather
+\ldots{}From \eqref{eq:eps} we
+do the same.
+\end{example}
+
+%Note the difference in typesetting style between equations that are typeset and those
+%that are displayed:
+注意一下公式排版樣式的不同，前者是行間式樣，後者是顯示式樣：
+\begin{example}
+$\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}$
+\end{example}
+\begin{example}
+\begin{displaymath}
+\lim_{n \to \infty}
+\sum_{k=1}^n \frac{1}{k^2}
+= \frac{\pi^2}{6}
+\end{displaymath}
+\end{example}
+
+
+
+%There are differences between \emph{math mode} and \emph{text mode}. For
+%example, in \emph{math mode}:
+\textbf{數學模式}和\textbf{文本模式}都一些不同之處。例如，在{\textbf
+數學模式}中：
+\begin{enumerate}
+
+%\item Most spaces and line breaks do not have any significance, as all spaces
+%are either derived logically from the mathematical expressions, or
+%have to be specified with special commands such as \ci{,}, \ci{quad} or
+%\ci{qquad}.
+%
+%\item Empty lines are not allowed. Only one paragraph per formula.
+%
+%\item Each letter is considered to be the name of a variable and will be
+%typeset as such. If you want to typeset normal text within a formula
+%(normal upright font and normal spacing) then you have to enter the
+%text using the \verb|\textrm{...}| commands (see also section \ref{sec:fontsz} on page \pageref{sec:fontsz}).
+%\end{enumerate}
+
+
+\item 大多數的空格和斷行沒有任何意義，而且所有的空隙要麼是從相應數學表達式中自然的生成，要麼是用一些專門的命令來指定，如 \ci{,}，  \ci{quad} 或 \ci{qquad}。
+\item 空白行是不允許的。每個公式只能為一段。
+\item 每一個字母都會被認為是一個變量名，且會相應被排版為此種樣式。如果你想要在公式中排版普通的文本（直立字體和普通字距），那麼你必須要把這些文本放在 \verb|\textrm{...}| 命令中（參閱第 \pageref{sec:fontsz} 頁的第 \ref{sec:fontsz} 節）。
+\end{enumerate}
+
+
+
+\begin{example}
+\begin{equation}
+\forall x \in \mathbf{R}:
+\qquad x^{2} \geq 0
+\end{equation}
+\end{example}
+\begin{example}
+\begin{equation}
+x^{2} \geq 0\qquad
+\textrm{for all }x\in\mathbf{R}
+\end{equation}
+\end{example}
+
+
+%
+% Add AMSSYB Package ... Blackboard bold .... R for realnumbers
+%
+%Mathematicians can be very fussy about which symbols are used:
+%it would be conventional here to use `\wi{blackboard bold}',
+%\index{bold symbols} which is obtained using \ci{mathbb} from the
+%package \pai{amsfonts} or \pai{amssymb}.
+%\ifx\mathbb\undefined\else
+%The last example becomes
+
+數學家對於符號的使用總是吹毛求疵：這裡習慣上要使用空心粗體 (``\wi{blackboard
+bold}'')，\index{bold symbols}
+要包含此字體，得用到 \pai{amsfonts} 或是 \pai{amssymb} 宏包的 \ci{mathbb} 命令。\ifx\mathbb\undefined\else
+上面的例子就變成
+
+\begin{example}
+\begin{displaymath}
+x^{2} \geq 0\qquad
+\textrm{for all }x\in\mathbb{R}
+\end{displaymath}
+\end{example}
+\fi
+
+%\section{Grouping in Math Mode}
+\section{數學模式的群組}
+%Most math mode commands act only on the next character, so if you
+%want a command to affect several characters, you have to group them
+%together using curly braces: \verb|{...}|.
+
+大部分數學模式的命令只對其後的一個字符有效，因此，如果你希望一個命令對多個字符起作用，你必須把它們放在
+一個群組中，使用花括號：\verb|{...}|.
+\begin{example}
+\begin{equation}
+a^x+y \neq a^{x+y}
+\end{equation}
+\end{example}
+
+%\section{Building Blocks of a Mathematical Formula}
+\section{數學公式的基本元素}
+%This section describes the most important commands used in mathematical
+%typesetting. Take a look at section \ref{symbols} on
+%page \pageref{symbols} for a detailed list of commands for typesetting
+%mathematical symbols.
+%
+%\textbf{Lowercase \wi{Greek letters}} are entered as \verb|\alpha|,
+% \verb|\beta|, \verb|\gamma|, \ldots, uppercase letters
+%are entered as \verb|\Gamma|, \verb|\Delta|, \ldots\footnote{There is no
+%  uppercase Alpha defined in \LaTeXe{} because it looks the same as a
+%  normal roman A. Once the new math coding is done, things will
+%  change.}
+
+這一節將介紹數學排版中的最重要的一些命令。詳細的數學排版符號的命令列表，
+可參閱第 \pageref{symbols} 頁第 \ref{symbols} 節。
+
+\textbf{小寫希臘字母} (\wi{Greek
+letters}) 的輸入為 \verb|\alpha|、\verb|\beta|、 \verb|\gamma|……，
+大寫字母的輸入為 \verb|\Gamma|、 \verb|\Delta|
+……\footnote{\LaTeXe{} 中沒有定義大寫的 Alpha，因為
+它外形與羅馬字母 A 一樣。等到新的數學編碼完成後，情形可能會有所更改。}
+
+\begin{example}
+$\lambda,\xi,\pi,\mu,\Phi,\Omega$
+\end{example}
+
+%\textbf{Exponents and Subscripts} can be specified using\index{exponent}\index{subscript}
+%the \verb|^|\index{^@\verb"|^"|} and the \verb|_|\index{_@\verb"|_"|} character.
+
+{\textbf
+指數和下標}\index{exponent}\index{subscript}可以能過使用 \verb|^| \index{^@\verb"|^"|}和 \verb|_| \index{_@\verb"|_"|}兩個符號來指定。
+\begin{example}
+$a_{1}$ \qquad $x^{2}$ \qquad
+$e^{-\alpha t}$ \qquad
+$a^{3}_{ij}$\\
+$e^{x^2} \neq {e^x}^2$
+\end{example}
+
+%The \textbf{\wi{square root}} is entered as \ci{sqrt}; the
+%$n^\mathrm{th}$ root is generated with \verb|\sqrt[|$n$\verb|]|. The size of
+%the root sign is determined automatically by \LaTeX. If just the sign
+%is needed, use \verb|\surd|.
+
+\textbf{平方根} (\wi{square
+root}) 輸入用 \ci{sqrt}；$n$ 次根用 \verb|\sqrt[|$n$\verb|]| 來得到。根號的大小由
+ \LaTeX 自動決定。如果僅僅需要根號，可以用 \verb|\surd| 得到。
+\begin{example}
+$\sqrt{x}$ \qquad
+$\sqrt{ x^{2}+\sqrt{y} }$
+\qquad $\sqrt[3]{2}$\\[3pt]
+$\surd[x^2 + y^2]$
+\end{example}
+
+%The commands \ci{overline} and \ci{underline} create
+%\textbf{horizontal lines} directly over or under an expression.
+%\index{horizontal!line}
+
+命令 \ci{overline} 和 \ci{underline} 產生{\textbf
+水平線}，它們會被放在表達式的正上方或是正下方。\index{horizontal!line}
+\begin{example}
+$\overline{m+n}$
+\end{example}
+
+%The commands \ci{overbrace} and \ci{underbrace} create
+%long \textbf{horizontal braces} over or under an expression.
+%\index{horizontal!brace}
+
+命令 \ci{overbrace} 和 \ci{underbrace} 可以在一個表達式的上方或下方生成{\textbf
+水平括號}\index{horizontal!brace}
+\begin{example}
+$\underbrace{a+b+\cdots+z}_{26}$
+\end{example}
+
+%\index{mathematical!accents} To add mathematical accents such as small
+%arrows or \wi{tilde} signs to variables, you can use the commands
+%given in Table \ref{mathacc} on page \pageref{mathacc}.  Wide hats and
+%tildes covering several characters are generated with \ci{widetilde}
+%and \ci{widehat}.  The \verb|'|\index{'@\verb"|'"|} symbol gives a
+%\wi{prime}.
+
+\index{mathematical!accents}為了給變量增加數學重音符號，如小箭頭或是 $\tilde{}$ (\wi{tilde})，
+你可以使用第 \pageref{mathacc} 頁表 \ref{mathacc} 所列出的命令。覆蓋多個字符的寬「帽子」和
+寬 $\tilde{}$ 號，可以由 \ci{widehat} 和 \ci{widetilde} 得到。
+ \verb|'|\index{'@\verb"|'"|} 符號則給出了一個撇號 (\wi{prime})。
+
+% a dash is --
+\begin{example}
+\begin{displaymath}
+y=x^{2}\qquad y'=2x\qquad y''=2
+\end{displaymath}
+\end{example}
+
+%\textbf{Vectors}\index{vectors} often are specified by adding small
+%\wi{arrow symbols} on top of a variable. This is done with the
+%\ci{vec} command. The two commands \ci{overrightarrow} and
+%\ci{overleftarrow} are useful to denote the vector from $A$ to $B$.
+
+{\textbf
+向量}\index{vectors}可以通過在一個變量上方添加小箭頭 (\wi{arrow
+symbols}) 來指定。為此，使用 \ci{vec} 命令
+即可。\ci{overrightarrow} 和 \ci{overleftarrow} 這兩個命令可以用來表示一個從 $A$ 到 $B$ 的向量。
+
+\begin{example}
+\begin{displaymath}
+\vec a\quad\overrightarrow{AB}
+\end{displaymath}
+\end{example}
+
+%Usually you don't typeset an explicit dot sign to indicate
+%the multiplication operation; however sometimes it is written
+%to help the reader's eyes in grouping a formula.
+%You should use \ci{cdot} in these cases:
+
+通常你沒有必要打出一個明顯的點號來表明乘法運算；但是有時候也需要它來幫助讀者分清一個公式。在這些情況下，你
+應該使用 \ci{cdot} 命令。
+\begin{example}
+\begin{displaymath}
+v = {\sigma}_1 \cdot {\sigma}_2
+    {\tau}_1 \cdot {\tau}_2
+\end{displaymath}
+\end{example}
+
+
+%Names of log-like functions are often typeset in an upright
+%font, and not in italics as variables are, so \LaTeX{} supplies the
+%following commands to typeset the most important function names:
+%\index{mathematical!functions}
+
+log 等類似的函數名通常是用直立字體，而不是如同變量一樣用斜體，因此 \LaTeX{} 提供了以下的命令來排版這些最重要的函數名：
+\index{mathematical!functions}
+
+\begin{tabular}{llllll}
+\ci{arccos} &  \ci{cos}  &  \ci{csc} &  \ci{exp} &  \ci{ker}    & \ci{limsup} \\
+\ci{arcsin} &  \ci{cosh} &  \ci{deg} &  \ci{gcd} &  \ci{lg}     & \ci{ln}     \\
+\ci{arctan} &  \ci{cot}  &  \ci{det} &  \ci{hom} &  \ci{lim}    & \ci{log}    \\
+\ci{arg}    &  \ci{coth} &  \ci{dim} &  \ci{inf} &  \ci{liminf} & \ci{max}    \\
+\ci{sinh}   & \ci{sup}   &  \ci{tan}  & \ci{tanh}&  \ci{min}    & \ci{Pr}     \\
+\ci{sec}    & \ci{sin} \\
+\end{tabular}
+
+\begin{example}
+\[\lim_{x \rightarrow 0}
+\frac{\sin x}{x}=1\]
+\end{example}
+
+%For the \wi{modulo function}, there are two commands: \ci{bmod} for the
+%binary operator ``$a \bmod b$'' and \ci{pmod}
+%for expressions
+%such as ``$x\equiv a \pmod{b}$.''
+
+對於取模函數 (\wi{modulo
+function})，有兩個命令：\ci{bmod} 用於二元運算 ``$a \bmod
+b$''，而 \ci{pmod} 則用於表達式如 ``$x\equiv a \pmod{b}$''。
+\begin{example}
+$a\bmod b$\\
+$x\equiv a \pmod{b}$
+\end{example}
+
+%A built-up \textbf{\wi{fraction}} is typeset with the
+%\ci{frac}\verb|{...}{...}| command.
+%Often the slashed form $1/2$ is preferable, because it looks better
+%for small amounts of `fraction material.'
+
+
+一個上下的{\textbf
+分式 (\wi{fraction})} 可用 \ci{frac}\verb|{...}{...}| 命令得到。而其傾斜形式如 $1/2$，有時是更好的選擇，因為
+對於簡短的分子分母來說，這看上去更美觀。
+\begin{example}
+$1\frac{1}{2}$ hours
+\begin{displaymath}
+\frac{ x^{2} }{ k+1 }\qquad
+x^{ \frac{2}{k+1} }\qquad
+x^{ 1/2 }
+\end{displaymath}
+\end{example}
+
+%To typeset binomial coefficients or similar structures, you can use
+%the command \ci{binom} from the \pai{amsmath} package.
+
+排版二項式係數或類似的結構，你可以使用 \pai{amsmath} 宏包中的 \ci{binom} 命令。
+\begin{example}
+\begin{displaymath}
+\binom{n}{k}\qquad\mathrm{C}_n^k
+\end{displaymath}
+\end{example}
+
+%For binary relations it may be useful to stack symbols over each other.
+%\ci{stackrel} puts the symbol given
+%in the first argument in superscript-like size over the second, which
+%is set in its usual position.
+
+對於二元關係，有時候你需要到把符號互相堆積起來。 \ci{stackrel} 命令會把其第一個參數中的符號以上標大小放在第二個上面，而第二個符號
+則以正常的位置擺放。
+
+\begin{example}
+\begin{displaymath}
+\int f_N(x) \stackrel{!}{=} 1
+\end{displaymath}
+\end{example}
+
+%The \textbf{\wi{integral operator}} is generated with \ci{int}, the
+%\textbf{\wi{sum operator}} with \ci{sum}, and the \textbf{\wi{product operator}}
+%with \ci{prod}. The upper and lower limits are specified with \verb|^|
+%and \verb|_| like subscripts and superscripts.\index{superscript}
+%\footnote{\AmS-\LaTeX{} in addition has multi-line super-/subscripts.}
+
+\textbf{積分號} (\wi{integral
+operator}) 可以用 \ci{int} 產生，\textbf{求和號} (\wi{sum
+operator}) 用 \ci{sum} 命令， 而\textbf{乘積號} (\wi{product
+operator}) 要用 \ci{prod} 命令。上限和下限用 \verb|^| 和 \verb|_| 來指定，如同上標與下標一樣
+\index{superscript}\footnote{\AmS-\LaTeX{} 中另有多行的上標/下標。}。
+
+
+\begin{example}
+\begin{displaymath}
+\sum_{i=1}^{n} \qquad
+\int_{0}^{\frac{\pi}{2}} \qquad
+\prod_\epsilon
+\end{displaymath}
+\end{example}
+
+%To get more control over the placement of indices in complex
+%expressions, \pai{amsmath} provides two additional tools:
+%the \ci{substack} command and the \ei{subarray} environment:
+
+為了更好的控制一個複雜表達式中指標的放置，\pai{amsmath} 提供了兩個額外的工具：
+\ci{substack} 命令和 \ei{subarray} 環境：
+\begin{example}
+\begin{displaymath}
+\sum_{\substack{0<i<n \\ 1<j<m}}
+   P(i,j) =
+\sum_{\begin{subarray}{l}
+         i\in I\\
+         1<j<m
+      \end{subarray}}     Q(i,j)
+\end{displaymath}
+\end{example}
+
+\medskip
+
+%\TeX{} provides all sorts of symbols for
+%\textbf{\wi{braces}} and other \wi{delimiters}
+%％(e.g. $[\;\langle\;\|\;\updownarrow$).
+%Round and square braces can be entered with the corresponding keys and
+%curly braces with \verb|\{|, but all other delimiters are generated with
+%special commands (e.g. \verb|\updownarrow|). For a list of all
+%delimiters available, check Table \ref{tab:delimiters} on page
+%\pageref{tab:delimiters}.
+\TeX 提供了各種各樣的符號來得到{\textbf
+括號} (\wi{braces}) 和其他定界符 (\wi{delimiters}) (如： $[\;\langle\;\|\;\updownarrow$ )。
+圓括號和方括號可以由對應的鍵直接輸入而花括號要用 \verb|\{|，
+但是所有其它的定界符都要用一定的命令 (如：
+\verb|\updownarrow|) 生成。所有可用定界符的列表，
+請查閱第 \pageref{tab:delimiters} 頁表 \ref{tab:delimiters}。
+
+\begin{example}
+\begin{displaymath}
+{a,b,c}\neq\{a,b,c\}
+\end{displaymath}
+\end{example}
+
+%If you put the command \ci{left} in front of an opening delimiter or
+%\ci{right} in front of a closing delimiter, \TeX{} will automatically
+%determine the correct size of the delimiter. Note that you must close
+%every \ci{left} with a corresponding \ci{right}, and that the size is
+%determined correctly only if both are typeset on the same line. If you
+%don't want anything on the right, use the invisible `\ci{right.}'!
+
+如果你在某個左定界符前放一個 \ci{left} 命令或是在某個右定界符前放一個 \ci{right} 命令，\TeX{} 將會
+自動決定這對定界符的大小。請注意，你必須為每個 \ci{left} 命令配對相應的 \ci{right} 命令，而且只有在左右定界符被排版在同一行時
+才會獲得正確的大小尺寸。如果你不想使用任何右定界符，使用看不見的 `\ci{right.}' 即可！
+\begin{example}
+\begin{displaymath}
+1 + \left( \frac{1}{ 1-x^{2} }
+    \right) ^3
+\end{displaymath}
+\end{example}
+
+%In some cases it is necessary to specify the correct size of a
+%mathematical delimiter\index{mathematical!delimiter} by hand,
+%which can be done using the commands \ci{big}, \ci{Big}, \ci{bigg} and
+%\ci{Bigg} as prefixes to most delimiter commands.\footnote{These
+%  commands do not work as expected if a size changing command has been
+%  used, or the \texttt{11pt} or \texttt{12pt} option has been
+%  specified.  Use the \pai{exscale} or \pai{amsmath} packages to
+%  correct this behaviour.}
+
+有些情況下，有必要手工指定一個數學定界符\index{mathematical!delimiter}的正確尺寸，這可以使用 \ci{big}，\ci{Big}，\ci{bigg} 和
+ \ci{Bigg} 命令，大多數情況下你只需把它們放在定界符命令的前面\footnote{如果使用了某個改變字體大小的命令，或是
+指定了 \texttt{11pt} 或 \texttt{12pt} 參數的話，這些命令會達不到預期效果。使用 \pai{exscale} 或 \pai{amsmath} 宏包可以糾正它。}。
+
+\begin{example}
+$\Big( (x+1) (x-1) \Big) ^{2}$\\
+$\big(\Big(\bigg(\Bigg($\quad
+$\big\}\Big\}\bigg\}\Bigg\}$
+\quad
+$\big\|\Big\|\bigg\|\Bigg\|$
+\end{example}
+
+%There are several commands to enter \textbf{\wi{three dots}} into a formula.
+%\ci{ldots} typesets the dots on the baseline and \ci{cdots}
+%sets them centred. Besides that, there are the commands \ci{vdots} for
+%vertical and \ci{ddots} for \wi{diagonal dots}.\index{vertical
+%  dots}\index{horizontal!dots} You can find another example in section \ref{sec:vert}.
+
+
+有很多命令可以實現在公式中插入\textbf{三點列} (\wi{three
+dots})。\ci{ldots} 得到在基線上的點列而 \ci{cdots} 是上下居中的點列。
+另外，還有 \ci{vdots} 命令產生豎直的點列，\ci{ddots} 產生對角線的點列。\index{vertical!dots}\index{horizontal!dots}
+你可以在第 \ref{sec:vert} 節找到另外一個例子。
+\begin{example}
+\begin{displaymath}
+x_{1},\ldots,x_{n} \qquad
+x_{1}+\cdots+x_{n}
+\end{displaymath}
+\end{example}
+
+%\section{Math Spacing}
+\section{數學空格}
+
+%\index{math spacing} If the spaces within formulae chosen by \TeX{}
+%are not satisfactory, they can be adjusted by inserting special
+%spacing commands. There are some commands for small spaces: \ci{,} for
+%$\frac{3}{18}\:\textrm{quad}$ (\demowidth{0.166em}), \ci{:} for $\frac{4}{18}\:
+%\textrm{quad}$ (\demowidth{0.222em}) and \ci{;} for $\frac{5}{18}\:
+%\textrm{quad}$ (\demowidth{0.277em}).  The escaped space character
+%\verb*.\ . generates a medium sized space and \ci{quad}
+%(\demowidth{1em}) and \ci{qquad} (\demowidth{2em}) produce large
+%spaces. The size of a \ci{quad} corresponds to the width of the
+%character `M' of the current font.  The \verb|\!|\cih{"!} command produces a
+%negative space of $-\frac{3}{18}\:\textrm{quad}$ (\demowidth{0.166em}).
+
+\index{math
+spacing}如果公式內由 \TeX{} 選擇的空格不令人滿意，那麼也可以通過插入一些特殊的空格控制命令來調整。
+有一些命令可以產生小空格：\ci{,} 得到 $\frac{3}{18}\:\textrm{quad}$
+(\demowidth{0.166em})，\ci{:} 得到 $\frac{4}{18}\: \textrm{quad}$
+(\demowidth{0.222em}) 而 \ci{;} 會得到 $\frac{5}{18}\:
+\textrm{quad}$
+(\demowidth{0.277em})。轉義的空格符 \verb*.\. 產生一個中等大小的空格，而 \ci{quad}
+(\demowidth{1em}) 和 \ci{qquad}
+(\demowidth{2em}) 產生大的空格。\ci{quad} 的大小與當前字體中字母 `M' 的寬度有關。
+ \verb|\!|\cih{"!} 命令會產生一個 $-\frac{3}{18}\:\textrm{quad}$
+(\demowidth{0.166em}) 的負空格。
+\begin{example}
+\newcommand{\ud}{\mathrm{d}}
+\begin{displaymath}
+\int\!\!\!\int_{D} g(x,y)
+  \, \ud x\, \ud y
+\end{displaymath}
+instead of
+\begin{displaymath}
+\int\int_{D} g(x,y)\ud x \ud y
+\end{displaymath}
+\end{example}
+%Note that `d' in the differential is conventionally set in roman.
+%
+%\AmS-\LaTeX{} provides another way for fine-tuning
+%the spacing between multiple integral signs,
+%namely the \ci{iint}, \ci{iiint}, \ci{iiiint}, and \ci{idotsint} commands.
+%With the \pai{amsmath} package loaded, the above example can be
+%typeset this way:
+
+請注意這裡微分中的 `d' 按慣例要設定成羅馬字體。
+
+\AmS-\LaTeX{} 為多重積分號之間空格的微調提供了另一種方法，即使用 \ci{iint}, \ci{iiint}, \ci{iiiint}, 和 \ci{idotsint} 命令。
+
+加入 \pai{amsmath} 宏包後，上面的例子可以寫成這樣：
+
+\begin{example}
+\newcommand{\ud}{\mathrm{d}}
+\begin{displaymath}
+\iint_{D} \, \ud x \, \ud y
+\end{displaymath}
+\end{example}
+
+%See the electronic document testmath.tex (distributed with
+%\AmS-\LaTeX) or Chapter 8 of \companion{} for further details.
+
+更多詳情請參見電子文檔 testmath.tex（與 \AmS-\LaTeX 一起發行）或 \companion{} 的第八章。
+%\section{Vertically Aligned Material}
+\section{垂直取齊}
+\label{sec:vert}
+
+%To typeset \textbf{arrays}, use the \ei{array} environment. It works
+%somewhat similar to the \texttt{tabular} environment. The \verb|\\| command is
+%used to break the lines.
+
+要排版{\textbf
+數組}，使用 \ei{array} 環境。它的使用與 \texttt{tabular} 環境有些類似。 \verb|\\| 命令可用來斷行。
+
+
+\begin{example}
+\begin{displaymath}
+\mathbf{X} =
+\left( \begin{array}{ccc}
+x_{11} & x_{12} & \ldots \\
+x_{21} & x_{22} & \ldots \\
+\vdots & \vdots & \ddots
+\end{array} \right)
+\end{displaymath}
+\end{example}
+
+%The \ei{array} environment can also be used to typeset expressions that have one
+%big delimiter by using a ``\verb|.|'' as an invisible \ci{right}
+%delimiter:
+\ei{array} 環境也可以用來排版這樣的表達式，表達式中使用一個 ``\verb|.|'' 作為其隱藏的 \ci{right} 定界符。
+
+\begin{example}
+\begin{displaymath}
+y = \left\{ \begin{array}{ll}
+ a & \textrm{if $d>c$}\\
+ b+x & \textrm{in the morning}\\
+ l & \textrm{all day long}
+  \end{array} \right.
+\end{displaymath}
+\end{example}
+
+%Just as with the \verb|tabular| environment, you can also
+%draw lines in the \ei{array} environment, e.g. separating the entries of
+%a matrix:
+就像在 \verb|tabular| 環境中一樣，你也可以在 \ei{array} 環境中畫線，如分隔矩陣中元素：
+\begin{example}
+\begin{displaymath}
+\left(\begin{array}{c|c}
+ 1 & 2 \\
+\hline
+3 & 4
+\end{array}\right)
+\end{displaymath}
+\end{example}
+
+
+
+%For formulae running over several lines or for \wi{equation system}s,
+%you can use the environments \ei{eqnarray}, and \verb|eqnarray*|
+%instead of \texttt{equation}. In \texttt{eqnarray} each line gets an
+%equation number. The \verb|eqnarray*| does not number anything.
+%
+%The \texttt{eqnarray} and the \verb|eqnarray*| environments work like
+%a 3-column table of the form \verb|{rcl}|, where the middle column can
+%be used for the equal sign, the not-equal sign, or any other sign
+%you see fit. The \verb|\\| command breaks the lines.
+對於跨行的長公式或是方程組 (\wi{equation
+system})，你可以使用 \ei{eqnarray} 和 \verb|eqnarray*| 環境來替代 \texttt{equation} 環境。
+在 \texttt{eqnarray} 環境中每一行都有一個等式編號。\verb|eqnarray*| 則不添加編號。
+
+\ei{eqnarray} 和 \verb|eqnarray*| 環境的用法與一個 \verb|{rcl}| 形式的 3 列表格相類似，這裡中間一列可以用來放等號，不等號，
+或者是其他你選擇的符號。 \verb|\\| 命令可以斷行。
+\begin{example}
+\begin{eqnarray}
+f(x) & = & \cos x     \\
+f'(x) & = & -\sin x   \\
+\int_{0}^{x} f(y)dy &
+ = & \sin x
+\end{eqnarray}
+\end{example}
+%Notice that the space on either side of the
+%equal signs is rather large. It can be reduced by setting
+%\verb|\setlength\arraycolsep{2pt}|, as in the next example.
+%
+%\index{long equations} \textbf{Long equations} will not be
+%automatically divided into neat bits.  The author has to specify
+%where to break them and how much to indent. The following two methods
+%are the most common ways to achieve this.
+
+注意，這裡等號兩邊空白都有些大。\verb|\setlength\arraycolsep{2pt}| 可以調小它，比如在下一個例子裡。
+
+\index{long equations}{\textbf
+長等式}不能被分成合適的小段。作者必須指定在哪裡斷且如何縮進。以下兩種方法是最常用的。
+\begin{example}
+{\setlength\arraycolsep{2pt}
+\begin{eqnarray}
+\sin x & = & x -\frac{x^{3}}{3!}
+     +\frac{x^{5}}{5!}-{}
+                    \nonumber\\
+&& {}-\frac{x^{7}}{7!}+{}\cdots
+\end{eqnarray}}
+\end{example}
+\begin{example}
+\begin{eqnarray}
+\lefteqn{ \cos x = 1
+     -\frac{x^{2}}{2!} +{} }
+                    \nonumber\\
+ & & {}+\frac{x^{4}}{4!}
+     -\frac{x^{6}}{6!}+{}\cdots
+\end{eqnarray}
+\end{example}
+
+%\enlargethispage{\baselineskip}
+%\noindent The \ci{nonumber} command tells \LaTeX{} not to generate a number for
+%this equation.
+%
+%It can be difficult to get vertically aligned equations to look right
+%with these methods; the package \pai{amsmath} provides a more
+%powerful set of alternatives. (see \verb|align|, \verb|flalign|,
+%\verb|gather|, \verb|multline| and \verb|split| environments).
+
+\noindent\ci{nonumber} 命令告訴 \LaTeX{} 不要給這個等式編號。
+
+用這種方法很難讓等式正確的垂直對齊；\pai{amsmath} 宏包提供了一系列強有力的替代選擇（參見 
+\verb|align|, \verb|flalign|, \verb|gather|,
+\verb|multline| 和 \verb|split| 環境）。
+
+
+\section{虛位}
+
+%We can't see phantoms, but they still occupy some space in many people's minds.
+%\LaTeX{} is no different. We can use this for
+%some interesting spacing tricks.
+%
+%When vertically aligning text using \verb|^| and \verb|_| \LaTeX{} is sometimes
+%just a little bit too helpful. Using the \ci{phantom} command you can
+%reserve space for characters that do not show up in the final output.
+%The easiest way to understand this is to look at the following examples.
+我們看不見虛位（phantom，也有幻影的意思），但是在許多人的頭腦中它們依然佔有一定的位置。\LaTeX{} 中也一樣。我們可以使用它來實現一些有趣的小技巧。
+
+當使用 \verb|^| 和 \verb|_| 時，\LaTeX{} 對文本的垂直對齊有時顯得太過於自作多情。使用 \ci{phantom} 命令你可以
+給不在最終輸出中顯示的字符保留位置。理解此意的最好方法是看下面的例子。
+\begin{example}
+\begin{displaymath}
+{}^{12}_{\phantom{1}6}\textrm{C}
+\qquad \textrm{versus} \qquad
+{}^{12}_{6}\textrm{C}
+\end{displaymath}
+\end{example}
+\begin{example}
+\begin{displaymath}
+\Gamma_{ij}^{\phantom{ij}k}
+\qquad \textrm{versus} \qquad
+\Gamma_{ij}^{k}
+\end{displaymath}
+\end{example}
+
+%\section{Math Font Size}\label{sec:fontsz}
+
+\section{數學字體尺寸}\label{sec:fontsz}
+\index{math font
+size}在數學模式中，\TeX{} 根據上下文選擇字體大小。例如，上標會排版成較小的字體。
+如果你想要把等式的一部分排版成羅馬字體，不要用 \verb|\textrm| 命令，只因 \verb|\textrm| 會暫時切換到文本模式，
+而此時字體大小切換機制將不起作用。使用 \verb|\mathrm| 來保持字體大小切換機制的正常。但是要小心，\ci{mathrm} 
+只對較短的項有效。空格依然無效而且重音符號也不起作用\footnote{\AmS-\LaTeX{}(\pai{amsmath}) 宏包可以讓 \ci{textrm} 命令與字體大小切換機制和諧共存。}。
+
+
+%In math mode, \TeX{} selects the font size
+%according to the context. Superscripts, for example, get typeset in a
+%smaller font. If you want to typeset part of an equation in roman,
+%don't use the \verb|\textrm| command, because the font size switching
+%mechanism will not work, as \verb|\textrm| temporarily escapes to text
+%mode. Use \verb|\mathrm| instead to keep the size switching mechanism
+%active. But pay attention, \ci{mathrm} will only work well on short
+%items. Spaces are still not active and accented characters do not
+%work.\footnote{The \AmS-\LaTeX{} (\pai{amsmath}) package makes the \ci{textrm} command
+%  work with size changing.}
+
+
+\begin{example}
+\begin{equation}
+2^{\textrm{nd}} \quad
+2^{\mathrm{nd}}
+\end{equation}
+\end{example}
+
+%Sometimes you still need to tell \LaTeX{} the correct font
+%size. In math mode, this is set with the following four commands:
+有時你仍需告訴 \LaTeX{} 正確的字體大小。在數學模式中，可用以下四個命令來設定：
+\begin{flushleft}
+\ci{displaystyle} ($\displaystyle 123$),
+ \ci{textstyle} ($\textstyle 123$),
+\ci{scriptstyle} ($\scriptstyle 123$) and
+\ci{scriptscriptstyle} ($\scriptscriptstyle 123$).
+\end{flushleft}
+
+%Changing styles also affects the way limits are displayed.
+改變樣式也會影響到上下限的顯示方式。
+\begin{example}
+\begin{displaymath}
+ \frac{\displaystyle
+   \sum_{i=1}^n(x_i-\overline x)
+   (y_i-\overline y)}
+  {\displaystyle\biggl[
+ \sum_{i=1}^n(x_i-\overline x)^2
+\sum_{i=1}^n(y_i-\overline y)^2
+\biggr]^{1/2}}
+\end{displaymath}
+\end{example}
+% This is not a math accent, and no maths book would be set this way.
+% mathop gets the spacing right.
+
+%\noindent This is an examples with larger
+%brackets than \verb|\left[  \right]| provides. The
+%\ci{biggl} and \ci{biggr} commands are used for left and right brackets
+%respectively.
+\noindent 這個例子中的括號要比 \verb|\left[  \right]| 提供的括號更大些。\ci{biggl} 和 \ci{biggr} 命令分別
+對應於左和右括號。
+
+%\section{Theorems, Laws, \ldots}
+\section{定理、定律……}
+%When writing mathematical documents, you probably need a way to
+%typeset ``Lemmas'', ``Definitions'', ``Axioms'' and similar
+%structures.
+當寫數學文檔時，你可能需要一種方法來排版「引理」、「定義」、「公理」及其他類似的結構。
+\begin{lscommand}
+\ci{newtheorem}\verb|{|\emph{name}\verb|}[|\emph{counter}\verb|]{|%
+         \emph{text}\verb|}[|\emph{section}\verb|]|
+\end{lscommand}
+%The \emph{name} argument is a short keyword used to identify the
+%``theorem.'' With the \emph{text} argument you define the actual name
+%of the ``theorem,'' which will be printed in the final document.
+%
+%The arguments in square brackets are optional. They are both used to
+%specify the numbering used on the ``theorem.'' Use  the \emph{counter}
+%argument to specify the \emph{name} of a previously declared
+%``theorem.'' The new ``theorem'' will then be numbered in the same
+%sequence.  The \emph{section} argument allows you to specify the
+%sectional unit within which the ``theorem'' should get its numbers.
+%
+%After executing the \ci{newtheorem} command in the preamble of your
+%document, you can use the following command within the document.
+
+參量 \emph{name} 是用來標識「定理」的短關鍵字。而參數 \emph{text} 才是真正的「定理」名，它會在最終的文檔中被列印出來。
+
+方括號中是可選參量。兩者都均用來指定「定理」的編號問題。使用 \emph{counter} 參數來指定先前聲明的「定理」的 \emph{name}。
+則此新的「定理」將與先前定理統一編號。\emph{section} 參數讓你來指定章節單元，而「定理」會按相應的章節層次來編號。
+
+在你的文檔的導言區執行 \ci{newtheorem} 命令後，你就可以在文檔中使用以下命令了。
+
+
+\begin{code}
+\verb|\begin{|\emph{name}\verb|}[|\emph{text}\verb|]|\\
+This is my interesting theorem\\
+\verb|\end{|\emph{name}\verb|}|
+\end{code}
+
+%The \pai{amsthm} package provides the \ci{newtheoremstyle}\verb|{|\emph{style}\verb|}|
+%command which lets you define what the theorem is all about by picking
+%from three predefined styles: \texttt{definition} (fat title, roman body),
+%\texttt{plain} (fat title, italic body) or \texttt{remark} (italic
+%title, roman body).
+%
+%This should be enough theory. The following examples should
+%remove any remaining doubt, and make it clear that the
+%\verb|\newtheorem| environment is way too complex to understand.
+
+\pai{amsthm} 宏包提供了 \ci{newtheoremstyle}\verb|{|\emph{style}\verb|}| 命令，通過從三個預定義樣式中選擇其一來
+定義定理的外觀，三個樣式分別為：\texttt{definition} （標題粗體，內容羅馬體），
+\texttt{plain} （標題粗體，內容斜體）和 \texttt{remark} 
+（標題斜體，內容羅馬體）。
+
+理論上已經說夠多了，下面我們聯繫一下實踐，這個例子希望能夠帶走你的疑問並讓你知道 \verb|\newtheorem| 環境其實比較複雜
+且不易理解。
+% actually define things
+\theoremstyle{definition} \newtheorem{law}{Law}
+\theoremstyle{plain}      \newtheorem{jury}[law]{Jury}
+\theoremstyle{remark}     \newtheorem*{marg}{Margaret}
+
+%First define the theorems:
+首先定義定理環境
+\begin{verbatim}
+\theoremstyle{definition} \newtheorem{law}{Law}
+\theoremstyle{plain}      \newtheorem{jury}[law]{Jury}
+\theoremstyle{remark}     \newtheorem*{marg}{Margaret}
+\end{verbatim}
+
+\begin{example}
+\begin{law} \label{law:box}
+Don't hide in the witness box
+\end{law}
+\begin{jury}[The Twelve]
+It could be you! So beware and
+see law \ref{law:box}\end{jury}
+\begin{marg}No, No, No\end{marg}
+\end{example}
+
+%The ``Jury'' theorem uses the same counter as the ``Law''
+%theorem, so it gets a number that is in sequence with
+%the other ``Laws.'' The argument in square brackets is used to specify
+%a title or something similar for the theorem.
+「Jury」 定理與 「Law」 定理共用了同一個計數器，因此它的編號與其他 「Law」 定理的編號是順序下來的。
+方括號中的參量用來指定定理的一個標題或是其他類似的內容。
+\begin{example}
+\flushleft
+\newtheorem{mur}{Murphy}[section]
+\begin{mur}
+If there are two or more
+ways to do something, and
+one of those ways can result
+in a catastrophe, then
+someone will do it.\end{mur}
+\end{example}
+
+%The ``Murphy'' theorem gets a number that is linked to the number of
+%the current section. You could also use another unit, for example chapter or
+%subsection.
+%
+%The \pai{amsthm} also provides the \ei{proof}.
+「Murphy」 定理有一個與當前章節相聯繫的編號。你也可以使用其他的單元，如章 (chapter) 或小節 (subsection)。
+
+\pai{amsthm} 還提供了一個 \ei{proof} 環境。
+
+\begin{example}
+\begin{proof}
+ Trivial, use
+\[E=mc^2\]
+\end{proof}
+\end{example}
+
+%With the command \ci{qedhere} you can move the `end of proof symbol'. symbol around for
+%situations where it would end up alone on a line.
+
+使用 \ci{qedhere} 命令你可以移動「證畢」符。「證畢」符默認是在證明結束時單獨放於一行。
+
+\begin{example}
+\begin{proof}
+ Trivial, use
+\[E=mc^2 \qedhere\]
+\end{proof}
+\end{example}
+
+%\section{Bold Symbols}
+\section{粗體符號}
+\index{bold symbols}
+
+%It is quite difficult to get bold symbols in \LaTeX{}; this is
+%probably intentional as amateur typesetters tend to overuse them.  The
+%font change command \verb|\mathbf| gives bold letters, but these are
+%roman (upright) whereas mathematical symbols are normally italic.
+%There is a \ci{boldmath} command, but \emph{this can only be used
+%outside mathematics mode}. It works for symbols too.
+
+在 \LaTeX{} 中要得到粗體符號相當的不容易；這也許是故意設置的，以防業餘水平的排版者過度的使用它們。字體變換命令
+ \verb|\mathbf| 可得到粗體字母，但是得到的是羅馬體（直立的）而數學符號通常要求是斜體。
+還有一個 \ci{boldmath} 命令，但是{\textbf
+它只能用在數學模式之外}。它不僅作用於字母也作用於符號。
+
+\begin{example}
+\begin{displaymath}
+\mu, M \qquad \mathbf{M} \qquad
+\mbox{\boldmath $\mu, M$}
+\end{displaymath}
+\end{example}
+
+%\noindent
+%Notice that the comma is bold too, which may not be what is required.
+%
+%The package \pai{amsbsy} (included by \pai{amsmath}) as well as the
+%\pai{bm} from the tools bundle make this much easier as they include
+%a \ci{boldsymbol} command.
+%\ifx\boldsymbol\undefined\else
+
+\noindent 請注意，逗號也成粗體了，這也許不是所需的。
+
+使用 \pai{amsbsy} 宏包（包含在 \pai{amsmath} 中）或 tool 宏包集中的 \pai{bm} 將會便利許多，因為它們包含一個叫 \ci{boldsymbol} 的命令。
+
+\ifx\boldsymbol\undefined\else
+\begin{example}
+\begin{displaymath}
+\mu, M \qquad
+\boldsymbol{\mu}, \boldsymbol{M}
+\end{displaymath}
+\end{example}
+\fi
+
+
+%
+
+% Local Variables:
+% TeX-master: "lshort2e"
+% mode: latex
+% mode: flyspell
+% End:
+

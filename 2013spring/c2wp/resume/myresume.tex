@@ -1,0 +1,68 @@
+% 文件類別採用自行編寫的 resume.cls
+\documentclass{resume}
+
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+
+\name{Your Eng Name - 中文姓名}
+\address{ 64 Wen Hwa Rd \\ HuWei \\ YunLin, TW 63208  }
+\address{ 886~$\cdot$~5~$\cdot$~6315000 \\ yourname@nfu.edu.tw }
+
+\def\nameskip{\bigskip}
+\def\sectionskip{\medskip}
+
+\usepackage{xeCJK}    % 中英文字行分開設置
+\usepackage[T1]{fontspec}    %設定字體用
+\usepackage{graphicx}
+\usepackage{fancyvrb} % for frame on Verbatim
+% 新細明體
+% 文鼎ＰＬ新宋
+\setCJKmainfont{新細明體}
+
+\begin{document}
+
+  \begin{rSection}{Education}
+    {\bf Nation Formosa University, Taiwan} \hfill {\em June 2008} \\ 
+    { B.S. in Mechanical Design \& Engineering } \\
+    { Minor in System Modeling } \smallskip \\
+    { Member of Eta Kappa Puma } \\
+    { Member of Upsilon Pi LaTeX } \\
+    Overall GPA: 4.0
+  \end{rSection}
+  
+  \begin{rSection}{Experience}
+  
+    \begin{rSubsection}{MDEC, Inc}{October 2010 - Present}{Mechanical Designer}{Taipei, TW}
+    \item 龍門車床設計開發.
+    \item 刀具模床控制系統開發.
+    \item Ansys 電腦輔助工程分析.
+    \item Creo 零組件協同設計.
+    \item 客製化彈性系統開發.
+    \end{rSubsection}
+  
+    \begin{rSubsection}{Dyna International Group}{December 2009 - October 2010}{Lead Developer}{Taipei, TW}
+    \item 指導樣品的製作, 並對性能指標進行驗證.
+    \item 油電機車系統設計開發.
+    \item 跑步機系統最佳化設計.
+    \item 整廠機械產品資料管理系統開發.
+    \item 樣品原型設計開發.
+    \end{rSubsection}
+
+    \begin{rSubsection}{TBig Robotics Inc}{January 2008 - April 2010}{Mechanical Designer \& Developer}{Taipei, TW}
+    \item 五軸加工機系統開發.
+    \item 奈米級多軸系統校正儀開發.
+    \item 電腦輔助控制系統開發.
+    \item 六軸機械臂系統控制模擬.
+    \end{rSubsection}
+  
+  \end{rSection}
+  
+  \begin{rSection}{Technical Strengths}
+    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+      Computer Languages & C/C++, PHP, Python, C#, Javascript, G-code \\
+      Protocols \& APIs & XML, JSON, SOAP, REST \\
+      Databases & MySQL, PostgreSQL, Microsoft SQL \\
+      Tools & Git, SciTE, PortableKMOL, SolidWorks, Inventor, Creo, Catia
+    \end{tabular}
+  \end{rSection}
+
+\end{document}
