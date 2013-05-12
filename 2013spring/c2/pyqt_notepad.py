@@ -83,4 +83,5 @@ class 文字編輯器(QMainWindow):
 應用程式 = QApplication(sys.argv)
 編輯器案例 = 文字編輯器()
 編輯器案例.show()
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 應用程式.exec_()

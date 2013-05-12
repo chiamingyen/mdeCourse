@@ -147,6 +147,7 @@ class Editor(QtGui.QMainWindow):
 app = QtGui.QApplication(sys.argv)
 e = Editor()
 e.show()
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 sys.exit(app.exec_())
 #@nonl
 #@-node:amd_yen.20130501090735.3351:@shadow c2/pyside/notepad1.py

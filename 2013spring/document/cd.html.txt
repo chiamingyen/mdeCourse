@@ -172,7 +172,8 @@ Simple Groupware 管理
     Enable automatic user creation
     [htaccess, NTLM, LDAP, IMAP, SMTP]
     
-    自動建立對應帳號的設定, 如此就只有與專案執行相關的組員可以利用 IMAP 模式登入協同系統, 管理者 (admin) 則依然透過 Simple Groupware 資料庫中的帳號設定登入系統.
+    自動建立對應帳號的設定, 如此就只有與專案執行相關的組員可以利用 IMAP \
+    模式登入協同系統, 管理者 (admin) 則依然透過 Simple Groupware 資料庫中的帳號設定登入系統.
 
 Simple Groupware 系統研究
 *****************************
@@ -516,7 +517,8 @@ bin/core/functions.php 中的 sys_build_filename() 對於較長的上傳中文�
       if ($table=="" or strpos($table,"_nodb_")) {
         return array(SIMPLE_CACHE."/upload/",$filename);
       }
-    // 存入資料庫的檔案名稱在某些情況有誤, 但是存檔則是正確的檔名轉換, 因此判斷是 Javascript  ajax 轉換時出問題
+    // 存入資料庫的檔案名稱在某些情況有誤, 但是存檔則是正確的檔名轉換, \
+    因此判斷是 Javascript  ajax 轉換時出問題
       return array(SIMPLE_STORE."/".$table."/",$filename);
     }
     
@@ -566,8 +568,8 @@ CD 第四週
 
 協同產品設計實習前半段教科書內容的 mp3 朗讀: http://cae.mde.tw?download=cdmp3.7z
 
-@url 最新 SGW 版本
-**********************
+@url SGW 最新原始碼
+************************
 
 https://github.com/simplegroupware/Simple-Groupware
 
@@ -645,17 +647,17 @@ Workspace - Organization - Users 項下建立帳號.
 
 有關 Simple Groupware 的群組:
 
-    總管理者可以在 Workspace - Organization - Groups 中建立群組.
+- 總管理者可以在 Workspace - Organization - Groups 中建立群組.
     
-    刪除的群組會被視為暫停使用, 該群組目錄資料則會被移到 Workspace - System - Trash. 總管理者之後可以採用剪貼方式回復或永久刪除該群組. 已經被移到 Trash 區的群組, 總管理者仍然可以處理與該群組有關的設定, 因為總管理者具有進入 Trash 區查閱該群組資料.
+- 刪除的群組會被視為暫停使用, 該群組目錄資料則會被移到 Workspace - System - Trash. 總管理者之後可以採用剪貼方式回復或永久刪除該群組. 已經被移到 Trash 區的群組, 總管理者仍然可以處理與該群組有關的設定, 因為總管理者具有進入 Trash 區查閱該群組資料.
     
-    專案 (project) 與部門 (department) 的內建群組, 建立一個部門後, 以 department_群組名稱 進行命名的群組會自動建立, 並且將該部門的所有成員納入該自動建立的群組之中. 而列在個人部門中的檔案, 該部門人員可以進入讀寫該部門所建立的各種資料.
+- 專案 (project) 與部門 (department) 的內建群組, 建立一個部門後, 以 department_群組名稱 進行命名的群組會自動建立, 並且將該部門的所有成員納入該自動建立的群組之中. 而列在個人部門中的檔案, 該部門人員可以進入讀寫該部門所建立的各種資料.
     
-    而建立一個新專案後, 以 project_專案名稱 命名的群組也會自動建立, 任何屬於 internal participants 中的成員則會自動被歸屬到該群組中. 而且該群組成員可以讀寫在個人專案下屬於該新增專案目錄下所屬的相關資料.
+- 而建立一個新專案後, 以 project_專案名稱 命名的群組也會自動建立, 任何屬於 internal participants 中的成員則會自動被歸屬到該群組中. 而且該群組成員可以讀寫在個人專案下屬於該新增專案目錄下所屬的相關資料.
     
-    唯一必須特別注意的是, 管理者 (manager) 或外部參與專案或部門的成員, 並不會對於目錄或群組成員的擷取屬性有任何影響, 亦即, 設定一個新專案時, 列名為管理者 (manger) 也必須加入該專案的 internal participants, 而各個列名外部參與者的帳號則沒有該專案所屬的各項存取權.
+- 唯一必須特別注意的是, 管理者 (manager) 或外部參與專案或部門的成員, 並不會對於目錄或群組成員的擷取屬性有任何影響, 亦即, 設定一個新專案時, 列名為管理者 (manger) 也必須加入該專案的 internal participants, 而各個列名外部參與者的帳號則沒有該專案所屬的各項存取權.
     
-    群組成員屬性只有在該帳號登入後, 才會刷新資料, 亦即才會反映出最新的屬性修改, 換句話說, 若某一位成員的屬性被修改後, 管理者或許必須刷新所對應的 session 資料, 並且強制該帳號重新登入系統, 該群組或專案的新設定才會生效, 否則系統仍然以舊 session 中的資料為准.
+- 群組成員屬性只有在該帳號登入後, 才會刷新資料, 亦即才會反映出最新的屬性修改, 換句話說, 若某一位成員的屬性被修改後, 管理者或許必須刷新所對應的 session 資料, 並且強制該帳號重新登入系統, 該群組或專案的新設定才會生效, 否則系統仍然以舊 session 中的資料為准.
 
 建立專案
 ^^^^^^^^^^^^
@@ -664,43 +666,43 @@ Workspace - Organization - Users 項下建立帳號.
 
 先建立專案目錄:
 
-    1. 以管理者身分(admin) 登入系統後, 在樹狀結構下方點選 options.
+- 以管理者身分(admin) 登入系統後, 在樹狀結構下方點選 options.
     
-    2. 樹狀結構上方會出現兩個區域, 亦即 Rename folder 與 New folder 等兩區.
+- 樹狀結構上方會出現兩個區域, 亦即 Rename folder 與 New folder 等兩區.
     
-    3. 在 New folder 區中填入專案目錄建立的相關資料.
+- 在 New folder 區中填入專案目錄建立的相關資料.
     
-    Name: 輸入專案目錄名稱
+- Name: 輸入專案目錄名稱
     
-    Module: 選擇 Projects
+- Module: 選擇 Projects
     
-    Icon: 選擇 Default 或其他圖示
+- Icon: 選擇 Default 或其他圖示
     
-    Description: 輸入專案目錄說明
+- Description: 輸入專案目錄說明
     
-    若要將此專案目錄放在列表最前頭, 則勾選 First in list.
+- 若要將此專案目錄放在列表最前頭, 則勾選 First in list.
     
-    完成後, 按下 OK
+- 完成後, 按下 OK
 
 接著在專案目錄下, 建立與產品設計相關的專案計畫.
 
-    1. 點選上列所建立的專案目錄.
+- 點選上列所建立的專案目錄.
     
-    2. 選擇右上方的 New, 準備建立新的專案計畫.
+- 選擇右上方的 New, 準備建立新的專案計畫.
     
-    3. Name: 輸入專案計畫名稱
+- Name: 輸入專案計畫名稱
     
-    4. 選擇 Participants (參與專案計畫的成員)
+- 選擇 Participants (參與專案計畫的成員)
     
-    選擇 Manager: 選擇右方的分組成員, 然後按下 << 箭頭, 移入左方的表單中.
+- 選擇 Manager: 選擇右方的分組成員, 然後按下 << 箭頭, 移入左方的表單中.
     
-    選擇 Participants (internal): 由右方分組成員選擇要加入專案計畫的人員.
+- 選擇 Participants (internal): 由右方分組成員選擇要加入專案計畫的人員.
     
-    5. 選擇 Scheduling (執行期限)
+- 選擇 Scheduling (執行期限)
     
-    選擇專案起始日期與預定結束日期.
+- 選擇專案起始日期與預定結束日期.
     
-    6. 按下 Save 就可完成專案計畫的建立.
+- 按下 Save 就可完成專案計畫的建立.
     
 完成上述專案計畫建立後, Simple Groupware 會自動建立對應的群組, 並且以 project_專案名稱 加以命名.
 
@@ -745,35 +747,35 @@ It has always been practiced informally, but began to emerge as a distinct profe
 
 Project management processes fall into five groups:
 
-    Initiating
+- Initiating
     
-    Planning
+- Planning
     
-    Executing
+- Executing
     
-    Monitoring and Controlling
+- Monitoring and Controlling
     
-    Closing
+- Closing
 
 Project management knowledge draws on nine areas:
 
-    Integration
+- Integration
     
-    Scope	
+- Scope	
     
-    Time
+- Time
     
-    Cost
+- Cost
     
-    Quality
+- Quality
     
-    Procurement
+- Procurement
     
-    Human resources
+- Human resources
     
-    Communications
+- Communications
     
-    Risk management
+- Risk management
     
 All management is concerned with these, of course. But project management brings a unique focus shaped by the goals, resources and schedule of each project. The value of that focus is proved by the rapid, worldwide growth of project management:
 
@@ -825,27 +827,27 @@ https://groups.google.com/forum/?fromgroups=#!topic/simple-groupware/m5R3IzniasA
 
 可採用的語法如下:
 
-    View access (users)
+- View access (users)
     
-    Syntax: ``|::|``
+- Syntax: ``|::|``
     
-    Examples:
+- Examples:
         
-    ``|freebusy:read:anonymous|``
+- ``|freebusy:read:anonymous|``
     
-   ``|freebusy:read:anonymous|details:no_read:anonymous|``
+- ``|freebusy:read:anonymous|details:no_read:anonymous|``
     
-    Group access (groups)
+- Group access (groups)
     
-    Syntax: ``|::|``
+- Syntax: ``|::|``
     
-    Examples:
+- Examples:
         
-    ``|freebusy:read:internals|``
+- ``|freebusy:read:internals|``
     
-    ``|freebusy:read:internals|details:no_read:guests|``
+- ``|freebusy:read:internals|details:no_read:guests|``
     
-    Right: read, no_read, write, no_write 
+- Right: read, no_read, write, no_write 
 
 採用上述 view 權限設定, 可以允許使用者建立或編輯內容, 但是無法 rename folder 或 建立子目錄.
 
@@ -857,17 +859,17 @@ View 權限不會影響其剪貼或刪除的操作.
 
 目錄中各筆資料的權限設定:
 
-    除了可以透過目錄權限管理外, 可以針對目錄中的各筆資料進行權限管理, 而每一筆內容所能設定的權限:
+- 除了可以透過目錄權限管理外, 可以針對目錄中的各筆資料進行權限管理, 而每一筆內容所能設定的權限:
     
-    Full 權限表示對各筆內容擁有讀寫權, 並且內建為 anonymous 可以讀寫.
+- Full 權限表示對各筆內容擁有讀寫權, 並且內建為 anonymous 可以讀寫.
     
-    Owner write 權限表示只有擁有人可以寫入, 而擁有人就是建立該筆資料的用戶.
+- Owner write 權限表示只有擁有人可以寫入, 而擁有人就是建立該筆資料的用戶.
     
-    Owner read 權限表示只有永有人可以讀取, 而擁有人就是建立該筆資料的用戶.
+- Owner read 權限表示只有永有人可以讀取, 而擁有人就是建立該筆資料的用戶.
     
-    cms 與 files 模組都是採用 Full 內定權限, forum 模組則採用 owner write, timesheet 與 expenses 模組則採用 owner read.
+- cms 與 files 模組都是採用 Full 內定權限, forum 模組則採用 owner write, timesheet 與 expenses 模組則採用 owner read.
     
-    通常各筆內容的權限設定, 在 new 資料表中的 permissions 頁面中加以設定.
+- 通常各筆內容的權限設定, 在 new 資料表中的 permissions 頁面中加以設定.
 
 Session 管理
 ^^^^^^^^^^^^^^
@@ -926,11 +928,13 @@ Enable anonymous CMS
 .. code-block:: php
 
     $file = SIMPLE_CACHE."/ip/".str_replace(".","-",$ip);
-    //if (file_exists($file."_3") and $trials = file_get_contents($file."_3") and strlen($trials)>3 and filemtime($file."_3") > time()-900) {
+    //if (file_exists($file."_3") and $trials = file_get_contents($file."_3") and strlen($trials)>3 \
+    and filemtime($file."_3") > time()-900) {
      // $_REQUEST["logout"] = true;
       //sys_alert("Too many wrong logins. Please wait 15 minutes.");
     IMPLE_CACHE."/ip/".str_replace(".","-",$ip);
-    //if (file_exists($file."_3") and $trials = file_get_contents($file."_3") and strlen($trials)>3 and filemtime($file."_3") > time()-900) {
+    //if (file_exists($file."_3") and $trials = file_get_contents($file."_3") and strlen($trials)>3 \
+    and filemtime($file."_3") > time()-900) {
      // $_REQUEST["logout"] = true;
       //sys_alert("Too many wrong logins. Please wait 15 minutes.");
     if(0){
@@ -945,42 +949,41 @@ http://www.simple-groupware.de/cms/ExtensionManagerDeveloper
 sgsML
 *****
 
-
 使用 sgsML 建立網際程式的優勢:
     
-    無需處理網際欄位與背後資料庫欄位的連結
+- 無需處理網際欄位與背後資料庫欄位的連結
     
 網際程式欄位類別 (types)
     
-    sgsML 會自動配額欄位屬性, 建立對應的資料庫欄位
+- sgsML 會自動配額欄位屬性, 建立對應的資料庫欄位
     
-    sgsML 會採整合的方式, 處理各模組的搜尋、分類與檢視
+- sgsML 會採整合的方式, 處理各模組的搜尋、分類與檢視
     
-    Syntax: Types are declared with simple_type="type" where type is one of int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime ... for a complete list, see src/modules/schema/!examples.html.
+- Syntax: Types are declared with simple_type="type" where type is one of int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime ... for a complete list, see src/modules/schema/!examples.html.
     
 欄位查驗 (validator)
 
-    Syntax: To collect these functions in a central place, all validators are stored in core/functions_user.php and have a ``"validate_"`` prefix, e.g. "validate_is_numeric". To define a validator in a sgsML file, write <validate function="is_numeric"/> between the <field>-tags to validate the field with the function validate_is_numeric.
+- Syntax: To collect these functions in a central place, all validators are stored in core/functions_user.php and have a ``"validate_"`` prefix, e.g. "validate_is_numeric". To define a validator in a sgsML file, write <validate function="is_numeric"/> between the <field>-tags to validate the field with the function validate_is_numeric.
     
 過濾器 (filter)
 
-    當使用者所要呈現在網頁上的資料, 與資料庫中所存放的內容不同時, 就必須使用過濾器.
+- 當使用者所要呈現在網頁上的資料, 與資料庫中所存放的內容不同時, 就必須使用過濾器.
     
-    Syntax: To collect these functions in a central place, all filters are stored in core/functions_user.php and have a ``"modify_"`` prefix (because they modify data), e.g. "modify_dateformat". To define a filter in a sgsML file, write <filter views="all" function="truncate|20"/> between the <field>-tags to truncate the field to a maximum of 20 characters with the function modify_truncate. (The "views=all" parameter indicates that this filter is used with every view and will be discussed later) Other functions are included to help you to manage files, URLs, source code highlighting, etc.
+- Syntax: To collect these functions in a central place, all filters are stored in core/functions_user.php and have a ``"modify_"`` prefix (because they modify data), e.g. "modify_dateformat". To define a filter in a sgsML file, write <filter views="all" function="truncate|20"/> between the <field>-tags to truncate the field to a maximum of 20 characters with the function modify_truncate. (The "views=all" parameter indicates that this filter is used with every view and will be discussed later) Other functions are included to help you to manage files, URLs, source code highlighting, etc.
     
 store 與 restore (以 modify 為代號)
 
-    當使用者要存在資料庫的格式, 與 Simple Groupware 存值的標準處理法不同時, 就必須使用 store 與 restore.
+- 當使用者要存在資料庫的格式, 與 Simple Groupware 存值的標準處理法不同時, 就必須使用 store 與 restore.
     
-    Syntax: To collect these functions in a central place, all store and restore functions are kept in core/functions_user.php and have a ``"modify_"`` prefix (because they modify data), e.g. "modify_datetime_to_int" converts a date given as string to a timestamp using integer representation. To define a store or restore function in a sgsML file, write <store function="datetime_to_int"/> and <restore function="dateformat||d.m.Y"/> between the <field>-tags to work with a date-field using the functions modify_datetime_to_int and modify_dateformat.
+- Syntax: To collect these functions in a central place, all store and restore functions are kept in core/functions_user.php and have a ``"modify_"`` prefix (because they modify data), e.g. "modify_datetime_to_int" converts a date given as string to a timestamp using integer representation. To define a store or restore function in a sgsML file, write <store function="datetime_to_int"/> and <restore function="dateformat||d.m.Y"/> between the <field>-tags to work with a date-field using the functions modify_datetime_to_int and modify_dateformat.
     
 As told before, Simple Groupware already knows a type called "date". Therefore you only need restore/store functions when defining your date-field with type "int". Using type "date" this is done automatically for you.
 
 資料來源 (以 select 為代號)
 
-    當欄位需要從特定資料選擇時, 採用資料來源.
+- 當欄位需要從特定資料選擇時, 採用資料來源.
 
-    Syntax: To collect these functions in a central place, all data functions are kept in core/functions_user.php and have a ``"select_"`` prefix (because they select data), e.g. "select_dbselect" can be used to get data from the database.
+- Syntax: To collect these functions in a central place, all data functions are kept in core/functions_user.php and have a ``"select_"`` prefix (because they select data), e.g. "select_dbselect" can be used to get data from the database.
     
 To define a data construct in a sgsML file, write <data function="getmydata"/> between the <field>-tags to call the function "select_getmydata". Here dbselect is illustrated because it is the most common function to get data from the database.
 
@@ -992,10 +995,13 @@ sgsML Manual
 
 sgsML 手冊  (simple groupware system markup language, 簡單群組系統標註語言)
 
+2013 版 sgsML 的全文由 system 改為 solutions.
+
+sgsML 手冊  (simple groupware solutions markup language, 簡單群組解決方案標註語言)
+
 This is a small tutorial intended to help you to understand and develop web applications with sgsML.
 
 這是一個協助使用者了解如何以 sgsML 語言開發網際應用程式的簡短教學.
-
 
 Introduction
 
@@ -1003,7 +1009,7 @@ Introduction
 
 For many years now I'm writing web applications. Using PHP, Java, HTML, CSS, Javascript in combination with MySQL, Oracle, MsSQL, etc. always struggling with the complexity of web applications.
 
-多年來,我一直在寫網際應用程式. 使用 PHP, Java, HTML, CSS, Javascript 與各種資料庫管理系統 MySQL, Oracle, MsSQL 等結合的方式,讓網際應用程式的開發變得太過複雜.
+多年來,我一直在寫網際應用程式. 使用 PHP, Java, HTML, CSS, Javascript 與各種資料庫管理系統 MySQL, Oracle, MsSQL 等結合的方式, 讓網際應用程式的開發變得太過複雜.
 
 Making changes in one point always influences many other parts of the program.
  
@@ -1011,63 +1017,63 @@ Making changes in one point always influences many other parts of the program.
 
 Often applications have several thousand lines of code (or even more).
 
-經常這些應用程式有幾千行,甚至更多.
+經常這些應用程式有幾千行, 甚至更多.
 
 Searching bugs or making daily changes like adding fields takes a lot of time because you need to test the whole application again.
  
-尋找錯誤或經常必須更動的修改,如增加表單欄位,常會耗費許多時間,因為整個程式必須要再測試一遍.
+尋找錯誤或經常必須更動的修改, 如增加表單欄位, 常會耗費許多時間, 因為整個程式必須要再測試一遍.
 
 Since time is rare and deadline are sharp, it's time to optimize the common web application architecture.
 
-因為時間經常不夠,而且交期緊迫. 該是對常用的網際程式架構進行最佳化了.
+因為時間經常不夠, 而且交期緊迫. 該是對常用的網際程式架構進行最佳化了.
 
 Looking at bigger programs with many web applications, people start writing frameworks for common functions, managing users and parts of the user interface.
 
-看看現今的許多大型的網際程式,大家開始寫框架,以處理常用的函式,管理用戶與使用者介面.
+看看現今的許多大型的網際程式, 大家開始寫框架, 以處理常用的函式,管理用戶與使用者介面.
 
 But these frameworks are often very limited in functionality or require too much time to learn.
 
-但是,這些框架要不是功能有限,就是要花許多時間學習.
+但是, 這些框架要不是功能有限, 就是要花許多時間學習.
 
 Using a small framework, you still need to deal with the full complexity of coding PHP, Java, HTML, etc.
 
-即使採用小型框架,還是得處理 PHP, Java, HTML 在程式方面所衍生的複雜度.
+即使採用小型框架, 還是得處理 PHP, Java, HTML 在程式方面所衍生的複雜度.
 
 Moreover when working in bigger teams with a small framework, everyone writes its own specializations for his part.
 
-尤有甚者,若開發者眾多而卻採用小框架,每個人都得決定各自的規範
+尤有甚者, 若開發者眾多而卻採用小框架, 每個人都得決定各自的規範
 
 This creates a unmanageable lack of consistency and increases costs for adding new functionality and fixing bugs.
 
-將會因規範不一致而造成無法管理,在開發新功能或除錯時,成本就會跟著增加.
+將會因規範不一致而造成無法管理, 在開發新功能或除錯時, 成本就會跟著增加.
 
 Therefore many companies create bigger frameworks to prevent programmers from getting too individual with their code.
 
-因此,許多公司建立大型框架,以避免程式師建立太過個人化的程式碼.
+因此, 許多公司建立大型框架, 以避免程式師建立太過個人化的程式碼.
 
 With Java this is enforced using object-oriented programming (maybe also with PHP in the future).
 
-對 Java 而言,(強制的要求)就是必須採用物件導向(未來 PHP 也是如此)
+對 Java 而言, (強制的要求)就是必須採用物件導向(未來 PHP 也是如此)
 
 But I think that all these concepts are still too difficult to learn and understand in short time.
 
-個人則認為這些概念仍然難以學習,也不容易在短時間內能夠理解.
+個人則認為這些概念仍然難以學習, 也不容易在短時間內能夠理解.
 
 That's why I created a new programming language only intended for web applications.
 
-這也就是為甚麼我要建立一種新的程式語言,只用於網際程式.
+這也就是為甚麼我要建立一種新的程式語言, 只用於網際程式.
 
 You might ask: Hey, are you just creating another language with the intention to replace all the others?
 
-或許有人會問: 哼, 難道要建立一種語言,以取代其他語言?
+或許有人會問: 哼, 難道要建立一種語言, 以取代其他語言?
 
 The answer is no. The other languages are still used, but in a different way.
 
-答案當然是: 不. 其他語言仍會被使用,只不過以不同的方法加以應用.
+答案當然是: 不. 其他語言仍會被使用, 只不過以不同的方法加以應用.
 
 This is important to understand, because today programming languages are so complex in usage and syntax, and this gets harder every year.
 
-這點認知非常重要,因為今天的程式語言無論是用法或語法,都很複雜,並且越來越複雜.
+這點認知非常重要,因 為今天的程式語言無論是用法或語法, 都很複雜, 並且越來越複雜.
 
 So what is different when working with sgsML?
 
@@ -1083,7 +1089,7 @@ Now you can create good web applications without having learned programming for 
 
 To build web applications with sgsML it is enough if you can write functions with 5 to 10 lines of code.
 
-利用 sgsML 編寫網際程式,只要用 5 到 10 行的函式程式就夠了.
+利用 sgsML 編寫網際程式, 只要用 5 到 10 行的函式程式就夠了.
 
 You no longer write functions to store or load data in the database.
 
@@ -1091,7 +1097,7 @@ You no longer write functions to store or load data in the database.
 
 You no longer write GUI components just like HTML editors, spreadsheets or data selectors. How can this work?
 
-不再需要寫使用者介面,處理超文件編輯器,試算表,或者資料選單. 這到底要如何辦到?
+不再需要寫使用者介面, 處理超文件編輯器, 試算表, 或者資料選單. 這到底要如何辦到?
 
 The name sgsML already indicates a relation to XML.
 
@@ -1099,7 +1105,7 @@ The name sgsML already indicates a relation to XML.
 
 To produce applications written in sgsML, XML version 1.0 has been chosen as the syntax for sgsML files.
 
-利用 sgsML 編寫應用程式,採用 XML 1.0 的格式語法.
+利用 sgsML 編寫應用程式, 採用 XML 1.0 的格式語法.
 
 This format is easier to read and interpret than many other formats (e.g. ini, CSV, CSS, etc.).
 
@@ -1107,7 +1113,7 @@ This format is easier to read and interpret than many other formats (e.g. ini, C
 
 As said before we are talking about sgsML files, meaning that one module (e.g. companies or appointments) is written into one file with the extension ".xml".
 
-如前所述, sgsML 檔案就是一個模組(如,公司或約會模組),寫成一個以 xml 為副檔名的檔案.
+如前所述, sgsML 檔案就是一個模組(如,公司或約會模組), 寫成一個以 xml 為副檔名的檔案.
 
 Types
 
@@ -1115,12 +1121,11 @@ Types
 
 With sgsML a field is generally defined by its type.
 
-在 sgsML 中,欄位依照其型別加以定義.
+在 sgsML 中, 欄位依照其型別加以定義.
 
 This can be a text, a date, a number, etc. So when you define a field as text with sgsML, Simple Groupware creates this field in the database with the correct type and size in the corresponding table.
 
-可以是文字,日期,數字等. 在 sgsML 中將欄位定義為文字型別, sgw 就會在資料庫中依照正確的型別與長度,在資料庫中建立此一欄位.
-
+可以是文字, 日期, 數字等. 在 sgsML 中將欄位定義為文字型別, sgw 就會在資料庫中依照正確的型別與長度, 在資料庫中建立此一欄位.
 
 Furthermore Simple Groupware already knows how to display this field (You only have to decide between a horizontal or a vertical view) including sorting, searching, etc. Additionally, forms to create or edit this field inside a dataset are created automatically for you.
 
@@ -1130,7 +1135,7 @@ Furthermore Simple Groupware already knows how to display this field (You only h
 
 Syntax: Types are declared with simple_type="type" where type is one of int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime ... for a complete list, see src/modules/schema/!examples.html.
 
-語法: 型別採 simple_type="type" 的方式宣告,其中 type 為 int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime 中的一種, 完整的型別表列,可以參考 src/modules/schema/!examples.html
+語法: 型別採 simple_type="type" 的方式宣告,其中 type 為 int, float, text, password, id, hidden, select, wikiarea, codearea, textarea, htmlarea, checkbox, files, date, time, datetime 中的一種, 完整的型別表列, 可以參考 src/modules/schema/!examples.html
 
 Validators
 
@@ -1164,7 +1169,6 @@ E.g. you want a field to be a positive number: Just write one function "is_numer
 
 例如, 若希望某一欄位為正數: 只要寫一個 "is_numeric" 的函式, 確保欄位為數字, 然後再編寫一個 "is_positive" 的函式來測試數值是否為正.
 
-
 Of course, validating a German, English or ISO formatted date requires some work. Therefore a large number of functions for validating dates, strings and numbers is already shipped with Simple Groupware by default.
 
 當然, 若要辨識德文, 英文或 ISO 格式的日期, 需要一些功夫. 因此這些用來辨識日期, 字串與數字的大型函式, 已經內建在 Simple Groupware 系統中.
@@ -1177,11 +1181,9 @@ Filters
 
 過濾器
 
-
 Reading carefully you have read that Simple Groupware automatically displays your fields. But oftentimes you want to display fields differently from the value stored in the database. This is no conflict since you can define filters that change the value of a field before being displayed.
 
 前面已經說過, Simple Groupware 會自動顯示欄位內容. 但有時希望顯示的內容, 可能與存在資料庫中的資料不同. 這時就可以使用過濾器的定義, 來改變欄位內容, 以便用來顯示.
-
 
 This is elementary when working with dates. E.g. your database is configured for English dates, but you want to display them in German. Or you want to crop long texts to only show the first 20 words. Similar to validators you assign a function to the field that performs the filtering operation. This function takes the value of the field as input and returns the filtered value back to the program.
 
@@ -1192,7 +1194,6 @@ E.g. you want a date field to be presented as a German date, take a look at the 
 
 這樣的處理對初學者應該也會很簡單, 不用知道欄位資料會顯示在哪裡, 也不用知道資料從何而來. 就因為過濾器與驗證器相同, 因此也可以設計幾個小程式分別進行處理. 這樣就能重用這些函式 (所建立的函式自然就能重用)
 
-
 <filter views="all" function="dateformat||m/d/Y"/>
 
 This illustrates you the syntax of a filter and also the syntax for applying parameters to your functions (simply add a "|" to separate the parameters). To make working with dates easier for you, the function to format dates is already shipped with Simple Groupware.
@@ -1202,7 +1203,6 @@ This illustrates you the syntax of a filter and also the syntax for applying par
 The first parameter takes a verbal date modification, e.g. now + 1 month which returns the date increased by 1 month. The second parameter defines the format of the date.
 
 第一個變數針對日期文字作了修改, 例如, now + 1 個月表示所傳回的月份會加上 1. 而第二個變數則定義了日期的格式.
-
 
 An overview of the format parameters can be found at http://www.php.net/date. Examples dealing with modifications of dates are here: http://www.php.net/strtotime.
 
@@ -1268,11 +1268,11 @@ Often it is necessary to build fields that already contain a set of data from wh
 
 有時在建立欄位時, 可以提供一組資料, 以便讓使用者選取, 例如, 最常用的就是選項表. 當編寫通訊錄時, 可以建立一組性別欄位, 讓使用者選擇.
 
-The preferred values are male and female. The type "select" defines a select-box in Simple Groupware. To define the preferred values you use the <data> construct in sgsML, e.g. <data values="male|female"/> Using more than one value, separate each with a "|". You can also define more than one <data> construct inside the <field>-tag.
+The preferred values are male and female. The type "select" defines a select-box in Simple Groupware. To define the preferred values you use the <data> construct in sgsML, e.g. <data values=``"male|female"``/> Using more than one value, separate each with a ``"|"``. You can also define more than one <data> construct inside the <field>-tag.
 
 也就是提供男性及女性讓使用者選擇. 而在 Simple Groupware 中是透過 "select" 來定義這些選項表.
 
-為了定義這些選項, 可以採用 sgsML 中的 <data> 結構, 例如, <date values="male|female" /> 若有更多選擇, 各別以 "|" 隔開. 也可以在 <field> 標註中使用多個 <data> 結構.
+為了定義這些選項, 可以採用 sgsML 中的 <data> 結構, 例如, <date values=``"male|female"`` /> 若有更多選擇, 各別以 "|" 隔開. 也可以在 <field> 標註中使用多個 <data> 結構.
 
 The method shown before is used for including static data. But in reality, these values are often dynamic and need to be fetched from a special data source. To get these values you can define a function that searches the right values for you and returns them as an array.
 
@@ -1282,9 +1282,9 @@ You don't have to care about transferring these values to forms or to the releva
 
 使用者不需要特別知道如何在表單中處理這些資料, 系統會自動處理. Simple Groupware 會自動呼叫所需的函式, 取得所需要的資料.  與其提供數值變數, 使用者可以指定函式變數, 例如, 要在通訊錄中列出對應公司列表.
 
-<data function="dbselect|simple_companies|companyname,companyname||companyname asc|10"/>
+<data function=``"dbselect|simple_companies|companyname,companyname||companyname asc|10"``/>
 
-<data values="male|female"/>
+<data values=``"male|female"``/>
 
 To get these values you call the function dbselect which selects data from the database. To reduce this list we only want 10 items (parameter 5), if there are more, a search box is used to select relevant values.
 
@@ -1361,9 +1361,11 @@ All fields are defined inside the <table>-tag. A field can be seen as a column i
 所有欄位都定義在 <table> 標註中, 此欄位可以視為資料庫的資料表, 例如, 地址資料庫中的姓, 街道名稱, 國家名稱等, 而每一個欄位都有其型別, 如前所述, sgsML 中, 型別稱為 "simple_type".
 
 A type can be a normal string (simple_type is "text") or a collection of lines (simple_type is "textarea"). There are even exotic types like "htmlarea" which represents lines formatted with HTML, or different types for using passwords, dates, times, datetimes, files, wikis, etc.
-Every field has a name to be identified by the program.
 
 型別可以是一行的字串 (simple_type 為 "text") 或者是幾行的字串 (simple_type 為 "textarea"). 也可以是比較特別的型別, 如 "htmlarea", 代表資料為 HTML, 或者是 passwords, dates, times, datetimes, files, wikis 等.
+
+Every field has a name to be identified by the program.
+
 每一個欄位在程式裏都有一個型別名稱.
 
 This is similar to column definitions in databases. Besides the internal name used by the program every column can contain a displayname which is the name displayed to the user.
@@ -1428,7 +1430,7 @@ But views can do a lot more: views are also used to edit and create assets. Sinc
 
 To present several fields, sgsML differs between the orientation in which a group of fields is presented: The horizontal view (sgsML "display") is a list where every field has one column (this is how Windows Explorer lists files).
 
-為了呈現幾個欄位,  sgsML 就群組欄位的方位試圖有所不同: 水平視圖 (sgsML 中的 "display") 就是每一個欄位放在一行中的列表呈現 (與視窗中顯示檔案的方式相同).
+為了呈現幾個欄位,  sgsML 就群組欄位的方位視圖有所不同: 水平視圖 (sgsML 中的 "display") 就是每一個欄位放在一行中的列表呈現 (與視窗中顯示檔案的方式相同).
 
 The second one is called "details" (vertical orientation) and presents every field as one line, meaning the first column is the name of the field and the second column contains the value of it.
 
@@ -1548,14 +1550,13 @@ System modules are kept under "modules/schema_sys". If a module doesn't represen
 
 Therefore it uses its own functions for getting and setting data. These functions are very simple and are automatically called by the sql-handler of Simple Groupware. These functions are stored in modules/lib/* and are all following the Simple Groupware API. When learning sgsML you should try to understand system modules at last.
 
-因此, 這些模組使用各自的函式來取得或設定資料. 這些函式通常非常簡單, 而且會自洞由 Simple Groupwaer 的 sql 處理器進行呼叫. 這些函式放在 modules/lib/* 當中, 通常使用 Simple Groupwaer 的 API 函式. 想要學習 sgsML 就必須要徹底了解這些系統模組.
+因此, 這些模組使用各自的函式來取得或設定資料. 這些函式通常非常簡單, 而且會自動由 Simple Groupwaer 的 sql 處理器進行呼叫. 這些函式放在 modules/lib/* 當中, 通常使用 Simple Groupwaer 的 API 函式. 想要學習 sgsML 就必須要徹底了解這些系統模組.
 
 以下這些 src/ 與 bin/ 的目錄架構, 在 0.8 版已經有了變更, 因此是否要對以下資料進行翻譯??
 
 The Simple Groupware folder structure has two branches: src/ and bin/. If you install with language English, German, etc. all files from src/* are translated and written to bin/* during the setup process. Therefore if you installed with English or German, place your .xml file in bin/modules/schema/. If you installed with Developer as language, place your .xml file in src/modules/schema/.
 
 Note: To be able to select a module in the list when creating a new folder, you need to add the module to "modules/schema/modules.txt". Every line in this file contains the module's name and the string that is displayed in the web-interface.
-
 
 Note: Every .xml file defines a structure of a table in the database. The name of the table is automatically set by the filename and ``"simple_"`` as prefix. E.g. the table name for schema/tasks.xml is set to simple_tasks. If the module is a system module, the prefix will be ``"simple_sys_"``. E.g. the table name for schema_sys/users.xml will be simple_sys_users. The "modulename" attribute is only the name displayed above the tree on every page.
 
@@ -1620,21 +1621,23 @@ The field description will be displayed as the translation of {t}Description{/t}
 
 Now we have:
 
-blank.xml::
+.. code-block:: none
 
-    <table modulename="{t}Blank{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
+    blank.xml::
     
-    <view name="display" displayname="{t}Display{/t}" />
-    
-    <field name="id" simple_type="id" displayname="{t}Id{/t}" />
-    
-    <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
-    
-    <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
-    
-    <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
-    
-    </table>
+        <table modulename="{t}Blank{/t}" default_view="display" orderby="lastname" order="asc" limit="20">
+        
+        <view name="display" displayname="{t}Display{/t}" />
+        
+        <field name="id" simple_type="id" displayname="{t}Id{/t}" />
+        
+        <field name="lastname" displayname="{t}Last name{/t}" simple_type="text" required="true" />
+        
+        <field name="firstname" displayname="{t}First name{/t}" simple_type="text" required="true" />
+        
+        <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
+        
+        </table>
 
 To rename our module from blank to "My Addresses", use ...
 
@@ -1650,7 +1653,7 @@ myaddresses.xml:
     <field name="description" displayname="{t}Description{/t}" simple_type="textarea" simple_size="4" />
     </table>
 
-... and rename the file from "src/modules/schema/blank.xml" to "src/modules/schema/myaddresses.xml" if you installed Simple Groupware with language "Developer". If you installed it with English or German, rename the file from "bin/modules/schema/blank.xml" to "bin/modules/schema/myaddresses.xml".
+and rename the file from "src/modules/schema/blank.xml" to "src/modules/schema/myaddresses.xml" if you installed Simple Groupware with language "Developer". If you installed it with English or German, rename the file from "bin/modules/schema/blank.xml" to "bin/modules/schema/myaddresses.xml".
 
 Now we only have a simple view that can display entries. To enable you to create new entries, add the following attribute to the table tag:
 
@@ -1686,9 +1689,7 @@ myaddresses.xml::
 
 To deploy your new web application, make sure that the module is stored in "src/modules/schema/myaddresses.xml" (Developer language) or "bin/modules/schema/myaddresses.xml" (English, German, etc. language).
 
-
 Inside Simple Groupware, take a look at the tree. Go to a folder where you want to place the new application, e.g. click "Workspace". Below the tree, click "Options", enter a new folder name to the "New folder" form, choose "myaddresses" in the list and click Ok. This is all: The new module is running now!
-
 
 Note: The modules in the list contain the filenames without the extension (.xml), not the modulename-attribute. Therefore you see "myaddresses" in the list instead of "{t}My Addresses{/t}".
 
@@ -1716,8 +1717,7 @@ This means we add new limitations to the fields:
 
 <notin views="display" />
 
-Notin tells the program not to display the field in the view "display". Notin uses "views" as attribute which means that you can add several views here using views="view1|view2" separated with "|".
-
+Notin tells the program not to display the field in the view "display". Notin uses "views" as attribute which means that you can add several views here using views=``"view1|view2"`` separated with ``"|"``.
 
 Summarizing our activities
 
@@ -1824,7 +1824,8 @@ Since every address has relations to other addresses we finally add a field to s
 <field name="isrelatedto" displayname="{t}Is related to{/t}" simple_type="select" simple_size="3" is_linked="simple_myaddresses|details|lastname" multiple="&lt;br&gt;" simple_tab="details" allow_custom="true">
 
 
-<data function="dbselect|simple_myaddresses|lastname,lastname||lastname asc|10"/>
+``<data function="dbselect|simple_myaddresses|lastname,lastname||lastname asc|10"/>``
+
 </field>
 
 The field isrelatedto is displayed with the translation of {t}Is related to{/t}. The simple_type is a selectbox with a height of 3 lines, allowing the user to select multiple items. In the display these items are separated by "<br>" (= new line). The user can also type in his own items which is declared by allow_custom=true.
@@ -1834,7 +1835,6 @@ To get the data from the selectbox we use the select_dbselect function which doe
 This field is also shown in the details tab. Furthermore when displaying the items of this field we want these items to be links. When a user clicks them the referenced address should be displayed.
 
 This behavior is achieved by using the "is_linked" attribute. The first parameter names the table, the second the view we want to see in the popup and the third defines the field to choose from.
-
 
 The complete code of the example
 
@@ -1872,9 +1872,9 @@ myaddresses.xml:
 
 <field name="city" displayname="{t}City{/t}" simple_type="text" />
 
-<field name="isrelatedto" displayname="{t}Is related to{/t}" simple_type="select" simple_size="3" is_linked="simple_myaddresses|details|lastname" multiple="&lt;br&gt;" simple_tab="details" allow_custom="true">
+<field name="isrelatedto" displayname="{t}Is related to{/t}" simple_type="select" simple_size="3" is_linked=``"simple_myaddresses|details|lastname"`` multiple="&lt;br&gt;" simple_tab="details" allow_custom="true">
 
-<data function="dbselect|simple_myaddresses|lastname,lastname||lastname asc|10"/>
+``<data function="dbselect|simple_myaddresses|lastname,lastname||lastname asc|10"/>``
 
 </field>
 
@@ -1941,7 +1941,7 @@ View Access 主要權限設定的目錄在於進行 tabs 的進階管理:
 
 例如::
 
-    |answers:no_read:users_self_registration|details:no_read:users_self_registration|
+    ``|answers:no_read:users_self_registration|details:no_read:users_self_registration|``
 
 表示要將 answers 與 details tabs 以群組 View Access 設定, 全部設為 no_read
 
@@ -1956,7 +1956,7 @@ peerreview 模組
 
 模組檔案為 peereview.xml, 部署時必須在 bin/modules/schema/modules.txt 中登錄, peereview|Peer Review
 
-.. code-block:: xml
+.. code-block:: none
 
     <table modulename="Peer Review" default_view="display" orderby="studentno" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_asset_rights="owner_read">
     <view name="display" displayname="Display" />
@@ -3066,7 +3066,8 @@ Simple Groupware custom 延伸程式
 
 .. code-block:: xml
 
-    <table modulename="Custom PHP include" default_view="display" default_sql="no_select" schema_mode="static" load_library="../custom/core/classes/custom.php">
+    <table modulename="Custom PHP include" default_view="display" default_sql="no_select" \
+    schema_mode="static" load_library="../custom/core/classes/custom.php">
       <view name="display" displayname="Display" function="get_my_data">
       </view>
       <field name="id" simple_type="id" displayname="{t}Id{/t}">
@@ -3563,17 +3564,73 @@ Approximation of involute curves for CAD-system processing
 
 http://link.springer.com/article/10.1007%2Fs00366-007-0060-3
 
+SGW 程式運作流程
+**********************
+
+index.html 或 index.htm 啟動 Javascript 將執行導向 /bin/index.php
+
+導入 simple_store 目錄下的 config.php, 假如還未安裝, 則執行 core/setup.php
+
+導入 core/functions.php 與 lib/smarty/Smarty.class.php
+
+執行 sys::init(), 啟動程式畫面, 等待使用者輸入.
+
+sys::init() 表示要執行 functions.pp 中 sys 類別中的 init() 方法.
+
+init() 方法如下:
+
+.. code-block:: php
+
+    static function init() {
+        self::$time_start = sys_get_microtime();
+    
+        // clean request vars
+        if (ini_get("magic_quotes_gpc")!==false and get_magic_quotes_gpc()) modify::stripslashes($_REQUEST);
+        foreach ($_REQUEST as $key=>$val) {
+          if (is_array($val) and count($val)>0) {
+            $_REQUEST[$key] = array();
+            foreach ($val as $val2) {
+              if (!is_array($val2)) $_REQUEST[$key][$val2] = $val2;
+        } } }
+    
+        // refresh smarty cache?
+        if (DEBUG) debug_check_tpl();
+        
+        // set up smarty
+        self::$smarty = new Smarty;
+        self::$smarty->register_prefilter(array("modify","urladdon_quote"));
+        if (isset($_REQUEST["print"])) self::$smarty->register_outputfilter(array("modify","striplinksforms"));
+        if (isset($_REQUEST["print"])) self::$smarty->assign("print",$_REQUEST["print"]);
+        self::$smarty->compile_dir = SIMPLE_CACHE."/smarty";
+        self::$smarty->template_dir = "templates";
+        self::$smarty->config_dir = "templates";
+        self::$smarty->compile_check = false;
+    
+        // set up database
+        if (!sql_connect(SETUP_DB_HOST, SETUP_DB_USER, sys_decrypt(SETUP_DB_PW,sha1(SETUP_ADMIN_USER)), SETUP_DB_NAME)) {
+          $err = sprintf("Cannot connect to database %s on %s.\n",SETUP_DB_NAME,SETUP_DB_HOST).sql_error();
+          trigger_error($err,E_USER_ERROR);
+          sys_die($err);
+        }
+    
+        // verify credentials
+        login_handle_login();
+      }
+
 SGW 模組程式編寫
 **********************
 
 利用 sgsML 編寫一個網際 Python 程式環境:
 
-.. code-block:: xml
+.. code-block:: none
 
-    <table modulename="Custom" default_view="display" orderby="id" order="desc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
-      <view name="display" template="free" displayname="Display" image_width="250" image_height="145" cols="3" row_height="215px">
+    <table modulename="Custom" default_view="display" orderby="id" order="desc" limit="20" \
+    enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+      <view name="display" template="free" displayname="Display" image_width="250" \
+       image_height="145" cols="3" row_height="215px">
       </view>
-      <view name="details" template_mode="small" showinsingleview="true" displayname="Details" show_preview="true">
+      <view name="details" template_mode="small" showinsingleview="true" \
+      displayname="Details" show_preview="true">
       </view>
       <field name="title" displayname="Title" simple_type="text" required="true">
       </field>
@@ -3581,11 +3638,15 @@ SGW 模組程式編寫
       </field>
       <field name="description" displayname="Description" simple_type="textarea">
       </field>
-      <field name="attachment" displayname="Attachment" simple_type="files" simple_file_size="10M" simple_size="10">
+      <field name="attachment" displayname="Attachment" simple_type="files" \
+      simple_file_size="10M" simple_size="10">
       </field>
       <field name="category" displayname="Category" simple_type="select" simple_size="1" height="16px">
-        <data title="Default" sort="asc" values="Introduction|Variables|Statement|Expression|Math|Strings|Conversion|Lists|Tuple|Dictionary|Loops|Conditions|Functions|Classes|File IO|PIL|C API|CherryPy|Pybean|Deap|tkinter|PyQt|Sympy" />
-        <data title="Lookup" function="dbselect|simple_categories|categoryname,categoryname|cattype='notes'|categoryname asc|10"/>
+        <data title="Default" sort="asc" values="Introduction|Variables|Statement|Expression|Math \
+        |Strings|Conversion|Lists|Tuple|Dictionary|Loops|Conditions|Functions|Classes|File IO|PIL|C API \
+        |CherryPy|Pybean|Deap|tkinter|PyQt|Sympy" />
+        <data title="Lookup" function="dbselect|simple_categories|categoryname,categoryname| \
+        cattype='notes'|categoryname asc|10"/>
       </field>
       <field name="syncid" simple_type="id" hidden="true">
       </field>
@@ -3680,7 +3741,8 @@ SGW 模組程式編寫
     <th><input type="button" value="Console" onClick="show_console2()"></th>
     <th><input type="button" value="Javascript" onClick="show_js()"></th>
     </tr>
-    <tr><td colspan><textarea id="src" name={$name} cols="60" rows="20">{$value}</textarea></td><td><input type="button" value="Run" onClick="run()"></td>
+    <tr><td colspan><textarea id="src" name={$name} cols="60" rows="20">{$value} \
+    </textarea></td><td><input type="button" value="Run" onClick="run()"></td>
     <td><input type="button" value="Clear" onClick="clear_text()"></td>
     <td colspan=2><textarea id="console2" cols="60" rows="20"></textarea></td>
     </tr>
@@ -3854,7 +3916,8 @@ bconsole.xml 內容則需要跟著配合修改:
     <th><input type="button" value="Console" onClick="show_console2()"></th>
     <th><input type="button" value="Javascript" onClick="show_js()"></th>
     </tr>
-    <tr><td colspan><textarea id="src" name={$name} cols="60" rows="20">{$value}</textarea></td><td><input type="button" value="Run" onClick="run()"></td>
+    <tr><td colspan><textarea id="src" name={$name} cols="60" rows="20">{$value}</textarea> \
+    </td><td><input type="button" value="Run" onClick="run()"></td>
     <td><input type="button" value="Clear" onClick="clear_text()"></td>
     <td colspan=2><textarea id="console2" cols="60" rows="20"></textarea></td>
     </tr>
@@ -3949,7 +4012,8 @@ bconsole.xml 內容則需要跟著配合修改:
         <th><input type="button" value="Console" onClick="show_console2()"></th>
         <th><input type="button" value="Javascript" onClick="show_js()"></th>
         </tr>
-        <tr><td colspan><textarea id="src" name={$name} cols="60" rows="20">{$value}</textarea></td><td><input type="button" value="Run" onClick="run()"></td>
+        <tr><td colspan><textarea id="src" name={$name} cols="60" rows="20">{$value}</textarea> \
+        </td><td><input type="button" value="Run" onClick="run()"></td>
         <td><input type="button" value="Clear" onClick="clear_text()"></td>
         <td colspan=2><textarea id="console2" cols="60" rows="20"></textarea></td>
         </tr>
@@ -4063,4 +4127,158 @@ Brython 在執行區與 html 選單的互動, 以下程式表示要將三個選�
     for 索引, 選擇 in enumerate(項目):
         選擇表單 <= html.OPTION(選擇, value = 索引)
     doc['outputdiv'] <= 選擇表單
+
+CD 第十二週
++++++++++++++++
+
+Simple Groupware 模組程式主要用於多人協同環境, 以機械設計流程而言, 可以在網際群組環境中編寫協同設計程式, 這些網際程式可以從網際頁面中的表單取得設計輸入, 並且從網際資料庫欄位中建立所需的設計選單, 當使用者完成設計欄位輸入後, Simple Groupware 模組程式中的設計運算, 可以設法在遠端伺服器中完成, 也可以在使用者端完成.
+
+在遠端伺服器中完成機械協同設計運算的考量在於可隱匿實際的運算細節, 具有較高的保全性, 但是所有運算集中在伺服器端, 因此 Server 將承受較高的負載.
+
+若選擇在使用者端完成設計運算, 則必須在網頁中呈現運算細節, 若非採用編譯式設計運算(例如: Java applet) 技術, 而是使用解譯式的 JavaScript(含 Brython) 技術, 則較難隱匿實際的運算細節, 但是大多數設計運算可分散在使用者端, 可減輕 Server 端的運算負載.
+
+Server 端設計運算模組:
+
+採 sgsML 語法編寫, 可以加上 Brython 或 Javascript 程式, 利用 WebGL 程式設計流程中的 2D/3D 零組件模擬.
+
+客戶端設計運算模組:
+
+由 sgsML 架構帶出客製化的 simple_type, 並在 form_render_value 及 render_value 方法中置入 Brython 程式環境.
+
+sgsML 程式範例
+******************
+
+  欄位變數從選項中選擇(選擇項目直接在下方):
+  
+.. code-block:: none
+  
+    <field name="category" displayname="Category" simple_type="select" simple_size="1" required="true">
+    <data reverse="true" values="holiday_##_Public holiday|vacation_##_Vacation|overtime_##_Overtime|illness_##_Illness|school_##_School|special_##_Special leave|loa_##_Leave of absence|absence_##_Absence|other_##_Other"/>
+    </field>
+      
+欄位變數從資料庫中透過特定函式取值後, 從選項中選擇(內定值為 anonymous):
+
+.. code-block:: none
+
+    <field name="username" displayname="Username" simple_type="select" simple_size="1" simple_default="anonymous" simple_default_function="getusername" required="true">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+    <link value="index.php?find=asset|simple_sys_users||username=@username@&amp;view=details"/>
+    </field>
+
+欄位變數從資料庫中透過特定函式取值後, 從選項中選擇, 無內定值, 且設定連結文字:
+
+.. code-block:: none
+
+    <field name="username" displayname="Username" simple_type="select" simple_size="1" required="true" allow_custom="true">
+    <data function="dbselect|simple_sys_users|username,concat(lastname;' ';firstname)||lastname asc|10"/>
+    <link value="index.php?find=asset|simple_sys_users||username=@username@&amp;view=details"/>
+    <linktext views="display|offer|inactive" value="#index.php?folder=@folder@&amp;view=details&amp;iframe=1&amp;item[]=@id@"/>
+    </field>
+
+欄位選項由其他欄位資料庫中取出:
+
+.. code-block:: none
+
+    <field name="resourcecol" displayname="Resource" simple_type="select" simple_size="1">
+    <data function="dbselect|simple_resources|resourcename,resourcename||resourcename asc|10"/>
+    <link value="index.php?find=asset|simple_resources||resourcename=@resourcecol@&amp;view=display"/>
+    </field>
+    
+欄位變數為浮點數:
+
+.. code-block:: none
+
+    <field name="amount" displayname="Amount (USD)" simple_type="float" required="true" sum="true">
+    </field>
+    
+欄位變數由資料庫中取出後排序作為選單(選擇項目在右方):
+
+.. code-block:: none
+
+    <field name="category" displayname="Category" simple_type="select" simple_size="1" required="true">
+    <data sort="asc" values="Transportation costs|Costs of accommodation|Subsistence costs|Other"/>
+    <data function="dbselect|simple_categories|categoryname,categoryname|cattype='expenses'|categoryname asc|10"/>
+    </field>
+    
+欄位變數為浮點數, 且有內建值:
+
+.. code-block:: none
+
+    <field name="hours_per_week" displayname="Hours per week" simple_type="float" simple_default="0">
+    </field>
+    
+欄位變數指定為圖檔上傳(以 fileupload 函式查驗輸入檔案是否為 jpg, jpeg, gif 與 png 格式):
+
+.. code-block:: none
+
+    <field name="outlineimage" displayname="Outline image" simple_type="files" simple_file_size="5M" simple_size="10">
+    <notin views="display|display2|calendar"/>
+    <validate function="fileupload|jpg,jpeg,gif,png"/>
+    </field>
+    
+欄位變數為浮點, 且會自動加總(sum):
+
+.. code-block:: none
+
+    <field name="ordersize" displayname="Order size" simple_type="text" simple_tab="parameters" sum="true">
+    <validate function="float" />
+    </field>
+    
+欄位變數輸入必須符合特定格式要求(一定要填, 必須是小寫的數字或字母組成的字串, 最少三個字元, 最多 128 字元):
+
+.. code-block:: none
+
+    <field name="projectname" displayname="Name" simple_type="text" required="true" is_unique="true">
+    <validate function="regexp|/^[a-z0-9-_@\.]{3,128}$/|Name must be not null, lowercase, min 3 characters, max 128 containing [a-z0-9_-@.]." />
+    <readonlyin views="edit"/>
+    <linktext views="display|display2|calendar" value="#index.php?view=details&amp;iframe=1&amp;item[]=@id@"/>
+    </field>
+
+sgsML 兩數相加範例
+************************
+
+以下的 sgsML 程式名稱為 myadd, 程式檔案位於 V:\extensions\sgw\bin\modules\schema, 名稱為 myadd.xml, 必須在 modules.txt 中登錄 myadd 模組程式.
+
+myadd.xml 程式中使用 test.php filter 類別, test.php 檔案位於 V:\extensions\sgw\bin\core\classes, 名稱為 test.php
+
+myadd.xml 內容
+
+.. code-block:: none
+
+    <table modulename="Myadd" default_view="display" orderby="var1" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_asset_rights="owner_read">
+    <view name="display" displayname="Display" />
+    <view name="details" displayname="Details" showinsingleview="true" tfield_1="var1" tfield_2="var2" />
+    <!--
+    <field name="id" simple_type="id" displayname="Id">
+    <notin views="display" />
+    </field>
+    -->
+    <field name="var1" id="var1" displayname="var1" simple_type="int" required="true" />
+    <field name="var2" id="var2" displayname="var2" simple_type="int" required="true" />
+    <field name="var3" displayname="var3" simple_type="int" notinall="true">
+    <filter views="all" function="test::myadd"/>
+    <onlyin views="display|details"/>
+    </field>
+    <field name="description" displayname="程式說明" simple_type="textarea" simple_size="4">
+    <notin views="display" />
+    </field>
+    </table>
+    
+test.php 欄位資料處理類別檔案內容:
+
+.. code-block:: php
+
+    <?php
+    
+    class test {
+    
+        static function myadd($val,$args,$data) {
+        // how to get other field value??
+        // $_SESSION["username"] 為目前的用戶名稱
+        // $data["var1"]["data"][0] 為 var1 欄位值
+        // $data["var2"]["data"][0] 為 var2 欄位值
+            return $data["var1"]["data"][0]+$data["var2"]["data"][0];
+        }
+    }
+    ?>
 

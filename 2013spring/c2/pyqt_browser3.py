@@ -64,4 +64,5 @@ if __name__ == "__main__":
     app = QtGui.QApplication(sys.argv)
     main = Browser()
     main.show()
+    # 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
     sys.exit(app.exec_())

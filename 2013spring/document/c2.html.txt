@@ -2363,6 +2363,8 @@ Python 3 程式教學的主題
 
 這裡將與 Python 3 程式教學有關的主題收集在此:
 
+有關 Python 程式語法參考: https://github.com/ralsina/python-cheatsheet/blob/master/cheatsheet-en.pdf
+
 Python 程式簡介
 ^^^^^^^^^^^^^^^^^^^
 
@@ -2664,14 +2666,20 @@ print(字串.replace("字串","學生", 2))    # 更換 2 次
 
     #coding: utf8
     變數 = "一二三四五六!"
-    print("變數[:2] 列出最前頭兩個元素:",變數[:2],"/",變數) # 從索引 0 開始, 列出串列中的元素, 到索引小於 2 為止 (不包括索引 2)
-    print("變數[2:] 列出索引 2 到最後一個元素:",變數[2:],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素
-    print("變數[-2:] 列出倒數 2 個元素:",變數[-2:],"/",變數) # 從索引 -2 開始 (倒數第二個), 列出串列中到最終的元素 (也就是列出倒數兩個元素)
-    print("變數[-7:] 列出倒數 7 個元素:",變數[-7:],"/",變數) # 從索引 -7 開始 (倒數第七個), 列出串列中到最終的元素 (也就是列出倒數七個元素)
+    print("變數[:2] 列出最前頭兩個元素:",變數[:2],"/",變數) # 從索引 0 開始, \
+    列出串列中的元素, 到索引小於 2 為止 (不包括索引 2)
+    print("變數[2:] 列出索引 2 到最後一個元素:",變數[2:],"/",變數) # 從索引 2 開始, \
+    列出串列中到最終的元素
+    print("變數[-2:] 列出倒數 2 個元素:",變數[-2:],"/",變數) # 從索引 -2 開始 (倒數第二個), \
+    列出串列中到最終的元素 (也就是列出倒數兩個元素)
+    print("變數[-7:] 列出倒數 7 個元素:",變數[-7:],"/",變數) # 從索引 -7 開始 (倒數第七個), \
+    列出串列中到最終的元素 (也就是列出倒數七個元素)
     print("len(變數) 元素個數:",len(變數),"/",變數) # 變數 共有 6 個元素
     print("變數[0:2] 列出最前頭兩個元素:",變數[0:2],"/",變數)  # 列出索引 0, 1 等兩個元素
-    print("變數[2:-1] 由索引 2 列到最後一元素之前一個(不含倒數第一個):",變數[2:-1],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素的前一個 (不包括索引 -1)
-    print("變數[2:-3] 由索引 2 列到最後一元素之前三個(不含倒數第三個):",變數[2:-3],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素的前三個 (不包括索引 -3)
+    print("變數[2:-1] 由索引 2 列到最後一元素之前一個(不含倒數第一個):", \
+    變數[2:-1],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素的前一個 (不包括索引 -1)
+    print("變數[2:-3] 由索引 2 列到最後一元素之前三個(不含倒數第三個):", \
+    變數[2:-3],"/",變數) # 從索引 2 開始, 列出串列中到最終的元素的前三個 (不包括索引 -3)
     print("變數[-1] 列出最後一個元素:",變數[-1],"/",變數) # 列出最後一個元素
     print("變數[-2] 列出倒數第二個元素:",變數[-2],"/",變數) # 列出倒數第二個元素
     print("變數[-0] 列出第一個元素:",變數[-0],"/",變數) # 列出第一個元素, 索引 -0 等同 0
@@ -2717,7 +2725,8 @@ Python 的串列與 tuple
     #coding: utf8
     # 使用者將不同時段的課程以(列, 行, 課程名稱) 輸入串列資料中
     # 若課程資料需要排序, 則利用 sorted() 或 itemgetter() 處理
-    # 若需要配合雙 for 迴圈將混亂排序之課程資料納入表單中, 則設法在串列中依序搜尋出與列行對應的課程, 即可順利列出課表
+    # 若需要配合雙 for 迴圈將混亂排序之課程資料納入表單中, \
+    則設法在串列中依序搜尋出與列行對應的課程, 即可順利列出課表
     from operator import itemgetter
     # 課程資料為串列資料, 其元件則為元組資料, 串列可排序, 元組則次序固定
     課程資料 =[(1,2,"1,2 課程"),(1,1,"1,1 課程"),(1,1,"1,3 課程")]
@@ -2738,7 +2747,8 @@ Python 的串列與 tuple
     #coding: utf8
     # 使用者將不同時段的課程以(列, 行, 課程名稱) 輸入串列資料中
     # 若課程資料需要排序, 則利用 sorted() 或 itemgetter() 處理
-    # 若需要配合雙 for 迴圈將混亂排序之課程資料納入表單中, 則設法在串列中依序搜尋出與列行對應的課程, 即可順利列出課表
+    # 若需要配合雙 for 迴圈將混亂排序之課程資料納入表單中, \
+    則設法在串列中依序搜尋出與列行對應的課程, 即可順利列出課表
     from operator import itemgetter
     # 課程資料為串列資料, 其元件則為元組資料, 串列可排序, 元組則次序固定
     課程資料 =[(2,2,"1,2 課程"),(1,1,"1,1 課程"),(1,3,"1,3 課程")]
@@ -2808,8 +2818,14 @@ Sets 在特定查驗有無重複元件的操作上比 Lists 快.
     #coding: utf8
     # 由字串取出單字, 以 set() 特性, 將重複單字去除
     字串 = '''
-    Fundamentals discusses the basic tasks in using Creo Parametric, such as collaboration, managing data, working with the user interface, working with the model, and so on. 
-    Use Fundamentals Help when you first start learning how to use Creo Parametric or when you want to enhance your knowledge. Fundamentals Help introduces you to the basic terminology, tasks, and procedures so you can build your models efficiently and share information, ideas, and processes in real time. You will learn how to use data management tools, customize the user interface, work with your models, and manage model composition.  
+    Fundamentals discusses the basic tasks in using Creo Parametric, such as collaboration, \
+    managing data, working with the user interface, working with the model, and so on. 
+    Use Fundamentals Help when you first start learning how to use Creo Parametric or \
+    when you want to enhance your knowledge. Fundamentals Help introduces you to the \
+    basic terminology, tasks, and procedures so you can build your models efficiently and \
+    share information, ideas, and processes in real time. You will learn how to use data \
+    management tools, customize the user interface, work with your models, \
+    and manage model composition.  
     '''
     # 將字串以空白隔開, 並用 set() 轉為單字集合
     # 利用 lower() 轉為小寫
@@ -3041,7 +3057,8 @@ Python 程式語言雖然沒有 private 與 public, 但是仍可在變數或函�
         _c is private instance variable (by naming convention),
         __d is private instance variable (mangled by interpreter),
         z is local variable within scope of __init__ method.
-        In case of single underscore in names, it's strictly a convention. It is still possible to access these variables. In case of double underscore names, they are mangled. It's still possible to circumvent that.
+        In case of single underscore in names, it's strictly a convention. It is still possible to access these variables.
+        In case of double underscore names, they are mangled. It's still possible to circumvent that.
         
         '''
 
@@ -3509,7 +3526,9 @@ Python 程式語言雖然沒有 private 與 public, 但是仍可在變數或函�
 pickle 應用
 ~~~~~~~~~~~~~
 
-以下範例利用 pickle 模組將物件進行序列化(serialize)資料轉換, 可以將類別物件轉換為 bytes 資料型別, 以利存入檔案或資料庫, 之後取出該 bytes 資料後, 在以反序列化轉回原始的資料內容.
+以下範例利用 pickle 模組將物件進行序列化(serialize)資料轉換, 
+可以將類別物件轉換為 bytes 資料型別, 以利存入檔案或資料庫, 
+之後取出該 bytes 資料後, 在以反序列化轉回原始的資料內容.
 
 .. code-block:: python
 
@@ -3553,7 +3572,8 @@ pickle 應用
     # 請注意, 序列化之後的"pickle輸出"資料型別為 bytes
     print("pickle輸出的型別:",type(pickle輸出))
     
-    # 請注意, 只要將原先序列化的資料(格式為 bytes) 執行反序列化, 就可以取回原先序列化的字串內容, 且"原先的字串"資料型別為字串
+    # 請注意, 只要將原先序列化的資料(格式為 bytes) 執行反序列化, \
+    就可以取回原先序列化的字串內容, 且"原先的字串"資料型別為字串
     # 利用 pickle.loads() 取出原先序列化的內容
     原先的字串 = pickle.loads(pickle輸出)
     
@@ -3705,7 +3725,8 @@ tkinter 與 matplotlib 結合, 滑鼠互動
     from tkinter import Tk, Button
     import numpy as np
     import matplotlib.pyplot as plt
-    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
+    from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, \
+    NavigationToolbar2TkAgg
     
     # plotting function: clear current, plot & redraw
     def plot(x, y):
@@ -3876,13 +3897,16 @@ PyQt 程式編寫
 
 若程式可以採開放原始碼模式, 則可選擇 PyQt, 否則可以選擇類似的 PySide.
 
-PyQt: http://www.riverbankcomputing.com/software/pyqt/download, 採 GPL 2 or 3 and commercial license(若非開源專案則必須付費)
+PyQt: http://www.riverbankcomputing.com/software/pyqt/download, 採 GPL 2 or 3 and 
+commercial license(若非開源專案則必須付費)
 
 PySide: http://qt-project.org/wiki/About-PySide, 採 LGPL 2.1
 
 GPL 與 LGPL 授權比較: http://en.wikipedia.org/wiki/GNU_Lesser_General_Public_License
 
 最基本的 PyQt 程式:
+
+學習 PyQt 可以參考: https://github.com/ralsina/pyqt-by-example
 
 .. literalinclude:: ../c2/pyqt_1.py
     :language: python
@@ -3959,7 +3983,8 @@ QtWebKit 不僅提供可以在 PyQt 應用程式中加入網際瀏覽器, 而且
 Python 與資料庫
 ^^^^^^^^^^^^^^^^^^^
 
-Python 內建 SQLite 3 資料庫程式介面, 一般的機械設計程式可以考慮採用, 較大型的程式則可使用 MySQL 或 PostgreSQL.
+Python 內建 SQLite 3 資料庫程式介面, 一般的機械設計程式可以考慮採用, 
+較大型的程式則可使用 MySQL 或 PostgreSQL.
 
 MySQL: http://www.mysql.com/
 
@@ -4026,7 +4051,8 @@ Python 網際程式
 
 Python 內建 W3 伺服器
 
-目前最為流行的 Python 網際方案為 django, 而較小型的網際框架目前 (2013.04) 已經能夠支援 Python 3 的則有 CherryPy 與 Bottle.
+目前最為流行的 Python 網際方案為 django, 而較小型的網際框架目前 (2013.04) 
+已經能夠支援 Python 3 的則有 CherryPy 與 Bottle.
 
 一般機械設計網際程式建議採用 CherryPy 或 Bottle, 中型以上的網站則可直接採用 django.
 
@@ -4089,7 +4115,10 @@ http://www.cherrypy.org/
     cherrypy.server.socket_host = '127.0.0.1'
     cherrypy.quickstart(HelloWorld())
 
-將 mymethod.exposed = True 蓋去, 表示使用者無法直接利用瀏覽器呼叫, 而只能以 self.mymethod() 的方式, 由其他可以直接呼叫的方法中執行, 下列程式執行後, http://localhost:8083 與 http://localhost:8083/index 結果相同, 但是卻無法直接呼叫 mymethod().
+將 mymethod.exposed = True 蓋去, 表示使用者無法直接利用瀏覽器呼叫, 
+而只能以 self.mymethod() 的方式, 由其他可以直接呼叫的方法中執行, 
+下列程式執行後, http://localhost:8083 與 http://localhost:8083/index 結果相同, 
+但是卻無法直接呼叫 mymethod().
 
 .. code-block:: python
 
@@ -4111,7 +4140,8 @@ http://www.cherrypy.org/
     cherrypy.server.socket_host = '127.0.0.1'
     cherrypy.quickstart(HelloWorld())
 
-Python3 程式與 Javascript 程式交換變數, 使用者呼叫時, 由 URL 連結中輸入變數值, 然後交由 Python3 傳給 Javascript 程式.
+Python3 程式與 Javascript 程式交換變數, 使用者呼叫時, 
+由 URL 連結中輸入變數值, 然後交由 Python3 傳給 Javascript 程式.
 
 .. code-block:: python
 
@@ -4134,7 +4164,8 @@ Python3 程式與 Javascript 程式交換變數, 使用者呼叫時, 由 URL 連
     cherrypy.server.socket_host = '127.0.0.1'
     cherrypy.quickstart(HelloWorld())
 
-利用 cherrypy.request.method 來判定變數取值的方法, 這裡透過 GET 取得變數值, 另外以表單取變數值的方法稱為 POST.
+利用 cherrypy.request.method 來判定變數取值的方法, 這裡透過 GET 取得變數值, 
+另外以表單取變數值的方法稱為 POST.
 
 .. code-block:: python
 
@@ -4739,9 +4770,11 @@ C 程式:
     module_name = "sum"
     filename = target_name+".c"
     # compile
-    os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/IDE/Python33/include  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+    os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/IDE/Python33/include  -MMD \
+     -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
     # link 因為 .c 程式中起始為 PyInit_sum, 因此
-    os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".pyd build/"+target_name+".o V:/IDE/Python33/libs/libpython33.a")
+    os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+ \
+    ".pyd build/"+target_name+".o V:/IDE/Python33/libs/libpython33.a")
     g.es("done")
     
 上述 C 程式將會以 gcc 編譯連結為 sum.pyd, 然後以下列 Python 程式呼叫:
@@ -4842,10 +4875,13 @@ C 程式寫法:
     module_name = "Test"
     filename = target_name+".c"
     # compile
-    os.system("Y:/IDE/C/MinGW/bin/gcc.exe -c -g -IY:/IDE/Python33/include -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+    os.system("Y:/IDE/C/MinGW/bin/gcc.exe -c -g -IY:/IDE/Python33/include -MMD -MP \
+    -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
     # link 因為 .c 程式中起始為 PyInit_sum, 因此
-    #os.system("Y:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".pyd build/"+target_name+".o Y:/IDE/Python33/libs/libpython33.a")
-    os.system("Y:/IDE/C/MinGW/bin/gcc.exe -o dist/"+module_name+".exe build/"+target_name+".o Y:/IDE/Python33/libs/libpython33.a")
+    #os.system("Y:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+ \
+    ".pyd build/"+target_name+".o Y:/IDE/Python33/libs/libpython33.a")
+    os.system("Y:/IDE/C/MinGW/bin/gcc.exe -o dist/"+module_name+".exe build/"+ \
+    target_name+".o Y:/IDE/Python33/libs/libpython33.a")
     g.es("done")
 
 編譯連結後, 可執行的 C 程式為 Test.exe, 必須能夠擷取 Python 的程式執行環境, 若未修改 Python 執行的系統路徑, 則 Text.exe 必須放在 python.exe 的目錄中, 而下列 Test.py 則放入 site-packages 目錄中, 然後以"Test.exe Test multiply 3 2" 執行 Test.exe, 表示要導入 Test.py 程式中的 multiply 函式, 來進行 3 乘以 2 的運算.
@@ -5229,6 +5265,8 @@ PySide 教學
 
 - 先取得 PySide for portableKMOL: http://qt-project.org/wiki/Get-PySide
 
+PySide 手冊: http://srinikom.github.io/pyside-docs/
+
 以下教學資料取自:
 
 http://qt-project.org/wiki/PySide_Tutorials 與 http://zetcode.com/gui/pysidetutorial/
@@ -5280,6 +5318,8 @@ Qt designer.exe 位於 IDE\Python33\Lib\site-packages\PyQt4 目錄, 可以直接
 
     set LANG=en_US
     V:\IDE\Python33\Lib\site-packages\PyQt4\designer.exe
+    
+或者可以直接將 PyQt4 目錄中的 translations 目錄刪除, 開啟 designer.exe 時就會使用內建的英文介面.
     
 另外一個位於 PyQt4 目錄下的 qt.conf 設定, 也必須配合可攜版 Python 進行修改:
 
@@ -5408,5 +5448,535 @@ PyQt 程式開發流程:
     app = QApplication(sys.argv)
     form = Form()
     form.show()
+    # 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
     app.exec_()
+
+C2 第十二週
++++++++++++++++
+
+
+
+Python 程式開發 IDE
+***********************
+
+截至目前在 SciTE 或 Leo Editor 環境中所編寫的 Python 程式幾乎都是簡單的小程式, 主要原因在於 SciTE 是一個檔案編輯器, 可以直接透過設定來解譯 Python 程式或動態編譯執行 C 程式; 而 Leo Editor 則是一個資料的管理中心, 利用特定的大綱指令與外部檔案的連結, 再加上命令列與大綱內文  Python 程式執行功能, 確實也可以充當 Python 與 C 程式的整合開發環境.
+
+但是一旦所開發的程式不斷擴大, 其中包括單機視窗程式、資料庫與網際程式的整合, SciTE 與 Leo Editor 簡潔陽春的功能並無法發揮全面整合 PyQt4 designer 與程式除錯的細部功能, 這時就必須將程式的開發專案轉移到功能更全面的 IDE 系統中, 而我們所選擇的 Python 程式開發 IDE 為 eric5_.
+
+.. _eric5: http://eric-ide.python-projects.org
+
+當然, 使用者仍然可以利用 Leo Editor 的資料整合功能導入 SciTE 與 eric5, 執行一般 Python 與 C 程式時, 可以導入 SciTE, 而較大程式專案則由 Leo Editor 以 Button 開啟 eric5 IDE 程式環境(容量大約佔 40 MB).
+
+安裝 eric5_: 下解後直接利用 SciTE 執行目錄下的 install.py, 解除安裝則利用 SciTE 執行 uninstall.py
+
+啟動 eric5_: 完成安裝後, V:\IDE\Python33 目錄會建立許多以 eric5 開頭的 bat 檔案, 其中執行 eric5.bat 就可以啟動.
+
+採用 eric5_ 的考量: eric5 與 Leo Editor 同為支援 Python3 且使用 PyQt4 圖形介面建立, Leo Editor 自 1999 年就開始啟動開發, 2002 從 C 改為採 Python 開發, 一開始使用 tkinter 圖形介面之後增加 PyQt 介面, 而 eric5_ 也大約開啟於 2002 年, 兩者至今都已超過 10 年的開發期, 且殊途同歸, 最後都採用 PyQt4 且以自由開放且跨操作系統平台的模式推出.
+
+在 Mac 上安裝 eric5_:
+
+- 下載安裝 Python3
+
+- 安裝 GCC 編譯器, 透過 command line toolx for Xcode, 可以只安裝 GCC 而無需安裝 Xcode IDE.
+
+- 安裝 Qt SDK for Mac
+
+- 以原始碼安裝 SIP_, PyQt4_ 與 QScintilla2_.
+
+.. _SIP: http://www.riverbankcomputing.co.uk/software/sip/download
+
+.. _PyQt4: http://www.riverbankcomputing.co.uk/software/pyqt/download
+
+.. _QScintilla2: http://www.riverbankcomputing.co.uk/software/qscintilla/download
+
+安裝流程;
+
+cd sip-4.12
+
+python3 configure.py --arch i386
+
+make
+
+sudo make install
+
+
+cd ../PyQt-4.8.2
+
+python3 configure.py --use-arch i386
+
+make
+
+sudo make install
+
+
+cd ../QScintilla-2.4.6/Qt4
+
+qmake --spec macx-g++ qscintilla.pro
+
+make
+
+sudo make install
+
+
+cd ../Python
+
+python3 configure.py
+
+make
+
+sudo make install
+
+
+- 安裝 eric5_
+
+eric5 簡介
+************
+
+eric5_ PyQt 程式開發流程:
+
+- 建立一個專案 webbrowser
+
+- 利用 Qt designer 設計程式所需要的 mainwindow.ui
+
+- 利用 eric5_ 內建的 pyuic4.bat 連結 (按住 mainwindow.ui, 以滑鼠右鍵執行 compile form, 就可以利用 mainwindow.ui 轉出 Ui_mainwindow.py 程式碼.
+
+- 建立 mainwindow.py, 以 MainWindow 類別繼承 QMainWindow 與 Ui_MainWindow 物件.
+
+- 建立 webbrowser.py, 從 minwindow.py 中導入 MainWindow 物件, 然後起始應用程式導入 MainWindow 後顯示在應用程式中.
+
+- 確定基本的圖形介面與應用程式視窗可以正確執行.
+
+- 在 mainwindow.py 中加上各圖形組件的訊息交換與回呼函式執行流程, 讓視窗應用程式可以與使用者的滑鼠操作或資料輸入進行互動.
+
+參考資料:
+
+http://eric-ide.python-projects.org/tutorials/MiniBrowser/
+
+http://eric-ide.python-projects.org/tutorials/LogParser/chap1.html
+
+eric5_ 除錯流程
+
+F5 (start debugging; untick  "Do not stop at first line" or set a breakpoint)
+F10 (stop)
+F7 (next, step in subroutines)
+F8 (next, step over subroutines)
+F9 (return, step out of subroutine)
+F6 (continue, go, run)
+Shift+F6 (continue till cursor)
+conditional breakpoints are supported (set a breakpoint, right click on it, edit)
+
+cx_Freeze 簡介
+****************
+
+`cx_Freeze_` 是一種能夠將一組 Python 程式轉為可執行檔的跨平台套件.
+
+與 `cx_Freeze_` 類似的視窗套件為 `py2exe_`, Mac 版本專用則稱為 `py2app_`.
+
+.. _cx_Freeze: http://cx-freeze.sourceforge.net/
+
+.. _py2exe: http://www.py2exe.org/
+
+.. _py2app: https://bitbucket.org/ronaldoussoren/py2app
+
+`cx_Freeze_` 使用方法:
+
+.. _cs_Freeze: http://cx_freeze.readthedocs.org/en/latest/script.html
+
+針對單一 .py 程式檔案:
+
+V:\IDE\Python33\Scripts\cxfreeze.bat test.py --target-dir test --include-modules re
+
+會利用 Python.exe 執行 cxfreeze 程式檔案, 將 test.py 轉為 test.exe 並且將執行所需要的 python33.dll 與其他程式庫放入 target-dir test 目錄中, 過程中同時導入特定的模組(這裡導入 re 模組).
+
+完成可執行檔案轉換後, 就可以利用 test.exe 執行 test.py 程式.
+
+假如以 c2/pyside/tetris.py 的 PySide 程式檔案為例, 可以利用:
+
+V:\IDE\Python33\Scripts\cxfreeze.bat tetris.py --target-dir tetris --include-modules re
+
+所建立的可執行檔案為 tetris.exe, 整體 tetris 目錄則約 25 MB(`tetris_pyside.7z_`).
+
+.. _tetris_pyside.7z: https://github.com/chiamingyen/tetris/blob/master/tetris_pyside.7z
+
+假如上述 cxfreeze.bat 轉檔案時未能 --include-modules re, 則執行時必須額外由 V:\IDE\Python33\Lib\ 複製 re.py, sre_compile.py, sre_constants.py, sre_parse.py 等四個檔案到 tetris 目錄中, tetris.exe 才可以執行.
+
+eric5 PyQt 專案
+*****************
+
+以下視窗瀏覽器程式採用 `eric5_` 專案建構(目前只有視窗程式空殼, signal 與 slot 訊息尚未設置), 基本流程為:
+
+指定 Project 的 Main script 為 webbrowser.py, 若不指定則無法利用 cx_freeze 將程式轉為 .exe 可單獨執行檔.
+
+建立 mainwindow.ui
+
+- 建立一個 Horizontal Layout 組件.
+
+- 在 Horizontal Layout 中加入一個 lineEdit 輸入區與一個 pushButton.
+
+- 在 Horizontal Layout 下方加入一個 webView 組件.
+
+- 將 mainwindow.ui 轉為 Ui_mainwindow.py 程式碼.
+
+- 建立 mainwindow.py 程式碼如下.
+
+- 建立 webbrowser.py 程式碼如下.
+
+- 確定已經在 `eric5_` 中安裝 cx_freeze plugin.
+
+- 使用 Project->Packagers-> Use cx_freeze, 在 Advanced 頁面中的 Include modules: 欄位中加入 re
+
+- 按下確定後就會在 Target directory 中建立 webbrowser.exe 以及其他執行所需的函式庫檔案.
+
+.. code-block:: python
+
+    # webbrowser.py
+    from PyQt4 import QtCore, QtGui
+    # 從 mainwindow.py 中導入 MainWindow 物件
+    from mainwindow import MainWindow
+    
+    if __name__ == "__main__":
+        import sys
+        app = QtGui.QApplication(sys.argv)
+        ui = MainWindow()
+        ui.show()
+        # 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
+        sys.exit(app.exec_())
+        
+.. code-block:: python
+
+    # mainwindow.py
+    # -*- coding: utf-8 -*-
+    
+    '''
+    This module contains the class MainWindow.
+    '''
+    
+    from PyQt4.QtGui import QMainWindow
+    from PyQt4.QtCore import pyqtSignature,  QUrl
+    # 必須要有以下 QtNetwork 模組導入否則 cxfreeze 無法正確轉檔
+    from PyQt4.QtNetwork import *
+    
+    from Ui_mainwindow import Ui_MainWindow
+    
+    # MainWindow 繼承 QMainWindow 與 Ui_Mainwindow
+    class MainWindow(QMainWindow, Ui_MainWindow):
+        '''
+        MainWindow: this is the class that manages all the funcionality of receiving input from the user, and navigating the internet.
+        '''
+        def __init__(self, parent = None):
+            '''
+            Default Constructor. It can receive a top window as parent. 
+            '''
+            QMainWindow.__init__(self, parent)
+            self.setupUi(self)
+        
+        @pyqtSignature("")
+        def on_btnNavigate_released(self):
+            '''
+            Public slot invoked when the user clicks the Navigate Button 
+            '''
+            #TODO: check out this code, ensure it does cover all the posibilities
+            theUrl = self.txtUrl.text()
+            if theUrl[0:7] != 'http://':
+                theUrl = 'http://' + theUrl
+            self.webView.setUrl(QUrl(theUrl))
+        
+        @pyqtSignature("QString")
+        def on_webView_titleChanged(self, title):
+            '''
+            Public Slot invoked when the title of the page changes. All we do is to display it as the main window title.
+            '''
+            self.setWindowTitle(title)
+        
+        @pyqtSignature("QUrl")
+        def on_webView_urlChanged(self, url):
+            '''
+            Public Slot invoked when the url changes. All we do is display the current url in txtUrl.
+            '''
+            self.txtUrl.setText(url.toString())
+
+.. code-block:: python
+
+    # 由 mainwindow.ui 轉檔案的
+    # -*- coding: utf-8 -*-
+    
+    # Form implementation generated from reading ui file 'V:\tmp\mainwindow.ui'
+    #
+    # Created: Mon May  6 23:19:27 2013
+    #      by: PyQt4 UI code generator 4.9.6
+    #
+    # WARNING! All changes made in this file will be lost!
+    
+    from PyQt4 import QtCore, QtGui
+    
+    try:
+        _fromUtf8 = QtCore.QString.fromUtf8
+    except AttributeError:
+        def _fromUtf8(s):
+            return s
+    
+    try:
+        _encoding = QtGui.QApplication.UnicodeUTF8
+        def _translate(context, text, disambig):
+            return QtGui.QApplication.translate(context, text, disambig, _encoding)
+    except AttributeError:
+        def _translate(context, text, disambig):
+            return QtGui.QApplication.translate(context, text, disambig)
+    
+    class Ui_MainWindow(object):
+        def setupUi(self, MainWindow):
+            MainWindow.setObjectName(_fromUtf8("MainWindow"))
+            MainWindow.resize(800, 600)
+            self.centralWidget = QtGui.QWidget(MainWindow)
+            self.centralWidget.setObjectName(_fromUtf8("centralWidget"))
+            self.webView = QtWebKit.QWebView(self.centralWidget)
+            self.webView.setGeometry(QtCore.QRect(10, 60, 781, 531))
+            self.webView.setUrl(QtCore.QUrl(_fromUtf8("about:blank")))
+            self.webView.setObjectName(_fromUtf8("webView"))
+            self.horizontalLayoutWidget = QtGui.QWidget(self.centralWidget)
+            self.horizontalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 781, 41))
+            self.horizontalLayoutWidget.setObjectName(_fromUtf8("horizontalLayoutWidget"))
+            self.horizontalLayout = QtGui.QHBoxLayout(self.horizontalLayoutWidget)
+            self.horizontalLayout.setMargin(0)
+            self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+            self.lineEdit = QtGui.QLineEdit(self.horizontalLayoutWidget)
+            self.lineEdit.setObjectName(_fromUtf8("lineEdit"))
+            self.horizontalLayout.addWidget(self.lineEdit)
+            self.pushButton = QtGui.QPushButton(self.horizontalLayoutWidget)
+            self.pushButton.setObjectName(_fromUtf8("pushButton"))
+            self.horizontalLayout.addWidget(self.pushButton)
+            MainWindow.setCentralWidget(self.centralWidget)
+    
+            self.retranslateUi(MainWindow)
+            QtCore.QMetaObject.connectSlotsByName(MainWindow)
+    
+        def retranslateUi(self, MainWindow):
+            MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow", None))
+            self.pushButton.setText(_translate("MainWindow", "PushButton", None))
+    
+    from PyQt4 import QtWebKit
+    
+    if __name__ == "__main__":
+        import sys
+        app = QtGui.QApplication(sys.argv)
+        MainWindow = QtGui.QMainWindow()
+        ui = Ui_MainWindow()
+        ui.setupUi(MainWindow)
+        MainWindow.show()
+        # 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
+        sys.exit(app.exec_())
+
+designer.exe 編輯模式共有四種:
+
+- Edit Widgets, 用來編輯視窗組件
+
+- Edit Signals/Slots, 用來編輯訊號線(輸出)與接收槽(輸入), 除了可使用視窗組件的內建訊號與接收方法外, 也可以自行建立所需的訊號與接收方法.
+
+- Edit Buddies
+
+- Edit Tab Orders
+
+C2 第十三週
++++++++++++++++
+
+人工智慧下的程式對戰(目的在訓練工程師編寫能夠有效解決問題的程式碼):
+
+當以不同邏輯與策略模式編寫的程式碼進行對戰時, 就可以分出面對相同環境下, 哪一種程式的寫法能夠更有效解決問題.
+
+在 2010 年的競賽中, 參賽者選擇程式語言的數量統計:
+
+    - order language count(*)
+    - 1        Java     1634
+    - 2         C++     1232
+    - 3      Python      948
+    - 4          C#      485
+    - 5         PHP       80
+    - 6        Ruby       55
+    - 7     Haskell       51
+    - 8        Perl       42
+    - 9        Lisp       33
+    - 10 Javascript       19
+    - 11          C       18
+    - 12      OCaml       12
+    - 13         Go        6
+    - 14      Scala        4
+    - 15     Groovy        1
+    
+前 100 名參賽者所使用的程式語言統計:
+
+- Top 100 (2010 Tron)
+
+- 1     Java       33
+- 2      C++       32
+- 3   Python       20
+- 4       C#        9
+- 5        C        3
+- 6  Haskell        1
+- 7     Lisp        1
+- 8    OCaml        1
+
+- Top 100 (2011 Ants)
+
+- 1     C++       29
+- 2     Java       27
+- 3     C#         12
+- 4    Python     9
+- 5    C++11     8
+- 6     C           4
+- 7     Go         3
+- 8     Lisp       2
+- 9     OCaml   2
+- 10    Pascal   2
+- 11    Haskell  2
+- 12    Octave   1
+
+http://aichallenge.org/language_profile.php?language=Python3
+
+以 Python 程式語法建構的機器螞蟻程式碼: 
+
+https://github.com/search?l=Python&q=ai+challenge&ref=searchresults&type=Repositories
+
+Ant problem description
+
+螞蟻問題說明
+
+Ants is a multi-player strategy game set on a plot of dirt with water for obstacles and food that randomly drops.
+
+螞蟻遊戲是個設在土堆上以水漥為障礙物且食物採隨機方式掉落的多玩家策略遊戲.
+
+Each player has one or more hills where ants will spawn. 
+
+每一位玩家可擁有一或多個山丘讓螞蟻產卵.
+
+The objective is for players to seek and destroy the most enemy ant hills while defending their own hills.
+
+玩家的目標是要找到並摧毀敵方的蟻丘, 同時捍衛自己的地盤.
+
+Players must also gather food to spawn more ants, however, if all of a player's hills are destroyed they can't spawn any more ants.
+
+玩家要設法囤積糧食來繁殖更多螞蟻後代, 但是若玩家所擁有的領地全數被摧毀就無法繁殖下一代.
+
+The objective is to create a computer program (a bot) that plays the game of Ants as intelligently as possible.
+
+玩法是建立一個電腦程式(機器螞蟻), 盡量以人工智能來進行螞蟻遊戲.
+
+ It is recommended that you use one of the starter packages as a starting point. 
+ 
+ 您可以使用支援特定程式語言的初始套件作為開端.
+ 
+If you are looking to get up and running as quickly as possible, check out the Five Minute Quickstart Guide. 
+
+若希望以最快的步驟開始, 可以從 5 分鐘快速導引開始.
+
+For more details about Ants beyond this introductory document, see the Game Specification.
+
+有關螞蟻遊戲的更進一步說明, 請參考遊戲說明.
+
+The game is turn-based. 
+
+遊戲以回合定勝負.
+
+The map is a grid of squares that wraps around at the edges (a torus). 
+
+遊戲地圖是以邊線為界的四方格區域(環形區域)
+
+This means if an ant walks up across the top of the map they appear at the bottom, or walking to the right they appear at the left.
+
+因此若螞蟻越過地圖最上方, 將會接到地圖最下方, 橫過最右邊將會接回地圖左邊.
+
+A bot is a program that reads input about the squares it can currently see and outputs orders to move its ants around the map.
+
+機器螞蟻是一組程式, 能夠看到四週的方塊區域, 然後決定各螞蟻在地圖上的移動指令.
+
+Each ant can only see the area around it, so bots will not start with a full view of the map.
+
+每一隻螞蟻只能看見週遭的區域, 因此螞蟻遊戲一開始並不會列出地圖全視圖.
+
+Each turn the bot will be given the following information for all squares that are visible to its ants:
+
+每一回合, 機器螞蟻能夠接收到與可視方塊區域有關的相關資料:
+
+- a list of water squares, that have not been seen before
+
+- 之前沒有見過的水漥(障礙)方塊區資料
+
+- a list of ants, including the owner
+
+- 所有螞蟻的資料, 以及擁有者
+
+- a list of food
+
+- 所有食物資料
+
+- a list of hills, including the owner
+
+- 各玩家所佔領的土丘資料
+
+- a list of dead ants (from the last attack phase), including the owner
+
+- 陣亡的螞蟻資料(上一場戰役), 以及擁有者.
+
+A bot can issue up to one order for each ant during a turn.
+
+每一回合機器螞蟻可以重新訂定移動指令
+
+Each order specifies an ant by location and the direction to move it: North, South, East or West.
+
+每一隻螞蟻移動的指令包含所在位置與移動方向: 往北, 往南, 往東或往西.
+
+Once the order is executed, ants move one square in the given direction.
+
+一旦指令下達, 螞蟻可以在指令方向移動一個方格.
+
+The game then goes through 5 phases:
+
+遊戲將包含五個階段:
+
+- move all ants (ants that collide in the same square are killed)
+
+- 移動所有螞蟻 (在同一方格中遭遇的螞蟻會被殲滅)
+
+- attack enemy ants if within range
+
+- 攻擊範圍內的敵人
+
+- raze ant hills with enemy ants positioned on them
+
+- 掃除敵方陣地上的蟻丘
+
+- spawn more ants at hills that are not razed or blocked
+
+- 在尚未被掃除或佔領的土丘上產卵
+
+- gather food next to ants (food disappears if 2 enemies are both next to it)
+
+- 收集螞蟻四週的食物 (當與敵方對峙下的食物將會自動消失)
+
+After the phases, the bot will receive the next game state and issue more moves.
+
+上述階段過後, 機器螞蟻將會接收到下一回合的遊戲資料, 然後再決定下一步驟的因應.
+
+Sometimes bots crash or timeout (don't let your bot do this!) and are removed from the game.
+
+當機器螞蟻程式當機或停止回應(不要讓你的機器螞蟻發生這種事!) 這些螞蟻將會被刪除.
+
+The ants will just stay where they are and must still be attacked and killed to get their territory.
+
+機器螞蟻就算停在某地不動, 也需要應付攻擊並且幹掉對手才能取得領地.
+
+It's good to control most of the map, because then the bot will be able to gather more food to create more ants giving it a better chance to raze enemy ant hills while defending its own, which is how to get the highest score and win!
+
+控制策略最好能遍佈整個地圖區, 這樣才能找到更多食物, 產生更多螞蟻來剷平對手的蟻丘, 同時捍衛自己的蟻丘, 求得最高分數得到勝利.
+
+The game ends when only one active player has ants, or only one player's ant hills remain, or if the game goes past a certain number of turns.
+
+遊戲將戰到只有某一方擁有螞蟻, 或者只剩下某一方擁有蟻丘, 或者達到預設的交戰回合數.
+
+(The game can also be cut short if no progress is being made by any bot, or if the rank of bots will not change. The game will continue if the only bot with a hill isn't winning yet. See our cutoff rules.)
+
+若所有的機器螞蟻都沒有任何進展, 或當各方排名已經不再變更, 遊戲都可以提前結束. 若某一方僅剩下一隻螞蟻與蟻丘, 遊戲仍可繼續, 詳情請看終止遊戲的規定說明.
+
+Want to know how to program a bot? First read the detailed Game Specification, and then check out the Five Minute Quickstart Guide!
+
+想知道如何編寫一個機器螞蟻程式? 首先詳閱遊戲說明, 接著查一下 5 分鐘快速導引中的說明.
 

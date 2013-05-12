@@ -19,6 +19,7 @@ def main():
     應用程式 = QApplication([])
     主視窗 = Main()
     主視窗.show()
+    # 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
     sys.exit(應用程式.exec_())
     
 main()

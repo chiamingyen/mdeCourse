@@ -53,7 +53,7 @@ app = QApplication(sys.argv)
 
 dictionary = Dictionary()
 dictionary.show()
-
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 app.exec_()
 #@nonl
 #@-node:amd_yen.20130429141318.2217:@shadow c2/pyqt_browser.py

@@ -44,6 +44,7 @@ class 組件(QWidget):
 影像檢視=Image.open('test1.png')
 影像檢視.show()
 '''
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 應用程式.exec_()
 #@-node:amd_yen.20130429221223.2323:@shadow c2/pyqt_painter1.py
 #@-leo

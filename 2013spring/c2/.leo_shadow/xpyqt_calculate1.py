@@ -36,6 +36,7 @@ class Form(QDialog):
 app = QApplication(sys.argv)
 form = Form()
 form.show()
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 app.exec_()
 #@nonl
 #@-node:amd_yen.20130429221223.2322:@shadow c2/pyqt_calculate1.py

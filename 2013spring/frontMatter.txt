@@ -114,11 +114,13 @@ https://github.com/chiamingyen/mdeCourse
 
 必須修正 core/LeoApp.py 第 3237 行, 加入 encoding="UTF-8", 否則會發出 CP950 無法解讀 UTF-8 編碼內容的錯誤.
 
-        try:
-            theFile = open(fileName, encoding="UTF-8")
-            lines = theFile.readlines()
-            if lines and rf.sanitize(lines[0])=='readonly':
-                # g.trace('read-only: %s' %fileName)
-                return False
+.. code-block:: python
+
+    try:
+        theFile = open(fileName, encoding="UTF-8")
+        lines = theFile.readlines()
+        if lines and rf.sanitize(lines[0])=='readonly':
+            # g.trace('read-only: %s' %fileName)
+            return False
 .. @-all
 .. @-leo

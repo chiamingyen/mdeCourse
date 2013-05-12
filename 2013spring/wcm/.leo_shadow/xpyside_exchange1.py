@@ -131,6 +131,7 @@ class Form(QDialog):
 app = QApplication(sys.argv)
 form = Form()
 form.show()
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 app.exec_()
 #@-node:amd_yen.20130503085936.2409:@shadow wcm/pyside_exchange1.py
 #@-leo

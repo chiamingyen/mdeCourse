@@ -82,4 +82,5 @@ class Browser(QtGui.QMainWindow):
 app = QtGui.QApplication(sys.argv)
 b = Browser()
 b.showMaximized()
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 sys.exit(app.exec_())

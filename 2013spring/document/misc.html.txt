@@ -588,7 +588,9 @@ p.moveAfter(v2)           # move p after v2
 p.moveToNthChildOf(v2,n)  # move p to the n'th child of v2
 
 p.moveToRoot(oldRoot)     # make p the root position.
-                          # oldRoot must be the old root position if it exists.
+
+# oldRoot must be the old root position if it exists.
+
 p.h = s  # Sets the headline text of p.
 
 基本操作
@@ -860,6 +862,27 @@ AssertionError
 
 目前無解決方法.
 
+針對 leo\plugins\qtGui.py 中 color_theme 的設定, 必須進行下列修改, 否則 Leo 無法啟動:
+
+.. code-block:: python
+
+    def __init__ (self):
+
+        # Initialize the base class.
+        leoGui.leoGui.__init__(self,'qt')
+        # g.trace('(qtGui)',g.callers())
+        self.qtApp = QtGui.QApplication(sys.argv)
+        self.bodyTextWidget  = leoQtBaseTextWidget
+        self.iconimages = {}
+        self.plainTextWidget = leoQtBaseTextWidget
+        self.mGuiName = 'qt'
+        
+        # 錯誤訊息為 g.app.config 根本沒有 getString 方法
+        if g.app.config:
+            self.color_theme = g.app.config.getString('color_theme')
+        else:
+            self.color_theme = "Default"
+
 Leo 的 home
 ^^^^^^^^^^^^
 
@@ -995,14 +1018,19 @@ cwTeXYen,cwTeX 圓體:style=Medium
 設定英文字型為 Times New Roman
 
 \setsansfont{Times New Roman}
+
 \setmainfont{Times New Roman}
+
 \setmonofont{Times New Roman}
 
 將中文字型設為 SimHei
 
 \setCJKsansfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
+
 \setCJKromanfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
+
 \setCJKmainfont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
+
 \setCJKmonofont[BoldFont={SimHei},ItalicFont={SimHei}]{SimHei}
 
 數學方程式

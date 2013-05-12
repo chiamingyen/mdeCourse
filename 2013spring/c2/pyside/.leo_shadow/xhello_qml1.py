@@ -16,6 +16,7 @@ url = QUrl('view.qml')
 view.setSource(url)
 view.show()
 # Enter Qt main loop
+# 在 PyQt 4.5 與 Python3 環境下可以直接使用 exec() 但是也可以使用舊版的 exec_()
 sys.exit(app.exec_())
 #@nonl
 #@-node:amd_yen.20130501090735.3347:@shadow c2/pyside/hello_qml1.py
