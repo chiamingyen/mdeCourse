@@ -1,6 +1,6 @@
 #@+leo-ver=5-thin
 #@+node:amd_yen.20130429221223.10908: * @file bmain.py
-#encoding: utf-8
+#coding: utf-8
 # 從 MainWindow 導入 UI_Mainwindow 物件
 
 

@@ -1,6 +1,6 @@
 #@+leo-ver=4-thin
 #@+node:amd_yen.20130429221223.2323:@shadow c2/pyqt_painter1.py
-#encoding: utf-8
+#coding: utf-8
 from PyQt4.Qt import *
 # 用來顯示 PyQt painter 所產生的圖檔
 from PIL import Image

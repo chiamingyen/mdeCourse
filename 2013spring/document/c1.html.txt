@@ -1,0 +1,153 @@
+.. rst3: filename: document/c1.html
+
+################################
+程式語言(一)
+################################
+
+.. index:: 程式語言(一)
+
+.. contents::
+    :depth: 3
+
+Trends
+++++++
+
+http://money.cnn.com/2013/05/01/pf/college/free-online-courses.moneymag/index.html
+
+First professional Online Master of Science degree from the Gatech.
+
+http://slashdot.org/submission/2662831/georgia-tech-to-offer-online-masters-degree-in-cs-for-under-7000-net
+
+http://www.omscs.gatech.edu/faq/
+
+#################################################
+
+May 9, 2013, 7:33 p.m. ET
+
+Sorry, College Grads, I Probably Won't Hire You
+
+If you're at all interested in media, technology or related fields, please learn a little computer programming.
+
+By KIRK MCDONALD
+
+Dear college graduates:
+
+The next month is going to be thrilling as you cross this major milestone in your education. Enjoy the pomp and circumstance, the congratulations, and the parties. But when it's all over and you're ready to go out into the world, you'd probably like to meet me, or others like me—I'm your next potential dream boss. I run a cool, rapidly growing company in the digital field, where the work is interesting and rewarding. But I've got to be honest about some unfortunate news: I'm probably not going to hire you.
+
+This isn't because I don't have positions that need filling. On the contrary, I'm constantly searching for talented new employees, and if someone with the right skills walked into my office, he or she would likely leave it with a very compelling offer. The problem is that the right skills are very hard to find. And I'm sorry to say it, dear graduates, but you probably don't have them.
+
+In part, it's not your fault. If you grew up and went to school in the United States, you were educated in a system that has eight times as many high-school football teams as high schools that teach advanced placement computer-science classes. Things are hardly better in the universities. According to one recent report, in the next decade American colleges will mint 40,000 graduates with a bachelor's degree in computer science, though the U.S. economy is slated to create 120,000 computing jobs that require such degrees. You don't have to be a math major to do the math: That's three times as many jobs as we have people qualified to fill them.
+
+It's time to start addressing this crisis. States should provide additional resources to train and employ teachers of science, technology, engineering and math, as well as increase access to the latest hardware and software for elementary and high-school students. Companies—particularly those like mine that depend heavily on information technology—need to join the effort by sponsoring programs that help schools better train graduates to work in a demanding industry. But there's one more piece of the puzzle that's missing, and it's the one over which you have the most control: you.
+
+I realize that you've a lot going on, and that the pressures of finding gainful employment are immense. But understand this, because your future might very well depend on it: If you want to survive in this economy, you'd be well-advised to learn how to speak computer code.
+
+I don't mean that you need to become genius programmers, the kind who hack into NASA's computers for fun. Coding at such a level is a very particular and rare skill, one that most of us—myself included—don't possess, just as we don't possess the athletic ability to play for the New York Knicks.
+
+What we nonexperts do possess is the ability to know enough about how these information systems work that we can be useful discussing them with others. Consider this example: Suppose you're sitting in a meeting with clients, and someone asks you how long a certain digital project is slated to take.
+
+Unless you understand the fundamentals of what engineers and programmers do, unless you're familiar enough with the principles and machinations of coding to know how the back end of the business works, any answer you give is a guess and therefore probably wrong. Even if your dream job is in marketing or sales or another department seemingly unrelated to programming, I'm not going to hire you unless you can at least understand the basic way my company works. And I'm not alone.
+
+If you want a job in media, technology or a related field, make learning basic computer language your goal this summer. There are plenty of services—some free and others affordable—that will set you on your way.
+
+Teach yourself just enough of the grammar and the logic of computer languages to be able to see the big picture. Get acquainted with APIs. Dabble in a bit of Python. For most employers, that would be more than enough. Once you can claim familiarity with at least two programming languages, start sending out those resumes.
+
+So congratulations again on your achievement—and good luck getting your real-world education.
+
+Mr. McDonald is president of PubMatic, an ad tech company in Manhattan. Previously, he was president of digital for Time Inc.
+
+http://developers.slashdot.org/story/13/04/09/2257223/electrical-engineer-unemployment-soars-software-developers-rate-drops-to-22
+
+C1 第一週
+++++++++++++
+
+
+程式語言課程學習目的在提供機械設計工程師一個直接運用電腦運算能力的管道, 由於機械設計工程領域牽涉許多與物理運作原理相關的技術, 無論是在初步產品設計概念的擬定或後續產品內容細部設計的分析, 都需要透過電腦程式來進行分析運算與資料管理, 雖然目前業界已經存在許多相關工具, 但是在特定情況下, 機械設計工程師仍然必須依照自己所擬定的分析流程來延伸既有軟體套件的功能, 或者打造完全客製化的軟體工具.
+
+一般而言, 用來打造機械設計工程相關軟體套件所使用的程式語言, 分為編譯類的 C/C++、C#、Java與其他解譯式動態類的 PHP、Python、Javascript等.
+
+編譯類:
+
+- C 程式語言: 1960 年代末期, 為了打造 Unix 操作系統而發展出來取代組合語言的通用程序式程式語言, 具有高度硬體可移植性, 通過指標(pointer)可以操控低階記憶體並且產生容量小無需額外執行環境支援即可執行的程式語言, 至今 Linux 操作系統核心仍然採用 C 程式語言編寫.
+
+- C++ 程式語言: 1970 年代末期, 在 C 的基礎上加上類別(class)作為開端的物件導向程式語言, 2011 年制定的程式語言標準特稱為 C++11.
+
+- C# 程式語言: 由微軟(Microsoft)公司在 1990 年代末期, 為了與當時流行的 Java 程式語言抗衡所提出的"類似 C 的物件導向程式語言", 主要架構在 .NET 框架技術上.
+
+- Java 程式語言: 由 Sun 公司(2009 年被 Oracle 以 74 億美元收購)在 1994 年所提出, 最早以智慧型網路家電領域為主物件導向且跨平台程式語言, 從簡化 C++ 並擴增網路應用出發, 經常與 C 並列為全球最多程式師使用的程式語言.
+
+解譯類:
+
+- PHP 程式語言: 創建於 1995 年, 從仿效 Perl 程式語言作為開端, 原來僅適用於網路程式開發, 目前許多網站系統 Wikipedia、Wordpress、Drupal、Facebook 都是以 PHP 為主體開發.
+
+- Python 程式語言: 1980 年代末期出現的解譯式程式語言, 是一種適用於從概念到終端軟體套件打造的通用式語言(可以依照各階段的需求逐步演化套件中所使用的平台技術), 從以 C 建構的 CPython, 以 Java 建構的 Jython, 以 .NET 打造的 IronPython, 以及以 Python 打造的 PyPy 來看, Python 非常適合用來"接合"(joint)各種技術平台.
+
+- Javascript 程式語言: 1995 年 Netscape 公司為了置入瀏覽器中所發明的解譯式程式語言, 2009 年 Node.js 將 Javascript 用於網際伺服器的後端開發後, 隨著 Html5 中各項多媒體標準的日趨完備, Javascript 所具備的網際環境前後端統一之開發優勢, 讓 Javascript 成為二十一世紀最有前景的程式語言之一, 廣見於各種消費者通信裝置的前後台技術中.
+
+趨勢解讀:
+
+- C/C++ 仍然主導各種操作系統的開發
+
+- PHP 目前仍然是最流行的網際內容管理系統開發工具
+
+- Python 仍然是各級工程師每日必備必用的原型打造工具
+
+- Javascript 仍然會是全世界使用人口最多的瀏覽器程式語言
+
+- Ruby 與 Node.js 已經逐步成為最具效率的網站開發工具
+
+- Java(Oracle)、 C# (Microsoft)與 Object-C(Apple)在大公司的加持下, 仍然具有固定的佔有率, 不會升高但是也很難降低
+
+- 其他程式語言, 當然未來提升佔有率(例如 Google 的 Go 與 Rebol, Lua 等)還是有機會, 可是人人無把握
+
+C1 第二週
+++++++++++++
+
+http://docs.python-guide.org/en/latest/
+
+C1 第八週
+++++++++++++
+
+
+
+Python 的 data model
+*********************
+
+property function
+
+.. code-block:: none
+
+    property(fget=None, fset=None, fdel=None, doc=None)
+    
+    Return a property attribute.
+    
+    fget is a function for getting an attribute value, likewise fset is a function for setting, and fdel a function for del’ing, an attribute. Typical use is to define a managed attribute x:
+
+About __slots__
+
+.. code-block:: none
+
+    By default, instances of classes have a dictionary for attribute storage. This wastes space for objects having very few instance variables. The space consumption can become acute when creating large numbers of instances.
+    
+    The default can be overridden by defining __slots__ in a class definition. The __slots__ declaration takes a sequence of instance variables and reserves just enough space in each instance to hold a value for each variable. Space is saved because __dict__ is not created for each instance.
+    
+    object.__slots__
+    
+    This class variable can be assigned a string, iterable, or sequence of strings with variable names used by instances. If defined in a class, __slots__ reserves space for the declared variables and prevents the automatic creation of __dict__ and __weakref__ for each instance.
+
+About __len__
+
+.. code-block:: none
+
+    object.__len__(self)
+    
+    Called to implement the built-in function len(). Should return the length of the object, an integer >= 0. Also, an object that doesn’t define a __bool__() method and whose __len__() method returns zero is considered to be false in a Boolean context.
+
+About __getitem__
+
+.. code-block:: none
+
+    object.__getitem__(self, key)
+    
+    Called to implement evaluation of self[key]. For sequence types, the accepted keys should be integers and slice objects. Note that the special interpretation of negative indexes (if the class wishes to emulate a sequence type) is up to the __getitem__() method. If key is of an inappropriate type, TypeError may be raised; if of a value outside the set of indexes for the sequence (after any special interpretation of negative values), IndexError should be raised. For mapping types, if key is missing (not in the container), KeyError should be raised.
+

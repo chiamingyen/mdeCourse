@@ -17,7 +17,7 @@
 .. @@c
 
 .. @+all
-.. @+node:amd_yen.20130308210411.2408: ** @rst document\wcm.html
+.. @+node:amd_yen.20130308210411.2408: ** @rst document/wcm.html
 ################################################
 網際內容管理
 ################################################
@@ -559,7 +559,7 @@ Wordpress plugin 編寫導引: http://pelfusion.com/20-tutorials-to-develop-word
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     import sys
     from PyQt4.QtGui import QApplication, QMainWindow, QAction, QTextEdit, \
                                             QFileDialog, QMessageBox

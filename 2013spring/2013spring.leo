@@ -18,7 +18,7 @@
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
-<v t="amd_yen.20130308210411.2383"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
+<v t="amd_yen.20130308210411.2383" a="E"><vh>自編教材 (點選下列節點, 按下 Ctrl+b 可以建立教材)</vh>
 <v t="amd_yen.20130314194325.1514"><vh>@button generate-current</vh>
 <v t="amd_yen.20130308210411.2404"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
 <v t="amd_yen.20130308210411.2405"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
@@ -40,8 +40,23 @@
 <v t="amd_yen.20130308210411.2406" a="E"><vh>KMOL Guide</vh>
 <v t="amd_yen.20130308221230.3827" a="E"><vh>前言</vh>
 <v t="amd_yen.20130312013510.1498"><vh>以下為電子書內容</vh></v>
-<v t="amd_yen.20130308221230.3828" a="E"
+<v t="amd_yen.20130308221230.3828"
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
+</v>
+<v t="amd.20130514093510.2692" a="E"><vh>程式語言(一)</vh>
+<v t="amd_yen.20130312013510.1498"></v>
+<v t="amd.20130514093510.2694" a="E"
+expanded="amd.20130514093510.2695,amd.20130515005753.3890,"><vh>@file c1.txt</vh></v>
+</v>
+<v t="amd.20130514093510.2702" a="E"><vh>電腦輔助設計實習</vh>
+<v t="amd_yen.20130312013510.1498"></v>
+<v t="amd.20130514093510.2704" a="E"
+expanded="amd.20130514093510.2705,"><vh>@file cadp.txt</vh></v>
+</v>
+<v t="amd.20130514093510.2683" a="E"><vh>網際網路應用</vh>
+<v t="amd_yen.20130312013510.1498"></v>
+<v t="amd.20130514093510.2684"
+expanded="amd.20130514093510.2685,"><vh>@file ia.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130429141318.2219"><vh>為何要學習程式?</vh></v>
@@ -51,18 +66,18 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130308221230.2438" a="E"><vh>@shadow c2/grouping.py</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2457"><vh>C2 第二週程式</vh>
+<v t="amd_yen.20130308221230.2457" a="E"><vh>C2 第二週程式</vh>
 <v t="amd_yen.20130308221230.2458"><vh>@shadow c2/docutils_ex1.py</vh></v>
 <v t="amd_yen.20130308221230.2462"><vh>課程規劃</vh></v>
 <v t="amd_yen.20130308221230.2463"><vh>課程進行</vh>
 <v t="amd_yen.20130308221230.2464"><vh>portableKMOL 配置</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2465"><vh>@shadow c2/docutils_ex2.py</vh></v>
+<v t="amd_yen.20130308221230.2465" a="E"><vh>@shadow c2/docutils_ex2.py</vh></v>
 </v>
-<v t="amd_yen.20130317160119.1726"><vh>C2 第四週程式</vh>
+<v t="amd_yen.20130317160119.1726" a="E"><vh>C2 第四週程式</vh>
 <v t="amd_yen.20130317160119.1727"><vh>@shadow c2/pyqt_geardesign.py</vh></v>
 </v>
-<v t="amd_yen.20130426235501.5059"><vh>C2 第九週程式</vh>
+<v t="amd_yen.20130426235501.5059" a="E"><vh>C2 第九週程式</vh>
 <v t="amd_yen.20130501090735.2391"><vh>@shadow c2/get_score.py</vh></v>
 <v t="amd_yen.20130501090735.3343"><vh>@shadow c2/list_score.py</vh></v>
 <v t="amd_yen.20130429141318.2172"><vh>@shadow c2/pyqt_1.py</vh></v>
@@ -71,9 +86,9 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="amd_yen.20130429141318.2175"><vh>@shadow c2/pyqt_4.py</vh></v>
 <v t="amd_yen.20130429141318.2176"><vh>@shadow c2/pyqt_notepad1.py</vh></v>
 <v t="amd_yen.20130426235501.5060"><vh>@shadow c2/pyqt_notepad.py</vh></v>
-<v t="amd_yen.20130429141318.2177"><vh>@auto c2/pyqt_tetris.py</vh></v>
+<v t="amd_yen.20130429141318.2177" a="E"><vh>@auto c2/pyqt_tetris.py</vh></v>
 <v t="amd_yen.20130429141318.2220"><vh>@auto c2/pyqt_browser1.py</vh></v>
-<v t="amd_yen.20130429141318.2221" a="E"><vh>@auto c2/pyqt_browser2.py</vh></v>
+<v t="amd_yen.20130429141318.2221"><vh>@auto c2/pyqt_browser2.py</vh></v>
 <v t="amd_yen.20130429141318.2218"><vh>@shadow c2/pyqt_browser3.py</vh></v>
 <v t="amd_yen.20130429141318.2217"><vh>@shadow c2/pyqt_browser.py</vh></v>
 <v t="amd_yen.20130429214002.3978"><vh>@path c2/pyqt_browser</vh>
@@ -116,10 +131,26 @@ expanded="amd_yen.20130429214002.4056,"><vh>@file webbrowser.py</vh></v>
 </v>
 </v>
 </v>
+<v t="amd.20130513215328.2669" a="E"><vh>C2 第十二週程式</vh>
+<v t="amd.20130513215328.2671"><vh>@shadow c2/command_w12_1.py</vh></v>
+<v t="amd.20130513215328.2670"><vh>@shadow c2/cherrypy_w12_1.py</vh></v>
+<v t="amd.20130513215328.2818"><vh>@shadow c2/cherrypy_changer1.py</vh></v>
+<v t="amd.20130514093510.2680"><vh>@edit c2/pyqt/avg1/main.py</vh></v>
+<v t="amd.20130514093510.2682"><vh>@edit c2/pyqt/avg1/mainwindow.ui</vh></v>
+<v t="amd.20130514093510.2681"><vh>@edit c2/pyqt/avg1/Ui_mainwindow.py</vh></v>
+<v t="amd.20130515005753.3849"><vh>@path c2/pyqt/steroidHunt</vh>
+<v t="amd.20130515005753.3850" a="E"><vh>@file main.py</vh></v>
+<v t="amd.20130515005753.3852" a="E"><vh>@file mainwindow.py</vh></v>
+<v t="amd.20130515005753.3856"><vh>@file scene.py</vh></v>
+<v t="amd.20130515005753.3866"><vh>@file settings.py</vh></v>
+<v t="amd.20130515005753.3868"><vh>@file test.py</vh></v>
+<v t="amd.20130515005753.3872"><vh>@file tiles.py</vh></v>
+</v>
+</v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.20130308214521.2437,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130317094520.1538,amd_yen.20130411195311.2086,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130423211907.2156,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,amd_yen.20130506144326.2648,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.20130308214521.2437,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130406103207.2443,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130423211907.2156,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,amd_yen.20130506144326.2648,amd.20130513150554.2665,mde_leo.20130510215619.2658,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
@@ -134,10 +165,10 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308210411.2390,amd_yen.201303
 <v t="amd_yen.20130418193628.2127"><vh>@edit cd/partview/index.php</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
-<v t="amd_yen.20130308210411.2392"
+<v t="amd_yen.20130308210411.2392" a="E"
 expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.20130309155804.1709,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130330144838.2033,amd_yen.20130413002743.2095,amd_yen.20130421114440.2135,mde_leo.20130510215619.7575,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
+<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
 <v t="amd_yen.20130406103207.2442"><vh>@url Tutorial 1</vh></v>
 <v t="amd_yen.20130406103207.2285"><vh>@edit wcm/django1.py</vh></v>
@@ -155,7 +186,7 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.201303
 <v t="amd_yen.20130503085936.2410"><vh>WCM 第三週程式</vh>
 <v t="amd_yen.20130503085936.2411"><vh>@shadow wcm/wordpress1.py</vh></v>
 </v>
-<v t="amd_yen.20130429221223.2319"><vh>WCM 第十週程式</vh>
+<v t="amd_yen.20130429221223.2319" a="E"><vh>WCM 第十週程式</vh>
 <v t="amd_yen.20130429221223.2320"><vh>@shadow wcm/exchange1.py</vh></v>
 <v t="amd_yen.20130503085936.2409"><vh>@shadow wcm/pyside_exchange1.py</vh></v>
 </v>
@@ -163,10 +194,10 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,amd_yen.201303
 <v t="amd_yen.20130308210411.2407" a="E"
 expanded="amd_yen.20130308210411.2408,amd_yen.20130418193628.2823,amd_yen.20130503085936.2412,"><vh>@file wcm.txt</vh></v>
 </v>
-<v t="amd_yen.20130308221230.2492"><vh>綜合資料</vh>
+<v t="amd_yen.20130308221230.2492" a="E"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308221230.2493" a="E"
-expanded="amd_yen.20130308221230.2494,amd_yen.20130503185304.5151,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
+expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130503185304.5151,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,amd_yen.20130409235757.1779,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
 </v>
 </v>
 <v t="mde_leo.20130510215619.7519"><vh>可攜 Leo Editor</vh>
@@ -414,7 +445,7 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130503185304.5151,amd_yen.201303
 <v t="amd_yen.20130413002743.2104"><vh>Python 3 安裝</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130413002743.2102"><vh>機械設計工程系程式課程演變</vh>
+<v t="amd_yen.20130413002743.2102" a="E"><vh>機械設計工程系程式課程演變</vh>
 <v t="amd_yen.20130413002743.2103"><vh>符號式機構分析</vh></v>
 <v t="amd_yen.20130426235501.4331" a="E"><vh>Python 與動態系統分析</vh>
 <v t="amd_yen.20130426235501.4332"><vh>Modelica 簡介</vh></v>
@@ -516,6 +547,11 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130503185304.5151,amd_yen.201303
 </v>
 </vnodes>
 <tnodes>
+<t tx="amd.20130513215328.2669"></t>
+<t tx="amd.20130514093510.2683"></t>
+<t tx="amd.20130514093510.2692"></t>
+<t tx="amd.20130514093510.2702"></t>
+<t tx="amd.20130515005753.3849">source: http://code.google.com/p/steroidhunt/</t>
 <t tx="amd_yen.20130306001037.1797"></t>
 <t tx="amd_yen.20130306001037.1798">QSplitter::handle {
     background-color: #CAE1FF; /* lightSteelBlue1 */
@@ -2817,7 +2853,7 @@ Real, Integer, Boolean, String
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     # 導入 scipy 解常微分方程式用
     from scipy.integrate import odeint
     # 繪圖用
@@ -2906,7 +2942,7 @@ u2 = y[3]
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     # 導入 scipy 解常微分方程式用
     from scipy.integrate import odeint
     from math import *
@@ -2991,7 +3027,7 @@ u2 = y[3]
 解決問題 - 工程師存在的目的是在解決問題, 絕非製造問題.</t>
 <t tx="amd_yen.20130429214002.3978"></t>
 <t tx="amd_yen.20130429221223.10895"></t>
-<t tx="amd_yen.20130429221223.10934">#encoding: utf-8
+<t tx="amd_yen.20130429221223.10934">#coding: utf-8
 # MissingDialog ui 設計
 
 
@@ -4602,7 +4638,7 @@ for 索引 in range(1, 各班學生人數):
 '''
 主要用來細部修改 tex 檔案後, 再次產生所需要的 pdf 檔案
 '''
-#encoding: utf-8
+#coding: utf-8
 import os
 d = c.scanAllDirectives(p)
 # you probably need to install several packages 

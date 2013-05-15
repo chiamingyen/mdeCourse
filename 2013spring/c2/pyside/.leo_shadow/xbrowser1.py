@@ -1,6 +1,6 @@
 #@+leo-ver=4-thin
 #@+node:amd_yen.20130501090735.3350:@shadow c2/pyside/browser1.py
-#encoding: utf-8
+#coding: utf-8
 
 import sys
 from PySide import QtGui, QtCore, QtWebKit

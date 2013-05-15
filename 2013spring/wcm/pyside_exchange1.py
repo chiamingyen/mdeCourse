@@ -1,4 +1,4 @@
-#encoding: utf-8
+#coding: utf-8
 import sys
 import locale
 import urllib.request as urllib2

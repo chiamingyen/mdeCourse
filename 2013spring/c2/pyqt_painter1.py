@@ -1,4 +1,4 @@
-#encoding: utf-8
+#coding: utf-8
 from PyQt4.Qt import *
 # 用來顯示 PyQt painter 所產生的圖檔
 from PIL import Image

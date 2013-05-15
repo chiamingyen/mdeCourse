@@ -17,7 +17,7 @@
 .. @@c
 
 .. @+all
-.. @+node:amd_yen.20130308210411.2388: ** @rst document\c2.html
+.. @+node:amd_yen.20130308210411.2388: ** @rst document/c2.html
 ########################
 程式語言(二)
 ########################
@@ -1478,7 +1478,7 @@ sympy 的幾何運算應用:
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     from sympy import *
     from sympy.geometry import *
     
@@ -1571,7 +1571,7 @@ Python 程式應用項目:
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     # 請注意以下的 pybean 語法為 0.1.2 版本, 使用 uuid 來辨識各筆資料, pybean 0.2.1 版已經改為整數 id, 不再使用 uuid, 用法上有些差異
     # pybean 0.1.2 與 0.2.1 最大的差異為 uuid 改為 id, commit 不再放入各別資料存取流程中執行, 而是集中在 save 與 delete 時才進行 commit, 大大提升 pybean 的運行速度
     from pybean import Store, SQLiteWriter
@@ -2359,7 +2359,7 @@ break, except, in, raise
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     import sys
     import keyword
     版次  = sys.version_info[:3]
@@ -2439,7 +2439,7 @@ Python 程式中, 每一個物件都有一個獨特的 id:
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     變數 = "字串內容"
     print(id(變數))
     變數 = 2
@@ -3440,7 +3440,7 @@ Python 程式語言雖然沒有 private 與 public, 但是仍可在變數或函�
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     import pickle as pickle
     '''pickle dumps 與 loads 的應用'''
     
@@ -3468,7 +3468,7 @@ Python 程式語言雖然沒有 private 與 public, 但是仍可在變數或函�
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     import pickle as pickle
     '''pickle dumps 與 loads 的應用'''
     
@@ -3885,7 +3885,7 @@ https://pypi.python.org/pypi/pybean
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     from pybean import Store, SQLiteWriter
     # 將資料存入記憶體中, frozen=False 表示可以動態新增表格與欄位
     #library = Store(SQLiteWriter(":memory:", frozen=False))
@@ -4786,7 +4786,7 @@ https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後�
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     # 導入 urlopen 方法
     from urllib.request import urlopen
     # 準備網際上的文字檔案
@@ -4803,7 +4803,7 @@ https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後�
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     # 導入 urlopen 方法
     from urllib.request import urlopen
     import urllib.request as req
@@ -4832,7 +4832,7 @@ https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後�
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     # 導入 urlopen 方法
     from urllib.request import urlopen
     import urllib.request as req
@@ -4871,7 +4871,7 @@ https://code.google.com/p/pymunk/ (以 svn checkout 程式碼, 完成安裝後�
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     # 導入 urlopen 方法
     from urllib.request import urlopen
     import urllib.request as req
@@ -5038,7 +5038,7 @@ The following types can be pickled::
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     幾個變數 = 3
     for 索引 in range(幾個變數):
         變數 = input("輸入第"+str(索引+1)+"個數值")
@@ -5208,7 +5208,7 @@ PyQt 程式開發流程:
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     import sys
     import locale
     import urllib.request as urllib2
@@ -5594,6 +5594,86 @@ designer.exe 編輯模式共有四種:
 - Edit Buddies
 
 - Edit Tab Orders
+.. @+node:amd.20130513150554.2665: *4* 程式總整理
+從命令列的 Python3 程式模式出發, 將特定程式改寫為函式, 然後再改寫為 class 物件, 接著再將程式轉為 CherryPy 網際程式, 並且利用資料庫存檔, 最後將相同運算流程的程式轉為單機 PyQt 或 PySide 的程式.
+
+相關的程式語言程式開發選擇:
+
+- 命令列程式
+
+- 利用函式編寫範式
+
+- 轉為 class 物件導向程式
+
+- 轉為 CherryPy 網際程式
+
+- 利用資料庫存檔
+
+- 將程式轉成視窗程式
+
+請根據上列程式範式, 建立可以讓使用者輸入三個數值, 然後由程式列出三數的平均值.
+
+接著考量利用上述程式開發流程建立能夠讓修課班級應用的實驗室管理系統, 程式的基本目標:
+
+- 可以接受修課班級名單作為輸入, 由程式進行亂數分組, 並且將班級名單與分組結果存入資料庫中.
+
+- 採命令列、網際程式、視窗程式的架構開發上述程式.
+
+- 可延伸此一分組程式用於課堂點名或學習心得回報.
+
+- 可延伸此一分組程式用於班級經營與教師評分.
+
+- 可否在特定的模式下, 利用 2D 繪圖顯示系統的統計資料.
+.. @+node:amd.20130513150554.2666: *5* 命令列程式
+利用命令列模式編寫程式:
+
+接受三個輸入, 然後列出平均值.
+
+寫為函式格式:
+
+寫為 class 格式:
+
+.. literalinclude:: ../c2/command_w12_1.py
+   :language: python
+.. @+node:amd.20130513215328.2668: *5* CherryPy 網際程式
+本章節要延續命令列程式的邏輯, 將程式套用到 CherryPy 網際框架中, 為了能夠取得使用者的變數輸入, 可以採用 GET 或 POST 的方法, 以下先採用 GET 傳值.
+
+由於此一程式需要同時傳送 positional arguments 與 keyword arguments, 其中牽涉到連結中的"&"符號, 若直接採 os.system() 啟動瀏覽器, Windows shell 會將 & 視為命令列指令的一部分 , 而無法正確讓瀏覽器開啟正確的 URL, 因此瀏覽器的執行改用 subprocess.call().
+
+使用者利用 GET 將三個輸入數值傳給網際程式後, 就可以啟動平均值運算然後將結果傳回瀏覽器.
+
+.. literalinclude:: ../c2/cherrypy_w12_1.py
+   :language: python
+
+以 POST 取得變數的 CherryPy 表單程式, 執行換錢的流程.
+
+.. literalinclude:: ../c2/cherrypy_changer1.py
+   :language: python
+
+請將此網際換錢程式改為網際表單求平均值程式.
+.. @+node:amd.20130513215328.2819: *5* PyQt 視窗程式
+三數求平均的視窗程式, 採用 eric5 建構, 以 designer.exe 建立 mainwindow.ui 後轉為 Ui_mainwindow.py, 然後透過 main.py 將視窗介面以應用程式顯示.
+
+main.py 主程式內容:
+
+.. literalinclude:: ../c2/pyqt/avg1/main.py
+   :language: python
+   
+主視窗介面 Ui_mainwindow.py 程式內容:
+   
+.. literalinclude:: ../c2/pyqt/avg1/Ui_mainwindow.py
+   :language: python
+
+利用 eric5 designer 所建立的 mainwindow.ui 內容:
+
+.. literalinclude:: ../c2/pyqt/avg1/mainwindow.ui
+   :language: python
+   
+目前在 eric5 IDE 中, 將此視窗程式以 Project->Packagers->Use cx_freeze 轉為獨立可執行程式時, 必須指定 Target directory, Target name 為 average.exe, Base name 為 Win32GUI 外, 還必須在 Advanced 頁面中指定 Include modules: re, 才可以正確轉為可執行程式(可能是 cx_freeze, PyQt 或 eric5 套件接合上的特定問題).
+
+最後完成的獨立可執行 average.exe 程式, 可以從 pyqt_avg_ 下載.
+
+.. _pyqt_avg: https://sites.google.com/a/mde.tw/service/public/pyqt_avg.7z?attredirects=0&d=1
 .. @+node:mde_leo.20130510215619.2658: *3* C2 第十三週
 人工智慧下的程式對戰(目的在訓練工程師編寫能夠有效解決問題的程式碼):
 
@@ -5795,5 +5875,230 @@ The game ends when only one active player has ants, or only one player's ant hil
 Want to know how to program a bot? First read the detailed Game Specification, and then check out the Five Minute Quickstart Guide!
 
 想知道如何編寫一個機器螞蟻程式? 首先詳閱遊戲說明, 接著查一下 5 分鐘快速導引中的說明.
+.. @+node:amd.20130513215328.2820: *4* Small compony with big idea
+http://www.science-applied.nl/
+
+由三個荷蘭博士班學生所創立的小公司, 憑甚麼可以存活?
+
+將所有技術成果開放出來, 如何還能維生?
+
+台灣有沒有類似的公司?
+
+http://orzlab.blogspot.tw/
+
+http://www.0xlab.org/
+
+開放才能群聚, 開放才有未來.
+
+.. @+node:amd.20130513150554.2667: *4* Python 在拓樸最佳化的應用
+專題題目:
+
+根據: http://code.google.com/p/topy/ 中的碩士論文所公開的 topy 程式碼, 轉為 Python3 相容的幾何最佳化程式, 並且利用 Creo 建立對應的零組件檔案.
+
+最大挑戰為, 其中運算所使用的 Pysparse 尚未支援 Python3, 必須將其中的 C 程式由 Python2 格式改寫為 Python3 然後編譯為 pyd.
+
+.. code-block:: python
+
+    # A 200 LINE TOPOLOGY OPTIMIZATION CODE BY NIELS AAGE AND VILLADS EGEDE JOHANSEN, JANUARY 2013
+    #http://www.topopt.dtu.dk/?q=node/881
+    from __future__ import division
+    import numpy as np
+    
+    from scipy.sparse import coo_matrix
+    from scipy.sparse.linalg import spsolve
+    from matplotlib import colors
+    import matplotlib.pyplot as plt
+    
+    def main(nelx,nely,volfrac,penal,rmin,ft):
+        print("Minimum compliance problem with OC")
+        print("ndes: " + str(nelx) + " x " + str(nely))
+        print("volfrac: " + str(volfrac) + ", rmin: " + str(rmin) + ", penal: " + str(penal))
+        print("Filter method: " + ["Sensitivity based","Density based"][ft])
+    
+        # Max and min stiffness
+        Emin=1e-9
+        Emax=1.0
+    
+        # dofs:
+        ndof = 2*(nelx+1)*(nely+1)
+    
+        # Allocate design variables (as array), initialize and allocate sens.
+        x=volfrac * np.ones(nely*nelx,dtype=float)
+        xold=x.copy()
+        xPhys=x.copy()
+    
+        g=0 # must be initialized to use the NGuyen/Paulino OC approach
+        dc=np.zeros((nely,nelx), dtype=float)
+    
+        # FE: Build the index vectors for the for coo matrix format.
+        KE=lk()
+        edofMat=np.zeros((nelx*nely,8),dtype=int)
+        for elx in range(nelx):
+            for ely in range(nely):
+                el = ely+elx*nely
+                n1=(nely+1)*elx+ely
+                n2=(nely+1)*(elx+1)+ely
+                edofMat[el,:]=np.array([2*n1+2, 2*n1+3, 2*n2+2, 2*n2+3,2*n2, 2*n2+1, 2*n1, 2*n1+1])
+        # Construct the index pointers for the coo format
+        iK = np.kron(edofMat,np.ones((8,1))).flatten()
+        jK = np.kron(edofMat,np.ones((1,8))).flatten()    
+    
+        # Filter: Build (and assemble) the index+data vectors for the coo matrix format
+        nfilter=nelx*nely*((2*(np.ceil(rmin)-1)+1)**2)
+        iH = np.zeros(nfilter)
+        jH = np.zeros(nfilter)
+        sH = np.zeros(nfilter)
+        cc=0
+        for i in range(nelx):
+            for j in range(nely):
+                row=i*nely+j
+                kk1=int(np.maximum(i-(np.ceil(rmin)-1),0))
+                kk2=int(np.minimum(i+np.ceil(rmin),nelx))
+                ll1=int(np.maximum(j-(np.ceil(rmin)-1),0))
+                ll2=int(np.minimum(j+np.ceil(rmin),nely))
+                for k in range(kk1,kk2):
+                    for l in range(ll1,ll2):
+                        col=k*nely+l
+                        fac=rmin-np.sqrt(((i-k)*(i-k)+(j-l)*(j-l)))
+                        iH[cc]=row
+                        jH[cc]=col
+                        sH[cc]=np.maximum(0.0,fac)
+                        cc=cc+1
+        # Finalize assembly and convert to csc format
+        H=coo_matrix((sH,(iH,jH)),shape=(nelx*nely,nelx*nely)).tocsc()	
+        Hs=H.sum(1)
+    
+        # BC's and support
+        dofs=np.arange(2*(nelx+1)*(nely+1))
+        fixed=np.union1d(dofs[0:2*(nely+1):2],np.array([2*(nelx+1)*(nely+1)-1]))
+        free=np.setdiff1d(dofs,fixed)
+    
+        # Solution and RHS vectors
+        f=np.zeros((ndof,1))
+        u=np.zeros((ndof,1))
+    
+        # Set load
+        f[1,0]=-1
+    
+        # Initialize plot and plot the initial design
+        plt.ion() # Ensure that redrawing is possible
+        fig,ax = plt.subplots()
+        im = ax.imshow(-xPhys.reshape((nelx,nely)).T, cmap='gray',\
+        interpolation='none',norm=colors.Normalize(vmin=-1,vmax=0))
+        fig.show()
+        
+        loop=0
+        change=1
+        dv = np.ones(nely*nelx)
+        dc = np.ones(nely*nelx)
+        ce = np.ones(nely*nelx)
+        while change>0.01 and loop<2000:
+            loop=loop+1
+    
+            # Setup and solve FE problem
+            sK=((KE.flatten()[np.newaxis]).T*(Emin+(xPhys)**penal*(Emax-Emin))).flatten(order='F')
+            K = coo_matrix((sK,(iK,jK)),shape=(ndof,ndof)).tocsc()
+            # Remove constrained dofs from matrix
+            K = deleterowcol(K,fixed,fixed)
+            # Solve system 
+            u[free,0]=spsolve(K,f[free,0])    
+    
+            # Objective and sensitivity
+            ce[:] = (np.dot(u[edofMat].reshape(nelx*nely,8),KE) * u[edofMat].reshape(nelx*nely,8) ).sum(1)
+            obj=( (Emin+xPhys**penal*(Emax-Emin))*ce ).sum()
+            dc[:]=(-penal*xPhys**(penal-1)*(Emax-Emin))*ce
+    
+            dv[:] = np.ones(nely*nelx)
+            # Sensitivity filtering:
+            if ft==0:
+                dc[:] = np.asarray((H*(x*dc))[np.newaxis].T/Hs)[:,0] / np.maximum(0.001,x)
+            elif ft==1:
+                dc[:] = np.asarray(H*(dc[np.newaxis].T/Hs))[:,0]
+                dv[:] = np.asarray(H*(dv[np.newaxis].T/Hs))[:,0]
+    
+            # Optimality criteria
+            xold[:]=x
+            (x[:],g)=oc(nelx,nely,x,volfrac,dc,dv,g)
+    
+            # Filter design variables
+            if ft==0:   xPhys[:]=x
+            elif ft==1:	xPhys[:]=np.asarray(H*x[np.newaxis].T/Hs)[:,0]
+            
+            # Compute the change by the inf. norm
+            change=np.linalg.norm(x.reshape(nelx*nely,1)-xold.reshape(nelx*nely,1),np.inf)
+    
+            # Plot to screen
+            im.set_array(-xPhys.reshape((nelx,nely)).T)
+            fig.canvas.draw()
+    
+            # Write iteration history to screen (req. Python 2.6 or newer)
+            print("it.: {0} , obj.: {1:.3f} Vol.: {2:.3f}, ch.: {3:.3f}".format(\
+                        loop,obj,(g+volfrac*nelx*nely)/(nelx*nely),change))
+    
+        # Make sure the plot stays and that the shell remains	
+        plt.show()
+        input("Press any key...")
+    
+        
+    #element stiffness matrix
+    def lk():
+        E=1
+        nu=0.3
+        k=np.array([1/2-nu/6,1/8+nu/8,-1/4-nu/12,-1/8+3*nu/8,-1/4+nu/12,-1/8-nu/8,nu/6,1/8-3*nu/8])
+        KE = E/(1-nu**2)*np.array([ [k[0], k[1], k[2], k[3], k[4], k[5], k[6], k[7]],
+        [k[1], k[0], k[7], k[6], k[5], k[4], k[3], k[2]],
+        [k[2], k[7], k[0], k[5], k[6], k[3], k[4], k[1]],
+        [k[3], k[6], k[5], k[0], k[7], k[2], k[1], k[4]],
+        [k[4], k[5], k[6], k[7], k[0], k[1], k[2], k[3]],
+        [k[5], k[4], k[3], k[2], k[1], k[0], k[7], k[6]],
+        [k[6], k[3], k[4], k[1], k[2], k[7], k[0], k[5]],
+        [k[7], k[2], k[1], k[4], k[3], k[6], k[5], k[0]] ]);
+        return (KE)
+    
+    def oc(nelx,nely,x,volfrac,dc,dv,g):
+        l1=0
+        l2=1e9
+        move=0.2
+        # reshape to perform vector operations
+        xnew=np.zeros(nelx*nely)
+    
+        while (l2-l1)/(l1+l2)>1e-3:
+            lmid=0.5*(l2+l1)
+            xnew[:]= np.maximum(0.0,np.maximum(x-move,np.minimum(1.0,np.minimum(x+move,x*np.sqrt(-dc/dv/lmid)))))
+            gt=g+np.sum((dv*(xnew-x)))
+            if gt>0 :
+                l1=lmid
+            else:
+                l2=lmid
+        return (xnew,gt)
+    
+    def deleterowcol(A, delrow, delcol):
+        # Assumes that matrix is in symmetric csc form !
+        m = A.shape[0]
+        keep = np.delete (np.arange(0, m), delrow)
+        A = A[keep, :]
+        keep = np.delete (np.arange(0, m), delcol)
+        A = A[:, keep]
+        return A    
+    
+    
+    if __name__ == "__main__":
+        # Default input parameters
+        nelx=180
+        nely=60
+        volfrac=0.4
+        rmin=5.4
+        penal=3.0
+        ft=1 # ft==0 -> sens, ft==1 -> dens
+    
+        import sys
+        if len(sys.argv)>1: nelx   =int(sys.argv[1])
+        if len(sys.argv)>2: nely   =int(sys.argv[2])
+        if len(sys.argv)>3: volfrac=float(sys.argv[3])
+        if len(sys.argv)>4: rmin   =float(sys.argv[4])
+        if len(sys.argv)>5: penal  =float(sys.argv[5])
+        if len(sys.argv)>6: ft     =int(sys.argv[6])
+    
+        main(nelx,nely,volfrac,penal,rmin,ft)
 .. @-all
 .. @-leo

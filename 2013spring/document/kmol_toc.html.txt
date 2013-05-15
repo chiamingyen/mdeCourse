@@ -15,6 +15,9 @@ KMOL's Users Guide
    :maxdepth: 1
 
    frontmatter
+   c1
+   cadp
+   ia
    c2 
    cd
    wcm

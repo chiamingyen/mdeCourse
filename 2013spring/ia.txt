@@ -1,0 +1,49 @@
+.. @+leo-ver=5-thin
+.. @+node:amd.20130514093510.2684: * @file ia.txt
+.. @@language rest
+.. @@tabwidth -4
+
+.. @+at @rst-options
+..  call_docutils=False
+..  code_mode=False
+..  generate_rst=True
+..  http_server_support = False
+..  show_organizer_nodes=True
+..  show_headlines=True
+..  show_leo_directives=True
+..  stylesheet_path=..\doc
+..  write_intermediate_file = True
+..  verbose=True
+.. @@c
+
+.. @+all
+.. @+node:amd.20130514093510.2685: ** @rst document/ia.html
+################################
+網際網路應用
+################################
+
+.. index:: 網際網路應用
+
+.. contents::
+    :depth: 3
+.. @+node:amd.20130514093510.2686: *3* IA 第一週
+千萬不要, 將所有雞蛋放在同一個籃子裏.
+
+有關 OpenID 的應用, 建築在提供單一認證的網站是"可信任的", 初步資料可以由 federated_login_ 取得.
+
+.. _federated_login: https://developers.google.com/accounts/docs/OpenID
+
+若以 Gmail 帳號而言, 網站可以利用 Gmail 所提供的 IMAP 認證來處理使用者認證, 前提與 OpenID 的使用相同, 提供 IMAP 轉接認證的網站是否"可信任", 因為 IMAP 認證流程必須在提供認證轉接的欄位中輸入使用者的 Gmail 帳號密碼, 若該網站"不可信任", 則可能會私下紀錄使用者所提供的帳號密碼資料, 反而造成私密資料外洩.
+
+因此, 就網際網路應用的角度而言, 教育單位可以要求成員透過學校所設定發出的 Gmail 帳號, 以 IMAP 協定登入所有該單位所提供的網際系統, 達到單一簽入認證的目的.
+
+使用者在使用各種單一認證的解決方案同時, 仍然必須依照使用類別加以分類, 一般並不建議針對所有的網際網路應用系統採用統一的單一認證, 基本使用分類建議如下:
+
+- 個人金融管理系統認證, 採用最高等級的認證規格, 建議不要與其他系統認證混用.
+
+- 工作單位系統認證, 依據各工作單位的系統要求進行認證處理, 最好與其他私人系統或金融系統架構分開.
+
+- 其他使用系統認證, 配合社交與不同使用領域上的需求來處理身分認證.
+
+.. @-all
+.. @-leo

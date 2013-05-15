@@ -1,4 +1,4 @@
-.. rst3: filename: document\wcm.html
+.. rst3: filename: document/wcm.html
 
 ################################################
 網際內容管理
@@ -565,7 +565,7 @@ WCM 第十週
 
 .. code-block:: python
 
-    #encoding: utf-8
+    #coding: utf-8
     import sys
     from PyQt4.QtGui import QApplication, QMainWindow, QAction, QTextEdit, \
                                             QFileDialog, QMessageBox

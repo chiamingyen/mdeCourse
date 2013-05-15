@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.45.1"
+   sodipodi:docbase="/home/sebastian/Development/Python/Qt/steroidHunt/images"
+   sodipodi:docname="steroid.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="11.313708"
+     inkscape:cx="19.369421"
+     inkscape:cy="13.676569"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:window-width="1278"
+     inkscape:window-height="783"
+     inkscape:window-x="0"
+     inkscape:window-y="15" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;fill:#eeeeec;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2160"
+       width="19"
+       height="19"
+       x="-139.75"
+       y="886.73718" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#eeeeec;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3144"
+       sodipodi:cx="-31.996582"
+       sodipodi:cy="1029.0277"
+       sodipodi:rx="5.2149124"
+       sodipodi:ry="5.2149124"
+       d="M -26.78167 1029.0277 A 5.2149124 5.2149124 0 1 1  -37.211494,1029.0277 A 5.2149124 5.2149124 0 1 1  -26.78167 1029.0277 z"
+       transform="matrix(0.6235017,0.6235048,-0.6235017,0.6235048,706.24325,424.02266)"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       transform="matrix(0.6235017,0.6235048,-0.6235017,0.6235048,712.87094,417.39491)"
+       d="M -26.78167 1029.0277 A 5.2149124 5.2149124 0 1 1  -37.211494,1029.0277 A 5.2149124 5.2149124 0 1 1  -26.78167 1029.0277 z"
+       sodipodi:ry="5.2149124"
+       sodipodi:rx="5.2149124"
+       sodipodi:cy="1029.0277"
+       sodipodi:cx="-31.996582"
+       id="path3150"
+       style="opacity:1;fill:#ef2929;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="arc"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:1;fill:#eeeeec;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.07139485;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect3146"
+       width="9.2561102"
+       height="4.6865125"
+       x="766.37781"
+       y="703.11389"
+       transform="matrix(0.707105,0.7071086,-0.707105,0.7071086,0,0)"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       y="698.42725"
+       x="766.37781"
+       height="4.6865125"
+       width="9.2558622"
+       id="rect3148"
+       style="opacity:1;fill:#ef2929;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.07139485;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0.707105,0.7071086,-0.707105,0.7071086,0,0)"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.1874605;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 48.063711,1035.7916 L 41.439317,1042.4161"
+       id="path3152"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       id="path3154"
+       d="M 54.568197,1042.2962 L 47.943795,1048.9207"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.1874605;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <text
+       xml:space="preserve"
+       style="font-size:11.24763203px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       x="768.05914"
+       y="705.94189"
+       id="text3156"
+       transform="matrix(0.7071049,0.7071087,-0.7071049,0.7071087,0,0)"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan3158"
+         x="768.05914"
+         y="705.94189">s</tspan></text>
+    <path
+       transform="matrix(0.946023,0,0,0.8735882,61.464679,99.94308)"
+       d="M -19.622214 1049.799 A 4.0658641 4.0658641 0 1 1  -27.753942,1049.799 A 4.0658641 4.0658641 0 1 1  -19.622214 1049.799 z"
+       sodipodi:ry="4.0658641"
+       sodipodi:rx="4.0658641"
+       sodipodi:cy="1049.799"
+       sodipodi:cx="-23.688078"
+       id="path3192"
+       style="opacity:1;fill:#c17d11;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="arc" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#8f5902;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3182"
+       sodipodi:cx="-24.218407"
+       sodipodi:cy="1056.9142"
+       sodipodi:rx="3.3587573"
+       sodipodi:ry="4.9055533"
+       d="M -20.859649 1056.9142 A 3.3587573 4.9055533 0 1 1  -27.577164,1056.9142 A 3.3587573 4.9055533 0 1 1  -20.859649 1056.9142 z"
+       transform="matrix(0.7169577,0,0,0.7169577,55.911823,264.50042)" />
+    <path
+       d="M -20.859649 1056.9142 A 3.3587573 4.9055533 0 1 1  -27.577164,1056.9142 A 3.3587573 4.9055533 0 1 1  -20.859649 1056.9142 z"
+       sodipodi:ry="4.9055533"
+       sodipodi:rx="3.3587573"
+       sodipodi:cy="1056.9142"
+       sodipodi:cx="-24.218407"
+       id="path3186"
+       style="opacity:1;fill:#8f5902;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="arc"
+       transform="matrix(0.7169577,0,0,0.7169577,55.911823,255.18493)" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#c17d11;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3184"
+       sodipodi:cx="-23.688078"
+       sodipodi:cy="1049.799"
+       sodipodi:rx="4.0658641"
+       sodipodi:ry="4.0658641"
+       d="M -19.622214 1049.799 A 4.0658641 4.0658641 0 1 1  -27.753942,1049.799 A 4.0658641 4.0658641 0 1 1  -19.622214 1049.799 z"
+       transform="matrix(0.832503,0,0,0.7156077,58.617184,265.79087)" />
+    <path
+       sodipodi:type="arc"
+       style="opacity:1;fill:#c17d11;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3188"
+       sodipodi:cx="-20.285126"
+       sodipodi:cy="1060.5381"
+       sodipodi:rx="4.0216699"
+       sodipodi:ry="1.8119612"
+       d="M -16.263456 1060.5381 A 4.0216699 1.8119612 0 1 1  -24.306796,1060.5381 A 4.0216699 1.8119612 0 1 1  -16.263456 1060.5381 z"
+       transform="matrix(0.7169577,0,0,0.7169577,55.911823,264.50042)" />
+    <path
+       d="M -16.263456 1060.5381 A 4.0216699 1.8119612 0 1 1  -24.306796,1060.5381 A 4.0216699 1.8119612 0 1 1  -16.263456 1060.5381 z"
+       sodipodi:ry="1.8119612"
+       sodipodi:rx="4.0216699"
+       sodipodi:cy="1060.5381"
+       sodipodi:cx="-20.285126"
+       id="path3190"
+       style="opacity:1;fill:#c17d11;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="arc"
+       transform="matrix(0.7169577,0,0,0.7169577,55.911823,250.24201)" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       transform="matrix(0.6235288,0.6235319,-0.6235288,0.6235319,668.26522,423.99543)"
+       d="M -26.78167 1029.0277 A 5.2149124 5.2149124 0 1 1  -37.211494,1029.0277 A 5.2149124 5.2149124 0 1 1  -26.78167 1029.0277 z"
+       sodipodi:ry="5.2149124"
+       sodipodi:rx="5.2149124"
+       sodipodi:cy="1029.0277"
+       sodipodi:cx="-31.996582"
+       id="path2251"
+       style="opacity:1;fill:#eeeeec;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:type="arc" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       sodipodi:type="arc"
+       style="opacity:1;fill:#ad7fa8;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path2253"
+       sodipodi:cx="-31.996582"
+       sodipodi:cy="1029.0277"
+       sodipodi:rx="5.2149124"
+       sodipodi:ry="5.2149124"
+       d="M -26.78167 1029.0277 A 5.2149124 5.2149124 0 1 1  -37.211494,1029.0277 A 5.2149124 5.2149124 0 1 1  -26.78167 1029.0277 z"
+       transform="matrix(0.6235288,0.6235319,-0.6235288,0.6235319,674.8932,417.36739)" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       transform="matrix(0.707105,0.7071086,-0.707105,0.7071086,0,0)"
+       y="729.98846"
+       x="739.50256"
+       height="4.6867161"
+       width="9.2565126"
+       id="rect2255"
+       style="opacity:1;fill:#eeeeec;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.07139485;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <rect
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       transform="matrix(0.707105,0.7071086,-0.707105,0.7071086,0,0)"
+       style="opacity:1;fill:#ad7fa8;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.07139485;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2257"
+       width="9.2562647"
+       height="4.6867161"
+       x="739.50256"
+       y="725.30164" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       id="path2259"
+       d="M 10.057068,1035.791 L 3.4323863,1042.4158"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.18746865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.18746865;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 16.561837,1042.2958 L 9.937147,1048.9206"
+       id="path2261" />
+    <text
+       inkscape:export-ydpi="90"
+       inkscape:export-xdpi="90"
+       inkscape:export-filename="/home/sebastian/Development/Python/Qt/steroidHunt/images/steroid.png"
+       transform="matrix(0.7071049,0.7071087,-0.7071049,0.7071087,0,0)"
+       id="text2263"
+       y="734.12915"
+       x="739.87146"
+       style="font-size:11.24812126px;font-style:normal;font-weight:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+       xml:space="preserve"><tspan
+         y="734.12915"
+         x="739.87146"
+         id="tspan2265"
+         sodipodi:role="line">O</tspan></text>
+  </g>
+</svg>

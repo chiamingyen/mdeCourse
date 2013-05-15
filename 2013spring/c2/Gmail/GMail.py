@@ -1,6 +1,6 @@
 #@+leo-ver=5-thin
 #@+node:amd_yen.20130429221223.10917: * @file GMail.py
-#encoding: utf-8
+#coding: utf-8
 # 這是整個程式的主要功能物件
 
 

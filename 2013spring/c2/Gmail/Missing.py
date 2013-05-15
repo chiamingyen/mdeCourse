@@ -1,6 +1,6 @@
 #@+leo-ver=5-thin
 #@+node:amd_yen.20130429221223.10930: * @file Missing.py
-#encoding: utf-8
+#coding: utf-8
 
 
 #@@language python

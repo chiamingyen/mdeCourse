@@ -1,6 +1,6 @@
 #@+leo-ver=4-thin
 #@+node:amd_yen.20130503085936.2409:@shadow wcm/pyside_exchange1.py
-#encoding: utf-8
+#coding: utf-8
 import sys
 import locale
 import urllib.request as urllib2

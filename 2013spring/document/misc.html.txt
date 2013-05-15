@@ -1,4 +1,4 @@
-.. rst3: filename: document\misc.html
+.. rst3: filename: document/misc.html
 
 ################################################
 綜合資料
@@ -62,6 +62,21 @@ Python 主體加上 numpy/scipy, ipython, matplotlib 可以提供全方位的應
 Python 程式語法簡潔易讀, 縮排讓每個人所寫的程式都符合相同格式 (務必遵守 tab = 4 個 spaces 的習慣, 不要混用 tab 與 space)
 
 高階與低階程式應用的平衡 - 一般應用可以直接使用 Python, 硬體控制可以利用 C 作為底層, 由 Python 操控呼叫, 需要運算速度時也可以透過 C 進行平行運算, 也可以透過 http://www.cython.org/ 得到好處.
+
+@url Why Python?
+^^^^^^^^^^^^^^^^
+
+http://www.pyzo.org/whypython.html
+
+Python 是開放的程式環境.
+
+Python 是通用的程式工具.
+
+Python 具有動態的優點, 適合敏捷方案的實現.
+
+Python 程式容易閱讀.
+
+Python 程式適合交互查核
 
 @url 基本概念
 ^^^^^^^^^^^^^^^^^
@@ -1295,7 +1310,7 @@ The OpenShift interactive setup wizard displays and prompts you to complete the 
 
 .. code-block:: python
 
-    ##encoding: utf-8
+    ##coding: utf-8
     ## 兩個 pound signs 在 Mako 語法中為註解行
     ## 多行註解則使用
     <%doc>
@@ -1409,7 +1424,7 @@ mytmpl.txt 套稿內容:
 
 .. code-block:: python
 
-    ##encoding: utf-8
+    ##coding: utf-8
     ## 兩個 pound signs 在 Mako 語法中為註解行
     ## 多行註解則使用
     <%doc>
@@ -1855,6 +1870,170 @@ https://code.google.com/p/deap/
 ^^^^^^^^^^^^^^^^^^
 
 http://deap.gel.ulaval.ca/doc/default/index.html
+
+deap 範例
+^^^^^^^^^^^
+
+.. code-block:: python
+
+    import random
+    import array
+    from deap import base
+    from deap import benchmarks
+    from deap import creator
+    from deap import tools
+    # Problem dimension
+    NDIM = 10
+    creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
+    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
+    toolbox = base.Toolbox()
+    toolbox.register("attr_float", random.uniform, -3, 3)
+    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, NDIM)
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+    toolbox.register("select", tools.selRandom, k=3)
+    toolbox.register("evaluate", benchmarks.sphere)
+    def main():
+        # Differential evolution parameters
+        CR = 0.25
+        F = 1 
+        MU = 300
+        NGEN = 200   
+         
+        pop = toolbox.population(n=MU);
+        hof = tools.HallOfFame(1)
+        stats = tools.Statistics(lambda ind: ind.fitness.values)
+        stats.register("avg", tools.mean)
+        stats.register("std", tools.std)
+        stats.register("min", min)
+        stats.register("max", max)
+         
+        logger = tools.EvolutionLogger(["gen", "evals"] + list(stats.functions.keys()))
+        logger.logHeader()
+         
+        # Evaluate the individuals
+        fitnesses = toolbox.map(toolbox.evaluate, pop)
+        for ind, fit in zip(pop, fitnesses):
+            ind.fitness.values = fit
+         
+        stats.update(pop)
+         
+        logger.logGeneration(gen=0, evals=len(pop), stats=stats)
+         
+        for g in range(1, NGEN):
+            for k, agent in enumerate(pop):
+                a,b,c = toolbox.select(pop)
+                y = toolbox.clone(agent)
+                index = random.randrange(NDIM)
+                for i, value in enumerate(agent):
+                    if i == index or random.random() < CR:
+                        y[i] = a[i] + F*(b[i]-c[i])
+                y.fitness.values = toolbox.evaluate(y)
+                if y.fitness > agent.fitness:
+                    pop[k] = y
+            hof.update(pop)
+            stats.update(pop)
+             
+            logger.logGeneration(gen=g, evals=len(pop), stats=stats)
+        print ("Best individual is ", hof[0], hof[0].fitness.values[0])
+         
+    if __name__ == "__main__":
+        main()
+        
+.. code-block:: python
+
+    import random
+    import array
+    from deap import base
+    from deap import benchmarks
+    from deap import creator
+    from deap import tools
+    
+    # Problem dimension
+    NDIM = 10
+    creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
+    creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
+    def mutDE(y, a, b, c, f):
+        size = len(y)
+        for i in range(len(y)):
+            y[i] = a[i] + f*(b[i]-c[i])
+        return y
+    def cxBinomial(x, y, cr):
+        size = len(x)
+        index = random.randrange(size)
+        for i in range(size):
+            if i == index or random.random() < cr:
+                x[i] = y[i]
+        return x
+    def cxExponential(x, y, cr):
+        size = len(x)
+        index = random.randrange(size)
+        # Loop on the indices index -> end, then on 0 -> index
+        for i in list(range(index, size)) + list(range(0, index)):
+            x[i] = y[i]
+            if random.random() < cr:
+                break
+        return x
+    toolbox = base.Toolbox()
+    toolbox.register("attr_float", random.uniform, -3, 3)
+    toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attr_float, NDIM)
+    toolbox.register("population", tools.initRepeat, list, toolbox.individual)
+    toolbox.register("mutate", mutDE, f=0.8)
+    toolbox.register("mate", cxExponential, cr=0.8)
+    toolbox.register("select", tools.selRandom, k=3)
+    toolbox.register("evaluate", benchmarks.griewank)
+    def main():
+        # Differential evolution parameters
+        MU = NDIM * 10
+        NGEN = 200   
+         
+        pop = toolbox.population(n=MU);
+        hof = tools.HallOfFame(1)
+        stats = tools.Statistics(lambda ind: ind.fitness.values)
+        stats.register("avg", tools.mean)
+        stats.register("std", tools.std)
+        stats.register("min", min)
+        stats.register("max", max)
+         
+        logger = tools.EvolutionLogger(["gen", "evals"] + list(stats.functions.keys()))
+        logger.logHeader()
+         
+        # Evaluate the individuals
+        fitnesses = toolbox.map(toolbox.evaluate, pop)
+        for ind, fit in zip(pop, fitnesses):
+            ind.fitness.values = fit
+         
+        stats.update(pop)
+         
+        logger.logGeneration(gen=0, evals=len(pop), stats=stats)
+         
+        for g in range(1, NGEN):
+            children = []
+            for agent in pop:
+                # We must clone everything to ensure independance
+                a, b, c = [toolbox.clone(ind) for ind in toolbox.select(pop)]
+                x = toolbox.clone(agent)
+                y = toolbox.clone(agent)
+                y = toolbox.mutate(y, a, b, c)
+                z = toolbox.mate(x, y)
+                del z.fitness.values
+                children.append(z)
+                 
+            fitnesses = toolbox.map(toolbox.evaluate, children)
+            for (i, ind), fit in zip(enumerate(children), fitnesses):
+                ind.fitness.values = fit
+                if ind.fitness > pop[i].fitness:
+                    pop[i] = ind
+             
+            hof.update(pop)
+            stats.update(pop)
+             
+            logger.logGeneration(gen=g, evals=len(pop), stats=stats)
+                 
+        print ("Best individual is ", hof[0])
+        print ("with fitness", hof[0].fitness.values[0])
+                 
+    if __name__ == "__main__":
+        main()
 
 sympy 相關
 ************
