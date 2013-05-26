@@ -5594,86 +5594,6 @@ designer.exe 編輯模式共有四種:
 - Edit Buddies
 
 - Edit Tab Orders
-.. @+node:amd.20130513150554.2665: *4* 程式總整理
-從命令列的 Python3 程式模式出發, 將特定程式改寫為函式, 然後再改寫為 class 物件, 接著再將程式轉為 CherryPy 網際程式, 並且利用資料庫存檔, 最後將相同運算流程的程式轉為單機 PyQt 或 PySide 的程式.
-
-相關的程式語言程式開發選擇:
-
-- 命令列程式
-
-- 利用函式編寫範式
-
-- 轉為 class 物件導向程式
-
-- 轉為 CherryPy 網際程式
-
-- 利用資料庫存檔
-
-- 將程式轉成視窗程式
-
-請根據上列程式範式, 建立可以讓使用者輸入三個數值, 然後由程式列出三數的平均值.
-
-接著考量利用上述程式開發流程建立能夠讓修課班級應用的實驗室管理系統, 程式的基本目標:
-
-- 可以接受修課班級名單作為輸入, 由程式進行亂數分組, 並且將班級名單與分組結果存入資料庫中.
-
-- 採命令列、網際程式、視窗程式的架構開發上述程式.
-
-- 可延伸此一分組程式用於課堂點名或學習心得回報.
-
-- 可延伸此一分組程式用於班級經營與教師評分.
-
-- 可否在特定的模式下, 利用 2D 繪圖顯示系統的統計資料.
-.. @+node:amd.20130513150554.2666: *5* 命令列程式
-利用命令列模式編寫程式:
-
-接受三個輸入, 然後列出平均值.
-
-寫為函式格式:
-
-寫為 class 格式:
-
-.. literalinclude:: ../c2/command_w12_1.py
-   :language: python
-.. @+node:amd.20130513215328.2668: *5* CherryPy 網際程式
-本章節要延續命令列程式的邏輯, 將程式套用到 CherryPy 網際框架中, 為了能夠取得使用者的變數輸入, 可以採用 GET 或 POST 的方法, 以下先採用 GET 傳值.
-
-由於此一程式需要同時傳送 positional arguments 與 keyword arguments, 其中牽涉到連結中的"&"符號, 若直接採 os.system() 啟動瀏覽器, Windows shell 會將 & 視為命令列指令的一部分 , 而無法正確讓瀏覽器開啟正確的 URL, 因此瀏覽器的執行改用 subprocess.call().
-
-使用者利用 GET 將三個輸入數值傳給網際程式後, 就可以啟動平均值運算然後將結果傳回瀏覽器.
-
-.. literalinclude:: ../c2/cherrypy_w12_1.py
-   :language: python
-
-以 POST 取得變數的 CherryPy 表單程式, 執行換錢的流程.
-
-.. literalinclude:: ../c2/cherrypy_changer1.py
-   :language: python
-
-請將此網際換錢程式改為網際表單求平均值程式.
-.. @+node:amd.20130513215328.2819: *5* PyQt 視窗程式
-三數求平均的視窗程式, 採用 eric5 建構, 以 designer.exe 建立 mainwindow.ui 後轉為 Ui_mainwindow.py, 然後透過 main.py 將視窗介面以應用程式顯示.
-
-main.py 主程式內容:
-
-.. literalinclude:: ../c2/pyqt/avg1/main.py
-   :language: python
-   
-主視窗介面 Ui_mainwindow.py 程式內容:
-   
-.. literalinclude:: ../c2/pyqt/avg1/Ui_mainwindow.py
-   :language: python
-
-利用 eric5 designer 所建立的 mainwindow.ui 內容:
-
-.. literalinclude:: ../c2/pyqt/avg1/mainwindow.ui
-   :language: python
-   
-目前在 eric5 IDE 中, 將此視窗程式以 Project->Packagers->Use cx_freeze 轉為獨立可執行程式時, 必須指定 Target directory, Target name 為 average.exe, Base name 為 Win32GUI 外, 還必須在 Advanced 頁面中指定 Include modules: re, 才可以正確轉為可執行程式(可能是 cx_freeze, PyQt 或 eric5 套件接合上的特定問題).
-
-最後完成的獨立可執行 average.exe 程式, 可以從 pyqt_avg_ 下載.
-
-.. _pyqt_avg: https://sites.google.com/a/mde.tw/service/public/pyqt_avg.7z?attredirects=0&d=1
 .. @+node:mde_leo.20130510215619.2658: *3* C2 第十三週
 人工智慧下的程式對戰(目的在訓練工程師編寫能夠有效解決問題的程式碼):
 
@@ -5875,6 +5795,86 @@ The game ends when only one active player has ants, or only one player's ant hil
 Want to know how to program a bot? First read the detailed Game Specification, and then check out the Five Minute Quickstart Guide!
 
 想知道如何編寫一個機器螞蟻程式? 首先詳閱遊戲說明, 接著查一下 5 分鐘快速導引中的說明.
+.. @+node:amd.20130517200829.4939: *4* 程式總整理
+從命令列的 Python3 程式模式出發, 將特定程式改寫為函式, 然後再改寫為 class 物件, 接著再將程式轉為 CherryPy 網際程式, 並且利用資料庫存檔, 最後將相同運算流程的程式轉為單機 PyQt 或 PySide 的程式.
+
+相關的程式語言程式開發選擇:
+
+- 命令列程式
+
+- 利用函式編寫範式
+
+- 轉為 class 物件導向程式
+
+- 轉為 CherryPy 網際程式
+
+- 利用資料庫存檔
+
+- 將程式轉成視窗程式
+
+請根據上列程式範式, 建立可以讓使用者輸入三個數值, 然後由程式列出三數的平均值.
+
+接著考量利用上述程式開發流程建立能夠讓修課班級應用的實驗室管理系統, 程式的基本目標:
+
+- 可以接受修課班級名單作為輸入, 由程式進行亂數分組, 並且將班級名單與分組結果存入資料庫中.
+
+- 採命令列、網際程式、視窗程式的架構開發上述程式.
+
+- 可延伸此一分組程式用於課堂點名或學習心得回報.
+
+- 可延伸此一分組程式用於班級經營與教師評分.
+
+- 可否在特定的模式下, 利用 2D 繪圖顯示系統的統計資料.
+.. @+node:amd.20130517200829.4940: *5* 命令列程式
+利用命令列模式編寫程式:
+
+接受三個輸入, 然後列出平均值.
+
+寫為函式格式:
+
+寫為 class 格式:
+
+.. literalinclude:: ../c2/command_w12_1.py
+   :language: python
+.. @+node:amd.20130517200829.4941: *5* CherryPy 網際程式
+本章節要延續命令列程式的邏輯, 將程式套用到 CherryPy 網際框架中, 為了能夠取得使用者的變數輸入, 可以採用 GET 或 POST 的方法, 以下先採用 GET 傳值.
+
+由於此一程式需要同時傳送 positional arguments 與 keyword arguments, 其中牽涉到連結中的"&"符號, 若直接採 os.system() 啟動瀏覽器, Windows shell 會將 & 視為命令列指令的一部分 , 而無法正確讓瀏覽器開啟正確的 URL, 因此瀏覽器的執行改用 subprocess.call().
+
+使用者利用 GET 將三個輸入數值傳給網際程式後, 就可以啟動平均值運算然後將結果傳回瀏覽器.
+
+.. literalinclude:: ../c2/cherrypy_w12_1.py
+   :language: python
+
+以 POST 取得變數的 CherryPy 表單程式, 執行換錢的流程.
+
+.. literalinclude:: ../c2/cherrypy_changer1.py
+   :language: python
+
+請將此網際換錢程式改為網際表單求平均值程式.
+.. @+node:amd.20130517200829.4942: *5* PyQt 視窗程式
+三數求平均的視窗程式, 採用 eric5 建構, 以 designer.exe 建立 mainwindow.ui 後轉為 Ui_mainwindow.py, 然後透過 main.py 將視窗介面以應用程式顯示.
+
+main.py 主程式內容:
+
+.. literalinclude:: ../c2/pyqt/avg1/main.py
+   :language: python
+   
+主視窗介面 Ui_mainwindow.py 程式內容:
+   
+.. literalinclude:: ../c2/pyqt/avg1/Ui_mainwindow.py
+   :language: python
+
+利用 eric5 designer 所建立的 mainwindow.ui 內容:
+
+.. literalinclude:: ../c2/pyqt/avg1/mainwindow.ui
+   :language: python
+   
+目前在 eric5 IDE 中, 將此視窗程式以 Project->Packagers->Use cx_freeze 轉為獨立可執行程式時, 必須指定 Target directory, Target name 為 average.exe, Base name 為 Win32GUI 外, 還必須在 Advanced 頁面中指定 Include modules: re, 才可以正確轉為可執行程式(可能是 cx_freeze, PyQt 或 eric5 套件接合上的特定問題).
+
+最後完成的獨立可執行 average.exe 程式, 可以從 pyqt_avg_ 下載.
+
+.. _pyqt_avg: https://sites.google.com/a/mde.tw/service/public/pyqt_avg.7z?attredirects=0&d=1
 .. @+node:amd.20130513215328.2820: *4* Small compony with big idea
 http://www.science-applied.nl/
 
@@ -6100,5 +6100,6 @@ http://www.0xlab.org/
         if len(sys.argv)>6: ft     =int(sys.argv[6])
     
         main(nelx,nely,volfrac,penal,rmin,ft)
+.. @+node:amd.20130517200829.2763: *3* C2 第十四週
 .. @-all
 .. @-leo

@@ -31,15 +31,20 @@ def gear(畫布, midx, midy, rp, n, 顏色):
     d=2.5*rp/n
     # ra 為齒輪的外圍半徑
     ra=rp+a
+    print("ra:", ra)
     # 畫出 ra 圓
     #畫布.create_oval(midx-ra, midy-ra, midx+ra, midy+ra, width=1)
     # rb 則為齒輪的基圓半徑
     # 基圓為漸開線長齒之基準圓
     rb=rp*cos(20*deg)
+    print("rp:", rp)
+    print("rb:", rb)
     # 畫出 rb 圓 (基圓)
     #畫布.create_oval(midx-rb, midy-rb, midx+rb, midy+rb, width=1)
     # rd 為齒根圓半徑
     rd=rp-d
+    # 當 rd 大於 rb 時
+    print("rd:", rd)
     # 畫出 rd 圓 (齒根圓)
     #畫布.create_oval(midx-rd, midy-rd, midx+rd, midy+rd, width=1)
     # dr 則為基圓到齒頂圓半徑分成 imax 段後的每段半徑增量大小
@@ -47,7 +52,6 @@ def gear(畫布, midx, midy, rp, n, 顏色):
     dr=(ra-rb)/imax
     # tan(20*deg)-20*deg 為漸開線函數
     sigma=pi/(2*n)+tan(20*deg)-20*deg
- 
     for j in range(n):
         ang=-2.*j*pi/n+sigma
         ang2=2.*j*pi/n+sigma
@@ -115,7 +119,7 @@ frame.pack()
 canvas = Canvas(width=800, height=800, bg='white')
  
 canvas.pack(expand=YES, fill=BOTH) 
-gear(canvas,400,400,300,16,"blue")
+gear(canvas,400,400,300,41,"blue")
 #gear(canvas,400,400,100,36,"red")
 #gear(canvas,400,400,200,36,"dark green")
 '''

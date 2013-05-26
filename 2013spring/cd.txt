@@ -1882,6 +1882,72 @@ This is only a small tutorial describing the basic ideas and elements behind sgs
 
 想要更深入了解 sgsML, 可以查看 "src/modules/schema_sys" (包含 Simple Groupware 系統模組與外部資料來源的處理器).
 這個簡介只說明有關 sgsML 的基本概念與元件. 您若自行編寫模組, 有哪些功能無法運作或不清楚, 可以寫信給我.
+.. @+node:amd.20130517090640.2759: *5* sgsML 註解
+data 標註用來定義選項欄位中的選擇資料:
+
+- 可以是多值以 | 隔開
+
+- 可以是以兩個對應值成對, 格式為"值_##_{t}顯示值{/t}|另一值_##_{t}顯示值{/t}"
+
+- 可以利用 PHP 程式方法傳回對應的數列值, 且方法參數可以與其他表列值進行附加, 以 | 隔開
+
+範例:
+
+<data function=``"dbselect|simple_companies|id,companyname||companyname asc|10"``/>
+
+<data function=``"dbselect|<table>|<key-column>,<value-column>|<where>|<order-by>|<limit>|<no_permisions>"``/>
+
+利用資料庫選擇方法 dbselect, 從 table 資料表中, 透過 where 搜尋取值, 然後將搜尋結果中的 value 欄位列出作為選擇, 實際變數則取 key 值, 選項中依照 order by 規則排列, 且最多列出 limit 個數
+
+<data function=``"dbselect|(select a.* from table1 a, table2 b where a.id=b.id) c|<key-column>,<value-column>||<order-by>|<limit>"``/>
+
+也可以將資料庫搜尋語法作為 dbselect 方法的輸入字串, c 或為 combined(?)
+
+<data function=``"dbselect|simple_sys_users|username,concat(lastname;'; ';firstname)||lastname asc|10"``/>
+
+注意 key value 為實際與欄位變數存入資料庫的值
+
+filter 目的在取得其他輸入欄位值後, 配合設計邏輯進行運算, mygear 方法位於 V:\extensions\sgw\bin\core\classes, 檔案為 test.php
+
+.. code-block:: none
+
+    <field name="verify" displayname="verify" simple_type="text" notinall="true">
+    <filter views="all" function="test::mygear"/>
+    <onlyin views="display|details"/>
+    </field>
+
+filter 使用時機: 當使用者希望透過特定流程改變某一欄位資料內容時使用.
+
+系統內建的 filter 函式位於 V:\extensions\sgw\bin\core\classes 目錄中的 modify.php.
+
+例如: 在 field 標駐中的 filter, <filter views="all" function="dateformat"/>, views="all" 表示此一欄位資料的 fielter 在所有顯示畫面全部有效, 且套用 modify.php 中的 dateformat 方法:
+
+.. code-block:: php
+
+    static function dateformat($args,$args2=null) {
+      if (!is_array($args2) and $args2!="") return self::_mydate($args2,$args);
+      if (is_array($args2)) {
+        if (!empty($args2[0]) and !is_numeric($args2[0])) $args = strtotime($args2[0],$args);
+        if ($args==0 or $args=="") return "";
+        if (empty($args2[1])) $args2[1] = "m/d/Y";
+        $date = @self::_mydate($args2[1],$args);
+        if ($date=="" and $args!=0) return $args;
+        return $date;
+      }
+      if (!is_array($args) or count($args)!=2) return "";
+      if (!is_numeric($args[0])) $args[0] = strtotime($args[0]);
+      return self::_mydate($args[1],$args[0]);
+    }
+
+針對 <filter views="all" function="dateformat"/>, 表示 dateformat 方法位於 V:\extensions\sgw\bin\core\classes 目錄中的 modify.php 程式檔案中, 因為是內定的資料修改類別, 因此無需標示類別名稱, 但是若是將改變欄位資料的方法放在其他類別中, 就必須明確宣告, 且位於 V:\extensions\sgw\bin\core\classes 目錄中類別名稱必須與檔案名稱相同.
+
+例如: <filter views="all" function="test::myadd"/> 表示欄位資料的變更依照 test.php 程式檔案中的 test 類別中的 myadd 方法所傳回的資料為準, 由於類別名稱為 test, 因此 filter 程式檔案的名稱就必須為 test.php, 並且其中一定要存在 myadd 方法.
+
+輸入欄位資料的驗證
+
+<validate function=``"regexp|/^[0-9]+$/|ID must be numeric"``/>
+
+表示該欄位只能輸入數字資料.
 .. @+node:amd_yen.20130426235501.4330: *5* 目錄權限管理
 View Access 主要權限設定的目錄在於進行 tabs 的進階管理:
 
@@ -4146,5 +4212,84 @@ test.php 欄位資料處理類別檔案內容:
         }
     }
     ?>
+.. @+node:amd.20130517200829.2760: *3* CD 第十三週
+利用期中報告所繪製的六個零件, 進行尺寸縮放, 並且加上其他零件(包括齒輪減速機), 以小組為單位協同完成一項產品, 其中所牽涉到之正齒輪齒面寬設計(CMSimple gear plugin)、軸承設計、軸設計、彈簧設計等零件, 則以大組為單位進行設計整合, 並且共用 material 材料性質資料庫.
+
+機械材料性質資料庫 - material.xml
+
+正齒輪功率傳遞設計流程 - geardesign.xml
+
+傳動軸設計流程 - shaftdesign.xml
+
+軸承設計流程 - bearing.xml
+
+彈簧設計流程 - spring.xml
+
+其他機械元件設計流程
+
+.. @+node:amd.20130524220043.2764: *4* 讀取 lewis.db 內容
+利用 Python 讀取 lewis.db 資料庫檔案內容
+
+.. code-block:: python
+
+    #coding: utf-8
+    # 資料查詢
+    import sqlite3
+      
+    conn = sqlite3.connect("v:/lewis.db")
+    cursor = conn.cursor()
+    
+    sql = "SELECT name FROM sqlite_master WHERE type='table';"
+    cursor.execute(sql)
+    # list all the tables
+    table = cursor.fetchall()
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    for index in range(len(table)):
+        cursor.execute('select * from '+table[index][0])
+        # list all the data
+        for record in cursor.fetchall():
+            for number in range(len(cursor.description)):
+                print(cursor.description[number][0])
+                print(record[number])
+            print("____________________")
+.. @+node:amd.20130517200829.2762: *4* 傳動軸設計流程
+傳動軸主要受到變動力所產生的機械材料疲勞而破壞, 因此設計的要點在於讓產品在生命週期中能夠承受運轉所帶來的變動應力.
+
+.. @+node:amd.20130517200829.2761: *3* CD 第十四週
+pymysql 的應用:
+
+列出資料庫內的所有資料表.
+
+.. code-block:: python
+
+#!/usr/bin/env python
+
+#!/usr/bin/env python
+
+    import pymysql
+    
+    conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='root', db='sgs_0_745')
+    
+    cur = conn.cursor()
+    
+    cur.execute("USE sgs_0_745")    # select the database
+    
+    cur.execute("SHOW TABLES")  
+    
+    '''
+    # 可以使用以下兩種不同用法
+    # 方法一
+    for (table_name,) in cur:
+        print(table_name)
+    '''
+    # 方法二
+    tables = cur.fetchall()    # return data from last query
+    for (table_name,) in tables:
+        print(table_name)
+    
+    cur.close()
+    conn.close()
+    
 .. @-all
 .. @-leo
