@@ -4577,7 +4577,8 @@ simple_sys_tree 中 的 fcount, 表示 folder 編號 304901 對應的檔案夾�
 
 除了必須注意 lewis 與 material 所在的 folder 編號外, simple_material 內容必須與 simmple_seq_simple_material 與 simple_sys_tree 資料表中的對應資料配合.
 
-而與 V:\extensions\sgw\bin\modules\schema\gear.xml 配合的 V:\extensions\sgw\bin\core\classes\test.php, 則修改如下:
+
+而與 V:\extensions\sgw\bin\modules\schema\gear.xml 配合的初步 V:\extensions\sgw\bin\core\classes\test.php 設計運算程式, 可以取得所有設計必要參數, 則修改如下:
 
 .. code-block:: php
 
@@ -4648,6 +4649,163 @@ simple_sys_tree 中 的 fcount, 表示 folder 編號 304901 對應的檔案夾�
     }
     
         return $data["type"]["data"][0]."--".$data["material"]["data"][0]."--".$data["pinion"]["data"][0]."--".$formfactor;
+        }
+    
+    }
+    ?>
+
+若再配合正齒輪齒面寬的設計程式流程, 則完成下列 test.php 程式:
+
+.. code-block:: php
+
+    <?php
+    //V:\extensions\sgw\bin\core\classes\test.php
+    
+    class test {
+    
+        static function myadd($val,$args,$data) {
+        // how to get other field value??
+        // $_SESSION["username"] 為目前的用戶名稱
+        // $data["var1"]["data"][0] 為 var1 欄位值
+        // $data["var2"]["data"][0] 為 var2 欄位值
+            return $data["var1"]["data"][0]+$data["var2"]["data"][0];
+        }
+    
+        static function gearwidth($val,$args,$data) {
+                // how to get other field value??
+                // $_SESSION["username"] 為目前的用戶名稱
+                // $data["var1"]["data"][0] 為 var1 欄位值
+                // $data["var2"]["data"][0] 為 var2 欄位值
+                // 設法從資料表中, 以齒數查詢對應的齒形 lewis 設計參數
+                //db_select($table,$fields,$sql_where,$order,$limit,$vars=array(),$optional=array()) 
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
+    
+                $npinion = $data["pinion"]["data"][0];
+                $formfactor = 0;
+    
+            if(count($output)==0)
+            {
+                //  表示小齒輪齒數在 lewis 表中沒有直接對應, 必須採用內插求齒形的對應參數
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum>".$npinion,"gearnum asc",1,"");
+                //if($output[0]["type".$data["type"]["data"][0]]=="")
+                if(count($output)==0)
+                {
+                    //表示齒數仍然過大, 在表中仍無對應齒數可以查表, 將齒數設為齒條
+                    $larger_toothnumber=400;
+                    // 配合查出 400 齒的對應 formfactor
+                    $largeroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$larger_toothnumber,"gearnum asc",1,"");
+                    $formfactor = $largeroutput[0]["type".$data["type"]["data"][0]];
+                }else{
+                    // 根據查詢, 求出表中大於小齒輪齒數的數值
+                    $larger_toothnumber = $output[0]["gearnum"];
+                    $larger_formfactor = $output[0]["type".$data["type"]["data"][0]];
+                }
+                //  接著找出比目標齒數小的其中的最大的,就是最鄰近的小值
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum<".$npinion,"gearnum desc",1,"");
+                //if($output[0]["type".$data["type"]["data"][0]]=="")
+                if(count($output)==0)
+                {
+                    //假如資料庫中沒有比目標齒數小的值,就將目標齒數設為資料庫中的最小值來加以對應
+                    $smaller_toothnumber=12;
+                    // 配合查出 12 齒的對應 formfactor
+                    $smalleroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$smaller_toothnumber,"gearnum asc",1,"");
+                    $formfactor  = $smalleroutput[0]["type".$data["type"]["data"][0]];
+                }else{
+                    // 根據查詢, 求出表中小於小齒輪齒數的數值
+                    $smaller_toothnumber = $output[0]["gearnum"];
+                    $smaller_formfactor = $output[0]["type".$data["type"]["data"][0]];
+                }
+                    if($formfactor==0){
+                    //進行內插運算,以便求出對應的小齒輪formfactor查表值
+                    $formfactor = $larger_formfactor + ($npinion - $larger_toothnumber) * ($larger_formfactor - $smaller_formfactor) / ($larger_toothnumber - $smaller_toothnumber);
+                    }
+            }else{
+                // 表示 lewis 表格中, 配合小齒輪齒數直接從資料表中查表得到 lewis 參數
+                $formfactor = $output[0]["type".$data["type"]["data"][0]];
+            }
+    
+            $toothtype = $data["type"]["data"][0];
+            $rpm = $data["rpm"]["data"][0];
+            $horsepower = $data["power"]["data"][0];
+            $safetyfactor = $data["factor"]["data"][0];
+            // material field: concat(treatment;':';yieldstr;':';tensilestr;':';sectionstr;':';sratio;':';brinell)
+            $material = preg_split('/:/', $data["material"]["data"][0]);
+            $strengthstress = $material[1] * 1000;
+            $brinellhardness = $material[5];
+    
+            // 先處理設計運算所需的參數
+            //透過toothtype轉回真正的齒形描述
+            if($toothtype == "1")
+            {
+                $pressureangle = "20";
+            }
+            elseif ($toothtype == "2")
+            {
+                $pressureangle = "20";
+            }
+            elseif ($toothtype == "3")
+            {
+                $pressureangle = "25";
+            }
+            else
+            {
+                $pressureangle = "25";
+            }
+    
+            //最小齒數取決於壓力角
+            if($pressureangle == "20")
+            $minnpinion = 18;
+            elseif($pressureangle == "25")
+            $minnpinion = 12;
+            else
+            $minnpinion = 12;
+    
+            //直接設最小齒數
+            If ($npinion <= $minnpinion)
+            $npinion = $minnpinion;
+    
+            //大於400的齒數則視為齒條(Rack)
+            If ($npinion >= 400)
+                $npinion = 400;
+            //開始進行設計運算
+            $ratio = $data["ratio"]["data"][0];
+            $ngear = $npinion*$ratio;
+    
+            //重要的最佳化設計---儘量用整數的diametralpitch
+            //先嘗試用整數算若diametralpitch找到100仍無所獲則改用0.25作為增量再不行則宣告fail
+            $counter=0;
+            $i = 0.1;
+            $facewidth = 0;
+            $circularpitch = 0;
+            while ($facewidth <= 3 * $circularpitch or $facewidth >= 5 * $circularpitch)
+            {
+                $diametralpitch = $i;
+                $circularpitch = 3.14159 / $diametralpitch;
+                $pitchdiameter = $npinion / $diametralpitch;
+                $pitchlinevelocity = 3.14159 * $pitchdiameter * $rpm / 12;
+                $transmittedload = 33000 * $horsepower / $pitchlinevelocity;
+                $velocityfactor = 1200 / (1200 + $pitchlinevelocity);
+                //formfactor is Lewis form factor;
+                //formfactor need to get from table 13-3 and determined ty teeth number and type of tooth
+                //formfactor = 0.293
+                //90 is the value get from table corresponding to material type
+                $facewidth = $transmittedload * $diametralpitch * $safetyfactor / $velocityfactor / $formfactor / $strengthstress;
+    
+                if($counter>5000)
+                {
+                    //$result.="超過5000次的設計運算,仍無法找到答案!<br>";
+                    //$result.="可能所選用的傳遞功率過大,或無足夠強度的材料可以使用!<br>";
+                    $facewidth = "no answer";
+                    //離開while迴圈
+                    break;
+                }
+    
+                $i+=0.1;
+                $counter++;
+            }
+    
+            //return $data["type"]["data"][0]."--".$data["material"]["data"][0]."--".$data["pinion"]["data"][0]."--".$formfactor;
+            return round($facewidth, 4);
         }
     
     }
