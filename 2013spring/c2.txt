@@ -6101,5 +6101,168 @@ http://www.0xlab.org/
     
         main(nelx,nely,volfrac,penal,rmin,ft)
 .. @+node:amd.20130517200829.2763: *3* C2 第十四週
+1. 請寫一個命令列程式, 接受使用者輸入一個整數, 然後程式可以依序建立對應數量的檔案與內容.
+
+例如: 使用者輸入 3, 則程式會建立 3 個檔案, 名稱分別為 file1.txt, file2.txt, file3.txt, 且 file1.txt 內容中有一行,且為 1, 而 file2.txt 檔案內容則有 2 行, 分別為 1 與 2, file3.txt 則有 3 行, 分別為 1, 2, 3 等數字.
+
+2. 請將上述程式改寫為網際程式, 使用者輸入後, 瀏覽器會產生三個文字按鈕, 可以讓使用者直接打開 file1.txt, file2.txt 與 file3.txt 等三個檔案, 並且可以在輸入畫面與結果畫面間切換.
+
+3. 請將上述程式改寫為視窗程式, 並且得到相同的結果.
+
+4. 請將上述各程式的資料存入 SQLite 資料庫中.
+
+第 1 題程式:
+
+程式重點:
+
+取輸入的方法.
+
+利用輸入數值執行 for 迴圈
+
+建立檔案的方法
+
+將特定內容寫入檔案的方法
+
+.. code-block:: python
+
+    # 取得輸入
+    數值 = input("請輸入一個整數:")
+    #print(type(數值))
+    # 根據輸入執行所要求的內容
+    # 設法建立外部檔案
+    for 索引 in range(int(數值)):
+        數字 = 索引 + 1
+        檔案 = open("file"+str(數字)+".txt", "w")
+        # 將所要求的內容寫進檔案
+        for 另一個索引 in range(數字):
+            另一個數字 = 另一個索引 + 1
+            檔案.write(str(另一個數字)+"\n")
+        檔案.close()
+
+延伸題目, 請將程式改為 file1.txt 內容為 1, 2, 3, file2.txt 不變, 而 file3.txt 內容為 1
+
+第 2 題程式架構:
+
+程式重點:
+
+在網際環境取輸入的方法.
+
+利用輸入數值執行 for 迴圈
+
+建立檔案的方法
+
+將文件寫入特定目錄的方法
+
+將特定內容寫入檔案的方法
+
+Cherrypy 網際靜態目錄的設定方法
+
+建立超文件連結的方法
+
+啟動與關閉 Cherrypy 程式的方法(為什麼 stop executing 無法停止 Cherrypy 網際程式?)
+
+.. code-block:: python
+
+    #coding: utf-8
+     
+    import cherrypy
+    # 執行指令但是不要開啟 Windows shell 用
+    import subprocess
+     
+    class MyClass(object):
+        def index(self):
+            return "執行 MyClass!"
+        index.exposed = True
+     
+    class MyChanger(object):
+        _cp_config = {
+            'tools.sessions.on': True
+        }
+     
+        myclass = MyClass()
+     
+        def doReturn(self, amount=None):
+            if amount != "":
+                # 執行檔案建立流程
+                amount = float(amount)
+            else:
+                return "輸入有問題!<br /><br /><a href=\"/\">重新換算</a>"
+            # 設法列出檔案的文字按鈕
+            output = "<a href=\"/downloads/file1.txt\">file1.txt</a>"
+            return output
+     
+        doReturn.exposed = True
+     
+        def index(self):
+            return """<html>
+    <head>
+      <title>網路找錢程式</title>
+    </head>
+    <body>
+      <form action="doReturn" method="post">
+        請輸入一個整數:<input type="text" name="amount" value="" 
+            size="15" maxlength="40"/>
+        <p><input type="submit" value="執行運算"/></p>
+        <p><input type="reset" value="清除"/></p>
+      </form>
+    </body>
+    </html>"""        
+     
+        index.exposed = True
+    
+     # 靜態檔案的目錄對應設定
+    myconfig = {'/downloads':{
+        'tools.staticdir.on': True,
+        'tools.staticdir.root': "C:/tmp",
+        'tools.staticdir.dir': 'downloads',
+        'tools.staticdir.index' : 'index.html'
+        },
+        # 設定靜態 templates 檔案目錄對應
+        '/templates':{
+        'tools.staticdir.on': True,
+        'tools.staticdir.root': "C:/tmp",
+        'tools.staticdir.dir': 'templates',
+        'tools.staticdir.index' : 'index.html'
+        }
+    }
+    
+     # 由於 url 帶有 &, 無法直接使用 os.system() 開啟網頁同時派送變數, 因此改用 subprocess
+    url = 'http://localhost:8088/index'
+    chrome = "V:/tools/GoogleChromePortable/GoogleChromePortable.exe"
+    retcode = subprocess.call([chrome, url])
+    
+    # 指定程式執行的連接埠號, 內定為 8080
+    cherrypy.server.socket_port = 8088
+    # 指定程式執行所對應的伺服器 IP 位址, 內定為 127.0.0.1
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(MyChanger(), config=myconfig)
+
+程式練習題目:
+
+1. 某一目錄下有 100 (或者更多)個特定名稱的檔案, 每一個檔案中有不同行數的內容.
+
+請將各檔案中的第一行的數字進行累加, 總數為多少?
+
+請將各檔案中的第 25 行的數字進行累加, 總數為多少?
+
+.. @+node:amd.20130527143027.2765: *4* 命令列程式驗收
+1. 利用 input() 函式取得輸入, 所取得的輸入變數型別為 str, 若要作為數值運用必須利用 int() 轉為整數.
+
+2. 若要利用變數與字串拼成輸出字串, 且變數為整數, 則必須先利用 str() 轉為字串後再結合成組合字串.
+
+3. 在 Python 程式中執行命令列指令時, 必須先導入 os 模組, 然後以 os.system() 執行.
+
+4. 利用 Python 程式讀寫檔案的流程, 必須先建立檔案連結的 handle, 指定讀寫檔案的模式, 之後再利用 handle write 或 read, 寫入或讀取檔案內容.
+
+.. @+node:amd.20130527143027.2766: *4* CherryPy 網際程式驗收
+1. CherryPy 網際程式的基本架構.
+
+2. 靜態檔案 URL 連結與實體檔案絕對位置的設定與使用.
+
+3. 網際表單的編寫.
+
+4. session 的運用.
+
+5. SSL 資料連結的運用.
 .. @-all
 .. @-leo

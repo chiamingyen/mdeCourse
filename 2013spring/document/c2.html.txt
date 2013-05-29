@@ -5776,98 +5776,6 @@ designer.exe 編輯模式共有四種:
 
 - Edit Tab Orders
 
-程式總整理
-***************
-
-從命令列的 Python3 程式模式出發, 將特定程式改寫為函式, 然後再改寫為 class 物件, 接著再將程式轉為 CherryPy 網際程式, 並且利用資料庫存檔, 最後將相同運算流程的程式轉為單機 PyQt 或 PySide 的程式.
-
-相關的程式語言程式開發選擇:
-
-- 命令列程式
-
-- 利用函式編寫範式
-
-- 轉為 class 物件導向程式
-
-- 轉為 CherryPy 網際程式
-
-- 利用資料庫存檔
-
-- 將程式轉成視窗程式
-
-請根據上列程式範式, 建立可以讓使用者輸入三個數值, 然後由程式列出三數的平均值.
-
-接著考量利用上述程式開發流程建立能夠讓修課班級應用的實驗室管理系統, 程式的基本目標:
-
-- 可以接受修課班級名單作為輸入, 由程式進行亂數分組, 並且將班級名單與分組結果存入資料庫中.
-
-- 採命令列、網際程式、視窗程式的架構開發上述程式.
-
-- 可延伸此一分組程式用於課堂點名或學習心得回報.
-
-- 可延伸此一分組程式用於班級經營與教師評分.
-
-- 可否在特定的模式下, 利用 2D 繪圖顯示系統的統計資料.
-
-命令列程式
-^^^^^^^^^^^^^^^
-
-利用命令列模式編寫程式:
-
-接受三個輸入, 然後列出平均值.
-
-寫為函式格式:
-
-寫為 class 格式:
-
-.. literalinclude:: ../c2/command_w12_1.py
-   :language: python
-
-CherryPy 網際程式
-^^^^^^^^^^^^^^^^^^^^^
-
-本章節要延續命令列程式的邏輯, 將程式套用到 CherryPy 網際框架中, 為了能夠取得使用者的變數輸入, 可以採用 GET 或 POST 的方法, 以下先採用 GET 傳值.
-
-由於此一程式需要同時傳送 positional arguments 與 keyword arguments, 其中牽涉到連結中的"&"符號, 若直接採 os.system() 啟動瀏覽器, Windows shell 會將 & 視為命令列指令的一部分 , 而無法正確讓瀏覽器開啟正確的 URL, 因此瀏覽器的執行改用 subprocess.call().
-
-使用者利用 GET 將三個輸入數值傳給網際程式後, 就可以啟動平均值運算然後將結果傳回瀏覽器.
-
-.. literalinclude:: ../c2/cherrypy_w12_1.py
-   :language: python
-
-以 POST 取得變數的 CherryPy 表單程式, 執行換錢的流程.
-
-.. literalinclude:: ../c2/cherrypy_changer1.py
-   :language: python
-
-請將此網際換錢程式改為網際表單求平均值程式.
-
-PyQt 視窗程式
-^^^^^^^^^^^^^^^^^
-
-三數求平均的視窗程式, 採用 eric5 建構, 以 designer.exe 建立 mainwindow.ui 後轉為 Ui_mainwindow.py, 然後透過 main.py 將視窗介面以應用程式顯示.
-
-main.py 主程式內容:
-
-.. literalinclude:: ../c2/pyqt/avg1/main.py
-   :language: python
-   
-主視窗介面 Ui_mainwindow.py 程式內容:
-   
-.. literalinclude:: ../c2/pyqt/avg1/Ui_mainwindow.py
-   :language: python
-
-利用 eric5 designer 所建立的 mainwindow.ui 內容:
-
-.. literalinclude:: ../c2/pyqt/avg1/mainwindow.ui
-   :language: python
-   
-目前在 eric5 IDE 中, 將此視窗程式以 Project->Packagers->Use cx_freeze 轉為獨立可執行程式時, 必須指定 Target directory, Target name 為 average.exe, Base name 為 Win32GUI 外, 還必須在 Advanced 頁面中指定 Include modules: re, 才可以正確轉為可執行程式(可能是 cx_freeze, PyQt 或 eric5 套件接合上的特定問題).
-
-最後完成的獨立可執行 average.exe 程式, 可以從 pyqt_avg_ 下載.
-
-.. _pyqt_avg: https://sites.google.com/a/mde.tw/service/public/pyqt_avg.7z?attredirects=0&d=1
-
 C2 第十三週
 +++++++++++++++
 
@@ -6071,6 +5979,98 @@ The game ends when only one active player has ants, or only one player's ant hil
 Want to know how to program a bot? First read the detailed Game Specification, and then check out the Five Minute Quickstart Guide!
 
 想知道如何編寫一個機器螞蟻程式? 首先詳閱遊戲說明, 接著查一下 5 分鐘快速導引中的說明.
+
+程式總整理
+***************
+
+從命令列的 Python3 程式模式出發, 將特定程式改寫為函式, 然後再改寫為 class 物件, 接著再將程式轉為 CherryPy 網際程式, 並且利用資料庫存檔, 最後將相同運算流程的程式轉為單機 PyQt 或 PySide 的程式.
+
+相關的程式語言程式開發選擇:
+
+- 命令列程式
+
+- 利用函式編寫範式
+
+- 轉為 class 物件導向程式
+
+- 轉為 CherryPy 網際程式
+
+- 利用資料庫存檔
+
+- 將程式轉成視窗程式
+
+請根據上列程式範式, 建立可以讓使用者輸入三個數值, 然後由程式列出三數的平均值.
+
+接著考量利用上述程式開發流程建立能夠讓修課班級應用的實驗室管理系統, 程式的基本目標:
+
+- 可以接受修課班級名單作為輸入, 由程式進行亂數分組, 並且將班級名單與分組結果存入資料庫中.
+
+- 採命令列、網際程式、視窗程式的架構開發上述程式.
+
+- 可延伸此一分組程式用於課堂點名或學習心得回報.
+
+- 可延伸此一分組程式用於班級經營與教師評分.
+
+- 可否在特定的模式下, 利用 2D 繪圖顯示系統的統計資料.
+
+命令列程式
+^^^^^^^^^^^^^^^
+
+利用命令列模式編寫程式:
+
+接受三個輸入, 然後列出平均值.
+
+寫為函式格式:
+
+寫為 class 格式:
+
+.. literalinclude:: ../c2/command_w12_1.py
+   :language: python
+
+CherryPy 網際程式
+^^^^^^^^^^^^^^^^^^^^^
+
+本章節要延續命令列程式的邏輯, 將程式套用到 CherryPy 網際框架中, 為了能夠取得使用者的變數輸入, 可以採用 GET 或 POST 的方法, 以下先採用 GET 傳值.
+
+由於此一程式需要同時傳送 positional arguments 與 keyword arguments, 其中牽涉到連結中的"&"符號, 若直接採 os.system() 啟動瀏覽器, Windows shell 會將 & 視為命令列指令的一部分 , 而無法正確讓瀏覽器開啟正確的 URL, 因此瀏覽器的執行改用 subprocess.call().
+
+使用者利用 GET 將三個輸入數值傳給網際程式後, 就可以啟動平均值運算然後將結果傳回瀏覽器.
+
+.. literalinclude:: ../c2/cherrypy_w12_1.py
+   :language: python
+
+以 POST 取得變數的 CherryPy 表單程式, 執行換錢的流程.
+
+.. literalinclude:: ../c2/cherrypy_changer1.py
+   :language: python
+
+請將此網際換錢程式改為網際表單求平均值程式.
+
+PyQt 視窗程式
+^^^^^^^^^^^^^^^^^
+
+三數求平均的視窗程式, 採用 eric5 建構, 以 designer.exe 建立 mainwindow.ui 後轉為 Ui_mainwindow.py, 然後透過 main.py 將視窗介面以應用程式顯示.
+
+main.py 主程式內容:
+
+.. literalinclude:: ../c2/pyqt/avg1/main.py
+   :language: python
+   
+主視窗介面 Ui_mainwindow.py 程式內容:
+   
+.. literalinclude:: ../c2/pyqt/avg1/Ui_mainwindow.py
+   :language: python
+
+利用 eric5 designer 所建立的 mainwindow.ui 內容:
+
+.. literalinclude:: ../c2/pyqt/avg1/mainwindow.ui
+   :language: python
+   
+目前在 eric5 IDE 中, 將此視窗程式以 Project->Packagers->Use cx_freeze 轉為獨立可執行程式時, 必須指定 Target directory, Target name 為 average.exe, Base name 為 Win32GUI 外, 還必須在 Advanced 頁面中指定 Include modules: re, 才可以正確轉為可執行程式(可能是 cx_freeze, PyQt 或 eric5 套件接合上的特定問題).
+
+最後完成的獨立可執行 average.exe 程式, 可以從 pyqt_avg_ 下載.
+
+.. _pyqt_avg: https://sites.google.com/a/mde.tw/service/public/pyqt_avg.7z?attredirects=0&d=1
 
 Small compony with big idea
 ***************************
@@ -6301,4 +6301,175 @@ Python 在拓樸最佳化的應用
         if len(sys.argv)>6: ft     =int(sys.argv[6])
     
         main(nelx,nely,volfrac,penal,rmin,ft)
+
+C2 第十四週
++++++++++++++++
+
+1. 請寫一個命令列程式, 接受使用者輸入一個整數, 然後程式可以依序建立對應數量的檔案與內容.
+
+例如: 使用者輸入 3, 則程式會建立 3 個檔案, 名稱分別為 file1.txt, file2.txt, file3.txt, 且 file1.txt 內容中有一行,且為 1, 而 file2.txt 檔案內容則有 2 行, 分別為 1 與 2, file3.txt 則有 3 行, 分別為 1, 2, 3 等數字.
+
+2. 請將上述程式改寫為網際程式, 使用者輸入後, 瀏覽器會產生三個文字按鈕, 可以讓使用者直接打開 file1.txt, file2.txt 與 file3.txt 等三個檔案, 並且可以在輸入畫面與結果畫面間切換.
+
+3. 請將上述程式改寫為視窗程式, 並且得到相同的結果.
+
+4. 請將上述各程式的資料存入 SQLite 資料庫中.
+
+第 1 題程式:
+
+程式重點:
+
+取輸入的方法.
+
+利用輸入數值執行 for 迴圈
+
+建立檔案的方法
+
+將特定內容寫入檔案的方法
+
+.. code-block:: python
+
+    # 取得輸入
+    數值 = input("請輸入一個整數:")
+    #print(type(數值))
+    # 根據輸入執行所要求的內容
+    # 設法建立外部檔案
+    for 索引 in range(int(數值)):
+        數字 = 索引 + 1
+        檔案 = open("file"+str(數字)+".txt", "w")
+        # 將所要求的內容寫進檔案
+        for 另一個索引 in range(數字):
+            另一個數字 = 另一個索引 + 1
+            檔案.write(str(另一個數字)+"\n")
+        檔案.close()
+
+延伸題目, 請將程式改為 file1.txt 內容為 1, 2, 3, file2.txt 不變, 而 file3.txt 內容為 1
+
+第 2 題程式架構:
+
+程式重點:
+
+在網際環境取輸入的方法.
+
+利用輸入數值執行 for 迴圈
+
+建立檔案的方法
+
+將文件寫入特定目錄的方法
+
+將特定內容寫入檔案的方法
+
+Cherrypy 網際靜態目錄的設定方法
+
+建立超文件連結的方法
+
+啟動與關閉 Cherrypy 程式的方法(為什麼 stop executing 無法停止 Cherrypy 網際程式?)
+
+.. code-block:: python
+
+    #coding: utf-8
+     
+    import cherrypy
+    # 執行指令但是不要開啟 Windows shell 用
+    import subprocess
+     
+    class MyClass(object):
+        def index(self):
+            return "執行 MyClass!"
+        index.exposed = True
+     
+    class MyChanger(object):
+        _cp_config = {
+            'tools.sessions.on': True
+        }
+     
+        myclass = MyClass()
+     
+        def doReturn(self, amount=None):
+            if amount != "":
+                # 執行檔案建立流程
+                amount = float(amount)
+            else:
+                return "輸入有問題!<br /><br /><a href=\"/\">重新換算</a>"
+            # 設法列出檔案的文字按鈕
+            output = "<a href=\"/downloads/file1.txt\">file1.txt</a>"
+            return output
+     
+        doReturn.exposed = True
+     
+        def index(self):
+            return """<html>
+    <head>
+      <title>網路找錢程式</title>
+    </head>
+    <body>
+      <form action="doReturn" method="post">
+        請輸入一個整數:<input type="text" name="amount" value="" 
+            size="15" maxlength="40"/>
+        <p><input type="submit" value="執行運算"/></p>
+        <p><input type="reset" value="清除"/></p>
+      </form>
+    </body>
+    </html>"""        
+     
+        index.exposed = True
+    
+     # 靜態檔案的目錄對應設定
+    myconfig = {'/downloads':{
+        'tools.staticdir.on': True,
+        'tools.staticdir.root': "C:/tmp",
+        'tools.staticdir.dir': 'downloads',
+        'tools.staticdir.index' : 'index.html'
+        },
+        # 設定靜態 templates 檔案目錄對應
+        '/templates':{
+        'tools.staticdir.on': True,
+        'tools.staticdir.root': "C:/tmp",
+        'tools.staticdir.dir': 'templates',
+        'tools.staticdir.index' : 'index.html'
+        }
+    }
+    
+     # 由於 url 帶有 &, 無法直接使用 os.system() 開啟網頁同時派送變數, 因此改用 subprocess
+    url = 'http://localhost:8088/index'
+    chrome = "V:/tools/GoogleChromePortable/GoogleChromePortable.exe"
+    retcode = subprocess.call([chrome, url])
+    
+    # 指定程式執行的連接埠號, 內定為 8080
+    cherrypy.server.socket_port = 8088
+    # 指定程式執行所對應的伺服器 IP 位址, 內定為 127.0.0.1
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(MyChanger(), config=myconfig)
+
+程式練習題目:
+
+1. 某一目錄下有 100 (或者更多)個特定名稱的檔案, 每一個檔案中有不同行數的內容.
+
+請將各檔案中的第一行的數字進行累加, 總數為多少?
+
+請將各檔案中的第 25 行的數字進行累加, 總數為多少?
+
+命令列程式驗收
+*********************
+
+1. 利用 input() 函式取得輸入, 所取得的輸入變數型別為 str, 若要作為數值運用必須利用 int() 轉為整數.
+
+2. 若要利用變數與字串拼成輸出字串, 且變數為整數, 則必須先利用 str() 轉為字串後再結合成組合字串.
+
+3. 在 Python 程式中執行命令列指令時, 必須先導入 os 模組, 然後以 os.system() 執行.
+
+4. 利用 Python 程式讀寫檔案的流程, 必須先建立檔案連結的 handle, 指定讀寫檔案的模式, 之後再利用 handle write 或 read, 寫入或讀取檔案內容.
+
+CherryPy 網際程式驗收
+***************************
+
+1. CherryPy 網際程式的基本架構.
+
+2. 靜態檔案 URL 連結與實體檔案絕對位置的設定與使用.
+
+3. 網際表單的編寫.
+
+4. session 的運用.
+
+5. SSL 資料連結的運用.
 

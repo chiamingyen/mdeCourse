@@ -1970,6 +1970,39 @@ filter 目的在取得其他輸入欄位值後, 配合設計邏輯進行運算, 
     <onlyin views="display|details"/>
     </field>
 
+filter 使用時機: 當使用者希望透過特定流程改變某一欄位資料內容時使用.
+
+系統內建的 filter 函式位於 V:\extensions\sgw\bin\core\classes 目錄中的 modify.php.
+
+例如: 在 field 標駐中的 filter, <filter views="all" function="dateformat"/>, views="all" 表示此一欄位資料的 fielter 在所有顯示畫面全部有效, 且套用 modify.php 中的 dateformat 方法:
+
+.. code-block:: php
+
+    static function dateformat($args,$args2=null) {
+      if (!is_array($args2) and $args2!="") return self::_mydate($args2,$args);
+      if (is_array($args2)) {
+        if (!empty($args2[0]) and !is_numeric($args2[0])) $args = strtotime($args2[0],$args);
+        if ($args==0 or $args=="") return "";
+        if (empty($args2[1])) $args2[1] = "m/d/Y";
+        $date = @self::_mydate($args2[1],$args);
+        if ($date=="" and $args!=0) return $args;
+        return $date;
+      }
+      if (!is_array($args) or count($args)!=2) return "";
+      if (!is_numeric($args[0])) $args[0] = strtotime($args[0]);
+      return self::_mydate($args[1],$args[0]);
+    }
+
+針對 <filter views="all" function="dateformat"/>, 表示 dateformat 方法位於 V:\extensions\sgw\bin\core\classes 目錄中的 modify.php 程式檔案中, 因為是內定的資料修改類別, 因此無需標示類別名稱, 但是若是將改變欄位資料的方法放在其他類別中, 就必須明確宣告, 且位於 V:\extensions\sgw\bin\core\classes 目錄中類別名稱必須與檔案名稱相同.
+
+例如: <filter views="all" function="test::myadd"/> 表示欄位資料的變更依照 test.php 程式檔案中的 test 類別中的 myadd 方法所傳回的資料為準, 由於類別名稱為 test, 因此 filter 程式檔案的名稱就必須為 test.php, 並且其中一定要存在 myadd 方法.
+
+輸入欄位資料的驗證
+
+<validate function=``"regexp|/^[0-9]+$/|ID must be numeric"``/>
+
+表示該欄位只能輸入數字資料.
+
 目錄權限管理
 ^^^^^^^^^^^^^^^^^^
 
@@ -4317,4 +4350,230 @@ test.php 欄位資料處理類別檔案內容:
         }
     }
     ?>
+
+CD 第十三週
++++++++++++++++
+
+利用期中報告所繪製的六個零件, 進行尺寸縮放, 並且加上其他零件(包括齒輪減速機), 以小組為單位協同完成一項產品, 其中所牽涉到之正齒輪齒面寬設計(CMSimple gear plugin)、軸承設計、軸設計、彈簧設計等零件, 則以大組為單位進行設計整合, 並且共用 material 材料性質資料庫.
+
+機械材料性質資料庫 - material.xml
+
+正齒輪功率傳遞設計流程 - geardesign.xml
+
+傳動軸設計流程 - shaftdesign.xml
+
+軸承設計流程 - bearing.xml
+
+彈簧設計流程 - spring.xml
+
+其他機械元件設計流程
+
+讀取 lewis.db 內容
+**********************
+
+利用 Python 讀取 lewis.db 資料庫檔案內容
+
+.. code-block:: python
+
+    #coding: utf-8
+    # 資料查詢
+    import sqlite3
+      
+    conn = sqlite3.connect("v:/lewis.db")
+    cursor = conn.cursor()
+    
+    sql = "SELECT name FROM sqlite_master WHERE type='table';"
+    cursor.execute(sql)
+    # list all the tables
+    table = cursor.fetchall()
+    conn.row_factory = sqlite3.Row
+    cursor = conn.cursor()
+    for index in range(len(table)):
+        cursor.execute('select * from '+table[index][0])
+        # list all the data
+        for record in cursor.fetchall():
+            for number in range(len(cursor.description)):
+                print(cursor.description[number][0])
+                print(record[number])
+            print("____________________")
+
+傳動軸設計流程
+*********************
+
+傳動軸主要受到變動力所產生的機械材料疲勞而破壞, 因此設計的要點在於讓產品在生命週期中能夠承受運轉所帶來的變動應力.
+
+CD 第十四週
++++++++++++++++
+
+本課程利用正齒輪的齒面寬設計運算流程作為代表, 過程中包含設計資料表的維護、材料庫資料的選項引用、Lewis factor 的查表與內插運算、設計材料參數的結合與分割、以及迭代式的設計運算等, 可套用到其他類似的機械元件設計或零組件的最佳化設計應用.
+
+將機械元件設計流程納入 Simple Groupware 平台後, 可達到以下功能:
+
+1. 達成統一的網際程式版本控管.
+
+2. 可以依需求配置協同團隊成員的擷取權限, 或對特定的設計模組進行控管.
+
+3. 不同成員所完成的每一筆設計結果可以存在協同平台, 以作為後續不同團隊間的設計參考.
+
+4. 可以針對設計流程中的細部設計步驟進行保護.
+
+5. 各網際資料庫可採協同模式進行控管.
+
+在 Simple Groupware 平台上設計協同正齒輪減速機中齒面寬的設計運算程式流程:
+
+1. 以 sgsml 格式編寫 gear.xml, material.xml 與 lewis.xml 等三個模組, 其中 material.xml 為設計材料資料庫維護模組, lewis.xml 為 Lewis factor 資料表維護模組, gear.xml 則為正齒輪齒面寬的設計運算模組.
+
+2. 依據 material.xml 模組所建立的 folder 資料, 會自動納入 gear.xml 的設計選單中.
+
+3. 使用者輸入並選擇減速機的各項設計參數後, 材料表單會採 concat() 模組存入材料欄位的資料庫表單中.
+
+4. gear.xml 模組中的齒面寬欄位會依據 V:\extensions\sgw\bin\core\classes\test.php 中的設計運算方法執行數值計算.
+
+5. 設計運算過程, 材料表單中 concat() 的資料, 可以利用 split() 切開, 使用者選擇的齒形與齒數將會據以進入 simple_lewis 資料表中查詢對應的設計參數, 若表格中有直接的齒數對應, 則依據齒形直接取出, 若無直接的對應齒數, 則根據上下齒數資料執行內插運算.
+
+6. 設計程式最後將會依據 field 中的 filter 設計 (也就是 test.php 中的設計方法), 完成設計運算後, 將計算所得存入齒面寬欄位.
+
+pymysql 的應用:
+
+列出資料庫內的所有資料表.
+
+.. code-block:: python
+
+    #!/usr/bin/env python
+
+    import pymysql
+    
+    conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='root', db='sgs_0_745')
+    
+    cur = conn.cursor()
+    
+    cur.execute("USE sgs_0_745")    # select the database
+    
+    cur.execute("SHOW TABLES")  
+    
+    '''
+    # 可以使用以下兩種不同用法
+    # 方法一
+    for (table_name,) in cur:
+        print(table_name)
+    '''
+    # 方法二
+    tables = cur.fetchall()    # return data from last query
+    for (table_name,) in tables:
+        print(table_name)
+    
+    cur.close()
+    conn.close()
+
+RedBeanPHP 資料庫程式
+**************************
+
+.. code-block:: php
+
+    <?php
+    require('rb.php');
+    
+    // 設定所要連結的資料庫
+    R::setup('mysql:host=localhost;dbname=sgs_0_745','root','root');
+    
+    // 利用所連結的資料庫, 取出所有資料表資料
+    $listOfTables = R::$writer->getTables();
+    
+    $m = 0;
+    // 列出資料庫中的所有資料表
+    for($i = 0; $i<count($listOfTables); $i++)
+        {
+            $m++;
+            print("第".$m."個資料表: ".$listOfTables[$i]."<br />");
+            // 從各個資料表中, 找出所有資料
+            $all_data = R::find($listOfTables[$i]);
+            print("資料共有: ".count($all_data)."筆<br />");
+            // 列出各個資料表中的所有欄位資料
+            $all_field = R::$writer->getColumns($listOfTables[$i]);
+            $k = 0;
+            foreach($all_field as $key=>$item)
+            {
+                $k++;
+                print("第".$k."個欄位: ".$key."<br />");
+            }
+            print("##########################<br />");
+        }
+        
+透過 RedBeanPHP 依據正齒輪齒數與齒形 (type1~type4) 由 lewis factor 表格查出對應的參數.
+
+.. code-block:: php
+
+    <?php
+    require('rb.php');
+    
+    // 設定所要連結的資料庫
+    // SQLite
+    R::setup('sqlite:'.dirname(__FILE__).'/sqlite3_sgs_0_745.db');
+    // MySQL
+    //R::setup('mysql:host=localhost;dbname=sgw_mde_edx_tw','root','root');
+    // 從資料庫中載入既有的資料表
+    $bean = R::load('simple_lewis', $id);
+    $num =R::count('simple_lewis');
+    $output .= "資料庫中共有".$num."筆資料<br />";
+    echo $output;
+    $all_field = R::$writer->getColumns('simple_lewis');
+    $k = 0;
+    foreach($all_field as $key=>$item)
+    {
+        $k++;
+        print("第".$k."個欄位: ".$key."<br />");
+    }
+    // 從資料表中找出特定資料
+    // 只找出第一筆
+    //$one = R::findone("simple_lewis","gearno=?",array($title));
+    // 取出資料表中所有資料
+    //$all = R::getAll('select * from simple_lewis');
+    //print_r($all);
+    //print("#####################");
+    // 利用查詢找出對應資料
+    $all_data = R::find("simple_lewis", 'gearnum=12');
+    // 2012 將 $all_data 重組為 index 為 0,1,2....
+    // http://php.net/manual/en/function.array-values.php
+    $all_data=array_values($all_data);
+    // 列出 type1 ~ type4 的對應 lewis factor
+    print($all_data[0]["type1"]);
+    print("<br />");
+    print($all_data[0]["type2"]);
+    print("<br />");
+    print($all_data[0]["type3"]);
+    print("<br />");
+    print($all_data[0]["type4"]);
+
+pymysql 資料庫程式
+***********************
+
+.. code-block:: python
+
+    #!/usr/bin/env python
+    
+    import pymysql
+    
+    conn = pymysql.connect(host='127.0.0.1', port=3306, user='root', passwd='root', db='sgs_0_745')
+    
+    cur = conn.cursor()
+    
+    cur.execute("USE sgs_0_745")    # select the database
+    
+    cur.execute("SHOW TABLES")  
+    
+    '''
+    # 可以使用以下兩種不同用法
+    # 方法一
+    for (table_name,) in cur:
+        print(table_name)
+    '''
+    # 方法二
+    tables = cur.fetchall()    # return data from last query
+    for (table_name,) in tables:
+        print(table_name)
+        # 從各資料表中取出各欄位資料
+        print("#"*20)
+    
+    cur.close()
+    conn.close()
 
