@@ -51,12 +51,12 @@ expanded="amd.20130514093510.2695,amd.20130514093510.2696,amd.20130515005753.389
 <v t="amd.20130514093510.2702" a="E"><vh>電腦輔助設計實習</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd.20130514093510.2704" a="E"
-expanded="amd.20130514093510.2705,"><vh>@file cadp.txt</vh></v>
+expanded="amd.20130514093510.2705,amd.20130514093510.2706,"><vh>@file cadp.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2683" a="E"><vh>網際網路應用</vh>
 <v t="amd_yen.20130312013510.1498"></v>
-<v t="amd.20130514093510.2684"
-expanded="amd.20130514093510.2685,"><vh>@file ia.txt</vh></v>
+<v t="amd.20130514093510.2684" a="E"
+expanded="amd.20130514093510.2685,amd.20130514093510.2686,"><vh>@file ia.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130429141318.2219"><vh>為何要學習程式?</vh></v>
@@ -86,7 +86,7 @@ expanded="amd.20130514093510.2685,"><vh>@file ia.txt</vh></v>
 <v t="amd_yen.20130429141318.2175"><vh>@shadow c2/pyqt_4.py</vh></v>
 <v t="amd_yen.20130429141318.2176"><vh>@shadow c2/pyqt_notepad1.py</vh></v>
 <v t="amd_yen.20130426235501.5060"><vh>@shadow c2/pyqt_notepad.py</vh></v>
-<v t="amd_yen.20130429141318.2177" a="E"><vh>@auto c2/pyqt_tetris.py</vh></v>
+<v t="amd_yen.20130429141318.2177"><vh>@auto c2/pyqt_tetris.py</vh></v>
 <v t="amd_yen.20130429141318.2220"><vh>@auto c2/pyqt_browser1.py</vh></v>
 <v t="amd_yen.20130429141318.2221"><vh>@auto c2/pyqt_browser2.py</vh></v>
 <v t="amd_yen.20130429141318.2218"><vh>@shadow c2/pyqt_browser3.py</vh></v>
@@ -150,9 +150,9 @@ expanded="amd_yen.20130429214002.4056,"><vh>@file webbrowser.py</vh></v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130406103207.2443,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130423211907.2156,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,amd_yen.20130506144326.2648,amd.20130517200829.4939,amd.20130517200829.2763,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130406103207.2443,amd_yen.20130411195311.2086,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,amd_yen.20130506144326.2648,mde_leo.20130510215619.2658,amd.20130517200829.4939,"><vh>@file c2.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
+<v t="amd_yen.20130308210411.2385"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
 <v t="amd_yen.20130309155804.1707" a="E"><vh>@shadow cd/spreadsheet.py</vh></v>
 </v>
@@ -168,7 +168,7 @@ expanded="amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.201303
 <v t="amd_yen.20130308210411.2392" a="E"
 expanded="amd_yen.20130308210411.2393,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,amd.20130517200829.2761,"><vh>@file cd.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2386"><vh>網際內容管理</vh>
+<v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
 <v t="amd_yen.20130406103207.2442"><vh>@url Tutorial 1</vh></v>
 <v t="amd_yen.20130406103207.2285"><vh>@edit wcm/django1.py</vh></v>
@@ -192,13 +192,18 @@ expanded="amd_yen.20130308210411.2393,amd_yen.20130314194325.1511,amd_yen.201303
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2407" a="E"
-expanded="amd_yen.20130308210411.2408,amd_yen.20130418193628.2823,amd_yen.20130503085936.2412,"><vh>@file wcm.txt</vh></v>
+expanded="amd_yen.20130308210411.2408,amd_yen.20130418193628.2823,"><vh>@file wcm.txt</vh></v>
 </v>
 <v t="amd_yen.20130308221230.2492"><vh>綜合資料</vh>
 <v t="amd_yen.20130312013510.1498"></v>
-<v t="amd_yen.20130308221230.2493" a="E"
-expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.20130312013510.2093,amd_yen.20130503185304.5151,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,amd_yen.20130409235757.1779,amd_yen.20130409235757.1782,"><vh>@file misc.txt</vh></v>
+<v t="amd_yen.20130308221230.2493"
+expanded="amd_yen.20130312013510.2093,amd_yen.20130503185304.5151,amd_yen.20130308221230.2485,amd_yen.20130311141127.1492,amd_yen.20130309155804.1713,amd_yen.20130322213429.1578,amd_yen.20130321213622.1575,amd_yen.20130409235757.1779,"><vh>@file misc.txt</vh></v>
 </v>
+</v>
+<v t="mde.20130603153922.2774"><vh>基因演算法</vh>
+<v t="mde.20130603153922.2775"><vh>Deap</vh></v>
+<v t="mde.20130603153922.2776"><vh>Scoop</vh></v>
+<v t="mde.20130603153922.2777"><vh>PyZMQ</vh></v>
 </v>
 <v t="mde_leo.20130510215619.7519"><vh>可攜 Leo Editor</vh>
 <v t="mde_leo.20130510215619.7520"><vh>從 LeoDocs.leo 學習</vh></v>
@@ -6231,6 +6236,50 @@ os.system("eric5")
 '''詳細說明請參考
 #KMOL Guide--&gt;程式語言(二)--&gt;@file c2.txt--&gt;@rst document\c2.html--&gt;C2 第十二週--&gt;Python 程式開發 IDE
 '''</t>
+<t tx="mde.20130603153922.2774">這裡主要提供機械設計最佳化分析法中的基因演算法, 基本的著眼為 Python3、平行運算、PyZMQ, 所使用的套件為 Deap 與 Scoop.</t>
+<t tx="mde.20130603153922.2775">http://code.google.com/p/deap/</t>
+<t tx="mde.20130603153922.2776">https://code.google.com/p/scoop/</t>
+<t tx="mde.20130603153922.2777">安裝
+
+https://pypi.python.org/pypi/pyzmq/13.1.0
+
+.. code-block:: python
+
+    import zmq
+    import random
+    import sys
+    import time
+    
+    port = "5556"
+    context = zmq.Context()
+    socket = context.socket(zmq.PAIR)
+    socket.connect("tcp://localhost:%s" % port)
+    
+    while True:
+        msg = socket.recv()
+        print(msg)
+        socket.send_unicode("client message to server1")
+        socket.send_unicode("client message to server2")
+        time.sleep(1)
+        
+.. code-block:: python
+
+    import zmq
+    import random
+    import sys
+    import time
+    
+    port = "5556"
+    context = zmq.Context()
+    socket = context.socket(zmq.PAIR)
+    socket.bind("tcp://*:%s" % port)
+    
+    while True:
+        socket.send_unicode("Server message to client3")
+        msg = socket.recv()
+        print(msg)
+        time.sleep(1)
+</t>
 <t tx="mde_leo.20130508162404.2651">瀏覽器: http://code.google.com/p/qtweb/</t>
 <t tx="mde_leo.20130510215619.6870">LaTeX 是一套排版系統, 而 Word 則是一套文書處理系統, 兩者是不同屬性的工具, 但是對某些使用者而言, 這兩者都能夠將文字與圖形內容轉換為 pdf, 因此仍然必須針對兩者的特性進行比較, 以便讓使用者在不同需求選擇最適用的工具.
 

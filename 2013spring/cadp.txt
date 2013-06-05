@@ -58,6 +58,18 @@
 - 基本的英文解讀能力
 
 - 基本的自我閱讀能力
+.. @+node:mde.20130604110320.2784: *4* MCAD 套件選擇
+Mechanical Computer Aided Design(MCAD) 套件:
+
+高端: Catia, NX, Creo
+
+中端: SolidWorks, Solid Edge, Inventor
+
+開源: FreeCAD
+
+目前提供免費學生版的套件有:
+
+AutoDesk Inventor, PTC Creo, Siemens Solid Edge, 其中又以 Solid Edge 的學生授權最為自由, 因此 2013 Fall 電腦輔助設計課程將採用 Solid Edge 與 FreeCAD, 而 Inventor 與 Creo 則用來輔助教學.
 .. @+node:amd.20130514093510.2708: *3* CADP 第二週
 電腦輔助使用案例:
 
