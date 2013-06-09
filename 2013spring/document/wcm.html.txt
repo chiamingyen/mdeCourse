@@ -754,3 +754,382 @@ pelican - https://github.com/getpelican/pelican
 
 nicola - https://github.com/ralsina/nikola
 
+WCM 第十五週
+++++++++++++++++
+
+為 CMSimple 建立登門密碼
+
+index.php 修改:
+
+.. code-block:: php
+
+    <?php
+    //index.php
+    //以下為尚未加上登入密碼的程式
+    // include('./cmsimple/cms.php');
+    //session_save_path(""); 
+    session_start();
+    include "check_auth.php";
+    ?>
+
+check_auth.php 內容:
+
+.. code-block:: php
+
+    <?php
+    //check_auth.php
+    // 也可以將登門密碼整合於  cmsimple/config.php 中
+    include "pw.php";
+     
+    if (!isset($_SESSION["count"]))
+    {
+        $count=0;
+    }
+     
+    if (isset($_SESSION["my_pass"]) && $_SESSION["my_pass"]==$mypassword)
+    {
+        include('./cmsimple/cms.php');
+    }
+    else
+    {
+    $my_pass=$_POST["my_pass"];
+    $_SESSION["my_pass"]=$my_pass;
+     
+    if($_SESSION["my_pass"]!=$mypassword)
+    {
+        include ("login.php");
+    exit;
+    }
+    elseif($_SESSION["my_pass"]==$mypassword)
+    {
+        include('./cmsimple/cms.php');
+    }
+    else
+    {
+        include ("login.php");
+        exit;
+    }
+    }
+    ?>
+    
+pw.php 內容:
+
+.. code-block:: php
+
+    <?php
+    //獨立為 pw.php 或直接與內容管理系統設定檔案進行整合
+    //並修改為 md5 函式進行密碼編碼, 不應直接儲存明碼密碼
+    $mypassword="your_gate_password";
+    ?>
+
+login.php 內容:
+
+.. code-block:: php
+
+    <?php
+    //login.php
+    $count=$_SESSION["count"]++;
+     
+    if($count>3)
+    {
+    echo "<html><body>";
+    echo "Windows is closing!";
+    echo "<br>";
+    echo "<script language=\"Javascript\">\n";
+    echo "var speed = 1000\n";
+    echo "function reload() {\n";
+    echo "window.close();\n";
+    echo "}\n";
+    echo "setTimeout(\"reload()\", speed);\n";
+    echo "</script>\n";
+    echo "</body></html>";
+    $_SESSION["count"]=0;
+    exit;
+    }
+    else
+    {
+    ?>
+    <form method=post action=>
+    password:<input type=password name=my_pass>
+    <input type=submit value=send>
+    </form>
+    <?php
+    }
+    ?>
+
+logout.php 內容:
+
+.. code-block:: php
+
+    <?php
+    //logout.php
+    if(session_is_registered("my_pass"))
+    {
+        $_SESSION["my_pass"]="";
+    }
+    else
+    {
+          //session_save_path(""); 
+          session_start();
+          $_SESSION["my_pass"]="";
+    }
+    include ("check_auth.php");
+    ?>
+
+
+在 CMSimple 表單中加入 webadmin.php
+
+webadmin.php: http://cker.name/webadmin/
+
+下載 webadmin.php 後, 在最前端加上下列程式碼後, 放入 cmsimple 目錄中.
+
+.. code-block:: php
+
+    require("config.php");
+    
+    // below from login.php
+    require $pth['folder']['cmsimple'] . 'PasswordHash.php';
+    $xh_hasher = new PasswordHash(8, true);
+    
+    // for subsite solution - GE 20011-02
+    
+    if ($txc['subsite']['password'] != "") {
+        $cf['security']['password'] = $txc['subsite']['password'];
+    }
+    
+    if ($sl != $cf['language']['default']) {
+        $pth['folder']['content'] = $pth['folder']['base'] . $sl . '/content/';
+    }
+    
+    // END for subsite solution - GE 20011-02
+    // functions used for login
+    
+    
+    function gc($s) {
+        if (!isset($_COOKIE)) {
+            global $_COOKIE;
+            $_COOKIE = $GLOBALS['HTTP_COOKIE_VARS'];
+        }
+        if (isset($_COOKIE[$s]))
+            return $_COOKIE[$s];
+    }
+    
+    function logincheck() {
+        global $cf;
+        
+        return (gc('passwd') == $cf['security']['password']);
+    }
+    
+    function writelog($m) {
+        global $pth, $e;
+        if ($fh = @fopen($pth['file']['log'], "a")) {
+            fwrite($fh, $m);
+            fclose($fh);
+        } else {
+            e('cntwriteto', 'log', $pth['file']['log']);
+            chkfile('log', true);
+        }
+    }
+    
+    function lilink() {
+        global $cf, $adm, $sn, $u, $s, $tx;
+        if (!$adm) {
+            if ($cf['security']['type'] == 'javascript')
+                return '<form id="login" action="' . $sn . '" method="post"><div id="loginlink">' . tag('input type="hidden" name="login" value="true"') . tag('input type="hidden" name="selected" value="' . $u[$s] . '"') . tag('input type="hidden" name="passwd" id="passwd" value=""') . '</div></form><a href="#" onclick="login(); return false">' . $tx['menu']['login'] . '</a>';
+            else
+                return a($s > -1 ? $s : 0, '&amp;login') . $tx['menu']['login'] . '</a>';
+        }
+    }
+    
+    function loginforms() {
+        global $adm, $cf, $print, $hjs, $tx, $onload, $f, $o, $s, $sn, $u;
+        // Javascript placed in head section used for javascript login
+        if (!$adm && $cf['security']['type'] == 'javascript' && !$print) {
+            $hjs .= '<script type="text/javascript"><!--
+                function login(){var t=prompt("' . $tx['login']['warning'] . '","");if(t!=null&&t!=""){document.getElementById("passwd").value=t;document.getElementById("login").submit();}}
+                //-->
+                </script>';
+        }
+        if ($f == 'login') {
+    
+            $cf['meta']['robots'] = "noindex";
+            $onload .= "self.focus();document.login.passwd.focus();";
+            $f = $tx['menu']['login'];
+            $o .= '<h1>' . $tx['menu']['login'] . '</h1><p><b>' . $tx['login']['warning'] . '</b></p><form id="login" name="login" action="' . $sn . '?' . $u[$s] . '" method="post"><div id="login">' . tag('input type="hidden" name="login" value="true"') . tag('input type="hidden" name="selected" value="' . @$u[$s] . '"') . tag('input type="password" name="passwd" id="passwd" value=""') . ' ' . tag('input type="submit" name="submit" id="submit" value="' . $tx['menu']['login'] . '"') . '</div></form>';
+            $s = -1;
+        }
+    }
+    
+    // if(gc('status')!=''||$login){header('Cache-Control: no-cache');header('Pragma: no-cache');}
+    // LOGIN & BACKUP
+    
+    $adm = (gc('status') == 'adm' && logincheck());
+    
+    if ($cf['security']['type'] == 'page' && $login && $passwd == '' && !$adm) {
+        $login = null;
+        $f = 'login';
+    }
+    
+    if ($login && !$adm) {
+        if ($xh_hasher->CheckPassword($passwd, $cf['security']['password'])
+        && ($cf['security']['type'] == 'page' || $cf['security']['type'] == 'javascript'))
+        {
+        setcookie('status', 'adm', 0, CMSIMPLE_ROOT);
+        setcookie('passwd', $cf['security']['password'], 0, CMSIMPLE_ROOT);
+        $adm = true;
+        $edit = true;
+        writelog(date("Y-m-d H:i:s") . " from " . sv('REMOTE_ADDR') . " logged_in\n");
+        }
+        else
+        shead('403');
+    } else if ($logout && $adm) {
+        $backupDate = date("Ymd_His");
+        $fn = $backupDate . '_content.htm';
+        if (@copy($pth['file']['content'], $pth['folder']['content'] . $fn)) {
+            $o .= '<p>' . utf8_ucfirst($tx['filetype']['backup']) . ' ' . $fn . ' ' . $tx['result']['created'] . '</p>';
+            $fl = array();
+            $fd = @opendir($pth['folder']['content']);
+            while (($p = @readdir($fd)) == true) {
+                if (preg_match('/^\d{8}_\d{6}_content.htm$/', $p))
+                    $fl[] = $p;
+            }
+            if ($fd == true)
+                closedir($fd);
+            @sort($fl, SORT_STRING);
+            $v = count($fl) - $cf['backup']['numberoffiles'];
+            for ($i = 0; $i < $v; $i++) {
+                if (@unlink($pth['folder']['content'] . '/' . $fl[$i]))
+                    $o .= '<p>' . utf8_ucfirst($tx['filetype']['backup']) . ' ' . $fl[$i] . ' ' . $tx['result']['deleted'] . '</p>';
+                else
+                    e('cntdelete', 'backup', $fl[$i]);
+            }
+        }
+        else
+            e('cntsave', 'backup', $fn);
+    
+    // SAVE function for pagedata.php added - by MD 2009/09 (CMSimple_XH beta3.2)
+    
+        if (file_exists($pth['folder']['content'] . 'pagedata.php')) {
+            $fn = $backupDate . '_pagedata.php';
+            if (@copy($pth['file']['pagedata'], $pth['folder']['content'] . $fn)) {
+                $o .= '<p>' . utf8_ucfirst($tx['filetype']['backup']) . ' ' . $fn . ' ' . $tx['result']['created'] . '</p>';
+                $fl = array();
+                $fd = @opendir($pth['folder']['content']);
+                while (($p = @readdir($fd)) == true) {
+                    if (preg_match('/^\d{8}_\d{6}_pagedata.php$/', $p))
+                        $fl[] = $p;
+                }
+                if ($fd == true)
+                    closedir($fd);
+                @sort($fl, SORT_STRING);
+                $v = count($fl) - $cf['backup']['numberoffiles'];
+                for ($i = 0; $i < $v; $i++) {
+                    if (@unlink($pth['folder']['content'] . $fl[$i]))
+                        $o .= '<p>' . utf8_ucfirst($tx['filetype']['backup']) . ' ' . $fl[$i] . ' ' . $tx['result']['deleted'] . '</p>';
+                    else
+                        e('cntdelete', 'backup', $fl[$i]);
+                }
+            }
+            else
+                e('cntsave', 'backup', $fn);
+        }
+    
+    // END save function for pagedata.php (CMSimple_XH beta3.2)
+    
+    
+        $adm = false;
+        setcookie('status', '', 0, CMSIMPLE_ROOT);
+        setcookie('passwd', '', 0, CMSIMPLE_ROOT);
+        $o .= '<p class="cmsimplecore_warning" style="text-align: center; font-weight: 900; padding: 8px;">' . $tx['login']['loggedout'] . '</p>';
+    }
+    
+    define('XH_ADM', $adm);
+    
+    // SETTING FUNCTIONS AS PERMITTED
+    
+    if ($adm) {
+        $o .= '<script type="text/javascript">/* <![CDATA[ */'
+        . 'if (document.cookie.indexOf(\'status=adm\') == -1)'
+        . ' document.write(\'<div class="cmsimplecore_warning">' . $tx['error']['nocookies'] . '</div>\')'
+        . '/* ]]> */</script>'
+        . '<noscript><div class="cmsimplecore_warning">' . $tx['error']['nojs'] . '</div></noscript>';
+        if ($edit)
+            setcookie('mode', 'edit', 0, CMSIMPLE_ROOT);
+        if ($normal)
+            setcookie('mode', '', 0, CMSIMPLE_ROOT);
+        if (gc('mode') == 'edit' && !$normal)
+            $edit = true;
+    } else {
+        if (gc('status') != '')
+            setcookie('status', '', 0, CMSIMPLE_ROOT);
+        if (gc('passwd') != '')
+            setcookie('passwd', '', 0, CMSIMPLE_ROOT);
+        if (gc('mode') == 'edit')
+            setcookie('mode', '', 0, CMSIMPLE_ROOT);
+    }
+    // above from login.php
+    if(!$adm){
+        die("");
+    }
+
+在 CMSimple 根目錄中, 加入 mywebadmin.php, 內容如下:
+
+.. code-block:: php
+
+    <?php
+    // 若 session 資料非存於內定位置, 必須設定
+    //session_save_path(""); 
+    session_start();
+    
+    include "pw.php";
+     
+    if (!isset($_SESSION["count"]))
+    {
+        $count=0;
+    }
+     
+    if (isset($_SESSION["my_pass"]) && $_SESSION["my_pass"]==$mypassword)
+    {
+        include('./cmsimple/webadmin.php');
+    }
+    else
+    {
+        $my_pass=$_POST["my_pass"];
+        $_SESSION["my_pass"]=$my_pass;
+         
+        if($_SESSION["my_pass"]!=$mypassword)
+        {
+            include ("login.php");
+            exit;
+        }
+        elseif($_SESSION["my_pass"]==$mypassword)
+        {
+            include('./cmsimple/webadmin.php');
+        }
+        else
+        {
+            include ("login.php");
+            exit;
+        }
+    }
+
+最後在 cmsimple/cms.php 檔案中, 加入 連結至 webadmin.php 的表單:
+
+.. code-block:: php
+
+    $t .='    <li><a href="?file=langconfig&amp;action=array">' . utf8_ucfirst($tx['editmenu']['langconfig']) . '</a></li>' . "\n"
+    . '    <li><a href="?file=language&amp;action=array">' . utf8_ucfirst($tx['editmenu']['language']) . '</a></li>' . "\n"
+    . '    <li><a href="?file=template&amp;action=edit">' . utf8_ucfirst($tx['editmenu']['template']) . '</a></li>' . "\n"
+    . '    <li><a href="?file=stylesheet&amp;action=edit">' . utf8_ucfirst($tx['editmenu']['stylesheet']) . '</a></li>' . "\n"
+    . '    <li><a href="?file=log&amp;action=view" target="_blank">' . utf8_ucfirst($tx['editmenu']['log']) . '</a></li>' . "\n"
+    . '    <li><a href="' . $sn . '?&amp;validate">' . utf8_ucfirst($tx['editmenu']['validate']) . '</a></li>' . "\n"
+    . '    <li><a href="' . $sn . '?&amp;sysinfo">' . utf8_ucfirst($tx['editmenu']['sysinfo']) . '</a></li>' . "\n"
+    . '    <li><a href="' . $sn . 'mywebadmin.php">' . utf8_ucfirst("webadmin") . '</a></li>' . "\n"
+    . '    </ul>' . "\n"
+    . '</li>' . "\n"
+    . $pluginMenu . "\n"
+    . '</li>' . "\n";
+    $t .= '</ul>' . "\n" . '<ul id="editmenu_logout">' . "\n";
+    $t .= '<li id="edit_menu_logout"><a href="?&logout">' . utf8_ucfirst($tx['editmenu']['logout']) . '</a></li>' . "\n";
+    $t .= '</ul>' . "\n";
+

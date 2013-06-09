@@ -45,6 +45,22 @@
 
 - 其他使用系統認證, 配合社交與不同使用領域上的需求來處理身分認證.
 
+相關主題:
+
+如何找資料?
+
+如何整理資料?
+
+如何團隊合作?
+
+如何進行溝通?
+
+如何問問題?
+
+如何重用別人的資料?
+
+如何呈現結果?
+
 .. @+node:mde.20130604110320.2782: *4* 網路安全
 啟動網際伺服器進行程式測試過程, 務必確認網站只能透過 localhost (127.0.0.1) 擷取.
 
@@ -74,5 +90,287 @@
 例如: SolidWorks 的零件檔案、組件檔案規格、工程圖檔案規格, 不同版次間的檔案格式差異、轉換到 Creo, NX, Catia, Inventor, Solid Edge 應該要透過何種規格? 是否都能完全轉換?
 
 例如: 特定版次的 Windows 操作系統的生命週期多久? Red Hat 操作系統的 Life cycle 又是多久? Ubuntu 特定版次的操作系統又是多久? SolidWorks 2013 的生命週期又是多久?
+.. @+node:mde.20130609005025.2808: *3* IA 第二週
+IA - Applications of Internet
+
+網際網路應用
+
+https://developer.mozilla.org/en-US/docs/JavaScript
+
+http://en.wikibooks.org/wiki/Javascript
+
+http://html5doctor.com/article-archive/
+
+網路常用指令:
+
+1. ipconfig /all
+
+2. traceroute 指令
+
+tracert gmail.com
+
+3. nslookup 指令 - name server lookup
+
+4. Javascript Html 與 PHP 教科書 - http://www.springerlink.com/content/978-0-85729-448-7/contents/ 
+
+.. @+node:mde.20130609005025.2811: *3* IA 第三週
+wire isp backbone router 
+ 
+dns proxy
+ 
+nat
+ 
+tcpip
+ 
+lan wan
+ 
+wikipedia
+ 
+markup
+ 
+html - HyperText Markup Language 超文件標註語言
+
+.. code-block:: html
+
+    <script>
+     
+    </script> 
+     
+    <h1>
+     
+    </h1>
+     
+    <br />  break
+     
+    &nbsp; 
+    <script>
+    function printsp(num){
+        for(i=0;i<num;i++)
+            document.write("&nbsp;&nbsp;");
+    }
+     
+    for(i=0;i<10;i++){
+       printsp(i);
+       document.write(i+":test<br />");
+    }
+    document.write(i+":中文<br />");
+    </script>
+ 
+http://fx.inetcat.com/manuals.php#b3
+ 
+http://rekapi.com/
+.. @+node:mde.20130609005025.2812: *3* IA 第四週
+http://code.google.com/p/canviz/
+
+由 document.lastModified 進行西元年與格林威治時間的換算, 將年份與時間換成台灣時間
+
+.. code-block:: javascript
+
+    <script>
+    document.write("<center><font color='blue' size='7'>Hello World中文"+document.lastModified+"</font></center>");
+     
+                  var MyTime = document.lastModified.split(" ");
+                  var MyDate = MyTime[0].split("/");
+                  var TwTime = MyTime[1].split(":");
+                  var TwHour = parseInt(TwTime[0])+8
+                  Num1 = MyDate[2] * 1;
+                  Num2 = Num1 - 1911;
+                  document.write(Num2+"."+MyDate[0]+"."+MyDate[1]+"時間:"+TwHour+":"+TwTime[1]+":"+TwTime[2]);
+    </script>
+ 
+列印出每一階段陣列的長度大小
+ 
+.. code-block:: javascript
+
+    <script>
+    document.write("<center><font color='blue' size='7'>Hello World中文"+document.lastModified+"</font></center>");
+     
+                  var MyTime = document.lastModified.split(" ");
+                  
+                  document.write("<br />陣列長度"+MyTime.length+"<br />");
+    
+                  var MyDate = MyTime[0].split("/");
+    
+                  document.write("<br />陣列長度"+MyDate.length+"<br />");
+    
+                  var TwTime = MyTime[1].split(":");
+    
+                  document.write("<br />陣列長度"+TwTime.length+"<br /><br />");
+    
+                  var TwHour = parseInt(TwTime[0])+8
+                  Num1 = MyDate[2] * 1;
+                  Num2 = Num1 - 1911;
+                  document.write(Num2+"."+MyDate[0]+"."+MyDate[1]+"時間:"+TwHour+":"+TwTime[1]+":"+TwTime[2]);
+    </script>
+ 
+比較: Python 的陣列長度函式為 len(陣列), 而 JavaScript 則使用 陣列.length
+ 
+請注意, 以下為 Python 的 split()
+ 
+.. code-block:: python
+
+    #coding: utf8
+    str = "第一段資料 \n第二段資料 \n第三段資料"
+    # 內建以空白區個, 且各分隔後的元件前後的空白都會被去除
+    # 例如以下以內建的區隔符號進行分割, 則第二與第三元件前的跳行空白, 都會被刪除
+    print(str.split( ))
+    # 以空白作為區隔的標誌, 而且只分割 1 次
+    print(str.split('  ',1))
+    print(str.split('  ',2))
+ 
+以下則為 Python 字串分割函式的用法說明:
+ 
+
+str.split([sep[, maxsplit]])
+
+Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most maxsplit splits are done (thus, the list will have at most maxsplit+1 elements). If maxsplit is not specified or -1, then there is no limit on the number of splits (all possible splits are made).
+
+If sep is given, consecutive delimiters are not grouped together and are deemed to delimit empty strings (for example, '1,,2'.split(',') returns ['1', '', '2']). The sep argument may consist of multiple characters (for example, '1<>2<>3'.split('<>') returns ['1', '2', '3']). Splitting an empty string with a specified separator returns [''].
+
+If sep is not specified or is None, a different splitting algorithm is applied: runs of consecutive whitespace are regarded as a single separator, and the result will contain no empty strings at the start or end if the string has leading or trailing whitespace. Consequently, splitting an empty string or a string consisting of just whitespace with a None separator returns [].
+
+For example, ' 1  2   3  '.split() returns ['1', '2', '3'], and '  1  2   3  '.split(None, 1) returns ['1', '2   3  '].
+
+利用函式將上述程式碼寫成專門列印台灣年份與時間的檔案更新時間.
+.. @+node:mde.20130609005025.2813: *3* IA 第五週
+問題與討論
+
+有沒有方法, 可以利用程式建立一個系統, 多人同時在此一程式系統輸入時段與課程內容, 然後由程式依照不同的格式要求
+
+"自動"列印出網際表格?
+
+報告繳交討論:
+
+1. 任何專案的執行都需要記述 Plan - Do -See 等三階段的過程.
+
+Plan 為規劃階段
+
+Do 為執行階段
+
+See 為檢核查驗階段
+
+若時間許可, 則 Plan - Do -See 必須重複執行到最後一刻.
+
+2. 規劃時要設想報告繳交後, 可能產生的環境, 並且預先體貼設想.
+
+例如: 報告的命名
+
+2012IAG1W5.doc 就可以明確說明是 IA 課程, Group 1, Week 5 的報告
+
+報告內容則必須交代執行所用資源與基本流程:
+
+例如, 資源包括: 人事時地物的規劃與描述
+
+流程則包括如何分工(因為是分組作業), 如何整合, 如何協調, 如何完成每一階段的步驟...
+
+時間規劃則可列出完成所花費的時間或實際執行的時段說明
+
+地點規劃則可說明學校電腦, 隨身碟, 與個人電腦使用的差別說明, 或問題描述等.
+
+物品資源則牽涉如何在隨身碟中, 或硬碟, 或電子郵箱中存入檔案等.
+
+3. 任何一份報告一定要有心得, 要有參考資料, 要有相關的議題討論, 並且各報告間要有關聯性等.
+.. @+node:mde.20130609005025.2814: *3* IA 第六週
+CSS 2.1 - http://www.w3.org/TR/CSS21/cover.html June, 2011
+
+http://meyerweb.com/eric/css/references/css2ref.html
+
+HTML5 - http://dev.w3.org/html5/spec/single-page.html Oct, 2012
+
+由於網際頁面與 JavaScript 的互動程式編寫非常繁瑣, 除了必須配合各瀏覽器的差異外, 還必須兼顧 DOM, CSS, HTML 的 JavaScript 的程式結合, 因此產生了類似 JQuery 的函式, 可以利用簡潔與統整的方式來解決瀏覽器相容與多語言整合問題.
+
+WebGL Three.js 入門: http://stemkoski.github.com/Three.js/
+
+其他 Three.js 參考:
+
+http://chandlerprall.github.com/Physijs/
+
+網際網路應用專案參考: http://icecreamyou.github.com/Nemesis/ 內容包括 HTML5, canvas, JQuery, WebGL, Three.js 等技術的整合.
+.. @+node:mde.20130609005025.2816: *3* IA 第七週
+問題討論
+
+1. 如何修改 表格輸入與列印的 python 程式, 在無資料時可以正確列印空白 Table? (避免在無資料檔案時, 執行 printTable 方法時產生錯誤)
+
+self.doSave(1,1,"&nbsp;")
+
+2. 如何採用不同的埠號與 data.txt 檔案名稱, 同時利用 SciTE 啟動多個 Python CherryPy 伺服程式? (網際程式的多工與多元應用)
+
+3. 如何修改 python 程式, 使用能加入表格資料欄位的顏色設定?
+
+參考資料
+
+http://www.decalage.info/python/html
+
+http://www.crummy.com/software/BeautifulSoup/
+
+http://lxml.de/
+.. @+node:mde.20130609005025.2815: *3* IA 第八週
+期中報告參考內容:
+
+中英文摘要 – 含關鍵字
+ 
+簡介
+ 
+報告目標 – 說明報告所要達成的目標
+ 
+報告內容架構 – 含 Textbook 第一章之相關環境與系統功能描述
+ 
+報告規劃與分工 – 含時間規劃, 分工內容與擬採行之方法或工具
+ 
+網際系統與工具 – 實際系統搭建, 為達成目標所擬導入或學習之操作說明
+ 
+進行步驟說明 – 各細部分組或組員實際進行之步驟說明
+ 
+結果與討論 – 所獲致之結果, 所達成之功能項目說明與討論
+ 
+心得與建議 – 針對報告內容之執行所獲得之心得感想與相關檢討建議
+ 
+參考資料
+ 
+附錄 – 包含所有相關文件與檔案
+ 
+繳交位置:
+
+全球網址統計數據: http://webhosting.info/domains/country_stats/
+
+有關 PDF 檔案的安全性
+
+http://www.decalage.info/file_formats_security/pdf
+
+摘要:
+
+1. 一般網友都認為 PDF 格式的檔案屬於靜態檔案, 因此在下載使用的過程中將會"非常安全", 這項認知其實是錯誤的.
+
+2. 由於 PDF 檔案格式架構複雜, 而且功能強大, 因此在特性上可以置入 Javascript 因此造成下載使用上的安全疑慮.
+
+PDF 嵌入惡意的 Javascript 後, 可能會自動跳出視窗誤導使用者, 自動寄出電子郵件, 或者自動上網執行相關網際流程.
+
+3. 惡意的 PDF 可執行用戶操作系統上的指令, 尤其是在 Windows 操作系統上, 將可在執行系統指令過程, 加上危害用戶的參數.
+
+4. 包藏禍心的 PDF 可以附加檔案, 並且在閱讀時自動解開後執行, 儘管 Adobe Reader 通常會拒絕開啟有危害可能的執行檔 (exe, bat, CMD 等), 但是這些附加檔案也可能是 html 或 Python 程式, 一旦經由閱讀器解開後, 仍然可以設法執行並且自動上網.
+
+5. 正常的 PDF 檔案可以內嵌另一個有危害的 PDF 檔案, 通常 PDF 中內藏的 PDF 檔案可以在不經使用者察覺的情況下自動開啟, 並且將其中所隱藏的有害程式自動開啟後進行各種攻擊或窺探.
+
+6. PDF 檔案可以內嵌 flash, 利用 Flash player 的弱點進行攻擊.
+
+7. 病毒軟體有可以在檔案標頭冒充 PDF 檔案, 讓使用者下載後, 直接進行攻擊.
+
+網路安全參考:
+
+http://www.us-cert.gov/reading_room/home-network-security/
+
+解決方案:
+
+1. 關閉您的 PDF reader 中的 Javascript.
+
+假如使用 PDF XChange Viewer, 請到 編輯->偏好設定->Javascript, 關閉 Javascript.
+
+2. 利用PDF 檔案過濾套件, 過濾檔案中的動態資料.
+
+http://www.decalage.info/en/exefilter#attachments
+
+3. 不要下載來路不明的 PDF 檔案, 也不要直接在瀏覽器中直接開啟 PDF 檔案.
+.. @+node:mde.20130609005025.2817: *3* IA 第十一週
+http://eloquentjavascript.net/contents.html
 .. @-all
 .. @-leo

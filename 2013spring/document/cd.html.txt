@@ -94,13 +94,81 @@ Wang B. (Ed.) (1998), Concurrent Design of Products, Manufacturing Processes and
 CD 第二週
 ++++++++++++
 
-Simple Groupware 安裝
-
-兩種安裝模式:
-
-1. local 主機安裝
-
+協同產品開發參考: http://en.wikipedia.org/wiki/Collaborative_product_development
+
+Simple Groupware 安裝
+
+兩種安裝模式:
+
+1. local 主機安裝
+
 2. 雲端 OpenShift 主機安裝
+
+OpenShift 主機安裝
+**********************
+
+OpenShift 雲端平台由 Red Hat 公司提供, 而 Red Hat 公司以提供專業級的開放源 Linux 操作系統聞名, 與 Red Hat 商用操作系統對應的免費 Linux 操作系統為 Fedora_ 與 CentOS_.
+
+.. _Fedora: http://fedoraproject.org/
+
+.. _CentOS: http://www.centos.org/
+
+由於 OpenShift 雲端平台採用 Secure Shell 安全協議中基於密鑰的方法進行平台上的資料存取, 因此使用者必須利用 `Public-key cryptography_` 編碼自行建立公鑰與私鑰, 並將協同開發者的公鑰上傳到 OpenShift 雲端平台上對應的設定區, 之後協同開發者就可以利用近端的私鑰來擷取 OpenShift 平台上應用程式的存取權.
+
+.. _密鑰: http://en.wikipedia.org/wiki/Public-key_cryptography
+
+.. _Public-key cryptography: http://en.wikipedia.org/wiki/Public-key_cryptography
+
+建立 SSH 密鑰
+^^^^^^^^^^^^^^^^^
+
+在 Windows 環境下可以利用 puttygen_ 來建立個人的密鑰, 並且利用 pagent 代理程式將近端的私鑰資料編碼傳送到 OpenShift SSH 伺服器以取得帳號認證.
+
+.. _puttygen: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+
+首先由 puttygen_ 網站分別下載 puttygen.exe 與 pagent.exe, 然後啟動 pyttygen.exe, 按下 Generate 按鍵, 並且在 pyttygen.exe 執行視窗中隨意移動滑鼠, 就可以完成密鑰的建立.
+
+密鑰建立完成後, 總共可以儲存成 3 個重要資訊, 包括 ssh-rsa 編碼的 OpenSSH Public key file, SSH2 PUBLIC KEY 檔案與 SSH2 PRIVATE KEY 檔案.
+
+OpenSSH Public key file 就是要轉貼到 OpenShift setting 區域用來進行資料轉送編碼用的認證依據, 而 SSH2 PRIVATE KEY 檔案則要妥為保管, 使用者在 Windows 環境, 可以利用 pagent.exe 檔案以此私鑰來登入 OpenShift 的 SFTP 帳號, 管理雲端平台上的 data repository 檔案.
+
+當使用者利用 rhc 與 git 來管理 OpenShift 雲端平台程式碼時, 則透過 V:\home\.ssh 目錄下的 id_rsa (帳號對應私鑰), id_rsa.pub (帳號對應公鑰) 與 known_hosts 檔案中的設定來執行 git repository 版次管理.
+
+建立平台應用程式流程
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+由於 OpenShift 平台採 SSH 密鑰協定進行登入認證, 因此建立平台應用程式的流程第一步就是建立與 OpenShift 帳號對應的公私鑰, 然後再建立 OpenShift 帳號, 詳細流程如下:
+
+1. 下載 puttygen.exe, 建立密鑰協定所需的三個檔案: 轉貼到 OpenShift 設定區的 ssh-rsa 認證資料、SSH2 格式的公私鑰.
+
+2. 到 OpenShift 登記一個免費帳號, 利用 PHP 5 建立一個應用程式, 將 ssh-rsa 認證資料轉貼到帳號的設定區.
+
+3. 安裝 Ruby 解譯環境與 git 客戶端套件, 安裝 rhc 模組.
+
+4. 利用 rhc 指令, 將 SSH2 格式的公私鑰與 OpenShift git 伺服器帳號進行對應 (將公鑰上傳到 git server).
+
+5. 利用 git clone 下載 OpenShift 上的 PHP 應用程式碼.
+
+6. 修改近端 clone 的 PHP 程式碼, 同時啟動 pagent.exe, 載入 SSH2 格式私鑰, 由 OpenShift 帳號中取得 SSH 帳號與主機資訊, 利用 Filezilla SFTP 連線到 OpenShift SFTP 伺服器, 上傳 data repository 目錄中的資料.
+
+7. 建立 .openshift\action_hooks 目錄下的 build 檔案, 建立 OpenShift 網際主機開機前 symbolic link 設定, 將 data repository 目錄中的資料以連結方式轉到網際空間中使用.
+
+例如:
+
+.. code-block:: none
+
+    ln -sf $OPENSHIFT_DATA_DIR/simple_store $OPENSHIFT_REPO_DIR/php/simple_store
+    ln -sf $OPENSHIFT_DATA_DIR/simple_cache $OPENSHIFT_REPO_DIR/php/simple_cache
+    ln -sf $OPENSHIFT_DATA_DIR/ext $OPENSHIFT_REPO_DIR/php/ext
+    ln -sf $OPENSHIFT_DATA_DIR/bin $OPENSHIFT_REPO_DIR/php/bin
+    
+8. 利用 git update-index --chmod=+x 將 .openshift\action_hooks\build 檔案設為可以執行.
+
+.. code-block:: none
+
+    $ git update-index --chmod=+x .openshift\action_hooks\build
+    
+9. 利用 git add, git commit -m 與 git push 將近端的 PHP 程式送到 OpenShift 平台應用程式區, 過程中將會執行 build, 建立所需的對應連結, 應用程式啟動後即可進行連線測試.
 
 有關 reading 與考試
 ************************
@@ -4433,6 +4501,38 @@ CD 第十四週
 
 6. 設計程式最後將會依據 field 中的 filter 設計 (也就是 test.php 中的設計方法), 完成設計運算後, 將計算所得存入齒面寬欄位.
 
+上述設計流程中的 test.php 範例內容:
+
+.. code-block:: php
+
+    <?php
+    //V:\extensions\sgw\bin\core\classes\test.php
+    
+    class test {
+    
+        static function myadd($val,$args,$data) {
+        // how to get other field value??
+        // $_SESSION["username"] 為目前的用戶名稱
+        // $data["var1"]["data"][0] 為 var1 欄位值
+        // $data["var2"]["data"][0] 為 var2 欄位值
+            return $data["var1"]["data"][0]+$data["var2"]["data"][0];
+        }
+    
+        static function gearwidth($val,$args,$data) {
+        // how to get other field value??
+        // $_SESSION["username"] 為目前的用戶名稱
+        // $data["var1"]["data"][0] 為 var1 欄位值
+        // $data["var2"]["data"][0] 為 var2 欄位值
+        // 設法從資料表中, 以齒數查詢對應的齒形 lewis 設計參數
+        //db_select($table,$fields,$sql_where,$order,$limit,$vars=array(),$optional=array()) 
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
+        // 確定是否根據輸入與資料庫查詢, 取得所需要的設計關鍵參數
+        return $data["type"]["data"][0]."--".$data["material"]["data"][0]."--".$output[0]["gearnum"]."--".$output[0]["type".$data["type"]["data"][0]];
+        }
+    
+    }
+    ?>
+
 pymysql 的應用:
 
 列出資料庫內的所有資料表.
@@ -4464,6 +4564,473 @@ pymysql 的應用:
     
     cur.close()
     conn.close()
+
+正齒輪減速機協同設計
+******************************
+
+這個案例可以作為多數機械基本元件設計流程範本, 其中包括:
+
+1. 由使用者選擇機械元件的設計輸入條件, 包括減速機所要傳遞的功率、安全系統、機械材料性質、減速比、小齒輪齒數、齒形等.
+
+2. 設計程式必須根據使用者所選擇的機械材料從材料表查出該材料的物理性質, 以作為設計運算之依據.
+
+3. 設計程式必須根據使用者所選擇的齒形, 從 lewis factor 資料表中配合所選擇的正齒輪齒數查出對應的設計參數.
+
+4. 設計程式必須根據使用者輸入與參數對應的設計數據進行設計運算, 找出合於設計條件的輸出, 這裡的輸出為正齒輪的齒面寬尺寸.
+
+5. 設計程式必須根據所算出的齒面寬尺寸, 再配合兩個正齒輪的齒數、模數及壓力角, 以參數設計流程建立所需的正齒輪零件.
+
+6. 所完成的兩個正齒輪零件還必須進一步配合齒輪減速機的其他零件進行設計, 以產生所需要的所有零件.
+
+7. 設計程式最後將設計完成的零件組裝成組合件, 並完成各零件的工程圖與材料表.
+
+業界趨勢:
+
+1. 目前幾乎所有的標準機械元件設計庫都是與 MCAD (Mechanical Computer Aided Design) 單機套件結合, 頂多只能在區域網路下進行資料維護與協同共享.
+
+2. 隨著部分 MCAD 套件由單機模式轉移到運用全球網路架構執行協同產品開發, 這些區域網路下的設計庫, 將會逐步轉移到廣域網路進行維護與協同共享.
+
+3. 由於全球產品開發批量將隨著客製化意識與技術的提升而逐年降低, 目前倚靠軟體使用者介面所產生的產品差異化, 未來將會有部分功能的設計下放給使用者, 驅動此一波發展的關鍵產品為無所不在的網路資訊整合與 3D 印表機.
+
+4. 機械元件設計的流程應用也會隨著"設計製造普及化"的趨勢而進入各種有意提升產品差異化的未來產業.
+
+注意事項:
+
+此一機械設計流程可以配合集中或分散運算執行各元件或系統的最佳化設計.
+
+流程 1, 可以寫成各種類型的程式, 包括命令列程式、網際程式與單機視窗程式.
+
+流程 2 與流程 3 因為資料較多且可能隨著材料取得或其他因素而必須修正內容, 因此通常將數據存入資料庫, 以方便維護管理.
+
+lewis factor 表格配合齒數進行查表, 若設計齒數可直接與表格對應, 則依照所選擇的齒形取出數值進行設計運算, 若無對應齒數則必須從資料表中, 以內差進行運算.
+
+由於 lewis factor 表格與齒形對應, 使用者在設計表單選擇階段, 同時輸入設計齒數, 因此可直接利用 Javascript 取設計者所輸入的齒數, 進行動態運算後, 列出 lewis factor 對應選項(依據齒數與齒形以 Ajax 進行資料庫查詢與運算後列出動態選單), 或者先取得齒形, 在隨後的運算設計流程再配合齒數進行查表與內插運算後, 進行設計運算.
+
+使用者選擇設計材料的查表流程也可採取 lewis factor 查表與運算流程(以 SQL 查詢資料庫中的對應欄位資料), 或者利用 concat(), 直接在選單中將各對應欄位值直接存入設計材料表欄位中, 然後在 fielter 設計方法中, 再設法分離資料庫欄位中的內容, 將所選擇材料對應的各欄位值納入設計運算中.
+
+若採網際協同元件設計, 可以利用 Server side 與 Client side 的運算進行處理, Server side 的流程運算較容易保全, 但是會隨使用者數量增加後拖累 Server 效能, Client side 運算則可分散設計負載, 但是較不容易進行流程保護.
+
+專題研究題目:
+
+利用 http://sourceforge.net/projects/pygear/ 中的既有程式碼, 轉為 Python3 相容的版本.
+
+專題挑戰:
+
+1. 必須設法將目前僅支援 Python2 的 PythonOCC 轉為 Python3 相容, 其中牽涉在 Windows 或 Linux 操作環境下的 C++ 程式編譯連結, 並且需與 Python3 程式結合.
+
+2. 必須將 PyGear 中 Python2 的程式語法轉為 Python3 格式.
+
+參考資料:
+
+Fundamental of Machine Elements
+
+http://www3.nd.edu/~manufact/FME%20pdf.html
+
+Simple Groupware 相關欄位
+*****************************
+
+由於在建構網際機械設計過程中, 部分設計資料表必須由外部資料轉入, 因此必須符合 Simple Groupware 的資料庫設計規範.
+
+以 simple_lewis 資料表為例, 共有三個資料表中的內容必須互相呼應, 尤其是 folder 編號與資料夾中的資料個數, 此三個資料表對應內容說明如下:
+
+simple_lewis 資料表中, id, folder 與 activated 欄位分別為 primary key, index, 與 index, 表示每一筆資料 id 不可相同, 且 folder 與 activated 分別代表資料所在檔案夾編號, 並且對應資料是否有效等.
+
+simple_seq_simple_lewis 資料表中 id 則代表 simple_lewis 資料表中有 25 筆資料
+
+simple_sys_tree 中 的 fcount, 表示 folder 編號 304901 對應的檔案夾中, 共有 25 筆資料
+
+``INSERT INTO `simple_sys_tree` (`id`, `ftitle`, `ftype`, `icon`, `fdescription`, `fmountpoint`, `custom_schema`, `folders`, `fquota`, `default_values`, `lft`, `rgt`, `flevel`, `parent`, `fsizecount`, `fchsizecount`, `fcount`, `fchcount`, `ffcount`, `anchor`, `rread_users`, `rread_groups`, `rwrite_users`, `rwrite_groups`, `radmin_users`, `radmin_groups`, `rexception_users`, `rexception_groups`, `lastsync`, `bgcolor`, `notification`, `notification_summary`, `created`, `createdby`, `lastmodified`, `lastmodifiedby`, `dsize`, `history`, `folder`) VALUES
+(304901,	'lewis',	'lewis',	NULL,	'',	NULL,	NULL,	NULL,	0,	NULL,	-4999997,	-4921871,	2,	304401,	0,	0,	25,	0,	0,	NULL,	'',	'',	'',	'',	'',	'',	'',	'',	NULL,	NULL,	NULL,	NULL,	1369546819,	'admin',	1369546944,	'admin',	0,	'[201/details] Item created by admin at 05/26/13 1:42:24 pm\r\nActivated: yes\r\nGear number: 13\r\ntype1: 0.34827\r\ntype2: 0.24317\r\ntype3: 0.29281\r\ntype4: 0.27177\r\nFolder: /Workspace/mde 教材測試區/lewis ([/304901])\r\n\r\n[101/details] Item created by admin at 05/26/13 1:41:40 pm\r\nActivated: yes\r\nGear number: 12\r\ntype1: 0.33512\r\ntype2: 0.2296\r\ntype3: 0.27677\r\ntype4: 0.25473\r\nFolder: /Workspace/mde 教材測試區/lewis ([/304901])\r\n\r\nItem created by admin at 05/26/13 1:40:19 pm',	304901);``
+
+配合上述說明, 利用 pymysql 與 pybean, 以 Python3 程式執行資料轉入:
+
+.. code-block:: python
+
+    #coding: utf-8
+    
+    import pymysql
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    
+    MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='root', db='sgw_mde_edx_tw')
+    MySQL游標 = MySQL連結.cursor()
+    
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=True 表示不要開放動態資料表的建立
+    SQLite連結 = Store(SQLiteWriter("lewis.db", frozen=True))
+    # 指定 lewis 資料表
+    lewis = SQLite連結.new("lewis")
+    # 資料查詢, 取出 lewis 資料表中的所有資料, 然後新增到 MySQL simple_lewis 資料表
+    目錄 = "304901"
+    activated = "1"
+    for 資料 in SQLite連結.find("lewis"):
+        序號 = str(資料.serialno)+"01"
+        齒數 = str(資料.gearnum)
+        type1 = str(資料.type1)
+        type2 = str(資料.type2)
+        type3 = str(資料.type3)
+        type4 = str(資料.type4)
+        MySQL游標.execute("insert into simple_lewis(id,folder,activated,gearnum,type1,type2,type3,type4) values("+序號+","+目錄+","+activated+"," \
+    +齒數+","+type1+","+type2+","+type3+","+type4+");")
+        MySQL連結.commit()
+    
+    MySQL游標.close()
+    MySQL連結.close()
+
+而 simple_material 資料表在轉檔過程也必須符合上述規範, 參考程式如下:
+
+.. code-block:: python
+
+    #coding: utf-8
+    
+    import pymysql
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    
+    MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='root', db='sgw_mde_edx_tw')
+    MySQL游標 = MySQL連結.cursor()
+    
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=True 表示不要開放動態資料表的建立
+    SQLite連結 = Store(SQLiteWriter("lewis.db", frozen=True))
+    # 指定 steel 資料表
+    steel = SQLite連結.new("steel")
+    # 資料查詢, 取出 steel 資料表中的所有資料, 然後新增到 MySQL simple_material 資料表
+    目錄 = "304801"
+    activated = "1"
+    for 資料 in SQLite連結.find("steel"):
+        序號 = str(資料.serialno)+"01"
+        材料編號 = str(資料.unsno)
+        熱處理 = str(資料.treatment)
+        yield_str = str(資料.yield_str)
+        tensile_str = str(資料.tensile_str)
+        stretch_ratio = str(資料.stretch_ratio)
+        sectional_shr = str(資料.sectional_shr)
+        硬度 = str(資料.brinell)
+        MySQL游標.execute("insert into simple_material(id,folder,activated,unsno,treatment,yieldstr,tensilestr,sratio,sectionstr,brinell) values("+序號+","+目錄+","+activated+",'"+材料編號+"','"+熱處理+"',"+yield_str+","+tensile_str+","+stretch_ratio+","+sectional_shr +","+硬度+");")
+        MySQL連結.commit()
+    
+    MySQL游標.close()
+    MySQL連結.close()
+
+假如針對以 SQLite 資料庫安裝的 Simple Groupware, 則 Lewis 資料表轉換程式, 可以改為:
+
+.. code-block:: python
+
+    #coding: utf-8
+    
+    import pymysql
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    
+    # 改由 sqlite3 直接將資料匯入 SQLite 安裝的 sgw 系統
+    #MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='root', db='sgw_mde_edx_tw')
+    #MySQL游標 = MySQL連結.cursor()
+    
+    # 導入 Python 內建的 sqlite3 模組
+    import sqlite3
+    # 聯結資料庫檔案
+    sgw連結 = sqlite3.connect("V:/extensions/sgw/simple_store/sqlite3_sgs_0_745.db")
+    # 取得目前 cursor
+    sgw游標 = sgw連結.cursor()
+    
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=True 表示不要開放動態資料表的建立
+    SQLite連結 = Store(SQLiteWriter("lewis.db", frozen=True))
+    # 指定 lewis 資料表
+    lewis = SQLite連結.new("lewis")
+    # 資料查詢, 取出 lewis 資料表中的所有資料, 然後新增到 MySQL simple_lewis 資料表
+    目錄 = "17102"
+    activated = "1"
+    for 資料 in SQLite連結.find("lewis"):
+        序號 = str(資料.serialno)+"01"
+        齒數 = str(資料.gearnum)
+        type1 = str(資料.type1)
+        type2 = str(資料.type2)
+        type3 = str(資料.type3)
+        type4 = str(資料.type4)
+        sgw游標.execute("insert into simple_lewis(id,folder,activated,gearnum,type1,type2,type3,type4) values("+序號+","+目錄+","+activated+"," \
+    +齒數+","+type1+","+type2+","+type3+","+type4+");")
+        sgw連結.commit()
+    
+    sgw游標.close()
+    sgw連結.close()
+    
+而 material 材料資料表利用 pybean 讀取資料, 並且利用 SQlite3 進行 insert 的轉換程式則可修改為:
+
+.. code-block:: python
+
+    #coding: utf-8
+    
+    import pymysql
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    
+    #MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='root', db='sgw_mde_edx_tw')
+    #MySQL游標 = MySQL連結.cursor()
+    # 導入 Python 內建的 sqlite3 模組
+    import sqlite3
+    # 聯結資料庫檔案
+    sgw連結 = sqlite3.connect("V:/extensions/sgw/simple_store/sqlite3_sgs_0_745.db")
+    # 取得目前 cursor
+    sgw游標 = sgw連結.cursor()
+    
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=True 表示不要開放動態資料表的建立
+    SQLite連結 = Store(SQLiteWriter("lewis.db", frozen=True))
+    # 指定 steel 資料表
+    steel = SQLite連結.new("steel")
+    # 資料查詢, 取出 steel 資料表中的所有資料, 然後新增到 MySQL simple_material 資料表
+    目錄 = "17002"
+    activated = "1"
+    for 資料 in SQLite連結.find("steel"):
+        序號 = str(資料.serialno)+"01"
+        材料編號 = str(資料.unsno)
+        熱處理 = str(資料.treatment)
+        yield_str = str(資料.yield_str)
+        tensile_str = str(資料.tensile_str)
+        stretch_ratio = str(資料.stretch_ratio)
+        sectional_shr = str(資料.sectional_shr)
+        硬度 = str(資料.brinell)
+        sgw游標.execute("insert into simple_material(id,folder,activated,unsno,treatment,yieldstr,tensilestr,sratio,sectionstr,brinell) values("+序號+","+目錄+","+activated+",'"+材料編號+"','"+熱處理+"',"+yield_str+","+tensile_str+","+stretch_ratio+","+sectional_shr +","+硬度+");")
+        sgw連結.commit()
+    
+    sgw游標.close()
+    sgw連結.close()
+
+上述 Python3 程式, 採用 pybean 讀取資料, 並且利用 SQLite3 將資料分別寫入 simple_lewis 與 simple_material 資料表中, 其中仍然必須處理 simple_seq_simple_lewis 與 simple_sys_tree 中的對應欄位, 以配合 simple_lewis 資料表中的資料筆數.
+
+除了必須注意 lewis 與 material 所在的 folder 編號外, simple_material 內容必須與 simmple_seq_simple_material 與 simple_sys_tree 資料表中的對應資料配合.
+
+
+而與 V:\extensions\sgw\bin\modules\schema\gear.xml 配合的初步 V:\extensions\sgw\bin\core\classes\test.php 設計運算程式, 可以取得所有設計必要參數, 則修改如下:
+
+.. code-block:: php
+
+    <?php
+    //V:\extensions\sgw\bin\core\classes\test.php
+    
+    class test {
+    
+        static function myadd($val,$args,$data) {
+        // how to get other field value??
+        // $_SESSION["username"] 為目前的用戶名稱
+        // $data["var1"]["data"][0] 為 var1 欄位值
+        // $data["var2"]["data"][0] 為 var2 欄位值
+            return $data["var1"]["data"][0]+$data["var2"]["data"][0];
+        }
+    
+        static function gearwidth($val,$args,$data) {
+        // how to get other field value??
+        // $_SESSION["username"] 為目前的用戶名稱
+        // $data["var1"]["data"][0] 為 var1 欄位值
+        // $data["var2"]["data"][0] 為 var2 欄位值
+        // 設法從資料表中, 以齒數查詢對應的齒形 lewis 設計參數
+        //db_select($table,$fields,$sql_where,$order,$limit,$vars=array(),$optional=array()) 
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
+    
+        $npinion = $data["pinion"]["data"][0];
+        $formfactor = 0;
+    
+    if(count($output)==0)
+    {
+        //  表示小齒輪齒數在 lewis 表中沒有直接對應, 必須採用內插求齒形的對應參數
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum>".$npinion,"gearnum asc",1,"");
+        //if($output[0]["type".$data["type"]["data"][0]]=="")
+        if(count($output)==0)
+        {
+            //表示齒數仍然過大, 在表中仍無對應齒數可以查表, 將齒數設為齒條
+            $larger_toothnumber=400;
+            // 配合查出 400 齒的對應 formfactor
+            $largeroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$larger_toothnumber,"gearnum asc",1,"");
+            $formfactor = $largeroutput[0]["type".$data["type"]["data"][0]];
+        }else{
+            // 根據查詢, 求出表中大於小齒輪齒數的數值
+            $larger_toothnumber = $output[0]["gearnum"];
+            $larger_formfactor = $output[0]["type".$data["type"]["data"][0]];
+        }
+        //  接著找出比目標齒數小的其中的最大的,就是最鄰近的小值
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum<".$npinion,"gearnum desc",1,"");
+        //if($output[0]["type".$data["type"]["data"][0]]=="")
+        if(count($output)==0)
+        {
+            //假如資料庫中沒有比目標齒數小的值,就將目標齒數設為資料庫中的最小值來加以對應
+            $smaller_toothnumber=12;
+            // 配合查出 12 齒的對應 formfactor
+            $smalleroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$smaller_toothnumber,"gearnum asc",1,"");
+            $formfactor  = $smalleroutput[0]["type".$data["type"]["data"][0]];
+        }else{
+            // 根據查詢, 求出表中小於小齒輪齒數的數值
+            $smaller_toothnumber = $output[0]["gearnum"];
+            $smaller_formfactor = $output[0]["type".$data["type"]["data"][0]];
+        }
+            if($formfactor==0){
+            //進行內插運算,以便求出對應的小齒輪formfactor查表值
+            $formfactor = $larger_formfactor + ($npinion - $larger_toothnumber) * ($larger_formfactor - $smaller_formfactor) / ($larger_toothnumber - $smaller_toothnumber);
+            }
+    }else{
+        // 表示 lewis 表格中, 配合小齒輪齒數直接從資料表中查表得到 lewis 參數
+        $formfactor = $output[0]["type".$data["type"]["data"][0]];
+    }
+    
+        return $data["type"]["data"][0]."--".$data["material"]["data"][0]."--".$data["pinion"]["data"][0]."--".$formfactor;
+        }
+    
+    }
+    ?>
+
+若再配合正齒輪齒面寬的設計程式流程, 則完成下列 test.php 程式:
+
+.. code-block:: php
+
+    <?php
+    //V:\extensions\sgw\bin\core\classes\test.php
+    
+    class test {
+    
+        static function myadd($val,$args,$data) {
+        // how to get other field value??
+        // $_SESSION["username"] 為目前的用戶名稱
+        // $data["var1"]["data"][0] 為 var1 欄位值
+        // $data["var2"]["data"][0] 為 var2 欄位值
+            return $data["var1"]["data"][0]+$data["var2"]["data"][0];
+        }
+    
+        static function gearwidth($val,$args,$data) {
+                // how to get other field value??
+                // $_SESSION["username"] 為目前的用戶名稱
+                // $data["var1"]["data"][0] 為 var1 欄位值
+                // $data["var2"]["data"][0] 為 var2 欄位值
+                // 設法從資料表中, 以齒數查詢對應的齒形 lewis 設計參數
+                //db_select($table,$fields,$sql_where,$order,$limit,$vars=array(),$optional=array()) 
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
+    
+                $npinion = $data["pinion"]["data"][0];
+                $formfactor = 0;
+    
+            if(count($output)==0)
+            {
+                //  表示小齒輪齒數在 lewis 表中沒有直接對應, 必須採用內插求齒形的對應參數
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum>".$npinion,"gearnum asc",1,"");
+                //if($output[0]["type".$data["type"]["data"][0]]=="")
+                if(count($output)==0)
+                {
+                    //表示齒數仍然過大, 在表中仍無對應齒數可以查表, 將齒數設為齒條
+                    $larger_toothnumber=400;
+                    // 配合查出 400 齒的對應 formfactor
+                    $largeroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$larger_toothnumber,"gearnum asc",1,"");
+                    $formfactor = $largeroutput[0]["type".$data["type"]["data"][0]];
+                }else{
+                    // 根據查詢, 求出表中大於小齒輪齒數的數值
+                    $larger_toothnumber = $output[0]["gearnum"];
+                    $larger_formfactor = $output[0]["type".$data["type"]["data"][0]];
+                }
+                //  接著找出比目標齒數小的其中的最大的,就是最鄰近的小值
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum<".$npinion,"gearnum desc",1,"");
+                //if($output[0]["type".$data["type"]["data"][0]]=="")
+                if(count($output)==0)
+                {
+                    //假如資料庫中沒有比目標齒數小的值,就將目標齒數設為資料庫中的最小值來加以對應
+                    $smaller_toothnumber=12;
+                    // 配合查出 12 齒的對應 formfactor
+                    $smalleroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$smaller_toothnumber,"gearnum asc",1,"");
+                    $formfactor  = $smalleroutput[0]["type".$data["type"]["data"][0]];
+                }else{
+                    // 根據查詢, 求出表中小於小齒輪齒數的數值
+                    $smaller_toothnumber = $output[0]["gearnum"];
+                    $smaller_formfactor = $output[0]["type".$data["type"]["data"][0]];
+                }
+                    if($formfactor==0){
+                    //進行內插運算,以便求出對應的小齒輪formfactor查表值
+                    $formfactor = $larger_formfactor + ($npinion - $larger_toothnumber) * ($larger_formfactor - $smaller_formfactor) / ($larger_toothnumber - $smaller_toothnumber);
+                    }
+            }else{
+                // 表示 lewis 表格中, 配合小齒輪齒數直接從資料表中查表得到 lewis 參數
+                $formfactor = $output[0]["type".$data["type"]["data"][0]];
+            }
+    
+            $toothtype = $data["type"]["data"][0];
+            $rpm = $data["rpm"]["data"][0];
+            $horsepower = $data["power"]["data"][0];
+            $safetyfactor = $data["factor"]["data"][0];
+            // material field: concat(treatment;':';yieldstr;':';tensilestr;':';sectionstr;':';sratio;':';brinell)
+            $material = preg_split('/:/', $data["material"]["data"][0]);
+            $strengthstress = $material[1] * 1000;
+            $brinellhardness = $material[5];
+    
+            // 先處理設計運算所需的參數
+            //透過toothtype轉回真正的齒形描述
+            if($toothtype == "1")
+            {
+                $pressureangle = "20";
+            }
+            elseif ($toothtype == "2")
+            {
+                $pressureangle = "20";
+            }
+            elseif ($toothtype == "3")
+            {
+                $pressureangle = "25";
+            }
+            else
+            {
+                $pressureangle = "25";
+            }
+    
+            //最小齒數取決於壓力角
+            if($pressureangle == "20")
+            $minnpinion = 18;
+            elseif($pressureangle == "25")
+            $minnpinion = 12;
+            else
+            $minnpinion = 12;
+    
+            //直接設最小齒數
+            If ($npinion <= $minnpinion)
+            $npinion = $minnpinion;
+    
+            //大於400的齒數則視為齒條(Rack)
+            If ($npinion >= 400)
+                $npinion = 400;
+            //開始進行設計運算
+            $ratio = $data["ratio"]["data"][0];
+            $ngear = $npinion*$ratio;
+    
+            //重要的最佳化設計---儘量用整數的diametralpitch
+            //先嘗試用整數算若diametralpitch找到100仍無所獲則改用0.25作為增量再不行則宣告fail
+            $counter=0;
+            $i = 0.1;
+            $facewidth = 0;
+            $circularpitch = 0;
+            while ($facewidth <= 3 * $circularpitch or $facewidth >= 5 * $circularpitch)
+            {
+                $diametralpitch = $i;
+                $circularpitch = 3.14159 / $diametralpitch;
+                $pitchdiameter = $npinion / $diametralpitch;
+                $pitchlinevelocity = 3.14159 * $pitchdiameter * $rpm / 12;
+                $transmittedload = 33000 * $horsepower / $pitchlinevelocity;
+                $velocityfactor = 1200 / (1200 + $pitchlinevelocity);
+                //formfactor is Lewis form factor;
+                //formfactor need to get from table 13-3 and determined ty teeth number and type of tooth
+                //formfactor = 0.293
+                //90 is the value get from table corresponding to material type
+                $facewidth = $transmittedload * $diametralpitch * $safetyfactor / $velocityfactor / $formfactor / $strengthstress;
+    
+                if($counter>5000)
+                {
+                    //$result.="超過5000次的設計運算,仍無法找到答案!<br>";
+                    //$result.="可能所選用的傳遞功率過大,或無足夠強度的材料可以使用!<br>";
+                    $facewidth = "no answer";
+                    //離開while迴圈
+                    break;
+                }
+    
+                $i+=0.1;
+                $counter++;
+            }
+    
+            //return $data["type"]["data"][0]."--".$data["material"]["data"][0]."--".$data["pinion"]["data"][0]."--".$formfactor;
+            return round($facewidth, 4);
+        }
+    
+    }
+    ?>
 
 RedBeanPHP 資料庫程式
 **************************
@@ -4544,6 +5111,89 @@ RedBeanPHP 資料庫程式
     print("<br />");
     print($all_data[0]["type4"]);
 
+從上述 redbeanphp 資料庫程式中, 雖然可以分別從 SQLite 或 MySQL 資料庫中存取資料, 但是正齒輪減速機的協同設計程式編寫過程, 必須要將既有的 SQLite lewis.db 中的 lewis 與 steel 資料表內容, 轉到遠端的 MySQL 資料庫中, 因此若以 redbeanphp 程式執行, 則必須要採用多資料庫的模式才可完成, 範例程式架構如下:
+
+.. code-block:: php
+
+    <?php
+    // 從 SQLite 資料庫中取出 lewis 與 material 資料表, 然後寫入 MySQL 資料庫的對應資料表中
+    require('rb.php');
+    R::setup('sqlite:'.dirname(__FILE__).'/lewis.db');
+    // 採用 redbeanphp 的多資料庫模式
+    R::addDatabase('db2','mysql:host=localhost;dbname=sgw_mde_edx_tw','root','root',$frozen);
+    // 設定所要連結的資料庫
+    // SQLite
+    //R::setup('sqlite:'.dirname(__FILE__).'/lewis.db');
+    // MySQL
+    //R::setup('mysql:host=localhost;dbname=sgw_mde_edx_tw','root','root');
+    // 先選擇最先設定的 SQLite 資料庫, 名稱為 default
+    R::selectDatabase('default');
+    // 從資料庫中載入既有的資料表
+    $bean = R::load('lewis', $id);
+    $num =R::count('lewis');
+    $output .= "資料庫中共有".$num."筆資料<br />";
+    echo $output;
+    $all_field = R::$writer->getColumns('lewis');
+    $all = R::getAll('select * from lewis');
+    // 準備列出 default 資料庫的所有資料
+    //$all[0][field_name]
+    for($i=0;$i<$num;$i++)
+    {
+        $k = 0;
+        // 逐筆逐欄位列出所有資料
+        foreach($all_field as $key=>$item)
+        {
+            $k++;
+            print("第".$k."個欄位: ".$key."值:".$all[$i][$key]."<br />");
+        }
+        print("#######################<br />");
+    }
+    print("結束 default 資料庫的處理<br />");
+    
+    // 再選擇隨後設定的 MySQL 資料庫, 名稱為 db2
+    R::selectDatabase('db2');
+    // 準備將資料存入 MySQL
+    $bean = R::load('simple_forum', $id);
+    $num =R::count('simple_forum');
+    $output = "資料庫中共有".$num."筆資料<br />";
+    echo $output;
+    $all_field = R::$writer->getColumns('simple_forum');
+    $all = R::getAll('select * from simple_forum');
+    //$all[0][field_name]
+    for($i=0;$i<$num;$i++)
+    {
+        $k = 0;
+        // 逐筆逐欄位列出所有資料
+        foreach($all_field as $key=>$item)
+        {
+            $k++;
+            print("第".$k."個欄位: ".$key."值:".$all[$i][$key]."<br />");
+        }
+        print("#######################<br />");
+    }
+    /*
+    // 從資料表中找出特定資料
+    // 只找出第一筆
+    //$one = R::findone("simple_lewis","gearnum=?",array($title));
+    // 取出資料表中所有資料
+    //$all = R::getAll('select * from simple_lewis');
+    //print_r($all);
+    //print("#####################");
+    // 利用查詢找出對應資料
+    $all_data = R::find("lewis", 'gearno=12');
+    // 2012 將 $all_data 重組為 index 為 0,1,2....
+    // http://php.net/manual/en/function.array-values.php
+    $all_data=array_values($all_data);
+    // 列出 type1 ~ type4 的對應 lewis factor
+    print($all_data[0]["type1"]);
+    print("<br />");
+    print($all_data[0]["type2"]);
+    print("<br />");
+    print($all_data[0]["type3"]);
+    print("<br />");
+    print($all_data[0]["type4"]);
+    */
+
 pymysql 資料庫程式
 ***********************
 
@@ -4576,4 +5226,42 @@ pymysql 資料庫程式
     
     cur.close()
     conn.close()
+
+CD 第十五週
++++++++++++++++
+
+PLM 的成本
+
+Product Lifecycle Management
+
+想像一下產品的整個生命週期過程中包含哪些內容:
+
+產品有資料, 包括概念生成時的資料, 開發流程中的各種資料, 製造流程中的各種資料, 行銷維修與回收流程中的各種資料.
+
+這些資料在不同時間, 配合不同的工作流程管理進行傳遞而成為各部門有用的資訊, 且長期累積的資料與資訊經過統整而得以透過運用來解決各種問題的內容就成為知識.
+
+而產品在不同階段中所牽涉的資料來自各種身分的人, 各種系統下的軟硬體工具, 各種責任與義務範圍內的工作流程, 而且每一項目都是時間的函數.
+
+也就是說, 依附在產品開發流程中, 不同時間會交由不同身分的人來處理, 會在不同時間點交由不同的系統處理, 由不同版本的軟硬體工具進行輸入與輸出, 而且就連交付處理的工作流程也會因為人地時事物的變遷而改變, 這些變遷甚至包括許多突發與意外事件所造成的影響管理.
+
+一般而說, 針對產品在開發階段所衍生資料的管理稱為 Product Data Management (PDM), 其中有許多資料來自電腦輔助流程(Computer Aided Process) 中所使用的 CAD 與 CAE, 而在生產階段資料或資源管理則稱為 Manufacturing Resources Planning (MRP) 或 Management, 針對企業營運中所牽涉的資料管理則稱為 Enterprise Resources Planning 或Management (ERP), 至於在行銷流程中與顧客相關的資料管理系統則稱為 Customer Relationship Management(CRM), 當然許多的 RRP 還包括進銷存與財務或人力資源的管理等.
+
+在上述這些不同單位中各項管理系統中, 以產品作為主體的全面管理就稱為 PLM, 可見完整的 PLM 其實包含整個企業所有內外各種流程資料的管理.
+
+OpenShift 平台應用
+**********************
+
+在 OpenShift 環境, 若進端為 Windows, 必須透過 git 確認遠端的 action_hooks 目錄下, 是否可以執行.
+
+$ git update-index --chmod=+x .openshift\action_hooks\build
+$ git update-index --chmod=+x .openshift\action_hooks\deploy
+$ git update-index --chmod=+x .openshift\action_hooks\post_deploy
+$ git update-index --chmod=+x .openshift\action_hooks\post_start_ruby-1.9
+$ git update-index --chmod=+x .openshift\action_hooks\post_stop_ruby-1.9
+$ git update-index --chmod=+x .openshift\action_hooks\pre_build
+$ git update-index --chmod=+x .openshift\action_hooks\pre_start_ruby-1.9
+$ git update-index --chmod=+x .openshift\action_hooks\pre_stop_ruby-1.9
+$ git commit
+
+參考資料: http://smajnr.net/2013/05/host-tracks-v2-2-2-for-free-with-openshift.html
 

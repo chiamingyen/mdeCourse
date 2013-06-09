@@ -40,7 +40,7 @@ WinPython 似乎沒有網際方案, portableKMOL 則採用 CherryPy (Python), dj
 
 WinPython 安裝 Cython, portableKMOL 在加速 Python 程式運算方面希望採用 PyCUDA+mpi4py, 以圖形卡的平行運算為主.
 
-WinPython 安裝 zmq, portableKMOL 尚未導入 zmq.
+WinPython 安裝 zmq.
 
 初步比較:
 

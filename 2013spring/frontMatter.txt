@@ -37,7 +37,9 @@
     
         2013/02/28|採用 Leo Editor、Sphinx 與 MiKTeX, 著手建立KMOL 手冊第 1.0 版本.
         
-        2013/05/04|採用 Leo Editor 4.11 build 5768 develop 版本
+        2013/05/04|採用 Leo Editor 4.11 build 5768 develop 版本.
+        
+        2013/06/09|將 extensions 與 tools 目錄整合為 apps 目錄, LaTeX 轉為 PDF 的命令列必須配合修改, portableKMOLII 版.
 
 .. @+node:amd_yen.20130308221230.3830: *3* @rst-no-head Links
 .. @+node:amd_yen.20130314194325.5951: *3* @rst-ignore 致謝

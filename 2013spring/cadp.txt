@@ -58,6 +58,33 @@
 - 基本的英文解讀能力
 
 - 基本的自我閱讀能力
+.. @+node:mde.20130609005025.2822: *4* 網際內容管理
+有關 nginx 的 access control, 與 Apache .htaccess 的控管概念正好相反, Apache 先 deny 全部連線, 然後再 allow 例外的連線
+
+nginx 則先 allow 相關連線, 然後再 deny 其它之外的"所有"連線, 以下 nginx.conf 設定, 只允許 127.0.0.1 連線
+
+.. code-block:: none
+
+    location / {
+        root   html;
+        index  index.html index.htm index.php;
+        # This always returns a 403. Probably it isn't what you want.
+        allow   127.0.0.1;
+        # 允許 192.168.1.0 ~192.168.1.255 IP 連線
+        allow 192.168.1.0/24;
+        deny all;
+    }
+ 
+其他 CMSimple 與 nginx 結合使用的系統檔案保護設定:
+
+.. code-block:: none
+
+    # 保護 CMSimple 對應下的 cmsimple, template 與 content 目錄無法直接擷取檔案
+    location ~ /(cmsimple``|templates|``content)/ {
+        deny        all;
+    }
+    
+CMSimple downloads 與 images 目錄則依賴 index.html 進行保護
 .. @+node:mde.20130604110320.2784: *4* MCAD 套件選擇
 Mechanical Computer Aided Design(MCAD) 套件:
 
@@ -70,12 +97,1141 @@ Mechanical Computer Aided Design(MCAD) 套件:
 目前提供免費學生版的套件有:
 
 AutoDesk Inventor, PTC Creo, Siemens Solid Edge, 其中又以 Solid Edge 的學生授權最為自由, 因此 2013 Fall 電腦輔助設計課程將採用 Solid Edge 與 FreeCAD, 而 Inventor 與 Creo 則用來輔助教學.
+.. @+node:mde.20130609005025.2829: *4* 參考資料
+Exploring Creo Parametric
+
+http://www.youtube.com/watch?v=Orbiquo2dOE
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Exploring%20the%20Creo%20Parametric%20Interface.flv?attredirects=0&d=1
+
+Creo Parametric 1.0 introduction
+
+http://www.youtube.com/watch?v=xHKsoYFGlaY
+
+Creo Overview
+
+http://www.youtube.com/watch?v=qugde3gXaFg
+
+Getting started with Creo Parametic
+
+http://www.youtube.com/playlist?list=PL38B7CAC223A4859D
+
+Design Productivity
+
+http://www.youtube.com/watch?v=5gG9IeoZtrA
+
+Assembly modeling
+
+http://www.youtube.com/watch?v=Q_QhR53FjNE
+
+http://www.youtube.com/watch?v=d7s9OD4p8CU
+
+Exploding Assembly
+
+http://www.youtube.com/watch?v=bHpAS4LQulo
+
+Creating Part
+
+http://www.youtube.com/watch?v=wEeiOnrLsTo
+
+Helical sweep
+
+http://www.youtube.com/watch?v=vReXjIITcj4
+
+Parametric  Webnair
+
+http://www.youtube.com/watch?v=4Hw6W5zO04w
+
+http://www.youtube.com/watch?v=vVsMlvWNnVk
+
+Large assembly
+
+http://www.youtube.com/watch?v=qkZUrVkX8H8
+
+Simulate Webnair
+
+http://www.youtube.com/watch?v=osa76tUkZPc
+
+http://www.youtube.com/watch?v=j8Kf-mM7tiU
+
+Sheet Metal (more)
+
+http://www.youtube.com/watch?v=sow4sK1AZS8
+
+Sweep (static)
+
+http://www.youtube.com/watch?v=R7NSEXvOrHw
+
+Solid Modeling
+
+http://www.youtube.com/watch?v=jd6Z12H6OC0
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/5%20Cool%20Things%20in%20Creo%20Parametric.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Adding%20Dimensions%20to%20a%20Sketch.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Creating%20a%20Cube%20in%20Creo%20Parametric%201.0.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Creating%20a%20Cube%20in%20Creo%20Parametric%201.0.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Creating%20a%20Rod%20in%20Creo%20Parametric%201.0.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Editing%20Features%20using%20Edit%20Definition.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Introduction%20to%20the%20Sketch%20Tool-1.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Sketching%20Rectangles%20and%20Parallelograms.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Using%20the%20Measure%20Tools.flv?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Creating%20Driven%20Dimensions-1.m4v?attredirects=0&d=1
+
+A driven dimension is created in a drawing.  The dimensions displayed value is based upon the geometry selected when the dimension is created. Driven dimensions are only displayed on the drawing that they were created in and can not be used update the geometry of the model. They are driven by the model's geometry when the model's geometry changes driven dimensions referencing that geometry will update accordingly. In this drawing the location of these two holes is defined by this fourteen dimension from the center of the hole to some location located near the center of the model. In order to manufacture this part a dimension needs to be added that references the right edge of the model. Something that can be referenced when locating the center of the hole. Before creating that dimension let's make this one into a reference dimension. To do this, select the dimension right clicked and select properties from the pop-up menu. In the display tab add a suffix of REF indicating that as a reference dimension. Note that the dimension could've also just be erased. To create the new dimension open the entity tab and in the annotaion tab click dimension new references. To define the driven dimension,  select the edge of the part and then the outer edge of the hole. Middle click here to place the dimensions value and then click center to define the dimensions attachment to the hole. In the annotations note of the top view notice that the driven dimension we created is listed as a draft dimension rather than a model dimension. This is because the dimension is created in displayed in the drawing not the model. Before finishing let's test the new dimension to make sure that it's driven by the geometry of the model. Edit the value of the model dimension and then regenerate the model. We can see that by changing the geometry the dimension that was just created has been changed to twenty. Driven dimensions ebable dimension schemes shown in your 2d drawing to be updated automatically.
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Creating%20Solid%20Extrude%20Features-1.m4v?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Customizing%20the%20Ribbon%20Interface-1.m4v?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Parametric%20Creating%20Relations-1.m4v?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Showing%20Erasing%20and%20Deleting%20Annotations-1.m4v?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/2012_fall_cadp/Creo%20Understanding%20the%20Ribbon%20Interface-1.m4v?attredirects=0&d=1
 .. @+node:amd.20130514093510.2708: *3* CADP 第二週
 電腦輔助使用案例:
 
 使用者(音樂家)利用文字檔案輸入, 透過電腦程式轉換成專業的樂譜.
 
 http://lilypond.org/
+.. @+node:mde.20130608155347.2811: *4* Creo 的二次開發
+.. @+node:mde.20130608155347.2812: *5* J-Link
+J-Link 程式環境設定:
+
+. 安裝 Creo 時必須同時在 Parametric 模組設定安裝 JRE.
+
+. 安裝最新的 JDK.
+
+. start_kmol.bat 啟動檔案中, 必須設定下列與 Java 有關的環境變數:
+
+REM 設定 Jdk 路徑, 特別注意 CLASSPATH 後的分號, 一定要有
+set JAVA_HOME=%Disk%:\IDE\Java\jdk1.7.0_21
+set CLASSPATH=.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar;%Disk%:\pfc.jar;"D:\Creo2\Common Files\M040\i486_nt\obj\JRE\lib";
+set PRO_JAVA_COMMAND=%Disk%:\IDE\Java\jdk1.7.0_21\bin\java
+set jlink_java_command=%Disk%:\IDE\Java\jdk1.7.0_21\bin\java
+
+. 確定 config.pro 中是否加入 regen_failure_handling resolve_mode 設定, 讓 Creo 配合程式自動更新.
+
+. 使用 Creo 內建的 J-Link InstallTest 程式進行編譯後, 測試是否可以正確啟動.
+
+同步 J-Link 應用程式
+
+A synchronous J-Link application is started and managed by Creo Parametric.
+
+Control belongs to either Creo Parametric or the application, but not both at the
+same time.
+
+非同步 J-Link 應用程式
+
+An asynchronous application is started independent of Creo Parametric with
+the option to start or connect to Creo Parametric processes.
+
+Standalone Applications
+
+You can start the J-Link application independently at any time, regardless of
+which models are in session. A registry file contains key information regarding
+the execution of the program.
+
+Registry File
+
+A registry file contains Creo Parametric-specific information about the standalone
+application you want to load.
+
+The registry file called creotk.dat is a simple text file, where each line
+consists of one predefined keyword followed by a value. The standard form of
+the creotk.dat file is as follows:
+
+name     InstallTest
+startup  java
+java_app_class  StartInstallTest
+java_app_start  start
+java_app_stop   stop
+allow_stop      true
+delay_start     false
+text_dir        ./text
+end
+.. @+node:mde.20130609005025.2810: *6* J-Link 程式範例
+J-Link is a Java language API for Creo free-of-charge that is build on top of the Pro/TOOLKIT API.
+
+It allows the development of Java programs to access the internal components of a Creo session, to customize models.
+
+With J-Link being a object oriented programming tool, the Creo user gains a powerful tool for expanding, customizing and automating the functionality of Creo and Windchill. J-Link is part of the PTC Foundation Class (PFC) package.
+
+Benefits Includes:
+
+. No Separate or Additional Licensing
+
+. Hardware Platform Independed
+
+. Object Oriented Programming
+
+. Object Reuse
+
+. Create GUI easily
+
+. Free Java IDE
+
+. Seamlessly embeded custom process
+
+. Fully Supported
+
+. Asynchronous & Synchronous Application
+
+A synchronous J-Link application is started and managed by Creo Parametric.
+Control belongs to either Creo Parametric or the application, but not both at the
+same time.
+
+An asynchronous application is started independent of Creo Parametric with
+the option to start or connect to Creo Parametric processes.
+
+You can run synchronous J-Link programs as standalone applications or
+model-specific programs.
+
+Most of the required settings for these two programs are independent of the programs themselves. This enables you to convert an application program to a model program, or vice versa.
+
+A registry file contains Creo Parametric-specific information about the standalone
+application you want to load.
+
+The registry file called protk.dat is a simple text file, where each line consists
+of one predefined keyword followed by a value. The standard form of the
+protk.dat file is as follows:
+
+name   java_demo
+startup java
+java_app_class      MyJavaApp
+java_app_start      start
+java_app_stop        stop
+allow_stop true
+delay_start true
+text_dir 
+end
+
+another registry file example:
+
+name               JLinkHelloWorld-App
+startup            java
+java_app_class     JLinkHelloWorld
+java_app_start     startApp
+java_app_stop      stopApp
+allow_stop         true
+delay_start        false
+text_dir           V:/apps/JLinkHelloWorld/text
+java_app_classpath V:/apps/JLinkHelloWorld
+end
+ 
+.. code-block:: java
+
+    // JLinkHelloWorld.java
+    // Copyright 2009, MarcMettes@InversionConsulting.com
+    // imports required
+    import com.ptc.cipjava.*;
+    import com.ptc.pfc.pfcCommand.*;
+    import com.ptc.pfc.pfcGlobal.*;
+    import com.ptc.pfc.pfcModel.*;
+    import com.ptc.pfc.pfcSession.*;
+    import java.io.*;
+    public class JLinkHelloWorld {
+        static JLinkHelloWorld App = null;
+        String programName = null;
+        Session session = null;
+        FileWriter log = null;
+        String msgFile = "msg_jlinkhelloworld.txt";
+        String newline = null;
+        // constructor
+        //
+        public JLinkHelloWorld () {
+            programName = this.getClass().getName();
+            try {
+                log = new FileWriter(programName + ".log");
+                newline = System.getProperty("line.separator");
+            }
+            catch (Exception e) {
+                // couldn't create log file, ignore
+            }
+        }
+        // Display message in Pro/Engineer
+        //
+        public void DisplayMessage ( String mesg ) throws Exception {
+            stringseq seq = stringseq.create();
+            seq.set(0, mesg);
+            session.UIDisplayMessage(msgFile, "JLHW %s", seq);
+            seq.clear();
+            writeLog(mesg);
+        }
+        // Write text to log file
+        //
+        public void writeLog ( String mesg ) {
+            try {
+                if (log == null) { return; }
+                log.write(mesg + newline);
+                log.flush();
+            }
+            catch (Exception e) {
+                // ignore
+            }
+        }
+        // Close log file
+        //
+        public void closeLog () {
+            try {
+                if (log == null) { return; }
+                log.close();
+            }
+            catch (Exception e) {
+                // ignore
+            }
+        }
+        // Called by Pro/Engineer when starting the application
+        //
+        public static void startApp () {
+            try {
+                App = new JLinkHelloWorld();
+                App.startupApplication();
+            }
+            catch (Exception e) {
+                App.writeLog("Problem running startupApplication method" + e.toString());
+                return;
+            }
+        }
+        // Called by Pro/Engineer when stopping the application
+        //
+        public static void stopApp () {
+            try {
+                App.shutdownApplication();
+            }
+            catch (Exception e) {
+                App.writeLog("Problem running shutdownApplication method" + e.toString());
+                return;
+            }
+        }
+        // Perform some steps when shutting down the application
+        //
+        public void shutdownApplication () throws Exception {
+            writeLog("Application '" + programName + "' stopped");
+            closeLog();
+        }
+        // Perform some steps when starting the application
+        //
+        public void startupApplication () throws Exception {
+            try {
+                writeLog("Application '" + programName + "' started.");
+                session = pfcGlobal.GetProESession();
+            }
+            catch (jxthrowable x) {
+                writeLog("ERROR: Problem getting session object.");
+                return;
+            }
+            UICommand btn1_cmd = null;
+            try {
+                // Define a UI command
+                btn1_cmd = session.UICreateCommand(
+                          "JLHW Btn1 Cmd", new JLHW_Btn1_CmdListener()
+                      );
+            }
+            catch (jxthrowable x) {
+                writeLog("ERROR: Problem creating uicmd.");
+                return;
+            }
+            try {
+                // Add UI command to 'Tools' menu
+                session.UIAddButton(
+                    btn1_cmd, "Utilities", null,
+                    "JLHW Btn1 Label", "JLHW Btn1 Help",
+                     "msg_jlinkhelloworld.txt"
+                );
+            }
+            catch (jxthrowable x) {
+                writeLog("ERROR: Problem creating menu: " + x.toString());
+                return;
+            }
+            DisplayMessage(programName + " application started.");
+        }
+        // Callback for the 'Tools' menu button
+        //
+        public void Btn1_callback ( ) throws Exception {
+            String mesg = null;
+            Model model = session.GetCurrentModel();
+            if (model == null) {
+                mesg = "Hello!";
+            }
+            else {
+                mesg = "Hello! The model is: " + model.GetFileName();
+            }
+            DisplayMessage(mesg);
+        }
+        // Inner class for UI Command Listener
+        //
+        public class JLHW_Btn1_CmdListener extends DefaultUICommandActionListener {
+            // Handler for button push
+            //
+            public void OnCommand () {
+                try {
+                    Btn1_callback();
+                }
+                catch (Exception e) {
+                    writeLog("Exception thrown by Btn1_callback method: " + e.toString());
+                }
+            }
+        }
+    }
+    
+For your asynchronous application to communicate with Creo Parametric, you
+must set the environment variable PRO_COMM_MSG_EXE to the full path of the
+executable pro_comm_msg.
+
+On Windows systems, set PRO_COMM_MSG_EXE in the Environment section of
+the System window that you access from the Control Panel.
+
+To support the asynchronous mode, use the jar file pfcasync.jar in your CLASSPATH. This file is available at \Common Files\\text\java. This file contains all required classes for running with asynchronous J-Link.
+
+You must add the asynchronous library, pfcasyncmt, to your environment that launches the J-Link application. This library is stored in \Common  Files\.
+
+Asynchronous J-Link applications must load the library prior to calls made to the
+asynchronous methods. This can be accomplished by adding the following line to
+your application.
+
+System.loadLibrary ("pfcasyncmt")
+
+The sample code in the file pfcAsyncStartExample.java located at
+/jlink_appls/jlinkasyncexamples
+
+demonstrates how to use J-Link in asynchronous mode. The method starts Creo
+Parametric asynchronously, retrieves a Session, and opens a model in Creo Parametric.
+
+Supported Java Virtual Machine Versions
+
+The machine information for the JVM versions supported by J-Link is available at
+
+http://www.ptc.com/partners/hardware/current/jlink.htm
+
+The Creo Parametric installation includes a default JVM shipped as a part of its
+CD image. For synchronous J-Link applications, Creo Parametric uses the Creo
+Parametric-supplied JVM by default.
+
+Creo Parametric includes the ability to override the default JVM command used to
+invoke J-Link applications. This allows you to:
+
+. Use a non-standard JVM in your deployment, if that JVM has a feature or a fix
+that is necessary for your application to work correctly.
+
+. Apply command line flags to the Java invocation, thus allowing it to be used
+for debugging or other customized purposes.
+
+Overriding the Java command used by Synchronous J-Link
+
+The JVM that is used can be overridden using one of the following mechanisms:
+
+. The configuration option jlink_java_command, if set to the path to the
+java executable, will determine the JVM be used to start synchronous J-Link
+applications.
+
+. The environment variable PRO_JAVA_COMMAND serves the same purpose as
+the configuration option. The environment variable takes precedence over the
+configuration option.
+
+CLASSPATH Variables
+
+Synchronous Mode
+
+If you are using the default JVM and are running J-Link applications on your
+machine, you need to add only your application classes to the classpath. The
+mechanisms to accomplish this are:
+
+. Setting the environment variable CLASSPATH.
+
+. Using the java_app_classpath field in the registry file. This field has a
+character limit of 2047 wide characters (wchar_t).
+
+. Loading a user-specified Jar file through the user interface (only available
+for a model program).
+
+Creo Parametric will automatically add the J-Link archive pfc.jar to the CLASSPATH.
+
+To compile J-Link applications, the environment variable CLASSPATH must include the path to the locations of classes and archives that you intend to use. 
+
+Also, you must add J-Link archive pfc.jar to the CLASSPATH. This archive is located at \Common Files\\text\java\pfc.jar.
+
+JAVA Options for Asynchronous Mode
+
+Asynchronous mode applications are started by an external Java process. Thus
+Creo Parametric does not have any control over them, and you may use any JVM
+and command line to invoke them.
+
+Note
+
+Regardless of how the Java process is invoked, it must use the Java command
+line flags specified for asynchronous mode under
+
+For both running and compiling, the environment variable CLASSPATH must
+point to the locations of the application classes and archives.
+
+The CLASSPATH should also include the path to the J-Link asynchronous mode archive file  pfcasync.jar.
+
+This archive is located at \Common Files\\text\java\pfcasync.jar.
+
+http://www.ptc.com/partners/hardware/current/jlink.htm
+
+protk.dat 檔案
+
+name   InstallTest —該行為程序名，可以任意設定;
+
+startup  java —該行表明為J-link應用程序;
+
+java_app_class  StartInstallTest —該行為 J-link 程序的起始類名, 該類名必須與 J-link 項目的起始類名相一致;
+
+java_app_start  start — 該行為 J-link 起始方法名, 也須與上述 StartInstallTest 類的方法成員名一致;
+
+java_app_stop   stop — 該行為 J-link 結束方法名, 也須與上述StartInstallTest類的方法成員名一致;
+
+allow_stop      true — 設置是否可以在程序運行期間中止, true 為可以中止, false 為不能在運行期間中止;
+
+delay_start     true — 設置是否在 Creo 啟動時 J-link 程序自動運行, 設為 false 則自動運行; true 為不自動運行, 此時需要在 Creo 啟動之後手動執行程序. 
+
+text_dir        ./text — 該行指向目錄, 該目錄包含程序中出現的一些提示信息和菜單按鈕信息文件;
+
+end — 結束符號
+
+系統變數
+
+PRO_JAVA_COMMAND 設為 V:\jdk1.7.0_02\bin\java
+jlink_java_command 設為 V:\jdk1.7.0_02\bin\java
+.. @+node:mde.20130608155347.2813: *5* Pro/Web.Link
+Creo Parametric 模組的程式延伸功能, 以 Object Toolkit 功能最多, 其次為 Toolkit(約 80%)、J-Link(約 65%)、Pro/Web.Link(約 50%) 與 VBapi(約 40%).
+
+WebLink is a Javascript language API for Creo free-of-charge that is build on top of the Pro/TOOLKIT API.
+
+It allows the development of Web Applets to access the internal components of a Creo session, to customize models through the Creo internal web browser.
+
+WebLink is a object oriented programming tool and it can call other J-Link programs. A web configurator can be developed using WebLink.
+
+Benefits Includes:
+
+. No Separate or Additional Licensing
+
+. Hardware Platform Independed
+
+. Object Oriented Programming
+
+. Object Reuse
+
+. Create Web Pages easily
+
+. Free JavaScripting IDE
+
+. Seamlessly embeded custom process
+
+. Fully Supported
+
+. Synchronous Application
+
+
+config.pro 設定項目分類
+
+以設定項目前的圖標做為辨識
+
+電腦 - 設置後必須重新啟動 Creo 後才會生效的項目.
+閃電 - 設定修改後立即生效的項目.
+火柴棒 - 只對設定後之新建模型, 工程圖等有效的項目.
+
+Pro/Web.Link 程式執行的條件
+
+1. Creo config.pro 中允許 Javascript 程式的執行, 並且開啟零件自動更新
+
+使用者可以使用各自目錄下的 config.pro 或系統 (位於 Common Files\M0X0\text\ 目錄下) 中的 config.pro
+
+支援網際執行 javascript 程式
+
+web_enable_javascript on
+
+設定 trail.txt 檔案位置 (內定為 Creo 啟動位置)
+
+trail_dir C:\tmp
+
+支援網際修改變數後, 能夠直接更新模型
+
+regen_failure_handling resolve_mode
+
+2.  網站程式可以連結 Pro/Web.Link 所提供的 Javascript 程式庫.
+
+3. IE 瀏覽器信任所要連結, 用來執行 Pro/Web.Link 程式的網站.
+
+允許  IE 啟動信任的網站中的 Active 程式:
+
+Change the setting for Initialize and Script ActiveX controls not marked as safe under ActiveX controls and plugins to Enable.
+
+ActiveX 控制項與插件->起始不標示為安全的 ActiveX 控制項->啟用
+
+Change the setting for Active Scripting under Scripting to Enable.
+
+指令碼處理->Active scripting->啟用
+
+4. 零組件檔案中透過變數設定, 將變數與零組件中的尺寸進行連結對應.
+
+Parameters, Relations, Switch Dimensions
+
+變數格式應用
+以下格式可以保證輸出為小數點 2 位數值, 以符合 Creo 系統中的變數 real number 格式.
+
+number_format(floatval($data->var1),2)
+
+.. @+node:mde.20130609005025.2809: *6* Pro/Web.Link 程式範例
+.. code-block:: javascript
+
+    <script src="jscript/weblink/pfcUtils.js">
+    </script><script  src="jscript/weblink/pfcParameterExamples.js"></script><script  src="jscript/weblink/pfcComponentFeatExamples.js">
+     document.writeln ("Error loading script!");
+    </script><script language="JavaScript">
+          if (!pfcIsWindows())
+            netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+      var session = pfcGetProESession ();
+    // for volume
+      var solid = session.CurrentModel;
+        try
+            {
+                createParametersFromArguments ();
+                         solid.Regenerate(void null);   
+                            properties = solid.GetMassProperty(void null);
+                            alert("零件體積:"+properties.Volume);
+            }
+        catch (err)
+            {
+                alert ("Exception occurred: "+pfcGetExceptionType (err));
+            }
+    </script>
+
+假如能夠從 Assembly 中將 part 的列表存進資料庫, 產品設計者能夠如何運用這些資料?
+
+Pro/Web.Link 將 BOM 存到 Excel
+
+http://inversionconsulting.blogspot.tw/2008/04/proweblink-sending-your-proengineer.html
+
+1. 從一個 Assembly 中設法讀出 part list.
+
+2. 利用重複廻圈取得各 part 的物理資料, 並由 BOM 中對應查詢各 part 所採用的 material.
+
+3. 分別針對各 part 與材料, 計算成本與重量, 再將資料回存至資料庫.
+
+4. 一旦產品設計流程中, 某一項內容進行設計變更, 則重複檢查 BOM, 材料查找, 以及後續的數值運算與應用.
+
+以下 Pro/Web.Link 程式所使用的零組件:
+
+https://sites.google.com/a/mde.tw/service/2013fall_cadp/lego_man.7z?attredirects=0&d=1
+
+.. code-block:: javascript
+
+    <script src="jscript/weblink/pfcUtils.js">
+    </script><script src="jscript/weblink/wl_header.js">
+    document.writeln ("Error loading Pro/Web.Link header!");
+    </script><script language="JavaScript">
+    if (!pfcIsWindows()) netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+    // 若第三輸入為 false, 表示僅載入 session, 但是不顯示
+    // ret 為 model open return
+     var ret = document.pwl.pwlMdlOpen("lego_body.prt", "c:/tmp", false);
+    if (!ret.Status) {
+        alert("pwlMdlOpen failed (" + ret.ErrorCode + ")");
+    }
+        //將 ProE 執行階段設為變數 session
+        var session = pfcGetProESession();
+        // 在視窗中打開零件檔案, 並且顯示出來
+        var window = session.OpenFile(pfcCreate("pfcModelDescriptor").CreateFromFileName("lego_body.prt"));
+        var solid = session.GetModel("lego_body.prt",pfcCreate("pfcModelType").MDL_PART);
+        var d1,d2,myf,myn,i,j,volume,count,d1Value,d2Value;
+        // 將模型檔中的 diameter 變數設為 javascript 中的 diameter 變數
+        d1 = solid.GetParam("upper");
+        // 將模型檔中的 height 變數設為 javascript 中的 height 變數
+        d2 = solid.GetParam("lower");
+    //改變零件尺寸
+        //myf=20;
+        //myn=20;
+        volume=0;
+        count=0;
+        try
+        {
+                // 以下採用 URL 輸入對應變數
+                //createParametersFromArguments ();
+                // 以下則直接利用 javascript 程式改變零件參數
+                for(i=0;i<=12;i++)
+                {
+                    //for(j=0;j<=2;j++)
+                    //{
+                        myf=0.7;
+                        myn=0.7+i*0.1;
+    // 設定變數值, 利用 ModelItem 中的 CreateDoubleParamValue 轉換成 Pro/Web.Link 所需要的浮點數值
+             d1Value = pfcCreate ("MpfcModelItem").CreateDoubleParamValue(myf);
+             d2Value = pfcCreate ("MpfcModelItem").CreateDoubleParamValue(myn);
+    // 將處理好的變數值, 指定給對應的零件變數
+                        d1.Value = d1Value;
+                        d2.Value = d2Value;
+                        //零件尺寸重新設定後, 呼叫 Regenerate 更新模型
+                        solid.Regenerate(void null);
+                        //利用 GetMassProperty 取得模型的質量相關物件
+                        properties = solid.GetMassProperty(void null);
+                        //volume = volume + properties.Volume;
+    volume = properties.Volume;
+                        count = count + 1;
+    alert("執行第"+count+"次,零件總體積:"+volume);
+    // 將零件存為新檔案
+    var newfile = document.pwl.pwlMdlSaveAs("lego_body.prt", "c:/tmp", "lego_body"+count+".prt");
+    if (!newfile.Status) {
+        alert("pwlMdlSaveAs failed (" + newfile.ErrorCode + ")");
+    //}
+                    }
+                }
+                //alert("共執行:"+count+"次,零件總體積:"+volume);
+                //alert("零件體積:"+properties.Volume);
+                //alert("零件體積取整數:"+Math.round(properties.Volume));
+            }
+        catch(err)
+            {
+                alert ("Exception occurred: "+pfcGetExceptionType (err));
+            }
+    </script>
+    
+.. code-block:: javascript
+
+    <script src="jscript/weblink/pfcUtils.js">
+    </script><script language="JavaScript">
+          if (!pfcIsWindows())
+    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+      var session = pfcGetProESession();
+    // 建立擺放零件的位置矩陣
+      var identityMatrix = pfcCreate ("pfcMatrix3D");
+      for (var x = 0; x < 4; x++)
+        for (var y = 0; y < 4; y++)
+          {
+        if (x == y)
+          identityMatrix.Set (x, y, 1.0);
+        else
+          identityMatrix.Set (x, y, 0.0);
+          }
+      var transf = pfcCreate ("pfcTransform3D").Create (identityMatrix);
+    // 取得目前的工作目錄
+      var currentDir = session.getCurrentDirectory();
+    // 以目前已開檔, 作為 model
+      var model = session.CurrentModel;
+    // 查驗有無 model, 或 model 類別是否為組立件
+      if (model == void null || model.Type != pfcCreate ("pfcModelType").MDL_ASSEMBLY)
+        throw new Error (0, "Current model is not an assembly.");
+     
+      var assembly = model;
+     
+      var descr =
+        pfcCreate ("pfcModelDescriptor").CreateFromFileName ("link1.prt");
+    // 若 link1.prt 在 session 則直接取用
+      var componentModel = session.GetModelFromDescr (descr);
+     
+    // 若 link1.prt 不在 session 則從工作目錄中載入 session
+      var componentModel = session.RetrieveModel(descr);
+    // 若 link1.prt 已經在 session 則放入組立檔中
+      if (componentModel != void null)
+        {
+      var asmcomp = assembly.AssembleComponent (componentModel, transf);
+        }
+    //  設定組立檔中的三個定位面, 注意內定名稱與 Pro/E WF 中的 ASM_D_FRONT 不同, 而是 ASM_FRONT
+      var asmDatums = new Array ("ASM_FRONT", "ASM_TOP", "ASM_RIGHT");
+    // 設定零件檔中的三個定位面, 名稱與 Pro/E WF 中相同
+      var compDatums = new Array ("FRONT",
+                      "TOP",
+                      "RIGHT");
+    // 建立約束條件變數
+      var constrs = pfcCreate ("pfcComponentConstraints");
+     
+    // 利用迴圈分別約束組立與零件檔中的三個定位平面
+      for (var i = 0; i < 3; i++)
+        {
+    // 設定組立參考面
+          var asmItem =
+        assembly.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
+                    asmDatums [i]);
+    // 若無對應的組立參考面, 則啟用互動式平面選擇表單 flag
+          if (asmItem == void null)
+        {
+          interactFlag = true;
+          continue;
+        }
+    // 設定零件參考面
+          var compItem =
+        componentModel.GetItemByName (pfcCreate ("pfcModelItemType").ITEM_SURFACE,
+                          compDatums [i]);
+    // 若無對應的零件參考面, 則啟用互動式平面選擇表單 flag
+          if (compItem == void null)
+        {
+          interactFlag = true;
+          continue;
+        }
+    // 建立 ids 變數, intseq 為 sequence of integers 為資料類別, 使用者可以經由整數索引擷取此資料類別的元件, 第一個索引為 0
+    var ids = pfcCreate ("intseq");
+    // 建立路徑變數
+          var path = pfcCreate ("MpfcAssembly").CreateComponentPath (assembly,
+                                     ids);
+    // 採用互動式設定相關的變數
+          var MpfcSelect = pfcCreate ("MpfcSelect");
+          var asmSel = MpfcSelect.CreateModelItemSelection (asmItem, path);
+          var compSel = MpfcSelect.CreateModelItemSelection (compItem, void null);
+          var constr = pfcCreate ("pfcComponentConstraint").Create (
+                                    pfcCreate ("pfcComponentConstraintType").ASM_CONSTRAINT_ALIGN);
+          
+          constr.AssemblyReference  = asmSel;
+          constr.ComponentReference = compSel;
+          
+          constr.Attributes = pfcCreate ("pfcConstraintAttributes").Create (false, false);
+    // 將互動選擇相關資料, 附加在程式約束變數之後
+          constrs.Append (constr);
+        }
+    // 設定組立約束條件
+    asmcomp.SetConstraints (constrs, void null);
+            try
+            {
+                      document.write("目前 Creo 的工作目錄:<br />"+currentDir);
+                }
+        catch (err)
+            {
+                alert ("Exception occurred: "+pfcGetExceptionType (err));
+            }
+      assembly.Regenerate (void null);
+      session.GetModelWindow (assembly).Repaint();
+    </script>
+    
+.. code-block:: javascript
+
+    <script src="jscript/weblink/pfcUtils.js">
+    </script><script language="JavaScript">
+          if (!pfcIsWindows())
+    netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+      var session = pfcGetProESession();
+    // 設定 config option
+    session.SetConfigOption("comp_placement_assumptions","no");
+    // 建立擺放零件的位置矩陣
+      var identityMatrix = pfcCreate ("pfcMatrix3D");
+      for (var x = 0; x < 4; x++)
+        for (var y = 0; y < 4; y++)
+          {
+        if (x == y)
+          identityMatrix.Set (x, y, 1.0);
+        else
+          identityMatrix.Set (x, y, 0.0);
+          }
+      var transf = pfcCreate ("pfcTransform3D").Create (identityMatrix);
+    // 取得目前的工作目錄
+      var currentDir = session.getCurrentDirectory();
+    // 以目前已開檔, 作為 model
+      var model = session.CurrentModel;
+    // 查驗有無 model, 或 model 類別是否為組立件
+      if (model == void null || model.Type != pfcCreate ("pfcModelType").MDL_ASSEMBLY)
+        throw new Error (0, "Current model is not an assembly.");
+     
+      var assembly = model;
+      var descr =
+        pfcCreate ("pfcModelDescriptor").CreateFromFileName ("link1.prt");
+     for (var partnum = 0; partnum < 90; partnum++)
+    {
+    // 若 link1.prt 在 session 則直接取用
+      var componentModel = session.GetModelFromDescr (descr);
+    // 若 link1.prt 不在 session 則從工作目錄中載入 session
+      var componentModel = session.RetrieveModel(descr);
+    // 若 link1.prt 已經在 session 則放入組立檔中
+      if (componentModel != void null)
+        {
+      var asmcomp = assembly.AssembleComponent (componentModel, transf);
+        }
+    // 取得 assembly 項下的元件 id, 因為只有一個零件, 採用 index 0 取出其 featID
+      var components = assembly.ListFeaturesByType(true, pfcCreate ("pfcFeatureType").FEATTYPE_COMPONENT);
+    var featID = components.Item(0).Id;
+    document.write("目前 featID:"+featID);
+    var ids = pfcCreate ("intseq");
+    ids.Append(featID+partnum);
+    // 在 assembly 模型中建立子零件所對應的路徑
+    var subPath =
+        pfcCreate ("MpfcAssembly").CreateComponentPath( assembly, ids );
+    document.write("id 為:"+subPath.ComponentIds(0));
+          subassembly = subPath.Leaf;
+    //  設定組立檔中的三個定位面, 注意內定名稱與 Pro/E WF 中的 ASM_D_FRONT 不同, 而是 ASM_FRONT
+      var asmDatums = new Array ("A_3", "TOP", "ASM_RIGHT");
+    // 設定零件檔中的三個定位面, 名稱與 Pro/E WF 中相同
+      var compDatums = new Array ("A_4",
+                      "BUTTOM",
+                      "RIGHT");
+    // 各參考組立關係陣列
+      var relation = new Array (pfcCreate ("pfcComponentConstraintType").ASM_CONSTRAINT_ALIGN, pfcCreate ("pfcComponentConstraintType").ASM_CONSTRAINT_MATE);
+      var relationItem = new Array(pfcCreate("pfcModelItemType").ITEM_AXIS,pfcCreate("pfcModelItemType").ITEM_SURFACE);
+    // 建立約束條件變數
+      var constrs = pfcCreate ("pfcComponentConstraints");
+     
+    // 利用迴圈分別約束組立與零件檔中的三個定位平面
+      for (var i = 0; i < 2; i++)
+        {
+    // 設定組立參考面
+          var asmItem =
+        subassembly.GetItemByName (relationItem[i],
+                    asmDatums [i]);
+    // 若無對應的組立參考面, 則啟用互動式平面選擇表單 flag
+          if (asmItem == void null)
+        {
+          interactFlag = true;
+          continue;
+        }
+    // 設定零件參考面
+          var compItem =
+        componentModel.GetItemByName (relationItem[i],
+                          compDatums [i]);
+    // 若無對應的零件參考面, 則啟用互動式平面選擇表單 flag
+          if (compItem == void null)
+        {
+          interactFlag = true;
+          continue;
+        }
+    // 採用互動式設定相關的變數
+          var MpfcSelect = pfcCreate ("MpfcSelect");
+          var asmSel = MpfcSelect.CreateModelItemSelection (asmItem, subPath);
+          var compSel = MpfcSelect.CreateModelItemSelection (compItem, void null);
+          var constr = pfcCreate ("pfcComponentConstraint").Create (relation[i]);
+          
+          constr.AssemblyReference  = asmSel;
+          constr.ComponentReference = compSel;
+    // static pfcConstraintAttributes Create (boolean Force, boolean Ignore) 
+    // 必須 Force execution of this constraint 才會抑制 comp_placement_assumptions 為 yes 的作動?
+          constr.Attributes = pfcCreate ("pfcConstraintAttributes").Create (true, false);
+    // 將互動選擇相關資料, 附加在程式約束變數之後
+          constrs.Append (constr);
+        }
+    // 設定組立約束條件
+    asmcomp.SetConstraints (constrs, void null);
+            try
+            {
+                      document.write("目前 Creo 的工作目錄:<br />"+currentDir);
+                }
+        catch (err)
+            {
+                alert ("Exception occurred: "+pfcGetExceptionType (err));
+            }
+    }
+      assembly.Regenerate (void null);
+      session.GetModelWindow (assembly).Repaint();
+    </script>
+.. @+node:mde.20130609005025.2824: *4* 電腦輔助創新設計
+電腦輔助創新設計
+
+直接利用電腦輔助的方式, 一旦程式的基本架構完成後 電腦就能在無需人力介入的情況下, 以高速的運算能力, 進行創新發明, 是具有最高價值的電腦輔助應用, 因為所可能產出的結果;
+
+連人類也難以想像.
+
+希望採用電腦輔助進行創新發明, 必須要弄清楚地球上生物的演化是如何進行的!
+
+自然的演化依賴一個法則, 生物可以傳宗接代, 基因可以在世代間進行搭配交換, 並且依照隨機方式產生突變, 所產生的新物種則遵循一個簡單的原則:
+
+優勝劣敗, 適者生存!
+
+http://www.youtube.com/watch?v=mcAq9bmCeR0&list=PLF626DD5B2C1F0A87
+
+電腦輔助設計可以加速人類的創新發明, 這些發明可以帶領人類走向永續未來, 或者, 加速地球滅亡所需的時間!
+
+地球滅亡的定義是: 人類運用各種創新發明, 僅著重在人的物質感官, 絲毫無視其他物種與環境的消逝破壞, 一旦地球生態失去平衡, 就會加速滅亡.
+
+最近由設計者所完成的創新雙輪車設計: 構想來自單輪車.
+
+http://design-engine.com/products-reviews/the-bicymple-is-the-bicycle-simplified-literally
+
+讓人從十座玉山的高度一躍而下, 所需要的創新設計(過去從來沒有人這樣做)
+
+http://design-engine.com/events/the-technology-behind-the-red-bull-stratos-stunt-dive
+
+合成方法
+
+http://rd.springer.com/content/pdf/10.1007%2F978-1-4615-4331-2_3.pdf
+.. @+node:mde.20130609005025.2825: *4* 電腦輔助概念設計
+以 TRIZ 創新解題方法進行電腦輔助概念設計
+
+TRIZ 是由一位俄國專利審查員, 在審查檢視數量很多的專利發明文件後, 以人力歸納出來的創新解題方法.
+
+透過這些創新解題方法的提示與啟發, 可以利用電腦產生各種排列組合, 這些設計組合再與現存的產品或專利進行比較後, 找出具有創新價值或產品化的設計.
+
+此一創新解題方法, 若能以電腦輔助方式"解讀"各種排列組合所產生的設計, 將可加速電腦輔助概念設計的速度與廣度.
+
+Google 以搜索引擎及語意(Semantics)解讀電腦涉入全球的專利文件, 即希望在查詢者應用這些海量文件的"搜尋"路徑"(關鍵字與創新發明領域, 包含地域, 國別, 產品推動訊息, 企業併購訊息與其他經濟活動)中, 找出電腦輔助概念設計的相關蛛絲馬跡, 期望比對手先一步掌握先機.
+
+電子書:
+
+Modern TRIZ
+
+A Practical Course with EASyTRIZ Technology (2012)
+
+http://rd.springer.com/book/10.1007/978-3-642-25218-1/page/1
+
+Inventive Thinking through TRIZ (2003)
+
+http://rd.springer.com/book/10.1007/978-3-662-08013-9/page/1
+
+Conceptual Design for Engineers (1999)
+
+http://rd.springer.com/book/10.1007/978-1-4471-3627-9/page/1
+.. @+node:mde.20130609005025.2826: *4* 電腦輔助配置設計
+Computer Aided Configuration Design
+
+先了解何謂 Configuration Design (配置設計)
+
+1. 配置設計是設計方法的一種.
+
+2. 進行配置設計時, 手上已經有一組已經定義的元件, 並且已經有一些固定的組合設計方式作為參考.
+
+3. 配置設計的重點, 即在不跳脫這些元件範圍的情況下,  以重新配置組合的方式來達成產品所規範的需求與約束條件
+
+4. 配置設計的任務:
+
+4-1. 元件的選擇
+
+4-2. 元件的配置
+
+4-3 元件的組合方式設計
+
+5. 配置設計所需專業知識:
+
+5-1. 問題所涉之領域知識
+
+5-2. 正確的輸入解讀 - 設計需求的認知, 約束條件的認知與相關技術的認知
+
+5-3. 執行案例所累積經驗與知識
+
+6. 配置設計所需的共通知識:
+
+6-1. 執行案例所累積經驗與知識
+
+6-2. 與領域有關但與方法無關的知識 (隨時間改變的法規, 各地的法規與不成文的習慣等)
+
+6-3. 與方法有關的知識 (哪些方法可以實際套用到哪些設計問題, 由無先前成功案例, 有無先前失敗案例)
+
+6-4. 搜尋控制知識 (了解如何搜尋, 到哪裡搜尋, 搜尋哪些關鍵字, 如何整理及辨識與產品設計有關或有用的知識)
+.. @+node:mde.20130609005025.2827: *4* 電腦輔助參數設計
+一旦產品設計到了需要決定設計尺寸時, 利用參數的導入, 讓各設計參數的組合與搭配, 無論如何調整控制, 都能完全符合設計需求與約束條件的設計, 就稱為參數設計.
+
+由於參數設計牽涉將設計需求與約束條件轉化為數學方程式 (聯立方程式, 運動方程式加上各種約束方程式或條件), 可以採用數值分析或符號式運算分析的方式進行解題, 在不同條件下所解出的各設計參數即可自動修改電腦輔助設計元件與組件的尺寸, 並且依序進行其他的產品分析 (重量, 配置, 材料成本, 製造加工成本), 或進一步與其他系統元件進行整合的電腦輔助工程分析.
+
+通常數值分析結果必須在設計範圍內製作成表格後, 可進一步製入產品的控制單元, 而符號運算式則可直接納入產品的控制單元中使用.
+.. @+node:mde.20130609005025.2828: *4* 電腦輔助元件細部設計
+此一設計通常是利用電腦在搜尋與處理文件的速度, 基本數學運算的速度, 由設計者編寫程式從事設計流程固定的設計運算與查表等流程.
+
+幾乎每一套電腦輔助設計套件都提供類似的元件設計與挑選的功能, 目前的中端 MCAD (Mechanical Computer Aided Design) 套件, 以 AutoDesk Inventor 的 Engineer's Handbook (機械元件輔助設計便覽最為完整 (稱為 AutoDesk Inventor Design Accelerator 設計加速器), 但是使用者仍然必須利用二次開發或其他程式設計方法, 將公司常用或可以取得的機械元件數位型錄與這些元件設計程式結合, 才能選用符合不同產品領域元件細部設計)
+
+範例: AutoDesk Inventor 套件中的 Design Accelerator
+
+至於高端的 MCAD 套件則通常以領域別提供極為詳細的電腦輔助元件細部設計套件, 根據該產品的特性編寫非常特殊與詳細的工程設計流程選單, 然而各公司的機械設計部門導入前, 仍然必須針對特定的條件進行修飾改寫, 例如, 從事汽車設計業的各級機械設計公司若採用 NX 套件則通常會請原廠 (目前為 Siemens 德國西門子) 相關附屬配合技術公司, 協助導入汽車各部元件的機械元件輔助設計套件.
+
+其他中高端輔助元件設計還包括模具設計 (塑膠模具, 鑄造模具, 鈑金與衝壓模具, 放電模具, 以及各式加工用的夾治具配置設計套件)
+
+這些輔助元件細部設計通常還必須與 CAPP (電腦輔助製程規劃), CIMS (電腦整合製造系統) 等系統配合, 例如, 該公司擁有幾台幾軸的加工機, 換刀庫容量, 不同時期的製造容量, 各式輔助製造的機器人有幾種幾台等製造相關資料後, 再配合這些約束條件進行套件編寫, 這些程式不僅與 MCAD 有關, 還必須配合 CAE 進行輔助工程分析, 電腦輔助製造規劃, 並且在過程中將各種資料與企業資源管理系統, 產品資料管理系統與產品生命週期管理系統進行整合.
+
+換言之, 上述的電腦輔助元件細部設計系統, 除採用各 MCAD, MCAE 與 MCAM 的二次開發程式設計規範外, 還必須整合企業的其他資料庫 (接單, 庫存, 財物, 製造, 行銷, 型錄, 人事, 設計研發), 才能真正發揮電腦輔助設計的功效, 否則設計人員選擇的標準元件, 其數量無法在需求期間取得, 或許必須改採替代件或配合替代廠商所能提供的其他規格替代件, 若製造與行銷在一定期間批量產生問題, 則必須由產品失效尾端, 往前尋找問題徵結, 找出問題, 並且及時進行設計變更(創新變更, 概念變更, 配置變更, 參數變更或元件選用變更等, 並且搭配後續的製造規劃變更, 接單變更, 庫存變更, 行銷變更, 型錄變更等.)
+.. @+node:mde.20130609005025.2823: *3* CADP 第三週
+設計是一種創造性的活動.
+ 
+創造性 - 從無到有的過程
+ 
+設計的目的在建構具有多面向質感的物件、流程或服務, 及其生命週期相關之系統.
+
+設計就是以假定之觀念及思維先行處理後, 透過某種表述方法, 訂定其擬施行之策略.
+
+機械就是具有可變動組件, 且經過精密構思與巧妙安排之器械.
+ 
+設計要面面俱到, 無法企及的部分要透過說明界定範圍 (設計必須呈現系統化的結果, 因此要有假設, 要有條件, 要有範圍, 要有規劃, 要有功能, 並且要能達成目的)
+ 
+設計包含物件、流程或服務的設想、規劃、執行與驗證
+ 
+設計所完成的物件為一具有生命週期的系統化物件
+
+設計所完成的流程為一具有生命週期的系統化物件
+
+設計所完成的服務為一具有生命週期的系統化服務
+ 
+所謂具有生命週期, 表示有規劃、製造、應用、回收等過程
+ 
+所謂系統, 表示在界定範圍及條件下, 由多元件組成具有特定功能所組成之單元.
+ 
+汽車的傳動系統、煞車系統、懸吊系統
+ 
+所謂系統化, 表示採在界定範圍與條件的假設下, 設法納入能彼此配合之元件組合, 使其在整體運作下達成特定功能之方法.
+ 
+設計的類別:
+ 
+1. 創新設計 - 完成前所未有的關鍵技術設計 Inventive or Innovative Design
+ 
+自行車的創新設計 - 前輪可由方向握把控制方向, 動力由中置曲柄帶動鏈輪, 並由鏈條帶動後輪. (最早的自行車, 無法控制左右方向, 初期無動力踏板, 隨後改為由前輪或後輪的直接驅動踏板, 之後經過創新設計才產生目前的自行車設計)
+ 
+隨後, 以內齒輪組的搭配, 創新出變速自行車
+ 
+參考: 以電腦輔助的方式進行創新發明
+ 
+2. 概念設計 Conceptual Design
+ 
+前輪與方向握把的傳動方式 - 直接驅動由手控制, 由身體傾斜度控制,  由意念間接控制, 由路況控制
+鏈條傳動可以改為哪些其他的不同設計, 有哪些不同的座椅與騎乘方式概念設計
+ 
+根據上述自行車的現代造型, 以圖表展示可以隨身的摺疊自行車概念設計, 可以轉型為行李推車的概念設計, 可以轉型為行動發電機的概念設計, 可以水路空三用的自行車概念設計...
+ 
+概念設計是設法針對假定功能, 給予前瞻落實的一種藝術, 也是新思路的建立與探索. 因其緊密與功能結合, 而有別於概念藝術.
+
+因其僅勾勒出設計的可行性, 無需確實可以運作, 而有別於設計.
+
+概念設計屬概念藝術之分支, 藉以將新想法或新產品架構出來, 而不僅像影片動畫或電動遊戲, 只提供最終產品的視覺展示.
+ 
+概念設計可由下列方法加以定義, "概念表達遠重於直覺功能的一種活動", "不僅執著產品, 概念設計師在設計情境, 令其與現況衝擊, 使人在日常活動中不經意地有所感知其設計.
+
+3. 配置設計 Configuration Design
+ 
+概念一, 應該透過哪些元件, 如何配置才可達成此概念
+ 
+4. 參數設計 Parametric Design
+ 
+在概念一的元件配置下, 各元件的尺寸大小應該如何才能有效達成功能
+ 
+5. 細部設計 - 元件的具體配合設計 Detailed Design
+ 
+在概念一的元件尺寸下, 應該加上哪些元件, 其公差該如何配合, 該選用哪些標準零件, 該設計哪些特有零件, 該如何組合, 各元件如何製造(夾治具), 各零件的詳細工程圖, 各裝配件的材料表 (BOM), 各零件選用規格與廠牌與可替代零件方案,
+.. @+node:mde.20130609005025.2841: *3* CADP 第四週
+剛體運動學
+
+http://rd.springer.com/content/pdf/10.1007%2F978-1-4614-3475-7_5.pdf
+
+剛體動力學
+
+http://rd.springer.com/content/pdf/10.1007%2F978-1-4614-3475-7_6.pdf
+
+風力渦輪機設計
+
+http://rd.springer.com/content/pdf/10.1007%2F978-3-642-22938-1_3.pdf
+
+Virtual Reality and Animation for MATLAB and Simulink Users
+
+Visualization of Dynamic Models and Control Simulations (2012)
+
+http://rd.springer.com/book/10.1007/978-1-4471-2330-9/page/1
+
+影像處理
+
+http://rd.springer.com/content/pdf/10.1007%2F978-1-84996-169-1_19.pdf
+
+數值分析
+
+http://rd.springer.com/content/pdf/10.1007%2F978-3-642-14019-8_7.pdf
+
+2D 桁架 FEM 分析
+
+http://rd.springer.com/content/pdf/10.1007%2F978-1-4020-9200-8_4.pdf
+
+Analysis of Timoshenko beams
+
+http://rd.springer.com/content/pdf/10.1007%2F978-1-4020-9200-8_10.pdf
+
+General Tables (單位換算程式編寫)
+
+http://rd.springer.com/content/pdf/10.1007%2F978-3-540-30738-9_18.pdf
 .. @+node:amd.20130514093510.2707: *3* CADP 第五週
 利用演化方法從事設計
 

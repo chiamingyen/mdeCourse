@@ -105,6 +105,8 @@ Wallace D., Senin N., and Sferro P. (2000), Integrated design in a service marke
 
 Wang B. (Ed.) (1998), Concurrent Design of Products, Manufacturing Processes and Systems (Automation and Production Systems: Methodologies and Applications), Vol. 3, Gordon and Breach Science Publishers.
 .. @+node:amd_yen.20130308214521.2427: *3* CD 第二週
+協同產品開發參考: http://en.wikipedia.org/wiki/Collaborative_product_development
+
 Simple Groupware 安裝
 
 兩種安裝模式:
@@ -112,6 +114,64 @@ Simple Groupware 安裝
 1. local 主機安裝
 
 2. 雲端 OpenShift 主機安裝
+.. @+node:mde.20130607093702.4052: *4* OpenShift 主機安裝
+OpenShift 雲端平台由 Red Hat 公司提供, 而 Red Hat 公司以提供專業級的開放源 Linux 操作系統聞名, 與 Red Hat 商用操作系統對應的免費 Linux 操作系統為 Fedora_ 與 CentOS_.
+
+.. _Fedora: http://fedoraproject.org/
+
+.. _CentOS: http://www.centos.org/
+
+由於 OpenShift 雲端平台採用 Secure Shell 安全協議中基於密鑰的方法進行平台上的資料存取, 因此使用者必須利用 `Public-key cryptography_` 編碼自行建立公鑰與私鑰, 並將協同開發者的公鑰上傳到 OpenShift 雲端平台上對應的設定區, 之後協同開發者就可以利用近端的私鑰來擷取 OpenShift 平台上應用程式的存取權.
+
+.. _密鑰: http://en.wikipedia.org/wiki/Public-key_cryptography
+
+.. _Public-key cryptography: http://en.wikipedia.org/wiki/Public-key_cryptography
+.. @+node:mde.20130607093702.4053: *5* 建立 SSH 密鑰
+在 Windows 環境下可以利用 puttygen_ 來建立個人的密鑰, 並且利用 pagent 代理程式將近端的私鑰資料編碼傳送到 OpenShift SSH 伺服器以取得帳號認證.
+
+.. _puttygen: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+
+首先由 puttygen_ 網站分別下載 puttygen.exe 與 pagent.exe, 然後啟動 pyttygen.exe, 按下 Generate 按鍵, 並且在 pyttygen.exe 執行視窗中隨意移動滑鼠, 就可以完成密鑰的建立.
+
+密鑰建立完成後, 總共可以儲存成 3 個重要資訊, 包括 ssh-rsa 編碼的 OpenSSH Public key file, SSH2 PUBLIC KEY 檔案與 SSH2 PRIVATE KEY 檔案.
+
+OpenSSH Public key file 就是要轉貼到 OpenShift setting 區域用來進行資料轉送編碼用的認證依據, 而 SSH2 PRIVATE KEY 檔案則要妥為保管, 使用者在 Windows 環境, 可以利用 pagent.exe 檔案以此私鑰來登入 OpenShift 的 SFTP 帳號, 管理雲端平台上的 data repository 檔案.
+
+當使用者利用 rhc 與 git 來管理 OpenShift 雲端平台程式碼時, 則透過 V:\home\.ssh 目錄下的 id_rsa (帳號對應私鑰), id_rsa.pub (帳號對應公鑰) 與 known_hosts 檔案中的設定來執行 git repository 版次管理.
+
+.. @+node:mde.20130607093702.4054: *5* 建立平台應用程式流程
+由於 OpenShift 平台採 SSH 密鑰協定進行登入認證, 因此建立平台應用程式的流程第一步就是建立與 OpenShift 帳號對應的公私鑰, 然後再建立 OpenShift 帳號, 詳細流程如下:
+
+1. 下載 puttygen.exe, 建立密鑰協定所需的三個檔案: 轉貼到 OpenShift 設定區的 ssh-rsa 認證資料、SSH2 格式的公私鑰.
+
+2. 到 OpenShift 登記一個免費帳號, 利用 PHP 5 建立一個應用程式, 將 ssh-rsa 認證資料轉貼到帳號的設定區.
+
+3. 安裝 Ruby 解譯環境與 git 客戶端套件, 安裝 rhc 模組.
+
+4. 利用 rhc 指令, 將 SSH2 格式的公私鑰與 OpenShift git 伺服器帳號進行對應 (將公鑰上傳到 git server).
+
+5. 利用 git clone 下載 OpenShift 上的 PHP 應用程式碼.
+
+6. 修改近端 clone 的 PHP 程式碼, 同時啟動 pagent.exe, 載入 SSH2 格式私鑰, 由 OpenShift 帳號中取得 SSH 帳號與主機資訊, 利用 Filezilla SFTP 連線到 OpenShift SFTP 伺服器, 上傳 data repository 目錄中的資料.
+
+7. 建立 .openshift\action_hooks 目錄下的 build 檔案, 建立 OpenShift 網際主機開機前 symbolic link 設定, 將 data repository 目錄中的資料以連結方式轉到網際空間中使用.
+
+例如:
+
+.. code-block:: none
+
+    ln -sf $OPENSHIFT_DATA_DIR/simple_store $OPENSHIFT_REPO_DIR/php/simple_store
+    ln -sf $OPENSHIFT_DATA_DIR/simple_cache $OPENSHIFT_REPO_DIR/php/simple_cache
+    ln -sf $OPENSHIFT_DATA_DIR/ext $OPENSHIFT_REPO_DIR/php/ext
+    ln -sf $OPENSHIFT_DATA_DIR/bin $OPENSHIFT_REPO_DIR/php/bin
+    
+8. 利用 git update-index --chmod=+x 將 .openshift\action_hooks\build 檔案設為可以執行.
+
+.. code-block:: none
+
+    $ git update-index --chmod=+x .openshift\action_hooks\build
+    
+9. 利用 git add, git commit -m 與 git push 將近端的 PHP 程式送到 OpenShift 平台應用程式區, 過程中將會執行 build, 建立所需的對應連結, 應用程式啟動後即可進行連線測試.
 .. @+node:amd_yen.20130308214521.2428: *4* 有關 reading 與考試
 期中考前有兩篇從教科書中選出的章節, 希望學員能夠充分了解內容的涵義, 由於是英文的資料, 因此至少要能夠先將單字篩選出來, 進行字意了解, 然後再套進基本的字句解析, 接著則是"希望"學員經過多次閱讀後, 能夠了解段落涵義, 最後則是了解該章節所點出與協同產品開發有關的基本概念與內容.
 
@@ -5017,5 +5077,19 @@ Product Lifecycle Management
 一般而說, 針對產品在開發階段所衍生資料的管理稱為 Product Data Management (PDM), 其中有許多資料來自電腦輔助流程(Computer Aided Process) 中所使用的 CAD 與 CAE, 而在生產階段資料或資源管理則稱為 Manufacturing Resources Planning (MRP) 或 Management, 針對企業營運中所牽涉的資料管理則稱為 Enterprise Resources Planning 或Management (ERP), 至於在行銷流程中與顧客相關的資料管理系統則稱為 Customer Relationship Management(CRM), 當然許多的 RRP 還包括進銷存與財務或人力資源的管理等.
 
 在上述這些不同單位中各項管理系統中, 以產品作為主體的全面管理就稱為 PLM, 可見完整的 PLM 其實包含整個企業所有內外各種流程資料的管理.
+.. @+node:mde.20130607093702.2786: *4* OpenShift 平台應用
+在 OpenShift 環境, 若進端為 Windows, 必須透過 git 確認遠端的 action_hooks 目錄下, 是否可以執行.
+
+$ git update-index --chmod=+x .openshift\action_hooks\build
+$ git update-index --chmod=+x .openshift\action_hooks\deploy
+$ git update-index --chmod=+x .openshift\action_hooks\post_deploy
+$ git update-index --chmod=+x .openshift\action_hooks\post_start_ruby-1.9
+$ git update-index --chmod=+x .openshift\action_hooks\post_stop_ruby-1.9
+$ git update-index --chmod=+x .openshift\action_hooks\pre_build
+$ git update-index --chmod=+x .openshift\action_hooks\pre_start_ruby-1.9
+$ git update-index --chmod=+x .openshift\action_hooks\pre_stop_ruby-1.9
+$ git commit
+
+參考資料: http://smajnr.net/2013/05/host-tracks-v2-2-2-for-free-with-openshift.html
 .. @-all
 .. @-leo

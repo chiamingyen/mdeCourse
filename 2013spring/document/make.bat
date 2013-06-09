@@ -6,7 +6,7 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set BUILDDIR=_build
-set SPHINXOPTS=-D pngmath_latex="V:\extensions\portableLatex\MiKTeX\texmf\miktex\bin\latex.exe"
+set SPHINXOPTS=-D pngmath_latex="V:\apps\portableLatex\MiKTeX\texmf\miktex\bin\latex.exe"
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% .
 set I18NSPHINXOPTS=%SPHINXOPTS% .
 if NOT "%PAPER%" == "" (

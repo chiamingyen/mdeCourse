@@ -111,7 +111,131 @@ http://developers.slashdot.org/story/13/04/09/2257223/electrical-engineer-unempl
 - Java(Oracle)、 C# (Microsoft)與 Object-C(Apple)在大公司的加持下, 仍然具有固定的佔有率, 不會升高但是也很難降低
 
 - 其他程式語言, 當然未來提升佔有率(例如 Google 的 Go 與 Rebol, Lua 等)還是有機會, 可是人人無把握
-.. @+node:amd.20130527143027.2769: *4* 機械設計工程師如何學習程式? 
+.. @+node:mde.20130609005025.2836: *4* 直接執行程式
+Java 是一種需要編譯(Compile)的程式語言, 請直接在 Leo Editor 中選擇"第一週程式"下方的 @shadow c1/w1_1.java, 以滑鼠右鍵帶出"Edit c1/w1_1.java in SciTE.exe", 然後在 SciTE 程式編輯器中, 以滑鼠選擇 Tools->Compile, 等待程式編譯完成後, 再選擇 Tools->Go 執行程式, 然後依據程式指示完成執行動作.
+
+問題:
+
+. 何謂編譯?
+
+. 何謂程式語言?
+
+. 何謂 Leo Editor?
+
+. 何謂執行程式?
+
+. 何謂 Java 程式語言, 有何特點?
+
+以下為 w1_1.java 程式碼:
+
+.. literalinclude:: ../c1/w1_1.java
+    :language: java
+    :linenos:
+
+Python 則是一種解譯式的程式語言, 程式在執行當下才即時自動進行編譯與執行, 因此就使用者操作的角度, 寫完 Python 程式後即可解譯(interpret)執行, 請直接在 Leo Editor 中選擇"第一週程式"下方的 @shadow c1/w1_server1.py, 以滑鼠右鍵帶出"Edit c1/w1_server1.py in SciTE.exe", 然後在 SciTE 程式編輯器中, 以滑鼠選擇 Tools->Go, 以便啟動伺服程式, 接著以相同流程執行 @shadow c1/w1_client1.py, 執行後 w1_client1.py 會連線到伺服程式, 然後由伺服器取得完成網路連線的字串.
+
+問題:
+
+. 何謂解譯?
+
+. 何謂伺服程式?
+
+. 何謂客戶端程式?
+
+. 何謂 Python? Python 版次 2 與版次 3 的程式有何差別?
+
+. 何謂字串?
+
+. 何謂資料編碼?
+
+. 何謂封包?
+
+以下為 w1_server1.py 程式碼:
+
+.. literalinclude:: ../c1/w1_server1.py
+    :language: python
+    :linenos:
+
+以下則為 w1_client1.py 客戶端 Python 程式.
+
+.. literalinclude:: ../c1/w1_client1.py
+    :language: python
+    :linenos:
+
+隨身電子裝置與雲端超級電腦之間的合作:
+
+w1_zmqcal1.py 負責送出運算要求, 而 w1_zmqcal2.py 則負責在雲端大型電腦中運行, 可以根據隨身電子裝置所送出的要求, 在雲端電腦中執行大規模資料搜尋與快速的運算, 之後再將結果送回行動裝置, 兩個程式的啟動先後次序並不會影響執行結果.
+
+問題:
+
+. iPhone 的 siri 服務是否採行類似的軟硬體架構配置?
+
+. 類似的網路軟硬體運算服務可以套用到哪些其他的應用?
+
+以下為 w1_zmqcal1.py 程式的原始碼, 代表的是在網路連結中負責送出運算要求的程式:
+
+.. literalinclude:: ../c1/w1_zmqcal1.py
+    :language: python
+    :linenos:
+
+以下為 w1_zmqcal2.py 程式原始碼, 代表負責執行運算端電腦所執行的程式:
+
+.. literalinclude:: ../c1/w1_zmqcal2.py
+    :language: python
+    :linenos:
+.. @+node:mde.20130607093702.4062: *4* 學習基本概念
+在"變是唯一的不變"環境下, 快學現賣逐漸成為主流
+
+能配合不同需求進行生態演化(ecosystem evolution)的產品才有機會存活.
+
+快學 - 各種學習速度要夠快, 不夠快就無法趕上國際社會向上提升的腳步
+
+現賣 - 完成某一特定學習後就要馬上展現其價值, 學習運用某一技術的生命週期要短, 否則就無法在該項技術的生命週期過程中應用.
+
+慢活 - 在快學現賣的過程中, 對於生活的要求必須要放慢腳步, 讓心靈得以脫離快速演化物質的摧殘, 役物且不役於物.
+
+永續 - 在快學現賣的過程中, 並非只求短暫的成果, 而必須累積快速的價值來成就得以永續的生活標的, 這才是生態系統該有的表現.
+
+程式語言是使用者與可程式化軟硬體系統溝通的媒介, 隨著全球化經濟的發展, 不同地理位置區域之間的互動與整合流程, 隨著網路與通信系統的發展而日益蓬勃, 當空間約束因全球即時訊息互動而加速各種事物的發展時間情況下, 各種產品生命週期變短, 讓可隨使用者需求而進行組合變化的產品逐漸成為主流.
+
+新產品的要求 - 輕還要更輕、快還要更快、功能多還要更多、便宜還要更便宜(許多免費產品都仍乏人問津)、使用耐久還要不退流行.
+
+將"可變化"置入產品的主要基因之中, 已經是不可或缺的元素, 因此透過程式讓可程式化的軟硬體充滿各種可能, 就成為工程師必要的專業技術與學養之一.
+
+An ecosystem is a community of living organisms (plants, animals and microbes) in conjunction with the nonliving components of their environment (things like air, water and mineral soil), interacting as a system. These biotic and abiotic components are regarded as linked together through nutrient cycles and energy flows. As ecosystems are defined by the network of interactions among organisms, and between organisms and their environment, they can come in any size but usually encompass specific, limited spaces (although some scientists say that the entire planet is an ecosystem).
+
+生態系統為一生物(植物、動物、微生物)與無生物環境元素(空氣、水、礦物、泥土)所組成的社群. 其間透過能量與養分進行連結互動. 生態系統也可以說成生物與環境所組成的有限空間內特定數量族群所組成的互動網路.
+
+http://en.wikipedia.org/wiki/Ecosystem
+
+Evolution is the change in the inherited characteristics of biological populations over successive generations. Evolutionary processes give rise to diversity at every level of biological organisation, including species, individual organisms and molecules such as DNA and proteins.
+
+演化是生物族群歷經世代特徵繼承與轉變的過程. 演化過程成就了生物界各層級的多樣性, 其中包括品種、個體、DNS 與蛋白質分子.
+
+http://en.wikipedia.org/wiki/Evolution
+.. @+node:mde.20130609005025.2807: *4* 閱讀原文書
+許多創新科技的原始資料在第一時間都是以英文編寫, 假如希望能夠即時吸收這些知識, 就必須具備解讀英文資料的能力.
+
+機械設計產品的開發無論是面對國際客戶或者是與國際的協同團隊進行合作, 都必須以英文作為溝通工具, 因此工程師必須具備一定的英文聽說讀寫能力.
+
+圖書館每年都會採購各種專業領域的電子書與學術論文, 這些資料泰半都是以英文編寫, 為了有效運用這些資料, 大學生必須隨時利用時間增加自我的英文閱讀力.
+
+閱讀原文書時, 不要將內容翻譯成中文, 而是要從整段文章內容去理解作者所要表達的意義, 因為英文翻譯遠比理解文義要難, 每讀完一段內容後, 要嘗試用自己的話重述段落重點.
+
+閱讀原文書的技巧:
+ 
+1. 利用瑣碎時間擴增自己的英文單字辨識能力
+ 
+隨身攜帶一本容易攜帶的英文字典 (英漢或英英), 或者在手機中下載相關的英文字典或辭典, 或自行查閱單字解釋放在紙本小筆記本或手機中, 一有空閒時間就可記誦.
+ 
+2. 確認英文字句中的單字意思後, 經由前後字句的結構, 學習推敲該段文句所要傳達的意思, 看完整段文字後, 思索其大要或以簡單英文或中文重述其大意.
+ 
+3. 透過英文單字的字根與字源, 徹底了解某類單字群的同義與反義字, 以音節拆字進行記誦, 而非單獨以字母背誦單字或字句.
+ 
+4. 使用 Google Translate, 同時透過字句朗讀, 學習各字句的語音轉折關係, 每一字句聽完後可自行錄製存在手機中, 有時間時可以多聽幾遍, 以提升英文聽力.
+ 
+5. 觀看國外 Youtube 影片 (尤其是演講), 可同時開啟 CC (Closed Caption 或 subtitle, 即英文字幕), 第一次若無法了解各字句, 可透過字幕查詢字義後, 再關掉字幕, 嘗試辨識各字句的涵意, 多方練習, 即可提升英文聽力.
+.. @+node:amd.20130527143027.2769: *4* 機械設計工程師如何學習程式?
 程式其實就是特定格式的程序, 而安排程序執行的目的通常希望能夠採最具效率的方式來完成某一項工作.
 
 程式的英文為 program, 而 program 不一定指電腦程式, 進入大學求學也是接受特定的 program, 比如在機械設計系就接受未來成為機械設計工程師的訓練 program, 假如進入自動化工程系就是接受 automation engineer 的訓練 program.
@@ -155,8 +279,271 @@ http://developers.slashdot.org/story/13/04/09/2257223/electrical-engineer-unempl
 3. 機械設計工程師的電腦程式語言學習順序應該是: Python, C, PHP, Javascript, C++, Java, 至於數學套件則為: Matlab, Mathematica, Scilab 等.
 
 4. 每一個人的一生也是在執行程式, 必須彈性地配合需求不斷進行自我能力提升, 才能有機會得到高品質的生活經驗與結果.
+.. @+node:mde.20130609005025.2831: *4* Raspberry Pi
+在台灣購買
+
+http://www.raspberrypi.com.tw/purchase/
+
+Learn Raspberry Pi with Linux (2013)
+
+http://rd.springer.com/book/10.1007/978-1-4302-4822-4/page/1
+
+Practical Raspberry Pi (2013)
+
+http://rd.springer.com/book/10.1007/978-1-4302-4972-6/page/1
+.. @+node:mde.20130609005025.2842: *5* Arduino
+Beginning Arduino Programming (2011)
+
+http://rd.springer.com/book/10.1007/978-1-4302-3778-5/page/1
+
+Learn Electronics with Arduino (2012)
+
+http://rd.springer.com/book/10.1007/978-1-4302-4267-3/page/1
+
+Practical Arduino Engineering (2011)
+
+http://rd.springer.com/book/10.1007/978-1-4302-3886-7/page/1
+
+Arduino Robotics (2011)
+
+http://rd.springer.com/book/10.1007/978-1-4302-3184-4/page/1
+
+Practical AVR Microcontrollers (2012)
+
+http://rd.springer.com/book/10.1007/978-1-4302-4447-9/page/1
 .. @+node:amd.20130515005753.3887: *3* C1 第二週
 http://docs.python-guide.org/en/latest/
+.. @+node:mde.20130607093702.4055: *4* Python 程式環境
+這裡所介紹的 Python 為 Python 3, 也就是最新的 Python 程式語法, 與 Python 2 有些差異, 以下為網路上有關 Python 3 的教材:
+
+http://www.python-course.eu/python3_course.php
+
+機械設計工程師可將Python 當作免費的 Matlab 或 Mathematica 套件陽春版.
+
+Python 可以作為機械設計過程中需要運算的計算機, 可以寫簡單的單機套件, 無論是 2D/3D 模擬套件, 檔案格式轉換, 簡單的網際程式, 與 C 程式庫結合控制數位硬體, 都很適合利用 Python 進行程式開發, Google 的許多網際應用大量採用 Python, Google 也採用 Java 與 C++. (Python 發明人目前任職於 Dropbox)
+
+Python 電子書: 
+
+Introduction to Programming Concepts with Case Studies in Python (2012)
+
+http://link.springer.com/book/10.1007/978-3-7091-1343-1/page/1
+
+C 對於機械設計工程師的重要性則在於建立未來需要學習 Matlab, C++, Java, C# 等程式語言時, 可以有一個基礎, C 程式在跨電腦硬體的相容度非常好, 假如以後希望朝自動控制, 尤其是電腦整合設計製造的大型或小型 (嵌入式) 硬體開發的機械工程師, 都必須精通 C 程式, 
+
+PHP 則是用來編寫網際程式最簡單的選擇, 目前全球有超過 70% 的網站是採用 PHP 建構, 許多網際內容管理系統都是採用 PHP 建構, PHP 結合 JavaScript 幾乎可以解決多數網際相關的程式應用, Facebook 的主要架構就是採用 PHP 建構, 後端則使用 Python, Java 與 C++, Wikipedia 也是採用 PHP 建構.
+
+JavaScript 則使用在所有的網際應用上, 幾乎是全世界用戶最多的程式語言.
+.. @+node:mde.20130607093702.4061: *5* Python 2 轉為 Python 3 程式
+.. @+node:mde.20130607093702.4056: *4* C 程式環境
+這裡所介紹的 C 主要在探討較為常用的 C 程式語法及架構, 並且著重在 C 指標的應用, 目的在爾後的硬體控制.
+
+Beginning C for Arduino (2012)
+
+http://rd.springer.com/book/10.1007/978-1-4302-4777-7/page/1
+.. @+node:mde.20130607093702.4057: *4* Java 程式環境
+Java 程式語言是一種簡化的網路時代 C++ 程式語言, 具有高度的可攜性與平台移植性.
+
+這裡教導 Java 主要目的在於希望能用於電腦輔助設計實習課程, 利用 Java 程式來編寫 J-Link 程式, 以便與 PTC Creo 的零組件進行互動.
+
+Java 7 for Absolute Beginners (2011)
+
+http://rd.springer.com/book/10.1007/978-1-4302-3687-0/page/1
+
+Beginning Java 7 (2011)
+
+http://rd.springer.com/book/10.1007/978-1-4302-3910-9/page/1
+.. @+node:mde.20130608155347.2807: *5* SciTE 編譯 Java 設定
+SciTE 系統中的 cpp.properties 檔案中負責處理 .c .cpp 與 .java 程式的編譯與執行設定.
+
+以 SciTE 透過 Options->Open cpp.properties 開啟 cpp.properties 檔案, 將原先對於 .java 程式編譯與執行的設定, 修改為可攜系統的對應設定.
+
+.. code-block:: none
+
+    # 這是原先的設定
+    #command.compile.*.java=javac $(FileNameExt)
+    #command.build.*.java=javac *.java
+    #command.go.*.java=java -cp . $(FileName)
+    
+    # 配合可攜系統的 jdk 版次進行設定, 並且指令採用 utf-8 的程式編碼
+    Java_Home=V:\IDE\Java\jdk1.7.0_21
+    Java_Bin=$(Java_Home)\bin
+    
+    command.compile.*.java=$(Java_Bin)\javac.exe  -encoding utf-8 $(FileNameExt)
+    command.build.*.java=$(Java_Bin)\javac.exe  -encoding utf-8 *.java
+    command.go.*.java=$(Java_Bin)\java.exe $(FileName)
+    
+    command.compile.*.fx=javafxc -d bin $(FileNameExt)
+    command.build.*.fx=javafxc -d bin *.fx
+    command.go.*.fx=javafx -cp bin $(FileName)
+.. @+node:mde.20130608155347.2810: *5* SciTE 環境下編譯執行 Java
+參考資料: http://openhome.cc/Gossip/JavaGossip-V1/FirstJava.htm
+.. @+node:mde.20130607093702.4058: *4* PHP 程式環境
+PHP 是一種為網路應用而生的程式語言, 雖然 PHP 也可以用來開發單機視窗程式, 但是大多數的 PHP 應用幾乎都集中在網際環境, 尤其與 MySQL 搭配下, 成就了 Wikipedia, Facebook, phpbb, Wordpress, Drupal 等著名的網際應用.
+
+協同產品設計實習所使用的群組軟體 Simple Groupware, 就是採用 PHP + MySQL 或 SQLite 建構的網際套件.
+
+Guide to HTML, JavaScript and PHP (2011)
+
+http://rd.springer.com/book/10.1007/978-0-85729-449-4/page/1
+.. @+node:mde.20130607093702.4059: *4* Javascript 程式環境
+Javascript 是全世界應用最廣的程式語言, 主要原因是幾乎每一套瀏覽器都內建 Javascript 解譯器, 並且幾乎所有的網路應用都離不開 Javascript 程式的執行, 最早 Javascript 只用於瀏覽器客戶端程式的執行, 自 2009 年以後, node.js 的出現, 將 Javascript 也用於 server 端的程式開發, 因此目前 node.js 挾著客戶端與伺服器端的整合, 以及 websocket、ajax 技術、html5 等技術的結合, 使得 Javascript 成為網際多媒體應用流程中最為重要的程式語言.
+
+Learn HTML5 and JavaScript for Android (2012)
+
+http://rd.springer.com/book/10.1007/978-1-4302-4348-9/page/1
+
+Beginning WebGL for HTML5 (2012)
+
+http://rd.springer.com/book/10.1007/978-1-4302-3997-0/page/1
+.. @+node:mde.20130607093702.4060: *4* Lua 程式環境
+Lua 是目前唯一在南半球(巴西)所打造的主流程式語言, 最初的應用是在工程機器硬體系統中負責進行資料轉換, 由於其輕薄短小, 非常適合嵌入各種軟硬體套件中, 來進行程式運作邏輯使用, 因此廣見於各種網路遊戲程式套件中, Lua 目前是 V-REP 模擬套件中制式的元件控制語言, 將會在電腦輔助設計實習課程中使用.
+
+Beginning Lua with World of Warcraft Add-ons (2009)
+
+http://rd.springer.com/book/10.1007/978-1-4302-2372-6/page/1
+.. @+node:mde.20130609005025.2830: *4* Forth 程式環境
+除了主流程式語言外, Forth 程式語言有其特點, 許多著名的軟體套件也都使用 Forth, 其中包括 AutoDesk 與 Java.
+
+AutoDesk 部分程式碼使用 Forth: http://www.fourmilab.ch/atlast/
+
+Java 的虛擬機器設計也採用類似 Forth 的概念: http://www.cpushack.com/CPU/cpuAppendB.html
+
+以下為參考資料:
+
+http://www.mpeforth.com/arena/ProgramForth.pdf
+
+http://www.forth.com/starting-forth/
+.. @+node:mde.20130609005025.2818: *3* C1 第五週
+程式流程圖
+
+http://vpython.erikthompson.com/
+
+串列資料格式應用
+
+以下兩支程式:
+
+.. code-block:: python
+
+    #coding: utf8
+    # 使用者將不同時段的課程以(列, 行, 課程名稱) 輸入串列資料中
+    # 若課程資料需要排序, 則利用 sorted() 或 itemgetter() 處理
+    # 若需要配合雙 for 迴圈將混亂排序之課程資料納入表單中, 則設法在串列中依序搜尋出與列行對應的課程, 即可順利列出課表
+    from operator import itemgetter
+    
+    # 課程資料為串列資料, 其元件則為元組資料, 串列可排序, 元組則次序固定
+    課程資料 =[(2,2,"1,2 課程"),(1,1,"1,1 課程"),(1,3,"1,3 課程")]
+    
+    print(sorted(課程資料, key=lambda 課程: 課程[0], reverse=True))   # 以列反向排序
+    # 假如要在兩個資料元素接續排序, 則需要 operator 中的 itemgetter()
+    print(sorted(課程資料, key=itemgetter(0,1)))   # 以列排序, 再以行排序
+    print(sorted(課程資料, key=lambda 課程: 課程[1]))   # 以行排序
+    print(sorted(課程資料, key=lambda 課程: 課程[2]))   # 以課程名稱排序
+    
+    for 課程子內容 in 課程資料:
+        if 課程子內容[0] == 1 and 課程子內容[1] == 1:
+            print(課程子內容)
+    
+    有資料 = False
+    print("<table border=1>")
+    for 列 in range(1,2):
+        print("<tr>")
+        for 行 in range(1,4):
+            print("<td>")
+            for 課程子內容 in 課程資料:
+                if 課程子內容[0] == 列 and 課程子內容[1] == 行:
+                    有資料 = True
+                    print(課程子內容)
+            if (有資料 == False):
+                print("&nbsp;")
+            print("</td>")
+            有資料 = False
+        print("</tr>")
+    print("</table>")
+
+取課程資料的程式:
+
+.. code-block:: python
+
+    #coding: utf8
+    
+    # 如何建立課程名稱與時段串列資料的輸入取值
+    課程資料=[]
+    列 = 99
+    # 若列輸入為 0 則退出 while 迴圈
+    while (int(列) != 0):
+        '''
+        列 = input("請輸入列:")
+        print("列為......:",列)
+        if (int(列) == 0):
+            break
+        行 = input("請輸入行:")
+        print("行為......:",行)
+        '''
+        # 利用 split() 一次取列數與行數
+        列, 行 = input("請輸入列數與行數, 空白隔開: ").split()
+        print("列,　行為......:",列,行)
+        if (int(列) == 0):
+            break
+        課程名稱 = input("請輸入課程名稱:")
+        print("課程名稱為......:",課程名稱)
+        課程資料.append((int(列), int(行), 課程名稱))
+    print(課程資料)
+.. @+node:mde.20130609005025.2819: *3* C1 第六週
+http://www.codecademy.com/zh/#!/exercises/0
+
+http://code.google.com/p/hashao/wiki/ChinesePythonTutor
+.. @+node:mde.20130609005025.2820: *3* C1 第七週
+視窗螢幕局部放大軟體: Virtual Magnifying Glass
+
+Python 程式的編寫規範: http://www.python.org/dev/peps/pep-0008/
+
+.. code-block:: python
+
+    #coding: utf-8
+    # HTML.py tutorial - P. Lagadec
+     
+    # see also http://www.decalage.info/en/python/html for more details and
+    # updates.
+    '''
+    表格資料 = []
+    列資料 = []
+    for 變數 in range(1,10):
+        列資料.append(變數)
+    for 變數 in range(10):
+        表格資料.append(列資料)
+    print(列資料)
+    print(表格資料)
+    '''
+     
+    import HTML
+     
+    # open an HTML file to show output in a browser
+    HTMLFILE = 'HTML_tutorial_output.html'
+    f = open(HTMLFILE, 'w',encoding="utf-8")
+     
+    #範例一
+     
+    '''table_data = [
+    ['Last name',   'First name',   '年紀'],
+    #[HTML.TableCell('測試 colspan=2 使用', #attribs={'colspan':3})],
+            ['Last name',   'First name',   '年紀'],
+            ['Smith',       'John',         30],
+            ['Carpenter',   'Jack',         47],
+            ['第一格','第二格',HTML.TableCell('測試 rowspan=2 使用', attribs={'rowspan':2})],
+            ['第三格','第四格'],
+         ]
+    '''
+    table_data = [[1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9]]
+     
+    htmlcode = HTML.table(table_data)
+    print (htmlcode)
+    f.write(htmlcode)
+    f.write('<p>')
+    print ('-'*79)
+     
+    # 最後檔案 handle 關閉
+    f.close()
+    print ('\nOpen the file %s in a browser to see the result.' % HTMLFILE)
 .. @+node:amd.20130515005753.3890: *3* C1 第八週
 .. @+node:amd.20130515005753.3891: *4* Python 的 data model
 property function
@@ -196,5 +583,26 @@ About __getitem__
     object.__getitem__(self, key)
     
     Called to implement evaluation of self[key]. For sequence types, the accepted keys should be integers and slice objects. Note that the special interpretation of negative indexes (if the class wishes to emulate a sequence type) is up to the __getitem__() method. If key is of an inappropriate type, TypeError may be raised; if of a value outside the set of indexes for the sequence (after any special interpretation of negative values), IndexError should be raised. For mapping types, if key is missing (not in the container), KeyError should be raised.
+.. @+node:mde.20130609005025.2821: *3* C1 第十週
+結合 List, Tuple, HTML class, def, CherryPy 建立網際資料處理程式:
+
+程式說明:
+
+1. 利用 CherryPy 框架建立網際程式
+
+2. 在不使用資料庫系統情況下, 透過 List, Tuple 的資料結構特性, 可以排序, 特定內容替換與重組, 模擬資料庫列表功能.
+
+3. 引用 HTML 模組程式, 可以將 List 資料專為網際表格.
+
+.. code-block:: python
+
+    #coding: utf8
+    import random
+    幾位學生 = 4
+    最後學號 = 56
+    學號 = []
+    for 索引 in range(幾位學生):
+        學號.append(random.randrange(1, 最後學號+1))
+    print (學號)
 .. @-all
 .. @-leo

@@ -6473,3 +6473,141 @@ CherryPy 網際程式驗收
 
 5. SSL 資料連結的運用.
 
+C2 第十五週
++++++++++++++++
+
+用來產生不等長度列數資料的程式:
+
+.. code-block:: python
+
+    #coding: utf-8
+    import random
+    起頭 = 1
+    結束 = 50
+    重複次數 = 250
+    
+    # 產生次序檔案
+    檔案 = open("file1.txt", "w")
+    for 索引 in range(重複次數):
+        產生數字 = random.randint(起頭, 結束)
+        檔案.write(str(產生數字)+"\n")
+    檔案.close()
+    
+    # 產生累加數字檔案
+    最小數 = 0
+    最大數 = 50
+    數字檔案 = open("file2.txt", "w")
+    '''
+    for 行索引 in range(重複次數):
+        亂數結束 = random.randint(起頭, 結束)
+        print(亂數結束)
+    '''
+    for 行索引 in range(重複次數):
+        亂數結束 = random.randint(起頭, 結束)
+        for 位置索引 in range(亂數結束):
+            產生數字 = random.randint(最小數, 最大數)
+            數字檔案.write(str(產生數字)+"\t")
+        數字檔案.write("\n")
+    
+    數字檔案.close()
+
+用來處理不等長度列數資料的程式:
+
+.. code-block:: python
+
+    #coding: utf-8
+    
+    # 取得各行的數字
+    次序檔案 = open('file1.txt') # 開檔案的內建模式為 read
+    數字檔案 = open('file2.txt') # 開檔案的內建模式為 read
+    # 先將數字檔案中各行資料打包成為 list
+    數字 = []
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        各行資料 = 數字檔案.readline()
+        #print(各行資料,end="")
+        # 以下兩行判斷式在確定檔案讀到最後一行後就會跳出 while 迴圈, 不會無限執行
+        if len(各行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        # 去掉各行最後面的跳行符號
+        各行資料 = 各行資料.rstrip()
+        #print(各行資料,end="")
+        # 依照資料的區隔符號 "\t" 將各行資料拆開, 並且存為 list, 到這裡各行資料為 list
+        各行資料 = 各行資料.split("\t")
+        # 可以將各行資料印出檢查
+        #print(各行資料)
+        # 將各行資料數列再疊成 數字 list
+        數字.append(各行資料)
+    
+    # 可以將資料印出檢查, 數字大數列應該有 250 個 elements
+    #print(數字)
+    
+    計算 = 0
+    for 列 in range(250):
+        #print(len(數字[列]))
+        for 行 in range(len(數字[列])):
+            #print(數字[列][行])
+            if(len(數字[列][行]) == 1):
+                計算 += 1
+    print(計算)
+    
+    '''
+    # 準備讀取次序檔案, 然後從數字數列抓出對應位置的數字來進行累加
+    答案 = 0
+    次序 = 0
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        各行資料 = 次序檔案.readline()
+        # 以下兩行判斷式在確定檔案讀到最後一行後就會跳出 while 迴圈, 不會無限執行
+        if len(各行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        # 去掉各行最後面的跳行符號
+        各行資料 = 各行資料.rstrip()
+        # 已經取得各行的資料(但是資料為字串), 這裡的"各行資料"就是擷取數字的序號
+        #print(各行資料)
+        # 開始累加
+        # 要將各行資料當作索引使用, 必須由字串換成整數, 但是各行資料由 1 排序, 而 list 第一次序為 0 因此必須減 1
+        # 而"數字"的內容也都是字串, 取出後必須轉為整數, 才可以進行運算
+        print(數字[次序][int(各行資料)-1])
+        答案 += int(數字[次序][int(各行資料)-1])
+        print("目前答案為:", 答案)
+        print("次序為:", 次序)
+        # 對序號增量
+        次序 += 1
+    
+    print(答案)
+    '''
+    
+    次序檔案.close() # 關閉檔案
+    數字檔案.close() # 關閉檔案
+    
+利用 scipy 繪圖函式, 對兩個數列進行 2D 繪圖:
+
+.. code-block:: python
+
+    import numpy
+    import pylab
+    import random
+    import math
+    
+    t = list(range(360))
+    s = []
+    deg = math.pi/180.
+    print(t)
+    for 索引 in range(360):
+        #s.append(random.randint(0, 10))
+        s.append(math.sin(索引*deg))
+    print(s)
+    #s = numpy.cos(2*2*numpy.pi*t)
+    pylab.plot(t, s)
+    
+    pylab.xlabel('time (s)')
+    pylab.ylabel('voltage (mV)')
+    pylab.title('About as simple as it gets, folks')
+    pylab.grid(True)
+    pylab.savefig('simple_plot')
+    
+    pylab.show()
+
