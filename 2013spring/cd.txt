@@ -5091,5 +5091,23 @@ $ git update-index --chmod=+x .openshift\action_hooks\pre_stop_ruby-1.9
 $ git commit
 
 參考資料: http://smajnr.net/2013/05/host-tracks-v2-2-2-for-free-with-openshift.html
+.. @+node:kmolII_lite.20130612211645.2847: *3* CD 第十六週
+建立設計輸入檔案的程式:
+
+.. literalinclude:: ../cd/w16_gen_input.py
+    :language: python
+    :linenos:
+
+執行正齒輪齒面寬單一設計運算程式:
+
+.. literalinclude:: ../cd/w16_gearwidth.py
+    :language: python
+    :linenos:
+    
+讀取設計輸入檔案, 以廻圈執行正齒輪齒面寬設計運算程式:
+
+.. literalinclude:: ../cd/w16_gearwidth2.py
+    :language: python
+    :linenos:
 .. @-all
 .. @-leo

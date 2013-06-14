@@ -20,7 +20,7 @@ class 網際類別(object):
 
 # 由於 url 帶有 &, 無法直接使用 os.system() 開啟網頁同時派送變數, 因此改用 subprocess
 url = 'http://localhost:8088/index/pos1/pos2?var1=2&var2=2&var3=3'
-chrome = "V:/tools/GoogleChromePortable/GoogleChromePortable.exe"
+chrome = "V:/apps/GoogleChromePortable/GoogleChromePortable.exe"
 retcode = subprocess.call([chrome, url])
 
 cherrypy.server.socket_port = 8088

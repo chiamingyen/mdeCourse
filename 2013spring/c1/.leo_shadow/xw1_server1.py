@@ -1,7 +1,6 @@
 #@+leo-ver=4-thin
 #@+node:mde.20130609005025.2832:@shadow c1/w1_server1.py
 #@@language python
-
 #coding: utf-8
 # 伺服器程式
 # 導入 socket 模組

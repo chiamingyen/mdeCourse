@@ -337,6 +337,14 @@ JavaScript 則使用在所有的網際應用上, 幾乎是全世界用戶最多�
 .. @+node:mde.20130607093702.4056: *4* C 程式環境
 這裡所介紹的 C 主要在探討較為常用的 C 程式語法及架構, 並且著重在 C 指標的應用, 目的在爾後的硬體控制.
 
+C Tutorial
+
+http://einstein.drexel.edu/courses/Comp_Phys/General/C_basics/
+
+Guide to C programming
+
+http://beej.us/guide/bgc/output/html/singlepage/bgc.html
+
 Beginning C for Arduino (2012)
 
 http://rd.springer.com/book/10.1007/978-1-4302-4777-7/page/1

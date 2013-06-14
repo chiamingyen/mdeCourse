@@ -59,7 +59,7 @@ class MyChanger(object):
  
  # 由於 url 帶有 &, 無法直接使用 os.system() 開啟網頁同時派送變數, 因此改用 subprocess
 url = 'http://localhost:8088/index'
-chrome = "V:/tools/GoogleChromePortable/GoogleChromePortable.exe"
+chrome = "V:/apps/GoogleChromePortable/GoogleChromePortable.exe"
 retcode = subprocess.call([chrome, url])
 
 # 指定程式執行的連接埠號, 內定為 8080

@@ -44,7 +44,7 @@
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2692" a="E"><vh>程式語言(一)</vh>
-<v t="mde.20130608155347.2808" a="E"><vh>C1 第一週程式</vh>
+<v t="mde.20130608155347.2808"><vh>C1 第一週程式</vh>
 <v t="mde.20130608155347.2809"><vh>@shadow c1/w1_1.java</vh></v>
 <v t="mde.20130609005025.2832"><vh>@shadow c1/w1_server1.py</vh></v>
 <v t="mde.20130609005025.2833"><vh>@shadow c1/w1_client1.py</vh></v>
@@ -53,14 +53,72 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="mde.20130609005025.2839"><vh>@shadow c1/w1_zmqcal1.py</vh></v>
 <v t="mde.20130609005025.2840"><vh>@shadow c1/w1_zmqcal2.py</vh></v>
 </v>
+<v t="kmolII_lite.20130613204216.2850"><vh>C1 第二週程式</vh>
+<v t="kmolII_lite.20130613204216.2851"><vh>@shadow c1_w2_guess1.py</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.2951" a="E"><vh>C1 第十週程式</vh>
+<v t="kmolII_lite.20130614201704.2960"><vh>Python3 與 C</vh>
+<v t="kmolII_lite.20130614201704.2961"><vh>@button pymod</vh></v>
+<v t="kmolII_lite.20130614201704.2962"><vh>@file c1/w10/module/dist/mypy.py</vh></v>
+<v t="kmolII_lite.20130614201704.2963" a="E"><vh>@file c1/w10/module/pymod.c</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.2970" a="E"><vh>Python3 pass function</vh>
+<v t="kmolII_lite.20130614201704.2971"><vh>@button pyfun</vh></v>
+<v t="kmolII_lite.20130614201704.2972"><vh>@file c1/w10/pyfun/dist/mypy.py</vh></v>
+<v t="kmolII_lite.20130614201704.2973"><vh>@file c1/w10/pyfun/pyfun.c</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.2980"><vh>NX3 與 C</vh>
+<v t="kmolII_lite.20130614201704.2981"><vh>@button nx3</vh></v>
+<v t="kmolII_lite.20130614201704.2982"><vh>@file c1/w10/nx3/dist/mypy.py</vh></v>
+<v t="kmolII_lite.20130614201704.2983" a="E"><vh>@file c1/w10/nx3/nxvol.c</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.3003"><vh>NX3 與 C gear</vh>
+<v t="kmolII_lite.20130614201704.3004"><vh>@button nx3 gear</vh></v>
+<v t="kmolII_lite.20130614201704.3005" a="E"><vh>@file c1/w10/gear/nxgear.c</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.3058" a="E"><vh>NX3 與 C stl</vh>
+<v t="kmolII_lite.20130614201704.3059"><vh>@button nx3 stl</vh></v>
+<v t="kmolII_lite.20130614201704.3060" a="E"><vh>@file c1/w10/stl/nxstl.c</vh></v>
+</v>
+</v>
+<v t="kmolII_lite.20130614201704.3008"><vh>C1 第十五週程式</vh>
+<v t="kmolII_lite.20130614201704.3012"><vh>6link robot</vh>
+<v t="kmolII_lite.20130614201704.3013"><vh>@button 6linkrobot</vh></v>
+<v t="kmolII_lite.20130614201704.3014"><vh>@edit c1/w15/6linkrobot/main.cpp</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.3026"><vh>Robot</vh>
+<v t="kmolII_lite.20130614201704.3027"><vh>@button robot</vh></v>
+<v t="kmolII_lite.20130614201704.3028"><vh>@edit c1/w15/robot/Camera.cpp</vh></v>
+<v t="kmolII_lite.20130614201704.3029"><vh>@edit c1/w15/robot/Camera.h</vh></v>
+<v t="kmolII_lite.20130614201704.3030"><vh>@edit c1/w15/robot/gRobot.cpp</vh></v>
+<v t="kmolII_lite.20130614201704.3031"><vh>@edit c1/w15/robot/Robot.cpp</vh></v>
+<v t="kmolII_lite.20130614201704.3032"><vh>@edit c1/w15/robot/Robot.h</vh></v>
+<v t="kmolII_lite.20130614201704.3033"><vh>@edit c1/w15/robot/TextureLoader.cpp</vh></v>
+<v t="kmolII_lite.20130614201704.3034"><vh>@edit c1/w15/robot/TextureLoader.h</vh></v>
+<v t="kmolII_lite.20130614201704.3035"><vh>@edit c1/w15/robot/Vector3.cpp</vh></v>
+<v t="kmolII_lite.20130614201704.3036"><vh>@edit c1/w15/robot/Vector3.h</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.3045"><vh>Firefly</vh>
+<v t="kmolII_lite.20130614201704.3046"><vh>@button firefly</vh></v>
+<v t="kmolII_lite.20130614201704.3047"><vh>@edit c1/w15/firefly/main.c</vh></v>
+<v t="kmolII_lite.20130614201704.3048"><vh>@edit c1/w15/firefly/firefly.c</vh></v>
+<v t="kmolII_lite.20130614201704.3049"><vh>@edit c1/w15/firefly/firefly.h</vh></v>
+<v t="kmolII_lite.20130614201704.3050"><vh>@edit c1/w15/firefly/functions.c</vh></v>
+<v t="kmolII_lite.20130614201704.3051"><vh>@edit c1/w15/firefly/functions.h</vh></v>
+<v t="kmolII_lite.20130614201704.3052"><vh>@edit c1/w15/firefly/Tests/unittests.c</vh></v>
+</v>
+</v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd.20130514093510.2694" a="E"
 expanded="amd.20130514093510.2695,amd.20130514093510.2696,mde.20130609005025.2831,amd.20130515005753.3887,mde.20130607093702.4055,"><vh>@file c1.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2702" a="E"><vh>電腦輔助設計實習</vh>
+<v t="kmolII_lite.20130613204216.2848" a="E"><vh>CADP 第一週程式</vh>
+<v t="kmolII_lite.20130613204216.2849"><vh>@shadow cadp/cadp_scad.py</vh></v>
+</v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd.20130514093510.2704" a="E"
-expanded="amd.20130514093510.2705,amd.20130514093510.2706,amd.20130514093510.2708,mde.20130608155347.2811,mde.20130608155347.2812,mde.20130608155347.2813,"><vh>@file cadp.txt</vh></v>
+expanded="amd.20130514093510.2705,mde.20130608155347.2811,mde.20130608155347.2812,mde.20130608155347.2813,"><vh>@file cadp.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2683" a="E"><vh>網際網路應用</vh>
 <v t="amd_yen.20130312013510.1498"></v>
@@ -76,7 +134,7 @@ expanded="amd.20130514093510.2685,"><vh>@file ia.txt</vh></v>
 <v t="amd_yen.20130308221230.2441" a="E"><vh>@shadow c2/generate_stud.py</vh></v>
 </v>
 <v t="amd_yen.20130308221230.2457" a="E"><vh>C2 第二週程式</vh>
-<v t="amd_yen.20130308221230.2458"><vh>@shadow c2/docutils_ex1.py</vh></v>
+<v t="amd_yen.20130308221230.2458" a="E"><vh>@shadow c2/docutils_ex1.py</vh></v>
 <v t="amd_yen.20130308221230.2462"><vh>課程規劃</vh></v>
 <v t="amd_yen.20130308221230.2463"><vh>課程進行</vh>
 <v t="amd_yen.20130308221230.2464"><vh>portableKMOL 配置</vh></v>
@@ -140,7 +198,7 @@ expanded="amd_yen.20130429214002.4056,"><vh>@file webbrowser.py</vh></v>
 </v>
 </v>
 </v>
-<v t="amd.20130513215328.2669"><vh>C2 第十二週程式</vh>
+<v t="amd.20130513215328.2669" a="E"><vh>C2 第十二週程式</vh>
 <v t="amd.20130513215328.2671"><vh>@shadow c2/command_w12_1.py</vh></v>
 <v t="amd.20130513215328.2670"><vh>@shadow c2/cherrypy_w12_1.py</vh></v>
 <v t="amd.20130513215328.2818"><vh>@shadow c2/cherrypy_changer1.py</vh></v>
@@ -168,14 +226,19 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 <v t="amd_yen.20130314194325.1746"><vh>CD 第四週程式</vh>
 <v t="amd_yen.20130314194325.1747" a="E"><vh>@shadow cd/gearcontour.py</vh></v>
 </v>
-<v t="amd_yen.20130418193628.2122"><vh>CD 第八週程式</vh>
+<v t="amd_yen.20130418193628.2122" a="E"><vh>CD 第八週程式</vh>
 <v t="amd_yen.20130418193628.2123" a="E"><vh>@shadow cd/partview/objstl.js</vh></v>
 <v t="amd_yen.20130418193628.2126"><vh>@edit cd/partview/RequestAnimationFrame.js</vh></v>
 <v t="amd_yen.20130418193628.2127"><vh>@edit cd/partview/index.php</vh></v>
 </v>
+<v t="kmolII_lite.20130614201704.3063" a="E"><vh>CD 第十六週程式</vh>
+<v t="kmolII_lite.20130614201704.3064"><vh>@shadow cd/w16_gen_input.py</vh></v>
+<v t="kmolII_lite.20130614201704.3065"><vh>@shadow cd/w16_gearwidth.py</vh></v>
+<v t="kmolII_lite.20130614201704.3066"><vh>@shadow cd/w16_gearwidth2.py</vh></v>
+</v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,mde.20130607093702.4052,amd_yen.20130310161901.1489,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2135,amd_yen.20130421114440.2136,amd.20130517200829.2761,amd.20130527143027.2771,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,mde.20130607093702.4052,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
@@ -6245,6 +6308,249 @@ os.system("eric5")
 '''詳細說明請參考
 #KMOL Guide--&gt;程式語言(二)--&gt;@file c2.txt--&gt;@rst document\c2.html--&gt;C2 第十二週--&gt;Python 程式開發 IDE
 '''</t>
+<t tx="kmolII_lite.20130613204216.2848"></t>
+<t tx="kmolII_lite.20130613204216.2850"></t>
+<t tx="kmolII_lite.20130614201704.2951"></t>
+<t tx="kmolII_lite.20130614201704.2960">參考資料
+
+http://docs.python.org/3/extending/extending.html
+
+範例
+
+http://dan.iel.fm/posts/python-c-extensions/
+
+程式碼: https://gist.github.com/dfm/3247796</t>
+<t tx="kmolII_lite.20130614201704.2961">@language python
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 latex
+mandir = d.get('path') + "/c1/w10/module"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+target_name = "pymod"
+module_name = "sum"
+filename = target_name+".c"
+# compile
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/IDE/Python33/include  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+# link 因為 .c 程式中起始為 PyInit_sum, 因此
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".pyd build/"+target_name+".o V:/IDE/Python33/libs/libpython33.a")
+g.es("done")</t>
+<t tx="kmolII_lite.20130614201704.2970"></t>
+<t tx="kmolII_lite.20130614201704.2971">@language python
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 latex
+mandir = d.get('path') + "/c1/w10/pyfun"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+target_name = "pyfun"
+module_name = "pyfun"
+filename = target_name+".c"
+# compile
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/IDE/Python33/include  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+# link 因為 .c 程式中起始為 PyInit_sum, 因此
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".pyd build/"+target_name+".o V:/IDE/Python33/libs/libpython33.a")
+g.es("done")</t>
+<t tx="kmolII_lite.20130614201704.2980">這個程式可以在 NX3 零件開啟下執行後, 將會列出目前零件體積, 並且在開啟 nx3 的目錄下將零件轉存為 ASCII 格式的 stl 檔案, 名稱為 mystl.txt
+
+</t>
+<t tx="kmolII_lite.20130614201704.2981">@language python
+
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 nx3
+mandir = d.get('path') + "/c1/w10/nx3"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+target_name = "nxvol"
+module_name = "nxvol"
+filename = target_name+".c"
+# compile
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/apps/UGII_dll/UGOPEN  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+# link 因為 .c 程式中起始為 PyInit_sum, 因此
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".dll build/"+target_name+".o V:/apps/UGII_dll/UGOPEN/libufun.lib V:/apps/UGII_dll/UGOPEN/libugopenint.lib")
+g.es("done")</t>
+<t tx="kmolII_lite.20130614201704.3003">NX 專用的正齒輪繪圖程式, 完成 nxgear.dll 的建立後, 開啟 NX3, 以 File-&gt;New 建立一個空零件, 利用 File-&gt;Execute-&gt;NX Open 後選擇 nxgear.dll, 即可出現表單, 選擇後即可完成 spur gear 零件建立.</t>
+<t tx="kmolII_lite.20130614201704.3004">@language python
+
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 nx3
+mandir = d.get('path') + "/c1/w10/gear"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+target_name = "nxgear"
+module_name = "nxgear"
+filename = target_name+".c"
+# compile
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/apps/UGII_dll/UGOPEN  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+# link 因為 .c 程式中起始為 PyInit_sum, 因此
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".dll build/"+target_name+".o V:/apps/UGII_dll/UGOPEN/libufun.lib V:/apps/UGII_dll/UGOPEN/libugopenint.lib")
+g.es("done")</t>
+<t tx="kmolII_lite.20130614201704.3008"></t>
+<t tx="kmolII_lite.20130614201704.3012"></t>
+<t tx="kmolII_lite.20130614201704.3013">@language python
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 robot
+mandir = d.get('path') + "/c1/w15/6linkrobot"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+# compile main.cpp
+target_name1 = "main"
+filename1 = target_name1+".cpp"
+os.system("V:/IDE/C/MinGW/bin/g++.exe -c -g -MMD -MP -MF build/"+target_name1+".o.d -o build/"+target_name1+".o "+filename1)
+# link
+os.system("V:/IDE/C/MinGW/bin/g++.exe -o dist/"+target_name1+" build/"+target_name1+".o -lfreeglut -lgdi32 -lopengl32 -lglu32")
+g.es("done")
+# 直接進入 dist 目錄執行 Robot.exe
+os.chdir("dist")
+os.system(target_name1+".exe")</t>
+<t tx="kmolII_lite.20130614201704.3026">原始程式碼來源: http://code.google.com/p/grobot-demo/
+
+可以改為 stl 零組件導入, 並且與 WebGL 版本進行比較或整合運用
+
+部分程式碼必須修改更新
+
+編譯連結訊息:
+
+"/bin/make" -f nbproject/Makefile-Debug.mk QMAKE= SUBPROJECTS= .build-conf
+make[1]: Entering directory `/c/Documents and Settings/amd/My Documents/Downloads/opengl_robot'
+"/bin/make"  -f nbproject/Makefile-Debug.mk dist/Debug/MinGW_TDM-Windows/opengl_robot.exe
+make[2]: Entering directory `/c/Documents and Settings/amd/My Documents/Downloads/opengl_robot'
+mkdir -p build/Debug/MinGW_TDM-Windows
+rm -f build/Debug/MinGW_TDM-Windows/Camera.o.d
+g++.exe    -c -g -MMD -MP -MF build/Debug/MinGW_TDM-Windows/Camera.o.d -o build/Debug/MinGW_TDM-Windows/Camera.o Camera.cpp
+mkdir -p build/Debug/MinGW_TDM-Windows
+rm -f build/Debug/MinGW_TDM-Windows/Robot.o.d
+g++.exe    -c -g -MMD -MP -MF build/Debug/MinGW_TDM-Windows/Robot.o.d -o build/Debug/MinGW_TDM-Windows/Robot.o Robot.cpp
+Robot.cpp: In member function 'void Robot::structBody()':
+Robot.cpp:359:72: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+mkdir -p build/Debug/MinGW_TDM-Windows
+rm -f build/Debug/MinGW_TDM-Windows/gRobot.o.d
+g++.exe    -c -g -MMD -MP -MF build/Debug/MinGW_TDM-Windows/gRobot.o.d -o build/Debug/MinGW_TDM-Windows/gRobot.o gRobot.cpp
+gRobot.cpp:89:18: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+gRobot.cpp:90:19: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+gRobot.cpp: In function 'void InitGl()':
+gRobot.cpp:156:76: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+gRobot.cpp:160:74: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+gRobot.cpp:161:77: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+gRobot.cpp:162:77: warning: deprecated conversion from string constant to 'char*' [-Wwrite-strings]
+mkdir -p build/Debug/MinGW_TDM-Windows
+rm -f build/Debug/MinGW_TDM-Windows/Vector3.o.d
+g++.exe    -c -g -MMD -MP -MF build/Debug/MinGW_TDM-Windows/Vector3.o.d -o build/Debug/MinGW_TDM-Windows/Vector3.o Vector3.cpp
+mkdir -p build/Debug/MinGW_TDM-Windows
+rm -f build/Debug/MinGW_TDM-Windows/TextureLoader.o.d
+g++.exe    -c -g -MMD -MP -MF build/Debug/MinGW_TDM-Windows/TextureLoader.o.d -o build/Debug/MinGW_TDM-Windows/TextureLoader.o TextureLoader.cpp
+mkdir -p dist/Debug/MinGW_TDM-Windows
+g++.exe     -o dist/Debug/MinGW_TDM-Windows/opengl_robot build/Debug/MinGW_TDM-Windows/Camera.o build/Debug/MinGW_TDM-Windows/Robot.o build/Debug/MinGW_TDM-Windows/gRobot.o build/Debug/MinGW_TDM-Windows/Vector3.o build/Debug/MinGW_TDM-Windows/TextureLoader.o -lfreeglut -lgdi32 -lopengl32 -lglu32 -loleaut32 -lole32 -luuid 
+make[2]: Leaving directory `/c/Documents and Settings/amd/My Documents/Downloads/opengl_robot'
+make[1]: Leaving directory `/c/Documents and Settings/amd/My Documents/Downloads/opengl_robot'
+
+
+BUILD SUCCESSFUL (total time: 4s)
+
+ </t>
+<t tx="kmolII_lite.20130614201704.3027">@language python
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 robot
+mandir = d.get('path') + "/c1/w15/robot"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+# compile Camera.cpp
+target_name1 = "Camera"
+filename1 = target_name1+".cpp"
+os.system("V:/IDE/C/MinGW/bin/g++.exe -c -g -MMD -MP -MF build/"+target_name1+".o.d -o build/"+target_name1+".o "+filename1)
+# compile gRobot.cpp
+target_name2 = "gRobot"
+filename2 = target_name2+".cpp"
+os.system("V:/IDE/C/MinGW/bin/g++.exe -c -g -MMD -MP -MF build/"+target_name2+".o.d -o build/"+target_name2+".o "+filename2)
+# compile Robot.cpp
+target_name3 = "Robot"
+filename3 = target_name3+".cpp"
+os.system("V:/IDE/C/MinGW/bin/g++.exe -c -g -MMD -MP -MF build/"+target_name3+".o.d -o build/"+target_name3+".o "+filename3)
+# compile TextureLoader.cpp
+target_name4 = "TextureLoader"
+filename4 = target_name4+".cpp"
+os.system("V:/IDE/C/MinGW/bin/g++.exe -c -g -MMD -MP -MF build/"+target_name4+".o.d -o build/"+target_name4+".o "+filename4)
+# compile Vector3.cpp
+target_name5 = "Vector3"
+filename5 = target_name5+".cpp"
+os.system("V:/IDE/C/MinGW/bin/g++.exe -c -g -MMD -MP -MF build/"+target_name5+".o.d -o build/"+target_name5+".o "+filename5)
+# link
+os.system("V:/IDE/C/MinGW/bin/g++.exe -o dist/"+target_name3+" build/"+target_name1+".o  build/"+target_name2+".o build/"+target_name3+".o build/"+target_name4+".o build/"+target_name5+".o  -lfreeglut -lgdi32 -lopengl32 -lglu32 -loleaut32 -lole32 -luuid")
+g.es("done")
+# 直接進入 dist 目錄執行 Robot.exe
+os.chdir("dist")
+os.system(target_name3+".exe")</t>
+<t tx="kmolII_lite.20130614201704.3045">Firefly C 程式套件
+
+可以將主程式寫為 pyd 然後利用 Python3 進行呼叫執行</t>
+<t tx="kmolII_lite.20130614201704.3046">@language python
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 firefly
+mandir = d.get('path') + "/c1/w15/firefly"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+# compile firefly.c
+target_name1 = "firefly"
+filename1 = target_name1+".c"
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -O3 -c -g -MMD -MP -MF build/"+target_name1+".o.d -o build/"+target_name1+".o "+filename1)
+# compile functions.c
+target_name2 = "functions"
+filename2 = target_name2+".c"
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -O3 -c -g -MMD -MP -MF build/"+target_name2+".o.d -o build/"+target_name2+".o "+filename2)
+# compile main.c
+target_name3 = "main"
+filename3 = target_name3+".c"
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -O3 -c -g -MMD -MP -MF build/"+target_name3+".o.d -o build/"+target_name3+".o "+filename3)
+# link
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -O3 -Wall -lm -o dist/"+target_name1+" build/"+target_name1+".o  build/"+target_name2+".o build/"+target_name3+".o")
+g.es("done")
+# 直接進入 dist 目錄執行 firefly.exe
+os.chdir("dist")
+# firefly.exe 用法: FFlies usage: -n NumberOfFlies [-g NumberOfGenerations] -d NumberOfDimension -m Min -x Max
+os.system(target_name1+".exe -n 10 -g 5 -d 10 -m 0 -x 10")
+</t>
+<t tx="kmolII_lite.20130614201704.3058">NX 專用的正齒輪繪圖程式, 完成 nxgear.dll 的建立後, 開啟 NX3, 以 File-&gt;New 建立一個空零件, 利用 File-&gt;Execute-&gt;NX Open 後選擇 nxgear.dll, 即可出現表單, 選擇後即可完成 spur gear 零件建立.</t>
+<t tx="kmolII_lite.20130614201704.3059">@language python
+
+import os
+d = c.scanAllDirectives(p)
+# 將目錄指到 nx3
+mandir = d.get('path') + "/c1/w10/stl"
+g.es(mandir)
+os.chdir(mandir)
+os.system("mkdir build")
+os.system("mkdir dist")
+target_name = "nxstl"
+module_name = "nxstl"
+filename = target_name+".c"
+# compile
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -c -g -IV:/apps/UGII_dll/UGOPEN  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+# link 因為 .c 程式中起始為 PyInit_sum, 因此
+# -shared 表示要連結成 dll
+#os.system("V:/IDE/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".dll build/"+target_name+".o V:/apps/UGII_dll/UGOPEN/libufun.lib V:/apps/UGII_dll/UGOPEN/libugopenint.lib")
+os.system("V:/IDE/C/MinGW/bin/gcc.exe -o dist/"+module_name+".exe build/"+target_name+".o V:/apps/UGII_dll/UGOPEN/libufun.lib V:/apps/UGII_dll/UGOPEN/libugopenint.lib")
+
+g.es("done")</t>
+<t tx="kmolII_lite.20130614201704.3063"></t>
 <t tx="mde.20130603153922.2774">這裡主要提供機械設計最佳化分析法中的基因演算法, 基本的著眼為 Python3、平行運算、PyZMQ, 所使用的套件為 Deap 與 Scoop.</t>
 <t tx="mde.20130603153922.2775">http://code.google.com/p/deap/</t>
 <t tx="mde.20130603153922.2776">https://code.google.com/p/scoop/</t>
