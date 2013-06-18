@@ -22,7 +22,7 @@ import random
 import optparse
 from pybean import Store, SQLiteWriter
 
-重複次數 = 250
+重複次數 = 25
 
 # 此亂數產生函式是否比 random.randint(起頭, 結束) 更好?
 def dice(num):

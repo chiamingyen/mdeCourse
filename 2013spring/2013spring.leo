@@ -10,11 +10,11 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="amd_yen.20130306001037.1797"><vh>@settings</vh>
+<v t="amd_yen.20130306001037.1797" a="E"><vh>@settings</vh>
 <v t="amd_yen.20130306001037.1798"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="amd_yen.20130306001037.1799"><vh>@string initial_split_orientation = vertical</vh></v>
 </v>
-<v t="amd_yen.20130307204656.1443"><vh>課程規劃與進行</vh>
+<v t="amd_yen.20130307204656.1443" a="E"><vh>課程規劃與進行</vh>
 <v t="amd_yen.20130307204656.9867"><vh>@url Leo 手冊</vh></v>
 </v>
 <v t="amd_yen.20130308103121.2379"><vh>整體架構規劃</vh></v>
@@ -23,7 +23,7 @@
 <v t="amd_yen.20130308210411.2404"><vh>&lt;&lt; html manual &gt;&gt;</vh></v>
 <v t="amd_yen.20130308210411.2405"><vh>&lt;&lt; pdf manual &gt;&gt;</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2403" a="E"><vh>@button generate-full-userguide</vh>
+<v t="amd_yen.20130308210411.2403"><vh>@button generate-full-userguide</vh>
 <v t="amd_yen.20130308210411.2404"></v>
 <v t="amd_yen.20130308210411.2405"></v>
 </v>
@@ -44,10 +44,12 @@
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2692" a="E"><vh>程式語言(一)</vh>
-<v t="mde.20130608155347.2808"><vh>C1 第一週程式</vh>
+<v t="mde.20130608155347.2808" a="E"><vh>C1 第一週程式</vh>
 <v t="mde.20130608155347.2809"><vh>@shadow c1/w1_1.java</vh></v>
 <v t="mde.20130609005025.2832"><vh>@shadow c1/w1_server1.py</vh></v>
 <v t="mde.20130609005025.2833"><vh>@shadow c1/w1_client1.py</vh></v>
+<v t="mde.20130617220941.5835"><vh>@shadow c1/w1_server2.py</vh></v>
+<v t="mde.20130617220941.5836"><vh>@shadow c1/w1_client2.py</vh></v>
 <v t="mde.20130609005025.2837"><vh>@shadow c1/w1_zmqserver1.py</vh></v>
 <v t="mde.20130609005025.2838"><vh>@shadow c1/w1_zmqclient1.py</vh></v>
 <v t="mde.20130609005025.2839"><vh>@shadow c1/w1_zmqcal1.py</vh></v>
@@ -56,7 +58,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="kmolII_lite.20130613204216.2850"><vh>C1 第二週程式</vh>
 <v t="kmolII_lite.20130613204216.2851"><vh>@shadow c1_w2_guess1.py</vh></v>
 </v>
-<v t="kmolII_lite.20130614201704.2951" a="E"><vh>C1 第十週程式</vh>
+<v t="kmolII_lite.20130614201704.2951"><vh>C1 第十週程式</vh>
 <v t="kmolII_lite.20130614201704.2960"><vh>Python3 與 C</vh>
 <v t="kmolII_lite.20130614201704.2961"><vh>@button pymod</vh></v>
 <v t="kmolII_lite.20130614201704.2962"><vh>@file c1/w10/module/dist/mypy.py</vh></v>
@@ -81,7 +83,14 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="kmolII_lite.20130614201704.3060" a="E"><vh>@file c1/w10/stl/nxstl.c</vh></v>
 </v>
 </v>
-<v t="kmolII_lite.20130614201704.3008"><vh>C1 第十五週程式</vh>
+<v t="mde.20130617220941.5838" a="E"><vh>C1 第十二週程式</vh>
+<v t="mde.20130617220941.5839"><vh>@shadow c1/w12_3dplot1.py</vh></v>
+<v t="mde.20130617220941.5840"><vh>@shadow c1/w12_3dplot2.py</vh></v>
+<v t="mde.20130617220941.5841"><vh>@shadow c1/w12_3dplot3.py</vh></v>
+<v t="mde.20130617220941.5842"><vh>@shadow c1/w12_3dplot4.py</vh></v>
+<v t="mde.20130617220941.5843"><vh>@shadow c1/w12_3dplot5.py</vh></v>
+</v>
+<v t="kmolII_lite.20130614201704.3008" a="E"><vh>C1 第十五週程式</vh>
 <v t="kmolII_lite.20130614201704.3012"><vh>6link robot</vh>
 <v t="kmolII_lite.20130614201704.3013"><vh>@button 6linkrobot</vh></v>
 <v t="kmolII_lite.20130614201704.3014"><vh>@edit c1/w15/6linkrobot/main.cpp</vh></v>
@@ -98,7 +107,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="kmolII_lite.20130614201704.3035"><vh>@edit c1/w15/robot/Vector3.cpp</vh></v>
 <v t="kmolII_lite.20130614201704.3036"><vh>@edit c1/w15/robot/Vector3.h</vh></v>
 </v>
-<v t="kmolII_lite.20130614201704.3045"><vh>Firefly</vh>
+<v t="kmolII_lite.20130614201704.3045" a="E"><vh>Firefly</vh>
 <v t="kmolII_lite.20130614201704.3046"><vh>@button firefly</vh></v>
 <v t="kmolII_lite.20130614201704.3047"><vh>@edit c1/w15/firefly/main.c</vh></v>
 <v t="kmolII_lite.20130614201704.3048"><vh>@edit c1/w15/firefly/firefly.c</vh></v>
@@ -110,7 +119,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd.20130514093510.2694" a="E"
-expanded="amd.20130514093510.2695,amd.20130514093510.2696,mde.20130609005025.2831,amd.20130515005753.3887,mde.20130607093702.4055,"><vh>@file c1.txt</vh></v>
+expanded="amd.20130514093510.2695,amd.20130514093510.2696,mde.20130609005025.2831,amd.20130515005753.3887,mde.20130607093702.4055,mde.20130607093702.4057,amd.20130515005753.3890,"><vh>@file c1.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2702" a="E"><vh>電腦輔助設計實習</vh>
 <v t="kmolII_lite.20130613204216.2848" a="E"><vh>CADP 第一週程式</vh>
@@ -217,7 +226,7 @@ expanded="amd_yen.20130429214002.4056,"><vh>@file webbrowser.py</vh></v>
 <v t="amd_yen.20130312013510.1501"><vh>網誌內容</vh></v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2387" a="E"
-expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130406103207.2443,amd_yen.20130411195311.2086,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,amd_yen.20130506144326.2648,mde_leo.20130510215619.2658,amd.20130517200829.4939,"><vh>@file c2.txt</vh></v>
+expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.20130308214521.2440,amd_yen.20130309155804.1712,amd_yen.20130317094520.1538,amd_yen.20130406103207.2443,amd_yen.20130411195311.2086,amd_yen.20130414200359.2118,amd_yen.20130414200359.2119,amd_yen.20130414200359.2130,amd_yen.20130421114440.2838,amd_yen.20130421114440.2840,amd_yen.20130421114440.2842,amd_yen.20130414200359.2126,amd_yen.20130424175812.2164,amd_yen.20130423211907.2156,amd_yen.20130429221223.2310,amd_yen.20130429221223.2314,amd_yen.20130501090735.3344,amd_yen.20130429221223.2316,amd_yen.20130506144326.2648,mde_leo.20130510215619.2658,amd.20130517200829.4939,"><vh>@file c2.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2385" a="E"><vh>協同產品設計實習</vh>
 <v t="amd_yen.20130309155804.1706"><vh>CD 第三週程式</vh>
@@ -238,7 +247,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,mde.20130607093702.4052,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2136,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,mde.20130607093702.4052,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2136,amd.20130527143027.2771,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
@@ -534,7 +543,7 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130503185304.2957" a="E"><vh>C2WP</vh>
 <v t="amd_yen.20130503185304.2958"><vh>Leo 編輯器文書處理</vh></v>
 <v t="amd_yen.20130503185304.2959"><vh>文書處理討論</vh></v>
-<v t="amd_yen.20130503185304.2960"><vh>直接採 LaTeX 編輯</vh>
+<v t="amd_yen.20130503185304.2960" a="E"><vh>直接採 LaTeX 編輯</vh>
 <v t="amd_yen.20130503185304.2961" a="E"><vh>LaTeX</vh>
 <v t="amd_yen.20130503185304.2962"><vh>@button latex ex1.tex</vh></v>
 <v t="amd_yen.20130503185304.2963" a="EO"><vh>@file c2wp/latex/ex1.tex</vh>
@@ -590,7 +599,7 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130503185304.3009"><vh>@edit exts\sphinx.search.py</vh></v>
 </v>
 </v>
-<v t="amd_yen.20130503185304.3010"><vh>Latex 後續處理(選項)</vh>
+<v t="amd_yen.20130503185304.3010" a="E"><vh>Latex 後續處理(選項)</vh>
 <v t="amd_yen.20130503185304.3011" a="O"><vh>@edit c2wp/_build/latex/index.tex</vh></v>
 <v t="amd_yen.20130503185304.3012"><vh>@edit c2wp/_build/latex/index_twocolumn.tex</vh></v>
 <v t="amd_yen.20130503185304.3013"><vh>以下為雙欄位 pdf 產生按鈕</vh></v>
@@ -6596,6 +6605,7 @@ https://pypi.python.org/pypi/pyzmq/13.1.0
         time.sleep(1)
 </t>
 <t tx="mde.20130608155347.2808"></t>
+<t tx="mde.20130617220941.5838"></t>
 <t tx="mde_leo.20130508162404.2651">瀏覽器: http://code.google.com/p/qtweb/</t>
 <t tx="mde_leo.20130510215619.6870">LaTeX 是一套排版系統, 而 Word 則是一套文書處理系統, 兩者是不同屬性的工具, 但是對某些使用者而言, 這兩者都能夠將文字與圖形內容轉換為 pdf, 因此仍然必須針對兩者的特性進行比較, 以便讓使用者在不同需求選擇最適用的工具.
 

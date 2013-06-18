@@ -104,6 +104,22 @@ Simple Groupware 安裝
 
 2. 雲端 OpenShift 主機安裝
 
+OpenShift 空間架設基本流程:
+
+. 申請 OpenShift 帳號, 必須以 email address 作為帳號, 自選密碼, 登記後, 必須至所登記的電子郵箱確認後, 同意使用授權即可取得 3 個 gears 的免費帳號.
+
+. 登入 OpenShift 後, 即可建立 application, 並且利用 puttygen.exe 建立公鑰與私鑰, 並且將 puttygen 上的 ssh-rsa public 字串轉貼到 OpenShift 帳號 setting 區 (應該可以貼上多人的 public keys, 讓多人可以協同管理特定的帳號應用程式.
+
+. 近端必須要安裝 Ruby 與 rhc client (採用 ruby 編寫), 完成 rhc 的安裝後, 必須再安裝 git, 然後透過 rhc setup, 將公鑰從近端登錄到 OpenShift 所屬帳號區.
+
+此一過程會在使用者的近端電腦區 home 目錄中, 建立 .openshift 與 .ssh 等兩個目錄, .openshift 目錄中會有 express.conf 與 token_代號 等兩個檔案, 代表有關 OpenShift 帳號的設定, 而 .ssh 目錄中則有 id_rsa, id_rsa.pub 與 known_hosts 等三個檔案, 存放公私鑰與對應的 OpenShift 主機資料.
+
+. 接著就是利用 git clone ssh:主機訊息 將遠端 git server 中應用程式碼下載到近端目錄中, 然後在近端進行編輯修改後, 再利用 git add, git commit 與 git push 將程式碼送到 OpenShift 應用程式端, 其中必須注意的兩點為, 哪些目錄必須要放到 data repository 目錄中, 而且 .openshift\action_hooks 目錄中的開機前設定執行檔案屬性是否可以執行.
+
+注意事項第一點: 放到 data repository 目錄中的檔案原則上都是使用者或管理者可以直接在網際頁面中更改的內容, 因為 git 版次管理目前僅處理網際系統的程式碼, 而沒能及於這些可以從網際管道直接更動的內容.
+
+注意事項第二點: 則必須在近端利用 $ git update-index --chmod=+x .openshift\action_hooks\build 進行設定, 此一檔案的執行屬性設定時機, 必須在近端加入此 build 檔案後, 且利用 git add, commit, push 將資料送到遠端主機之後.
+
 OpenShift 主機安裝
 **********************
 
@@ -5251,7 +5267,7 @@ Product Lifecycle Management
 OpenShift 平台應用
 **********************
 
-在 OpenShift 環境, 若進端為 Windows, 必須透過 git 確認遠端的 action_hooks 目錄下, 是否可以執行.
+在 OpenShift 環境, 若近端為 Windows, 必須透過 git 確認遠端的 action_hooks 目錄下, 是否可以執行.
 
 $ git update-index --chmod=+x .openshift\action_hooks\build
 $ git update-index --chmod=+x .openshift\action_hooks\deploy
@@ -5264,4 +5280,25 @@ $ git update-index --chmod=+x .openshift\action_hooks\pre_stop_ruby-1.9
 $ git commit
 
 參考資料: http://smajnr.net/2013/05/host-tracks-v2-2-2-for-free-with-openshift.html
+
+CD 第十六週
++++++++++++++++
+
+建立設計輸入檔案的程式:
+
+.. literalinclude:: ../cd/w16_gen_input.py
+    :language: python
+    :linenos:
+
+執行正齒輪齒面寬單一設計運算程式:
+
+.. literalinclude:: ../cd/w16_gearwidth.py
+    :language: python
+    :linenos:
+    
+讀取設計輸入檔案, 以廻圈執行正齒輪齒面寬設計運算程式:
+
+.. literalinclude:: ../cd/w16_gearwidth2.py
+    :language: python
+    :linenos:
 

@@ -4960,6 +4960,8 @@ Python 與 Natural Language
 
 接著將導入 Python3 的自然語言處理模組( http://nltk.org/nltk3-alpha/ ), 將網路上的文字檔案資料進行分析處理;
 
+註: 最新的 nltk for Python3 程式碼在: https://github.com/nltk/nltk/
+
 .. code-block:: python
 
     #coding: utf-8
@@ -5049,6 +5051,32 @@ Python 與 Natural Language
     # 列出文章中出現關鍵字的內容
     print(文章.concordance('crime'))
     print(文章.concordance('illness'))
+
+nltk 與 wordnet
+~~~~~~~~~~~~~~~~
+
+利用 nltk 安裝 wordnet 與 cmudict 字典資料, 以下程式執行時, 輸入 d, 表示要下載對應的資料, 輸入 wordnet 後, nltk 將會下載 wordnet.zip 並且放入 V:\home\nltk_data\corpora 目錄中, 若輸入 cmudict 表示要下載 cmu 字典資料.
+
+.. code-block:: python
+
+    import nltk
+    nltk.download()
+    
+利用下列程式, 可以得知 cmudict 共收納 133737 個英文單字.
+
+.. code-block:: python
+
+    import nltk
+    #from nltk import *
+    #from nltk.corpus import wordnet as wn
+    
+    output=[]
+    wordlist=[]
+    
+    entries = nltk.corpus.cmudict.entries()
+    for entry in entries: 
+        wordlist.append(entry[0])
+    print(len(wordlist))
 
 C2 第十週
 ++++++++++++

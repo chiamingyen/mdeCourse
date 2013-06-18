@@ -12,6 +12,10 @@
 Trends
 ++++++
 
+過去二十年, 教育模式在網路通訊科技的高度發展下, 雖然已經產生許多變化, 但是制式的大學授課仍以實體會面的傳統教學為主, 而以網路線上教學課程為輔.
+
+2013 年秋季開始, 情況將會改觀, 來自美國喬治亞理工學院的電腦科學碩士學程, 將提供以網路線上教學為主的課程, 讓來自全球各地的大學畢業生, 可以繳交比實體會面課程更低的費用入學.
+
 http://money.cnn.com/2013/05/01/pf/college/free-online-courses.moneymag/index.html
 
 First professional Online Master of Science degree from the Gatech.
@@ -58,9 +62,33 @@ Mr. McDonald is president of PubMatic, an ad tech company in Manhattan. Previous
 
 http://developers.slashdot.org/story/13/04/09/2257223/electrical-engineer-unemployment-soars-software-developers-rate-drops-to-22
 
+趨勢
+++++++
+
+程式其實無所不在
+
+即便您對於電腦程式的學習實在提不起任何興趣, 請您耐著性子, 看完這裏的說明, 為何任何一個現代人多多少少都必須具備"程式"能力.
+
+程式 - 並不一定意味著只有在電腦上執行的編碼, 程式其實就是依照特定格式與流程所進行的方式.
+
+再看一遍, 依照特定格式與流程所進行的方式, 可以用來指一趟旅程, 從 A 點到 B 點選擇搭乘某一種交通工具, 然後在 B 點住上一晚, 接著再搭乘另外一種交通工具到達 C 點.
+
+這樣的一趟旅行安排, 就是程式的一種, 只是這種流程的安排較為鬆散且自由, 從 A 點到 B 點可以選擇各種交通工具, 在 B 點的住宿或許也可以有許多選擇, 但是無論如何, 按照既定的行程與時間規劃, 來安排旅程, 就是一種程式.
+
+將旅程的安排比喻為程式, 就是希望告訴未來的工程師, 針對特定格式流程的安排的需求, 其實無所不在, 不僅每一個人都有機會面對各種"程式"的安排, 而且善於規劃與安排這些特殊旅程內容者, 就比較不會錯過該搭的交通工具, 定錯原先要住宿的地點, 更不會讓原先充滿遊興的旅程, 被導遊給安排得面目全非.
+
+任何人都無法脫離電腦所帶來的影響
+
+接下來, 看看充斥在工程師週遭的工具 - 電腦, 這個不僅是現代人無法迴避的科學產物, 其實就連希望遺世獨立的"桃花源"人, 也一點都脫離不了關係.
+
+主要的原因在於, 電腦科技的快速發展, 造就了數位化通信產業與交通業的高速發展, 沒有電腦, 其實人類根本無法大量設計製造並操作管理這些工具, 全球化四通八達的交通工具與無所不在的通訊電子裝置, 造成現今各國密集的人口移動與能源及物資的耗用, 無論是在地球的哪一個偏遠地區, 都將面臨全球暖化與天候急劇變化的影響.
+
+任何行業都需要利用電腦與網路來增加工作效能
+
+與電腦直接溝通的方式 - 就是寫電腦程式
+
 C1 第一週
 ++++++++++++
-
 
 程式語言課程學習目的在提供機械設計工程師一個直接運用電腦運算能力的管道, 由於機械設計工程領域牽涉許多與物理運作原理相關的技術, 無論是在初步產品設計概念的擬定或後續產品內容細部設計的分析, 都需要透過電腦程式來進行分析運算與資料管理, 雖然目前業界已經存在許多相關工具, 但是在特定情況下, 機械設計工程師仍然必須依照自己所擬定的分析流程來延伸既有軟體套件的功能, 或者打造完全客製化的軟體工具.
 
@@ -355,6 +383,14 @@ C 程式環境
 **************
 
 這裡所介紹的 C 主要在探討較為常用的 C 程式語法及架構, 並且著重在 C 指標的應用, 目的在爾後的硬體控制.
+
+C Tutorial
+
+http://einstein.drexel.edu/courses/Comp_Phys/General/C_basics/
+
+Guide to C programming
+
+http://beej.us/guide/bgc/output/html/singlepage/bgc.html
 
 Beginning C for Arduino (2012)
 
@@ -663,4 +699,29 @@ C1 第十週
     for 索引 in range(幾位學生):
         學號.append(random.randrange(1, 最後學號+1))
     print (學號)
+
+C1 第十二週
++++++++++++++++
+
+Python 3D 繪圖
+
+.. literalinclude:: ../c1/w12_3dplot1.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c1/w12_3dplot2.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c1/w12_3dplot3.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c1/w12_3dplot4.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c1/w12_3dplot5.py
+    :language: python
+    :linenos:
 
