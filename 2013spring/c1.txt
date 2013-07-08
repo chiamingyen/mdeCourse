@@ -38,8 +38,7 @@ First professional Online Master of Science degree from the Gatech.
 http://slashdot.org/submission/2662831/georgia-tech-to-offer-online-masters-degree-in-cs-for-under-7000-net
 
 http://www.omscs.gatech.edu/faq/
-
-#################################################
+______________________________
 
 May 9, 2013, 7:33 p.m. ET
 
@@ -76,28 +75,357 @@ So congratulations again on your achievement—and good luck getting your real-w
 Mr. McDonald is president of PubMatic, an ad tech company in Manhattan. Previously, he was president of digital for Time Inc.
 
 http://developers.slashdot.org/story/13/04/09/2257223/electrical-engineer-unemployment-soars-software-developers-rate-drops-to-22
+.. @+node:mde.20130628005055.4442: *3* Agile for Education
+http://www.youtube.com/watch?v=UhfNlxkCshk
+
+假如人在全球化的知識經濟活動中也算是來自學習流程中所衍生的"產品":
+
+短週期的漸增式功能提升與終身永續學習將成為敏捷化學習趨勢
+
+短週期的漸增功能提升 - 每兩三週就要達成明確的學習標的
+
+終身永續學習 - 學習沒有止境, 隨時隨地都要學習
 .. @+node:mde.20130617220941.2956: *3* 趨勢
 程式其實無所不在
 
 即便您對於電腦程式的學習實在提不起任何興趣, 請您耐著性子, 看完這裏的說明, 為何任何一個現代人多多少少都必須具備"程式"能力.
 
-程式 - 並不一定意味著只有在電腦上執行的編碼, 程式其實就是依照特定格式與流程所進行的方式.
+程式 - 並不一定意味著只有在電腦上執行的編碼, 程式其實就是"依照特定格式與流程所進行的方式".
 
-再看一遍, 依照特定格式與流程所進行的方式, 可以用來指一趟旅程, 從 A 點到 B 點選擇搭乘某一種交通工具, 然後在 B 點住上一晚, 接著再搭乘另外一種交通工具到達 C 點.
+再看一遍, "依照特定格式與流程所進行的方式", 可以用來指一趟旅程, 從 A 點到 B 點選擇搭乘某一種交通工具, 然後在 B 點住上一晚, 接著再搭乘另外一種交通工具到達 C 點.
 
 這樣的一趟旅行安排, 就是程式的一種, 只是這種流程的安排較為鬆散且自由, 從 A 點到 B 點可以選擇各種交通工具, 在 B 點的住宿或許也可以有許多選擇, 但是無論如何, 按照既定的行程與時間規劃, 來安排旅程, 就是一種程式.
 
-將旅程的安排比喻為程式, 就是希望告訴未來的工程師, 針對特定格式流程的安排的需求, 其實無所不在, 不僅每一個人都有機會面對各種"程式"的安排, 而且善於規劃與安排這些特殊旅程內容者, 就比較不會錯過該搭的交通工具, 定錯原先要住宿的地點, 更不會讓原先充滿遊興的旅程, 被導遊給安排得面目全非.
+將旅程的安排比喻為程式, 就是希望告訴未來的機械設計工程師, 針對特定格式流程的安排的需求, 其實無所不在, 不僅每一個人都有機會面對處理各種"程式"的安排, 而且善於規劃與安排這些特殊旅程內容者, 就比較不會錯過該搭的交通工具, 定錯原先要住宿的地點, 更不會讓原先充滿遊興的旅程, 被"不善於程式規劃"的導遊給安排得面目全非.
 
 任何人都無法脫離電腦所帶來的影響
 
-接下來, 看看充斥在工程師週遭的工具 - 電腦, 這個不僅是現代人無法迴避的科學產物, 其實就連希望遺世獨立的"桃花源"人, 也一點都脫離不了關係.
+接下來, 看看充斥在機械設計工程師週遭的工具 - 電腦, 這個不僅是現代人無法迴避的科學產物, 其實就連希望遺世獨立的"桃花源"人, 也一點都脫離不了關係.
 
 主要的原因在於, 電腦科技的快速發展, 造就了數位化通信產業與交通業的高速發展, 沒有電腦, 其實人類根本無法大量設計製造並操作管理這些工具, 全球化四通八達的交通工具與無所不在的通訊電子裝置, 造成現今各國密集的人口移動與能源及物資的耗用, 無論是在地球的哪一個偏遠地區, 都將面臨全球暖化與天候急劇變化的影響.
 
 任何行業都需要利用電腦與網路來增加工作效能
 
 與電腦直接溝通的方式 - 就是寫電腦程式
+
+這一章節最後來看一個"程式", http://en.wikipedia.org/wiki/Project_Gutenberg 是一個號召來自全球義工進行開放資料數位化的計畫, 主要以建構能夠讓使用者自由下載運用的電子書資料, http://www.gutenberg.org/ebooks/ 網站上至今已經累積超過 4 萬本的自由電子書可以下載.
+
+接著我們要下載一份資料:
+
+1. 以瀏覽器連結到 http://www.gutenberg.org/ebooks/
+
+2. 在網站右上方的搜尋表單中, 輸入 29765 後按下 Enter 鍵, 就可以找到一份電子資料, 標題為: Webster's Unabridged Dictionary
+
+3. Webster's Unabridged Dictionary 是一份英英字典資料, 選擇下載格式為 Plain Text UTF-8, 容量將近 28 MB 的檔案後, 以 SciTE 編輯器開啟.
+
+4. 仔細觀察 Webster's Unabridged Dictionary 檔案內容, 可以發現字典中的英文單字全部以大寫字母表示, 隨後則是該對應單字的英文字義說明.
+
+面對此一下載的檔案, 我們希望進行處理, 然後回答以下問題:
+
+1. 全部的資料共有幾行? 所包含的單字數共有幾個?
+
+2. 能否將各單字與對應英文字義說明的部分予以區隔開來, 然後套進特定的格式架構, 以便能夠讓使用者執行"查單字字義"的功能?
+
+經過上面的敘述, 總共有以下幾個要點必須釐清與探討:
+
+1. 要能完成這兩個針對檔案處理的要求, 當然不一定要使用電腦, 但是請思考一下若這兩項工作並非由電腦"程式"執行(包括在網頁中搜尋編號 29765 號的電子書過程), 而是由人工"程式"執行, 將會產生何種情況與後果?
+
+2. 何謂 Webster's Unabridged Dictionary ? 為何要特別找英英字典檔案來處理?
+
+3. 何謂 Plain Text UTF-8 ?
+
+4. SciTE 編輯器如何使用?
+
+暫且不管上面所提問的問題, 利用 SciTE 編輯器, 將下面的程式放到編輯器中, 並且與所下載的 Webster's Unabridged Dictionary 檔案放在同一目錄下.
+
+.. code-block:: python
+
+    #coding: utf-8
+    # 檔案內容讀取範例
+    檔案 = open("WebsterUnabridgedDictionary.txt",encoding="UTF-8")
+    count = 0
+    所有資料 = 檔案.readlines()
+    print("這個檔案共有:"+str(len(所有資料))+"行")
+    
+    for 行數 in range(len(所有資料)):
+        # 若該行的所有字母都是大寫, 表示為單字開頭
+        行資料 = 所有資料[行數].rstrip()
+        if(行資料.isupper()):
+            # 列出單字
+            #print(行資料.encode("UTF-8"))
+            count += 1
+        else:
+            # 列出單字的所屬解釋
+            #print("解釋", end="")
+            #print(行資料.encode("UTF-8"))
+            continue
+    
+    print("單字數共有:"+str(count)+"個")
+    檔案.close() # 關閉檔案
+
+特別注意, 您所下載的英英字典檔案必須存為"WebsterUnabridgedDictionary.txt", 而且上面放入 SciTE 編輯區內的資料, 必須存為 getVocabulary.py, 然後利用滑鼠點擊 Tools->Go, 應該就可以得到:
+
+.. code-block:: python
+    
+    這個檔案共有:974265行
+    單字數共有:113794個
+
+的輸出結果, 也就是, 根據這個 "getVocabulary.py" 電腦讀進 WebsterUnabridgedDictionary.txt 英英字典檔案並且逐行分析之後, 告訴我們, 檔案共有 974265 行, 而單字數則有 113794 個.
+
+好了, 你親眼看到這個 22 行的 Python 程式, 幫我們進入這個英英字典檔案, 一行一行檢查後, 從容地告訴了我們一組答案, 到底是對還是錯? 我們應該要如何確認答案是否正確? 假如不是自行寫一個"電腦程式"來處理這個問題, 我們還有哪些選項?
+
+先想像一下, 假如手邊的資料不是英文單字, 而是機械設計過程中的零組件, 假如我們希望確認一下這些零組件的相關資料(比方說各零組件的體積), 或者從過去所設計過的零組件, 根據特定的標示或特徵尺寸組合(就好像全部用大寫拼出來的主要單字), 找出哪一些零組件可以用於目前正在設計的產品項目中, 該如何進行?
+
+手邊擁有電腦輔助設計繪圖乙級證照的同學, 已經開始竊笑了, 這不是任何一套檯面上的電腦輔助設計套件都提供的"基本功能"嗎? 查零組件的體積, 將零組件與外部的資料檔案(Excel 或資料庫檔案)進行資料同步連結, 甚至利用群組技術搜尋功能就可以達到.
+
+問題是要處理 974265 個零組件, 從中找出合用的 113794 個合用的零組件, 應該就不會希望透過人工操作滑鼠的流程來進行處理, 何況若實際的機械設計流程是必須配合協同設計團隊來變更各相關零組件的參數尺寸, 或配合執行更進一步的工程分析或製造流程規劃, 將會令整個設計流程更加繁複而必須透過"電腦"與網路輔助設計的流程才得以克服.
+
+以上字典原始資料的再利用則可透過下列程式達成:
+
+1. 在各單字 (全部都是大寫英文字母) 之上方放置一個單字分隔符號, 然後存為新檔案.
+
+.. code-block:: python
+
+    #coding: utf-8
+    # 這個程式主要在各單字上方置入分隔符號, 然後存為新檔案
+    from pybean import Store, SQLiteWriter
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
+    #vocabulary = Store(SQLiteWriter("webster_vocabulary.sqlite", frozen=False))
+    # 檔案內容讀取範例
+    檔案 = open("WebsterUnabridgedDictionary.txt",encoding="UTF-8")
+    新檔案 = open("WebsterUnabridgedDictionary_new.txt","w",encoding="UTF-8")
+    count = 0
+    所有資料 = 檔案.readlines()
+    print("這個檔案共有:"+str(len(所有資料))+"行")
+    
+    for 行數 in range(len(所有資料)):
+        # 若該行的所有字母都是大寫, 表示為單字開頭
+        行資料 = 所有資料[行數].rstrip()
+        # 新行資料保留跳行符號
+        新行資料 = 所有資料[行數]
+        #word = vocabulary.new("word")
+        if(行資料.isupper()):
+            # 在 word 資料表中建立 word 單字欄位
+            # 列出單字
+            #print("$-------$")
+            新檔案.write("$-------$\n")
+            新檔案.write(新行資料)
+            #print(行資料.encode("UTF-8"))
+            count += 1
+        else:
+            # 指向 word 資料表
+            # 在 word 資料表中建立 definition 單字定義欄位
+            #word.word = 單字
+            #word.definition = 行資料
+            # 列出單字的所屬解釋
+            #print("解釋", end="")
+            新檔案.write(新行資料)
+            #print(行資料.encode("UTF-8"))
+    
+    print("單字數共有:"+str(count)+"個")
+    檔案.close() # 關閉檔案
+    新檔案.close() # 關閉檔案
+
+2. 利用 Pybean 模組與 SQLite 資料庫系統, 利用第 1 步驟的分隔符號, 將單字與解釋內容分別放入 word 資料表中的 word 欄位與 defn 欄位:
+
+.. code-block:: python
+
+    from pybean import Store, SQLiteWriter
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
+    vocabulary = Store(SQLiteWriter("webster_vocabulary.sqlite", frozen=False))
+    新檔案 = open("WebsterUnabridgedDictionary_new.txt",encoding="UTF-8")
+    所有資料 = 新檔案.readlines()
+    print("這個檔案共有:"+str(len(所有資料))+"行")
+    #原始檔案 = 所有資料.split("$-------$\n")
+    資料 = ""
+    for 行數 in range(len(所有資料)):
+        # 若該行的所有字母都是大寫, 表示為單字開頭
+        #行資料 = 所有資料[行數].rstrip()
+        資料 += 所有資料[行數]
+    單字 = 資料.split("$-------$\n")
+    # 去掉第一個空白行單字
+    單字 = 單字[1:]
+    for 索引 in range(len(單字)):
+        word = 單字[索引].split("\n")
+        單字部分 = ""
+        解釋部分 = ""
+        for 次索引 in range(len(word)):
+            if (次索引 == 0):
+                #print("單字:",word[次索引].encode("UTF-8"))
+                單字部分 = word[次索引]
+            else:
+                #print(word[次索引].encode("UTF-8"))
+                解釋部分 += word[次索引]+"\n"
+        '''
+        print("單字部分:", 單字部分.encode("UTF-8"))
+        print("解釋部分:", 解釋部分.encode("UTF-8"))
+        print("")
+        '''
+        dbword = vocabulary.new("word")
+        dbword.word = 單字部分
+        dbword.defn = 解釋部分
+        vocabulary.save(dbword)
+        vocabulary.commit()
+    
+        #print(單字[索引].encode("UTF-8"))
+    新檔案.close() # 關閉檔案
+    
+3. 最後一個步驟則利用 CherryPy 與整理所得的字典檔案, 以網際程式介面讓使用者進行查詢:
+
+.. code-block:: python
+
+    #coding: utf-8
+     
+    import cherrypy
+    # 執行指令但是不要開啟 Windows shell 用
+    import subprocess
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
+     
+    class MyCheck(object):
+        _cp_config = {
+            'tools.sessions.on': True
+        }
+    
+        def nl2br(self, string, is_xhtml= True ):
+            if is_xhtml:
+                return string.replace('\n','<br />\n')
+            else :
+                return string.replace('\n','<br>\n')
+    
+        def doCheck(self, word=None):
+            vocabulary = Store(SQLiteWriter("webster_vocabulary.sqlite", frozen=True))
+            if (vocabulary.count("word","lower(word) like ?", [word]) == 0):
+                return "找不到與 "+ word.title() + "有關的資料!"
+            else:
+                result = vocabulary.find("word","lower(word) like ?", [word])
+                for item in result:
+                    output = word.title()+"<br /><br />"+str(self.nl2br(item.defn,True))+"<br />"
+                output += "<br /><a href=\"/\">重新查詢</a>"
+                return output
+     
+        doCheck.exposed = True
+     
+        def index(self):
+            return '''<html>
+    <head>
+      <title>查字典</title>
+    </head>
+    <body>
+      <form action="doCheck" method="post">
+        請輸入要查詢的單字:<input type="text" name="word" value="" 
+            size="15" maxlength="40"/>
+        <p><input type="submit" value="查詢"/></p>
+        <p><input type="reset" value="清除"/></p>
+      </form>
+    </body>
+    </html>'''		
+     
+        index.exposed = True
+     
+     # 由於 url 帶有 &, 無法直接使用 os.system() 開啟網頁同時派送變數, 因此改用 subprocess
+    url = 'http://localhost:8088/index'
+    chrome = "V:/apps/GoogleChromePortable/GoogleChromePortable.exe"
+    retcode = subprocess.call([chrome, url])
+    
+    # 指定程式執行的連接埠號, 內定為 8080
+    cherrypy.server.socket_port = 8088
+    # 指定程式執行所對應的伺服器 IP 位址, 內定為 127.0.0.1
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(MyCheck())
+
+4. 上面相同的英文單字查詢程式, 假如換成使用 wordnet30.db, 然後將資料庫查詢換成 Python 內建的 SQLite 查詢(因為 Pybean 比較陽春, 目前尚無法執行多資料表查詢), 則程式將可以修改為:
+
+wordnet30.db 下載: https://sites.google.com/a/mde.tw/service/2013fall_c1/wordnet30_sqlite.7z?attredirects=0&d=1
+
+.. code-block:: python
+
+    #coding: utf-8
+     
+    import cherrypy
+    # 執行指令但是不要開啟 Windows shell 用
+    import subprocess
+    import sqlite3
+    
+    class MyCheck(object):
+        _cp_config = {
+            'tools.sessions.on': True
+        }
+    
+        def nl2br(self, string, is_xhtml= True ):
+            if is_xhtml:
+                return string.replace('\n','<br />\n')
+            else :
+                return string.replace('\n','<br>\n')
+    
+        def doCheck(self, word=None):
+            # 聯結資料庫檔案
+            conn = sqlite3.connect("wordnet30.db")
+            # 取得目前 cursor
+            cursor = conn.cursor()
+    
+            sql = "SELECT word.wordid, synset.synsetid, pos, definition, sample \
+            FROM word, sense, synset, sample \
+            WHERE word.wordid = sense.wordid \
+            AND sense.synsetid = synset.synsetid \
+            AND sample.synsetid = synset.synsetid \
+            AND lemma = ?"
+    
+            output = ""
+            count = 0
+    
+            for row in cursor.execute(sql, [(word)]):
+                count += 1
+                output += str(count) + ": " + word.title() + " ("+ str(row[2])+")<br />Defn: " + str(self.nl2br(row[3],True)) + "<br />Sample: "  \
+                +  str(self.nl2br(row[4],True)) + "<br /><br />"
+    
+            output += "<br /><a href=\"/\">重新查詢</a>"
+    
+            return output
+     
+        doCheck.exposed = True
+     
+        def index(self):
+            return '''<html>
+    <head>
+      <title>查字典</title>
+    </head>
+    <body>
+      <form action="doCheck" method="post">
+        請輸入要查詢的單字:<input type="text" name="word" value="" 
+            size="15" maxlength="40"/>
+        <p><input type="submit" value="查詢"/></p>
+        <p><input type="reset" value="清除"/></p>
+      </form>
+    </body>
+    </html>'''	
+     
+        index.exposed = True
+     
+     # 由於 url 帶有 &, 無法直接使用 os.system() 開啟網頁同時派送變數, 因此改用 subprocess
+    url = 'http://localhost:8088/index'
+    chrome = "V:/apps/GoogleChromePortable/GoogleChromePortable.exe"
+    retcode = subprocess.call([chrome, url])
+    
+    # 指定程式執行的連接埠號, 內定為 8080
+    cherrypy.server.socket_port = 8088
+    # 指定程式執行所對應的伺服器 IP 位址, 內定為 127.0.0.1
+    cherrypy.server.socket_host = '127.0.0.1'
+    cherrypy.quickstart(MyCheck())
+
+
+最後總結一下:
+
+1. 程式其實就是: 依照特定格式與流程所進行的方式, 其中包括日常生活許多事物安排, 旅遊規劃, 購物規劃, 活動規劃等也都是程式.
+
+2. 電腦程式則是, 利用電腦獨特的數位化格式與運算來進行流程的處理, 而學習電腦程式, 就是希望可以利用電腦來處理架構繁複的工作.
+
+3. 學習電腦程式的必備基本能力就是英文, 因為大多數的電腦程式內部架構都採英文資料編寫, 許多相關的技術手冊也多為英文, 使用者必須能夠看懂這些英文資料.
+
+4. 機械設計工作經常必須面對許多運用電腦的機會, 包括資料處理、電腦輔助繪圖、數值分析等, 因此機械設計工程師必須熟習電腦程式的運作原理, 並且編寫程式來解決問題.
+
+5. 本系列課程包括程式語言(一)、程式語言(二)、電腦輔助設計實習與協同產品設計實習, 還有兩門輔助的網際網路應用與網際內容管理選修課程, 目的就是在協助機械設計工程師不僅能夠獨立運用電腦與網路來提升產品設計效能外, 也希望能夠搭建網際協同平台, 達到與來自全球各領域工程師合力開發新產品的目的.
 .. @+node:amd.20130514093510.2696: *3* C1 第一週
 程式語言課程學習目的在提供機械設計工程師一個直接運用電腦運算能力的管道, 由於機械設計工程領域牽涉許多與物理運作原理相關的技術, 無論是在初步產品設計概念的擬定或後續產品內容細部設計的分析, 都需要透過電腦程式來進行分析運算與資料管理, 雖然目前業界已經存在許多相關工具, 但是在特定情況下, 機械設計工程師仍然必須依照自己所擬定的分析流程來延伸既有軟體套件的功能, 或者打造完全客製化的軟體工具.
 
@@ -136,6 +464,8 @@ http://developers.slashdot.org/story/13/04/09/2257223/electrical-engineer-unempl
 - Java(Oracle)、 C# (Microsoft)與 Object-C(Apple)在大公司的加持下, 仍然具有固定的佔有率, 不會升高但是也很難降低
 
 - 其他程式語言, 當然未來提升佔有率(例如 Google 的 Go 與 Rebol, Lua 等)還是有機會, 可是人人無把握
+
+學習程式參考: http://worrydream.com/LearnableProgramming/
 .. @+node:mde.20130609005025.2836: *4* 直接執行程式
 Java 是一種需要編譯(Compile)的程式語言, 請直接在 Leo Editor 中選擇"第一週程式"下方的 @shadow c1/w1_1.java, 以滑鼠右鍵帶出"Edit c1/w1_1.java in SciTE.exe", 然後在 SciTE 程式編輯器中, 以滑鼠選擇 Tools->Compile, 等待程式編譯完成後, 再選擇 Tools->Go 執行程式, 然後依據程式指示完成執行動作.
 
@@ -208,6 +538,197 @@ w1_zmqcal1.py 負責送出運算要求, 而 w1_zmqcal2.py 則負責在雲端大�
 .. literalinclude:: ../c1/w1_zmqcal2.py
     :language: python
     :linenos:
+
+就數值的基本運算, 還有其他簡潔的程式語言嗎?
+
+有, Lua! 我們將會在 CADP 課程中的 VREP(Virtual Robot Experimentation Platform) 平台上使用.
+
+Lua 解譯程式大小只有 500K, 範例程式如下(使用支援 utf8 字符的版本):
+
+.. code-block:: lua
+
+    -- 簡單的程式
+    --[[
+    Lua 的多行註解
+    --]]
+    重複次數 = 5
+    for 索引=1,重複次數 do
+        print(索引,"Hello World!")
+        變數 = 索引
+    end
+    print(索引)
+    print(變數)
+    print(5e2)
+    print(5e-3)
+    print(0xff)
+    兩數值相加 = 2 + 2
+    print(兩數值相加)
+    兩數值相加 = 2 + 5000
+    print(兩數值相加)
+    -- 多重變數指令
+    第一數, 第二數, 第三數 = 10 + 10, 10 * 10, 10 ^ 10
+    print(第一數, 第二數, 第三數)
+    print([=[Special]] content can use pair notation.]=])
+    print([==[Special]] content can use pair notation. [=[.]==])
+    print([==[Special]] --[[ content can use pair notation. [=[.]==])
+    -- 兩個字串自動轉為數字後相加
+    print("1" + "5")
+    print("0.1" + "5.6")
+    -- 字串合併
+    print("1" .. "5")
+    print("0.1" .. "5.6")
+    -- 定義一個 square 函式, 注意必須要用 end 結束函式定義
+    function square(輸入)
+        return 輸入^2
+    end
+    -- 呼叫 square() 函式
+    print(square(4))
+
+以下則為利用 Lau 編寫簡單的基因演算程式:
+
+.. code-block:: lua
+
+    --
+    -- https://github.com/jbrownlee/learning-lua
+    -- A simple genetic algorithm for function optimization, in lua
+    -- Copyright (c) 2009 Jason Brownlee
+    --
+    -- It uses a binary string representation, tournament selection, 
+    -- one-point crossover, and point mutations. The test problem is 
+    -- called one max (a string of all ones)
+    --
+    
+    -- configuration
+    problemSize = 64
+    mutationRate = 0.005
+    crossoverRate = 0.98
+    populationSize = 64
+    maxGenerations = 50
+    selectionTournamentSize = 3
+    seed = os.time()
+    
+    function printf(...)
+        io.write(string.format(...))
+    end
+    
+    function crossover(a, b) 
+        if math.random() > crossoverRate then
+            return ""..a
+        end	
+        local cut = math.random(a:len()-1)
+        local s = ""
+        for i=1, cut do
+            s = s..a:sub(i,i)
+        end
+        for i=cut+1, b:len() do
+            s = s..b:sub(i,i)
+        end		
+        return s
+    end
+    
+    function mutation(bitstring)
+        local s = ""
+        for i=1, bitstring:len() do
+            local c = bitstring:sub(i,i)
+            if math.random() < mutationRate then		 
+                if c == "0" 
+                then s = s.."1"
+                else s = s.."0" end
+            else s = s..c end
+        end
+        return s
+    end
+    
+    function selection(population, fitnesses)
+        local pop = {}
+        repeat
+            local bestString = nil
+            local bestFitness = 0
+            for i=1, selectionTournamentSize do
+                local selection = math.random(#fitnesses)
+                if fitnesses[selection] > bestFitness then
+                    bestFitness = fitnesses[selection]
+                    bestString = population[selection]
+                end
+            end
+            table.insert(pop, bestString)
+        until #pop == #population
+        return pop
+    end
+    
+    function reproduce(selected)
+        local pop = {}
+        for i, p1 in ipairs(selected) do
+            local p2 = nil
+            if (i%2)==0 then p2=selected[i-1] else p2=selected[i+1] end
+            child = crossover(p1, p2)
+            mutantChild = mutation(child)
+            table.insert(pop, mutantChild);
+        end
+        return pop
+    end
+    
+    function fitness(bitstring)
+        local cost = 0
+        for i=1, bitstring:len() do
+            local c = bitstring:sub(i,i)
+            if(c == "1") then cost = cost + 1 end
+        end
+        return cost
+    end
+    
+    function random_bitstring(length)
+        local s = ""
+        while s:len() < length do
+            if math.random() < 0.5
+            then s = s.."0"
+            else s = s.."1" end
+        end 
+        return s
+    end
+    
+    function getBest(currentBest, population, fitnesses) 	
+        local bestScore = currentBest==nil and 0 or fitness(currentBest)
+        local best = currentBest
+        for i,f in ipairs(fitnesses) do
+            if(f > bestScore) then
+                bestScore = f
+                best = population[i]
+            end
+        end
+        return best
+    end
+    
+    function evolve()
+        local population = {}
+        local bestString = nil
+        -- initialize the popuation random pool
+        for i=1, populationSize do
+            table.insert(population, random_bitstring(problemSize))
+        end
+        -- optimize the population (fixed duration)
+        for i=1, maxGenerations do
+            -- evaluate
+            fitnesses = {}
+            for i,v in ipairs(population) do
+                table.insert(fitnesses, fitness(v))
+            end
+            -- update best
+            bestString = getBest(bestString, population, fitnesses)
+            -- select
+            tmpPop = selection(population, fitnesses)		
+            -- reproduce
+            population = reproduce(tmpPop)
+            printf(">gen %d, best cost=%d [%s]\n", i, fitness(bestString), bestString)
+        end	
+        return bestString
+    end
+    
+    -- run
+    printf("Genetic Algorithm on OneMax, with %s\n",_VERSION);
+    math.randomseed(seed)
+    best = evolve()
+    printf("Finished!\nBest solution found had the fitness of %d [%s].\n", fitness(best), best)
 .. @+node:mde.20130607093702.4062: *4* 學習基本概念
 在"變是唯一的不變"環境下, 快學現賣逐漸成為主流
 
@@ -260,6 +781,12 @@ http://en.wikipedia.org/wiki/Evolution
 4. 使用 Google Translate, 同時透過字句朗讀, 學習各字句的語音轉折關係, 每一字句聽完後可自行錄製存在手機中, 有時間時可以多聽幾遍, 以提升英文聽力.
  
 5. 觀看國外 Youtube 影片 (尤其是演講), 可同時開啟 CC (Closed Caption 或 subtitle, 即英文字幕), 第一次若無法了解各字句, 可透過字幕查詢字義後, 再關掉字幕, 嘗試辨識各字句的涵意, 多方練習, 即可提升英文聽力.
+
+假如您希望自學 SmallTalk:
+
+http://stephane.ducasse.free.fr/FreeBooks/Gnu/ProgrammingUsingGnuSmalltalk.pdf
+
+http://www.squeakbyexample.org/
 .. @+node:amd.20130527143027.2769: *4* 機械設計工程師如何學習程式?
 程式其實就是特定格式的程序, 而安排程序執行的目的通常希望能夠採最具效率的方式來完成某一項工作.
 
@@ -359,6 +886,30 @@ PHP 則是用來編寫網際程式最簡單的選擇, 目前全球有超過 70% 
 
 JavaScript 則使用在所有的網際應用上, 幾乎是全世界用戶最多的程式語言.
 .. @+node:mde.20130607093702.4061: *5* Python 2 轉為 Python 3 程式
+.. @+node:mde.20130620210832.6885: *5* 利用 Leo Editor 管理程式碼
+V:\IDE\Python33\Lib\site-packages\leo\scripts 目錄中的 scripts.leo 可以自動將某一 python 專案程式碼納入 Leo Editor 的大綱節點架構:
+
+1. 以 Leo Editor 開啟 V:\IDE\Python33\Lib\site-packages\leo\scripts 目錄中的 scripts.leo
+
+2. 將 scripts.leo 轉存到希望管理的 python 專案程式碼對應目錄上一層
+
+3. 修改 Recursive import script (with cleanups) 節點下的
+
+if 1:
+    theTypes = ('.ts',)
+    dir_ = r'C:\prog\typescript-fe3bc0bfce1f\src\compiler'
+else:
+    theTypes = ('.py',)
+    dir_ = r'C:\Python26\Lib\site-packages\rope'
+
+改為:
+
+theTypes = ('.py',)
+dir_ = 'V:\where\the\directory\of\your\prject'
+
+4. 利用 Ctrl+b 執行此一節點中的程式後, 即可自動解讀 V:\where\the\directory\of\your\prject 目錄下的 python 程式架構, 並且將程式碼以大綱目錄結構呈現.
+
+5. 若 .c 或 .java 程式專案, 則修改為 theTypes =('.c',) 或  theTypes =('.java',) 即可.
 .. @+node:mde.20130607093702.4056: *4* C 程式環境
 這裡所介紹的 C 主要在探討較為常用的 C 程式語法及架構, 並且著重在 C 指標的應用, 目的在爾後的硬體控制.
 
@@ -659,5 +1210,214 @@ Python 3D 繪圖
 .. literalinclude:: ../c1/w12_3dplot5.py
     :language: python
     :linenos:
+.. @+node:mde.20130620210832.9381: *3* C1 第十五週
+以亂數產生檔案
+
+.. code-block:: python
+
+    # 以亂數產生檔案
+    import string,random
+     
+    def makePassword(最短=5,最長=25):
+        # 產生介於最短與最長的亂數值
+      length=random.randint(最短,最長)
+      # 字元選擇包括大寫與小寫字母, 以及數字字元
+      letters=string.ascii_letters+string.digits
+      return ''.join([random.choice(letters) for 索引 in range(length)])
+     
+    檔案 = open("data2.txt", "a")
+    for 索引 in range(1000):
+        檔案.write(makePassword(60,75))
+        檔案.write("\n")
+    檔案.close()
+
+判定字串內容
+
+.. code-block:: python
+
+    import string
+    字串 = "abCDeF@$G3!21"
+    for 索引 in range(len(字串)):
+        # string.digits 為數字字串
+        if(字串[索引] in string.digits):
+            print(字串[索引]," 為數字")
+        # string.ascii_letters 包括英文大寫與小寫字母
+        elif(字串[索引] in string.ascii_letters):
+            print(字串[索引]," 為英文字母, 而且 ", end="")
+            # 利用 string.isupper() 判斷是否為大寫字母, 若字元為大寫則字元.isupper() 為真
+            if(字串[索引].isupper()):
+                print(字串[索引]," 為大寫英文字母")
+            else:
+                print(字串[索引]," 為小寫英文字母")
+        else:
+            print(字串[索引]," 不是英文字母也不是數字")
+            
+
+逐行讀取檔案內容
+
+.. code-block:: python
+
+    import string
+    # 檔案內容讀取範例
+    檔案 = open("myfile.txt","r")
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        行資料 = 檔案.readline()
+        if len(行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        # 列出所讀取的各行資料
+        print(行資料)
+    檔案.close() # 關閉檔案
+
+計算各行數字總和:
+
+.. code-block:: python
+
+    import string
+    # 檔案內容讀取範例
+    檔案 = open("data.txt","r")
+    計算 = 0
+    數字 = 0
+    總數 = 0
+    行數 = 0
+    最大數 = 0
+    最大行 = 0
+    最大內容 = []
+    while True:
+        # readline() 讀取單行
+        # readlines() 讀取多行, 並放入串列資料格式中
+        行資料 = 檔案.readline()
+        if len(行資料) == 0: # 若該行的字數為 0, 表示已經到底
+            break
+        #print(len(行資料))
+        行數 += 1
+        總數 = 0
+        內容 = []
+        for 索引 in range(len(行資料)):
+            if(行資料[索引] == "P"):
+                計算 +=1
+            if(行資料[索引] in string.digits):
+                數字 += 1
+                總數 += int(行資料[索引])
+                內容.append(行資料[索引])
+        if(總數 > 最大數):
+            最大數 = 總數
+            最大行 = 行數
+            最大內容 = 內容
+        #print(最大行)
+    print(計算, 數字, 總數, 最大數, 行數)
+    print(最大數, 最大行, 最大內容)
+    檔案.close() # 關閉檔案
+
+若資料檔案中沒有斷行, 則必須自行斷行, 再作內容判讀:
+
+.. code-block:: python
+
+    import string
+    # 檔案內容讀取範例
+    行資料 = ''
+    行數列 = []
+    累加字元數 = 0
+    '''
+    #data3.txt 以下列程式產生
+    # 以亂數產生檔案
+    import string,random
+     
+    def makePassword(最短=5,最長=25):
+        # 產生介於最短與最長的亂數值
+      length=random.randint(最短,最長)
+      # 字元選擇包括大寫與小寫字母, 以及數字字元
+      letters=string.ascii_letters+string.digits
+      return ''.join([random.choice(letters) for 索引 in range(length)])
+     
+    檔案 = open("data3.txt", "a")
+    for 索引 in range(1000):
+        檔案.write(makePassword(60,75))
+        #檔案.write("\n")
+    檔案.close()
+    '''
+    檔案 = open("data3.txt","r")
+    全部資料 = 檔案.readlines()
+    # 由於全部資料為具有一個元素的數列, 以[0] 取出
+    資料總字元數 = len(全部資料[0])
+    print(資料總字元數)
+    # 利用 for 迴圈逐字元取出分析
+    for 索引 in range(len(全部資料[0])):
+        # 若希望每 60 個字元作為一行
+        #print(全部資料[0][索引], end="")
+        # 將逐一字元累集的字元指到行資料變數
+        行資料 += 全部資料[0][索引]
+        if((索引+1)%60 == 0):
+            # 每 60 個字元進行跳行
+            #print()
+            # 每 60 個字元集合成為行數列中的一個元素
+            #print("本行有:",len(行資料),"個字元")
+            累加字元數 += 1
+            行數列.append(行資料)
+            # 行資料放入行數列後, 行資料變數必須重置, 設為空字串
+            # 以便在下一個 60 字元中進行資料指向用
+            行資料 = ''
+    # 若離開 for 迴圈之後, 行資料字串中若仍有資料, 表示最後一行小於 60 字元
+    # 將最後未滿 60 字元的內容放入行數列
+    if(行資料 != ''):
+        行數列.append(行資料)
+    #處理完行數列後, 列印出來檢查
+    #print(行數列)
+    # 進行資料查驗
+    print("共有幾個元素:",len(行數列), (len(行數列)-1)*60+len(行數列[-1]))
+    # 計算最後一行有幾個字元
+    print(len(行數列[-1]))
+    檔案.close() # 關閉檔案
+    
+Python 在微積分教學上的應用:
+
+.. code-block:: python
+
+    #資料來源: https://mail.python.org/pipermail/edu-sig/2003-March/002757.html
+    def 求導數(函數, 變量=1e-3):
+        def 導數函數(x):
+            導數 =(函數(x+變量)-函數(x))/變量
+            return round(導數, 3)
+        return 導數函數
+     
+    def 求定積分(函數, 變量=1e-3):
+        def 積分函數(積分上限, 積分下限=0):
+            總和=0
+            x = 積分下限
+            while x &lt;= 積分上限:
+                總和 += 變量*(函數(x+變量)+函數(x))/2.0
+                x += 變量
+            return round(總和, 3)
+        return 積分函數
+     
+    def 某函式(x):
+        return x*x
+     
+    某函式導數 = 求導數(某函式, 變量=1e-5)
+     
+    print([某函式(x) for x in range(11)])
+    print([2*x for x in range(11)])
+    print([某函式導數(x) for x in range(11)])
+    某函式導數 = 求導數(某函式, 變量=1e-5)
+    print([某函式導數(x) for x in range(11)])
+     
+    反函式 = 求定積分(求導數(某函式, 變量=1e-5), 變量=1e-5)
+    print([反函式(x) for x in range(11)])
+     
+    另一反函式 = 求導數(求定積分(某函式))
+    print([另一反函式(x) for x in range(11)])
+
+考試題目範例:
+
+根據 [url=https://sites.google.com/a/mde.tw/service/2013fall_c1/c1w17_files.7z?attredirects=0&d=1]資料檔案[/url] 與[url=http://blog.kmol.info/?p=870]程式範例[/url] 作為參考, data.txt 檔案中, 共有幾個字元為數字?
+
+根據 [url=https://sites.google.com/a/mde.tw/service/2013fall_c1/c1w17_files.7z?attredirects=0&d=1]資料檔案[/url] 與[url=http://blog.kmol.info/?p=870]程式範例[/url] 作為參考, data.txt 檔案中, 將所有數字加總, 其和為?
+
+根據 [url=https://sites.google.com/a/mde.tw/service/2013fall_c1/c1w17_files.7z?attredirects=0&d=1]資料檔案[/url] 與[url=http://blog.kmol.info/?p=870]程式範例[/url] 作為參考, data.txt 檔案中, 總共有幾個 "a" 字元?
+
+根據 [url=https://sites.google.com/a/mde.tw/service/2013fall_c1/c1w17_files.7z?attredirects=0&d=1]資料檔案[/url] 與[url=http://blog.kmol.info/?p=870]程式範例[/url] 作為參考, data.txt 檔案中, 若將各行所出現的數字相加作為比較, 擁有最大加總的行號為?
+
+根據 [url=https://sites.google.com/a/mde.tw/service/2013fall_c1/c1w17_files.7z?attredirects=0&d=1]資料檔案[/url] 與[url=http://blog.kmol.info/?p=870]程式範例[/url] 作為參考, data.txt 檔案中, 若將各行所出現的數字相加作為比較, 擁有最大加總總數的特定某一行, 其數字加總總數為?
 .. @-all
 .. @-leo
