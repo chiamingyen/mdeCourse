@@ -44,7 +44,7 @@
 expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2692" a="E"><vh>程式語言(一)</vh>
-<v t="mde.20130608155347.2808"><vh>C1 第一週程式</vh>
+<v t="mde.20130608155347.2808" a="E"><vh>C1 第一週程式</vh>
 <v t="mde.20130608155347.2809"><vh>@shadow c1/w1_1.java</vh></v>
 <v t="mde.20130609005025.2832"><vh>@shadow c1/w1_server1.py</vh></v>
 <v t="mde.20130609005025.2833"><vh>@shadow c1/w1_client1.py</vh></v>
@@ -54,6 +54,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="mde.20130609005025.2838"><vh>@shadow c1/w1_zmqclient1.py</vh></v>
 <v t="mde.20130609005025.2839"><vh>@shadow c1/w1_zmqcal1.py</vh></v>
 <v t="mde.20130609005025.2840"><vh>@shadow c1/w1_zmqcal2.py</vh></v>
+<v t="mde.20130802140435.6621"><vh>@shadow c1/w1_proxy_server1.py</vh></v>
 </v>
 <v t="kmolII_lite.20130613204216.2850"><vh>C1 第二週程式</vh>
 <v t="kmolII_lite.20130613204216.2851"><vh>@shadow c1_w2_guess1.py</vh></v>
@@ -90,8 +91,8 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="mde.20130617220941.5842"><vh>@shadow c1/w12_3dplot4.py</vh></v>
 <v t="mde.20130617220941.5843"><vh>@shadow c1/w12_3dplot5.py</vh></v>
 </v>
-<v t="kmolII_lite.20130614201704.3008"><vh>C1 第十五週程式</vh>
-<v t="kmolII_lite.20130614201704.3012"><vh>6link robot</vh>
+<v t="kmolII_lite.20130614201704.3008" a="E"><vh>C1 第十五週程式</vh>
+<v t="kmolII_lite.20130614201704.3012" a="E"><vh>6link robot</vh>
 <v t="kmolII_lite.20130614201704.3013"><vh>@button 6linkrobot</vh></v>
 <v t="kmolII_lite.20130614201704.3014"><vh>@edit c1/w15/6linkrobot/main.cpp</vh></v>
 </v>
@@ -119,7 +120,7 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd.20130514093510.2694" a="E"
-expanded="amd.20130514093510.2695,amd.20130514093510.2696,mde.20130609005025.2831,amd.20130515005753.3887,mde.20130607093702.4055,mde.20130607093702.4057,amd.20130515005753.3890,"><vh>@file c1.txt</vh></v>
+expanded="amd.20130514093510.2695,amd.20130514093510.2696,mde.20130609005025.2831,mde.20130607093702.4055,mde.20130607093702.4057,amd.20130515005753.3890,"><vh>@file c1.txt</vh></v>
 </v>
 <v t="amd.20130514093510.2702" a="E"><vh>電腦輔助設計實習</vh>
 <v t="kmolII_lite.20130613204216.2848" a="E"><vh>CADP 第一週程式</vh>
@@ -129,12 +130,12 @@ expanded="amd.20130514093510.2695,amd.20130514093510.2696,mde.20130609005025.283
 <v t="amd.20130514093510.2704" a="E"
 expanded="amd.20130514093510.2705,amd.20130514093510.2708,mde.20130608155347.2811,mde.20130608155347.2812,mde.20130608155347.2813,mde.20130609005025.2824,"><vh>@file cadp.txt</vh></v>
 </v>
-<v t="amd.20130514093510.2683" a="E"><vh>網際網路應用</vh>
+<v t="amd.20130514093510.2683"><vh>網際網路應用</vh>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd.20130514093510.2684" a="E"
 expanded="amd.20130514093510.2685,"><vh>@file ia.txt</vh></v>
 </v>
-<v t="amd_yen.20130308210411.2384" a="E"><vh>程式語言(二)</vh>
+<v t="amd_yen.20130308210411.2384"><vh>程式語言(二)</vh>
 <v t="amd_yen.20130429141318.2219"><vh>為何要學習程式?</vh></v>
 <v t="amd_yen.20130318140025.2833"><vh>有關程式語言</vh></v>
 <v t="amd_yen.20130308221230.2437" a="E"><vh>C2 第一週程式</vh>
@@ -247,7 +248,7 @@ expanded="amd_yen.20130308210411.2388,amd_yen.20130308214521.2438,amd_yen.201303
 </v>
 <v t="amd_yen.20130312013510.1498"></v>
 <v t="amd_yen.20130308210411.2392" a="E"
-expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,mde.20130607093702.4052,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130421114440.2136,amd.20130517200829.2761,amd.20130527143027.2771,"><vh>@file cd.txt</vh></v>
+expanded="amd_yen.20130308210411.2393,amd_yen.20130308214521.2427,mde.20130607093702.4052,amd_yen.20130314194325.1511,amd_yen.20130318140025.2834,amd_yen.20130309155804.1711,amd_yen.20130320201815.1570,amd_yen.20130330144838.2033,amd_yen.20130421114440.2136,mde_leo.20130510215619.7575,amd.20130517200829.2760,amd.20130517200829.2761,amd.20130527143027.2771,"><vh>@file cd.txt</vh></v>
 </v>
 <v t="amd_yen.20130308210411.2386" a="E"><vh>網際內容管理</vh>
 <v t="amd_yen.20130406103207.2438"><vh>django 程式開發</vh>
@@ -636,7 +637,95 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <t tx="amd.20130513215328.2669"></t>
 <t tx="amd.20130514093510.2683"></t>
 <t tx="amd.20130514093510.2692"></t>
-<t tx="amd.20130514093510.2702"></t>
+<t tx="amd.20130514093510.2702">2013 Fall 電腦輔助設計實習課程內容規劃
+
+電腦輔助設計實習項目:
+
+W1-W3
+
+1. 電腦輔助設計資料處理 - 從特定格式檔案中擷取所需要的資料.
+
+2007 版之後的 docx 檔案其實是一個 zip 壓縮檔案, 其中包含各種編輯格式設定與內文, 請在了解 docx 檔案格式定義後, 從 docx 檔案中取出不含編排格式的內文.
+
+參考資料: 
+
+Python
+
+https://github.com/mikemaccana/python-docx
+
+Java
+
+https://github.com/plutext/docx4j
+
+Javascript
+
+https://github.com/stephen-hardy/DOCX.js
+
+Ruby
+
+https://github.com/chrahunt/docx
+
+PHP
+
+https://github.com/djpate/docxgen
+
+W4-W6
+
+2. 零組件繪圖與電腦輔助設計應用 - ASCII STL 零件檔與 Binary STL 零件檔案讀取與顯示.
+
+請自行編寫程式讀取兩種不同格式的零件檔案, 並動態顯示零件造型.
+
+參考資料:
+    
+Python
+
+https://github.com/dkobozev/tatlin
+
+https://github.com/annikoff/stlviewer
+
+Javascript
+
+http://xh.edx.tw/?viewpart
+
+W7-W9
+
+3. 電腦輔助數值分析 - 解常微分方程式與基本 2D 繪圖
+
+W10-W12
+
+4. 2D/3D 參數繪圖軟體程式碼巡禮 - Solvespace 程式碼解讀練習
+
+請根據 Solvespace 所提供的軟體程式碼, 回答下列問題:
+
+4-1 該程式分別採用哪些程式語言編寫?
+
+4-2 該程式的視窗功能表採用哪一技術?
+
+4-3 該程式的編譯需要哪些工具?
+
+4-4 該程式採用哪一種圖形顯示程式庫來檢視 2D/3D 零件?
+
+4-5 該程式實現 2D 參數繪圖的尺寸標註功能, 牽涉到哪幾個程式碼檔案?
+
+參考資料
+
+http://solvespace.com (2013 年 7 月起轉為開放原始碼自由授權套件)
+
+實習專案:
+
+W13-W15
+
+5.  請利用 Solvespace 執行某一四連桿平面機構的運動模擬, 並且輸出特定點的運動軌跡.
+
+5-1.  請自行編寫一個程式來驗證由 Solvespace 所取得的四連桿平面機構的運動軌跡.
+
+W16-W18
+
+6. 電腦輔助最佳化設計運算
+
+紙箱體積最大化設計解析法(analytical solution)
+
+紙箱體積最大化設計演化搜尋法(evolutional search solution)</t>
 <t tx="amd.20130515005753.3849">source: http://code.google.com/p/steroidhunt/</t>
 <t tx="amd_yen.20130306001037.1797"></t>
 <t tx="amd_yen.20130306001037.1798">QSplitter::handle {

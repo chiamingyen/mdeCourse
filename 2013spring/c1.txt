@@ -481,6 +481,8 @@ Java 是一種需要編譯(Compile)的程式語言, 請直接在 Leo Editor 中�
 
 . 何謂 Java 程式語言, 有何特點?
 
+. 何謂 JVM? http://en.wikipedia.org/wiki/Java_virtual_machine
+
 以下為 w1_1.java 程式碼:
 
 .. literalinclude:: ../c1/w1_1.java
@@ -498,6 +500,8 @@ Python 則是一種解譯式的程式語言, 程式在執行當下才即時自�
 . 何謂客戶端程式?
 
 . 何謂 Python? Python 版次 2 與版次 3 的程式有何差別?
+
+. 何謂 Jython? 何謂 IronPython?
 
 . 何謂字串?
 
@@ -538,10 +542,25 @@ w1_zmqcal1.py 負責送出運算要求, 而 w1_zmqcal2.py 則負責在雲端大�
 .. literalinclude:: ../c1/w1_zmqcal2.py
     :language: python
     :linenos:
+    
+以下利用 Python3 語法編寫 proxy server
+
+.. literalinclude:: ../c1/w1_proxy_server1.py
+    :language: python
+    :linenos:
 
 就數值的基本運算, 還有其他簡潔的程式語言嗎?
 
 有, Lua! 我們將會在 CADP 課程中的 VREP(Virtual Robot Experimentation Platform) 平台上使用.
+
+為了讓 SciTE 可以正確解譯 Lua 程式, 需要 lua.properties 設定檔案, 而且確認 lua.exe 與 Tool->Go 指令的設定修改.
+
+.. code-block:: none
+
+    # define lua.exe
+    lua=V:/IDE/Lua/lua.exe
+    # Lua 5.1
+    command.go.*.lua=$(lua)  -e "io.stdout:setvbuf 'no'" "$(FileNameExt)"
 
 Lua 解譯程式大小只有 500K, 範例程式如下(使用支援 utf8 字符的版本):
 
@@ -821,6 +840,16 @@ http://www.squeakbyexample.org/
 4. 因為 Python 與 PHP 都是解譯式程式語言, 非常適合進行機械設計流程的配置使用, 若在過程中需要執行速度, 則可以將部分運算流程改由 C/C++ 編寫, 然後再由 Python 呼叫執行, 而 PHP 則是目前在主流資料庫系統連結最簡易且完整的方案(可以從國際大型 Wki, 網誌, 內容管理開發採用中得到印證).
 
 5. 至於 Java 則是目前用來開發大型 MCAD, CAE 與 CAM 的首選, 假如未來希望朝向跨平台軟體系統開發的路走, 則必須要精通 Java 與 C++, 假如希望充分發揮 Windows 的功能與特性, 則還必須擅長 C#.
+
+機械設計工程師利用電腦進行設計的好處:
+
+1. 可以快速執行重複性的數值計算與資料處理, 節省設計時間.
+
+2. 可以利用電腦模擬實際的零件形體, 達到事先確認與評量的目的.
+
+3. 電腦輔助設計的結果為數位資料, 可以方便傳輸, 重用與保存.
+
+4. 電腦程式可以透過網路結合分處不同地方的設計者, 執行協同設計. 
 
 總結
 
