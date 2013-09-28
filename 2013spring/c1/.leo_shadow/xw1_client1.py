@@ -11,7 +11,7 @@ import socket
 # 取得主機名稱
 主機 = socket.gethostname()
 # 設定埠號
-埠號 = 12345
+埠號 = 9000
 # 利用通信套接物件的 connect 方法, 設定連線主機與埠號
 通信.connect((主機, 埠號))
 

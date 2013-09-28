@@ -2375,12 +2375,20 @@ https://github.com/CreativeMachinesLab/aracna
     # minimization problem
     # create(name, base, attributes)
     '''
-    The weights are used in the fitness comparison. They are shared among all fitnesses of the same type. When subclassing Fitness, the weights must be defined as a tuple where each element is associated to an objective. A negative weight element corresponds to the minimization of the associated objective and positive weight to the maximization.
+    The weights are used in the fitness comparison. They are shared among all fitnesses of the same type. 
+    When subclassing Fitness, the weights must be defined as a tuple where each element is associated
+     to an objective. A negative weight element corresponds to the minimization of the associated 
+     objective and positive weight to the maximization.
     '''
     # weights 為 1.0 表示最大化 fitness
     creator.create("FitnessMax", base.Fitness, weights=(1.0,))
     '''
-    Evolution strategies individuals are slightly different as they contain generally two list, one for the actual individual and one for its mutation parameters. This time instead of using the list base class we will inherit from an array.array for both the individual and the strategy. Since there is no helper function to generate two different vectors in a single object we must define this function our-self. The initES() function receives two classes and instantiate them generating itself the random numbers in the intervals provided for individuals of a given size.
+    Evolution strategies individuals are slightly different as they contain generally two list, 
+    one for the actual individual and one for its mutation parameters. This time instead of using 
+    the list base class we will inherit from an array.array for both the individual and the strategy. 
+    Since there is no helper function to generate two different vectors in a single object we must 
+    define this function our-self. The initES() function receives two classes and instantiate them 
+    generating itself the random numbers in the intervals provided for individuals of a given size.
     '''
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMax)
     toolbox = base.Toolbox()
@@ -2465,5 +2473,132 @@ https://github.com/CreativeMachinesLab/aracna
          
     if __name__ == "__main__":
         main()
+.. @+node:cmsxh.20130919083502.2988: *3* CADP 第十週
+Solvespace 使用:
+
+http://solvespace.com/
+
+Solvespace 是一套小型的參數式 2D/3D 繪圖軟體, 支援下列功能:
+
+2D 繪圖:
+
+lines, rectangles, datum lines and points
+circles, arcs of a circle, datum circles
+cubic Bezier segments, C2 interpolating splines
+text in a TrueType font, exportable as vectors
+trims to split lines and curves where they intersect
+tangent arcs, to fillet lines and curves
+line styles for stroke color, stroke width, fill color
+adjustable snap grid, for entities and text
+menu item, keyboard shortcut, or toolbar
+cut and paste, in plane and from workplane to workplane
+background image with specified scale, for ease of tracing
+3Dconnexion six degree of freedom controllers
+
+約束條件與尺寸標註:
+
+distance (or line length), point-line distance, diameter
+projected distance, along a line or vector
+angle, curve-to-curve tangency, parallel, perpendicular
+horizontal, vertical
+equal length, equal angle, equal radius, length ratio
+line length equals arc length
+point on line, point on circle, point on point, point on face
+point at midpoint of line, line's midpoint on plane
+points (or line) symmetric about line or plane
+2d (projected into specified plane) and 3d geometry
+lengths in metric or inch units
+lengths entered as arithmetic expressions (32.6 + 5/25.4)
+
+3D 實體模型建立:
+
+extruded or lathed (solid of revolution) sketch
+Boolean operations: union (add material), difference (remove material)
+parametric step and repeat (pattern), rotating or translating
+operations performed on either meshes or NURBS surfaces
+
+參數與關聯組立:
+
+import parts and drag them with six degrees of freedom
+import mirrored or with arbitrary scale
+place parts in assembly using constraints
+import surfaces, and merge them using Boolean operations
+import lines and curves, for 2d work or solid operations later
+changes in parts propagate automatically into assembly
+
+基本分析功能:
+
+measurements on a part or assembly (of point coordinates, line length, point-point distance, point-face distance, projected distance, face-face angle, point-line distance)
+path traced by mechanism, exportable into a spreadsheet
+area of a plane sketch, volume of a solid shell
+degrees-of-freedom check to show unconstrained points in sketch
+interference check for assemblies
+"STL check" (vertex-to-vertex and not self-intersecting) for mesh
+
+檔案輸出:
+
+2d vector drawing as DXF, EPS, PDF, SVG, HPGL, STEP
+toolpath as G code
+as either piecewise linear segments or exact curves
+wireframe model, hidden-line removed model, vector shaded surfaces
+isometric view, orthogonal view, user-specified other view
+section of solid model
+with cutter radius compensation
+with adjustable canvas size
+3d wireframe as DXF, STEP
+triangle mesh as STL, Wavefront OBJ
+NURBS surfaces as STEP
+shaded view as bitmap
+.. @+node:cmsxh.20130919083502.5135: *4* Solvespace 編譯
+Solvespace 程式原始碼(2013.07 採 GPL 授權釋出)來自: http://solvespace.com 是一套 2D/3D 參數繪圖軟體.
+
+編譯 Solvespace, 系統中需要安裝 Visual Studio Express (若採用 2010 之後版本無需啟用, 只需要使用指令模式), 以及 Perl.
+
+自行編譯 Solvespace:
+
+1. 從 http://www.activestate.com/activeperl/downloads 下載 ActivePerl, 並完成安裝.
+
+安裝 Perl 目的在利用程式碼中的 png2c.pl 將程式中的 icon 轉為 .h 檔案, 在編譯時直接放入 .exe 中.
+
+2. 下載並安裝 Visual Studio Express. (2008 版之前的 Express 安裝後可以直接使用)
+
+3. 從 Visual Studio Express 表單中啟動 Dos Command.
+
+VS Express 版利用 rc.exe 編譯 resource 檔案, 若採用 MinGW 則可以使用 win32api 工具 windres.exe 執行編譯.
+
+4. 進入 Solvespace Makefile 所在目錄, 執行 nmake.
+
+就可以完成 Solvespace.exe 的編譯.
+
+利用 Leo Editor 整理的 Solvespace 原始碼專案, 可以由下列連結下載:
+
+https://sites.google.com/a/mde.tw/service/public/solvespace_project.7z.001?attredirects=0&d=1
+
+https://sites.google.com/a/mde.tw/service/public/solvespace_project.7z.002?attredirects=0&d=1
+
+目前已知 Solvespace 可以在 Linux Wine 環境下執行, 因為自帶 extlib - 包括 siapp.lib, zlib.lib, libpng.lib 等, 其中 siapp.lib 為相容於 http://www.3dconnexion.com/ 3D 滑鼠操作的程式庫, 因此 Makefile 經過修改後, 應該可以使用 Mingw 進行編譯, 若要轉進純 Linux 環境執行, 必須要將 Windows GUI 轉為 Linux 相關的 GUI 環境, 有鑑於 Solvespace 的輕薄短小, 使用 Qt 可能過大, 或許在跨平台的轉換下, 可以考慮將 GUI 由純視窗介面轉為 FLTK http://www.fltk.org/ 相容.
+.. @+node:cmsxh.20130919083502.5136: *5* Solvespace 程式架構
+.. @+node:cmsxh.20130919083502.2989: *4* Solvespace 繪圖
+繪圖順序:
+
+- 先選擇指令要作用的對象, 然後再選擇功能, 例如: 要標示某一直線的尺寸, 先選擇該直線, 然後再選擇尺寸標註功能.
+
+視圖控制:
+
+- 讓視圖與工作平面對齊(Align View to Workplane), 選擇 View -> Align View to Workplane, 或者使用快捷鍵 w
+
+工作面繪圖:
+
+- 選擇工作平面: 選擇座標軸的交點, 或者選擇兩直線及兩直線的交點
+
+    先選擇某一工作平面(利用上面兩種方法之一), 再選擇 New Group -> Sketch in New Workpland, 或者使用快捷鍵 Shift + w
+
+倒圓繪製:
+
+- 選擇兩直線交點, 然後再選擇 Sketch -> Tangent Arc at Point, 就可以在兩直線間繪製 fillet.
+
+平面機構模擬:
+
+    選擇追蹤點, 再選擇 Analyze -> Track Point, 接著移動輸入端機構,  Solvespace 就會繪出追蹤點的軌跡, 完成後再選擇 Analyze -> Stope Tracing, Solvespace 就會將追蹤點以 Excel 格式輸出並要求存檔.
 .. @-all
 .. @-leo

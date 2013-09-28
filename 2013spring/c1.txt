@@ -419,7 +419,7 @@ wordnet30.db 下載: https://sites.google.com/a/mde.tw/service/2013fall_c1/wordn
 
 1. 程式其實就是: 依照特定格式與流程所進行的方式, 其中包括日常生活許多事物安排, 旅遊規劃, 購物規劃, 活動規劃等也都是程式.
 
-2. 電腦程式則是, 利用電腦獨特的數位化格式與運算來進行流程的處理, 而學習電腦程式, 就是希望可以利用電腦來處理架構繁複的工作.
+2. 電腦程式則是, 利用電腦獨特的數位化格式與運算來進行流程的處理, 而學習電腦程式, 就是希望可以利用電腦來處理架構繁複且流程枯燥的工作.
 
 3. 學習電腦程式的必備基本能力就是英文, 因為大多數的電腦程式內部架構都採英文資料編寫, 許多相關的技術手冊也多為英文, 使用者必須能夠看懂這些英文資料.
 
@@ -429,7 +429,7 @@ wordnet30.db 下載: https://sites.google.com/a/mde.tw/service/2013fall_c1/wordn
 .. @+node:amd.20130514093510.2696: *3* C1 第一週
 程式語言課程學習目的在提供機械設計工程師一個直接運用電腦運算能力的管道, 由於機械設計工程領域牽涉許多與物理運作原理相關的技術, 無論是在初步產品設計概念的擬定或後續產品內容細部設計的分析, 都需要透過電腦程式來進行分析運算與資料管理, 雖然目前業界已經存在許多相關工具, 但是在特定情況下, 機械設計工程師仍然必須依照自己所擬定的分析流程來延伸既有軟體套件的功能, 或者打造完全客製化的軟體工具.
 
-一般而言, 用來打造機械設計工程相關軟體套件所使用的程式語言, 分為編譯類的 C/C++、C#、Java與其他解譯式動態類的 PHP、Python、Javascript等.
+一般而言, 用來打造機械設計工程相關軟體套件所使用的程式語言, 分為編譯類的 C/C++、C#、Java與其他解譯式動態類的 PHP、Python、Javascript、Lua等.
 
 編譯類:
 
@@ -449,6 +449,8 @@ wordnet30.db 下載: https://sites.google.com/a/mde.tw/service/2013fall_c1/wordn
 
 - Javascript 程式語言: 1995 年 Netscape 公司為了置入瀏覽器中所發明的解譯式程式語言, 2009 年 Node.js 將 Javascript 用於網際伺服器的後端開發後, 隨著 Html5 中各項多媒體標準的日趨完備, Javascript 所具備的網際環境前後端統一之開發優勢, 讓 Javascript 成為二十一世紀最有前景的程式語言之一, 廣見於各種消費者通信裝置的前後台技術中.
 
+- Lua 程式語言: 1993 年起唯一產自南半球的主流程式語言, 主要用於特定遊戲系統中的嵌入式程式語言, V-rep 機器人模擬套件採用 Lua 作為內建的模擬程式語言.
+
 趨勢解讀:
 
 - C/C++ 仍然主導各種操作系統的開發
@@ -460,6 +462,8 @@ wordnet30.db 下載: https://sites.google.com/a/mde.tw/service/2013fall_c1/wordn
 - Javascript 仍然會是全世界使用人口最多的瀏覽器程式語言
 
 - Ruby 與 Node.js 已經逐步成為最具效率的網站開發工具
+
+- Lua 仍然是目前最受歡迎的遊戲套件內建程式語言
 
 - Java(Oracle)、 C# (Microsoft)與 Object-C(Apple)在大公司的加持下, 仍然具有固定的佔有率, 不會升高但是也很難降低
 
@@ -551,7 +555,7 @@ w1_zmqcal1.py 負責送出運算要求, 而 w1_zmqcal2.py 則負責在雲端大�
 
 就數值的基本運算, 還有其他簡潔的程式語言嗎?
 
-有, Lua! 我們將會在 CADP 課程中的 VREP(Virtual Robot Experimentation Platform) 平台上使用.
+有, Lua! 我們將會在 CADP 課程中的 V-REP(Virtual Robot Experimentation Platform) 平台上使用.
 
 為了讓 SciTE 可以正確解譯 Lua 程式, 需要 lua.properties 設定檔案, 而且確認 lua.exe 與 Tool->Go 指令的設定修改.
 
@@ -763,7 +767,7 @@ Lua 解譯程式大小只有 500K, 範例程式如下(使用支援 utf8 字符�
 
 程式語言是使用者與可程式化軟硬體系統溝通的媒介, 隨著全球化經濟的發展, 不同地理位置區域之間的互動與整合流程, 隨著網路與通信系統的發展而日益蓬勃, 當空間約束因全球即時訊息互動而加速各種事物的發展時間情況下, 各種產品生命週期變短, 讓可隨使用者需求而進行組合變化的產品逐漸成為主流.
 
-新產品的要求 - 輕還要更輕、快還要更快、功能多還要更多、便宜還要更便宜(許多免費產品都仍乏人問津)、使用耐久還要不退流行.
+新產品的要求 - 輕還要更輕、快還要更快、功能多還要更多(指符合特定族群使用需求的功能)、便宜還要更便宜(許多免費產品都仍乏人問津)、使用耐久還要不退流行.
 
 將"可變化"置入產品的主要基因之中, 已經是不可或缺的元素, 因此透過程式讓可程式化的軟硬體充滿各種可能, 就成為工程師必要的專業技術與學養之一.
 
@@ -804,6 +808,14 @@ http://en.wikipedia.org/wiki/Evolution
 假如您希望自學 SmallTalk:
 
 http://stephane.ducasse.free.fr/FreeBooks/Gnu/ProgrammingUsingGnuSmalltalk.pdf
+
+https://github.com/mcandre/gst-win
+
+http://pupeno.com/2011/07/28/why-i-love-smalltalk/
+
+http://amber-lang.net/
+
+http://www.pharo-project.org/home
 
 http://www.squeakbyexample.org/
 .. @+node:amd.20130527143027.2769: *4* 機械設計工程師如何學習程式?
@@ -861,6 +873,38 @@ http://www.squeakbyexample.org/
 
 4. 每一個人的一生也是在執行程式, 必須彈性地配合需求不斷進行自我能力提升, 才能有機會得到高品質的生活經驗與結果.
 .. @+node:mde.20130609005025.2831: *4* Raspberry Pi
+Raspberry Pi - Model B 是一片信用卡大小的電腦主機板, 可以將影像輸出與電視機結合, 儘管採用小小的 ARM 晶片, 但是具備大多數一般桌上電腦的功能,  可執行試算表, 文書處理程式以及遊戲程式, 同時也能播放 HD 影片, 2013 年 9 月在美國地區的售價為一片美金 35 元.
+
+Raspberry Pi - Model B 所提供的硬體規格:
+
+1. Broadcom BCM2835 700MHz ARM1176JZFS processor with FPU and Videocore 4 GPU
+
+2. GPU provides Open GL ES 2.0, hardware-accelerated OpenVG, and 1080p30 H.264 high-profile decode
+
+3. GPU is capable of 1Gpixel/s, 1.5Gtexel/s or 24GFLOPs with texture filtering and DMA infrastructure
+
+4. 512 MB RAM
+
+5. Boots from SD card, running the Fedora version of Linux
+
+6. 10/100 BaseT Ethernet ports
+
+7. HDMI socket
+
+8. (2) USB 2.0 socket
+
+9. RCA video socket
+
+10. SD card socket
+
+11. Powered from microUSB socket
+
+12. 3.5 mm audio out jack
+
+13. Header footprint for camera connection
+
+14. Size: 85.6 x 53.98 x 17 mm
+
 在台灣購買
 
 http://www.raspberrypi.com.tw/purchase/
@@ -915,6 +959,131 @@ PHP 則是用來編寫網際程式最簡單的選擇, 目前全球有超過 70% 
 
 JavaScript 則使用在所有的網際應用上, 幾乎是全世界用戶最多的程式語言.
 .. @+node:mde.20130607093702.4061: *5* Python 2 轉為 Python 3 程式
+截至 2013 年第四季全世界仍有大半的 Python 用戶採用 Python 2.7 版之前的版本, 使用 Python 3 版的只佔大約一半, 這個原因是過去二十年以來已經有許多的模組套件是採用 Python 2 的語法編寫, 一時之間儘管許多重要的模組已經轉換為 Python 3 相容, 但是在可見的未來, Python 2 仍然會存在業界很久一段時間.
+
+由於 Python 2 的模組在 Python 3 環境下無法正確執行, 因此若模組不大, 使用者可以根據一些關鍵點自行修改:
+
+1. 針對較簡單的差異, 可以利用 Python33/Tools/Scripts/2to3.py 加以轉換.
+
+2. 模組名稱更改
+
+Python 2 name	Python 3 name
+__builtin__	builtins
+ConfigParser	configparser
+copy_reg	copyreg
+cPickle	pickle
+Queue	queue
+repr	reprlib
+SocketServer	socketserver
+Tkinter	tkinter
+_winreg	winreg
+thread	_thread
+dummy_thread	_dummy_thread
+markupbase	_markupbase
+
+3. 物件名稱更改
+
+Python 2 name	Python 3 name
+xrange()	range()
+reduce()	functools.reduce()
+intern()	sys.intern()
+unichr()	chr()
+basestring()	str()
+long()	int()
+itertools.izip()	zip()
+itertools.imap()	map()
+itertools.ifilter()	filter()
+itertools.ifilterfalse()	itertools.filterfalse()
+cookielib	http.cookiejar
+Cookie	http.cookies
+htmlentitydefs	html.entities
+HTMLParser	html.parser
+httplib	http.client
+Dialog	tkinter.dialog
+FileDialog	tkinter.FileDialog
+ScrolledText	tkinter.scolledtext
+SimpleDialog	tkinter.simpledialog
+Tix	tkinter.tix
+Tkconstants	tkinter.constants
+Tkdnd	tkinter.dnd
+tkColorChooser	tkinter.colorchooser
+tkCommonDialog	tkinter.commondialog
+tkFileDialog	tkinter.filedialog
+tkFont	tkinter.font
+tkMessageBox	tkinter.messagebox
+tkSimpleDialog	tkinter.simpledialog
+robotparser	urllib.robotparser
+urlparse	urllib.parse
+cStringIO.StringIO()	io.StringIO
+UserString	collections.UserString
+UserList	collections.UserList
+
+4. 模組名稱重組
+
+Python 2 name	Python 3 name
+BaseHTTPServer	http.server
+CGIHTTPServer	http.server
+SimpleHTTPServer	http.server
+whichdb	dbm
+anydbm	dbm
+dbm	dbm.ndbm
+dumbdbm	dbm.dumb
+gdbm	dbm.gnu
+dbm	dbm.ndbm
+dbm	dbm.ndbm
+DocXMLRPCServer	xmlrpc.server
+SimpleXMLRPCServer	xmlrpc.server
+commands	subprocess
+reduce()    functools.reduce()
+reload()    imp.reload()
+
+5. urllib 與 urllib2 模組重組
+
+Python 2 name	Python 3 name
+urllib.urlopen()    已經廢除, 以 urllib.request.urlopen() 對應 urllib2.urlopen()
+urllib.urlretrieve()	urllib.request.urlretrieve()
+urllib.urlcleanup()	urllib.request.urlcleanup()
+urllib.quote()	urllib.parse.quote()
+urllib.quote_plus()	urllib.parse.quote_plus()
+urllib.unquote()	urllib.parse.unquote()
+urllib.unquote_plus()	urllib.parse.unquote_plus()
+urllib.urlencode()	urllib.parse.urlencode()
+urllib.pathname2url()	urllib.request.pathname2url()
+urllib.url2pathname()	urllib.request.url2pathname()
+urllib.getproxies()	urllib.request.getproxies()
+urllib.URLopener	urllib.request.URLopener
+urllib.FancyURLopener	urllib.request.FancyURLopener
+urllib.ContentTooShortError	urllib.error.ContentTooShortError
+urllib2.urlopen()	urllib.request.urlopen()
+urllib2.install_opener()	urllib.request.install_opener()
+urllib2.build_opener()	urllib.request.build_opener()
+urllib2.URLError	urllib.error.URLError
+urllib2.HTTPError	urllib.error.HTTPError
+urllib2.Request	urllib.request.Request
+urllib2.OpenerDirector	urllib.request.OpenerDirector
+urllib2.BaseHandler	urllib.request.BaseHandler
+urllib2.HTTPDefaultErrorHandler	urllib.request.HTTPDefaultErrorHandler
+urllib2.HTTPRedirectHandler	urllib.request.HTTPRedirectHandler
+urllib2.HTTPCookieProcessor	urllib.request.HTTPCookieProcessor
+urllib2.ProxyHandler	urllib.request.ProxyHandler
+urllib2.HTTPPasswordMgr	urllib.request.HTTPPasswordMgr
+urllib2.HTTPPasswordMgrWithDefaultRealm	urllib.request.HTTPPasswordMgrWithDefaultRealm
+urllib2.AbstractBasicAuthHandler	urllib.request.AbstractBasicAuthHandler
+urllib2.HTTPBasicAuthHandler	urllib.request.HTTPBasicAuthHandler
+urllib2.ProxyBasicAuthHandler	urllib.request.ProxyBasicAuthHandler
+urllib2.AbstractDigestAuthHandler	urllib.request.AbstractDigestAuthHandler
+urllib2.HTTPDigestAuthHandler	urllib.request.HTTPDigestAuthHandler
+urllib2.ProxyDigestAuthHandler	urllib.request.ProxyDigestAuthHandler
+urllib2.HTTPHandler	urllib.request.HTTPHandler
+urllib2.HTTPSHandler	urllib.request.HTTPSHandler
+urllib2.FileHandler	urllib.request.FileHandler
+urllib2.FTPHandler	urllib.request.FTPHandler
+urllib2.CacheFTPHandler	urllib.request.CacheFTPHandler
+urllib2.UnknownHandler	urllib.request.UnknownHandler
+
+6. print(), exec(), IOError(), Exception(), TypeError() 都改為函式與法
+
+7. next() 直接對 iterator 物件作用, 不再將 next() 納入物件方法使用
 .. @+node:mde.20130620210832.6885: *5* 利用 Leo Editor 管理程式碼
 V:\IDE\Python33\Lib\site-packages\leo\scripts 目錄中的 scripts.leo 可以自動將某一 python 專案程式碼納入 Leo Editor 的大綱節點架構:
 
@@ -942,7 +1111,17 @@ dir_ = 'V:\where\the\directory\of\your\prject'
 .. @+node:mde.20130607093702.4056: *4* C 程式環境
 這裡所介紹的 C 主要在探討較為常用的 C 程式語法及架構, 並且著重在 C 指標的應用, 目的在爾後的硬體控制.
 
-C Tutorial
+C 的編譯器:
+
+1. 在 Windows 環境可以採用 TinyC 或 MinGW
+
+TinyC - http://bellard.org/tcc/
+
+MinGW - http://www.mingw.org/
+
+2. 在 Linux 則可以使用制式的 gcc
+
+C Tutorial:
 
 http://einstein.drexel.edu/courses/Comp_Phys/General/C_basics/
 
@@ -991,7 +1170,7 @@ SciTE 系統中的 cpp.properties 檔案中負責處理 .c .cpp 與 .java 程式
 .. @+node:mde.20130608155347.2810: *5* SciTE 環境下編譯執行 Java
 參考資料: http://openhome.cc/Gossip/JavaGossip-V1/FirstJava.htm
 .. @+node:mde.20130607093702.4058: *4* PHP 程式環境
-PHP 是一種為網路應用而生的程式語言, 雖然 PHP 也可以用來開發單機視窗程式, 但是大多數的 PHP 應用幾乎都集中在網際環境, 尤其與 MySQL 搭配下, 成就了 Wikipedia, Facebook, phpbb, Wordpress, Drupal 等著名的網際應用.
+PHP 是一種為網路應用而生的程式語言, 雖然 PHP 也可以用來開發單機視窗程式, 但是大多數的 PHP 應用幾乎都集中在網際環境, 尤其與 MySQL 搭配下, 成就了 Wikipedia, Facebook, phpbb, Wordpress, Drupal 等著名的網際應用套件.
 
 協同產品設計實習所使用的群組軟體 Simple Groupware, 就是採用 PHP + MySQL 或 SQLite 建構的網際套件.
 
@@ -1015,9 +1194,9 @@ Beginning Lua with World of Warcraft Add-ons (2009)
 
 http://rd.springer.com/book/10.1007/978-1-4302-2372-6/page/1
 .. @+node:mde.20130609005025.2830: *4* Forth 程式環境
-除了主流程式語言外, Forth 程式語言有其特點, 許多著名的軟體套件也都使用 Forth, 其中包括 AutoDesk 與 Java.
+除了主流程式語言外, Forth 程式語言有其特點, 許多著名的軟體套件也都使用 Forth, 其中包括 AutoCAD 與 Java.
 
-AutoDesk 部分程式碼使用 Forth: http://www.fourmilab.ch/atlast/
+AutoCAD 部分程式碼使用 Forth: http://www.fourmilab.ch/atlast/
 
 Java 的虛擬機器設計也採用類似 Forth 的概念: http://www.cpushack.com/CPU/cpuAppendB.html
 
@@ -1026,6 +1205,244 @@ Java 的虛擬機器設計也採用類似 Forth 的概念: http://www.cpushack.c
 http://www.mpeforth.com/arena/ProgramForth.pdf
 
 http://www.forth.com/starting-forth/
+.. @+node:cmsxh.20130928094546.2992: *3* C1 第三週
+Python 3 程式語言簡介
+
+學習規劃:
+
+1. 從 print() 函式用法介紹出發, 包括 sep 與 end 參數的用法.
+
+2. 加入 for 重複迴圈與 range() 函式的用法, 導入 Python 語法利用縮排來界定執行區段的規定, 四個空白縮排的不成文規定.
+
+3. 介紹 range() 函式與 list() 函式的交互運用.
+
+4. 加入 if elif else 判斷式.
+
+5. 練習漸增字串列印與漸減字串列印用法, 完成三角形先漸增再漸減的星號列印.
+
+6. 加入 def 函式定義與呼叫的用法, 利用函式進行程式段的包裝與運用, 將三角形星號列印程式段包裝為函式後呼叫運行.
+
+7. 介紹 Python 3 list 串列資料的特性與用法, 納入 reversed() 函式與 zip() 函式的用法.
+
+8. 利用 for 迴圈, list(), range(), reversed(), zip() 各函式與 if elif else 判斷式的整合運用, 完成各種同一行兩個以上特定符號列印的客製化函式訂製.
+
+9. 完成菱形星號列印函式的定義與呼叫運用.
+.. @+node:cmsxh.20130928094546.2993: *4* print() 函式
+想要知道 print() 函式的用法, 可以在 SciTE 編輯器中寫下:
+
+.. code-block:: python
+    print(help(print))
+    
+然後存為 about_print.py 後, 利用 Tools -> Go 執行, 就可以列印出有關 print() 函式的用法說明:
+
+.. code-block:: none
+    Help on built-in function print in module builtins:
+    
+    print(...)
+        print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+        
+        Prints the values to a stream, or to sys.stdout by default.
+        Optional keyword arguments:
+        file:  a file-like object (stream); defaults to the current sys.stdout.
+        sep:   string inserted between values, default a space.
+        end:   string appended after the last value, default a newline.
+        flush: whether to forcibly flush the stream.
+        
+從這份資料可以清楚看出, print() 函式:
+
+- 會將列印資料交給串流處理, 而內定輸出為 sys.stdout, 也就是系統的標準輸出裝置.
+- 共有四個選項輸入參數, file, sep, end, 以及 flush
+- file 參數指的是類似檔案的物件輸出, 也就是串流物件, 而內定的串流物件就是標準輸出裝置.
+- sep 參數指的是用來區隔多輸出值中間的符號, 內定採用空白鍵來加以區隔.
+- end 參數指的是在輸出最後附加的字串, 內定為跳行符號.
+- flush 參數則為布林值, 表示是否要強制將串流內容清空, 內定是 False, 表示內定不要清空串流內容.
+
+.. literalinclude:: ../c1_w3_print1.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c1_w3_print2.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c1_w3_print3.py
+    :language: python
+    :linenos:
+.. @+node:cmsxh.20130928094546.2994: *4* for 迴圈與 range() 函式
+for 是一個重複迴圈關鍵字,  通常配合 range() 函式使用, 而 range() 函式在 Python 3 本值上唯一個重複物件, 具有串列資料的特定, 但是卻有不是直接傳回串列資料, 若要將 range() 函式的內容轉為串列, 還必須利用 list() 函式.
+
+先設法利用 print(help(range)) 列出相關說明:
+
+.. code-block:: python
+
+    Help on class range in module builtins:
+    
+    class range(object)
+     |  range([start,] stop[, step]) -> range object
+     |  
+     |  Returns a virtual sequence of numbers from start to stop by step.
+     |  
+     |  Methods defined here:
+     |  
+     |  __contains__(...)
+     |      x.__contains__(y) <==> y in x
+     |  
+     |  __eq__(...)
+     |      x.__eq__(y) <==> x==y
+     |  
+     |  __ge__(...)
+     |      x.__ge__(y) <==> x>=y
+     |  
+     |  __getattribute__(...)
+     |      x.__getattribute__('name') <==> x.name
+     |  
+     |  __getitem__(...)
+     |      x.__getitem__(y) <==> x[y]
+     |  
+     |  __gt__(...)
+     |      x.__gt__(y) <==> x>y
+     |  
+     |  __hash__(...)
+     |      x.__hash__() <==> hash(x)
+     |  
+     |  __iter__(...)
+     |      x.__iter__() <==> iter(x)
+     |  
+     |  __le__(...)
+     |      x.__le__(y) <==> x<=y
+     |  
+     |  __len__(...)
+     |      x.__len__() <==> len(x)
+     |  
+     |  __lt__(...)
+     |      x.__lt__(y) <==> x<y
+     |  
+     |  __ne__(...)
+     |      x.__ne__(y) <==> x!=y
+     |  
+     |  __reduce__(...)
+     |  
+     |  __repr__(...)
+     |      x.__repr__() <==> repr(x)
+     |  
+     |  __reversed__(...)
+     |      Returns a reverse iterator.
+     |  
+     |  count(...)
+     |      rangeobject.count(value) -> integer -- return number of occurrences of value
+     |  
+     |  index(...)
+     |      rangeobject.index(value, [start, [stop]]) -> integer -- return index of value.
+     |      Raises ValueError if the value is not present.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  start
+     |  
+     |  step
+     |  
+     |  stop
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __new__ = <built-in method __new__ of type object>
+     |      T.__new__(S, ...) -> a new object with type S, a subtype of T
+     
+從 range() 的求助說明中, 可以清楚看到 range() 本身是一個物件, 而且會回傳一組依照 start, stop 與 step 等三個參數配合組成的虛擬序列數值.
+
+start 指的是虛擬序列數值的起始值.
+
+stop 指的是虛擬序列數值的終止值.
+
+step 指的是虛擬序列數值的增量值.
+
+而且這個所謂的虛擬序列數值必須透過 list() 函式的轉換才能成為真正的串列資料.
+
+range() 說明所列出支援的方法就是典型 iterator 物件的成員方法, 其中包括 reversed(), count() 與 index() 的用法.
+
+.. code-block:: python
+
+    # range(num).count(item) 就等於 int(item in range(num))
+    print(range(5).count(1))
+    print(int(1 in range(5)))
+    print(range(5).count(6))
+    # 在虛擬序列中找出索引值 4 的對應值
+    print(range(5).index(4))
+.. @+node:cmsxh.20130928094546.2995: *4* list() 函式與 iterable 物件
+由於 Python 3 中的 range() 已經不再傳回實值得序列而是傳回虛擬的序列物件, 因此必須透過 list() 函式才能轉為實值的串列資料.
+
+list(range(5)) 才會傳回 [0, 1, 2, 3, 4]
+.. @+node:cmsxh.20130928094546.2996: *4* list 串列資料特性
+串列資料就是 [1, 2, 3, 4], ["a", 1, 2, "b"], [[1, 2], "a", 1, 2] 這種用 [] 括起的資料群, 其中可以利用索引值有關的簡單數學運算將原本沒有直接相關的資料給"串"起來, 就資料處理而言, 索引值的連續性與數學性可以提供許多應用.
+
+例如: 要利用 Python 3 程式來排座位, 而且是以亂數的方式隨意安排分組的內容, 這時就可以先將要排座位的資料, 設法放入串列資料中, 然後利用串列物件所支援的"弄亂"序號方法, 將原本按照一定次序編排的內容物給弄"亂", 接著就可以再設法依序一一將串列資料以特定個數的小資料群讀出, 就可以達到亂數排座位的目的.
+
+通常將外部資料附加到某一串列的方法是採用 append(), 一開始可以先設定一個空串列, 然後啟動重複迴圈一一將資料壓入串列中, 接著再設法弄亂索引值, 最後再利用重複迴圈依序將已經弄亂的串列讀出, 就可以進行分組或排座位了.
+.. @+node:cmsxh.20130928094546.2997: *4* if elif else 判斷式
+判斷式在程式中的功用就是篩選資料, 因為重複執行的迴圈中, 配合特定條件的判斷, 就可以將內容屬性不同的資料導向不同的資料處理區段, 達到快速篩選資料並進行資料處理的目的.
+.. @+node:cmsxh.20130928094546.2999: *4* def 函式定義與呼叫
+函式是程式包裝的手法, 對於經常需要呼叫的程式流程, 利用函式定義的架構, 設定為透過參數值的變化加以呼叫, 就可以達到重複使用特定程式內容的目的, 主要的功能在於重用程式碼.
+
+.. literalinclude:: ../c1_w3_def1.py
+    :language: python
+    :linenos:
+    
+.. literalinclude:: ../c1_w3_def2.py
+    :language: python
+    :linenos:
+.. @+node:cmsxh.20130928094546.2998: *4* reversed() 與 zip() 函式
+reversed() 函式會將所輸入的串列資料索引值顛倒排列.
+
+例如:
+
+.. code-block:: python
+
+    a = [1, 2, 3]
+    c = reversed(a)
+    print(list(c))
+    
+執行後, 結果為 [3, 2, 1]
+
+zip() 則會將輸入的兩個串列資料, 依照索引,  分別至兩個輸入串列資料取值, 將取得的資料併排後, 放入一個二維索引的元組(tuple)資料中(之所以採用元組資料型別的原因是, 輸出的元組資料不可以重新改變其元素值, 這點特性與串列型別資料不同), 所輸出的結果, 當序號為 0 時, zip() 所輸出的串列, 就會同時列出原先兩個串列資料序中最開頭的兩個內容值, 因此當取出輸出串列中索引為 0 的元素後, 再取此元素的 0 索引就會得到原先第一個輸入串列中的第一個元素, 再取此元素的 1 索引就會得到原先第二個輸入串列中的第一個元素.
+
+例如:
+
+.. code-block:: python
+
+    a = [1, 2, 3]
+    b = [4, 5, 6]
+    c = zip(a, b)
+    print(list(c))
+
+特別注意當 c= zip(a, b), c 的資料型別為 iterator 物件, 必須利用 list() 才能傳回其中的串列值, 也就是 [(1, 4), (2, 5), (3, 6)]
+
+另外要注意的是, 串列是以 [] 區隔, 而元組(tuple) 則以 () 區隔.
+
+從下列程式, 就可以看出 list 與 tuple 資料型別的差異:
+
+.. code-block:: python
+
+    a = [1, 2, 3]
+    b = (1, 2, 3)
+    a[0] = 4
+    b[0] = 4
+    
+執行後, 會得到以下結果:
+
+.. code-block:: none
+
+    Traceback (most recent call last):
+      File "about_print.py", line 4, in <module>
+        b[0] = 4
+    TypeError: 'tuple' object does not support item assignment
+    
+也就是說, tuple 物件不可重新指定其元素值.
+.. @+node:cmsxh.20130928094546.3000: *4* 整合運用
+.. literalinclude:: ../c1_w3_diamond1.py
+    :language: python
+    :linenos:
 .. @+node:mde.20130609005025.2818: *3* C1 第五週
 程式流程圖
 
@@ -1107,6 +1524,12 @@ http://www.codecademy.com/zh/#!/exercises/0
 http://code.google.com/p/hashao/wiki/ChinesePythonTutor
 .. @+node:mde.20130609005025.2820: *3* C1 第七週
 視窗螢幕局部放大軟體: Virtual Magnifying Glass
+
+http://magnifier.sourceforge.net/
+
+另外一個來自 MicroSoft 的螢幕放大工具為: ZoomIt
+
+http://technet.microsoft.com/en-us/sysinternals/bb897434.aspx
 
 Python 程式的編寫規範: http://www.python.org/dev/peps/pep-0008/
 

@@ -67,7 +67,8 @@ def interpolation(小齒輪齒數, 齒形):
     else:
         smaller_formfactor = lewis_factor.type4
     smaller_toothnumber = lewis_factor.gearno
-    calculated_factor = larger_formfactor + (小齒輪齒數 - larger_toothnumber) * (larger_formfactor - smaller_formfactor) / (larger_toothnumber - smaller_toothnumber)
+    calculated_factor = larger_formfactor + (小齒輪齒數 - larger_toothnumber) * 
+    (larger_formfactor - smaller_formfactor) / (larger_toothnumber - smaller_toothnumber)
     # 只傳回小數點後五位數
     return round(calculated_factor, 5)
 

@@ -1559,6 +1559,11 @@ Python 程式應用項目:
 
 類別與物件導向, 資料庫, 網際框架與 template engine, 字典, 2D 繪圖, 3D 繪圖, 工程資料轉檔.
 
+Python and Binary file
+**********************
+
+http://stackoverflow.com/questions/1035340/reading-binary-file-in-python
+
 C2 第七週
 ++++++++++++
 
@@ -2070,6 +2075,360 @@ pybean 0.2.1 的用法
     // 刪除 $shop bean 物件
     // And this is how you delete the shop from the database:
     R::trash($shop);
+
+資料庫程式應用
+*********************
+
+使用時機, 當特定檔案因為從不同資料來源執行複製時, 各檔案夾中可能出現相同的命名(以協同零件繪製, 各組員將不同零件放入各別目錄中, 但是卻採用相同的命名), 並且某些檔案可能重複, 因此利用資料庫與 md5 的特性, 設法以遞廻流程進入各目錄中讀取檔案, 並且利用 md5() 將各檔案的 md5 編碼存入資料庫欄位, 當程式在判讀其他目錄中的檔案時, 以 pybean 語法執行資料庫內容比對, 檔案的複製就可以避免複製相同內容的資料.
+
+.. code-block:: python
+
+    #coding: utf-8
+    # 這個程式包含利用 md5() 辨識某一目錄下重複的檔案, 並且 pybean 將 md5 存入資料庫, 以便比對
+    # 並且利用 shutil 模組中的 copy2() 將檔案以特定名稱複製到目錄區
+    import fnmatch
+    import os
+    import hashlib
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    # for copy2()
+    import shutil
+     
+    def md5Checksum(filePath):
+        fh = open(filePath, 'rb')
+        m = hashlib.md5()
+        while True:
+            data = fh.read(8192)
+            if not data:
+                break
+            m.update(data)
+        return m.hexdigest()
+    
+    # 以遞廻方式搜尋特定副檔名檔案
+    rootPath = './'
+    pattern = '*.jpg'
+    
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=True 表示不要開放動態資料表的建立
+    # 若 frozen = False 表示開放使用者動態建立資料表
+    SQLite連結 = Store(SQLiteWriter("myfiles.db", frozen=False))
+    
+    count = 0
+    ucount = 1
+    for root, dirs, files in os.walk(rootPath):
+        for filename in fnmatch.filter(files, pattern):
+            count += 1
+            #print( os.path.join(root, filename))
+            #print(md5Checksum(os.path.join(root, filename)))
+            # 進資料庫查詢是否 photo 資料表中 md5 欄位是否已經有值, 若有表示重複
+            if(SQLite連結.count("photo", "md5 like ?", [md5Checksum(os.path.join(root, filename))]) == 0):
+                # 指定 photo 資料表
+                photo = SQLite連結.new("photo")
+                photo.md5 = md5Checksum(os.path.join(root, filename))
+                SQLite連結.save(photo)
+                SQLite連結.commit()
+                # 將沒有重複出現的檔案府製集中到 check 目錄
+                newfilename = "myfiles_"+str(ucount)+".jpg"
+                shutil.copy2(os.path.join(root, filename), "./check/"+newfilename)
+                ucount += 1
+    print(ucount,"/",count)
+
+TCExam 成績結算
+^^^^^^^^^^^^^^^^^^^
+
+get_online_score.py
+
+.. code-block:: python
+
+    #encoding: utf-8
+    '''這個程式將配合 TCExam 所轉出來的 txt 成績檔案, 以遞迴方式讀取檔案
+    並將要取出的資料存入資料庫中
+    '''
+    import os, fnmatch
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
+    library = Store(SQLiteWriter("2013exam.sqlite", frozen=False))
+    
+    # 定義一個可以遞迴進入目錄搜尋特定檔案的函式
+    def find_files(directory, pattern):
+        for root, dirs, files in os.walk(directory):
+            for basename in files:
+                if fnmatch.fnmatch(basename, pattern):
+                    filename = os.path.join(root, basename)
+                    yield filename
+    
+     # 定義一個讀取檔案所有內容的函式
+    def read_lines(input_filename):
+        output_list = []
+        f = open(input_filename, encoding="UTF-8")
+        while True:
+            l = f.readlines()
+            if len(l) == 0:
+                break
+            output_list.append(l)
+        f.close()
+        return output_list
+    
+    # score_type = "online"
+    # score_type = "onsite"
+    # score_type = "midterm"
+    score_type = "onsite"
+    # save_to_database = True
+    save_to_database = False
+    # mylist 為各檔案內容
+    mylist = []
+    # finallist 為最後擷取出來的資料內容
+    finallist = []
+    
+    if (score_type == "online"):
+        # 分別取得檔案名稱
+        for filename in find_files('./', '*.txt'):
+            course_title = filename.split('\\')[0][2:]
+            exam_title = filename.split('\\')[1]
+            # we go through all the files, and read file content in to my list
+            mylist = read_lines(filename)
+            # mylist 為各檔案中的所有資料
+            # 取各檔案的各行內容, mylist[myindex]
+            for myindex in range(len(mylist)):
+                for lineindex in range(len(mylist[myindex])):
+                    # yes we print line by line for each file
+                    mycolumn = ((mylist[myindex][lineindex]).rstrip()).split('\t')
+                    # only list the first column is digit
+                    if mycolumn[0].isdigit():
+                        #mycolumn[6] 為學號
+                        # mycolumn[8] 為成績
+                        # 動態建立 book 資料表
+                        if (save_to_database == True):
+                            score = library.new("score")
+                            score.title = course_title
+                            score.exam = exam_title
+                            score.student = mycolumn[6]
+                            score.points = mycolumn[8]
+                            library.save(score)
+                            library.commit()
+                        finallist.append([course_title, exam_title, mycolumn[6],mycolumn[8]])
+                        #print(course_title,":", exam_title, ":", mycolumn[6],":",mycolumn[8])
+    elif (score_type == "onsite"):
+        # 分別取得檔案名稱, 並將 onsite 目錄中的各課程成績檔案登錄到資料庫中
+        for filename in find_files('./onsite/', '*.csv'):
+            # we go through all the files, and read file content in to my list
+            mylist = read_lines(filename)[0]
+            #print(mylist)
+            # mylist 為各檔案中的所有資料
+            # 取各檔案的各行內容, mylist[myindex]
+            # 以下 for 迴圈逐列列出資料, 各列資料為 mylist[myindex], myindex 為列索引
+            course_title = mylist[0].rstrip().split(',')[0]
+            column_no = len(mylist[0].rstrip().split(','))
+            rowlist = []
+            # 因為第一列為課程標題與考試標題資料, 因此取出學員成績的迴圈從第二列開始
+            for myindex in range(1, len(mylist)):
+                rowlist = mylist[myindex].rstrip().split(',')
+                #print(rowlist)
+                student_no = rowlist[0]
+                #print(student_no)
+                for lineindex in range(1, column_no):
+                    exam_title = mylist[0].rstrip().split(',')[lineindex]
+                    student_points = mylist[myindex].rstrip().split(',')[lineindex]
+                    #print(course_title, exam_title, student_no, student_points)
+                    if (save_to_database == True):
+                        score = library.new("score")
+                        score.title = course_title
+                        score.exam = exam_title
+                        score.student = student_no
+                        score.points = student_points
+                        library.save(score)
+                        library.commit()
+                    finallist.append([course_title, exam_title, student_no, student_points])
+                    # 第一列為班級代號, 考試名稱, 考試名稱, 考試名稱等, 第二列起則是學號與對應各考試的成績
+    # 進入 score_type == "midterm" 的迴圈
+    else:
+        # 分別取得檔案名稱, 並將 midterm 目錄中的各課程成績檔案登錄到資料庫中
+        for filename in find_files('./midterm/', '*.csv'):
+            mylist = read_lines(filename)[0]
+            #print(mylist)
+            course_title = mylist[0].rstrip().split(',')[0]
+            exam_title = mylist[0].rstrip().split(',')[1]
+            rowlist = []
+            for myindex in range(1, len(mylist)):
+                rowlist = mylist[myindex].rstrip().split(',')
+                #print(rowlist)
+                student_no = rowlist[0]
+                student_points = rowlist[1]
+                #print(course_title, exam_title, student_no, student_points)
+                if (save_to_database == True):
+                    score = library.new("score")
+                    score.title = course_title
+                    score.exam = exam_title
+                    score.student = student_no
+                    score.points = student_points
+                    library.save(score)
+                    library.commit()
+                finallist.append([course_title, exam_title, student_no, student_points])
+    
+    print(finallist)
+    
+calculate_score.py
+
+.. code-block:: python
+
+    #encoding: utf-8
+    '''
+    這個程式承接 get_online_score.py 由資料庫中, 根據各課程修課人員名單, 逐一從資料庫讀取各課程不同考試的對應成績
+    並且配合各考試的評分比例, 將學員成績結算列表轉為 Simple Groupware 之 Spreadsheet JS 格式, 以便套用到協同平台中
+    '''
+    import os, fnmatch
+    # 導入 pybean 模組與所要使用的 Store 及 SQLiteWriter 方法
+    from pybean import Store, SQLiteWriter
+    # 利用 Store  建立資料庫檔案對應物件, 並且設定 frozen=False 表示要開放動態資料表的建立
+    library = Store(SQLiteWriter("2013exam.sqlite", frozen=True))
+    
+     # 定義一個讀取檔案所有內容的函式
+    def read_lines(input_filename):
+        output_list = []
+        f = open(input_filename, encoding="UTF-8")
+        while True:
+            l = f.readlines()
+            if len(l) == 0:
+                break
+            output_list.append(l)
+        f.close()
+        return output_list
+    
+    def get_score(course_title, exam, student_id):
+        # 從資料表 score 中搜尋
+        #print(course_title, student_id)
+        if (library.count("score","title like ? and exam like ? and student=?", [course_title, exam, student_id]) == 0):
+            return 0
+        else:
+            score = library.find("score","title like ? and exam like ? and student=?", [course_title, exam, student_id])
+            return score   
+    
+    def do_calculation(student_id, exam_list, percent_list):
+        global 不及格人數
+        global output
+        global 列
+        全班微調 = 5
+        # exam_lsit = {"cdb":"midterm", "cdb_online":"week16", "cdb_online":"week17", "cdb_online":"week18", 
+        # "cdb_onsite":"w15", "cdb_onsite":"w16", "cdb_onsite":"w17"}
+        final_score = 0
+        data = []
+        行 = 0
+        列 += 1
+        output += "["+str(行)+","+str(列)+",'"+str(student_id)+"',''],\n"
+        for exam_string, percent in zip(exam_list, percent_list):
+            # 得到 exam_list 的 key list
+            title, exam = exam_string.split(":")
+            if(exam == "midterm"):
+                course_title = title
+            #print(title, exam)
+            score= get_score(title, exam, student_id)
+            # 這裡還要配合考試標題進行比對, 若該學生缺考某一次考試, 則必須將成績設為 0
+            if (score == 0):
+                行 += 1
+                output += "["+str(行)+","+str(列)+",'"+str(0)+"', ''],\n"
+                # 對 final_score 沒有貢獻, 無需計算
+            else:
+                # 第一列應該為標題列
+                for item in score:
+                    行 += 1
+                    #print(item.student, item.title, item.exam, item.points)
+                    # 重要 print("學號", student_id, title, exam, "分數",  item.points, "比例", percent)
+                    output += "["+str(行)+","+str(列)+",'"+str(item.points)+"', ''],\n"
+                    # 列出某一學生的成績列資料
+                    # 第一行為學號, 成績從第二行開始
+                    final_score += float(item.points)*float(percent)/100.
+        學期成績 = round(final_score+全班微調, 0)
+        if 學期成績 < 60:
+            不及格人數 += 1
+            # 最後補上學期成績列
+            output += "["+str(行+1)+","+str(列)+",'"+str(學期成績)+"', 'color:red;'],\n"
+        else:
+            # 最後補上學期成績列
+            output += "["+str(行+1)+","+str(列)+",'"+str(學期成績)+"', ''],\n"
+        # 重要 print(student_id, course_title, "最終成績", 學期成績)
+    
+    #student_id=""
+    #do_calculation(student_id, exam_list, percent_list)
+    不及格人數 = 0
+    列 = 0
+    output = "dbCells = [\n"
+    footer = "];\n"
+    '''
+    #cdb
+    student_list = read_lines("cdb_list.csv")[0]
+    exam_list = ["cdb:midterm", "cdb_online:week16", "cdb_online:week17", "cdb_online:week18", "cdb_onsite:w15", "cdb_onsite:w16", "cdb_onsite:w17"]
+    percent_list = [50, 7, 8, 10, 7, 8, 10]
+    '''
+    '''
+    #cda
+    student_list = read_lines("cda_list.csv")[0]
+    exam_list = ["cda:midterm", "cda_online:week16", "cda_online:week17", "cda_online:week18", "cda_onsite:w15", "cda_onsite:w16", "cda_onsite:w17"]
+    percent_list = [50, 7, 8, 10, 7, 8, 10]
+    '''
+    '''
+    # c2
+    student_list = read_lines("c2_list.csv")[0]
+    exam_list = ["c2:midterm", "c2_online:week15", "c2_online:week16", "c2_online:week17", "c2_online:week18", "c2_onsite:w15", "c2_onsite:w16", "c2_onsite:w17"]
+    percent_list = [50, 5, 7, 8, 10, 5, 5, 10]
+    
+    '''
+    # wcm
+    student_list = read_lines("wcm_list.csv")[0]
+    exam_list = ["wcm:midterm", "wcm_online:week16", "wcm_online:week17", "c2_online:week18"]
+    percent_list = [50, 15, 15, 20]
+    
+    output += "[0,0,'學號', ''],\n"
+    for 索引 in range(len(exam_list)):
+        output += "["+str(索引+1)+",0,'"+str(exam_list[索引])+"("+str(percent_list[索引])+"%)',''],\n"
+    # 最後補上學期成績行
+    output += "["+str(索引+2)+",0,'學期成績', ''],\n"
+    # 扣掉第一列的課程名稱
+    total_student = len(student_list)
+    for 索引 in range(1, total_student):
+        # 記得去掉讀行資料後的跳行符號
+        student_id = student_list[索引].rstrip()
+        '''
+        490123101 c2_online week15 90.000
+        490123101 c2_online week16 90.000
+        490123101 c2_online week17 100.000
+        490123101 c2_online week18 120.000
+        490123101 c2_onsite w15 60
+        490123101 c2_onsite w16 0
+        490123101 c2_onsite w17 90
+        490123101 c2 midterm 66
+    
+        490123101 wcm_online week16 90.000
+        490123101 wcm_online week17 90.000
+        490123101 wcm_online week18 80.000
+        490123101 wcm midterm 99
+    
+        490023101 cda_online week16 80.000
+        490023101 cda_online week17 100.000
+        490023101 cda_online week18 96.000
+        490023101 cda midterm 99
+        490023101 cda_onsite w15 80
+        490023101 cda_onsite w16 80
+        490023101 cda_onsite w17 100
+    
+        490023205 cdb_online week16 70.000
+        490023205 cdb_online week17 80.000
+        490023205 cdb_online week18 78.000
+        490023205 cdb midterm 99
+        490023205 cdb_onsite w15 89
+        490023205 cdb_onsite w16 90
+        490023205 cdb_onsite w17 87
+    
+        final_score = do_calculation(student_id, exam_list, percent_list)
+        score= get_score("%%", "%%", student_id)
+        for item in score:
+            print(item.student, item.title, item.exam, item.points)
+        print("______________")
+        #print(student_list[索引])
+        '''
+        do_calculation(student_id, exam_list, percent_list)
+    output += footer
+    print(output)
+    print("不及格人數:", 不及格人數)
 
 C2 第八週
 ++++++++++++
@@ -3980,6 +4339,33 @@ QtWebKit 不僅提供可以在 PyQt 應用程式中加入網際瀏覽器, 而且
 
 更完整的  PyQt 瀏覽器位於  c2/pyqt_browser 目錄中.
 
+以下則為基本的 PyQt 程式編寫過程中的參考程式段:
+
+# 基本主函式內容
+from PyQt4 import QtGui
+from ui.mainwindow import MainWindow
+
+if __name__ == "__main__":
+    import sys
+    app = QtGui.QApplication(sys.argv)
+    ui = MainWindow()
+    ui.show()
+    sys.exit(app.exec_())
+
+# 以下為 browser 上網 Url 設定
+# 利用 lineEdit 中的文字內容執行上網
+self.webView.setUrl(QUrl(self.lineEdit.text()))
+
+# 以下為使用 cx_freeze 時必須要加入才能轉檔的模組導入
+# 必須要有以下 QtNetwork 模組導入否則 cxfreeze 無法正確轉檔
+from PyQt4.QtNetwork import *
+
+# 以下為將 lineEdit 中的內容, 轉寫進 textEdit 的兩階段程式碼
+QtCore.QObject.connect(self.cmdWrite, QtCore.SIGNAL(_fromUtf8("clicked()")), self.moveLinetoBox)
+
+def moveLinetoBox(self):
+    self.textEdit.setText(self.lineEdit.text())
+
 Python 與資料庫
 ^^^^^^^^^^^^^^^^^^^
 
@@ -5803,6 +6189,8 @@ designer.exe 編輯模式共有四種:
 - Edit Buddies
 
 - Edit Tab Orders
+
+參考資料: http://www.boddie.org.uk/david/Projects/Python/Qt/
 
 C2 第十三週
 +++++++++++++++

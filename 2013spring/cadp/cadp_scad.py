@@ -20,8 +20,6 @@ class Application(Frame):
     def createWidgets(self):
         self.header = Frame()
         self.header.pack(side="top",expand=1,fill="x")
-        
-        
 
         self.center = Frame()
         self.center.pack(side="top",expand=1,fill="both")

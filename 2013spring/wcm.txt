@@ -173,7 +173,10 @@ WordPress 中的 categories
     # 標註視為結束, 而程式 highlight 就會斷在這裡...
     content +="</pre>"
     # 指定時間出版
-    #date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00", "%Y-%m-%d %H:%M"))
+    '''
+    date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00", 
+    "%Y-%m-%d %H:%M"))
+    '''
     # 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
     date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
     datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))

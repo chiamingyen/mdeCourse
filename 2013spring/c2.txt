@@ -2074,7 +2074,7 @@ pybean 0.2.1 的用法
                 photo.md5 = md5Checksum(os.path.join(root, filename))
                 SQLite連結.save(photo)
                 SQLite連結.commit()
-                # 將沒有重複出現的檔案府製集中到 check 目錄
+                # 將沒有重複出現的檔案複製集中到 check 目錄
                 newfilename = "myfiles_"+str(ucount)+".jpg"
                 shutil.copy2(os.path.join(root, filename), "./check/"+newfilename)
                 ucount += 1

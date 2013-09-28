@@ -283,14 +283,14 @@ latex_preamble = r"""
 % cwTeXHeiBold
 
 % 接著設定中文字型
-%\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-%\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-%\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
-%\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKsansfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKromanfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmainfont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
+\setCJKmonofont[BoldFont={新細明體},ItalicFont={新細明體}]{新細明體}
 
 \defaultfontfeatures{Mapping=tex-text}
-\setCJKmainfont[BoldFont=cwTeXHeiBold,Scale=1.1]{cwTeXMing}
-\setCJKsansfont[BoldFont=cwTeXHeiBold,Scale=1.1]{cwTeXKai}
+%\setCJKmainfont[BoldFont=cwTeXHeiBold,Scale=1.1]{cwTeXMing}
+%\setCJKsansfont[BoldFont=cwTeXHeiBold,Scale=1.1]{cwTeXKai}
 
 \makeatletter
 \def\verbatim@font{\rmfamily\small}    %為了讓 verbatim 註解中能夠加入中文, 採用 roman family 字體

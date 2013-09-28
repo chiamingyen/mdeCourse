@@ -2529,11 +2529,19 @@ ackley function minimization
     # minimization problem
     # create(name, base, attributes)
     '''
-    The weights are used in the fitness comparison. They are shared among all fitnesses of the same type. When subclassing Fitness, the weights must be defined as a tuple where each element is associated to an objective. A negative weight element corresponds to the minimization of the associated objective and positive weight to the maximization.
+    The weights are used in the fitness comparison. They are shared among all fitnesses of the same type.
+     When subclassing Fitness, the weights must be defined as a tuple where each element is associated
+      to an objective. A negative weight element corresponds to the minimization of the associated objective
+       and positive weight to the maximization.
     '''
     creator.create("FitnessMin", base.Fitness, weights=(-1.0,))
     '''
-    Evolution strategies individuals are slightly different as they contain generally two list, one for the actual individual and one for its mutation parameters. This time instead of using the list base class we will inherit from an array.array for both the individual and the strategy. Since there is no helper function to generate two different vectors in a single object we must define this function our-self. The initES() function receives two classes and instantiate them generating itself the random numbers in the intervals provided for individuals of a given size.
+    Evolution strategies individuals are slightly different as they contain generally two list, one for the actual
+     individual and one for its mutation parameters. This time instead of using the list base class we will
+      inherit from an array.array for both the individual and the strategy. Since there is no helper function to
+       generate two different vectors in a single object we must define this function our-self. The initES()
+        function receives two classes and instantiate them generating itself the random numbers in the
+         intervals provided for individuals of a given size.
     '''
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMin)
     toolbox = base.Toolbox()
@@ -2610,12 +2618,28 @@ ackley function minimization
     # minimization problem
     # create(name, base, attributes)
     '''
-    The weights are used in the fitness comparison. They are shared among all fitnesses of the same type. When subclassing Fitness, the weights must be defined as a tuple where each element is associated to an objective. A negative weight element corresponds to the minimization of the associated objective and positive weight to the maximization.
+    The weights are used in the fitness comparison. They are shared among all fitnesses of the same type.
+    
+     When subclassing Fitness, the weights must be defined as a tuple where each element is associated
+     
+      to an objective. A negative weight element corresponds to the minimization of the associated
+      
+       objective and positive weight to the maximization.
     '''
     # weights 為 1.0 表示最大化 fitness
     creator.create("FitnessMax", base.Fitness, weights=(1.0,))
     '''
-    Evolution strategies individuals are slightly different as they contain generally two list, one for the actual individual and one for its mutation parameters. This time instead of using the list base class we will inherit from an array.array for both the individual and the strategy. Since there is no helper function to generate two different vectors in a single object we must define this function our-self. The initES() function receives two classes and instantiate them generating itself the random numbers in the intervals provided for individuals of a given size.
+    Evolution strategies individuals are slightly different as they contain generally two list, one for the actual
+    
+     individual and one for its mutation parameters. This time instead of using the list base class we will
+     
+      inherit from an array.array for both the individual and the strategy. Since there is no helper function to
+      
+       generate two different vectors in a single object we must define this function our-self. The initES()
+       
+        function receives two classes and instantiate them generating itself the random numbers
+        
+         in the intervals provided for individuals of a given size.
     '''
     creator.create("Individual", array.array, typecode='d', fitness=creator.FitnessMax)
     toolbox = base.Toolbox()

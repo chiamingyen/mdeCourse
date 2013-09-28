@@ -1867,7 +1867,8 @@ The complete code of the example
 
 myaddresses.xml:
 
-<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
+<table modulename="{t}My Addresses{/t}" default_view="display" orderby="lastname" 
+order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_empty="true">
 
 <view name="display" displayname="{t}Display{/t}" />
 
@@ -2045,7 +2046,8 @@ View Access 主要權限設定的目錄在於進行 tabs 的進階管理:
 
 .. code-block:: none
 
-    <table modulename="Peer Review" default_view="display" orderby="studentno" order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_asset_rights="owner_read">
+    <table modulename="Peer Review" default_view="display" orderby="studentno" 
+    order="asc" limit="20" enable_new="true" enable_edit="true" enable_delete="true" enable_asset_rights="owner_read">
     <view name="display" displayname="Display" />
     <view name="details" displayname="Details" showinsingleview="true" tfield_1="studentname" tfield_2="score" />
     <field name="id" simple_type="id" displayname="Id">
@@ -4387,9 +4389,11 @@ test.php 欄位資料處理類別檔案內容:
         // $data["var2"]["data"][0] 為 var2 欄位值
         // 設法從資料表中, 以齒數查詢對應的齒形 lewis 設計參數
         //db_select($table,$fields,$sql_where,$order,$limit,$vars=array(),$optional=array()) 
-        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+        "gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
         // 確定是否根據輸入與資料庫查詢, 取得所需要的設計關鍵參數
-        return $data["type"]["data"][0]."--".$data["material"]["data"][0]."--".$output[0]["gearnum"]."--".$output[0]["type".$data["type"]["data"][0]];
+        return $data["type"]["data"][0]."--".$data["material"]["data"][0]."--".$output[0]["gearnum"].
+        "--".$output[0]["type".$data["type"]["data"][0]];
         }
     
     }
@@ -4532,7 +4536,8 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
         type2 = str(資料.type2)
         type3 = str(資料.type3)
         type4 = str(資料.type4)
-        MySQL游標.execute("insert into simple_lewis(id,folder,activated,gearnum,type1,type2,type3,type4) values("+序號+","+目錄+","+activated+"," \
+        MySQL游標.execute("insert into simple_lewis(id,folder,activated,gearnum,type1,type2,type3,type4) values
+        ("+序號+","+目錄+","+activated+"," \
     +齒數+","+type1+","+type2+","+type3+","+type4+");")
         MySQL連結.commit()
     
@@ -4568,7 +4573,10 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
         stretch_ratio = str(資料.stretch_ratio)
         sectional_shr = str(資料.sectional_shr)
         硬度 = str(資料.brinell)
-        MySQL游標.execute("insert into simple_material(id,folder,activated,unsno,treatment,yieldstr,tensilestr,sratio,sectionstr,brinell) values("+序號+","+目錄+","+activated+",'"+材料編號+"','"+熱處理+"',"+yield_str+","+tensile_str+","+stretch_ratio+","+sectional_shr +","+硬度+");")
+        MySQL游標.execute("insert into simple_material(id,folder,activated,unsno,
+        treatment,yieldstr,tensilestr,sratio,sectionstr,brinell) values
+        ("+序號+","+目錄+","+activated+",'"+材料編號+"','"+熱處理+
+        "',"+yield_str+","+tensile_str+","+stretch_ratio+","+sectional_shr +","+硬度+");")
         MySQL連結.commit()
     
     MySQL游標.close()
@@ -4609,7 +4617,8 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
         type2 = str(資料.type2)
         type3 = str(資料.type3)
         type4 = str(資料.type4)
-        sgw游標.execute("insert into simple_lewis(id,folder,activated,gearnum,type1,type2,type3,type4) values("+序號+","+目錄+","+activated+"," \
+        sgw游標.execute("insert into simple_lewis(id,folder,activated,gearnum,type1,type2,type3,type4) values \
+        ("+序號+","+目錄+","+activated+"," \
     +齒數+","+type1+","+type2+","+type3+","+type4+");")
         sgw連結.commit()
     
@@ -4651,18 +4660,21 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
         stretch_ratio = str(資料.stretch_ratio)
         sectional_shr = str(資料.sectional_shr)
         硬度 = str(資料.brinell)
-        sgw游標.execute("insert into simple_material(id,folder,activated,unsno,treatment,yieldstr,tensilestr,sratio,sectionstr,brinell) values("+序號+","+目錄+","+activated+",'"+材料編號+"','"+熱處理+"',"+yield_str+","+tensile_str+","+stretch_ratio+","+sectional_shr +","+硬度+");")
+        sgw游標.execute("insert into simple_material(id,folder,activated,unsno,treatment,yieldstr,
+        tensilestr,sratio,sectionstr,brinell) values("+序號+","+目錄+","+activated+",'"+材料編號+
+        "','"+熱處理+"',"+yield_str+","+tensile_str+","+stretch_ratio+","+sectional_shr +","+硬度+");")
         sgw連結.commit()
     
     sgw游標.close()
     sgw連結.close()
 
-上述 Python3 程式, 採用 pybean 讀取資料, 並且利用 SQLite3 將資料分別寫入 simple_lewis 與 simple_material 資料表中, 其中仍然必須處理 simple_seq_simple_lewis 與 simple_sys_tree 中的對應欄位, 以配合 simple_lewis 資料表中的資料筆數.
+上述 Python3 程式, 採用 pybean 讀取資料, 並且利用 SQLite3 將資料分別寫入 simple_lewis 與 simple_material 資料表中, 
+其中仍然必須處理 simple_seq_simple_lewis 與 simple_sys_tree 中的對應欄位, 以配合 simple_lewis 資料表中的資料筆數.
 
 除了必須注意 lewis 與 material 所在的 folder 編號外, simple_material 內容必須與 simmple_seq_simple_material 與 simple_sys_tree 資料表中的對應資料配合.
 
 
-而與 V:\extensions\sgw\bin\modules\schema\gear.xml 配合的初步 V:\extensions\sgw\bin\core\classes\test.php 設計運算程式, 可以取得所有設計必要參數, 則修改如下:
+而與 V:/extensions/sgw/bin/modules/schema/gear.xml 配合的初步 V:/extensions/sgw/bin/core/classes/test.php 設計運算程式, 可以取得所有設計必要參數, 則修改如下:
 
 .. code-block:: php
 
@@ -4686,7 +4698,8 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
         // $data["var2"]["data"][0] 為 var2 欄位值
         // 設法從資料表中, 以齒數查詢對應的齒形 lewis 設計參數
         //db_select($table,$fields,$sql_where,$order,$limit,$vars=array(),$optional=array()) 
-        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+        "gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
     
         $npinion = $data["pinion"]["data"][0];
         $formfactor = 0;
@@ -4694,14 +4707,16 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
     if(count($output)==0)
     {
         //  表示小齒輪齒數在 lewis 表中沒有直接對應, 必須採用內插求齒形的對應參數
-        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum>".$npinion,"gearnum asc",1,"");
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+        "gearnum>".$npinion,"gearnum asc",1,"");
         //if($output[0]["type".$data["type"]["data"][0]]=="")
         if(count($output)==0)
         {
             //表示齒數仍然過大, 在表中仍無對應齒數可以查表, 將齒數設為齒條
             $larger_toothnumber=400;
             // 配合查出 400 齒的對應 formfactor
-            $largeroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$larger_toothnumber,"gearnum asc",1,"");
+            $largeroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+            "gearnum=".$larger_toothnumber,"gearnum asc",1,"");
             $formfactor = $largeroutput[0]["type".$data["type"]["data"][0]];
         }else{
             // 根據查詢, 求出表中大於小齒輪齒數的數值
@@ -4709,14 +4724,16 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
             $larger_formfactor = $output[0]["type".$data["type"]["data"][0]];
         }
         //  接著找出比目標齒數小的其中的最大的,就是最鄰近的小值
-        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum<".$npinion,"gearnum desc",1,"");
+        $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+        "gearnum<".$npinion,"gearnum desc",1,"");
         //if($output[0]["type".$data["type"]["data"][0]]=="")
         if(count($output)==0)
         {
             //假如資料庫中沒有比目標齒數小的值,就將目標齒數設為資料庫中的最小值來加以對應
             $smaller_toothnumber=12;
             // 配合查出 12 齒的對應 formfactor
-            $smalleroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$smaller_toothnumber,"gearnum asc",1,"");
+            $smalleroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+            "gearnum=".$smaller_toothnumber,"gearnum asc",1,"");
             $formfactor  = $smalleroutput[0]["type".$data["type"]["data"][0]];
         }else{
             // 根據查詢, 求出表中小於小齒輪齒數的數值
@@ -4725,7 +4742,8 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
         }
             if($formfactor==0){
             //進行內插運算,以便求出對應的小齒輪formfactor查表值
-            $formfactor = $larger_formfactor + ($npinion - $larger_toothnumber) * ($larger_formfactor - $smaller_formfactor) / ($larger_toothnumber - $smaller_toothnumber);
+            $formfactor = $larger_formfactor + ($npinion - $larger_toothnumber) *
+             ($larger_formfactor - $smaller_formfactor) / ($larger_toothnumber - $smaller_toothnumber);
             }
     }else{
         // 表示 lewis 表格中, 配合小齒輪齒數直接從資料表中查表得到 lewis 參數
@@ -4762,7 +4780,8 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
                 // $data["var2"]["data"][0] 為 var2 欄位值
                 // 設法從資料表中, 以齒數查詢對應的齒形 lewis 設計參數
                 //db_select($table,$fields,$sql_where,$order,$limit,$vars=array(),$optional=array()) 
-                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+                "gearnum=".$data["pinion"]["data"][0],"gearnum asc",1,"");
     
                 $npinion = $data["pinion"]["data"][0];
                 $formfactor = 0;
@@ -4770,14 +4789,16 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
             if(count($output)==0)
             {
                 //  表示小齒輪齒數在 lewis 表中沒有直接對應, 必須採用內插求齒形的對應參數
-                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum>".$npinion,"gearnum asc",1,"");
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+                "gearnum>".$npinion,"gearnum asc",1,"");
                 //if($output[0]["type".$data["type"]["data"][0]]=="")
                 if(count($output)==0)
                 {
                     //表示齒數仍然過大, 在表中仍無對應齒數可以查表, 將齒數設為齒條
                     $larger_toothnumber=400;
                     // 配合查出 400 齒的對應 formfactor
-                    $largeroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$larger_toothnumber,"gearnum asc",1,"");
+                    $largeroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+                    "gearnum=".$larger_toothnumber,"gearnum asc",1,"");
                     $formfactor = $largeroutput[0]["type".$data["type"]["data"][0]];
                 }else{
                     // 根據查詢, 求出表中大於小齒輪齒數的數值
@@ -4785,14 +4806,16 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
                     $larger_formfactor = $output[0]["type".$data["type"]["data"][0]];
                 }
                 //  接著找出比目標齒數小的其中的最大的,就是最鄰近的小值
-                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum<".$npinion,"gearnum desc",1,"");
+                $output = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+                "gearnum<".$npinion,"gearnum desc",1,"");
                 //if($output[0]["type".$data["type"]["data"][0]]=="")
                 if(count($output)==0)
                 {
                     //假如資料庫中沒有比目標齒數小的值,就將目標齒數設為資料庫中的最小值來加以對應
                     $smaller_toothnumber=12;
                     // 配合查出 12 齒的對應 formfactor
-                    $smalleroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),"gearnum=".$smaller_toothnumber,"gearnum asc",1,"");
+                    $smalleroutput = db_select("simple_lewis",array("gearnum","type1","type2","type3","type4"),
+                    "gearnum=".$smaller_toothnumber,"gearnum asc",1,"");
                     $formfactor  = $smalleroutput[0]["type".$data["type"]["data"][0]];
                 }else{
                     // 根據查詢, 求出表中小於小齒輪齒數的數值
@@ -4801,7 +4824,8 @@ MySQL連結 = pymysql.connect(host='localhost', port=3306, user='root', passwd='
                 }
                     if($formfactor==0){
                     //進行內插運算,以便求出對應的小齒輪formfactor查表值
-                    $formfactor = $larger_formfactor + ($npinion - $larger_toothnumber) * ($larger_formfactor - $smaller_formfactor) / ($larger_toothnumber - $smaller_toothnumber);
+                    $formfactor = $larger_formfactor + ($npinion - $larger_toothnumber) * 
+                    ($larger_formfactor - $smaller_formfactor) / ($larger_toothnumber - $smaller_toothnumber);
                     }
             }else{
                 // 表示 lewis 表格中, 配合小齒輪齒數直接從資料表中查表得到 lewis 參數
@@ -5340,7 +5364,8 @@ $ git commit
         else:
             smaller_formfactor = lewis_factor.type4
         smaller_toothnumber = lewis_factor.gearno
-        calculated_factor = larger_formfactor + (小齒輪齒數 - larger_toothnumber) * (larger_formfactor - smaller_formfactor) / (larger_toothnumber - smaller_toothnumber)
+        calculated_factor = larger_formfactor + (小齒輪齒數 - larger_toothnumber) *
+         (larger_formfactor - smaller_formfactor) / (larger_toothnumber - smaller_toothnumber)
         # 只傳回小數點後五位數
         print("小齒輪齒數:"+str(小齒輪齒數)+", formfactor:"+str(round(calculated_factor, 5)))
         return round(calculated_factor, 5)
