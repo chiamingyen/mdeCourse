@@ -59,13 +59,19 @@ expanded="amd_yen.20130308221230.3829,"><vh>@file frontMatter.txt</vh></v>
 <v t="kmolII_lite.20130613204216.2850" a="E"><vh>C1 第二週程式</vh>
 <v t="kmolII_lite.20130613204216.2851"><vh>@shadow c1_w2_guess1.py</vh></v>
 </v>
-<v t="cmsxh.20130928094546.3001" a="E"><vh>C1 第三週程式</vh>
+<v t="cmsxh.20130928094546.3001"><vh>C1 第三週程式</vh>
 <v t="cmsxh.20130928094546.3003"><vh>@shadow c1_w3_print1.py</vh></v>
 <v t="cmsxh.20130928094546.3004"><vh>@shadow c1_w3_print2.py</vh></v>
 <v t="cmsxh.20130928094546.3006"><vh>@shadow c1_w3_print3.py</vh></v>
 <v t="cmsxh.20130928094546.3008"><vh>@shadow c1_w3_def1.py</vh></v>
 <v t="cmsxh.20130928094546.3010"><vh>@shadow c1_w3_def2.py</vh></v>
 <v t="cmsxh.20130928094546.3002"><vh>@shadow c1_w3_diamond1.py</vh></v>
+</v>
+<v t="portable_leo.20131025221745.3022" a="E"><vh>C1 第五週程式</vh>
+<v t="portable_leo.20131025221745.3023"><vh>@shadow c1_w5_diamond1.py</vh></v>
+</v>
+<v t="portable_leo.20131025221745.3024" a="E"><vh>C1 第七週程式</vh>
+<v t="portable_leo.20131025221745.3025"><vh>@shadow c1_w7_diamond_cherrypy1.py</vh></v>
 </v>
 <v t="kmolII_lite.20130614201704.2951"><vh>C1 第十週程式</vh>
 <v t="kmolII_lite.20130614201704.2960"><vh>Python3 與 C</vh>
@@ -639,6 +645,16 @@ expanded="amd_yen.20130308221230.2494,amd_yen.20130308221230.2481,amd_yen.201303
 <v t="amd_yen.20130504232827.8950"><vh>@edit lshort/lshort-base.tex</vh></v>
 <v t="amd_yen.20130504232827.8951"><vh>@edit lshort/overview.tex</vh></v>
 <v t="amd_yen.20130504232827.8952"><vh>@edit lshort/title.tex</vh></v>
+</v>
+<v t="portable_leo.20131025221745.3015" a="E"><vh>Recovered Nodes</vh>
+<v t="portable_leo.20131025221745.3016"><vh>Recovered node "2D PythonCAD from @file c2.txt</vh>
+<v t="portable_leo.20131025221745.3017"><vh>old:2D PythonCAD</vh></v>
+<v t="portable_leo.20131025221745.3018"><vh>new:2D PythonCAD</vh></v>
+</v>
+<v t="portable_leo.20131025221745.3019"><vh>Recovered node "pickle 與 unpickle from @file c2.txt</vh>
+<v t="portable_leo.20131025221745.3020"><vh>old:pickle 與 unpickle</vh></v>
+<v t="portable_leo.20131025221745.3021"><vh>new:pickle 與 unpickle</vh></v>
+</v>
 </v>
 </vnodes>
 <tnodes>
@@ -4634,8 +4650,10 @@ In a collision process where all the rest-masses are the same at the beginning a
 \# -*- coding: utf-8 -*-
 \# 配合程式所使用的 @asis 會將資料存在 .leo 檔案
 \# 建立虛擬的班級人員名單
-import random
-import string
+import random
+
+import string
+
 學號碼數 = 4
 姓名字數 = 3
 姓氏檔案 = "lastname.txt"
@@ -4670,39 +4688,72 @@ for 索引 in range(1, 各班學生人數):
 學員檔案.close()
 
 '''
-
-以下為 lastname.txt 的內容:
-
-趙錢孫李周吳鄭王馮陳褚衛蔣沈韓楊朱秦尤許何呂施張孔曹嚴華金魏陶薑
-戚謝鄒喻柏水竇章雲蘇潘葛奚範彭郎魯韋昌馬苗鳳花方俞任袁柳酆鮑史唐
-費廉岑薛雷賀倪湯滕殷羅畢郝鄔安常樂於時傅皮卞齊康伍餘元蔔顧孟平黃
-和穆蕭尹姚邵湛汪祁毛禹狄米貝明臧計伏成戴談宋茅龐熊紀舒屈項祝董梁
-杜阮藍閔席季麻強賈路婁危江童顏郭梅盛林刁鍾徐邱駱高夏蔡田樊胡淩霍
-虞萬支柯昝管盧莫柯房裘繆幹解應宗丁宣賁鄧鬱單杭洪包諸左石崔吉鈕龔
-程嵇邢滑裴陸榮翁荀羊于惠甄曲家封芮羿儲靳汲邴糜松井段富巫烏焦巴弓
-牧隗山穀車侯宓蓬全郗班仰秋仲伊宮甯仇欒暴甘鈄曆戎祖武符劉景詹束龍
-葉幸司韶郜黎薊溥印宿白懷蒲邰從鄂索鹹籍賴卓藺屠蒙池喬陽鬱胥能蒼雙
-聞莘党翟譚貢勞逄姬申扶堵冉宰酈雍卻璩桑桂濮牛壽通邊扈燕冀浦尚農溫
-別莊晏柴瞿閻充慕連茹習宦艾魚容向古易慎戈廖庾終暨居衡步都耿滿弘匡
-國文寇廣祿闕東歐殳沃利蔚越夔隆師鞏厙聶晁勾敖融冷訾辛闞那簡饒空曾
-毋沙乜養鞠須豐巢關蒯相查後荊紅
-
-以下為 firstname.txt 的內容:
-
-平燦惠歡佩泰州江揚剛乃屏珊易吟定小其菱幼函琴青博兆菁重立呈然永奕
-漢義萍皓力昌妍合仲佳虹慧蓮恭石展軒啟奇秀駿晉冰政綸丹邦大冠貞生思
-玄威嘉依音雲英能緯彬妙聖協法瑞恆采心友昀花樺航玫宛順儀寶婷書妮胤
-彥修火雨俞孝蕙允城盈家陽琳阿紹誠倫亨星美和予念鳳凱松幸凡雯士達泓
-金瑜勇必珍芷岳鈺方琬成霞麟致哲台睿賢珠瑩南克為尹妤春怡亮伯喬夫昕
-亞真喜初愛清禮斌吉淳百臻寧以筠諭仕子文雅郁柏秋蓉伸福劭木宗傑丞昭
-芝弘宇明月峰東聿登左祥迪蘭佑甫雄俊之卉谷玲禾茹榮堯芬姍少謙琇禎蘋
-年姵勳任信旭燕苓豐惟盛發齊介芳容于維侑舜洋璇茂芃伊玉海建季雪柔汝
-千富男新昱人添群欣綠馨利宜堅意名右姿智韻典竹巧坤可全潔裕毓孜仁韋
-慈志琦宣希云茜辛薇梅樂妏嬌安上仰長承旺珮良鑫桓瑋光貴茵憲品綺芸天
-源娟輝君銘夙來昇如泉正廷峻瑤恬靖淑瑄行秉伶康水羽治妹宥夢映霖儒枝
-沛香皇一龍興延翰山卿白忠恩亭俐孟均元凌又偉強育辰萱鴻宸亦娥振中紫
-倩民隆善玟紋杰旻學若華豪湖帆恒佐桂蓁穎軍德財庭琪世林純岑原尚昆妃
-宏
+
+
+以下為 lastname.txt 的內容:
+
+
+
+趙錢孫李周吳鄭王馮陳褚衛蔣沈韓楊朱秦尤許何呂施張孔曹嚴華金魏陶薑
+
+戚謝鄒喻柏水竇章雲蘇潘葛奚範彭郎魯韋昌馬苗鳳花方俞任袁柳酆鮑史唐
+
+費廉岑薛雷賀倪湯滕殷羅畢郝鄔安常樂於時傅皮卞齊康伍餘元蔔顧孟平黃
+
+和穆蕭尹姚邵湛汪祁毛禹狄米貝明臧計伏成戴談宋茅龐熊紀舒屈項祝董梁
+
+杜阮藍閔席季麻強賈路婁危江童顏郭梅盛林刁鍾徐邱駱高夏蔡田樊胡淩霍
+
+虞萬支柯昝管盧莫柯房裘繆幹解應宗丁宣賁鄧鬱單杭洪包諸左石崔吉鈕龔
+
+程嵇邢滑裴陸榮翁荀羊于惠甄曲家封芮羿儲靳汲邴糜松井段富巫烏焦巴弓
+
+牧隗山穀車侯宓蓬全郗班仰秋仲伊宮甯仇欒暴甘鈄曆戎祖武符劉景詹束龍
+
+葉幸司韶郜黎薊溥印宿白懷蒲邰從鄂索鹹籍賴卓藺屠蒙池喬陽鬱胥能蒼雙
+
+聞莘党翟譚貢勞逄姬申扶堵冉宰酈雍卻璩桑桂濮牛壽通邊扈燕冀浦尚農溫
+
+別莊晏柴瞿閻充慕連茹習宦艾魚容向古易慎戈廖庾終暨居衡步都耿滿弘匡
+
+國文寇廣祿闕東歐殳沃利蔚越夔隆師鞏厙聶晁勾敖融冷訾辛闞那簡饒空曾
+
+毋沙乜養鞠須豐巢關蒯相查後荊紅
+
+
+
+以下為 firstname.txt 的內容:
+
+
+
+平燦惠歡佩泰州江揚剛乃屏珊易吟定小其菱幼函琴青博兆菁重立呈然永奕
+
+漢義萍皓力昌妍合仲佳虹慧蓮恭石展軒啟奇秀駿晉冰政綸丹邦大冠貞生思
+
+玄威嘉依音雲英能緯彬妙聖協法瑞恆采心友昀花樺航玫宛順儀寶婷書妮胤
+
+彥修火雨俞孝蕙允城盈家陽琳阿紹誠倫亨星美和予念鳳凱松幸凡雯士達泓
+
+金瑜勇必珍芷岳鈺方琬成霞麟致哲台睿賢珠瑩南克為尹妤春怡亮伯喬夫昕
+
+亞真喜初愛清禮斌吉淳百臻寧以筠諭仕子文雅郁柏秋蓉伸福劭木宗傑丞昭
+
+芝弘宇明月峰東聿登左祥迪蘭佑甫雄俊之卉谷玲禾茹榮堯芬姍少謙琇禎蘋
+
+年姵勳任信旭燕苓豐惟盛發齊介芳容于維侑舜洋璇茂芃伊玉海建季雪柔汝
+
+千富男新昱人添群欣綠馨利宜堅意名右姿智韻典竹巧坤可全潔裕毓孜仁韋
+
+慈志琦宣希云茜辛薇梅樂妏嬌安上仰長承旺珮良鑫桓瑋光貴茵憲品綺芸天
+
+源娟輝君銘夙來昇如泉正廷峻瑤恬靖淑瑄行秉伶康水羽治妹宥夢映霖儒枝
+
+沛香皇一龍興延翰山卿白忠恩亭俐孟均元凌又偉強育辰萱鴻宸亦娥振中紫
+
+倩民隆善玟紋杰旻學若華豪湖帆恒佐桂蓁穎軍德財庭琪世林純岑原尚昆妃
+
+宏
+
 '''
 \end{Verbatim}
 
@@ -4755,8 +4806,10 @@ for 索引 in range(1, 各班學生人數):
 \# -*- coding: utf-8 -*-
 \# 配合程式所使用的 @asis 會將資料存在 .leo 檔案
 \# 建立虛擬的班級人員名單
-import random
-import string
+import random
+
+import string
+
 學號碼數 = 4
 姓名字數 = 3
 姓氏檔案 = "lastname.txt"
@@ -4791,39 +4844,72 @@ for 索引 in range(1, 各班學生人數):
 學員檔案.close()
 
 '''
-
-以下為 lastname.txt 的內容:
-
-趙錢孫李周吳鄭王馮陳褚衛蔣沈韓楊朱秦尤許何呂施張孔曹嚴華金魏陶薑
-戚謝鄒喻柏水竇章雲蘇潘葛奚範彭郎魯韋昌馬苗鳳花方俞任袁柳酆鮑史唐
-費廉岑薛雷賀倪湯滕殷羅畢郝鄔安常樂於時傅皮卞齊康伍餘元蔔顧孟平黃
-和穆蕭尹姚邵湛汪祁毛禹狄米貝明臧計伏成戴談宋茅龐熊紀舒屈項祝董梁
-杜阮藍閔席季麻強賈路婁危江童顏郭梅盛林刁鍾徐邱駱高夏蔡田樊胡淩霍
-虞萬支柯昝管盧莫柯房裘繆幹解應宗丁宣賁鄧鬱單杭洪包諸左石崔吉鈕龔
-程嵇邢滑裴陸榮翁荀羊于惠甄曲家封芮羿儲靳汲邴糜松井段富巫烏焦巴弓
-牧隗山穀車侯宓蓬全郗班仰秋仲伊宮甯仇欒暴甘鈄曆戎祖武符劉景詹束龍
-葉幸司韶郜黎薊溥印宿白懷蒲邰從鄂索鹹籍賴卓藺屠蒙池喬陽鬱胥能蒼雙
-聞莘党翟譚貢勞逄姬申扶堵冉宰酈雍卻璩桑桂濮牛壽通邊扈燕冀浦尚農溫
-別莊晏柴瞿閻充慕連茹習宦艾魚容向古易慎戈廖庾終暨居衡步都耿滿弘匡
-國文寇廣祿闕東歐殳沃利蔚越夔隆師鞏厙聶晁勾敖融冷訾辛闞那簡饒空曾
-毋沙乜養鞠須豐巢關蒯相查後荊紅
-
-以下為 firstname.txt 的內容:
-
-平燦惠歡佩泰州江揚剛乃屏珊易吟定小其菱幼函琴青博兆菁重立呈然永奕
-漢義萍皓力昌妍合仲佳虹慧蓮恭石展軒啟奇秀駿晉冰政綸丹邦大冠貞生思
-玄威嘉依音雲英能緯彬妙聖協法瑞恆采心友昀花樺航玫宛順儀寶婷書妮胤
-彥修火雨俞孝蕙允城盈家陽琳阿紹誠倫亨星美和予念鳳凱松幸凡雯士達泓
-金瑜勇必珍芷岳鈺方琬成霞麟致哲台睿賢珠瑩南克為尹妤春怡亮伯喬夫昕
-亞真喜初愛清禮斌吉淳百臻寧以筠諭仕子文雅郁柏秋蓉伸福劭木宗傑丞昭
-芝弘宇明月峰東聿登左祥迪蘭佑甫雄俊之卉谷玲禾茹榮堯芬姍少謙琇禎蘋
-年姵勳任信旭燕苓豐惟盛發齊介芳容于維侑舜洋璇茂芃伊玉海建季雪柔汝
-千富男新昱人添群欣綠馨利宜堅意名右姿智韻典竹巧坤可全潔裕毓孜仁韋
-慈志琦宣希云茜辛薇梅樂妏嬌安上仰長承旺珮良鑫桓瑋光貴茵憲品綺芸天
-源娟輝君銘夙來昇如泉正廷峻瑤恬靖淑瑄行秉伶康水羽治妹宥夢映霖儒枝
-沛香皇一龍興延翰山卿白忠恩亭俐孟均元凌又偉強育辰萱鴻宸亦娥振中紫
-倩民隆善玟紋杰旻學若華豪湖帆恒佐桂蓁穎軍德財庭琪世林純岑原尚昆妃
-宏
+
+
+以下為 lastname.txt 的內容:
+
+
+
+趙錢孫李周吳鄭王馮陳褚衛蔣沈韓楊朱秦尤許何呂施張孔曹嚴華金魏陶薑
+
+戚謝鄒喻柏水竇章雲蘇潘葛奚範彭郎魯韋昌馬苗鳳花方俞任袁柳酆鮑史唐
+
+費廉岑薛雷賀倪湯滕殷羅畢郝鄔安常樂於時傅皮卞齊康伍餘元蔔顧孟平黃
+
+和穆蕭尹姚邵湛汪祁毛禹狄米貝明臧計伏成戴談宋茅龐熊紀舒屈項祝董梁
+
+杜阮藍閔席季麻強賈路婁危江童顏郭梅盛林刁鍾徐邱駱高夏蔡田樊胡淩霍
+
+虞萬支柯昝管盧莫柯房裘繆幹解應宗丁宣賁鄧鬱單杭洪包諸左石崔吉鈕龔
+
+程嵇邢滑裴陸榮翁荀羊于惠甄曲家封芮羿儲靳汲邴糜松井段富巫烏焦巴弓
+
+牧隗山穀車侯宓蓬全郗班仰秋仲伊宮甯仇欒暴甘鈄曆戎祖武符劉景詹束龍
+
+葉幸司韶郜黎薊溥印宿白懷蒲邰從鄂索鹹籍賴卓藺屠蒙池喬陽鬱胥能蒼雙
+
+聞莘党翟譚貢勞逄姬申扶堵冉宰酈雍卻璩桑桂濮牛壽通邊扈燕冀浦尚農溫
+
+別莊晏柴瞿閻充慕連茹習宦艾魚容向古易慎戈廖庾終暨居衡步都耿滿弘匡
+
+國文寇廣祿闕東歐殳沃利蔚越夔隆師鞏厙聶晁勾敖融冷訾辛闞那簡饒空曾
+
+毋沙乜養鞠須豐巢關蒯相查後荊紅
+
+
+
+以下為 firstname.txt 的內容:
+
+
+
+平燦惠歡佩泰州江揚剛乃屏珊易吟定小其菱幼函琴青博兆菁重立呈然永奕
+
+漢義萍皓力昌妍合仲佳虹慧蓮恭石展軒啟奇秀駿晉冰政綸丹邦大冠貞生思
+
+玄威嘉依音雲英能緯彬妙聖協法瑞恆采心友昀花樺航玫宛順儀寶婷書妮胤
+
+彥修火雨俞孝蕙允城盈家陽琳阿紹誠倫亨星美和予念鳳凱松幸凡雯士達泓
+
+金瑜勇必珍芷岳鈺方琬成霞麟致哲台睿賢珠瑩南克為尹妤春怡亮伯喬夫昕
+
+亞真喜初愛清禮斌吉淳百臻寧以筠諭仕子文雅郁柏秋蓉伸福劭木宗傑丞昭
+
+芝弘宇明月峰東聿登左祥迪蘭佑甫雄俊之卉谷玲禾茹榮堯芬姍少謙琇禎蘋
+
+年姵勳任信旭燕苓豐惟盛發齊介芳容于維侑舜洋璇茂芃伊玉海建季雪柔汝
+
+千富男新昱人添群欣綠馨利宜堅意名右姿智韻典竹巧坤可全潔裕毓孜仁韋
+
+慈志琦宣希云茜辛薇梅樂妏嬌安上仰長承旺珮良鑫桓瑋光貴茵憲品綺芸天
+
+源娟輝君銘夙來昇如泉正廷峻瑤恬靖淑瑄行秉伶康水羽治妹宥夢映霖儒枝
+
+沛香皇一龍興延翰山卿白忠恩亭俐孟均元凌又偉強育辰萱鴻宸亦娥振中紫
+
+倩民隆善玟紋杰旻學若華豪湖帆恒佐桂蓁穎軍德財庭琪世林純岑原尚昆妃
+
+宏
+
 '''
 \end{Verbatim}
 
@@ -7413,5 +7499,277 @@ Tutorial 6 的節點標題與 Tutorial 5 相同, 各命名節點的內容也都�
 下載 tutorial6.leo 後, 開啟, 就可以看到 @shadow tut6.py 節點標題, Leo Editor 會將 tut6.py 寫進 tutorial6 的子目錄, 請開啟 tutorial6 目錄, 您就會看到除了 tut6.py 檔案外, 還有一個 .leo_shadow 目錄, 其中外部的 tut6.py 沒有標記, 而 .leo_shadow 目錄中的 xtut6.py 就是相同內容, 但是卻有 Leo 標記符號的對應檔案.
 
 好了, 這個說明非常簡單, 您可以試著修改一下 tut6.py  各節點的內容, 然後用 SciTE 開啟執行, 操作方法為, 利用滑鼠右鍵按住 @shadow tut6.py 節點標題, 然後選擇 "Edit tut6.py in SciTE", 接著就是在 SciTE 環境, 選擇 Tools-&gt;Go, 就可以執行這個 tut6.py 程式.</t>
+<t tx="portable_leo.20131025221745.3015"></t>
+<t tx="portable_leo.20131025221745.3016">(uncached) amd_yen.20130423211907.2156
+Diff...
+- PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於::
+?                                                    -
++ PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於::
+- 
++ 
+-     自行打造一個小型的 2D 繪圖 kernel
+?                           -
++     自行打造一個小型的 2D 繪圖 kernel
+-     
+?     -
++     
+-     使用 SQLite 資料庫系統
+?                    -
++     使用 SQLite 資料庫系統
+-     
+?     -
++     
+-     支援 Scriptable 程式介面
+?                       -
++     支援 Scriptable 程式介面
+- 
++ 
+- 使用者可以透過此一完全以 Python 程式語言打造的 2D 來了解電腦輔助機械設計製圖的初步架構, 進而建立其他客製化的 2D 繪圖應用模組.
+?                                                                         -
++ 使用者可以透過此一完全以 Python 程式語言打造的 2D 來了解電腦輔助機械設計製圖的初步架構, 進而建立其他客製化的 2D 繪圖應用模組.
+- 
++ 
+- 截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
+?                                                                       -
++ 截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
+-     
+?     -
++     
+- - IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+?                                                                                                                                                                                                                                                      -
++ - IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+-     
+?     -
++     
+- - 必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+?                                                                                           -
++ - 必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+-     
+?     -
++     
+- - 實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+?                                                                                       -
++ - 實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+-     
+?     -
++     
+- 此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+?                                                                                                                                                                                                                                                                                                     -
++ 此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+-     
+?     -
++     
+- 以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計::
+?                                                          -
++ 以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計::
+- 
++ 
+-     CREATE TABLE pycadent(
+?                           -
++     CREATE TABLE pycadent(
+-                         pycad_id INTEGER PRIMARY KEY,
+?                                                      -
++                         pycad_id INTEGER PRIMARY KEY,
+-                         pycad_entity_id INTEGER,
+?                                                 -
++                         pycad_entity_id INTEGER,
+-                         pycad_object_type TEXT,
+?                                                -
++                         pycad_object_type TEXT,
+-                         pycad_object_definition TEXT,
+?                                                      -
++                         pycad_object_definition TEXT,
+-                         pycad_object_style TEXT,
+?                                                 -
++                         pycad_object_style TEXT,
+-                         pycad_security_id INTEGER,
+?                                                   -
++                         pycad_security_id INTEGER,
+-                         pycad_undo_id INTEGER,
+?                                               -
++                         pycad_undo_id INTEGER,
+-                         pycad_entity_state TEXT,
+?                                                 -
++                         pycad_entity_state TEXT,
+-                         pycad_index NUMERIC,
+?                                             -
++                         pycad_index NUMERIC,
+-                         pycad_visible INTEGER,
+?                                               -
++                         pycad_visible INTEGER,
+-                         pycad_undo_visible INTEGER,
+?                                                    -
++                         pycad_undo_visible INTEGER,
+-                         pycad_locked INTEGER,
+?                                              -
++                         pycad_locked INTEGER,
+-                         pycad_bbox_xmin REAL,
+?                                              -
++                         pycad_bbox_xmin REAL,
+-                         pycad_bbox_ymin REAL,
+?                                              -
++                         pycad_bbox_ymin REAL,
+-                         pycad_bbox_xmax REAL,
+?                                              -
++                         pycad_bbox_xmax REAL,
+-                         pycad_bbox_ymax REAL, pycad_property TEXT)
+?                                                                   -
++                         pycad_bbox_ymax REAL, pycad_property TEXT)
+-                     
+?                     -
++                     
+- 為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
+?                                                                                                                                                                                                                                                                                                                       -
++ 為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
+</t>
+<t tx="portable_leo.20131025221745.3017">PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於::
+
+    自行打造一個小型的 2D 繪圖 kernel
+    
+    使用 SQLite 資料庫系統
+    
+    支援 Scriptable 程式介面
+
+使用者可以透過此一完全以 Python 程式語言打造的 2D 來了解電腦輔助機械設計製圖的初步架構, 進而建立其他客製化的 2D 繪圖應用模組.
+
+截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
+    
+- IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+    
+- 必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+    
+- 實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+    
+此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+    
+以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計::
+
+    CREATE TABLE pycadent(
+                        pycad_id INTEGER PRIMARY KEY,
+                        pycad_entity_id INTEGER,
+                        pycad_object_type TEXT,
+                        pycad_object_definition TEXT,
+                        pycad_object_style TEXT,
+                        pycad_security_id INTEGER,
+                        pycad_undo_id INTEGER,
+                        pycad_entity_state TEXT,
+                        pycad_index NUMERIC,
+                        pycad_visible INTEGER,
+                        pycad_undo_visible INTEGER,
+                        pycad_locked INTEGER,
+                        pycad_bbox_xmin REAL,
+                        pycad_bbox_ymin REAL,
+                        pycad_bbox_xmax REAL,
+                        pycad_bbox_ymax REAL, pycad_property TEXT)
+                    
+為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
+</t>
+<t tx="portable_leo.20131025221745.3018">PythonCAD 自 2010 年起正以 PyQT GUI 全面改寫(R38)中, 主要特色在於::
+
+    自行打造一個小型的 2D 繪圖 kernel
+    
+    使用 SQLite 資料庫系統
+    
+    支援 Scriptable 程式介面
+
+使用者可以透過此一完全以 Python 程式語言打造的 2D 來了解電腦輔助機械設計製圖的初步架構, 進而建立其他客製化的 2D 繪圖應用模組.
+
+截至 2013.04, Python R38 仍然僅支援 Python 2, 若要將程式碼改為 Python 3 相容, 需要進行以下修改:
+    
+- IDE\Python33\Lib\site-packages\PyQt4\pyrcc4.exe 將 PythonCAD\Interface\cadwindow.qrc 轉為 cadwindow_rc.py 過程必須將 icons 目錄複製為 Interface\images, 然後重新建立 cadwindow_rc.py (pyrcc4 -py3 cadwindow.qrc -o cadwindow_rc.py), 才可建立 Python 3 相容的 cadwindow_rc.py
+    
+- 必須利用 IDE\Python33\tools\scripts\2to3.py -w PythonCAD 將原先 Python 2 的程式碼轉為 Python 3 相容的程式碼
+    
+- 實際執行 pythoncad_qt.py 時還必須修改 .toBool() 為 bool(), 以及其他類似的 Python 2 轉為 Python 3 的程式語法差異
+    
+此外, C:\Documents and Settings\用戶名稱\PythonCAD 目錄中的 PythonCAD_Local.pdr SQLite 資料庫檔案為啟動 PythonCAD 時會自動導入的資料檔案, 由於 Python 2 與 Python 3 有不同版本的 pickle.dumps() 與 pickle.loads() 用法 (Python 2 支援 protocol 2, 而 Python 3 支援 protocol 3), 因此必須全面改寫繪圖檔案的 file io 格式, 才能夠全面將 Python 2 的 PythonCAD 轉為 Python 3.
+    
+以下為 .pdr 檔案格式中 pycadent, 也就是 PythonCAD entity 資料表格的欄位設計::
+
+    CREATE TABLE pycadent(
+                        pycad_id INTEGER PRIMARY KEY,
+                        pycad_entity_id INTEGER,
+                        pycad_object_type TEXT,
+                        pycad_object_definition TEXT,
+                        pycad_object_style TEXT,
+                        pycad_security_id INTEGER,
+                        pycad_undo_id INTEGER,
+                        pycad_entity_state TEXT,
+                        pycad_index NUMERIC,
+                        pycad_visible INTEGER,
+                        pycad_undo_visible INTEGER,
+                        pycad_locked INTEGER,
+                        pycad_bbox_xmin REAL,
+                        pycad_bbox_ymin REAL,
+                        pycad_bbox_xmax REAL,
+                        pycad_bbox_ymax REAL, pycad_property TEXT)
+                    
+為了將 PythonCAD 改為 Python 3 相容, 必須修改上述資料庫欄位設計, 將 pycad_object_definition TEXT, 改為 pycad_object_definition BLOB, 並且將 pycad_object_style TEXT, 改為 pycad_object_style BLOB, 主要原因在於 Python 3 的 pickle 版本為 3, 而 Python 2 pickle 版本則為 2, 所有在 Python 3 經過 pickle.dumps() 處理過的資料其格式為 bytes, 而且 pickle.loads() 中的輸入資料格式必須為 bytes.
+</t>
+<t tx="portable_leo.20131025221745.3019">(uncached) amd_yen.20130423211907.2158
+Diff...
+- 根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
+?                                                                                       -
++ 根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
+- 
++ 
+- The following types can be pickled::
+?                                     -
++ The following types can be pickled::
+- 
++ 
+-     None, True, and False
+?                          -
++     None, True, and False
+-     integers, floating point numbers, complex numbers
+?                                                      -
++     integers, floating point numbers, complex numbers
+-     strings, bytes, bytearrays
+?                               -
++     strings, bytes, bytearrays
+-     tuples, lists, sets, and dictionaries containing only picklable objects
+?                                                                            -
++     tuples, lists, sets, and dictionaries containing only picklable objects
+-     functions defined at the top level of a module
+?                                                   -
++     functions defined at the top level of a module
+-     built-in functions defined at the top level of a module
+?                                                            -
++     built-in functions defined at the top level of a module
+-     classes that are defined at the top level of a module
+?                                                          -
++     classes that are defined at the top level of a module
+-     instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
+?                                                                                                                                                      -
++     instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
+</t>
+<t tx="portable_leo.20131025221745.3020">根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
+
+The following types can be pickled::
+
+    None, True, and False
+    integers, floating point numbers, complex numbers
+    strings, bytes, bytearrays
+    tuples, lists, sets, and dictionaries containing only picklable objects
+    functions defined at the top level of a module
+    built-in functions defined at the top level of a module
+    classes that are defined at the top level of a module
+    instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
+</t>
+<t tx="portable_leo.20131025221745.3021">根據 http://docs.python.org/3/library/pickle.html#what-can-be-pickled-and-unpickled 的說明:
+
+The following types can be pickled::
+
+    None, True, and False
+    integers, floating point numbers, complex numbers
+    strings, bytes, bytearrays
+    tuples, lists, sets, and dictionaries containing only picklable objects
+    functions defined at the top level of a module
+    built-in functions defined at the top level of a module
+    classes that are defined at the top level of a module
+    instances of such classes whose __dict__ or the result of calling __getstate__() is picklable (see section Pickling Class Instances for details).
+</t>
+<t tx="portable_leo.20131025221745.3022"></t>
+<t tx="portable_leo.20131025221745.3024"></t>
 </tnodes>
 </leo_file>
